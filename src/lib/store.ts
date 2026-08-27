@@ -1,0 +1,162 @@
+import { create } from "zustand";
+import type { ForagePacket, WaterPacket } from "@/lib/protocol/types";
+import type {
+  Clarity,
+  FlowClass,
+  Light,
+  RiverHolding,
+  Season,
+  StillHolding,
+  StillState,
+  TempSource,
+  WaterType,
+  WeatherTrend,
+} from "@/lib/protocol/vocab";
+
+const KEY = "hth-sp-session-v1";
+
+export type Step = "target" | "water" | "conditions" | "holding" | "readout";
+
+export type Session = {
+  step: Step;
+  speciesId: string | null;
+  water: WaterPacket;
+  waterType: WaterType;
+  tempF: number | null;
+  tempSource: TempSource;
+  flow: FlowClass;
+  stillState: StillState;
+  clarity: Clarity;
+  light: Light;
+  weather: WeatherTrend;
+  season: Season;
+  holdingRiver: RiverHolding | null;
+  holdingStill: StillHolding | null;
+  forage: ForagePacket | null;
+};
+
+const defaults: Session = {
+  step: "target",
+  speciesId: null,
+  water: {},
+  waterType: "flowing",
+  tempF: null,
+  tempSource: "unknown",
+  flow: "unknown",
+  stillState: "unknown",
+  clarity: "unknown",
+  light: "unknown",
+  weather: "unknown",
+  season: "spring",
+  holdingRiver: null,
+  holdingStill: null,
+  forage: null,
+};
+
+function load(): Session {
+  if (typeof window === "undefined") return defaults;
+  try {
+    const raw = window.localStorage.getItem(KEY);
+    if (!raw) return defaults;
+    return { ...defaults, ...(JSON.parse(raw) as Partial<Session>) };
+  } catch {
+    return defaults;
+  }
+}
+
+function persist(session: Session) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(KEY, JSON.stringify(session));
+  } catch {
+    /* device storage unavailable */
+  }
+}
+
+type Store = Session & {
+  hydrated: boolean;
+  hydrate: () => void;
+  patch: (partial: Partial<Session>) => void;
+  reset: () => void;
+  setStep: (step: Step) => void;
+};
+
+export const useSession = create<Store>((set, get) => ({
+  ...defaults,
+  hydrated: false,
+  hydrate: () => {
+    if (get().hydrated) return;
+    set({ ...load(), hydrated: true });
+  },
+  patch: (partial) => {
+    const next = { ...get(), ...partial };
+    persist(next);
+    set(next);
+  },
+  reset: () => {
+    persist(defaults);
+    set({ ...defaults, hydrated: true });
+  },
+  setStep: (step) => {
+    const next = { ...get(), step };
+    persist(next);
+    set(next);
+  },
+}));
+
+export const STARTERS: { id: string; label: string; patch: Partial<Session> }[] = [
+  {
+    id: "bnt-seam",
+    label: "Brown trout · seam · 54°F measured",
+    patch: {
+      speciesId: "salmo_trutta",
+      waterType: "flowing",
+      water: { waterName: "Named public river corridor", waterType: "flowing" },
+      tempF: 54,
+      tempSource: "user_measured",
+      flow: "moderate",
+      clarity: "clear",
+      light: "low_light",
+      weather: "stable",
+      season: "spring",
+      holdingRiver: "seam",
+      step: "readout",
+    },
+  },
+  {
+    id: "smb-break",
+    label: "Smallmouth · current break · 62°F",
+    patch: {
+      speciesId: "micropterus_dolomieu",
+      waterType: "flowing",
+      water: { waterName: "Named public river corridor", waterType: "flowing" },
+      tempF: 62,
+      tempSource: "user_measured",
+      flow: "moderate",
+      clarity: "clear",
+      light: "mixed",
+      weather: "stable",
+      season: "early_summer",
+      holdingRiver: "current_break",
+      step: "readout",
+    },
+  },
+  {
+    id: "lmb-weed",
+    label: "Largemouth · weed edge · 74°F",
+    patch: {
+      speciesId: "micropterus_nigricans",
+      waterType: "stillwater",
+      water: { waterName: "Named public reservoir", waterType: "stillwater" },
+      tempF: 74,
+      tempSource: "user_measured",
+      stillState: "stable",
+      clarity: "lightly_stained",
+      light: "low_light",
+      weather: "stable",
+      season: "summer",
+      holdingStill: "weed_edge",
+      step: "readout",
+    },
+  },
+];
