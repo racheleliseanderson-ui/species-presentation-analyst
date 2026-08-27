@@ -49,6 +49,8 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       families: result.presentations.map((p) => p.id),
       mechanics: result.presentations[0]?.mechanics ?? [],
       weightingModel: result.weightingModel.version,
+      speciesOverrideModel: result.weightingModel.speciesOverrideVersion,
+      appliedSpeciesOverrides: result.weightingModel.appliedSpeciesOverrideIds,
       weightedFamilies: result.presentations.map((p) => ({ id: p.id, weight: p.weight })),
     },
     equipmentRequirements: result.equipment,
@@ -66,6 +68,15 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
         evidenceClass: "declared",
         reviewedAt: result.species.reviewedAt,
       },
+      ...(result.weightingModel.appliedSpeciesOverrideIds?.length
+        ? [
+            {
+              source: `${result.weightingModel.speciesOverrideVersion ?? "species override"} reviewed species-specific weighting · ${result.weightingModel.appliedSpeciesOverrideIds.join(", ")}`,
+              evidenceClass: "declared" as const,
+              reviewedAt: result.species.reviewedAt,
+            },
+          ]
+        : []),
       {
         source:
           input.tempSource === "user_measured"
