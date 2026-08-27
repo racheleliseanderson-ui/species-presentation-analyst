@@ -35,6 +35,7 @@ export type WeightAxis =
   | "water_type"
   | "holding"
   | "forage"
+  | "species_override"
   | "light";
 
 export type PresentationWeightReason = {
@@ -169,6 +170,8 @@ export type Interpretation = {
   presentations: RankedPresentation[];
   weightingModel: {
     version: string;
+    speciesOverrideVersion?: string;
+    appliedSpeciesOverrideIds?: string[];
     coreAxes: WeightAxis[];
     note: string;
   };
@@ -226,6 +229,8 @@ export type HthPacket = {
     families: PresentationId[];
     mechanics: string[];
     weightingModel?: string;
+    speciesOverrideModel?: string;
+    appliedSpeciesOverrides?: string[];
     weightedFamilies?: { id: PresentationId; weight: number }[];
   };
   equipmentRequirements: Record<string, string>;

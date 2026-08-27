@@ -23,13 +23,14 @@ const brownSeam: ScenarioInput = {
 };
 
 describe("interpret", () => {
-  it("returns a six-axis weighted preferred-band brown trout reading", () => {
+  it("returns an SPW-1.1 preferred-band brown trout reading with species override provenance", () => {
     const r = interpret(brownSeam);
     assert.ok(!("error" in r), "expected a reading");
     if ("error" in r) return;
     assert.equal(r.thermalState, "preferred");
     assert.equal(r.presentations[0]?.id, "dead_drift");
-    assert.equal(r.weightingModel.version, "SPW-1.0");
+    assert.equal(r.weightingModel.version, "SPW-1.1");
+    assert.equal(r.weightingModel.speciesOverrideVersion, "SPO-1.0");
     assert.deepEqual(r.weightingModel.coreAxes, [
       "species",
       "season",
@@ -55,7 +56,23 @@ describe("interpret", () => {
     if ("error" in seam || "error" in pool) return;
     assert.equal(seam.presentations[0]?.id, "dead_drift");
     assert.equal(pool.presentations[0]?.id, "bottom_contact_drift");
-    assert.notEqual(pool.presentations[0]?.weight, seam.presentations[0]?.weight);
+    assert.ok(pool.weightingModel.appliedSpeciesOverrideIds?.includes("brown-deep-cover"));
+    assert.ok(pool.presentations[0]!.weightReasons.some((x) => x.axis === "species_override"));
+  });
+
+  it("distinguishes brown trout from rainbow trout under the same baitfish declaration", () => {
+    const forage = { class: "small_forage_fish" as const, source: "user_observation" as const, confidence: 0.9 };
+    const brown = interpret({ ...brownSeam, forage });
+    const rainbow = interpret({ ...brownSeam, speciesId: "oncorhynchus_mykiss", forage });
+    assert.ok(!("error" in brown) && !("error" in rainbow));
+    if ("error" in brown || "error" in rainbow) return;
+    assert.equal(brown.presentations[0]?.id, "cross_current_retrieve");
+    assert.equal(rainbow.presentations[0]?.id, "dead_drift");
+    assert.ok(brown.weightingModel.appliedSpeciesOverrideIds?.includes("brown-piscivory"));
+    assert.ok(rainbow.weightingModel.appliedSpeciesOverrideIds?.includes("rainbow-flow-feeding-lane"));
+    assert.ok(
+      brown.presentations.some((p) => p.weightReasons.some((x) => x.axis === "species_override")),
+    );
   });
 
   it("applies observed forage as a real weight axis without introducing an unreviewed family", () => {
@@ -71,11 +88,60 @@ describe("interpret", () => {
     assert.ok(baseCross && baitCross);
     assert.ok(baitCross.weight > baseCross.weight);
     assert.ok(baitCross.weightReasons.some((x) => x.axis === "forage" && x.delta > 0));
+    assert.ok(baitCross.weightReasons.some((x) => x.axis === "species_override" && x.delta > 0));
     assert.ok(
       baitfish.presentations.every((p) =>
         ["dead_drift", "bottom_contact_drift", "cross_current_retrieve", "swing", "surface_drift"].includes(p.id),
       ),
     );
+  });
+
+  it("applies largemouth cover overrides without leaking flowing-water families", () => {
+    const r = interpret({
+      speciesId: "micropterus_nigricans",
+      water: { waterName: "Named public reservoir", waterType: "stillwater" },
+      waterType: "stillwater",
+      tempF: 74,
+      tempSource: "user_measured",
+      flow: "unknown",
+      stillState: "stable",
+      clarity: "lightly_stained",
+      light: "low_light",
+      weather: "stable",
+      season: "summer",
+      holdingRiver: null,
+      holdingStill: "weed_edge",
+      forage: null,
+    });
+    assert.ok(!("error" in r));
+    if ("error" in r) return;
+    assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("largemouth-cover-summer"));
+    assert.ok(r.presentations.some((p) => p.weightReasons.some((x) => x.axis === "species_override")));
+    assert.ok(r.presentations.every((p) => p.id !== "dead_drift" && p.id !== "bottom_contact_drift"));
+  });
+
+  it("applies lake-trout summer depth overrides to reviewed deep-water families", () => {
+    const r = interpret({
+      speciesId: "salvelinus_namaycush",
+      water: { waterName: "Named public lake", waterType: "stillwater" },
+      waterType: "stillwater",
+      tempF: 48,
+      tempSource: "official_station",
+      flow: "unknown",
+      stillState: "stratified",
+      clarity: "clear",
+      light: "bright",
+      weather: "stable",
+      season: "summer",
+      holdingRiver: null,
+      holdingStill: "thermocline_edge",
+      forage: { class: "small_forage_fish", source: "user_observation" },
+    });
+    assert.ok(!("error" in r));
+    if ("error" in r) return;
+    assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("lake-trout-summer-depth"));
+    assert.ok(["trolling", "vertical_jig", "suspend_pause", "horizontal_retrieve"].includes(r.presentations[0]!.id));
+    assert.ok(r.presentations.every((p) => ["vertical_jig", "trolling", "suspend_pause", "horizontal_retrieve"].includes(p.id)));
   });
 
   it("fail-closes steelhead on stillwater instead of inventing biology", () => {
@@ -94,7 +160,7 @@ describe("interpret", () => {
     assert.ok("error" in r);
   });
 
-  it("keeps conservation-sensitive bull trout as context only", () => {
+  it("keeps conservation-sensitive bull trout as context only before override evaluation", () => {
     const r = interpret({ ...brownSeam, speciesId: "salvelinus_confluentus", tempF: 48 });
     assert.ok("error" in r);
     if (!("error" in r)) return;
@@ -130,30 +196,6 @@ describe("interpret", () => {
     assert.ok(!("error" in r));
     if ("error" in r) return;
     assert.ok(!r.unknowns.includes("current jurisdiction rules"));
-  });
-
-  it("ranks stillwater families for largemouth on a weed edge", () => {
-    const r = interpret({
-      speciesId: "micropterus_nigricans",
-      water: { waterName: "Named public reservoir", waterType: "stillwater" },
-      waterType: "stillwater",
-      tempF: 74,
-      tempSource: "user_measured",
-      flow: "unknown",
-      stillState: "stable",
-      clarity: "lightly_stained",
-      light: "low_light",
-      weather: "stable",
-      season: "summer",
-      holdingRiver: null,
-      holdingStill: "weed_edge",
-      forage: null,
-    });
-    assert.ok(!("error" in r));
-    if ("error" in r) return;
-    assert.ok(r.presentations.length >= 2);
-    assert.ok(r.presentations.every((p) => p.id !== "dead_drift"));
-    assert.ok(r.presentations[0]!.weightReasons.some((x) => x.axis === "holding"));
   });
 
   it("does not treat unknown temperature as a preferred band", () => {

@@ -5,6 +5,10 @@ import {
   rankPresentationFamilies,
   WEIGHTING_MODEL_VERSION,
 } from "./presentation-weighting.ts";
+import {
+  matchingSpeciesWeightOverrides,
+  SPECIES_OVERRIDE_MODEL_VERSION,
+} from "./species-weight-overrides.ts";
 import type {
   Interpretation,
   RankedPresentation,
@@ -186,6 +190,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     forageNote += " Seasonal terrestrial and baitfish classes may be plausible, but no forage weight is applied until one is observed or carried in.";
   }
 
+  const appliedSpeciesOverrides = matchingSpeciesWeightOverrides(input, tState);
   const weighted = rankPresentationFamilies(input, species, tState);
   const topWeight = weighted[0]?.weight ?? 0;
   const presentations: RankedPresentation[] = weighted.slice(0, 4).map((ranked, i) => {
@@ -263,6 +268,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
           ? "refuge from heat / low oxygen favored"
           : "thermal state unresolved",
     `${WEIGHTING_MODEL_VERSION} · species × season × thermal × water type × holding × forage`,
+    appliedSpeciesOverrides.length
+      ? `${SPECIES_OVERRIDE_MODEL_VERSION} · ${appliedSpeciesOverrides.map((rule) => rule.id).join(" + ")}`
+      : `${SPECIES_OVERRIDE_MODEL_VERSION} · no species-specific override matched`,
     top ? `${top.label} relative weight ${top.weight} · ${topWeightTrace}` : "no reviewed presentation for this water type",
     presentations.map((p) => p.label).join(" + ") || "no reviewed presentation for this water type",
     "relative weights are ranking mechanics, never bite probability",
@@ -281,8 +289,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     presentations,
     weightingModel: {
       version: WEIGHTING_MODEL_VERSION,
+      speciesOverrideVersion: SPECIES_OVERRIDE_MODEL_VERSION,
+      appliedSpeciesOverrideIds: appliedSpeciesOverrides.map((rule) => rule.id),
       coreAxes: CORE_WEIGHT_AXES,
-      note: "Relative family weights rank only presentation families already reviewed for this species and water type. They are not probabilities.",
+      note: "Relative family weights rank only presentation families already reviewed for this species and water type. Species-specific overrides are reviewed deltas inside that set, not new families or probabilities.",
     },
     equipment,
     connection,
