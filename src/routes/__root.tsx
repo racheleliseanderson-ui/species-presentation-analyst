@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { PwaRegister } from "@/components/pwa-register";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Species & Presentation Analyst";
@@ -45,6 +46,7 @@ function Root() {
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeBoot }} />
         <PreviewHostBridge />
+        <PwaRegister />
         <AuthProvider>
           <Outlet />
         </AuthProvider>

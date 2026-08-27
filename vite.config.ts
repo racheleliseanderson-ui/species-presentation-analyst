@@ -1,11 +1,12 @@
-import { readdirSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readdirSync } from "node:fs";
+import { join, resolve } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
+import { VitePWA } from "vite-plugin-pwa";
 // @ts-expect-error JS plugin alongside the TS vite config
 import { grokPwaPlugin } from "./scripts/grok-pwa-plugin.mjs";
 // @ts-expect-error JS plugin alongside the TS vite config
@@ -142,6 +143,63 @@ function authPopupPlugin(): Plugin {
   };
 }
 
+/**
+ * Nitro vercel writes the installable client to `.vercel/output/static`.
+ * vite-plugin-pwa's generateSW often still globs `dist/` under TanStack Start,
+ * so this rewrites sw.js against the real static tree after that copy.
+ */
+function fieldWorkboxPlugin(): Plugin {
+  return {
+    name: "hth:field-workbox",
+    apply: "build",
+    enforce: "post",
+    closeBundle: {
+      sequential: true,
+      order: "post",
+      async handler() {
+        const outDir = resolve(".vercel/output/static");
+        if (!existsSync(join(outDir, "assets")) || !existsSync(join(outDir, "favicon.svg"))) {
+          return;
+        }
+        const { generateSW } = await import("workbox-build");
+        await generateSW({
+          globDirectory: outDir,
+          globPatterns: ["**/*.{js,css,html,svg,png,ico,woff2}"],
+          globIgnores: ["**/sw.js", "**/workbox-*.js"],
+          swDest: join(outDir, "sw.js"),
+          cleanupOutdatedCaches: true,
+          skipWaiting: true,
+          clientsClaim: true,
+          runtimeCaching: [
+            {
+              urlPattern: ({ request }) => request.destination === "document",
+              handler: "NetworkFirst",
+              options: { cacheName: "hth-pages", networkTimeoutSeconds: 3 },
+            },
+            {
+              urlPattern: ({ request }) =>
+                request.destination === "script" ||
+                request.destination === "style" ||
+                request.destination === "worker",
+              handler: "StaleWhileRevalidate",
+              options: { cacheName: "hth-shell" },
+            },
+            {
+              urlPattern: ({ request }) =>
+                request.destination === "image" || request.destination === "font",
+              handler: "CacheFirst",
+              options: {
+                cacheName: "hth-static",
+                expiration: { maxEntries: 80, maxAgeSeconds: 60 * 60 * 24 * 30 },
+              },
+            },
+          ],
+        });
+      },
+    },
+  };
+}
+
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
@@ -179,5 +237,56 @@ export default defineConfig(({ command, isPreview }) => ({
         ]
       : []),
     viteReact(),
+    // After Start/Nitro so Workbox sees the client graph. Manifest stays with
+    // grokPwaPlugin (/__grok/manifest.webmanifest) — this plugin only emits sw.js.
+    VitePWA({
+      registerType: "autoUpdate",
+      injectRegister: false,
+      filename: "sw.js",
+      manifest: false,
+      includeAssets: ["favicon.svg", "__grok/icon-180.png"],
+      includeManifestIcons: false,
+      integration: {
+        closeBundleOrder: "post",
+        configureOptions(_viteConfig, options) {
+          options.outDir = ".vercel/output/static";
+        },
+      },
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,svg,png,ico,woff2,webmanifest}"],
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
+        navigateFallback: null,
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === "document",
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "hth-pages",
+              networkTimeoutSeconds: 3,
+            },
+          },
+          {
+            urlPattern: ({ request }) =>
+              request.destination === "script" ||
+              request.destination === "style" ||
+              request.destination === "worker",
+            handler: "StaleWhileRevalidate",
+            options: { cacheName: "hth-shell" },
+          },
+          {
+            urlPattern: ({ request }) => request.destination === "image" || request.destination === "font",
+            handler: "CacheFirst",
+            options: {
+              cacheName: "hth-static",
+              expiration: { maxEntries: 80, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
+        ],
+      },
+      devOptions: { enabled: false },
+    }),
+    fieldWorkboxPlugin(),
   ],
 }));
