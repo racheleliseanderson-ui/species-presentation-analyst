@@ -48,6 +48,21 @@ export const ALIASES: Record<string, string[]> = {
   morone_americana: ["white perch"],
   anguilla_rostrata: ["eel", "american eel"],
   alosa_sapidissima: ["shad", "american shad", "white shad"],
+  salvelinus_confluentus: ["bull trout", "bull char"],
+  salmo_salar_anadromous: ["atlantic salmon", "sea-run salmon", "sea run salmon"],
+  acipenser_fulvescens: ["lake sturgeon", "sturgeon", "rock sturgeon"],
+  polyodon_spathula: ["paddlefish", "spoonbill", "spoonbill cat"],
+  lepomis_auritus: ["redbreast", "redbreast sunfish", "redbelly sunfish"],
+  lepomis_gulosus: ["warmouth", "stumpknocker", "mud bass", "warmouth bass"],
+  ameiurus_natalis: ["yellow bullhead", "yellow bull", "mudcat", "chucklehead"],
+  lepisosteus_platostomus: ["shortnose gar", "shortnose", "billy gar"],
+  morone_mississippiensis: ["yellow bass"],
+  morone_hybrid_wiper: ["wiper", "wipers", "hybrid striper", "hybrid striped bass", "whiterock bass"],
+  hiodon_alosoides: ["goldeye", "gold eye"],
+  hiodon_tergisus: ["mooneye", "moon eye"],
+  ictiobus_cyprinellus: ["bigmouth buffalo", "bigmouth", "buffalo fish", "buffalo"],
+  ictiobus_bubalus: ["smallmouth buffalo", "smallmouth buff", "buffalo sucker"],
+  moxostoma_macrolepidotum: ["shorthead redhorse", "redhorse", "redfin sucker", "shorthead"],
 };
 
 export function matchesSpecies(s: SpeciesRecord, q: string): boolean {

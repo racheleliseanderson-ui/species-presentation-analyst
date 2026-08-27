@@ -77,6 +77,14 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (!species) {
     return { error: "No reviewed record for that species. This instrument will not invent biology." };
   }
+
+  const targetStatus = species.targetStatus ?? "standard";
+  if (targetStatus === "conservation_sensitive" || targetStatus === "non_target") {
+    return {
+      error: `${species.commonNames[0]} is retained for biological context only. ${species.targetStatusNote ?? "Presentation guidance is intentionally disabled for this record."} This instrument will not emit presentation guidance for this species.`,
+    };
+  }
+
   if (!species.habitat.waterTypes.includes(input.waterType)) {
     return {
       error: `${species.commonNames[0]} has no reviewed ${labelOf(input.waterType)} record in this knowledge base. Declaring a different water type would be guessing.`,
@@ -155,6 +163,12 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     "forage concentrated somewhere else in the system",
     ...species.exceptions,
   ];
+  if (targetStatus === "regulated_context") {
+    invalidators.unshift(
+      species.targetStatusNote ??
+        "Regulations and legal methods vary by jurisdiction; verify current rules before acting on this biological reading.",
+    );
+  }
 
   let forageClasses: ForageClass[] = [...species.forageClasses];
   let forageCertainty: Confidence = "low";
@@ -250,6 +264,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
 
   const trace = [
     species.commonNames[0],
+    targetStatus === "regulated_context" ? "regulated context · verify current jurisdiction rules" : "standard target record",
     input.tempF != null
       ? `${input.tempF}°F · ${labelOf(input.tempSource)}`
       : "temperature unknown",

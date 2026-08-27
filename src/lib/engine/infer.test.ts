@@ -50,6 +50,29 @@ describe("interpret", () => {
     assert.ok("error" in r);
   });
 
+  it("keeps conservation-sensitive bull trout as context only", () => {
+    const r = interpret({ ...brownSeam, speciesId: "salvelinus_confluentus", tempF: 48 });
+    assert.ok("error" in r);
+    if (!("error" in r)) return;
+    assert.match(r.error, /biological context only/i);
+    assert.match(r.error, /will not emit presentation guidance/i);
+  });
+
+  it("allows regulated-context lake sturgeon but carries the regulation warning", () => {
+    const r = interpret({
+      ...brownSeam,
+      speciesId: "acipenser_fulvescens",
+      tempF: 58,
+      holdingRiver: "deep_pool",
+      light: "mixed",
+    });
+    assert.ok(!("error" in r));
+    if ("error" in r) return;
+    assert.equal(r.species.targetStatus, "regulated_context");
+    assert.ok(r.invalidators.some((x) => /regulated|regulations|jurisdiction/i.test(x)));
+    assert.match(r.trace[1] ?? "", /regulated context/i);
+  });
+
   it("ranks stillwater families for largemouth on a weed edge", () => {
     const r = interpret({
       speciesId: "micropterus_nigricans",
