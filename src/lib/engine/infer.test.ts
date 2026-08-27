@@ -23,15 +23,59 @@ const brownSeam: ScenarioInput = {
 };
 
 describe("interpret", () => {
-  it("returns a preferred-band brown trout reading on a measured 54°F seam", () => {
+  it("returns a six-axis weighted preferred-band brown trout reading", () => {
     const r = interpret(brownSeam);
     assert.ok(!("error" in r), "expected a reading");
     if ("error" in r) return;
     assert.equal(r.thermalState, "preferred");
-    assert.equal(r.presentations[0]?.id, "surface_drift");
+    assert.equal(r.presentations[0]?.id, "dead_drift");
+    assert.equal(r.weightingModel.version, "SPW-1.0");
+    assert.deepEqual(r.weightingModel.coreAxes, [
+      "species",
+      "season",
+      "thermal",
+      "water_type",
+      "holding",
+      "forage",
+    ]);
+    assert.ok(r.presentations[0]!.weightReasons.some((x) => x.axis === "species"));
+    assert.ok(r.presentations[0]!.weightReasons.some((x) => x.axis === "season"));
+    assert.ok(r.presentations[0]!.weightReasons.some((x) => x.axis === "water_type"));
+    assert.ok(r.presentations[0]!.weightReasons.some((x) => x.axis === "holding"));
     assert.equal(r.confidence.evidence, "high");
     assert.equal(r.confidence.forage, "low");
     assert.equal(r.species.id, "salmo_trutta");
+    assert.match(r.trace.join("\n"), /relative weights are ranking mechanics, never bite probability/i);
+  });
+
+  it("changes the leading family when holding water changes from seam to deep pool", () => {
+    const seam = interpret(brownSeam);
+    const pool = interpret({ ...brownSeam, holdingRiver: "deep_pool" });
+    assert.ok(!("error" in seam) && !("error" in pool));
+    if ("error" in seam || "error" in pool) return;
+    assert.equal(seam.presentations[0]?.id, "dead_drift");
+    assert.equal(pool.presentations[0]?.id, "bottom_contact_drift");
+    assert.notEqual(pool.presentations[0]?.weight, seam.presentations[0]?.weight);
+  });
+
+  it("applies observed forage as a real weight axis without introducing an unreviewed family", () => {
+    const base = interpret(brownSeam);
+    const baitfish = interpret({
+      ...brownSeam,
+      forage: { class: "small_forage_fish", source: "user_observation", confidence: 0.9 },
+    });
+    assert.ok(!("error" in base) && !("error" in baitfish));
+    if ("error" in base || "error" in baitfish) return;
+    const baseCross = base.presentations.find((p) => p.id === "cross_current_retrieve");
+    const baitCross = baitfish.presentations.find((p) => p.id === "cross_current_retrieve");
+    assert.ok(baseCross && baitCross);
+    assert.ok(baitCross.weight > baseCross.weight);
+    assert.ok(baitCross.weightReasons.some((x) => x.axis === "forage" && x.delta > 0));
+    assert.ok(
+      baitfish.presentations.every((p) =>
+        ["dead_drift", "bottom_contact_drift", "cross_current_retrieve", "swing", "surface_drift"].includes(p.id),
+      ),
+    );
   });
 
   it("fail-closes steelhead on stillwater instead of inventing biology", () => {
@@ -58,7 +102,7 @@ describe("interpret", () => {
     assert.match(r.error, /will not emit presentation guidance/i);
   });
 
-  it("allows regulated-context lake sturgeon but carries the regulation warning", () => {
+  it("allows regulated-context lake sturgeon and requires jurisdiction verification", () => {
     const r = interpret({
       ...brownSeam,
       speciesId: "acipenser_fulvescens",
@@ -69,8 +113,23 @@ describe("interpret", () => {
     assert.ok(!("error" in r));
     if ("error" in r) return;
     assert.equal(r.species.targetStatus, "regulated_context");
-    assert.ok(r.invalidators.some((x) => /regulated|regulations|jurisdiction/i.test(x)));
+    assert.equal(r.species.targetContext?.verifyLocalRules, true);
+    assert.ok(r.invalidators.some((x) => /regulated|regulations|jurisdiction|season|legal/i.test(x)));
+    assert.ok(r.unknowns.includes("current jurisdiction rules"));
     assert.match(r.trace[1] ?? "", /regulated context/i);
+  });
+
+  it("clears the jurisdiction unknown when a regulated-context water declares it", () => {
+    const r = interpret({
+      ...brownSeam,
+      speciesId: "acipenser_fulvescens",
+      water: { ...brownSeam.water, jurisdiction: "Example current state jurisdiction" },
+      tempF: 58,
+      holdingRiver: "deep_pool",
+    });
+    assert.ok(!("error" in r));
+    if ("error" in r) return;
+    assert.ok(!r.unknowns.includes("current jurisdiction rules"));
   });
 
   it("ranks stillwater families for largemouth on a weed edge", () => {
@@ -94,6 +153,7 @@ describe("interpret", () => {
     if ("error" in r) return;
     assert.ok(r.presentations.length >= 2);
     assert.ok(r.presentations.every((p) => p.id !== "dead_drift"));
+    assert.ok(r.presentations[0]!.weightReasons.some((x) => x.axis === "holding"));
   });
 
   it("does not treat unknown temperature as a preferred band", () => {
@@ -104,35 +164,26 @@ describe("interpret", () => {
     assert.equal(r.confidence.evidence, "low");
     assert.ok(r.unknowns.includes("water temperature"));
   });
-
-  it("changes the leading family when low light is removed", () => {
-    const dim = interpret(brownSeam);
-    const bright = interpret({ ...brownSeam, light: "bright" });
-    assert.ok(!("error" in dim) && !("error" in bright));
-    if ("error" in dim || "error" in bright) return;
-    assert.equal(dim.presentations[0]?.id, "surface_drift");
-    assert.notEqual(bright.presentations[0]?.id, dim.presentations[0]?.id);
-  });
 });
 
 describe("drivingChanges", () => {
-  it("reports light as a driver on the brown trout starter", () => {
-    const drivers = drivingChanges(brownSeam);
+  it("can identify observed forage as a driver when the holding class makes the alternatives close", () => {
+    const drivers = drivingChanges({ ...brownSeam, holdingRiver: "deep_pool" });
     assert.ok(
-      drivers.some((d) => d.variable === "Light" && d.familyBefore !== d.familyAfter),
+      drivers.some((d) => d.variable === "Observed forage" && d.familyBefore !== d.familyAfter),
       JSON.stringify(drivers),
     );
   });
 });
 
 describe("fieldBrief", () => {
-  it("is a keepable plain-text brief without coordinates or scores", () => {
+  it("is a keepable plain-text brief without coordinates or probability language", () => {
     const r = interpret(brownSeam);
     assert.ok(!("error" in r));
     if ("error" in r) return;
     const text = fieldBrief(brownSeam, r);
     assert.match(text, /Brown trout/);
-    assert.match(text, /Surface drift|Dead drift/);
+    assert.match(text, /Dead drift|Bottom-contact drift|Cross-current retrieve/);
     assert.doesNotMatch(text, /\bhotspot\b/i);
     assert.match(text, /coordinates not stored/i);
     assert.match(text, /not a bite prediction/i);

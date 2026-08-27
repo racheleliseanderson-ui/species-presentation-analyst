@@ -1,5 +1,10 @@
 import { PRESENTATION_BY_ID } from "../knowledge/presentations.ts";
 import { SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
+import {
+  CORE_WEIGHT_AXES,
+  rankPresentationFamilies,
+  WEIGHTING_MODEL_VERSION,
+} from "./presentation-weighting.ts";
 import type {
   Interpretation,
   RankedPresentation,
@@ -56,19 +61,14 @@ function envCompleteness(input: ScenarioInput): Confidence {
   return "low";
 }
 
-function fitFor(index: number): Confidence {
+function fitForWeight(index: number, weight: number, topWeight: number): Confidence {
   if (index === 0) return "high";
-  if (index === 1) return "moderate";
+  if (topWeight - weight <= 7) return "moderate";
   return "low";
 }
 
 function bump<T>(arr: T[], item: T | undefined): T[] {
   if (!item) return arr;
-  return [item, ...arr.filter((x) => x !== item)];
-}
-
-function promoteReviewed<T>(arr: T[], item: T | undefined): T[] {
-  if (!item || !arr.includes(item)) return arr;
   return [item, ...arr.filter((x) => x !== item)];
 }
 
@@ -80,8 +80,12 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
 
   const targetStatus = species.targetStatus ?? "standard";
   if (targetStatus === "conservation_sensitive" || targetStatus === "non_target") {
+    const targetNote =
+      species.targetContext?.note ??
+      species.targetStatusNote ??
+      "Presentation guidance is intentionally disabled for this record.";
     return {
-      error: `${species.commonNames[0]} is retained for biological context only. ${species.targetStatusNote ?? "Presentation guidance is intentionally disabled for this record."} This instrument will not emit presentation guidance for this species.`,
+      error: `${species.commonNames[0]} is retained for biological context only. ${targetNote} This instrument will not emit presentation guidance for this species.`,
     };
   }
 
@@ -92,12 +96,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   }
 
   const tState = thermalState(input.tempF, species);
-  const holding =
-    input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
+  const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
   const holdingLabel = holding ? labelOf(holding) : "holding water undeclared";
 
-  const preferredHolds =
-    input.waterType === "flowing" ? species.habitat.riverHolding : species.habitat.stillHolding;
+  const preferredHolds = input.waterType === "flowing" ? species.habitat.riverHolding : species.habitat.stillHolding;
   const holdMatch = holding ? preferredHolds.includes(holding as never) : false;
 
   const positioning: Interpretation["positioning"] = [];
@@ -116,7 +118,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     if (h === holding) continue;
     positioning.push({
       text: `${labelOf(h)} is also a reviewed holding-water class for this species.`,
-      confidence: holdMatch ? "moderate" : "moderate",
+      confidence: "moderate",
     });
   }
   if (tState === "cold_refuge") {
@@ -165,66 +167,40 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   ];
   if (targetStatus === "regulated_context") {
     invalidators.unshift(
-      species.targetStatusNote ??
+      species.targetContext?.note ??
+        species.targetStatusNote ??
         "Regulations and legal methods vary by jurisdiction; verify current rules before acting on this biological reading.",
     );
   }
 
   let forageClasses: ForageClass[] = [...species.forageClasses];
   let forageCertainty: Confidence = "low";
-  let forageNote =
-    "No field observation carried from Hatch Match. These are plausible forage classes, not a current hatch.";
+  let forageNote = "No field observation carried from Hatch Match. These are plausible forage classes, not a current hatch.";
   if (input.forage) {
     forageClasses = bump(forageClasses, input.forage.class);
     forageCertainty = input.forage.confidence != null && input.forage.confidence >= 0.7 ? "high" : "moderate";
     forageNote = `Observed forage packet: ${labelOf(input.forage.class)}${
       input.forage.hypothesis ? ` · ${input.forage.hypothesis.replaceAll("_", " ")}` : ""
-    }. Presentation logic is using the observation, not an inferred hatch.`;
+    }. The ${WEIGHTING_MODEL_VERSION} model is using that observation as the forage axis, not inventing a hatch.`;
   } else if (input.season === "fall" || input.season === "late_summer") {
-    forageNote += " Seasonal terrestrial and baitfish classes are more plausible than they are in mid-winter, still unverified.";
+    forageNote += " Seasonal terrestrial and baitfish classes may be plausible, but no forage weight is applied until one is observed or carried in.";
   }
 
-  const baseIds =
-    input.waterType === "flowing" ? species.flowingPresentations : species.stillPresentations;
-  let ordered = [...baseIds];
-
-  if (input.forage?.class === "aquatic_insects" || input.forage?.class === "emerging_insects") {
-    ordered = promoteReviewed(promoteReviewed(ordered, "dead_drift" as const), "tight_line_drift" as const);
-    ordered = promoteReviewed(ordered, "surface_drift" as const);
-  }
-  if (input.forage?.class === "small_forage_fish" || input.forage?.class === "larger_prey_fish") {
-    ordered = promoteReviewed(promoteReviewed(ordered, "cross_current_retrieve" as const), "stop_and_go" as const);
-    ordered = promoteReviewed(ordered, "horizontal_retrieve" as const);
-  }
-  if (input.forage?.class === "crustaceans") {
-    ordered = promoteReviewed(promoteReviewed(ordered, "bottom_contact_drift" as const), "bottom_contact" as const);
-  }
-  if (tState === "cold_refuge") {
-    ordered = promoteReviewed(promoteReviewed(ordered, "bottom_contact_drift" as const), "slow_drag" as const);
-    ordered = promoteReviewed(ordered, "suspended_drift" as const);
-  }
-  if (input.light === "night" || input.light === "low_light") {
-    ordered = promoteReviewed(promoteReviewed(ordered, "surface_retrieve" as const), "surface_drift" as const);
-  }
-
-  const presentations: RankedPresentation[] = ordered
-    .filter((id) => PRESENTATION_BY_ID[id])
-    .filter((id) => {
-      const w = PRESENTATION_BY_ID[id].water;
-      return w === "both" || w === input.waterType;
-    })
-    .slice(0, 4)
-    .map((id, i) => {
-      const p = PRESENTATION_BY_ID[id];
-      return {
-        id,
-        label: p.label,
-        fit: fitFor(i),
-        job: p.job,
-        mechanics: p.mechanics,
-        system: p.system,
-      };
-    });
+  const weighted = rankPresentationFamilies(input, species, tState);
+  const topWeight = weighted[0]?.weight ?? 0;
+  const presentations: RankedPresentation[] = weighted.slice(0, 4).map((ranked, i) => {
+    const p = PRESENTATION_BY_ID[ranked.id];
+    return {
+      id: ranked.id,
+      label: p.label,
+      fit: fitForWeight(i, ranked.weight, topWeight),
+      weight: ranked.weight,
+      weightReasons: ranked.reasons,
+      job: p.job,
+      mechanics: p.mechanics,
+      system: p.system,
+    };
+  });
 
   const top = presentations[0];
   const equipment = top?.system ?? {
@@ -259,19 +235,26 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (!holding) unknowns.push("holding-water class");
   if (!input.forage) unknowns.push("observed forage");
   if (input.waterType === "flowing" && (!input.flow || input.flow === "unknown")) unknowns.push("flow class");
-  if (input.waterType === "stillwater" && (!input.stillState || input.stillState === "unknown"))
-    unknowns.push("stillwater state");
+  if (input.waterType === "stillwater" && (!input.stillState || input.stillState === "unknown")) unknowns.push("stillwater state");
+  if (species.targetContext?.verifyLocalRules && !input.water.jurisdiction) unknowns.push("current jurisdiction rules");
+
+  const topWeightTrace = top
+    ? top.weightReasons
+        .filter((reason) => reason.axis !== "species")
+        .map((reason) => `${reason.axis} ${reason.delta >= 0 ? "+" : ""}${reason.delta}`)
+        .join(" · ")
+    : "no weighted family";
 
   const trace = [
     species.commonNames[0],
-    targetStatus === "regulated_context" ? "regulated context · verify current jurisdiction rules" : "standard target record",
-    input.tempF != null
-      ? `${input.tempF}°F · ${labelOf(input.tempSource)}`
-      : "temperature unknown",
+    targetStatus === "regulated_context"
+      ? `regulated context · ${species.targetContext?.jurisdictionScope ?? "verify current jurisdiction rules"}`
+      : "standard target record",
+    input.tempF != null ? `${input.tempF}°F · ${labelOf(input.tempSource)}` : "temperature unknown",
     labelOf(input.waterType),
     input.waterType === "flowing" ? labelOf(input.flow ?? "unknown") : labelOf(input.stillState ?? "unknown"),
     holdingLabel,
-    forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
+    input.forage ? `${labelOf(input.forage.class)} observed` : forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
     tState === "preferred"
       ? "energy-efficient feeding positions favored"
       : tState === "cold_refuge"
@@ -279,8 +262,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
         : tState === "warm_stress"
           ? "refuge from heat / low oxygen favored"
           : "thermal state unresolved",
+    `${WEIGHTING_MODEL_VERSION} · species × season × thermal × water type × holding × forage`,
+    top ? `${top.label} relative weight ${top.weight} · ${topWeightTrace}` : "no reviewed presentation for this water type",
     presentations.map((p) => p.label).join(" + ") || "no reviewed presentation for this water type",
-    "depth control and line management required",
+    "relative weights are ranking mechanics, never bite probability",
   ];
 
   return {
@@ -294,6 +279,11 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     forageCertainty,
     forageNote,
     presentations,
+    weightingModel: {
+      version: WEIGHTING_MODEL_VERSION,
+      coreAxes: CORE_WEIGHT_AXES,
+      note: "Relative family weights rank only presentation families already reviewed for this species and water type. They are not probabilities.",
+    },
     equipment,
     connection,
     rigQuestion,

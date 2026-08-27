@@ -22,6 +22,27 @@ export type TargetStatus =
   | "conservation_sensitive"
   | "non_target";
 
+export type TargetContext = {
+  jurisdictionScope?: string;
+  verifyLocalRules: boolean;
+  note: string;
+};
+
+export type WeightAxis =
+  | "species"
+  | "season"
+  | "thermal"
+  | "water_type"
+  | "holding"
+  | "forage"
+  | "light";
+
+export type PresentationWeightReason = {
+  axis: WeightAxis;
+  delta: number;
+  note: string;
+};
+
 export type PresentationId =
   | "dead_drift"
   | "tight_line_drift"
@@ -55,6 +76,7 @@ export type SpeciesRecord = {
   group: SpeciesGroup;
   targetStatus?: TargetStatus;
   targetStatusNote?: string;
+  targetContext?: TargetContext;
   nativeContext: string;
   thermal: {
     preferredF: [number, number];
@@ -127,6 +149,8 @@ export type RankedPresentation = {
   id: PresentationId;
   label: string;
   fit: Confidence;
+  weight: number;
+  weightReasons: PresentationWeightReason[];
   job: string;
   mechanics: string[];
   system: Record<string, string>;
@@ -143,6 +167,11 @@ export type Interpretation = {
   forageCertainty: Confidence;
   forageNote: string;
   presentations: RankedPresentation[];
+  weightingModel: {
+    version: string;
+    coreAxes: WeightAxis[];
+    note: string;
+  };
   equipment: Record<string, string>;
   connection: {
     job: string;
@@ -169,6 +198,8 @@ export type HthPacket = {
     id: string;
     scientificName: string;
     commonNames: string[];
+    targetStatus?: TargetStatus;
+    targetContext?: TargetContext;
   };
   conditions: {
     waterType: WaterType;
@@ -194,6 +225,8 @@ export type HthPacket = {
   presentationRequirements: {
     families: PresentationId[];
     mechanics: string[];
+    weightingModel?: string;
+    weightedFamilies?: { id: PresentationId; weight: number }[];
   };
   equipmentRequirements: Record<string, string>;
   connectionRequirements: {

@@ -23,6 +23,8 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       id: result.species.id,
       scientificName: result.species.scientificName,
       commonNames: result.species.commonNames,
+      targetStatus: result.species.targetStatus ?? "standard",
+      targetContext: result.species.targetContext,
     },
     conditions: {
       waterType: input.waterType,
@@ -46,6 +48,8 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
     presentationRequirements: {
       families: result.presentations.map((p) => p.id),
       mechanics: result.presentations[0]?.mechanics ?? [],
+      weightingModel: result.weightingModel.version,
+      weightedFamilies: result.presentations.map((p) => ({ id: p.id, weight: p.weight })),
     },
     equipmentRequirements: result.equipment,
     connectionRequirements: result.connection,
@@ -54,6 +58,11 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
     provenance: [
       {
         source: `${result.species.scientificName} reviewed record`,
+        evidenceClass: "declared",
+        reviewedAt: result.species.reviewedAt,
+      },
+      {
+        source: `${result.weightingModel.version} explainable presentation weighting`,
         evidenceClass: "declared",
         reviewedAt: result.species.reviewedAt,
       },
