@@ -1,8 +1,8 @@
 export const INSTRUMENT_ID = "HTH-SP-001";
 export const INSTRUMENT_NAME = "Species & Presentation Analyst";
-export const APP_VERSION = "0.5.0";
+export const APP_VERSION = "0.6.0";
 export const PACKET_VERSION = "HTH-1.0";
-export const SCHEMA_VERSION = "0.5.0";
+export const SCHEMA_VERSION = "0.6.0";
 export const REVIEWED_AT = "2026-08-27";
 export const NEXT_REVIEW = "2026-11-27";
 
