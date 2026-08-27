@@ -16,6 +16,12 @@ import type {
 
 export type SpeciesGroup = "trout_salmon" | "bass_panfish" | "predator" | "other";
 
+export type TargetStatus =
+  | "standard"
+  | "regulated_context"
+  | "conservation_sensitive"
+  | "non_target";
+
 export type PresentationId =
   | "dead_drift"
   | "tight_line_drift"
@@ -47,6 +53,8 @@ export type SpeciesRecord = {
   scientificName: string;
   commonNames: string[];
   group: SpeciesGroup;
+  targetStatus?: TargetStatus;
+  targetStatusNote?: string;
   nativeContext: string;
   thermal: {
     preferredF: [number, number];
