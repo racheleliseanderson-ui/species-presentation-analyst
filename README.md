@@ -14,6 +14,7 @@ TanStack Start + Nitro. Primary host: [species.hookthehorizon.blog](https://spec
 - Holding-water class is ecological structure, not a pin.
 - Temperature provenance stays visible. Air temperature is never substituted silently.
 - Packets move only on an explicit user action (`#packet=`).
+- Condition and forage modifiers may re-rank only presentation families already reviewed for the declared species and water type.
 
 ## Intelligence chain
 
@@ -36,6 +37,8 @@ npm run typecheck
 
 ## Knowledge
 
-21 reviewed North American records. Review date and next-review date are printed on the instrument. Cadence: 90 days.
+30 reviewed North American records. Review date and next-review date are printed on the instrument. Cadence: 90 days.
+
+The catalog is composed from the original reviewed core plus dated expansion batches so future seeding remains auditable. The 2026-08-27 expansion adds mountain whitefish, Arctic grayling, kokanee, lake whitefish, burbot, sauger, blue catfish, flathead catfish, and freshwater drum.
 
 Instrument ID: `HTH-SP-001` · schema `0.1.0` · app `0.1.0`

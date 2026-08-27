@@ -1,5 +1,5 @@
 import { PRESENTATION_BY_ID } from "@/lib/knowledge/presentations";
-import { SPECIES_BY_ID } from "@/lib/knowledge/species";
+import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import type {
   Interpretation,
   RankedPresentation,
@@ -64,6 +64,11 @@ function fitFor(index: number): Confidence {
 
 function bump<T>(arr: T[], item: T | undefined): T[] {
   if (!item) return arr;
+  return [item, ...arr.filter((x) => x !== item)];
+}
+
+function promoteReviewed<T>(arr: T[], item: T | undefined): T[] {
+  if (!item || !arr.includes(item)) return arr;
   return [item, ...arr.filter((x) => x !== item)];
 }
 
@@ -170,22 +175,22 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   let ordered = [...baseIds];
 
   if (input.forage?.class === "aquatic_insects" || input.forage?.class === "emerging_insects") {
-    ordered = bump(bump(ordered, "dead_drift" as const), "tight_line_drift" as const);
-    ordered = bump(ordered, "surface_drift" as const);
+    ordered = promoteReviewed(promoteReviewed(ordered, "dead_drift" as const), "tight_line_drift" as const);
+    ordered = promoteReviewed(ordered, "surface_drift" as const);
   }
   if (input.forage?.class === "small_forage_fish" || input.forage?.class === "larger_prey_fish") {
-    ordered = bump(bump(ordered, "cross_current_retrieve" as const), "stop_and_go" as const);
-    ordered = bump(ordered, "horizontal_retrieve" as const);
+    ordered = promoteReviewed(promoteReviewed(ordered, "cross_current_retrieve" as const), "stop_and_go" as const);
+    ordered = promoteReviewed(ordered, "horizontal_retrieve" as const);
   }
   if (input.forage?.class === "crustaceans") {
-    ordered = bump(bump(ordered, "bottom_contact_drift" as const), "bottom_contact" as const);
+    ordered = promoteReviewed(promoteReviewed(ordered, "bottom_contact_drift" as const), "bottom_contact" as const);
   }
   if (tState === "cold_refuge") {
-    ordered = bump(bump(ordered, "bottom_contact_drift" as const), "slow_drag" as const);
-    ordered = bump(ordered, "suspended_drift" as const);
+    ordered = promoteReviewed(promoteReviewed(ordered, "bottom_contact_drift" as const), "slow_drag" as const);
+    ordered = promoteReviewed(ordered, "suspended_drift" as const);
   }
   if (input.light === "night" || input.light === "low_light") {
-    ordered = bump(bump(ordered, "surface_retrieve" as const), "surface_drift" as const);
+    ordered = promoteReviewed(promoteReviewed(ordered, "surface_retrieve" as const), "surface_drift" as const);
   }
 
   const presentations: RankedPresentation[] = ordered

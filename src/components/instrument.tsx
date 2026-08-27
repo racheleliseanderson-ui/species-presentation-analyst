@@ -3,7 +3,7 @@ import { ChipGroup } from "@/components/chips";
 import { Plate } from "@/components/plate";
 import { Readout } from "@/components/readout";
 import { Button } from "@/components/ui/button";
-import { GROUPS, SPECIES } from "@/lib/knowledge/species";
+import { GROUPS, SPECIES } from "@/lib/knowledge/species-catalog";
 import { parseIncomingPacket } from "@/lib/protocol/packet";
 import {
   CLARITY,
