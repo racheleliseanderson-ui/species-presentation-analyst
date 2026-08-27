@@ -9,8 +9,9 @@ import type {
 } from "../protocol/types.ts";
 import type { ForageClass, Season } from "../protocol/vocab.ts";
 import { labelOf } from "../protocol/vocab.ts";
+import { matchingSpeciesWeightOverrides } from "./species-weight-overrides.ts";
 
-export const WEIGHTING_MODEL_VERSION = "SPW-1.0" as const;
+export const WEIGHTING_MODEL_VERSION = "SPW-1.1" as const;
 export const CORE_WEIGHT_AXES: WeightAxis[] = [
   "species",
   "season",
@@ -415,6 +416,15 @@ export function rankPresentationFamilies(
       "forage",
       FORAGE_BIASES[input.forage.class],
       `${labelOf(input.forage.class)} observed via ${input.forage.source.replaceAll("_", " ")}`,
+    );
+  }
+
+  for (const rule of matchingSpeciesWeightOverrides(input, thermalState)) {
+    applyBias(
+      candidates,
+      "species_override",
+      rule.bias,
+      `${rule.id} · ${rule.note}`,
     );
   }
 
