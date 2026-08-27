@@ -8,7 +8,7 @@ import {
 import {
   matchingSpeciesWeightOverrides,
   SPECIES_OVERRIDE_MODEL_VERSION,
-} from "./species-weight-overrides.ts";
+} from "./species-weight-overrides-catalog.ts";
 import type {
   Interpretation,
   RankedPresentation,
