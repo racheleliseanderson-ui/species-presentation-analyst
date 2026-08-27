@@ -15,6 +15,7 @@ TanStack Start + Nitro. Canonical host: [species.hookthehorizon.blog](https://sp
 - Temperature provenance stays visible. Air temperature is never substituted silently.
 - Packets move only on an explicit user action (`#packet=`). Incoming packets are inspected before they are applied. Outbound carries are inspected before they leave.
 - Condition and forage modifiers may re-rank only presentation families already reviewed for the declared species and water type.
+- Listed / highly conservation-sensitive species are not added as ordinary angling targets until the schema can carry explicit target-status and regulatory context.
 
 ## What a reading is
 
@@ -51,8 +52,11 @@ Engine tests cover ordinary cases, fail-closed water-type mismatch, unknown temp
 
 ## Knowledge
 
-30 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`) resolve to those records. Review date and next-review date are printed on the reading. Cadence: 90 days.
+45 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`) resolve to reviewed records. Review date and next-review date are printed on the reading. Cadence: 90 days.
 
-The catalog is composed from the original reviewed core plus dated expansion batches so future seeding remains auditable. The 2026-08-27 expansion adds mountain whitefish, Arctic grayling, kokanee, lake whitefish, burbot, sauger, blue catfish, flathead catfish, and freshwater drum.
+The catalog is composed from the original reviewed core plus dated expansion batches so future seeding remains auditable.
+
+- Expansion 01 (2026-08-27): mountain whitefish, Arctic grayling, kokanee, lake whitefish, burbot, sauger, blue catfish, flathead catfish, freshwater drum.
+- Expansion 02 (2026-08-27): pumpkinseed, redear sunfish, green sunfish, rock bass, chain pickerel, bowfin, longnose gar, spotted gar, brown bullhead, black bullhead, cisco, rainbow smelt, white perch, American eel, American shad.
 
 Instrument ID: `HTH-SP-001` · schema `0.2.0` · app `0.2.0`
