@@ -33,6 +33,21 @@ export const ALIASES: Record<string, string[]> = {
   ictalurus_furcatus: ["blue cat", "blue catfish"],
   pylodictis_olivaris: ["flathead", "flathead catfish", "mud cat", "shovelhead"],
   aplodinotus_grunniens: ["drum", "freshwater drum", "sheepshead", "gaspergou"],
+  lepomis_gibbosus: ["pumpkinseed", "pumpkinseed sunfish"],
+  lepomis_microlophus: ["redear", "shellcracker", "shell cracker", "chinquapin"],
+  lepomis_cyanellus: ["green sunfish", "greenie"],
+  ambloplites_rupestris: ["rock bass", "red eye", "redeye", "goggle-eye", "goggle eye"],
+  esox_niger: ["chain pickerel", "pickerel"],
+  amia_calva: ["bowfin", "dogfish", "grinnel", "mudfish"],
+  lepisosteus_osseus: ["longnose gar", "longnose", "needle nose gar"],
+  lepisosteus_oculatus: ["spotted gar"],
+  ameiurus_nebulosus: ["brown bullhead", "hornpout"],
+  ameiurus_melas: ["black bullhead"],
+  coregonus_artedi: ["cisco", "lake herring"],
+  osmerus_mordax: ["smelt", "rainbow smelt"],
+  morone_americana: ["white perch"],
+  anguilla_rostrata: ["eel", "american eel"],
+  alosa_sapidissima: ["shad", "american shad", "white shad"],
 };
 
 export function matchesSpecies(s: SpeciesRecord, q: string): boolean {
