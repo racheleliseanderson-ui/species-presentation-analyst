@@ -1,4 +1,4 @@
-import type { SpeciesRecord } from "@/lib/protocol/types";
+import type { SpeciesRecord } from "../protocol/types.ts";
 
 const SRC = {
   agency: "agency" as const,

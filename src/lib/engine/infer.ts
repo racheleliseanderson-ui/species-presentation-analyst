@@ -1,13 +1,13 @@
-import { PRESENTATION_BY_ID } from "@/lib/knowledge/presentations";
-import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { PRESENTATION_BY_ID } from "../knowledge/presentations.ts";
+import { SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import type {
   Interpretation,
   RankedPresentation,
   ScenarioInput,
   ThermalState,
-} from "@/lib/protocol/types";
-import type { Confidence, ForageClass } from "@/lib/protocol/vocab";
-import { labelOf } from "@/lib/protocol/vocab";
+} from "../protocol/types.ts";
+import type { Confidence, ForageClass } from "../protocol/vocab.ts";
+import { labelOf } from "../protocol/vocab.ts";
 
 function thermalState(tempF: number | null, species: NonNullable<typeof SPECIES_BY_ID[string]>): ThermalState {
   if (tempF == null) return "unknown";

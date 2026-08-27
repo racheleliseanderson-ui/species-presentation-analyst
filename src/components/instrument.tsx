@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ChipGroup } from "@/components/chips";
 import { Plate } from "@/components/plate";
 import { Readout } from "@/components/readout";
 import { Button } from "@/components/ui/button";
-import { GROUPS, SPECIES } from "@/lib/knowledge/species-catalog";
+import { interpret } from "@/lib/engine/infer";
+import { matchesSpecies } from "@/lib/knowledge/aliases";
+import { GROUPS, SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { parseIncomingPacket } from "@/lib/protocol/packet";
+import type { ScenarioInput } from "@/lib/protocol/types";
 import {
   CLARITY,
   FLOW_CLASSES,
+  FORAGE_CLASSES,
   LIGHT,
   RIVER_HOLDING,
   SEASONS,
@@ -16,6 +20,7 @@ import {
   TEMP_SOURCES,
   WEATHER_TRENDS,
   labelOf,
+  type ForageClass,
 } from "@/lib/protocol/vocab";
 import { STARTERS, useSession, type Step } from "@/lib/store";
 import { cn } from "@/lib/utils";
@@ -25,33 +30,74 @@ const STEPS: { id: Step; n: string; label: string }[] = [
   { id: "water", n: "02", label: "Water" },
   { id: "conditions", n: "03", label: "Conditions" },
   { id: "holding", n: "04", label: "Holding water" },
-  { id: "readout", n: "05", label: "Hypothesis" },
+  { id: "readout", n: "05", label: "Reading" },
 ];
 
 function opts<T extends string>(ids: readonly T[]) {
   return ids.map((id) => ({ id, label: labelOf(id) }));
 }
 
+function incomingRows(p: Partial<ScenarioInput>): { label: string; value: string }[] {
+  const rows: { label: string; value: string }[] = [];
+  if (p.speciesId) {
+    const s = SPECIES_BY_ID[p.speciesId];
+    rows.push({ label: "Species", value: s ? s.commonNames[0] : p.speciesId });
+  }
+  if (p.water?.waterName) rows.push({ label: "Water", value: p.water.waterName });
+  if (p.waterType) rows.push({ label: "Water type", value: labelOf(p.waterType) });
+  if (p.tempF != null) rows.push({ label: "Temperature", value: `${p.tempF}°F` });
+  if (p.tempSource) rows.push({ label: "Temp source", value: labelOf(p.tempSource) });
+  if (p.forage) rows.push({ label: "Forage", value: labelOf(p.forage.class) });
+  return rows;
+}
+
+function WorkedExample({ onOpen }: { onOpen: () => void }) {
+  const result = interpret({
+    speciesId: "salmo_trutta",
+    water: { waterName: "Named public river corridor", waterType: "flowing" },
+    waterType: "flowing",
+    tempF: 54,
+    tempSource: "user_measured",
+    flow: "moderate",
+    stillState: "unknown",
+    clarity: "clear",
+    light: "low_light",
+    weather: "stable",
+    season: "spring",
+    holdingRiver: "seam",
+    holdingStill: null,
+    forage: null,
+  });
+  if ("error" in result) return null;
+  return (
+    <aside className="instrument-rule rounded-[var(--radius-md)] bg-elevated p-5">
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">A worked reading</p>
+      <p className="mt-2 font-display text-xl text-fg">Brown trout · 54°F seam</p>
+      <p className="mt-2 text-sm text-fg">
+        Most plausible family: {result.presentations[0]?.label}. Not a lure. Not a bite score.
+      </p>
+      <Button className="mt-4" variant="ghost" size="sm" onClick={onOpen}>
+        Open this reading
+      </Button>
+    </aside>
+  );
+}
+
 export function Instrument() {
   const session = useSession();
+  const [query, setQuery] = useState("");
+  const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
+  const [searchReady, setSearchReady] = useState(false);
 
   useEffect(() => {
+    setSearchReady(true);
     const api = useSession.getState();
     api.hydrate();
     if (typeof window === "undefined") return;
     const incoming = parseIncomingPacket(window.location.hash);
     if (!incoming) return;
-    const cur = useSession.getState();
     if (incoming.speciesId || incoming.water?.waterId || incoming.water?.waterName || incoming.forage) {
-      useSession.getState().patch({
-        speciesId: incoming.speciesId ?? cur.speciesId,
-        water: { ...cur.water, ...incoming.water },
-        waterType: incoming.waterType ?? cur.waterType,
-        tempF: incoming.tempF === undefined ? cur.tempF : incoming.tempF,
-        tempSource: incoming.tempSource ?? cur.tempSource,
-        forage: incoming.forage ?? cur.forage,
-        step: incoming.speciesId ? "water" : cur.step,
-      });
+      setPending(incoming);
     }
   }, []);
 
@@ -61,9 +107,68 @@ export function Instrument() {
   }, [session.step]);
 
   const species = SPECIES.find((s) => s.id === session.speciesId);
+  const filtered = useMemo(
+    () => SPECIES.filter((s) => matchesSpecies(s, query)),
+    [query],
+  );
+  const mismatch =
+    species && !species.habitat.waterTypes.includes(session.waterType);
+
+  const continueLabel: Partial<Record<Step, { next: Step; label: string }>> = {
+    water: { next: "conditions", label: "Continue to conditions" },
+    conditions: { next: "holding", label: "Continue to holding water" },
+    holding: { next: "readout", label: "Read what's plausible" },
+  };
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
+    <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-8 sm:px-6 sm:pt-12">
+      {pending && (
+        <section className="no-print mb-8 instrument-rule rounded-[var(--radius-lg)] bg-elevated p-5 sm:p-6">
+          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+            A packet arrived · nothing applied yet
+          </p>
+          <h2 className="mt-2 font-display text-2xl">Inspect before using these fields</h2>
+          <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+            {incomingRows(pending).map((row) => (
+              <div key={row.label}>
+                <dt className="font-mono text-[10px] uppercase tracking-wider text-dim">{row.label}</dt>
+                <dd className="text-fg">{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-3 text-sm text-muted">Coordinates are refused. Apply only what you recognize.</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Button
+              onClick={() => {
+                const cur = useSession.getState();
+                useSession.getState().patch({
+                  speciesId: pending.speciesId ?? cur.speciesId,
+                  water: { ...cur.water, ...pending.water },
+                  waterType: pending.waterType ?? cur.waterType,
+                  tempF: pending.tempF === undefined ? cur.tempF : pending.tempF,
+                  tempSource: pending.tempSource ?? cur.tempSource,
+                  forage: pending.forage ?? cur.forage,
+                  step: pending.speciesId ? "water" : cur.step,
+                });
+                setPending(null);
+                if (typeof window !== "undefined") window.history.replaceState(null, "", window.location.pathname);
+              }}
+            >
+              Apply these fields
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                setPending(null);
+                if (typeof window !== "undefined") window.history.replaceState(null, "", window.location.pathname);
+              }}
+            >
+              Dismiss
+            </Button>
+          </div>
+        </section>
+      )}
+
       {session.step === "target" && !session.speciesId && (
         <section className="stagger-in mb-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
@@ -74,27 +179,27 @@ export function Instrument() {
               What is this species plausibly doing here?
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted">
-              We do not predict whether fish will bite. We explain what biological and environmental
-              conditions make particular behavior and presentation families more or less plausible.
+              You'll leave with a presentation family, a holding-water class, and a packet the rest of the suite can read. Not a lure SKU. Not a bite score.
             </p>
             <div className="mt-6 instrument-rule max-w-xl rounded-[var(--radius-md)] bg-elevated p-5 text-sm text-muted">
-              No bite scores. No hotspots. No exact lures. A reviewed record, a declared water, and a
-              hypothesis you can falsify.
+              No bite scores. No hotspots. No exact lures. A reviewed record, a declared water, and a reading you can falsify.
             </div>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden space-y-4 lg:block">
             <Plate caption="Seam · velocity boundary · not a coordinate" />
+            <WorkedExample onOpen={() => session.patch(STARTERS[0].patch)} />
           </div>
         </section>
       )}
 
-      <nav className="mb-8 flex flex-wrap gap-2" aria-label="Declaration steps">
+      <nav className="mb-8 flex flex-wrap gap-2 no-print" aria-label="Declaration steps">
         {STEPS.map((s) => {
           const on = session.step === s.id;
           return (
             <button
               key={s.id}
               type="button"
+              aria-current={on ? "step" : undefined}
               onClick={() => session.setStep(s.id)}
               className={cn(
                 "min-h-11 rounded-full px-3 font-mono text-[10px] uppercase tracking-[0.14em]",
@@ -112,8 +217,7 @@ export function Instrument() {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Step 01 — Target</p>
           <h2 className="mt-2 font-display text-3xl">Which reviewed species?</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted">
-            Unreviewed names do not fall through to generic advice. {SPECIES.length} North American
-            records are loaded.
+            Unreviewed names do not fall through to generic advice. {SPECIES.length} North American records are loaded. Search accepts common names and nicknames.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {STARTERS.map((s) => (
@@ -122,32 +226,59 @@ export function Instrument() {
               </Button>
             ))}
           </div>
-          {GROUPS.map((g) => (
-            <div key={g.id} className="mt-8">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">{g.label}</h3>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                {SPECIES.filter((s) => s.group === g.id).map((s) => {
-                  const on = session.speciesId === s.id;
-                  return (
-                    <button
-                      key={s.id}
-                      type="button"
-                      onClick={() => session.patch({ speciesId: s.id, step: "water" })}
-                      className={cn(
-                        "min-h-16 rounded-[var(--radius-md)] px-4 py-3 text-left shadow-[var(--shadow-border)]",
-                        on ? "bg-accent text-accent-fg" : "bg-elevated hover:shadow-[var(--shadow-border-hover)]",
-                      )}
-                    >
-                      <span className="block text-sm font-medium">{s.commonNames[0]}</span>
-                      <span className={cn("block font-mono text-[11px]", on ? "opacity-70" : "text-dim")}>
-                        {s.scientificName}
-                      </span>
-                    </button>
-                  );
-                })}
+          <div className="mt-6 lg:hidden">
+            <WorkedExample onOpen={() => session.patch(STARTERS[0].patch)} />
+          </div>
+          <label className="mt-8 block max-w-xl">
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Search species</span>
+            {searchReady ? (
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="brownie, smallie, laker, striper…"
+                autoComplete="off"
+                spellCheck={false}
+                className="mt-2 min-h-12 w-full rounded-[var(--radius-sm)] bg-elevated px-3 text-sm text-fg shadow-[var(--shadow-border)] placeholder:text-dim"
+              />
+            ) : (
+              <div className="mt-2 min-h-12 w-full rounded-[var(--radius-sm)] bg-elevated shadow-[var(--shadow-border)]" />
+            )}
+          </label>
+          {query.trim() && filtered.length === 0 && (
+            <p className="mt-6 max-w-xl text-sm text-muted">
+              No reviewed record matches “{query}”. This will not invent biology for an unreviewed name.
+            </p>
+          )}
+          {GROUPS.map((g) => {
+            const rows = filtered.filter((s) => s.group === g.id);
+            if (rows.length === 0) return null;
+            return (
+              <div key={g.id} className="mt-8">
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">{g.label}</h3>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {rows.map((s) => {
+                    const on = session.speciesId === s.id;
+                    return (
+                      <button
+                        key={s.id}
+                        type="button"
+                        onClick={() => session.patch({ speciesId: s.id, step: "water" })}
+                        className={cn(
+                          "min-h-16 rounded-[var(--radius-md)] px-4 py-3 text-left shadow-[var(--shadow-border)]",
+                          on ? "bg-accent text-accent-fg" : "bg-elevated hover:shadow-[var(--shadow-border-hover)]",
+                        )}
+                      >
+                        <span className="block text-sm font-medium">{s.commonNames[0]}</span>
+                        <span className={cn("block font-mono text-[11px]", on ? "opacity-70" : "text-dim")}>
+                          {s.scientificName}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </section>
       )}
 
@@ -158,7 +289,7 @@ export function Instrument() {
             {species ? species.commonNames[0] : "Declare water"}
           </h2>
           <p className="text-sm text-muted">
-            Carry a public-safe Field Sense packet, or declare the water type by hand. No coordinates.
+            Name a public water if you want the packet to carry it. Water type is required. No coordinates.
           </p>
           <label className="block">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
@@ -182,6 +313,11 @@ export function Instrument() {
               { id: "stillwater", label: "Stillwater" },
             ]}
           />
+          {mismatch && (
+            <p className="instrument-rule rounded-[var(--radius-md)] bg-elevated px-4 py-3 text-sm">
+              {species.commonNames[0]} has no reviewed {labelOf(session.waterType)} record. The reading will refuse rather than guess. Switch type, or pick a different species.
+            </p>
+          )}
           <div className="flex gap-2">
             <Button variant="ghost" onClick={() => session.setStep("target")}>
               Back
@@ -205,6 +341,7 @@ export function Instrument() {
               <input
                 type="number"
                 inputMode="decimal"
+                aria-label="Water temperature in Fahrenheit"
                 value={session.tempF ?? ""}
                 onChange={(e) =>
                   session.patch({
@@ -225,7 +362,7 @@ export function Instrument() {
               </p>
             </div>
             <p className="mt-2 text-xs text-dim">
-              Never silently substitute air temperature. Provenance stays visible.
+              Never silently substitute air temperature. Provenance stays visible. Unknown is a valid answer.
             </p>
           </div>
           <ChipGroup
@@ -280,6 +417,41 @@ export function Instrument() {
             options={opts(SEASONS)}
             columns={4}
           />
+          <div>
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+              Observed forage — optional
+            </p>
+            <p className="mb-3 text-sm text-muted">
+              Leave this unknown unless you saw it. Hatch Match is the observation instrument.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => session.patch({ forage: null })}
+                className={cn(
+                  "min-h-11 rounded-[var(--radius-sm)] px-3 text-sm shadow-[var(--shadow-border)]",
+                  !session.forage ? "bg-accent text-accent-fg" : "bg-elevated text-fg",
+                )}
+              >
+                Not observed
+              </button>
+              {FORAGE_CLASSES.map((id) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() =>
+                    session.patch({ forage: { class: id as ForageClass, source: "user_observation" } })
+                  }
+                  className={cn(
+                    "min-h-11 rounded-[var(--radius-sm)] px-3 text-sm shadow-[var(--shadow-border)]",
+                    session.forage?.class === id ? "bg-accent text-accent-fg" : "bg-elevated text-fg",
+                  )}
+                >
+                  {labelOf(id)}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="flex gap-2">
             <Button variant="ghost" onClick={() => session.setStep("water")}>
               Back
@@ -296,8 +468,7 @@ export function Instrument() {
           </p>
           <h2 className="font-display text-3xl">Classify the structure. Do not drop a pin.</h2>
           <p className="max-w-2xl text-sm text-muted">
-            Holding-water class is ecological structure, not a secret spot. The engine needs a class, not a
-            coordinate.
+            Holding-water class is ecological structure, not a secret spot. Unknown is allowed.
           </p>
           {session.waterType === "flowing" ? (
             <ChipGroup
@@ -316,21 +487,27 @@ export function Instrument() {
               columns={3}
             />
           )}
+          <Button
+            variant="quiet"
+            onClick={() => session.patch({ holdingRiver: null, holdingStill: null })}
+          >
+            Leave undeclared
+          </Button>
           <div className="flex flex-wrap gap-2">
             <Button variant="ghost" onClick={() => session.setStep("conditions")}>
               Back
             </Button>
-            <Button onClick={() => session.setStep("readout")}>Read the hypothesis</Button>
+            <Button onClick={() => session.setStep("readout")}>Read what's plausible</Button>
           </div>
         </section>
       )}
 
       {session.step === "readout" && !session.speciesId && (
         <section className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 sm:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Fail closed</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Cannot answer</p>
           <h2 className="mt-2 font-display text-3xl text-fg">No reviewed species is declared.</h2>
           <p className="mt-4 max-w-xl text-sm text-muted">
-            This instrument will not invent biology. Pick a reviewed record first.
+            Pick a reviewed record first. Unreviewed names do not fall through to generic advice.
           </p>
           <Button className="mt-6" variant="ghost" onClick={() => session.setStep("target")}>
             Choose a reviewed species
@@ -341,9 +518,21 @@ export function Instrument() {
       {session.step === "readout" && session.speciesId && (
         <Readout
           session={session}
+          onPatch={(partial) => session.patch(partial)}
           onReset={() => session.reset()}
           onBack={() => session.setStep("water")}
         />
+      )}
+
+      {continueLabel[session.step] && (
+        <div className="no-print fixed inset-x-0 bottom-0 z-20 border-t border-line bg-bg/92 p-3 backdrop-blur-sm lg:hidden">
+          <Button
+            className="w-full"
+            onClick={() => session.setStep(continueLabel[session.step]!.next)}
+          >
+            {continueLabel[session.step]!.label}
+          </Button>
+        </div>
       )}
     </main>
   );

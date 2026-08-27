@@ -16,7 +16,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Hook the Horizon field instrument. Behavior hypotheses and presentation families — not bite scores.",
+          "Presentation families and holding-water readings for reviewed species — not bite scores, hotspots, or lure catalogs.",
       },
       { name: "theme-color", content: "#0c0d0b" },
     ],

@@ -9,6 +9,12 @@ export const Route = createFileRoute("/")({ component: Home });
 function Home() {
   return (
     <div className="min-h-dvh bg-bg text-fg">
+      <a
+        href="#main"
+        className="skip-link"
+      >
+        Skip to reading
+      </a>
       <Chrome />
       <Instrument />
       <footer className="border-t border-line px-4 py-8 sm:px-6">

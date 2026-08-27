@@ -1,5 +1,5 @@
-import type { PresentationId } from "@/lib/protocol/types";
-import type { WaterType } from "@/lib/protocol/vocab";
+import type { PresentationId } from "../protocol/types.ts";
+import type { WaterType } from "../protocol/vocab.ts";
 
 export type PresentationFamily = {
   id: PresentationId;

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SPECIES } from "@/lib/knowledge/species";
+import { SPECIES } from "@/lib/knowledge/species-catalog";
 import { REVIEWED_AT, SCHEMA_VERSION } from "@/lib/protocol/vocab";
 
 export const Route = createFileRoute("/api/health")({

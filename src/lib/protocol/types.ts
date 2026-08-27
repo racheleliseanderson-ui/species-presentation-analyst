@@ -12,7 +12,7 @@ import type {
   TempSource,
   WaterType,
   WeatherTrend,
-} from "./vocab";
+} from "./vocab.ts";
 
 export type SpeciesGroup = "trout_salmon" | "bass_panfish" | "predator" | "other";
 

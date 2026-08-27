@@ -1,6 +1,6 @@
-import type { SpeciesRecord } from "@/lib/protocol/types";
-import { GROUPS as CORE_GROUPS, SPECIES as CORE_SPECIES } from "./species";
-import { SPECIES_EXPANSION } from "./species-expansion";
+import type { SpeciesRecord } from "../protocol/types.ts";
+import { GROUPS as CORE_GROUPS, SPECIES as CORE_SPECIES } from "./species.ts";
+import { SPECIES_EXPANSION } from "./species-expansion.ts";
 
 export const SPECIES: SpeciesRecord[] = [...CORE_SPECIES, ...SPECIES_EXPANSION];
 
