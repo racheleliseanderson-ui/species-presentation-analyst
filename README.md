@@ -1,6 +1,6 @@
 # Species & Presentation Analyst
 
-**Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.4.0`
+**Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.5.0`
 
 TanStack Start + Nitro. Canonical host: [species.hookthehorizon.blog](https://species.hookthehorizon.blog/) (attach the domain on the Vercel project if it is still pending). Live now: [species-presentation-analyst.vercel.app](https://species-presentation-analyst.vercel.app/)
 
@@ -14,8 +14,9 @@ TanStack Start + Nitro. Canonical host: [species.hookthehorizon.blog](https://sp
 - Holding-water class is ecological structure, not a pin.
 - Temperature provenance stays visible. Air temperature is never substituted silently.
 - Packets move only on an explicit user action (`#packet=`). Incoming packets are inspected before they are applied. Outbound carries are inspected before they leave.
-- Presentation weighting can re-rank only families already reviewed for the declared species and water type. No condition may introduce an unreviewed family.
+- Presentation weighting can re-rank only families already reviewed for the declared species and water type. No condition or override may introduce an unreviewed family.
 - Relative family weights are model mechanics, **not probability, confidence of a bite, or a bite score**.
+- Species-specific overrides are reviewed deltas inside the six-axis model, not an escape hatch around it.
 - Species records may carry target status: `standard`, `regulated_context`, `conservation_sensitive`, or `non_target`.
 - `conservation_sensitive` and `non_target` records are biological context only and fail closed before presentation guidance is generated.
 - `regulated_context` records remain readable, but jurisdiction/regulation warnings are inserted into the evidence and invalidator chain.
@@ -31,9 +32,9 @@ A first-time user can open a worked example and leave with:
 
 Change one declared condition and the same reviewed model re-ranks. That is not a new guess.
 
-## Second intelligence layer · `SPW-1.0`
+## Second intelligence layer · `SPW-1.1`
 
-The presentation engine now ranks reviewed families through an explainable additive model:
+The presentation engine ranks reviewed families through an explainable additive model:
 
 **species × season × thermal state × water type × holding-water class × forage class → presentation-family weighting**
 
@@ -49,6 +50,50 @@ The species record supplies the only eligible presentation families and their ba
 Light remains a modest secondary context modifier so an existing declared condition is not discarded, but it is intentionally weaker than the six core axes and still cannot introduce an unreviewed family.
 
 Each ranked family carries a numeric **relative weight** plus an axis-by-axis delta trace. Those weights are only for ordering mechanical fit inside the reviewed family set. They are never converted into catch probability or bite likelihood.
+
+## Species-specific weighting overrides · `SPO-1.0`
+
+`SPW-1.1` adds a reviewed species-specific layer after the six generic axes and before the secondary light modifier.
+
+An override may be conditional on season, thermal state, water type, holding-water class, observed forage, or light. It can only change the weight of presentation families already present in that species' reviewed record. The applied rule ID and reason are written into the weight trace and outbound packet.
+
+The first override library contains **37 rules across 24 species**:
+
+- rainbow trout
+- brown trout
+- brook trout
+- cutthroat trout
+- lake trout
+- steelhead
+- Chinook salmon
+- Coho salmon
+- largemouth bass
+- smallmouth bass
+- spotted bass
+- crappie
+- bluegill
+- walleye
+- northern pike
+- muskellunge
+- yellow perch
+- channel catfish
+- common carp
+- striped bass
+- kokanee
+- lake whitefish
+- burbot
+- sauger
+
+Examples of distinctions the generic model no longer has to flatten:
+
+- observed baitfish can push **brown trout** toward cross-current/mobile prey mechanics while the same declaration can leave **rainbow trout** drift-first in a feeding seam;
+- **smallmouth bass + crustaceans + rock** gets a stronger substrate-contact adjustment than generic bass logic;
+- **summer lake trout + thermocline/basin** gets a stronger deep/suspended adjustment than generic coldwater-predator logic;
+- **summer largemouth + vegetation/wood** prioritizes cover-penetration and edge-tracking mechanics;
+- **walleye** separates bright-depth behavior from low-light mobile structure behavior;
+- **burbot** and **sauger** remain strongly bottom/current oriented rather than inheriting generic predator movement logic.
+
+The override library is intentionally separate from the species records so reviewed biological seed data remains auditable and override revisions can be tested/versioned independently.
 
 ## Target-status / jurisdiction layer
 
@@ -77,7 +122,7 @@ Version `HTH-1.0`. Public-safe. `privacy.containsCoordinates` is always `false`.
 
 Inbound hydrate from `window.location.hash` (`#packet=`). Nothing is applied until the user confirms. Outbound carry is a hash on the destination origin — never an automatic POST.
 
-Outbound packets now carry target status/context plus the `SPW-1.0` weighted family order so downstream tools can understand why a family was selected without receiving a bite score.
+Outbound packets carry target status/context, the `SPW-1.1` weighted family order, `SPO-1.0`, and any applied species-override IDs so downstream tools can understand why a family was selected without receiving a bite score.
 
 ## Scripts
 
@@ -89,7 +134,7 @@ npm run typecheck
 npm test
 ```
 
-Engine tests cover ordinary cases, six-axis weighting, holding-water re-ranking, observed-forage weighting, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
+Engine tests cover six-axis weighting, species-specific distinctions, holding-water re-ranking, observed-forage weighting, reviewed-family-only behavior, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
 
 ## Knowledge
 
@@ -103,4 +148,4 @@ The catalog is composed from the original reviewed core plus dated expansion bat
 
 Expansion 03 is the first catalog batch with explicit target-status metadata. Bull trout and wild anadromous Atlantic salmon are context-only. Lake sturgeon, paddlefish, bigmouth buffalo, and smallmouth buffalo are marked regulated-context records.
 
-Instrument ID: `HTH-SP-001` · schema `0.4.0` · app `0.4.0`
+Instrument ID: `HTH-SP-001` · schema `0.5.0` · app `0.5.0`
