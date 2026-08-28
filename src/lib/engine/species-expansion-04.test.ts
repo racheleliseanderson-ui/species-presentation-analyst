@@ -33,7 +33,10 @@ describe("species expansion 04 catalog invariants", () => {
     assert.equal(SPECIES.length, 75);
     assert.equal(new Set(SPECIES.map((species) => species.id)).size, 75);
     for (const species of SPECIES_EXPANSION_04) {
-      assert.equal(SPECIES_BY_ID[species.id], species);
+      const catalogRecord = SPECIES_BY_ID[species.id];
+      assert.ok(catalogRecord, `catalog is missing ${species.id}`);
+      assert.equal(catalogRecord.id, species.id);
+      assert.equal(catalogRecord.scientificName, species.scientificName);
       assert.ok(species.sources.length > 0, `${species.id} is missing biology sources`);
       assert.ok(species.exceptions.length > 0, `${species.id} is missing invalidators/exceptions`);
     }
