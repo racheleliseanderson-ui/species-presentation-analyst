@@ -13,6 +13,7 @@ import {
   type AdaptiveQuestion,
 } from "@/lib/engine/adaptive-guidance";
 import { interpret } from "@/lib/engine/infer";
+import { normalizeTemperatureRangeF } from "@/lib/engine/temperature";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { SPECIES_IMAGES_BY_ID } from "@/lib/knowledge/species-images";
@@ -33,7 +34,7 @@ type QuickReadProps = {
 };
 
 type TempMode = "unknown" | "exact" | "range";
-type SeasonSource = "date" | "packet" | "manual";
+type SeasonSource = "date" | "packet" | "manual" | "unknown";
 
 type QuickContext = {
   tripDate: string;
@@ -147,7 +148,12 @@ function contextRows(pending: Partial<ScenarioInput>) {
   if (pending.waterType) rows.push({ label: "Water", value: labelOf(pending.waterType) });
   if (pending.water?.jurisdiction) rows.push({ label: "Area", value: pending.water.jurisdiction });
   if (pending.water?.waterName) rows.push({ label: "Named water", value: pending.water.waterName });
-  if (pending.tempF != null) rows.push({ label: "Water temperature", value: `${pending.tempF}°F` });
+  const pendingRange = normalizeTemperatureRangeF(pending.tempRangeF);
+  if (pending.tempF != null) {
+    rows.push({ label: "Water temperature", value: `${pending.tempF}°F` });
+  } else if (pendingRange) {
+    rows.push({ label: "Water temperature", value: `${pendingRange[0]}–${pendingRange[1]}°F range` });
+  }
   if (pending.season) rows.push({ label: "Season", value: labelOf(pending.season) });
   if (pending.light && pending.light !== "unknown") rows.push({ label: "Light", value: labelOf(pending.light) });
   if (pending.flow && pending.flow !== "unknown") rows.push({ label: "Flow", value: labelOf(pending.flow) });
@@ -188,6 +194,10 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
       const band = TIME_BANDS.find((item) => item.id === saved.timeBand);
       if (band) api.patch({ light: band.light });
     }
+    if (saved.tempMode === "range" && saved.rangeLow.trim() && saved.rangeHigh.trim()) {
+      const range = normalizeTemperatureRangeF([Number(saved.rangeLow), Number(saved.rangeHigh)]);
+      if (range) api.patch({ tempF: null, tempRangeF: range, tempSource: "estimated" });
+    }
 
     if (typeof window === "undefined") return;
     const incoming = parseEnhancedIncomingPacket(window.location.hash);
@@ -214,20 +224,13 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   const result = input ? interpret(input) : null;
   const readableResult = result && !("error" in result) ? result : null;
 
-  const low = Number(context.rangeLow);
-  const high = Number(context.rangeHigh);
-  const hasValidRange =
-    context.tempMode === "range" &&
-    context.rangeLow.trim() !== "" &&
-    context.rangeHigh.trim() !== "" &&
-    Number.isFinite(low) &&
-    Number.isFinite(high);
+  const canonicalRange = input ? normalizeTemperatureRangeF(input.tempRangeF) : null;
   const rangeAssessment =
-    input && hasValidRange ? assessTemperatureRange(input, low, high) : null;
+    input && canonicalRange ? assessTemperatureRange(input, canonicalRange[0], canonicalRange[1]) : null;
 
   const adaptiveQuestion: AdaptiveQuestion | null =
     input && readableResult && followUpsAnswered < 2
-      ? nextAdaptiveQuestion(input, { hasTemperatureRange: Boolean(rangeAssessment) })
+      ? nextAdaptiveQuestion(input)
       : null;
 
   const canRead = Boolean(session.speciesId && session.water.waterType);
@@ -257,14 +260,46 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   }
 
   function useTripDate(value: string) {
-    patchContext({ tripDate: value, seasonSource: "date" });
-    if (value) session.patch({ season: seasonForDate(value) });
+    if (value) {
+      patchContext({ tripDate: value, seasonSource: "date" });
+      session.patch({ season: seasonForDate(value) });
+    } else {
+      patchContext({ tripDate: "", seasonSource: "unknown" });
+      session.patch({ season: "unknown" });
+    }
+    setShowResult(false);
+  }
+
+  function syncRange(rangeLow: string, rangeHigh: string) {
+    if (!rangeLow.trim() || !rangeHigh.trim()) {
+      session.patch({ tempF: null, tempRangeF: null, tempSource: "unknown" });
+      return;
+    }
+    const range = normalizeTemperatureRangeF([Number(rangeLow), Number(rangeHigh)]);
+    session.patch({
+      tempF: null,
+      tempRangeF: range,
+      tempSource: range ? "estimated" : "unknown",
+    });
+  }
+
+  function updateRange(field: "rangeLow" | "rangeHigh", value: string) {
+    const nextLow = field === "rangeLow" ? value : context.rangeLow;
+    const nextHigh = field === "rangeHigh" ? value : context.rangeHigh;
+    patchContext({ [field]: value });
+    syncRange(nextLow, nextHigh);
     setShowResult(false);
   }
 
   function setTempMode(mode: TempMode) {
     patchContext({ tempMode: mode });
-    if (mode !== "exact") session.patch({ tempF: null, tempSource: "unknown" });
+    if (mode === "unknown") {
+      session.patch({ tempF: null, tempRangeF: null, tempSource: "unknown" });
+    } else if (mode === "exact") {
+      session.patch({ tempRangeF: null });
+    } else {
+      syncRange(context.rangeLow, context.rangeHigh);
+    }
     setShowResult(false);
   }
 
@@ -274,6 +309,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
     const nextSpecies = pending.speciesId ?? current.speciesId;
     const nextWaterType = pending.waterType ?? pending.water?.waterType ?? current.waterType;
     const declarationChanged = nextSpecies !== current.speciesId || nextWaterType !== current.waterType;
+    const incomingRange = normalizeTemperatureRangeF(pending.tempRangeF);
 
     current.patch({
       speciesId: nextSpecies,
@@ -282,6 +318,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
       populationContext:
         pending.populationContext ?? (declarationChanged ? null : current.populationContext),
       tempF: pending.tempF === undefined ? current.tempF : pending.tempF,
+      tempRangeF: pending.tempRangeF === undefined ? current.tempRangeF : incomingRange,
       tempSource: pending.tempSource ?? current.tempSource,
       flow: pending.flow ?? current.flow,
       stillState: pending.stillState ?? current.stillState,
@@ -296,7 +333,9 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
 
     patchContext({
       timeBand: timeBandForLight(pending.light) ?? context.timeBand,
-      tempMode: pending.tempF != null ? "exact" : context.tempMode,
+      tempMode: incomingRange ? "range" : pending.tempF != null ? "exact" : context.tempMode,
+      rangeLow: incomingRange ? String(incomingRange[0]) : context.rangeLow,
+      rangeHigh: incomingRange ? String(incomingRange[1]) : context.rangeHigh,
       seasonSource: pending.season ? "packet" : context.seasonSource,
       tripDate: pending.season ? "" : context.tripDate,
     });
@@ -533,8 +572,12 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
               <select
                 value={session.season}
                 onChange={(event) => {
-                  session.patch({ season: event.target.value as Season });
-                  patchContext({ seasonSource: "manual", tripDate: "" });
+                  const season = event.target.value as Season;
+                  session.patch({ season });
+                  patchContext({
+                    seasonSource: season === "unknown" ? "unknown" : "manual",
+                    tripDate: "",
+                  });
                   setShowResult(false);
                 }}
                 className="mt-1 min-h-11 w-full rounded-[var(--radius-sm)] bg-subtle px-3 text-sm shadow-[var(--shadow-border)]"
@@ -549,7 +592,9 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 ? "Season was carried from an upstream Hook packet."
                 : context.seasonSource === "manual"
                   ? "Season was set manually."
-                  : `Season is derived visibly from ${context.tripDate || "the trip date"}; change it if local conditions make that label misleading.`}
+                  : context.seasonSource === "unknown"
+                    ? "Season is intentionally unknown, so the model applies no seasonal weighting."
+                    : `Season is derived visibly from ${context.tripDate || "the trip date"}; change it if local conditions make that label misleading.`}
             </p>
           </div>
         </section>
@@ -580,6 +625,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                   const value = event.target.value;
                   session.patch({
                     tempF: value === "" ? null : Number(value),
+                    tempRangeF: null,
                     tempSource: value === "" ? "unknown" : "user_measured",
                   });
                   setShowResult(false);
@@ -599,10 +645,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                   inputMode="decimal"
                   aria-label="Approximate low water temperature Fahrenheit"
                   value={context.rangeLow}
-                  onChange={(event) => {
-                    patchContext({ rangeLow: event.target.value });
-                    setShowResult(false);
-                  }}
+                  onChange={(event) => updateRange("rangeLow", event.target.value)}
                   placeholder="Low °F"
                   className="min-h-12 w-28 rounded-[var(--radius-sm)] bg-subtle px-3 font-mono text-sm shadow-[var(--shadow-border)]"
                 />
@@ -612,16 +655,13 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                   inputMode="decimal"
                   aria-label="Approximate high water temperature Fahrenheit"
                   value={context.rangeHigh}
-                  onChange={(event) => {
-                    patchContext({ rangeHigh: event.target.value });
-                    setShowResult(false);
-                  }}
+                  onChange={(event) => updateRange("rangeHigh", event.target.value)}
                   placeholder="High °F"
                   className="min-h-12 w-28 rounded-[var(--radius-sm)] bg-subtle px-3 font-mono text-sm shadow-[var(--shadow-border)]"
                 />
               </div>
               <p className="mt-2 text-xs text-dim">
-                The engine tests both ends. It does not silently turn the range into an invented midpoint.
+                The range is stored as range evidence. The engine evaluates the thermal states it spans and never silently converts it into a midpoint.
               </p>
             </div>
           )}
