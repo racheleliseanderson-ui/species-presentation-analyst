@@ -1,0 +1,60 @@
+name: Import reviewed species images
+
+on:
+  push:
+    branches:
+      - feature/species-expansion-04-75
+    paths:
+      - scripts/species-image-imports-04.json
+      - scripts/import-species-images.mjs
+      - .github/workflows/import-species-images.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/species-expansion-04-75
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install image processor
+        run: npm install --no-save --ignore-scripts=false sharp@0.34.3
+
+      - name: Download and optimize reviewed canonical images
+        run: node scripts/import-species-images.mjs scripts/species-image-imports-04.json
+
+      - name: Verify all 15 canonical and thumbnail assets exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          count_canonical=$(find public/species -type f -name canonical.webp | wc -l | tr -d ' ')
+          count_thumb=$(find public/species -type f -name thumb.webp | wc -l | tr -d ' ')
+          if [ "$count_canonical" -lt 15 ] || [ "$count_thumb" -lt 15 ]; then
+            echo "Expected at least 15 canonical and 15 thumbnail files; found canonical=$count_canonical thumb=$count_thumb"
+            exit 1
+          fi
+
+      - name: Commit repository-owned image assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/species
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+          git commit -m "Import reviewed canonical images for species expansion 04"
+          git push origin HEAD:feature/species-expansion-04-75
