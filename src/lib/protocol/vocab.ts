@@ -1,6 +1,6 @@
 export const INSTRUMENT_ID = "HTH-SP-001";
 export const INSTRUMENT_NAME = "Species & Presentation Analyst";
-export const APP_VERSION = "0.7.0";
+export const APP_VERSION = "0.8.0";
 export const PACKET_VERSION = "HTH-1.0";
 export const SCHEMA_VERSION = "0.7.0";
 export const REVIEWED_AT = "2026-08-27";
@@ -78,7 +78,7 @@ export const RIVER_HOLDING = [
   "tailwater",
   "shallow_flat",
 ] as const;
-export type RiverHolding = (typeof RIVER_HOLDING)[number];
+export type RiverHoldingClass = (typeof RIVER_HOLDING)[number];
 
 export const STILL_HOLDING = [
   "shallow_flat",
@@ -100,7 +100,7 @@ export const STILL_HOLDING = [
   "outlet",
   "thermocline_edge",
 ] as const;
-export type StillHolding = (typeof STILL_HOLDING)[number];
+export type StillHoldingClass = (typeof STILL_HOLDING)[number];
 
 export const FORAGE_CLASSES = [
   "aquatic_insects",
@@ -117,22 +117,42 @@ export const FORAGE_CLASSES = [
 ] as const;
 export type ForageClass = (typeof FORAGE_CLASSES)[number];
 
-export const CONFIDENCE = ["high", "moderate", "low"] as const;
-export type Confidence = (typeof CONFIDENCE)[number];
-
-export const EVIDENCE_CLASS = [
-  "probed",
-  "declared",
-  "device",
-  "user_measured",
-  "official_station",
-  "unknown",
+export const PRESENTATION_IDS = [
+  "dead_drift",
+  "tight_line_drift",
+  "swing",
+  "suspended_drift",
+  "bottom_contact_drift",
+  "upstream_retrieve",
+  "downstream_retrieve",
+  "cross_current_retrieve",
+  "pulse_jig",
+  "surface_drift",
+  "wake_skate",
+  "stationary_bait",
+  "horizontal_retrieve",
+  "stop_and_go",
+  "suspend_pause",
+  "vertical_jig",
+  "bottom_contact",
+  "slow_drag",
+  "drop_presentation",
+  "surface_retrieve",
+  "subsurface_slow_roll",
+  "suspended_stationary",
+  "trolling",
+  "live_natural_bait_suspension",
 ] as const;
-export type EvidenceClass = (typeof EVIDENCE_CLASS)[number];
+export type PresentationId = (typeof PRESENTATION_IDS)[number];
 
-export const LABELS: Record<string, string> = {
-  flowing: "Flowing water",
-  stillwater: "Stillwater",
+export const GROUPS = [
+  { id: "trout_salmon", label: "Trout & salmon" },
+  { id: "bass_panfish", label: "Bass & panfish" },
+  { id: "predator", label: "Predators" },
+  { id: "other", label: "Other freshwater" },
+] as const;
+
+const LABELS: Record<string, string> = {
   user_measured: "User measured",
   official_station: "Official station",
   estimated: "Estimated",
@@ -143,10 +163,10 @@ export const LABELS: Record<string, string> = {
   elevated: "Elevated",
   high: "High",
   stable: "Stable",
-  falling: "Falling",
   rising: "Rising",
+  falling: "Falling",
   turnover_suspected: "Turnover suspected",
-  stratified: "Stratified / thermocline known",
+  stratified: "Stratified",
   very_clear: "Very clear",
   clear: "Clear",
   lightly_stained: "Lightly stained",
@@ -169,7 +189,7 @@ export const LABELS: Record<string, string> = {
   fall: "Fall",
   late_fall: "Late fall",
   riffle: "Riffle",
-  riffle_to_run: "Riffle-to-run transition",
+  riffle_to_run: "Riffle → run",
   run: "Run",
   pool_head: "Pool head",
   pool_tail: "Pool tail",
@@ -195,7 +215,7 @@ export const LABELS: Record<string, string> = {
   rocky_shoreline: "Rocky shoreline",
   riprap: "Riprap",
   wood: "Wood",
-  dock_shade: "Dock / shade",
+  dock_shade: "Dock shade",
   basin: "Basin",
   suspended_open: "Suspended / open water",
   inlet: "Inlet",
@@ -217,20 +237,3 @@ export const LABELS: Record<string, string> = {
 export function labelOf(id: string): string {
   return LABELS[id] ?? id.replaceAll("_", " ");
 }
-
-export const REFUSES = [
-  "AI-generated bite scores",
-  "Catch probability",
-  "Hotspot maps",
-  "Social catch feeds",
-  "Anonymous crowdsourced locations",
-  "Automatic secret-spot learning",
-  "Automatic exact GPS collection",
-  "Best-lure-today catalogs",
-  "Black-box recommendations",
-  "Exact spawning aggregation locations",
-  "Vulnerable-fish targeting",
-  "Generic LLM-generated species biology",
-  "Rules without citations",
-  "Cross-app silent tracking",
-] as const;
