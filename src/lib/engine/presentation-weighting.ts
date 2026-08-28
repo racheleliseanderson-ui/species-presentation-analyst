@@ -110,6 +110,7 @@ const SEASON_BIASES: Record<Season, BiasTable> = {
     cross_current_retrieve: 2,
     horizontal_retrieve: 2,
   },
+  unknown: {},
 };
 
 const HOLDING_BIASES: HoldingBias[] = [
@@ -391,7 +392,7 @@ export function rankPresentationFamilies(
   }
 
   applyBias(candidates, "season", SEASON_BIASES[input.season], `${labelOf(input.season)} seasonal mechanics`);
-  if (species.spawning.seasons.includes(input.season)) {
+  if (input.season !== "unknown" && species.spawning.seasons.includes(input.season)) {
     for (const candidate of candidates) {
       addReason(
         candidate,
