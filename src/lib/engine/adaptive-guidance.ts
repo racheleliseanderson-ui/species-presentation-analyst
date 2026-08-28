@@ -1,4 +1,5 @@
 import { interpret } from "./infer.ts";
+import { normalizeTemperatureRangeF } from "./temperature.ts";
 import { SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import type {
   Interpretation,
@@ -69,9 +70,9 @@ function temperatureCouldMatter(input: ScenarioInput): boolean {
 
   return (
     distinctTopIds([
-      { ...input, tempF: coldProbe, tempSource: "estimated" },
-      { ...input, tempF: preferredMid, tempSource: "estimated" },
-      { ...input, tempF: warmProbe, tempSource: "estimated" },
+      { ...input, tempF: coldProbe, tempRangeF: null, tempSource: "estimated" },
+      { ...input, tempF: preferredMid, tempRangeF: null, tempSource: "estimated" },
+      { ...input, tempF: warmProbe, tempRangeF: null, tempSource: "estimated" },
     ]).length > 1
   );
 }
@@ -134,7 +135,8 @@ export function nextAdaptiveQuestion(
   input: ScenarioInput,
   options: { hasTemperatureRange?: boolean } = {},
 ): AdaptiveQuestion | null {
-  if (input.tempF == null && !options.hasTemperatureRange && temperatureCouldMatter(input)) {
+  const hasRange = normalizeTemperatureRangeF(input.tempRangeF) != null;
+  if (input.tempF == null && !hasRange && !options.hasTemperatureRange && temperatureCouldMatter(input)) {
     return {
       id: "temperature",
       prompt: "Do you know roughly how warm the water is?",
@@ -188,19 +190,20 @@ export function assessTemperatureRange(
   lowF: number,
   highF: number,
 ): RangeAssessment | null {
-  if (!Number.isFinite(lowF) || !Number.isFinite(highF)) return null;
-  const low = Math.min(lowF, highF);
-  const high = Math.max(lowF, highF);
-  if (low < 20 || high > 100 || high - low > 35) return null;
+  const range = normalizeTemperatureRangeF([lowF, highF]);
+  if (!range) return null;
+  const [low, high] = range;
 
   const lowResult = interpretation({
     ...input,
     tempF: low,
+    tempRangeF: null,
     tempSource: "estimated",
   });
   const highResult = interpretation({
     ...input,
     tempF: high,
+    tempRangeF: null,
     tempSource: "estimated",
   });
   const lowTop = lowResult?.presentations[0] ?? null;
