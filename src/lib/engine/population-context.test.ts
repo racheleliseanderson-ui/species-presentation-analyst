@@ -28,10 +28,10 @@ const smallmouthRiver: ScenarioInput = {
 };
 
 describe("RPC-1.0 catalog invariants", () => {
-  it("contains 15 unique first-wave profiles across eight species", () => {
+  it("contains 16 unique first-wave profiles across eight species", () => {
     assert.equal(REGIONAL_POPULATION_MODEL_VERSION, "RPC-1.0");
-    assert.equal(POPULATION_CONTEXT_PROFILES.length, 15);
-    assert.equal(new Set(POPULATION_CONTEXT_PROFILES.map((profile) => profile.id)).size, 15);
+    assert.equal(POPULATION_CONTEXT_PROFILES.length, 16);
+    assert.equal(new Set(POPULATION_CONTEXT_PROFILES.map((profile) => profile.id)).size, 16);
     assert.equal(new Set(POPULATION_CONTEXT_PROFILES.map((profile) => profile.speciesId)).size, 8);
   });
 
