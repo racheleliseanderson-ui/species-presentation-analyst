@@ -36,4 +36,35 @@ export const TARGET_CONTEXT_BY_SPECIES: Partial<Record<string, TargetContext>> =
     verifyLocalRules: true,
     note: "Regulated-context record. Verify current local harvest and legal-method rules and do not treat buffalo as carp by default.",
   },
+
+  oncorhynchus_nerka_anadromous: {
+    jurisdictionScope: "Alaska and Pacific Coast sockeye fisheries; some lower-48 ESUs are federally protected.",
+    verifyLocalRules: true,
+    note: "Regulated-context record. Verify current fishery status and population identity. Snake River and Ozette Lake ESA contexts must be explicitly selected and fail closed through RPC rather than inferred from a water name.",
+  },
+  oncorhynchus_gorbuscha: {
+    jurisdictionScope: "Pacific coastal and Alaska jurisdictions with season, retention, gear, and run-specific rules.",
+    verifyLocalRules: true,
+    note: "Regulated-context record. Returning freshwater adults are migration/spawning fish that stop feeding; verify current salmon rules and never convert redds or concentrations into target locations.",
+  },
+  oncorhynchus_keta: {
+    jurisdictionScope: "Alaska and Pacific Coast chum fisheries; Hood Canal summer-run and Columbia River ESUs are federally threatened.",
+    verifyLocalRules: true,
+    note: "Regulated-context record. Verify population and current salmon regulations. Listed-ESU contexts must be explicitly declared and fail closed through RPC.",
+  },
+  stenodus_leucichthys: {
+    jurisdictionScope: "Northern Alaska and Canadian river/lake systems with local sport, subsistence, and conservation rules.",
+    verifyLocalRules: true,
+    note: "Regulated-context record. Long-distance migrations and relatively discrete spawning areas must not become aggregation or location guidance.",
+  },
+  acipenser_transmontanus: {
+    jurisdictionScope: "Western North American white-sturgeon jurisdictions; legal opportunity and population status differ sharply among basins.",
+    verifyLocalRules: true,
+    note: "Regulated-context record. Verify season, retention/catch-and-release status, size/slot rules, tags, legal methods, and protected populations. Kootenai context must fail closed through RPC.",
+  },
+  atractosteus_spatula: {
+    jurisdictionScope: "Mississippi/Gulf drainage jurisdictions; harvest and trophy-fish protections vary substantially.",
+    verifyLocalRules: true,
+    note: "Regulated-context record. Verify current legal methods, harvest rules, and local conservation status; flooded spawning habitat and spawning concentrations are not target layers.",
+  },
 };
