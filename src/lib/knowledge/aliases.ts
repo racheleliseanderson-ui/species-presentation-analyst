@@ -26,7 +26,7 @@ export const ALIASES: Record<string, string[]> = {
   morone_chrysops: ["white bass", "sand bass", "stripes"],
   prosopium_williamsoni: ["whitefish", "mountain whitefish", "rocky mountain whitefish"],
   thymallus_arcticus: ["grayling", "arctic grayling"],
-  oncorhynchus_nerka_kokanee: ["kokanee", "sockeye", "koke"],
+  oncorhynchus_nerka_kokanee: ["kokanee", "koke"],
   coregonus_clupeaformis: ["lake whitefish", "humpback whitefish"],
   lota_lota: ["burbot", "eelpout", "ling", "mariah"],
   sander_canadensis: ["sauger", "sand pike"],
@@ -63,6 +63,22 @@ export const ALIASES: Record<string, string[]> = {
   ictiobus_cyprinellus: ["bigmouth buffalo", "bigmouth", "buffalo fish", "buffalo"],
   ictiobus_bubalus: ["smallmouth buffalo", "smallmouth buff", "buffalo sucker"],
   moxostoma_macrolepidotum: ["shorthead redhorse", "redhorse", "redfin sucker", "shorthead"],
+
+  oncorhynchus_nerka_anadromous: ["sockeye", "sockeye salmon", "red salmon", "blueback", "redfish"],
+  oncorhynchus_gorbuscha: ["pink salmon", "pink", "humpy", "humpback salmon"],
+  oncorhynchus_keta: ["chum", "chum salmon", "keta", "dog salmon", "calico salmon"],
+  salmo_salar_landlocked: ["landlocked salmon", "landlocked atlantic", "sebago salmon", "quananiche"],
+  salvelinus_alpinus: ["arctic char", "arctic charr", "char"],
+  salvelinus_malma: ["dolly varden", "dolly", "dollies"],
+  stenodus_leucichthys: ["sheefish", "inconnu", "shee"],
+  acipenser_transmontanus: ["white sturgeon", "pacific sturgeon"],
+  atractosteus_spatula: ["alligator gar", "gator gar", "giant gar"],
+  catostomus_commersonii: ["white sucker", "common sucker"],
+  catostomus_catostomus: ["longnose sucker", "long-nosed sucker"],
+  catostomus_macrocheilus: ["largescale sucker", "large-scale sucker"],
+  ameiurus_catus: ["white catfish", "white cat"],
+  lepomis_megalotis: ["longear sunfish", "longear", "creek perch", "sun perch"],
+  centrarchus_macropterus: ["flier", "flier sunfish"],
 };
 
 export function matchesSpecies(s: SpeciesRecord, q: string): boolean {
