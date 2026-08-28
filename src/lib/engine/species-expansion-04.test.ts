@@ -106,7 +106,10 @@ describe("IMG-1.0 canonical image library", () => {
     for (const image of SPECIES_IMAGES) {
       assert.ok(expansionIds.has(image.speciesId), `image points outside expansion: ${image.speciesId}`);
       assert.equal(image.identificationConfidence, "high");
-      assert.match(image.sourcePage, /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+      assert.match(
+        image.sourcePage,
+        /^https:\/\/(?:commons\.wikimedia\.org\/wiki\/File:|www\.fws\.gov\/media\/)/,
+      );
       assert.ok(image.license.length > 8);
       assert.ok(image.visualQa.length > 30);
       assert.ok(image.canonical.endsWith("/canonical.webp"));
