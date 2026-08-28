@@ -8,7 +8,14 @@ import {
   type TempSource,
   type WaterType,
 } from "./vocab";
-import type { ForagePacket, HthPacket, Interpretation, ScenarioInput, WaterPacket } from "./types";
+import type {
+  ForagePacket,
+  HthPacket,
+  Interpretation,
+  PopulationContextInput,
+  ScenarioInput,
+  WaterPacket,
+} from "./types";
 
 export function buildPacket(input: ScenarioInput, result: Interpretation): HthPacket {
   const holding =
@@ -26,6 +33,7 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       targetStatus: result.species.targetStatus ?? "standard",
       targetContext: result.species.targetContext,
     },
+    populationContext: result.populationContext,
     conditions: {
       waterType: input.waterType,
       tempF: input.tempF,
@@ -51,6 +59,8 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       weightingModel: result.weightingModel.version,
       speciesOverrideModel: result.weightingModel.speciesOverrideVersion,
       appliedSpeciesOverrides: result.weightingModel.appliedSpeciesOverrideIds,
+      regionalPopulationModel: result.weightingModel.regionalPopulationVersion,
+      appliedPopulationProfileId: result.weightingModel.appliedPopulationProfileId,
       weightedFamilies: result.presentations.map((p) => ({ id: p.id, weight: p.weight })),
     },
     equipmentRequirements: result.equipment,
@@ -72,6 +82,15 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
         ? [
             {
               source: `${result.weightingModel.speciesOverrideVersion ?? "species override"} reviewed species-specific weighting · ${result.weightingModel.appliedSpeciesOverrideIds.join(", ")}`,
+              evidenceClass: "declared" as const,
+              reviewedAt: result.species.reviewedAt,
+            },
+          ]
+        : []),
+      ...(result.populationContext
+        ? [
+            {
+              source: `${result.weightingModel.regionalPopulationVersion ?? "regional population context"} · ${result.populationContext.label} · ${result.populationContext.source}`,
               evidenceClass: "declared" as const,
               reviewedAt: result.species.reviewedAt,
             },
@@ -140,6 +159,18 @@ function coerceForage(raw: unknown): ForagePacket | null {
   };
 }
 
+function coercePopulationContext(raw: unknown): PopulationContextInput | null {
+  if (!raw || typeof raw !== "object") return null;
+  const o = raw as Record<string, unknown>;
+  const profileId =
+    typeof o.profileId === "string" && o.profileId.trim() ? o.profileId.trim() : null;
+  if (!profileId) return null;
+  return {
+    profileId,
+    source: o.source === "field_sense" ? "field_sense" : "user_declared",
+  };
+}
+
 function coerceWater(raw: unknown): WaterPacket {
   if (!raw || typeof raw !== "object") return {};
   const o = raw as Record<string, unknown>;
@@ -174,6 +205,7 @@ export function parseIncomingPacket(hash: string): Partial<ScenarioInput> | null
       speciesId,
       water,
       waterType,
+      populationContext: coercePopulationContext(data.populationContext),
       tempF,
       tempSource: coerceTempSource(conditions.tempSource),
       forage: coerceForage(observations.forage ?? data.forage),
