@@ -185,7 +185,16 @@ export const useSession = create<Store>((set, get) => ({
     set({ ...load(), hydrated: true });
   },
   patch: (partial) => {
-    const next = { ...get(), ...partial };
+    const current = get();
+    const speciesChanged =
+      partial.speciesId !== undefined && partial.speciesId !== current.speciesId;
+    const waterTypeChanged =
+      partial.waterType !== undefined && partial.waterType !== current.waterType;
+    const normalized: Partial<Session> =
+      (speciesChanged || waterTypeChanged) && partial.populationContext === undefined
+        ? { ...partial, populationContext: null }
+        : partial;
+    const next = { ...current, ...normalized };
     persist(next);
     set(next);
   },
