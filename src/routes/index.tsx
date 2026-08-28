@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Chrome } from "@/components/chrome";
 import { Instrument } from "@/components/instrument";
-import { QuickRead } from "@/components/quick-read";
+import { QuickReadV2 } from "@/components/quick-read-v2";
 import { FLEET } from "@/lib/protocol/packet";
 import { NEXT_REVIEW, REVIEWED_AT } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,10 @@ function Home() {
       <Chrome />
 
       <div className="mx-auto max-w-6xl px-4 pt-5 sm:px-6">
-        <div className="inline-flex rounded-full bg-subtle p-1 shadow-[var(--shadow-border)]" aria-label="Analysis depth">
+        <div
+          className="inline-flex rounded-full bg-subtle p-1 shadow-[var(--shadow-border)]"
+          aria-label="Analysis depth"
+        >
           <button
             type="button"
             onClick={() => setMode("quick")}
@@ -48,7 +51,7 @@ function Home() {
         </div>
       </div>
 
-      {mode === "quick" ? <QuickRead onOpenFull={() => setMode("full")} /> : <Instrument />}
+      {mode === "quick" ? <QuickReadV2 onOpenFull={() => setMode("full")} /> : <Instrument />}
 
       <footer className="border-t border-line px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
