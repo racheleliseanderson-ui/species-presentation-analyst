@@ -4,6 +4,7 @@ import { Plate } from "@/components/plate";
 import { Readout } from "@/components/readout";
 import { Button } from "@/components/ui/button";
 import { interpret } from "@/lib/engine/infer";
+import { POPULATION_CONTEXT_BY_ID } from "@/lib/engine/population-context";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { GROUPS, SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { parseIncomingPacket } from "@/lib/protocol/packet";
@@ -45,6 +46,15 @@ function incomingRows(p: Partial<ScenarioInput>): { label: string; value: string
   }
   if (p.water?.waterName) rows.push({ label: "Water", value: p.water.waterName });
   if (p.waterType) rows.push({ label: "Water type", value: labelOf(p.waterType) });
+  if (p.populationContext?.profileId) {
+    const profile = POPULATION_CONTEXT_BY_ID[p.populationContext.profileId];
+    rows.push({
+      label: "Population context",
+      value: profile
+        ? `${profile.label} · ${p.populationContext.source.replaceAll("_", " ")}`
+        : p.populationContext.profileId,
+    });
+  }
   if (p.tempF != null) rows.push({ label: "Temperature", value: `${p.tempF}°F` });
   if (p.tempSource) rows.push({ label: "Temp source", value: labelOf(p.tempSource) });
   if (p.forage) rows.push({ label: "Forage", value: labelOf(p.forage.class) });
@@ -96,7 +106,13 @@ export function Instrument() {
     if (typeof window === "undefined") return;
     const incoming = parseIncomingPacket(window.location.hash);
     if (!incoming) return;
-    if (incoming.speciesId || incoming.water?.waterId || incoming.water?.waterName || incoming.forage) {
+    if (
+      incoming.speciesId ||
+      incoming.water?.waterId ||
+      incoming.water?.waterName ||
+      incoming.populationContext ||
+      incoming.forage
+    ) {
       setPending(incoming);
     }
   }, []);
@@ -136,15 +152,24 @@ export function Instrument() {
               </div>
             ))}
           </dl>
-          <p className="mt-3 text-sm text-muted">Coordinates are refused. Apply only what you recognize.</p>
+          <p className="mt-3 text-sm text-muted">
+            Coordinates are refused. Population context is never inferred from the water name. Apply only what you recognize.
+          </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Button
               onClick={() => {
                 const cur = useSession.getState();
+                const nextSpecies = pending.speciesId ?? cur.speciesId;
+                const nextWaterType = pending.waterType ?? cur.waterType;
+                const declarationChanged =
+                  nextSpecies !== cur.speciesId || nextWaterType !== cur.waterType;
                 useSession.getState().patch({
-                  speciesId: pending.speciesId ?? cur.speciesId,
+                  speciesId: nextSpecies,
                   water: { ...cur.water, ...pending.water },
-                  waterType: pending.waterType ?? cur.waterType,
+                  waterType: nextWaterType,
+                  populationContext:
+                    pending.populationContext ??
+                    (declarationChanged ? null : cur.populationContext),
                   tempF: pending.tempF === undefined ? cur.tempF : pending.tempF,
                   tempSource: pending.tempSource ?? cur.tempSource,
                   forage: pending.forage ?? cur.forage,
