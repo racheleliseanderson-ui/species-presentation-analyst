@@ -20,6 +20,16 @@ async function upgradeImageManifest() {
       identificationConfidence: "high",
       visualQa: "USFWS species-labeled underwater photograph of migrating sockeye salmon. Adult body, caudal profile and salmon morphology are visible in natural river habitat; the image is identity/context evidence, not a location or run-strength recommendation.",
     },
+    oncorhynchus_gorbuscha: {
+      downloadUrl: "https://www.fws.gov/sites/default/files/images/2024-06/pink-salmon-dosewallips-r-aug-2023-e.jpg",
+      sourcePage: "https://www.fws.gov/media/pink-salmon-dosewallips-river-washington",
+      sourceOrg: "U.S. Fish and Wildlife Service",
+      creator: "Roger Tabor / USFWS",
+      license: "Public Domain — U.S. federal government work",
+      imageType: "photograph",
+      identificationConfidence: "high",
+      visualQa: "USFWS species-labeled 5184×3888 underwater photograph of pink salmon in the Dosewallips River. The leading fish shows the head, eye, operculum and adult body form in natural habitat; background fish are secondary context rather than identification evidence.",
+    },
     oncorhynchus_keta: {
       downloadUrl: "https://www.fws.gov/sites/default/files/2021-07/chum-salmon-ryan-hagerty-usfws.jpg",
       sourcePage: "https://www.fws.gov/media/chum-salmon",
@@ -55,6 +65,18 @@ async function upgradeImageRegistry() {
       'imageType: "photograph",\n    identificationConfidence: "high",\n    visualQa: "USFWS species-labeled underwater photograph of migrating sockeye salmon. Adult body and salmon morphology are visible in natural river habitat; the image is identity/context evidence, not a location or run-strength recommendation.",',
     )
     .replace(
+      'sourcePage: "https://commons.wikimedia.org/wiki/File:Oncorhynchus_gorbuscha_(RFEIMG-0280).jpg",',
+      'sourcePage: "https://www.fws.gov/media/pink-salmon-dosewallips-river-washington",',
+    )
+    .replace(
+      'sourceOrg: "U.S. Food and Drug Administration Regulatory Fish Encyclopedia",\n    creator: "U.S. Food and Drug Administration",',
+      'sourceOrg: "U.S. Fish and Wildlife Service",\n    creator: "Roger Tabor / USFWS",',
+    )
+    .replace(
+      'imageType: "specimen_photograph",\n    identificationConfidence: "high",\n    visualQa: "High-resolution whole-fish federal reference photograph; accepted as morphology evidence, not habitat/editorial photography.",',
+      'imageType: "photograph",\n    identificationConfidence: "high",\n    visualQa: "USFWS species-labeled 5184×3888 underwater photograph of pink salmon in the Dosewallips River. The leading fish shows adult head and body morphology in natural habitat; background fish are secondary context.",',
+    )
+    .replace(
       'sourcePage: "https://commons.wikimedia.org/wiki/File:Salmon_chum_fish_oncorhynchus_keta.jpg",',
       'sourcePage: "https://www.fws.gov/media/chum-salmon",',
     )
@@ -88,4 +110,4 @@ async function constrainLegacyYellowPerchOverride() {
   await writeFile(file, source);
 }
 
-console.log("Expansion 04 release cleanups applied: photos upgraded, SPO tests normalized, yellow-perch family leak removed.");
+console.log("Expansion 04 release cleanups applied: salmon photos upgraded, SPO tests normalized, yellow-perch family leak removed.");
