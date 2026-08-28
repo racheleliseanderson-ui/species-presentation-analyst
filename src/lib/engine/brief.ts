@@ -33,6 +33,9 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     `${species.commonNames[0]} · ${species.scientificName}`,
     `${temp} · ${labelOf(input.waterType)} · ${holding}`,
     water,
+    result.populationContext
+      ? `Population context · ${result.populationContext.label} · ${result.populationContext.systemArchetype.replaceAll("_", " ")} · ${result.weightingModel.regionalPopulationVersion ?? "RPC"}`
+      : "Population context · generic species record",
     "",
     "THE READING (not a bite prediction)",
     result.why.split(/(?<=\.)\s+(?=[A-Z0-9])/).join("\n"),
@@ -41,6 +44,9 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     ...result.positioning.map((p) => `· ${p.confidence}: ${p.text}`),
     "",
     `WEIGHTING ${result.weightingModel.version} · species × season × thermal × water type × holding × forage`,
+    result.populationContext
+      ? `${result.weightingModel.regionalPopulationVersion ?? "RPC"} · explicitly declared ${result.populationContext.label}`
+      : `${result.weightingModel.regionalPopulationVersion ?? "RPC"} · no regional/population profile applied`,
     "Relative family weights rank reviewed jobs only. They are not a bite score.",
     "",
     "PRESENTATION FAMILIES (jobs, not lure SKUs)",
@@ -80,6 +86,12 @@ export function packetSummary(input: ScenarioInput, result: Interpretation): { l
     { label: "Water", value: input.water.waterName || "Undeclared named public water" },
     { label: "Water type", value: labelOf(input.waterType) },
     {
+      label: "Population context",
+      value: result.populationContext
+        ? `${result.populationContext.label} · ${result.populationContext.lifeHistory.replaceAll("_", " ")}`
+        : "Generic species record",
+    },
+    {
       label: "Temperature",
       value: input.tempF == null ? "Unknown" : `${input.tempF}°F · ${labelOf(input.tempSource)}`,
     },
@@ -87,7 +99,10 @@ export function packetSummary(input: ScenarioInput, result: Interpretation): { l
     { label: "Season", value: labelOf(input.season) },
     { label: "Thermal", value: result.thermalState.replaceAll("_", " ") },
     { label: "Forage", value: input.forage ? labelOf(input.forage.class) : "undeclared" },
-    { label: "Weighting", value: `${result.weightingModel.version} · ranking only` },
+    {
+      label: "Weighting",
+      value: `${result.weightingModel.version} · ${result.weightingModel.regionalPopulationVersion ?? "RPC"} · ranking only`,
+    },
     { label: "Families", value: result.presentations.map((p) => p.label).join(" · ") },
     { label: "Coordinates", value: "Not included" },
     { label: "Bite score", value: "Not included" },
