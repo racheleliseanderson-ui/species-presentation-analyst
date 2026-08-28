@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, stat } from "node:fs/promises";
+import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import sharp from "sharp";
@@ -10,31 +10,24 @@ const commonsRedirect = (file) =>
   `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(file)}`;
 
 const minBytes = 20_000;
+const interRequestDelayMs = 1_500;
 
-for (const image of manifest) {
+for (const [index, image] of manifest.entries()) {
   const dir = path.join("public", "species", image.slug);
   const temp = path.join(dir, "source-download");
   const canonical = path.join(dir, "canonical.webp");
   const thumb = path.join(dir, "thumb.webp");
   await mkdir(dir, { recursive: true });
 
-  const response = await fetch(commonsRedirect(image.commonsFile), {
-    redirect: "follow",
-    headers: {
-      "user-agent": "HookTheHorizon-SpeciesImageImporter/1.0 (+https://species.hookthehorizon.blog)",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`${image.speciesId}: image download failed with HTTP ${response.status}`);
-  }
-
+  if (index > 0) await sleep(interRequestDelayMs);
+  const response = await fetchWithRetry(commonsRedirect(image.commonsFile), image.speciesId);
   const bytes = Buffer.from(await response.arrayBuffer());
+
   if (bytes.byteLength < minBytes) {
     throw new Error(`${image.speciesId}: source image is unexpectedly small (${bytes.byteLength} bytes)`);
   }
 
-  await BunWriteCompat(temp, bytes);
+  await writeFile(temp, bytes);
 
   const metadata = await sharp(temp).metadata();
   if (!metadata.width || !metadata.height) {
@@ -65,7 +58,29 @@ for (const image of manifest) {
   );
 }
 
-async function BunWriteCompat(filePath, bytes) {
-  const { writeFile } = await import("node:fs/promises");
-  await writeFile(filePath, bytes);
+async function fetchWithRetry(url, speciesId) {
+  const delays = [0, 2_500, 5_000, 10_000];
+  let lastStatus = 0;
+
+  for (const delay of delays) {
+    if (delay) await sleep(delay);
+    const response = await fetch(url, {
+      redirect: "follow",
+      headers: {
+        "user-agent": "HookTheHorizon-SpeciesImageImporter/1.0 (+https://species.hookthehorizon.blog)",
+        accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      },
+    });
+
+    if (response.ok) return response;
+    lastStatus = response.status;
+    if (![429, 500, 502, 503, 504].includes(response.status)) break;
+    console.warn(`${speciesId}: HTTP ${response.status}; retrying reviewed source`);
+  }
+
+  throw new Error(`${speciesId}: image download failed with HTTP ${lastStatus}`);
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
