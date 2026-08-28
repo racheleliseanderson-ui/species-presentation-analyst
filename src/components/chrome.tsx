@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { applyTheme, readTheme, THEMES, type ThemeId } from "@/lib/theme";
-import { APP_VERSION, INSTRUMENT_ID } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
 
 export function Chrome() {
@@ -75,8 +74,8 @@ export function Chrome() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl justify-between px-4 pb-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim sm:px-6">
-        <span>{INSTRUMENT_ID}</span>
-        <span>v {APP_VERSION} · local-only</span>
+        <span>Species & Presentation</span>
+        <span>local-only</span>
       </div>
     </header>
   );

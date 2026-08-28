@@ -126,7 +126,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       species.targetStatusNote ??
       "Presentation guidance is intentionally disabled for this record.";
     return {
-      error: `${species.commonNames[0]} is retained for biological context only. ${targetNote} This instrument will not emit presentation guidance for this species.`,
+      error: `Context only — no presentation guidance. ${species.commonNames[0]} is retained for biological context only. ${targetNote}`,
     };
   }
 
@@ -208,7 +208,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   const whyParts: string[] = [];
   whyParts.push(resolvedThermalLabel + ".");
   if (input.season === "unknown") {
-    whyParts.push("Season is undeclared, so no seasonal presentation delta is applied.");
+    whyParts.push("Season is undeclared, so season is not used to rank presentations.");
   }
   if (populationProfile) whyParts.push(populationProfile.note);
   whyParts.push(species.habitat.currentPreference);
@@ -249,9 +249,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (input.forage) {
     forageClasses = bump(forageClasses, input.forage.class);
     forageCertainty = input.forage.confidence != null && input.forage.confidence >= 0.7 ? "high" : "moderate";
-    forageNote = `Observed forage packet: ${labelOf(input.forage.class)}${
+    forageNote = `Observed forage: ${labelOf(input.forage.class)}${
       input.forage.hypothesis ? ` · ${input.forage.hypothesis.replaceAll("_", " ")}` : ""
-    }. The ${WEIGHTING_MODEL_VERSION} model is using that observation as the forage axis, not inventing a hatch.`;
+    }. That observation is used as the forage reason for ranking, not as a hatch invention.`;
   } else if (input.season === "fall" || input.season === "late_summer") {
     forageNote += " Seasonal terrestrial and baitfish classes may be plausible, but no forage weight is applied until one is observed or carried in.";
   }
@@ -342,10 +342,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       ? `regulated context · ${species.targetContext?.jurisdictionScope ?? "verify current jurisdiction rules"}`
       : "standard target record",
     populationProfile
-      ? `${REGIONAL_POPULATION_MODEL_VERSION} · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
+      ? `Population context · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
       : populationProfilesForSpecies(species.id, input.waterType).length > 0
-        ? `${REGIONAL_POPULATION_MODEL_VERSION} · no profile declared; generic species record retained`
-        : `${REGIONAL_POPULATION_MODEL_VERSION} · no reviewed profile required for this species/water declaration`,
+        ? `No regional population declared; generic species record retained`
+        : `No extra regional population context required for this species and water`,
     temperatureEvidenceLabel(input),
     `season · ${labelOf(input.season)}`,
     labelOf(input.waterType),
@@ -353,13 +353,13 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     holdingLabel,
     input.forage ? `${labelOf(input.forage.class)} observed` : forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
     thermalTrace,
-    `${WEIGHTING_MODEL_VERSION} · species × season × thermal × water type × holding × forage`,
+    `${species.commonNames[0]} ranked by species, season, water temperature, water type, holding water, and forage`,
     appliedSpeciesOverrides.length
-      ? `${SPECIES_OVERRIDE_MODEL_VERSION} · ${appliedSpeciesOverrides.map((rule) => rule.id).join(" + ")}`
-      : `${SPECIES_OVERRIDE_MODEL_VERSION} · no species-specific override matched`,
-    top ? `${top.label} relative weight ${top.weight} · ${topWeightTrace}` : "no reviewed presentation for this water type",
+      ? `Species-specific reasons applied for this water and season`
+      : `No extra species-specific ranking reasons matched this declaration`,
+    top ? `${top.label} leads this ranking · ${topWeightTrace}` : "no reviewed presentation for this water type",
     presentations.map((p) => p.label).join(" + ") || "no reviewed presentation for this water type",
-    "relative weights are ranking mechanics, never bite probability",
+    "relative ranks are reasons to prefer one family over another, never a bite probability",
   ];
 
   return {
@@ -381,7 +381,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       regionalPopulationVersion: REGIONAL_POPULATION_MODEL_VERSION,
       appliedPopulationProfileId: populationProfile?.id,
       coreAxes: CORE_WEIGHT_AXES,
-      note: "Relative family weights rank only presentation families already reviewed for this species and water type. Unknown season contributes no seasonal delta. A temperature range that crosses thermal states contributes no single thermal delta. Species-specific overrides and declared RPC profiles are reviewed deltas inside that set, not new families, locations, or probabilities.",
+      note: "Families are ranked from reviewed reasons for this species and water type. Unknown season is not used to rank. A temperature range that crosses thermal states is not treated as a single temperature. Species-specific reasons and declared population context adjust that ranking — they do not add new families, locations, or probabilities.",
     },
     equipment,
     connection,

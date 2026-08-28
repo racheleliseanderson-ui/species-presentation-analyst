@@ -20,7 +20,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     group: "trout_salmon",
     targetStatus: "conservation_sensitive",
     targetStatusNote:
-      "Lower-48 U.S. bull trout remain listed as threatened under the Endangered Species Act. This record is retained for biological context only; the instrument will not emit presentation guidance.",
+      "Lower-48 U.S. bull trout remain listed as threatened under the Endangered Species Act. Context only — no presentation guidance.",
     nativeContext:
       "Native coldwater char of northwestern North America with resident, fluvial, adfluvial, and anadromous life-history forms.",
     thermal: { preferredF: [44, 54], activeF: [38, 60], coldEdgeF: 34, warmEdgeF: 64 },

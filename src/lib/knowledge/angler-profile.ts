@@ -151,7 +151,7 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
         "schooling versus solitary behavior",
         "territoriality / aggression profile",
         "species-specific angling-pressure response",
-        "weather-front response beyond generic condition weighting",
+        "weather-front response beyond generic condition reasons",
         "predator-avoidance behavior",
       ],
     ),
@@ -160,7 +160,7 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
       "Diet",
       "What does it eat?",
       "partial",
-      "Primary forage classes are structured and can be strengthened by an observed Hatch Match packet. Seasonal and life-stage diet detail is not yet complete.",
+      "Primary forage classes are structured and can be strengthened by an observed Hatch Match note. Seasonal and life-stage diet detail is not yet complete.",
       [
         {
           label: "Reviewed forage classes",
@@ -204,7 +204,7 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
       "Seasonal calendar",
       "When should I fish for them?",
       "partial",
-      "Season is already a core weighting axis and spawning overlap is treated as caution, but AFP-1.0 does not yet claim a species-authored month-by-month calendar.",
+      "Season already helps rank presentations, and spawning overlap is treated as caution, but this profile does not yet claim a species-authored month-by-month calendar.",
       [
         { label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) },
         { label: "Spawning note", value: species.spawning.note },

@@ -280,7 +280,7 @@ What seems wrong:
           onClick={() => setInspect("hatch")}
           className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm text-fg"
         >
-          Observed something? Inspect Hatch packet
+          Observed something? Inspect Hatch notes
           <ArrowUpRight className="size-4" />
         </button>
       </Layer>
@@ -384,11 +384,11 @@ What seems wrong:
           </Button>
           <Button variant="ghost" onClick={() => copy("packet", json)}>
             <Copy className="size-4" />
-            {copied === "packet" ? "Copied JSON" : "Copy JSON packet"}
+            {copied === "packet" ? "Copied data" : "Copy data file"}
           </Button>
           <Button variant="ghost" onClick={downloadJson}>
             <Download className="size-4" />
-            Download JSON
+            Download data
           </Button>
         </div>
         <div className="mt-6 border-t border-line pt-5">
@@ -437,7 +437,7 @@ What seems wrong:
           )}
         </div>
         <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.12em] text-dim">
-          Packet HTH-1.0 · coordinates not stored · {result.species.reviewedAt}
+          Notes stay on this device · coordinates not stored · {result.species.reviewedAt}
         </p>
       </section>
 
@@ -473,7 +473,7 @@ What seems wrong:
                 href={carryHref[inspect]}
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-accent px-4 text-sm text-accent-fg no-underline"
               >
-                Send this packet
+                Send these notes
                 <ArrowUpRight className="size-4" />
               </a>
               <Button variant="ghost" onClick={() => setInspect(null)}>

@@ -12,7 +12,7 @@ function Boundary() {
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">The gaps are printed on the dial</p>
         <h1 className="mt-4 font-display text-5xl">What this instrument will not tell you</h1>
         <p className="mt-5 text-base text-muted">
-          Species & Presentation Analyst explains biological plausibility. It does not compete with catch-prediction products. These refusals are product rules, not preferences.
+          Species & Presentation Analyst explains biological plausibility. It does not compete with catch-prediction products. These limits are product rules, not preferences.
         </p>
         <ul className="mt-8 space-y-3">
           {REFUSES.map((r) => (

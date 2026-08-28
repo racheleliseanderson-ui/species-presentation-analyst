@@ -280,7 +280,7 @@ export const SPECIES_EXPANSION_04: SpeciesRecord[] = [
     stillPresentations: ["bottom_contact", "slow_drag", "stationary_bait"],
     exceptions: [
       "White sturgeon can live for many decades and local harvest/catch rules vary sharply; verify jurisdiction before any field action.",
-      "The Kootenai River population is federally endangered and must fail closed when that RPC context is explicitly declared.",
+      "The Kootenai River population is federally endangered. If that population is explicitly declared, this is context only — no presentation guidance.",
     ],
     geographic: "Pacific-slope large rivers and estuarine systems of western North America, plus landlocked populations including the Kootenai system.",
     sources: [
@@ -448,7 +448,7 @@ export const SPECIES_EXPANSION_04: SpeciesRecord[] = [
     stillPresentations: ["bottom_contact", "slow_drag", "live_natural_bait_suspension"],
     exceptions: [
       "Fresh/brackish tolerance is not a license to use this freshwater model in tidal saltwater without a reviewed salinity layer.",
-      "White catfish should not silently inherit brown/black/yellow bullhead nocturnal weighting.",
+      "White catfish should not silently inherit brown/black/yellow bullhead night-feeding reasons.",
     ],
     geographic: "Atlantic and Gulf coastal drainages of the eastern/southeastern United States, with introductions beyond the native range.",
     sources: [

@@ -241,8 +241,8 @@ describe("interpret", () => {
     const r = interpret({ ...brownSeam, speciesId: "salvelinus_confluentus", tempF: 48 });
     assert.ok("error" in r);
     if (!("error" in r)) return;
-    assert.match(r.error, /biological context only/i);
-    assert.match(r.error, /will not emit presentation guidance/i);
+    assert.match(r.error, /context only/i);
+    assert.match(r.error, /no presentation guidance/i);
   });
 
   it("keeps policy-only paddlefish at zero presentation families", () => {

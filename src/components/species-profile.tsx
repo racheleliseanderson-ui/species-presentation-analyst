@@ -1,7 +1,6 @@
 import { populationProfilesForSpecies } from "@/lib/engine/population-context";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
-  ANGLER_PROFILE_MODEL_VERSION,
   buildAnglerSpeciesProfile,
   type AnglerProfileStatus,
 } from "@/lib/knowledge/angler-profile";
@@ -37,7 +36,7 @@ export function SelectedSpeciesProfile() {
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-mark">
-                Species reference · {ANGLER_PROFILE_MODEL_VERSION}
+                Species reference
               </p>
               <h2 id="species-profile-heading" className="mt-1 font-display text-2xl text-fg">
                 Know the fish: {species.commonNames[0]}
@@ -66,12 +65,12 @@ export function SelectedSpeciesProfile() {
                   {populationProfiles.length} reviewed population {populationProfiles.length === 1 ? "profile is" : "profiles are"} available for this species{session.water.waterType ? " in the selected water type" : ""}: {populationProfiles.map((item) => item.label).join("; ")}.
                 </p>
                 <p className="mt-1 text-xs text-muted">
-                  RPC-1.0 only applies one when it is explicitly declared or carried from reviewed upstream context. Geography never silently chooses it.
+                  A named population is used only when you declare it, or when it is carried from a reviewed upstream reading. Geography never silently chooses it.
                 </p>
               </>
             ) : (
               <p className="mt-2 text-sm text-muted">
-                No live RPC-1.0 population profile is registered for this species{session.water.waterType ? " in the selected water type" : ""}. The reviewed species-level model remains active without inventing regional behavior.
+                No extra population context is registered for this species{session.water.waterType ? " in the selected water type" : ""}. The reviewed species-level reading remains active without inventing regional behavior.
               </p>
             )}
           </div>

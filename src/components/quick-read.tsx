@@ -456,7 +456,7 @@ export function QuickRead({ onOpenFull }: QuickReadProps) {
             <div className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)]">
               <p className="font-mono text-[10px] uppercase tracking-wider text-dim">This combination needs a different declaration</p>
               <h2 className="mt-2 font-display text-3xl">{result.error}</h2>
-              <p className="mt-3 text-sm text-muted">The model refuses rather than inventing a record. Change the water type or target.</p>
+              <p className="mt-3 text-sm text-muted">We will not invent a record. Change the water type or target.</p>
             </div>
           ) : (
             <>

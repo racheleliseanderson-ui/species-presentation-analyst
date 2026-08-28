@@ -446,7 +446,7 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["larger_prey_fish", "small_forage_fish", "amphibians"],
     flowingPresentations: ["cross_current_retrieve", "upstream_retrieve", "swing"],
     stillPresentations: ["stop_and_go", "horizontal_retrieve", "subsurface_slow_roll", "surface_retrieve"],
-    exceptions: ["This instrument will not emit aggregation or spawning-site recommendations."],
+    exceptions: ["This reading will not recommend aggregation or spawning-site locations."],
     geographic: "Limited native range plus managed inland waters; treat as geographically constrained.",
     sources: [
       { label: "State muskellunge management plans", class: SRC.agency },
@@ -558,7 +558,7 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "larger_prey_fish"],
     flowingPresentations: ["cross_current_retrieve", "downstream_retrieve", "swing", "pulse_jig"],
     stillPresentations: ["trolling", "horizontal_retrieve", "vertical_jig", "stop_and_go"],
-    exceptions: ["Do not treat surface busts as a license to run at the school with a boat. This instrument will not emit coordinates."],
+    exceptions: ["Do not treat surface busts as a license to run at the school with a boat. This reading does not include coordinates."],
     geographic: "Atlantic slope and landlocked reservoirs; thermal refuge in summer is a conservation constraint.",
     sources: [
       { label: "ASMFC / state striped bass plans", class: SRC.agency },

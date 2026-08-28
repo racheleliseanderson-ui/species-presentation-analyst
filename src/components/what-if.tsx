@@ -87,7 +87,7 @@ export function WhatIf({
               ))}
             </div>
             <p className="mt-2 text-xs text-dim">
-              Optional RPC-1.0 context. It is never inferred from a water name, jurisdiction, or coordinates; choose only a profile you recognize.
+              Optional population context. It is never inferred from a water name, jurisdiction, or coordinates; choose only a profile you recognize.
             </p>
           </div>
         )}
@@ -194,7 +194,7 @@ export function WhatIf({
             ))}
           </div>
           <p className="mt-2 text-xs text-dim">
-            {FORAGE_CLASSES.length} classes exist; these four change ranking most. Hatch Match carries a full observation packet.
+            {FORAGE_CLASSES.length} classes exist; these four change ranking most. Hatch Match can carry a forage observation.
           </p>
         </div>
       </div>

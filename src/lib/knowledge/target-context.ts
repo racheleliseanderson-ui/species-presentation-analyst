@@ -9,7 +9,7 @@ export const TARGET_CONTEXT_BY_SPECIES: Partial<Record<string, TargetContext>> =
   salvelinus_confluentus: {
     jurisdictionScope: "Lower 48 United States; status and legal opportunity vary elsewhere in the species range.",
     verifyLocalRules: true,
-    note: "Conservation-sensitive context only. Do not emit presentation guidance, migration bottlenecks, spawning tributaries, or redd locations.",
+    note: "Conservation-sensitive context only. No presentation guidance, migration bottlenecks, spawning tributaries, or redd locations.",
   },
   salmo_salar_anadromous: {
     jurisdictionScope: "Wild anadromous U.S. Atlantic salmon; this does not describe landlocked or stocked fisheries.",
@@ -40,7 +40,7 @@ export const TARGET_CONTEXT_BY_SPECIES: Partial<Record<string, TargetContext>> =
   oncorhynchus_nerka_anadromous: {
     jurisdictionScope: "Alaska and Pacific Coast sockeye fisheries; some lower-48 ESUs are federally protected.",
     verifyLocalRules: true,
-    note: "Regulated-context record. Verify current fishery status and population identity. Snake River and Ozette Lake ESA contexts must be explicitly selected and fail closed through RPC rather than inferred from a water name.",
+    note: "Regulated-context record. Verify current fishery status and population identity. Snake River and Ozette Lake ESA contexts must be explicitly selected rather than inferred from a water name.",
   },
   oncorhynchus_gorbuscha: {
     jurisdictionScope: "Pacific coastal and Alaska jurisdictions with season, retention, gear, and run-specific rules.",
@@ -50,7 +50,7 @@ export const TARGET_CONTEXT_BY_SPECIES: Partial<Record<string, TargetContext>> =
   oncorhynchus_keta: {
     jurisdictionScope: "Alaska and Pacific Coast chum fisheries; Hood Canal summer-run and Columbia River ESUs are federally threatened.",
     verifyLocalRules: true,
-    note: "Regulated-context record. Verify population and current salmon regulations. Listed-ESU contexts must be explicitly declared and fail closed through RPC.",
+    note: "Regulated-context record. Verify population and current salmon regulations. Listed-ESU contexts must be explicitly declared.",
   },
   stenodus_leucichthys: {
     jurisdictionScope: "Northern Alaska and Canadian river/lake systems with local sport, subsistence, and conservation rules.",
@@ -60,7 +60,7 @@ export const TARGET_CONTEXT_BY_SPECIES: Partial<Record<string, TargetContext>> =
   acipenser_transmontanus: {
     jurisdictionScope: "Western North American white-sturgeon jurisdictions; legal opportunity and population status differ sharply among basins.",
     verifyLocalRules: true,
-    note: "Regulated-context record. Verify season, retention/catch-and-release status, size/slot rules, tags, legal methods, and protected populations. Kootenai context must fail closed through RPC.",
+    note: "Regulated-context record. Verify season, retention/catch-and-release status, size/slot rules, tags, legal methods, and protected populations. Kootenai context must be explicitly declared.",
   },
   atractosteus_spatula: {
     jurisdictionScope: "Mississippi/Gulf drainage jurisdictions; harvest and trophy-fish protections vary substantially.",

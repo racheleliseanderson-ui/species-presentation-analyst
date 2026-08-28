@@ -56,7 +56,7 @@ export const POPULATION_CONTEXT_CANDIDATES_04: PopulationContextCandidate[] = [
     waterTypes: ["flowing", "stillwater"],
     targetStatusEscalation: "conservation_sensitive",
     rationale: "Snake River sockeye are endangered and Ozette Lake sockeye are threatened under the ESA.",
-    constraints: ["Must fail closed when explicitly selected.", "No migration bottlenecks, spawning lakes/tributaries, or critical-habitat targeting."],
+    constraints: ["Context only — no presentation guidance when explicitly selected.", "No migration bottlenecks, spawning lakes/tributaries, or critical-habitat targeting."],
     sources: [
       { label: "NOAA Fisheries Sockeye Salmon protected-ESU profile", class: "agency" },
     ],
@@ -110,7 +110,7 @@ export const POPULATION_CONTEXT_CANDIDATES_04: PopulationContextCandidate[] = [
     waterTypes: ["flowing"],
     targetStatusEscalation: "conservation_sensitive",
     rationale: "Hood Canal summer-run and Columbia River chum ESUs are ESA-threatened.",
-    constraints: ["Must fail closed when explicitly selected.", "No critical-habitat, spawning, or migration-concentration guidance."],
+    constraints: ["Context only — no presentation guidance when explicitly selected.", "No critical-habitat, spawning, or migration-concentration guidance."],
     sources: [
       { label: "NOAA Fisheries Chum Salmon protected-ESU profile", class: "agency" },
     ],
@@ -250,7 +250,7 @@ export const POPULATION_CONTEXT_CANDIDATES_04: PopulationContextCandidate[] = [
     waterTypes: ["flowing", "stillwater"],
     targetStatusEscalation: "conservation_sensitive",
     rationale: "The Kootenai River white sturgeon population is federally endangered and has severe recruitment constraints.",
-    constraints: ["Must fail closed when explicitly selected.", "No critical habitat, spawning reach, or migration-location output."],
+    constraints: ["Context only — no presentation guidance when explicitly selected.", "No critical habitat, spawning reach, or migration-location output."],
     sources: [
       { label: "U.S. Fish and Wildlife Service Kootenai River White Sturgeon species/recovery profile", class: "agency" },
     ],

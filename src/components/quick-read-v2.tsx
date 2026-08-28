@@ -589,11 +589,11 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
             </label>
             <p className="max-w-md pb-2 text-xs text-dim">
               {context.seasonSource === "packet"
-                ? "Season was carried from an upstream Hook packet."
+                ? "Season was carried from an upstream Hook reading."
                 : context.seasonSource === "manual"
                   ? "Season was set manually."
                   : context.seasonSource === "unknown"
-                    ? "Season is intentionally unknown, so the model applies no seasonal weighting."
+                    ? "Season is intentionally unknown, so season is not used to rank presentations."
                     : `Season is derived visibly from ${context.tripDate || "the trip date"}; change it if local conditions make that label misleading.`}
             </p>
           </div>
@@ -692,7 +692,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
             <div className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)]">
               <p className="font-mono text-[10px] uppercase tracking-wider text-dim">This combination needs a different declaration</p>
               <h2 className="mt-2 font-display text-3xl">{result.error}</h2>
-              <p className="mt-3 text-sm text-muted">The model refuses rather than inventing a record. Change the water type or target.</p>
+              <p className="mt-3 text-sm text-muted">We will not invent a record. Change the water type or target.</p>
             </div>
           ) : (
             <>

@@ -142,7 +142,7 @@ export function Instrument() {
       {pending && (
         <section className="no-print mb-8 instrument-rule rounded-[var(--radius-lg)] bg-elevated p-5 sm:p-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-            A packet arrived · nothing applied yet
+            Notes arrived · nothing applied yet
           </p>
           <h2 className="mt-2 font-display text-2xl">Inspect before using these fields</h2>
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
@@ -199,13 +199,13 @@ export function Instrument() {
         <section className="stagger-in mb-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">
-              HTH-SP-001 · biology before bravado
+              Biology before bravado
             </p>
             <h1 className="mt-4 max-w-xl font-display text-5xl text-fg sm:text-6xl">
               What is this species plausibly doing here?
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted">
-              You'll leave with a presentation family, a holding-water class, and a packet the rest of the suite can read. Not a lure SKU. Not a bite score.
+              You'll leave with a presentation family, a holding-water class, and a brief the rest of the suite can read. Not a lure SKU. Not a bite score.
             </p>
             <div className="mt-6 instrument-rule max-w-xl rounded-[var(--radius-md)] bg-elevated p-5 text-sm text-muted">
               No bite scores. No hotspots. No exact lures. A reviewed record, a declared water, and a reading you can falsify.
@@ -333,7 +333,7 @@ export function Instrument() {
             {species ? species.commonNames[0] : "Declare water"}
           </h2>
           <p className="text-sm text-muted">
-            Name a public water if you want the packet to carry it. Water type is required. No coordinates.
+            Name a public water if you want the brief to carry it. Water type is required. No coordinates.
           </p>
           <label className="block">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">

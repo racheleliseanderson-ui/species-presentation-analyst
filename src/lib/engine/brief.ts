@@ -1,5 +1,5 @@
 import type { Interpretation, ScenarioInput } from "../protocol/types.ts";
-import { INSTRUMENT_ID, PACKET_VERSION, labelOf } from "../protocol/vocab.ts";
+import { labelOf } from "../protocol/vocab.ts";
 import { temperatureEvidenceLabel } from "./temperature.ts";
 
 export function freshness(
@@ -34,7 +34,7 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     `${temp} · ${labelOf(input.waterType)} · ${holding}`,
     water,
     result.populationContext
-      ? `Population context · ${result.populationContext.label} · ${result.populationContext.systemArchetype.replaceAll("_", " ")} · ${result.weightingModel.regionalPopulationVersion ?? "RPC"}`
+      ? `Population context · ${result.populationContext.label} · ${result.populationContext.systemArchetype.replaceAll("_", " ")}`
       : "Population context · generic species record",
     "",
     "THE READING (not a bite prediction)",
@@ -43,11 +43,11 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     "MOST PLAUSIBLE POSITIONING",
     ...result.positioning.map((p) => `· ${p.confidence}: ${p.text}`),
     "",
-    `WEIGHTING ${result.weightingModel.version} · species × season × thermal × water type × holding × forage`,
+    "RANKED BY species, season, water temperature, water type, holding water, and forage",
     result.populationContext
-      ? `${result.weightingModel.regionalPopulationVersion ?? "RPC"} · explicitly declared ${result.populationContext.label}`
-      : `${result.weightingModel.regionalPopulationVersion ?? "RPC"} · no regional/population profile applied`,
-    "Relative family weights rank reviewed jobs only. They are not a bite score.",
+      ? `Declared population context · ${result.populationContext.label}`
+      : "No extra regional population context applied",
+    "Relative family ranks are reasons to prefer one job over another. They are not a bite score.",
     "",
     "PRESENTATION FAMILIES (jobs, not lure SKUs)",
     ...result.presentations.map(
@@ -66,7 +66,7 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     `Record ${freshness(species.reviewedAt, species.nextReviewAt)} · reviewed ${species.reviewedAt} · next ${species.nextReviewAt}`,
     ...species.sources.map((s) => `Source · ${s.class.replaceAll("_", " ")} · ${s.label}`),
     "",
-    `${INSTRUMENT_ID} · packet ${PACKET_VERSION} · coordinates not stored`,
+    "Coordinates not stored",
     "This is an account of plausibility, not a prediction that fish will bite.",
   ];
   return lines.join("\n");
@@ -100,8 +100,8 @@ export function packetSummary(input: ScenarioInput, result: Interpretation): { l
     { label: "Thermal", value: result.thermalState.replaceAll("_", " ") },
     { label: "Forage", value: input.forage ? labelOf(input.forage.class) : "undeclared" },
     {
-      label: "Weighting",
-      value: `${result.weightingModel.version} · ${result.weightingModel.regionalPopulationVersion ?? "RPC"} · ranking only`,
+      label: "Ranked by",
+      value: "species, season, water temperature, water type, holding water, and forage",
     },
     { label: "Families", value: result.presentations.map((p) => p.label).join(" · ") },
     { label: "Coordinates", value: "Not included" },
