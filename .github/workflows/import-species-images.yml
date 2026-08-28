@@ -7,6 +7,8 @@ on:
     paths:
       - scripts/species-image-imports-04.json
       - scripts/import-species-images.mjs
+      - scripts/apply-species-image-ui-04.mjs
+      - scripts/apply-species-release-docs-04.mjs
       - .github/workflows/import-species-images.yml
 
 permissions:
@@ -45,8 +47,14 @@ jobs:
             exit 1
           fi
 
-      - name: Run release-gate tests
-        run: npm test
+      - name: Surface reviewed images in species picker
+        run: node scripts/apply-species-image-ui-04.mjs
+
+      - name: Update release documentation
+        run: node scripts/apply-species-release-docs-04.mjs
+
+      - name: Run engine release-gate tests
+        run: node --experimental-strip-types --test src/lib/engine/infer.test.ts src/lib/engine/population-context.test.ts src/lib/engine/species-expansion-04.test.ts
 
       - name: Typecheck
         run: npm run typecheck
@@ -54,15 +62,15 @@ jobs:
       - name: Build production bundle
         run: npm run build
 
-      - name: Commit repository-owned image assets
+      - name: Commit repository-owned image assets and UI integration
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/species
+          git add public/species src/components/instrument.tsx README.md
           if git diff --cached --quiet; then
-            echo "No image changes to commit."
+            echo "No generated release changes to commit."
             exit 0
           fi
           git commit -m "Import reviewed canonical images for species expansion 04"
