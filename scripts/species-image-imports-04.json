@@ -3,14 +3,15 @@
     "speciesId": "oncorhynchus_nerka_anadromous",
     "slug": "sockeye-salmon",
     "commonsFile": "Oncorhynchus nerka.jpg",
-    "sourcePage": "https://commons.wikimedia.org/wiki/File:Oncorhynchus_nerka.jpg",
+    "sourcePage": "https://www.fws.gov/media/sockeye-salmon-68",
     "sourceOrg": "U.S. Fish and Wildlife Service",
-    "creator": "Timothy Knepp / USFWS",
+    "creator": "Ryan Hagerty / USFWS",
     "license": "Public Domain — U.S. federal government work",
-    "imageType": "scientific_illustration",
+    "imageType": "photograph",
     "identificationConfidence": "high",
-    "visualQa": "Featured Commons image; full lateral sockeye morphology is visible with fins, head, flank and caudal profile unobstructed. Canonical identity image only; coloration should not be read as population or exact run timing.",
-    "reviewedAt": "2026-08-27"
+    "visualQa": "USFWS species-labeled underwater photograph of migrating sockeye salmon. Adult body, caudal profile and salmon morphology are visible in natural river habitat; the image is identity/context evidence, not a location or run-strength recommendation.",
+    "reviewedAt": "2026-08-27",
+    "downloadUrl": "https://www.fws.gov/sites/default/files/images/2024-03-6/30592.jpg"
   },
   {
     "speciesId": "oncorhynchus_gorbuscha",
@@ -29,14 +30,15 @@
     "speciesId": "oncorhynchus_keta",
     "slug": "chum-salmon",
     "commonsFile": "Salmon chum fish oncorhynchus keta.jpg",
-    "sourcePage": "https://commons.wikimedia.org/wiki/File:Salmon_chum_fish_oncorhynchus_keta.jpg",
+    "sourcePage": "https://www.fws.gov/media/chum-salmon",
     "sourceOrg": "U.S. Fish and Wildlife Service",
-    "creator": "Timothy Knepp / USFWS",
-    "license": "Public Domain",
-    "imageType": "scientific_illustration",
+    "creator": "Ryan Hagerty / USFWS",
+    "license": "Public Domain — U.S. federal government work",
+    "imageType": "photograph",
     "identificationConfidence": "high",
-    "visualQa": "Clean full lateral chum salmon illustration with unobstructed body and fin morphology. Selected instead of a Commons file whose filename said keta but description identified coho.",
-    "reviewedAt": "2026-08-27"
+    "visualQa": "USFWS species-labeled underwater chum salmon photograph. The characteristic adult freshwater body pattern and full lateral form are visible in natural habitat; background fish do not change the identity assignment.",
+    "reviewedAt": "2026-08-27",
+    "downloadUrl": "https://www.fws.gov/sites/default/files/2021-07/chum-salmon-ryan-hagerty-usfws.jpg"
   },
   {
     "speciesId": "salmo_salar_landlocked",

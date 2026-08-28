@@ -1,6 +1,6 @@
 # Species & Presentation Analyst
 
-**Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.7.0`
+**Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.8.0`
 
 TanStack Start + Nitro. **Live now:** [species-presentation-analyst.vercel.app](https://species-presentation-analyst.vercel.app/). Canonical host `species.hookthehorizon.blog` is not attached to the Vercel project yet — Launch from Ops uses the Vercel URL until it is.
 
@@ -55,11 +55,11 @@ Light remains a modest secondary context modifier so an existing declared condit
 
 Each ranked family carries a numeric **relative weight** plus an axis-by-axis delta trace. Those weights are only for ordering mechanical fit inside the reviewed family set. They are never converted into catch probability or bite likelihood.
 
-## Species-specific weighting overrides · `SPO-1.1`
+## Species-specific weighting overrides · `SPO-1.2`
 
-`SPO-1.1` composes the original `SPO-1.0` library with a second reviewed expansion. The result is explicit coverage for **all 60 species records**.
+`SPO-1.2` composes the original `SPO-1.0` library, the `SPO-1.1` expansion, and expansion 04. The result is explicit coverage for **all 75 species records**.
 
-- **57 records use weighted species-specific rules.** Their reviewed presentation families can receive additional deltas for biologically important combinations of season, thermal state, water type, holding-water class, observed forage, or light.
+- **72 records use weighted species-specific rules.** Their reviewed presentation families can receive additional deltas for biologically important combinations of season, thermal state, water type, holding-water class, observed forage, or light.
 - **3 records are policy-only coverage:** bull trout, wild anadromous Atlantic salmon, and paddlefish. They are counted deliberately without manufacturing unreachable presentation rules. Bull trout and wild anadromous Atlantic salmon remain context-only; paddlefish remains a regulated filter-feeding record with no capture-method family output.
 - Every applied rule ID and reason is written into the weight trace and outbound packet.
 - `targetStatus` / `targetContext` evaluate before ordinary presentation guidance, so override coverage cannot bypass conservation or jurisdiction policy.
@@ -67,6 +67,8 @@ Each ranked family carries a numeric **relative weight** plus an axis-by-axis de
 The first `SPO-1.0` pass covered rainbow trout, brown trout, brook trout, cutthroat trout, lake trout, steelhead, Chinook salmon, Coho salmon, largemouth bass, smallmouth bass, spotted bass, crappie, bluegill, walleye, northern pike, muskellunge, yellow perch, channel catfish, common carp, striped bass, kokanee, lake whitefish, burbot, and sauger.
 
 `SPO-1.1` adds the remaining records: white bass, mountain whitefish, Arctic grayling, blue catfish, flathead catfish, freshwater drum, pumpkinseed, redear sunfish, green sunfish, rock bass, chain pickerel, bowfin, longnose gar, spotted gar, brown bullhead, black bullhead, cisco, rainbow smelt, white perch, American eel, American shad, bull trout, wild anadromous Atlantic salmon, lake sturgeon, paddlefish, redbreast sunfish, warmouth, yellow bullhead, shortnose gar, yellow bass, hybrid striped bass, goldeye, mooneye, bigmouth buffalo, smallmouth buffalo, and shorthead redhorse.
+
+`SPO-1.2` adds sockeye salmon (anadromous), pink salmon, chum salmon, landlocked Atlantic salmon, Arctic char, Dolly Varden, sheefish/inconnu, white sturgeon, alligator gar, white sucker, longnose sucker, largescale sucker, white catfish, longear sunfish, and flier. Anadromous sockeye is a separate record from kokanee; `sockeye` no longer aliases to the kokanee record.
 
 Examples of distinctions now encoded:
 
@@ -84,7 +86,7 @@ The override modules remain separate from the species seed records so reviewed b
 
 ## Regional / population context · `RPC-1.0`
 
-`RPC-1.0` is a third, optional contextual refinement layered **after the reviewed species record and `SPO-1.1`**. It answers a different question: not merely “what species is this?” but “which reviewed life-history/system archetype are we actually talking about?”
+`RPC-1.0` is a third, optional contextual refinement layered **after the reviewed species record and `SPO-1.2`**. It answers a different question: not merely “what species is this?” but “which reviewed life-history/system archetype are we actually talking about?”
 
 A population profile may refine the relative weights of the species' already-approved presentation families and may add population-specific positioning notes and invalidators. It **cannot**:
 
@@ -95,6 +97,8 @@ A population profile may refine the relative weights of the species' already-app
 - turn regional biology into catch probability.
 
 If a species/water declaration has reviewed RPC profiles but the user does not declare one, the engine keeps the generic species record and records **regional / population context** as an unresolved variable. A mismatched profile fails closed instead of being coerced onto another species or water type.
+
+Expansion 04 also registers **14 reviewed RPC candidates** for the new species where life-history or population status materially changes interpretation. They are deliberately inactive in `RPC-1.0`: candidates such as managed vs ESA-listed sockeye/chum and western managed vs endangered Kootenai white sturgeon document the next reviewed RPC release without silently changing a live reading. Candidate target status may only become more restrictive; it can never relax the species-level status.
 
 The first wave contains **16 reviewed profiles across 8 species**:
 
@@ -135,11 +139,19 @@ Records that need extra control may also carry structured `targetContext` with:
 - `verifyLocalRules`
 - `note`
 
-The structured layer currently covers bull trout, wild anadromous Atlantic salmon, lake sturgeon, paddlefish, bigmouth buffalo, and smallmouth buffalo. It is composed at catalog time so the underlying reviewed seed batches stay auditable.
+The structured layer covers bull trout, wild anadromous Atlantic salmon, lake sturgeon, paddlefish, bigmouth buffalo, smallmouth buffalo, sockeye salmon, pink salmon, chum salmon, sheefish, white sturgeon, and alligator gar. It is composed at catalog time so the underlying reviewed seed batches stay auditable.
 
 ## Intelligence chain
 
 Field Sense (named public water + optional explicit population context) → **this instrument** (species + population archetype + presentation families) → Hatch Match (observed forage) / Tackle Link (system job) / Knot Analyst (connection job) / Rig Signal (device question).
+
+## Canonical species images · `IMG-1.0`
+
+Expansion 04 introduces a repository-owned canonical image registry. Each of the 15 new species has an optimized local `canonical.webp` and `thumb.webp` under `public/species/<slug>/`, plus source organization, creator, license, image type, identification confidence, visual-QA note, and review date in `src/lib/knowledge/species-images.ts`.
+
+Identity images are authoritative photographs, federal reference/specimen photographs, or scientifically reliable public-domain/CC0 illustrations. AI imagery is not used as the canonical identification authority. The image importer preserves aspect ratio, does not enlarge small originals, creates a maximum 2200-pixel canonical WebP and 900-pixel thumbnail, and keeps the exact reviewed source provenance in `scripts/species-image-imports-04.json`.
+
+The species picker displays the repository thumbnail when a reviewed image exists. The remaining 60 legacy species stay text-only until their canonical assets receive the same provenance and visual-QA treatment; the UI does not fabricate placeholders.
 
 ## Packet
 
@@ -147,7 +159,7 @@ Version `HTH-1.0`. Public-safe. `privacy.containsCoordinates` is always `false`.
 
 Inbound hydrate from `window.location.hash` (`#packet=`). Nothing is applied until the user confirms. Outbound carry is a hash on the destination origin — never an automatic POST.
 
-Outbound packets carry target status/context, the `SPW-1.1` weighted family order, `SPO-1.1`, applied species-override IDs, and—when explicitly declared—`RPC-1.0` population context and provenance. Downstream tools can understand why a family was selected without receiving a bite score or a location layer.
+Outbound packets carry target status/context, the `SPW-1.1` weighted family order, `SPO-1.2`, applied species-override IDs, and—when explicitly declared—`RPC-1.0` population context and provenance. Downstream tools can understand why a family was selected without receiving a bite score or a location layer.
 
 ## Scripts
 
@@ -159,18 +171,19 @@ npm run typecheck
 npm test
 ```
 
-Engine tests cover six-axis weighting, species-specific distinctions, full 60-record override coverage, policy-only records, RPC profile integrity and family containment, explicit-vs-undeclared population behavior, profile/species/water mismatch fail-closed behavior, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
+Engine tests cover six-axis weighting, species-specific distinctions, full 75-record override coverage, policy-only records, expansion-04 alias separation, RPC candidate monotonicity, canonical-image registration, RPC profile integrity and family containment, explicit-vs-undeclared population behavior, profile/species/water mismatch fail-closed behavior, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
 
 ## Knowledge
 
-60 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`, `wiper`, `spoonbill`) resolve to reviewed records. Review date and next-review date are printed on the reading. Cadence: 90 days.
+75 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`, `wiper`, `spoonbill`, `sockeye`, `dolly`, `sheefish`) resolve to reviewed records. Review date and next-review date are printed on the reading. Cadence: 90 days.
 
 The catalog is composed from the original reviewed core plus dated expansion batches so future seeding remains auditable.
 
 - Expansion 01 (2026-08-27): mountain whitefish, Arctic grayling, kokanee, lake whitefish, burbot, sauger, blue catfish, flathead catfish, freshwater drum.
 - Expansion 02 (2026-08-27): pumpkinseed, redear sunfish, green sunfish, rock bass, chain pickerel, bowfin, longnose gar, spotted gar, brown bullhead, black bullhead, cisco, rainbow smelt, white perch, American eel, American shad.
 - Expansion 03 (2026-08-27): bull trout, wild anadromous Atlantic salmon, lake sturgeon, paddlefish, redbreast sunfish, warmouth, yellow bullhead, shortnose gar, yellow bass, hybrid striped bass, goldeye, mooneye, bigmouth buffalo, smallmouth buffalo, shorthead redhorse.
+- Expansion 04 (2026-08-27): sockeye salmon (anadromous), pink salmon, chum salmon, landlocked Atlantic salmon, Arctic char, Dolly Varden, sheefish/inconnu, white sturgeon, alligator gar, white sucker, longnose sucker, largescale sucker, white catfish, longear sunfish, flier.
 
 Expansion 03 is the first catalog batch with explicit target-status metadata. Bull trout and wild anadromous Atlantic salmon are context-only. Lake sturgeon, paddlefish, bigmouth buffalo, and smallmouth buffalo are marked regulated-context records.
 
-Instrument ID: `HTH-SP-001` · schema `0.7.0` · app `0.7.0`
+Instrument ID: `HTH-SP-001` · schema `0.7.0` · app `0.8.0`
