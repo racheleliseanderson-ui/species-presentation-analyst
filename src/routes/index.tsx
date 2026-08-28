@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Chrome } from "@/components/chrome";
 import { Instrument } from "@/components/instrument";
 import { QuickReadV2 } from "@/components/quick-read-v2";
+import { SelectedSpeciesProfile } from "@/components/species-profile";
 import { FLEET } from "@/lib/protocol/packet";
 import { NEXT_REVIEW, REVIEWED_AT } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
@@ -52,6 +53,7 @@ function Home() {
       </div>
 
       {mode === "quick" ? <QuickReadV2 onOpenFull={() => setMode("full")} /> : <Instrument />}
+      <SelectedSpeciesProfile />
 
       <footer className="border-t border-line px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
