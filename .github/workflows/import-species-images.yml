@@ -10,6 +10,7 @@ on:
       - scripts/apply-species-image-ui-04.mjs
       - scripts/apply-species-release-docs-04.mjs
       - scripts/apply-species-release-cleanups-04.mjs
+      - src/lib/engine/species-expansion-04.test.ts
       - .github/workflows/import-species-images.yml
 
 permissions:
