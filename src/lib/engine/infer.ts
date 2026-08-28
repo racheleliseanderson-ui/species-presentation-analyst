@@ -9,9 +9,16 @@ import {
   matchingSpeciesWeightOverrides,
   SPECIES_OVERRIDE_MODEL_VERSION,
 } from "./species-weight-overrides-catalog.ts";
+import {
+  populationProfilesForSpecies,
+  REGIONAL_POPULATION_MODEL_VERSION,
+  resolvePopulationContext,
+} from "./population-context.ts";
+import { applyPopulationContextWeighting } from "./population-context-weighting.ts";
 import type {
   Interpretation,
   RankedPresentation,
+  ResolvedPopulationContext,
   ScenarioInput,
   ThermalState,
 } from "../protocol/types.ts";
@@ -99,6 +106,22 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     };
   }
 
+  const populationResolution = resolvePopulationContext(input, species);
+  if (populationResolution.error) return { error: populationResolution.error };
+  const populationProfile = populationResolution.profile;
+  const resolvedPopulationContext: ResolvedPopulationContext | undefined = populationProfile
+    ? {
+        profileId: populationProfile.id,
+        label: populationProfile.label,
+        regionClass: populationProfile.regionClass,
+        systemArchetype: populationProfile.systemArchetype,
+        lifeHistory: populationProfile.lifeHistory,
+        populationOrigin: populationProfile.populationOrigin,
+        source: input.populationContext?.source ?? "user_declared",
+        note: populationProfile.note,
+      }
+    : undefined;
+
   const tState = thermalState(input.tempF, species);
   const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
   const holdingLabel = holding ? labelOf(holding) : "holding water undeclared";
@@ -107,6 +130,12 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   const holdMatch = holding ? preferredHolds.includes(holding as never) : false;
 
   const positioning: Interpretation["positioning"] = [];
+  if (populationProfile) {
+    positioning.push({
+      text: `${populationProfile.label}: ${populationProfile.positioning}`,
+      confidence: "high",
+    });
+  }
   if (holding && holdMatch) {
     positioning.push({
       text: `${holdingLabel} is inside this species' reviewed holding-water classes for ${labelOf(input.waterType)}.`,
@@ -146,6 +175,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
 
   const whyParts: string[] = [];
   whyParts.push(thermalLabel(tState, input.tempF, species) + ".");
+  if (populationProfile) whyParts.push(populationProfile.note);
   whyParts.push(species.habitat.currentPreference);
   if (input.waterType === "flowing" && (input.flow === "moderate" || input.flow === "elevated")) {
     whyParts.push(
@@ -167,6 +197,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     "heavy angling pressure",
     "unusually high turbidity",
     "forage concentrated somewhere else in the system",
+    ...(populationProfile?.invalidators ?? []),
     ...species.exceptions,
   ];
   if (targetStatus === "regulated_context") {
@@ -191,7 +222,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   }
 
   const appliedSpeciesOverrides = matchingSpeciesWeightOverrides(input, tState);
-  const weighted = rankPresentationFamilies(input, species, tState);
+  const weighted = applyPopulationContextWeighting(
+    rankPresentationFamilies(input, species, tState),
+    populationProfile,
+  );
   const topWeight = weighted[0]?.weight ?? 0;
   const presentations: RankedPresentation[] = weighted.slice(0, 4).map((ranked, i) => {
     const p = PRESENTATION_BY_ID[ranked.id];
@@ -242,6 +276,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (input.waterType === "flowing" && (!input.flow || input.flow === "unknown")) unknowns.push("flow class");
   if (input.waterType === "stillwater" && (!input.stillState || input.stillState === "unknown")) unknowns.push("stillwater state");
   if (species.targetContext?.verifyLocalRules && !input.water.jurisdiction) unknowns.push("current jurisdiction rules");
+  if (populationProfilesForSpecies(species.id, input.waterType).length > 0 && !populationProfile) {
+    unknowns.push("regional / population context");
+  }
 
   const topWeightTrace = top
     ? top.weightReasons
@@ -255,6 +292,11 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     targetStatus === "regulated_context"
       ? `regulated context · ${species.targetContext?.jurisdictionScope ?? "verify current jurisdiction rules"}`
       : "standard target record",
+    populationProfile
+      ? `${REGIONAL_POPULATION_MODEL_VERSION} · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
+      : populationProfilesForSpecies(species.id, input.waterType).length > 0
+        ? `${REGIONAL_POPULATION_MODEL_VERSION} · no profile declared; generic species record retained`
+        : `${REGIONAL_POPULATION_MODEL_VERSION} · no reviewed profile required for this species/water declaration`,
     input.tempF != null ? `${input.tempF}°F · ${labelOf(input.tempSource)}` : "temperature unknown",
     labelOf(input.waterType),
     input.waterType === "flowing" ? labelOf(input.flow ?? "unknown") : labelOf(input.stillState ?? "unknown"),
@@ -278,6 +320,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
 
   return {
     species,
+    populationContext: resolvedPopulationContext,
     thermalState: tState,
     thermalLabel: thermalLabel(tState, input.tempF, species),
     positioning: positioning.slice(0, 6),
@@ -291,8 +334,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       version: WEIGHTING_MODEL_VERSION,
       speciesOverrideVersion: SPECIES_OVERRIDE_MODEL_VERSION,
       appliedSpeciesOverrideIds: appliedSpeciesOverrides.map((rule) => rule.id),
+      regionalPopulationVersion: REGIONAL_POPULATION_MODEL_VERSION,
+      appliedPopulationProfileId: populationProfile?.id,
       coreAxes: CORE_WEIGHT_AXES,
-      note: "Relative family weights rank only presentation families already reviewed for this species and water type. Species-specific overrides are reviewed deltas inside that set, not new families or probabilities.",
+      note: "Relative family weights rank only presentation families already reviewed for this species and water type. Species-specific overrides and declared RPC profiles are reviewed deltas inside that set, not new families, locations, or probabilities.",
     },
     equipment,
     connection,

@@ -1,5 +1,10 @@
 import { create } from "zustand";
-import type { ForagePacket, ScenarioInput, WaterPacket } from "@/lib/protocol/types";
+import type {
+  ForagePacket,
+  PopulationContextInput,
+  ScenarioInput,
+  WaterPacket,
+} from "@/lib/protocol/types";
 import type {
   Clarity,
   FlowClass,
@@ -24,6 +29,7 @@ export type Session = {
   speciesId: string | null;
   water: WaterPacket;
   waterType: WaterType;
+  populationContext: PopulationContextInput | null;
   tempF: number | null;
   tempSource: TempSource;
   flow: FlowClass;
@@ -49,6 +55,7 @@ const defaults: Session = {
   speciesId: null,
   water: {},
   waterType: "flowing",
+  populationContext: null,
   tempF: null,
   tempSource: "unknown",
   flow: "unknown",
@@ -68,6 +75,7 @@ export function toInput(session: Session): ScenarioInput | null {
     speciesId: session.speciesId,
     water: session.water,
     waterType: session.waterType,
+    populationContext: session.populationContext,
     tempF: session.tempF,
     tempSource: session.tempSource,
     flow: session.flow,
@@ -88,6 +96,7 @@ function pick(session: Session): Session {
     speciesId: session.speciesId,
     water: session.water,
     waterType: session.waterType,
+    populationContext: session.populationContext,
     tempF: session.tempF,
     tempSource: session.tempSource,
     flow: session.flow,
@@ -176,7 +185,16 @@ export const useSession = create<Store>((set, get) => ({
     set({ ...load(), hydrated: true });
   },
   patch: (partial) => {
-    const next = { ...get(), ...partial };
+    const current = get();
+    const speciesChanged =
+      partial.speciesId !== undefined && partial.speciesId !== current.speciesId;
+    const waterTypeChanged =
+      partial.waterType !== undefined && partial.waterType !== current.waterType;
+    const normalized: Partial<Session> =
+      (speciesChanged || waterTypeChanged) && partial.populationContext === undefined
+        ? { ...partial, populationContext: null }
+        : partial;
+    const next = { ...current, ...normalized };
     persist(next);
     set(next);
   },
@@ -199,6 +217,7 @@ export const STARTERS: { id: string; label: string; patch: Partial<Session> }[] 
       speciesId: "salmo_trutta",
       waterType: "flowing",
       water: { waterName: "Named public river corridor", waterType: "flowing" },
+      populationContext: null,
       tempF: 54,
       tempSource: "user_measured",
       flow: "moderate",
@@ -219,6 +238,7 @@ export const STARTERS: { id: string; label: string; patch: Partial<Session> }[] 
       speciesId: "micropterus_dolomieu",
       waterType: "flowing",
       water: { waterName: "Named public river corridor", waterType: "flowing" },
+      populationContext: { profileId: "smallmouth-cool-river", source: "user_declared" },
       tempF: 62,
       tempSource: "user_measured",
       flow: "moderate",
@@ -239,6 +259,7 @@ export const STARTERS: { id: string; label: string; patch: Partial<Session> }[] 
       speciesId: "micropterus_nigricans",
       waterType: "stillwater",
       water: { waterName: "Named public reservoir", waterType: "stillwater" },
+      populationContext: null,
       tempF: 74,
       tempSource: "user_measured",
       stillState: "stable",

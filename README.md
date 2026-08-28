@@ -1,6 +1,6 @@
 # Species & Presentation Analyst
 
-**Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.6.0`
+**Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.7.0`
 
 TanStack Start + Nitro. **Live now:** [species-presentation-analyst.vercel.app](https://species-presentation-analyst.vercel.app/). Canonical host `species.hookthehorizon.blog` is not attached to the Vercel project yet — Launch from Ops uses the Vercel URL until it is.
 
@@ -16,9 +16,11 @@ Field PWA: `vite-plugin-pwa` emits `sw.js` (NetworkFirst pages, CacheFirst image
 - Holding-water class is ecological structure, not a pin.
 - Temperature provenance stays visible. Air temperature is never substituted silently.
 - Packets move only on an explicit user action (`#packet=`). Incoming packets are inspected before they are applied. Outbound carries are inspected before they leave.
-- Presentation weighting can re-rank only families already reviewed for the declared species and water type. No condition or override may introduce an unreviewed family.
+- Presentation weighting can re-rank only families already reviewed for the declared species and water type. No condition, species override, or population profile may introduce an unreviewed family.
 - Relative family weights are model mechanics, **not probability, confidence of a bite, or a bite score**.
-- Species-specific overrides are reviewed deltas inside the six-axis model, not an escape hatch around it.
+- Species-specific overrides and regional/population profiles are reviewed deltas inside the existing model, not escape hatches around it.
+- Regional/population context is never inferred from a water name, jurisdiction, coordinates, or a user's location. It must be explicitly declared or explicitly carried in a reviewed packet.
+- Population profiles are broad biological/system archetypes, never named reaches, spawning sites, migration bottlenecks, or secret locations.
 - Species records may carry target status: `standard`, `regulated_context`, `conservation_sensitive`, or `non_target`.
 - `conservation_sensitive` and `non_target` records are biological context only and fail closed before presentation guidance is generated.
 - `regulated_context` records remain readable, but jurisdiction/regulation warnings are inserted into the evidence and invalidator chain.
@@ -80,6 +82,44 @@ Examples of distinctions now encoded:
 
 The override modules remain separate from the species seed records so reviewed biology stays auditable and weighting revisions can be tested/versioned independently.
 
+## Regional / population context · `RPC-1.0`
+
+`RPC-1.0` is a third, optional contextual refinement layered **after the reviewed species record and `SPO-1.1`**. It answers a different question: not merely “what species is this?” but “which reviewed life-history/system archetype are we actually talking about?”
+
+A population profile may refine the relative weights of the species' already-approved presentation families and may add population-specific positioning notes and invalidators. It **cannot**:
+
+- create a presentation family not already reviewed for that species and water type;
+- change `targetStatus` or bypass conservation/jurisdiction policy;
+- silently infer a population from a named water, jurisdiction, GPS position, or user location;
+- emit a named reach, spawning site, migration bottleneck, or hotspot;
+- turn regional biology into catch probability.
+
+If a species/water declaration has reviewed RPC profiles but the user does not declare one, the engine keeps the generic species record and records **regional / population context** as an unresolved variable. A mismatched profile fails closed instead of being coerced onto another species or water type.
+
+The first wave contains **16 reviewed profiles across 8 species**:
+
+- **Striped bass** — Atlantic anadromous/coastal-river vs landlocked reservoir.
+- **Cutthroat trout** — interior resident/fluvial vs adfluvial/lake-connected.
+- **Smallmouth bass** — cool clear river vs rocky reservoir/offshore structure.
+- **Walleye** — northern natural lake vs large-river/current population.
+- **Blue catfish** — native large-river vs reservoir/forage-roaming.
+- **Lake trout** — Great Lakes pelagic vs inland natural lake.
+- **Cisco** — Great Lakes pelagic vs northern inland lake.
+- **Mountain whitefish** — interior river vs interior lake population.
+
+Examples of what this fixes:
+
+- an **Atlantic anadromous striped bass** reading reinforces river-current/migration mechanics, while a **landlocked reservoir striped bass** reading reinforces pelagic depth-band travel;
+- **river smallmouth** stay current-facing, while **reservoir smallmouth** receive more offshore rock/depth structure weight;
+- **large-river walleye** receive stronger current/bottom mechanics than a **northern natural-lake walleye** profile;
+- **reservoir blue catfish** can legitimately receive more suspended-forage weighting without forcing the same behavior onto native big-river fish;
+- Great Lakes and inland **lake trout/cisco** retain the same species identity while accounting for radically different system scale and available coldwater volume;
+- **mountain whitefish** keep a benthic identity in both contexts, but the river profile is a drift/current problem and the lake profile is a depth/substrate problem.
+
+Numeric thermal bands remain species-level in `RPC-1.0`. Population profiles may explain thermal/oxygen constraints and system scale, but they do not yet rewrite the core species temperature limits. That separation keeps the first RPC release auditable and avoids false precision.
+
+The RPC profile ID, label, life-history/system archetype, declaration source (`user_declared` or `field_sense`), weighting reason, and provenance are carried in the HTH packet. Incoming RPC context is displayed in the packet-inspection UI before the user can apply it.
+
 ## Target-status / jurisdiction layer
 
 Target status is deliberately separate from biological suitability:
@@ -99,7 +139,7 @@ The structured layer currently covers bull trout, wild anadromous Atlantic salmo
 
 ## Intelligence chain
 
-Field Sense (named public water) → **this instrument** (species + presentation families) → Hatch Match (observed forage) / Tackle Link (system job) / Knot Analyst (connection job) / Rig Signal (device question).
+Field Sense (named public water + optional explicit population context) → **this instrument** (species + population archetype + presentation families) → Hatch Match (observed forage) / Tackle Link (system job) / Knot Analyst (connection job) / Rig Signal (device question).
 
 ## Packet
 
@@ -107,7 +147,7 @@ Version `HTH-1.0`. Public-safe. `privacy.containsCoordinates` is always `false`.
 
 Inbound hydrate from `window.location.hash` (`#packet=`). Nothing is applied until the user confirms. Outbound carry is a hash on the destination origin — never an automatic POST.
 
-Outbound packets carry target status/context, the `SPW-1.1` weighted family order, `SPO-1.1`, and any applied species-override IDs so downstream tools can understand why a family was selected without receiving a bite score.
+Outbound packets carry target status/context, the `SPW-1.1` weighted family order, `SPO-1.1`, applied species-override IDs, and—when explicitly declared—`RPC-1.0` population context and provenance. Downstream tools can understand why a family was selected without receiving a bite score or a location layer.
 
 ## Scripts
 
@@ -119,7 +159,7 @@ npm run typecheck
 npm test
 ```
 
-Engine tests cover six-axis weighting, species-specific distinctions, full 60-record override coverage, policy-only records, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
+Engine tests cover six-axis weighting, species-specific distinctions, full 60-record override coverage, policy-only records, RPC profile integrity and family containment, explicit-vs-undeclared population behavior, profile/species/water mismatch fail-closed behavior, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
 
 ## Knowledge
 
@@ -133,4 +173,4 @@ The catalog is composed from the original reviewed core plus dated expansion bat
 
 Expansion 03 is the first catalog batch with explicit target-status metadata. Bull trout and wild anadromous Atlantic salmon are context-only. Lake sturgeon, paddlefish, bigmouth buffalo, and smallmouth buffalo are marked regulated-context records.
 
-Instrument ID: `HTH-SP-001` · schema `0.6.0` · app `0.6.0`
+Instrument ID: `HTH-SP-001` · schema `0.7.0` · app `0.7.0`

@@ -28,6 +28,24 @@ export type TargetContext = {
   note: string;
 };
 
+export type PopulationContextSource = "user_declared" | "field_sense";
+
+export type PopulationContextInput = {
+  profileId: string;
+  source: PopulationContextSource;
+};
+
+export type ResolvedPopulationContext = {
+  profileId: string;
+  label: string;
+  regionClass: string;
+  systemArchetype: string;
+  lifeHistory: string;
+  populationOrigin: string;
+  source: PopulationContextSource;
+  note: string;
+};
+
 export type WeightAxis =
   | "species"
   | "season"
@@ -36,6 +54,7 @@ export type WeightAxis =
   | "holding"
   | "forage"
   | "species_override"
+  | "population_context"
   | "light";
 
 export type PresentationWeightReason = {
@@ -125,6 +144,7 @@ export type ScenarioInput = {
   speciesId: string;
   water: WaterPacket;
   waterType: WaterType;
+  populationContext?: PopulationContextInput | null;
   tempF: number | null;
   tempSource: TempSource;
   tempObservedAt?: string | null;
@@ -159,6 +179,7 @@ export type RankedPresentation = {
 
 export type Interpretation = {
   species: SpeciesRecord;
+  populationContext?: ResolvedPopulationContext;
   thermalState: ThermalState;
   thermalLabel: string;
   positioning: { text: string; confidence: Confidence }[];
@@ -172,6 +193,8 @@ export type Interpretation = {
     version: string;
     speciesOverrideVersion?: string;
     appliedSpeciesOverrideIds?: string[];
+    regionalPopulationVersion?: string;
+    appliedPopulationProfileId?: string;
     coreAxes: WeightAxis[];
     note: string;
   };
@@ -204,6 +227,7 @@ export type HthPacket = {
     targetStatus?: TargetStatus;
     targetContext?: TargetContext;
   };
+  populationContext?: ResolvedPopulationContext;
   conditions: {
     waterType: WaterType;
     tempF: number | null;
@@ -231,6 +255,8 @@ export type HthPacket = {
     weightingModel?: string;
     speciesOverrideModel?: string;
     appliedSpeciesOverrides?: string[];
+    regionalPopulationModel?: string;
+    appliedPopulationProfileId?: string;
     weightedFamilies?: { id: PresentationId; weight: number }[];
   };
   equipmentRequirements: Record<string, string>;
