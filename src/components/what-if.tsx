@@ -1,5 +1,6 @@
 import { ChipGroup } from "@/components/chips";
 import { Button } from "@/components/ui/button";
+import { populationProfilesForSpecies } from "@/lib/engine/population-context";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   CLARITY,
@@ -37,6 +38,9 @@ export function WhatIf({
     session.waterType === "flowing"
       ? (species?.habitat.riverHolding ?? [])
       : (species?.habitat.stillHolding ?? []);
+  const populationProfiles = session.speciesId
+    ? populationProfilesForSpecies(session.speciesId, session.waterType)
+    : [];
 
   return (
     <section className="no-print rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
@@ -45,6 +49,48 @@ export function WhatIf({
         The reading updates immediately. Same model, different declaration — not a new guess.
       </p>
       <div className="mt-5 space-y-5">
+        {populationProfiles.length > 0 && (
+          <div>
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+              Regional / population context
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => onPatch({ populationContext: null })}
+                className={`min-h-11 rounded-[var(--radius-sm)] px-3 text-sm shadow-[var(--shadow-border)] ${
+                  !session.populationContext ? "bg-accent text-accent-fg" : "bg-subtle text-fg"
+                }`}
+              >
+                Generic species record
+              </button>
+              {populationProfiles.map((profile) => (
+                <button
+                  key={profile.id}
+                  type="button"
+                  onClick={() =>
+                    onPatch({
+                      populationContext: {
+                        profileId: profile.id,
+                        source: "user_declared",
+                      },
+                    })
+                  }
+                  className={`min-h-11 rounded-[var(--radius-sm)] px-3 text-sm shadow-[var(--shadow-border)] ${
+                    session.populationContext?.profileId === profile.id
+                      ? "bg-accent text-accent-fg"
+                      : "bg-subtle text-fg"
+                  }`}
+                >
+                  {profile.label}
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-xs text-dim">
+              Optional RPC-1.0 context. It is never inferred from a water name, jurisdiction, or coordinates; choose only a profile you recognize.
+            </p>
+          </div>
+        )}
         <div>
           <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
             Water temperature
