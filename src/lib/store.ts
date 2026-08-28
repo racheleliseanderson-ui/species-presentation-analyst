@@ -3,6 +3,7 @@ import type {
   ForagePacket,
   PopulationContextInput,
   ScenarioInput,
+  TemperatureRangeF,
   WaterPacket,
 } from "@/lib/protocol/types";
 import type {
@@ -31,6 +32,7 @@ export type Session = {
   waterType: WaterType;
   populationContext: PopulationContextInput | null;
   tempF: number | null;
+  tempRangeF: TemperatureRangeF | null;
   tempSource: TempSource;
   flow: FlowClass;
   stillState: StillState;
@@ -57,13 +59,14 @@ const defaults: Session = {
   waterType: "flowing",
   populationContext: null,
   tempF: null,
+  tempRangeF: null,
   tempSource: "unknown",
   flow: "unknown",
   stillState: "unknown",
   clarity: "unknown",
   light: "unknown",
   weather: "unknown",
-  season: "spring",
+  season: "unknown",
   holdingRiver: null,
   holdingStill: null,
   forage: null,
@@ -77,6 +80,7 @@ export function toInput(session: Session): ScenarioInput | null {
     waterType: session.waterType,
     populationContext: session.populationContext,
     tempF: session.tempF,
+    tempRangeF: session.tempRangeF,
     tempSource: session.tempSource,
     flow: session.flow,
     stillState: session.stillState,
@@ -98,6 +102,7 @@ function pick(session: Session): Session {
     waterType: session.waterType,
     populationContext: session.populationContext,
     tempF: session.tempF,
+    tempRangeF: session.tempRangeF,
     tempSource: session.tempSource,
     flow: session.flow,
     stillState: session.stillState,
@@ -190,10 +195,19 @@ export const useSession = create<Store>((set, get) => ({
       partial.speciesId !== undefined && partial.speciesId !== current.speciesId;
     const waterTypeChanged =
       partial.waterType !== undefined && partial.waterType !== current.waterType;
-    const normalized: Partial<Session> =
+    let normalized: Partial<Session> =
       (speciesChanged || waterTypeChanged) && partial.populationContext === undefined
         ? { ...partial, populationContext: null }
-        : partial;
+        : { ...partial };
+
+    // Exact and ranged temperature evidence are mutually exclusive. An explicit exact
+    // value wins if a caller accidentally supplies both in one patch.
+    if (partial.tempF != null && Number.isFinite(partial.tempF)) {
+      normalized = { ...normalized, tempRangeF: null };
+    } else if (partial.tempRangeF != null) {
+      normalized = { ...normalized, tempF: null };
+    }
+
     const next = { ...current, ...normalized };
     persist(next);
     set(next);
