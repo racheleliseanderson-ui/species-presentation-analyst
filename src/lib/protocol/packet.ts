@@ -1,3 +1,4 @@
+import { carryFleetContext } from "./fleet-context";
 import {
   FORAGE_CLASSES,
   INSTRUMENT_ID,
@@ -20,7 +21,7 @@ import type {
 export function buildPacket(input: ScenarioInput, result: Interpretation): HthPacket {
   const holding =
     input.waterType === "flowing" ? input.holdingRiver ?? undefined : input.holdingStill ?? undefined;
-  return {
+  const packet: HthPacket = {
     packetVersion: PACKET_VERSION,
     origin: "species-presentation",
     createdAt: new Date().toISOString(),
@@ -119,6 +120,7 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       containsPrivateWater: false,
     },
   };
+  return carryFleetContext(packet);
 }
 
 export function encodePacketHash(packet: HthPacket): string {

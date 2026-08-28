@@ -1,3 +1,4 @@
+import { rememberIncomingFleetPacket } from "./fleet-context";
 import { parseIncomingPacket, coerceWaterType } from "./packet";
 import type { ScenarioInput } from "./types";
 import {
@@ -40,6 +41,10 @@ export function parseEnhancedIncomingPacket(hash: string): Partial<ScenarioInput
   try {
     const raw = decodeURIComponent(hash.slice("#packet=".length));
     const data = JSON.parse(raw) as Record<string, unknown>;
+    // Preserve the entire public-safe envelope for the eventual outgoing carry.
+    // Quick Read still applies only the reviewed fields below after user approval.
+    rememberIncomingFleetPacket(data);
+
     const conditions = (data.conditions ?? {}) as Record<string, unknown>;
     const waterType =
       coerceWaterType(conditions.waterType) ?? base?.waterType ?? base?.water?.waterType;
