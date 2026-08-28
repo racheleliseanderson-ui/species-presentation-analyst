@@ -267,7 +267,7 @@ export const SPECIES_WEIGHT_OVERRIDES: SpeciesWeightOverrideRule[] = [
     id: "yellow-perch-cold-school",
     speciesId: "perca_flavescens",
     when: { seasons: ["winter", "late_fall"], waterTypes: ["stillwater"], holding: ["basin", "drop_off", "submerged_hump"] },
-    bias: { vertical_jig: 10, bottom_contact: 7, live_natural_bait_suspension: 6, slow_drag: 4 },
+    bias: { vertical_jig: 10, slow_drag: 7, live_natural_bait_suspension: 6, drop_presentation: 4 },
     note: "Cold-season yellow perch commonly school near bottom or structural depth changes; reinforce vertical and bottom-contact mechanics.",
     reviewedAt: "2026-08-27",
   },

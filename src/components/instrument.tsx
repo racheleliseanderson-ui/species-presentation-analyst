@@ -7,6 +7,7 @@ import { interpret } from "@/lib/engine/infer";
 import { POPULATION_CONTEXT_BY_ID } from "@/lib/engine/population-context";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { GROUPS, SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { SPECIES_IMAGES_BY_ID } from "@/lib/knowledge/species-images";
 import { parseIncomingPacket } from "@/lib/protocol/packet";
 import type { ScenarioInput } from "@/lib/protocol/types";
 import {
@@ -283,19 +284,37 @@ export function Instrument() {
                 <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                   {rows.map((s) => {
                     const on = session.speciesId === s.id;
+                    const image = SPECIES_IMAGES_BY_ID[s.id];
                     return (
                       <button
                         key={s.id}
                         type="button"
                         onClick={() => session.patch({ speciesId: s.id, step: "water" })}
                         className={cn(
-                          "min-h-16 rounded-[var(--radius-md)] px-4 py-3 text-left shadow-[var(--shadow-border)]",
+                          "flex min-h-20 items-center gap-3 rounded-[var(--radius-md)] px-3 py-3 text-left shadow-[var(--shadow-border)]",
                           on ? "bg-accent text-accent-fg" : "bg-elevated hover:shadow-[var(--shadow-border-hover)]",
                         )}
                       >
-                        <span className="block text-sm font-medium">{s.commonNames[0]}</span>
-                        <span className={cn("block font-mono text-[11px]", on ? "opacity-70" : "text-dim")}>
-                          {s.scientificName}
+                        {image && (
+                          <img
+                            src={image.thumb}
+                            alt={`Reviewed canonical image of ${s.commonNames[0]}`}
+                            title={`${image.sourceOrg} · ${image.license}`}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-14 w-20 shrink-0 rounded-[var(--radius-sm)] bg-subtle object-contain p-1 shadow-[var(--shadow-border)]"
+                          />
+                        )}
+                        <span className="min-w-0">
+                          <span className="block text-sm font-medium">{s.commonNames[0]}</span>
+                          <span className={cn("block font-mono text-[11px]", on ? "opacity-70" : "text-dim")}>
+                            {s.scientificName}
+                          </span>
+                          {image && (
+                            <span className={cn("mt-1 block font-mono text-[9px] uppercase tracking-wide", on ? "opacity-65" : "text-dim")}>
+                              Reviewed image · {image.imageType.replaceAll("_", " ")}
+                            </span>
+                          )}
                         </span>
                       </button>
                     );
