@@ -1,5 +1,6 @@
 import type { Interpretation, ScenarioInput } from "../protocol/types.ts";
 import { INSTRUMENT_ID, PACKET_VERSION, labelOf } from "../protocol/vocab.ts";
+import { temperatureEvidenceLabel } from "./temperature.ts";
 
 export function freshness(
   reviewedAt: string,
@@ -24,8 +25,7 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
       : input.holdingStill
         ? labelOf(input.holdingStill)
         : "undeclared";
-  const temp =
-    input.tempF == null ? "UNKNOWN" : `${input.tempF}°F · ${labelOf(input.tempSource)}`;
+  const temp = temperatureEvidenceLabel(input).replace("temperature unknown", "UNKNOWN");
   const water = input.water.waterName || "Named public water undeclared";
 
   const lines = [
@@ -93,7 +93,7 @@ export function packetSummary(input: ScenarioInput, result: Interpretation): { l
     },
     {
       label: "Temperature",
-      value: input.tempF == null ? "Unknown" : `${input.tempF}°F · ${labelOf(input.tempSource)}`,
+      value: temperatureEvidenceLabel(input).replace("temperature unknown", "Unknown"),
     },
     { label: "Holding", value: holding },
     { label: "Season", value: labelOf(input.season) },

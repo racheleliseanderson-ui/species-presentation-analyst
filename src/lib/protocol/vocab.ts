@@ -1,8 +1,8 @@
 export const INSTRUMENT_ID = "HTH-SP-001";
 export const INSTRUMENT_NAME = "Species & Presentation Analyst";
-export const APP_VERSION = "0.8.0";
+export const APP_VERSION = "0.8.1";
 export const PACKET_VERSION = "HTH-1.0";
-export const SCHEMA_VERSION = "0.7.0";
+export const SCHEMA_VERSION = "0.8.0";
 export const REVIEWED_AT = "2026-08-27";
 export const NEXT_REVIEW = "2026-11-27";
 
@@ -57,6 +57,7 @@ export const SEASONS = [
   "late_summer",
   "fall",
   "late_fall",
+  "unknown",
 ] as const;
 export type Season = (typeof SEASONS)[number];
 
