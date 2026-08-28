@@ -33,6 +33,12 @@ export function Chrome() {
           </span>
         </Link>
         <div className="flex items-center gap-2">
+          <a
+            href="/?install=1"
+            className="hidden font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:text-fg sm:inline"
+          >
+            Install
+          </a>
           <Link
             to="/boundary"
             className="hidden font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:text-fg sm:inline"
