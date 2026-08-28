@@ -15,7 +15,7 @@ permissions:
 jobs:
   import-images:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Check out feature branch
         uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install image processor
+      - name: Install dependencies and image processor
         run: npm install --no-save --ignore-scripts=false sharp@0.34.3
 
       - name: Download and optimize reviewed canonical images
@@ -44,6 +44,15 @@ jobs:
             echo "Expected at least 15 canonical and 15 thumbnail files; found canonical=$count_canonical thumb=$count_thumb"
             exit 1
           fi
+
+      - name: Run release-gate tests
+        run: npm test
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build production bundle
+        run: npm run build
 
       - name: Commit repository-owned image assets
         shell: bash
