@@ -20,7 +20,11 @@ for (const [index, image] of manifest.entries()) {
   await mkdir(dir, { recursive: true });
 
   if (index > 0) await sleep(interRequestDelayMs);
-  const response = await fetchWithRetry(commonsRedirect(image.commonsFile), image.speciesId);
+  const sourceUrl = image.downloadUrl ?? commonsRedirect(image.commonsFile);
+  if (!sourceUrl) {
+    throw new Error(`${image.speciesId}: reviewed source URL is missing`);
+  }
+  const response = await fetchWithRetry(sourceUrl, image.speciesId);
   const bytes = Buffer.from(await response.arrayBuffer());
 
   if (bytes.byteLength < minBytes) {
