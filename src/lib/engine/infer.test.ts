@@ -52,7 +52,15 @@ describe("interpret", () => {
     assert.equal(r.confidence.evidence, "high");
     assert.equal(r.confidence.forage, "low");
     assert.equal(r.species.id, "salmo_trutta");
+    // Two guarantees, asserted as invariants rather than exact prose: the trace
+    // says the ranking is confined to reviewed presentations, and it explicitly
+    // negates bite probability. Pinning literal sentences made this test fail
+    // whenever the consumer-facing copy was rewritten.
     assert.match(r.trace.join("\n"), /ranking compares reviewed presentations only/i);
+    assert.match(
+      r.trace.join("\n"),
+      /never[^\n]*(?:bite probability|chance of a bite|bite score)/i,
+    );
   });
 
   it("changes the leading family when holding water changes from seam to deep pool", () => {

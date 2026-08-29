@@ -4,7 +4,7 @@ import { drivingChanges } from "@/lib/engine/sensitivity";
 import { interpret } from "@/lib/engine/infer";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
-import { SPECIES_IMAGES_BY_ID } from "@/lib/knowledge/species-images";
+import { SpeciesThumb } from "@/components/species-thumb";
 import { parseIncomingPacket } from "@/lib/protocol/packet";
 import type { ScenarioInput } from "@/lib/protocol/types";
 import { SEASONS, labelOf, type Light, type Season, type WaterType } from "@/lib/protocol/vocab";
@@ -247,13 +247,11 @@ export function QuickRead({ onOpenFull }: QuickReadProps) {
 
           {selectedSpecies ? (
             <div className="mt-4 flex items-center gap-3 rounded-[var(--radius-md)] bg-subtle p-3">
-              {SPECIES_IMAGES_BY_ID[selectedSpecies.id] && (
-                <img
-                  src={SPECIES_IMAGES_BY_ID[selectedSpecies.id].thumb}
-                  alt={selectedSpecies.commonNames[0]}
-                  className="h-16 w-24 rounded-[var(--radius-sm)] object-contain"
-                />
-              )}
+              <SpeciesThumb
+                speciesId={selectedSpecies.id}
+                commonName={selectedSpecies.commonNames[0]}
+                className="h-16 w-24"
+              />
               <div>
                 <p className="font-medium text-fg">{selectedSpecies.commonNames[0]}</p>
                 <p className="font-mono text-[11px] text-dim">{selectedSpecies.scientificName}</p>
@@ -305,13 +303,12 @@ export function QuickRead({ onOpenFull }: QuickReadProps) {
                       }}
                       className="flex min-h-14 items-center gap-2 rounded-[var(--radius-sm)] bg-subtle px-3 py-2 text-left text-sm shadow-[var(--shadow-border)]"
                     >
-                      {SPECIES_IMAGES_BY_ID[species.id] && (
-                        <img
-                          src={SPECIES_IMAGES_BY_ID[species.id].thumb}
-                          alt=""
-                          className="h-10 w-14 shrink-0 rounded object-contain"
-                        />
-                      )}
+                      <SpeciesThumb
+                        speciesId={species.id}
+                        commonName={species.commonNames[0]}
+                        className="h-10 w-14"
+                        decorative
+                      />
                       <span>{species.commonNames[0]}</span>
                     </button>
                   ))}
@@ -464,7 +461,7 @@ export function QuickRead({ onOpenFull }: QuickReadProps) {
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-mark">Start here · not a bite prediction</p>
                 <h2 className="mt-2 font-display text-4xl">{result.species.commonNames[0]}</h2>
                 {top && <p className="mt-4 max-w-3xl font-display text-2xl">Lead presentation: {top.label}</p>}
-                <p className="mt-3 max-w-3xl text-sm text-muted">{result.thermalLabel}. {result.why}</p>
+                <p className="mt-3 max-w-3xl text-sm text-muted">{result.why}</p>
               </div>
 
               <div className="grid gap-3 lg:grid-cols-2">

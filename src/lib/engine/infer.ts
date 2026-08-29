@@ -212,7 +212,14 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   }
   if (populationProfile) whyParts.push(populationProfile.note);
   whyParts.push(species.habitat.currentPreference);
-  if (input.waterType === "flowing" && (input.flow === "moderate" || input.flow === "elevated")) {
+  // The species record already states the velocity/energy trade-off for some species.
+  // Adding the generic sentence there restates the same idea in longer words, so skip it.
+  const speciesStatesVelocityTradeoff = /velocit|energy/i.test(species.habitat.currentPreference);
+  if (
+    input.waterType === "flowing" &&
+    (input.flow === "moderate" || input.flow === "elevated") &&
+    !speciesStatesVelocityTradeoff
+  ) {
     whyParts.push(
       "In moving water of this class, fish generally balance food delivery against energy expenditure, making velocity boundaries more defensible than uniform fast water.",
     );

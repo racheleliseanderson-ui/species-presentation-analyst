@@ -8,6 +8,7 @@ import { POPULATION_CONTEXT_BY_ID } from "@/lib/engine/population-context";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { GROUPS, SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { SPECIES_IMAGES_BY_ID } from "@/lib/knowledge/species-images";
+import { SpeciesThumb } from "@/components/species-thumb";
 import { parseIncomingPacket } from "@/lib/protocol/packet";
 import type { ScenarioInput } from "@/lib/protocol/types";
 import {
@@ -295,16 +296,11 @@ export function Instrument() {
                           on ? "bg-accent text-accent-fg" : "bg-elevated hover:shadow-[var(--shadow-border-hover)]",
                         )}
                       >
-                        {image && (
-                          <img
-                            src={image.thumb}
-                            alt={`Reviewed canonical image of ${s.commonNames[0]}`}
-                            title={`${image.sourceOrg} · ${image.license}`}
-                            loading="lazy"
-                            decoding="async"
-                            className="h-14 w-20 shrink-0 rounded-[var(--radius-sm)] bg-subtle object-contain p-1 shadow-[var(--shadow-border)]"
-                          />
-                        )}
+                        <SpeciesThumb
+                          speciesId={s.id}
+                          commonName={s.commonNames[0]}
+                          className="h-14 w-20"
+                        />
                         <span className="min-w-0">
                           <span className="block text-sm font-medium">{s.commonNames[0]}</span>
                           <span className={cn("block font-mono text-[11px]", on ? "opacity-70" : "text-dim")}>
