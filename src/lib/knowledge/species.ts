@@ -362,7 +362,7 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["aquatic_insects", "zooplankton", "crustaceans", "terrestrial_insects", "worms_annelids"],
     flowingPresentations: ["dead_drift", "stationary_bait"],
     stillPresentations: ["drop_presentation", "slow_drag", "surface_retrieve", "live_natural_bait_suspension"],
-    exceptions: ["Bed targeting of spawning colonies is a conservation choice, not a recommendation of this instrument."],
+    exceptions: ["Bed targeting of spawning colonies is a conservation choice, and never something we recommend."],
     geographic: "Warm lakes, ponds, and slow rivers continent-wide.",
     sources: [
       { label: "State inland panfish notes", class: SRC.agency },
@@ -446,7 +446,7 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["larger_prey_fish", "small_forage_fish", "amphibians"],
     flowingPresentations: ["cross_current_retrieve", "upstream_retrieve", "swing"],
     stillPresentations: ["stop_and_go", "horizontal_retrieve", "subsurface_slow_roll", "surface_retrieve"],
-    exceptions: ["This instrument will not emit aggregation or spawning-site recommendations."],
+    exceptions: ["We do not give aggregation or spawning-site recommendations."],
     geographic: "Limited native range plus managed inland waters; treat as geographically constrained.",
     sources: [
       { label: "State muskellunge management plans", class: SRC.agency },
@@ -558,7 +558,7 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "larger_prey_fish"],
     flowingPresentations: ["cross_current_retrieve", "downstream_retrieve", "swing", "pulse_jig"],
     stillPresentations: ["trolling", "horizontal_retrieve", "vertical_jig", "stop_and_go"],
-    exceptions: ["Do not treat surface busts as a license to run at the school with a boat. This instrument will not emit coordinates."],
+    exceptions: ["Do not treat surface busts as a license to run at the school with a boat. We never give coordinates."],
     geographic: "Atlantic slope and landlocked reservoirs; thermal refuge in summer is a conservation constraint.",
     sources: [
       { label: "ASMFC / state striped bass plans", class: SRC.agency },
@@ -586,7 +586,7 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "aquatic_insects"],
     flowingPresentations: ["cross_current_retrieve", "pulse_jig", "downstream_retrieve"],
     stillPresentations: ["horizontal_retrieve", "stop_and_go", "vertical_jig"],
-    exceptions: ["Spawning runs are public and crowded; this instrument will not name a specific riffle or access as a secret."],
+    exceptions: ["Spawning runs are public and crowded; we will not name a specific riffle or access as a secret."],
     geographic: "Interior rivers and reservoirs.",
     sources: [
       { label: "State white bass notes (TX, OK, KS, TN)", class: SRC.agency },

@@ -36,10 +36,10 @@ function Home() {
               to="/boundary"
               className="font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:text-fg"
             >
-              Boundary · what this will not tell you
+              Limits &amp; sources · what this will not tell you
             </Link>
             <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-dim">
-              Reviewed {REVIEWED_AT} · next {NEXT_REVIEW} · saved on this device
+              Reviewed {REVIEWED_AT} · next review {NEXT_REVIEW} · saved on this device
             </p>
           </div>
         </div>

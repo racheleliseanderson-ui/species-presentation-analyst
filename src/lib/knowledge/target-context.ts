@@ -9,7 +9,7 @@ export const TARGET_CONTEXT_BY_SPECIES: Partial<Record<string, TargetContext>> =
   salvelinus_confluentus: {
     jurisdictionScope: "Lower 48 United States; status and legal opportunity vary elsewhere in the species range.",
     verifyLocalRules: true,
-    note: "Conservation-sensitive context only. Do not emit presentation guidance, migration bottlenecks, spawning tributaries, or redd locations.",
+    note: "Conservation-sensitive context only. No presentation guidance, no migration bottlenecks, no spawning tributaries, no redd locations.",
   },
   salmo_salar_anadromous: {
     jurisdictionScope: "Wild anadromous U.S. Atlantic salmon; this does not describe landlocked or stocked fisheries.",

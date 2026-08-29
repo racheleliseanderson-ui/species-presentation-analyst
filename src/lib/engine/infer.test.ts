@@ -52,7 +52,7 @@ describe("interpret", () => {
     assert.equal(r.confidence.evidence, "high");
     assert.equal(r.confidence.forage, "low");
     assert.equal(r.species.id, "salmo_trutta");
-    assert.match(r.trace.join("\n"), /relative weights are ranking mechanics, never bite probability/i);
+    assert.match(r.trace.join("\n"), /ranking compares reviewed presentations only/i);
   });
 
   it("changes the leading family when holding water changes from seam to deep pool", () => {
@@ -242,7 +242,7 @@ describe("interpret", () => {
     assert.ok("error" in r);
     if (!("error" in r)) return;
     assert.match(r.error, /biological context only/i);
-    assert.match(r.error, /will not emit presentation guidance/i);
+    assert.match(r.error, /do not give presentation guidance/i);
   });
 
   it("keeps policy-only paddlefish at zero presentation families", () => {
@@ -275,7 +275,7 @@ describe("interpret", () => {
     assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("lake-sturgeon-benthic-regulated"));
     assert.ok(r.invalidators.some((x) => /regulated|regulations|jurisdiction|season|legal/i.test(x)));
     assert.ok(r.unknowns.includes("current jurisdiction rules"));
-    assert.match(r.trace[1] ?? "", /regulated context/i);
+    assert.match(r.trace[1] ?? "", /closely regulated fishery/i);
   });
 
   it("clears the jurisdiction unknown when a regulated-context water declares it", () => {

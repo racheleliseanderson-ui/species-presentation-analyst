@@ -18,11 +18,64 @@ import {
 } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
+/** Reader-facing names for the tackle requirements a presentation implies. */
+const SYSTEM_LABEL: Record<string, string> = {
+  depthControl: "Depth control",
+  sensitivity: "Sensitivity",
+  castingDistance: "Casting distance",
+  lureWeightBand: "Weight range",
+  coverResistance: "Cover resistance",
+  lineVisibilityPreference: "Line visibility",
+  retieFrequency: "How often to retie",
+};
+
+/** How the water temperature reaching this reading was obtained. */
+const EVIDENCE_WORD: Record<string, string> = {
+  high: "Measured",
+  moderate: "Estimated",
+  low: "Not verified yet",
+};
+
+/** How much of the condition picture the angler has filled in. */
+const COMPLETENESS_WORD: Record<string, string> = {
+  high: "Nearly complete",
+  moderate: "Partly complete",
+  low: "Mostly still unknown",
+};
+
+/** Whether forage was actually seen, and how firmly. */
+const FORAGE_WORD: Record<string, string> = {
+  high: "Observed and confirmed",
+  moderate: "Observed",
+  low: "Not observed yet",
+};
+
+/** Shorter wording where the badge sits inline beside a sentence. */
+const SUPPORT_WORD: Record<string, string> = {
+  high: "Well supported",
+  moderate: "Likely",
+  low: "Unconfirmed",
+};
+
+/** How closely a presentation family matches the declared conditions. */
+const FIT_WORD: Record<string, string> = {
+  high: "Strong",
+  moderate: "Reasonable",
+  low: "Weaker",
+};
+
+/** Reader-facing wording for how current a reviewed record is. */
+const RECORD_WORD: Record<string, string> = {
+  current: "up to date",
+  review_due: "due for review",
+  stale: "overdue for review",
+};
+
 function Axis({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3">
       <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-dim">{label}</div>
-      <div className="mt-1 font-sans text-sm capitalize text-fg">{value}</div>
+      <div className="mt-1 font-sans text-sm text-fg">{value}</div>
     </div>
   );
 }
@@ -84,14 +137,14 @@ export function Readout({
   if ("error" in result) {
     return (
       <section className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 sm:p-8">
-        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Cannot answer from this record</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">We cannot read this combination</p>
         <h2 className="mt-2 font-display text-3xl text-fg">{result.error}</h2>
         <p className="mt-4 max-w-xl text-sm text-muted">
-          Change the water type or pick a species that has a reviewed record for this kind of water. The model will not fill the gap.
+          Change the water type, or pick a species that has a reviewed record for this kind of water. Your selections are still saved on this device.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           <Button variant="ghost" onClick={onBack}>
-            Change the declaration
+            Change your selections
           </Button>
           <Button variant="quiet" onClick={onReset}>
             <RotateCcw className="size-4" />
@@ -116,7 +169,7 @@ export function Readout({
   const top = result.presentations[0];
   const tempLine =
     session.tempF == null
-      ? "UNKNOWN"
+      ? "temperature unknown"
       : `${session.tempF}°F — ${labelOf(session.tempSource).toUpperCase()}`;
 
   const carryHref = {
@@ -147,7 +200,7 @@ export function Readout({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `hth-species-packet-${packet.species.id}.json`;
+    a.download = `species-presentation-reading-${packet.species.id}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -160,7 +213,7 @@ export function Readout({
     setSaveName("");
   }
 
-  const correction = `Record issue — ${species.commonNames[0]} (${species.id})
+  const correction = `Record issue — ${species.commonNames[0]} (${species.scientificName})
 Reviewed ${species.reviewedAt} · next ${species.nextReviewAt}
 What seems wrong:
 
@@ -191,10 +244,10 @@ What seems wrong:
       </section>
 
       <section className="grid gap-3 sm:grid-cols-4">
-        <Axis label="Evidence quality" value={result.confidence.evidence} />
-        <Axis label="Environmental completeness" value={result.confidence.environment} />
-        <Axis label="Forage certainty" value={result.confidence.forage} />
-        <Axis label="Presentation fit" value={result.confidence.presentation} />
+        <Axis label="Water temperature" value={EVIDENCE_WORD[result.confidence.evidence]} />
+        <Axis label="Conditions you declared" value={COMPLETENESS_WORD[result.confidence.environment]} />
+        <Axis label="Forage" value={FORAGE_WORD[result.confidence.forage]} />
+        <Axis label="Presentation fit" value={FIT_WORD[result.confidence.presentation]} />
       </section>
 
       <WhatIf session={session} onPatch={onPatch} />
@@ -217,7 +270,7 @@ What seems wrong:
                 {String.fromCharCode(65 + i)}. {p.label}
               </h4>
               <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-mark">
-                Fit · {p.fit}
+                Fit · {FIT_WORD[p.fit]}
               </span>
             </div>
             <p className="mt-3 text-sm text-fg">
@@ -240,7 +293,7 @@ What seems wrong:
               {Object.entries(p.system).map(([k, v]) => (
                 <div key={k} className="rounded-[var(--radius-xs)] bg-subtle px-2.5 py-2">
                   <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">
-                    {k.replaceAll(/([A-Z])/g, " $1")}
+                    {SYSTEM_LABEL[k] ?? k.replaceAll(/([A-Z])/g, " $1")}
                   </dt>
                   <dd className="mt-0.5 text-fg">{v.replaceAll("_", " ")}</dd>
                 </div>
@@ -255,7 +308,7 @@ What seems wrong:
           {result.positioning.map((p) => (
             <li key={p.text} className="flex gap-3 text-sm">
               <span className="mt-0.5 shrink-0 font-mono text-[10px] uppercase tracking-wider text-mark">
-                {p.confidence}
+                {SUPPORT_WORD[p.confidence]}
               </span>
               <span className="text-fg">{p.text}</span>
             </li>
@@ -280,7 +333,7 @@ What seems wrong:
           onClick={() => setInspect("hatch")}
           className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm text-fg"
         >
-          Observed something? Inspect Hatch packet
+          Observed something? See what Hatch Match would receive
           <ArrowUpRight className="size-4" />
         </button>
       </Layer>
@@ -304,7 +357,7 @@ What seems wrong:
           </p>
         )}
         <h4 className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-          Field invalidators
+          Signs this reading no longer applies
         </h4>
         <ul className="mt-3 grid gap-2 sm:grid-cols-2">
           {result.invalidators.map((x) => (
@@ -318,9 +371,9 @@ What seems wrong:
         )}
       </Layer>
 
-      <Layer title="Evidence, method, and sources">
+      <Layer title="How we reached this, and what it rests on">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-dim">
-          Record {fresh.replaceAll("_", " ")} · reviewed {species.reviewedAt} · next {species.nextReviewAt}
+          Record {RECORD_WORD[fresh]} · reviewed {species.reviewedAt} · next review {species.nextReviewAt}
         </p>
         <ol className="mt-4 space-y-1 font-mono text-xs text-muted">
           {result.trace.map((line, i) => (
@@ -355,7 +408,7 @@ What seems wrong:
       <section className="no-print rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)] sm:p-8">
         <h3 className="font-display text-2xl">Keep it, or carry the job</h3>
         <p className="mt-2 text-sm text-muted">
-          Nothing leaves this device unless you choose a carry. Packets contain no coordinates and no bite score.
+          Nothing leaves this device unless you send it, and what travels carries no coordinates and no bite score.
         </p>
         <div className="mt-5 grid gap-2 sm:grid-cols-2">
           <Button onClick={() => setInspect("tackle")}>
@@ -384,7 +437,7 @@ What seems wrong:
           </Button>
           <Button variant="ghost" onClick={() => copy("packet", json)}>
             <Copy className="size-4" />
-            {copied === "packet" ? "Copied JSON" : "Copy JSON packet"}
+            {copied === "packet" ? "Copied JSON" : "Copy as JSON"}
           </Button>
           <Button variant="ghost" onClick={downloadJson}>
             <Download className="size-4" />
@@ -437,7 +490,7 @@ What seems wrong:
           )}
         </div>
         <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.12em] text-dim">
-          Packet HTH-1.0 · coordinates not stored · {result.species.reviewedAt}
+          Coordinates are never stored · record reviewed {result.species.reviewedAt}
         </p>
       </section>
 
@@ -453,7 +506,7 @@ What seems wrong:
             className="max-h-[85dvh] w-full max-w-lg overflow-auto rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border-hover)]"
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Inspect before sending</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Check before sending</p>
             <h3 id="packet-inspect-title" className="mt-2 font-display text-2xl">
               Carry to {carryLabel[inspect]}?
             </h3>
@@ -473,7 +526,7 @@ What seems wrong:
                 href={carryHref[inspect]}
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-accent px-4 text-sm text-accent-fg no-underline"
               >
-                Send this packet
+                Send these details
                 <ArrowUpRight className="size-4" />
               </a>
               <Button variant="ghost" onClick={() => setInspect(null)}>

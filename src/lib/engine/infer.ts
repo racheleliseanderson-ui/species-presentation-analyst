@@ -86,7 +86,7 @@ function bump<T>(arr: T[], item: T | undefined): T[] {
 export function interpret(input: ScenarioInput): Interpretation | { error: string } {
   const species = SPECIES_BY_ID[input.speciesId];
   if (!species) {
-    return { error: "No reviewed record for that species. This instrument will not invent biology." };
+    return { error: "No reviewed record for that species. We will not invent biology to fill the gap." };
   }
 
   const targetStatus = species.targetStatus ?? "standard";
@@ -94,15 +94,15 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     const targetNote =
       species.targetContext?.note ??
       species.targetStatusNote ??
-      "Presentation guidance is intentionally disabled for this record.";
+      "Presentation guidance is deliberately withheld for this record.";
     return {
-      error: `${species.commonNames[0]} is retained for biological context only. ${targetNote} This instrument will not emit presentation guidance for this species.`,
+      error: `${species.commonNames[0]} is here for biological context only. ${targetNote} We do not give presentation guidance for this species.`,
     };
   }
 
   if (!species.habitat.waterTypes.includes(input.waterType)) {
     return {
-      error: `${species.commonNames[0]} has no reviewed ${labelOf(input.waterType)} record in this knowledge base. Declaring a different water type would be guessing.`,
+      error: `${species.commonNames[0]} has no reviewed ${labelOf(input.waterType)} record here. Choosing a different water type to get an answer would be guessing.`,
     };
   }
 
@@ -143,7 +143,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     });
   } else if (holding) {
     positioning.push({
-      text: `${holdingLabel} is declared, but it is not a primary reviewed class for this species. Treat it as a possible edge, not the default lie.`,
+      text: `${holdingLabel} is declared, but it is not one of the primary reviewed classes for this species. Treat it as a secondary lie, not the default one.`,
       confidence: "low",
     });
   }
@@ -210,15 +210,15 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
 
   let forageClasses: ForageClass[] = [...species.forageClasses];
   let forageCertainty: Confidence = "low";
-  let forageNote = "No field observation carried from Hatch Match. These are plausible forage classes, not a current hatch.";
+  let forageNote = "Nothing observed has been carried in from Hatch Match. These are plausible forage classes, not a confirmed current hatch.";
   if (input.forage) {
     forageClasses = bump(forageClasses, input.forage.class);
     forageCertainty = input.forage.confidence != null && input.forage.confidence >= 0.7 ? "high" : "moderate";
-    forageNote = `Observed forage packet: ${labelOf(input.forage.class)}${
+    forageNote = `You observed ${labelOf(input.forage.class)}${
       input.forage.hypothesis ? ` · ${input.forage.hypothesis.replaceAll("_", " ")}` : ""
-    }. The ${WEIGHTING_MODEL_VERSION} model is using that observation as the forage axis, not inventing a hatch.`;
+    }. That observation is what the forage side of this reading rests on — nothing about a hatch is invented.`;
   } else if (input.season === "fall" || input.season === "late_summer") {
-    forageNote += " Seasonal terrestrial and baitfish classes may be plausible, but no forage weight is applied until one is observed or carried in.";
+    forageNote += " Seasonal terrestrial and baitfish classes may be plausible, but forage does not count toward this reading until you observe one or carry one in.";
   }
 
   const appliedSpeciesOverrides = matchingSpeciesWeightOverrides(input, tState);
@@ -280,23 +280,16 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     unknowns.push("regional / population context");
   }
 
-  const topWeightTrace = top
-    ? top.weightReasons
-        .filter((reason) => reason.axis !== "species")
-        .map((reason) => `${reason.axis} ${reason.delta >= 0 ? "+" : ""}${reason.delta}`)
-        .join(" · ")
-    : "no weighted family";
-
   const trace = [
     species.commonNames[0],
     targetStatus === "regulated_context"
-      ? `regulated context · ${species.targetContext?.jurisdictionScope ?? "verify current jurisdiction rules"}`
-      : "standard target record",
+      ? `closely regulated fishery · ${species.targetContext?.jurisdictionScope ?? "verify current local rules"}`
+      : "no special conservation or regulatory status on this record",
     populationProfile
-      ? `${REGIONAL_POPULATION_MODEL_VERSION} · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
+      ? `regional context · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
       : populationProfilesForSpecies(species.id, input.waterType).length > 0
-        ? `${REGIONAL_POPULATION_MODEL_VERSION} · no profile declared; generic species record retained`
-        : `${REGIONAL_POPULATION_MODEL_VERSION} · no reviewed profile required for this species/water declaration`,
+        ? "regional context · none declared; generic species record retained"
+        : "regional context · no reviewed profile applies to this species and water type",
     input.tempF != null ? `${input.tempF}°F · ${labelOf(input.tempSource)}` : "temperature unknown",
     labelOf(input.waterType),
     input.waterType === "flowing" ? labelOf(input.flow ?? "unknown") : labelOf(input.stillState ?? "unknown"),
@@ -309,13 +302,13 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
         : tState === "warm_stress"
           ? "refuge from heat / low oxygen favored"
           : "thermal state unresolved",
-    `${WEIGHTING_MODEL_VERSION} · species × season × thermal × water type × holding × forage`,
+    "ranked on species, season, water temperature, water type, holding water, and observed forage",
     appliedSpeciesOverrides.length
-      ? `${SPECIES_OVERRIDE_MODEL_VERSION} · ${appliedSpeciesOverrides.map((rule) => rule.id).join(" + ")}`
-      : `${SPECIES_OVERRIDE_MODEL_VERSION} · no species-specific override matched`,
-    top ? `${top.label} relative weight ${top.weight} · ${topWeightTrace}` : "no reviewed presentation for this water type",
+      ? "reviewed adjustments for this species under these conditions were applied"
+      : "no species-specific adjustment applied",
+    top ? `${top.label} ranks first for this combination` : "no reviewed presentation for this water type",
     presentations.map((p) => p.label).join(" + ") || "no reviewed presentation for this water type",
-    "relative weights are ranking mechanics, never bite probability",
+    "ranking compares reviewed presentations only — it is never the chance of a bite",
   ];
 
   return {

@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { applyTheme, readTheme, THEMES, type ThemeId } from "@/lib/theme";
-import { APP_VERSION, INSTRUMENT_ID } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
 
 export function Chrome() {
@@ -28,7 +27,7 @@ export function Chrome() {
               Species & Presentation
             </span>
             <span className="block truncate font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-              Hook the Horizon · field instrument
+              Hook the Horizon · field intelligence
             </span>
           </span>
         </Link>
@@ -43,7 +42,7 @@ export function Chrome() {
             to="/boundary"
             className="hidden font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:text-fg sm:inline"
           >
-            Boundary
+            Limits &amp; sources
           </Link>
           <div
             className="flex rounded-[var(--radius-sm)] bg-subtle p-0.5 shadow-[var(--shadow-border)]"
@@ -75,8 +74,8 @@ export function Chrome() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl justify-between px-4 pb-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim sm:px-6">
-        <span>{INSTRUMENT_ID}</span>
-        <span>v {APP_VERSION} · local-only</span>
+        <span>Biology before bravado</span>
+        <span>Saved on this device only</span>
       </div>
     </header>
   );

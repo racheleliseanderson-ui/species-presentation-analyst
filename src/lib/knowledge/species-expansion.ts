@@ -143,7 +143,7 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     stillPresentations: ["vertical_jig", "bottom_contact", "slow_drag", "drop_presentation", "live_natural_bait_suspension"],
     exceptions: [
       "Summer depth depends on both temperature and oxygen; a cold depth without adequate oxygen is not usable habitat.",
-      "Spawning shoals are not emitted as target locations.",
+      "Spawning shoals are never named as target locations.",
     ],
     geographic: "Great Lakes and cool northern inland lakes; local stocks differ in depth use, prey, and spawning grounds.",
     sources: [
@@ -178,7 +178,7 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     stillPresentations: ["vertical_jig", "bottom_contact", "slow_drag", "live_natural_bait_suspension"],
     exceptions: [
       "Night activity does not justify a surface presentation; this is a bottom-oriented species record.",
-      "Winter spawning concentrations are a conservation-sensitive invalidator, not a hotspot layer.",
+      "Winter spawning concentrations are a conservation-sensitive warning sign, not a hotspot map.",
     ],
     geographic: "Northern lakes and larger rivers with cold, oxygenated habitat; southern range edges are thermally constrained.",
     sources: [
@@ -314,7 +314,7 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     flowingPresentations: ["bottom_contact_drift", "pulse_jig", "stationary_bait"],
     stillPresentations: ["bottom_contact", "slow_drag", "vertical_jig", "live_natural_bait_suspension"],
     exceptions: [
-      "A school or seasonal movement is not a hotspot layer; freshwater drum can be mobile and forage-linked.",
+      "A school or seasonal movement is not a hotspot map; freshwater drum can be mobile and forage-linked.",
       "Large adults may be much more mollusk-focused than juveniles, so forage class should remain falsifiable in the field.",
     ],
     geographic: "Great Lakes, Mississippi/Ohio/Missouri systems, and many connected reservoirs and large rivers of central/eastern North America.",

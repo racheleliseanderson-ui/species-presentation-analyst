@@ -1,5 +1,5 @@
 import type { Interpretation, ScenarioInput } from "../protocol/types.ts";
-import { INSTRUMENT_ID, PACKET_VERSION, labelOf } from "../protocol/vocab.ts";
+import { INSTRUMENT_NAME, labelOf } from "../protocol/vocab.ts";
 
 export function freshness(
   reviewedAt: string,
@@ -14,19 +14,42 @@ export function freshness(
   return "current";
 }
 
+/** Reader-facing wording for how well a positioning statement is supported. */
+const SUPPORT_WORD: Record<string, string> = {
+  high: "well supported",
+  moderate: "likely",
+  low: "unconfirmed",
+};
+
+/** Reader-facing wording for where the water sits against the species' feeding band. */
+const THERMAL_WORD: Record<string, string> = {
+  preferred: "Inside the preferred band",
+  active: "Active, but outside the preferred core",
+  cold_refuge: "Cold side of the feeding band",
+  warm_stress: "Warm side of the feeding band",
+  unknown: "Not known",
+};
+
+/** Reader-facing wording for how current a reviewed record is. */
+export function freshnessLabel(state: ReturnType<typeof freshness>): string {
+  if (state === "current") return "up to date";
+  if (state === "review_due") return "due for review";
+  return "overdue for review";
+}
+
 export function fieldBrief(input: ScenarioInput, result: Interpretation): string {
   const species = result.species;
   const holding =
     input.waterType === "flowing"
       ? input.holdingRiver
         ? labelOf(input.holdingRiver)
-        : "undeclared"
+        : "not chosen"
       : input.holdingStill
         ? labelOf(input.holdingStill)
-        : "undeclared";
+        : "not chosen";
   const temp =
-    input.tempF == null ? "UNKNOWN" : `${input.tempF}°F · ${labelOf(input.tempSource)}`;
-  const water = input.water.waterName || "Named public water undeclared";
+    input.tempF == null ? "Temperature unknown" : `${input.tempF}°F · ${labelOf(input.tempSource)}`;
+  const water = input.water.waterName || "No named public water added";
 
   const lines = [
     "SPECIES & PRESENTATION — FIELD BRIEF",
@@ -34,24 +57,25 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     `${temp} · ${labelOf(input.waterType)} · ${holding}`,
     water,
     result.populationContext
-      ? `Population context · ${result.populationContext.label} · ${result.populationContext.systemArchetype.replaceAll("_", " ")} · ${result.weightingModel.regionalPopulationVersion ?? "RPC"}`
+      ? `Population context · ${result.populationContext.label} · ${result.populationContext.systemArchetype.replaceAll("_", " ")}`
       : "Population context · generic species record",
     "",
     "THE READING (not a bite prediction)",
     result.why.split(/(?<=\.)\s+(?=[A-Z0-9])/).join("\n"),
     "",
     "MOST PLAUSIBLE POSITIONING",
-    ...result.positioning.map((p) => `· ${p.confidence}: ${p.text}`),
+    ...result.positioning.map((p) => `· ${SUPPORT_WORD[p.confidence] ?? p.confidence}: ${p.text}`),
     "",
-    `WEIGHTING ${result.weightingModel.version} · species × season × thermal × water type × holding × forage`,
+    "HOW THIS WAS RANKED",
+    "Species, season, water temperature, water type, holding water, and observed forage — all from what you declared.",
     result.populationContext
-      ? `${result.weightingModel.regionalPopulationVersion ?? "RPC"} · explicitly declared ${result.populationContext.label}`
-      : `${result.weightingModel.regionalPopulationVersion ?? "RPC"} · no regional/population profile applied`,
-    "Relative family weights rank reviewed jobs only. They are not a bite score.",
+      ? `Regional context · explicitly declared · ${result.populationContext.label}`
+      : "Regional context · none declared",
+    "Ranking compares reviewed presentation jobs only. It is not a bite score.",
     "",
-    "PRESENTATION FAMILIES (jobs, not lure SKUs)",
+    "PRESENTATION FAMILIES (jobs, not lures to buy — in order)",
     ...result.presentations.map(
-      (p, i) => `${String.fromCharCode(65 + i)}. ${p.label} — ${p.job} · rank ${p.weight}`,
+      (p, i) => `${String.fromCharCode(65 + i)}. ${p.label} — ${p.job}`,
     ),
     "",
     "FORAGE",
@@ -61,12 +85,12 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     "WHAT WOULD CHANGE THIS",
     ...result.invalidators.map((x) => `· ${x}`),
     "",
-    result.unknowns.length ? `STILL UNKNOWN: ${result.unknowns.join(", ")}` : "STILL UNKNOWN: none declared",
+    result.unknowns.length ? `STILL UNKNOWN: ${result.unknowns.join(", ")}` : "STILL UNKNOWN: nothing left undeclared",
     "",
-    `Record ${freshness(species.reviewedAt, species.nextReviewAt)} · reviewed ${species.reviewedAt} · next ${species.nextReviewAt}`,
+    `Record ${freshnessLabel(freshness(species.reviewedAt, species.nextReviewAt))} · reviewed ${species.reviewedAt} · next review ${species.nextReviewAt}`,
     ...species.sources.map((s) => `Source · ${s.class.replaceAll("_", " ")} · ${s.label}`),
     "",
-    `${INSTRUMENT_ID} · packet ${PACKET_VERSION} · coordinates not stored`,
+    `${INSTRUMENT_NAME} · Hook the Horizon · coordinates not stored`,
     "This is an account of plausibility, not a prediction that fish will bite.",
   ];
   return lines.join("\n");
@@ -77,13 +101,13 @@ export function packetSummary(input: ScenarioInput, result: Interpretation): { l
     input.waterType === "flowing"
       ? input.holdingRiver
         ? labelOf(input.holdingRiver)
-        : "undeclared"
+        : "not chosen"
       : input.holdingStill
         ? labelOf(input.holdingStill)
-        : "undeclared";
+        : "not chosen";
   return [
     { label: "Species", value: `${result.species.commonNames[0]} (${result.species.scientificName})` },
-    { label: "Water", value: input.water.waterName || "Undeclared named public water" },
+    { label: "Water", value: input.water.waterName || "No named public water added" },
     { label: "Water type", value: labelOf(input.waterType) },
     {
       label: "Population context",
@@ -95,14 +119,11 @@ export function packetSummary(input: ScenarioInput, result: Interpretation): { l
       label: "Temperature",
       value: input.tempF == null ? "Unknown" : `${input.tempF}°F · ${labelOf(input.tempSource)}`,
     },
-    { label: "Holding", value: holding },
+    { label: "Holding water", value: holding },
     { label: "Season", value: labelOf(input.season) },
-    { label: "Thermal", value: result.thermalState.replaceAll("_", " ") },
-    { label: "Forage", value: input.forage ? labelOf(input.forage.class) : "undeclared" },
-    {
-      label: "Weighting",
-      value: `${result.weightingModel.version} · ${result.weightingModel.regionalPopulationVersion ?? "RPC"} · ranking only`,
-    },
+    { label: "Water temperature", value: THERMAL_WORD[result.thermalState] ?? "Not known" },
+    { label: "Forage", value: input.forage ? labelOf(input.forage.class) : "Not observed" },
+    { label: "Ranking", value: "Reviewed presentations only · no bite score" },
     { label: "Families", value: result.presentations.map((p) => p.label).join(" · ") },
     { label: "Coordinates", value: "Not included" },
     { label: "Bite score", value: "Not included" },

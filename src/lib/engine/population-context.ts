@@ -50,7 +50,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Treat this as a migratory coastal-river population: current, temperature, salinity transition, and migration stage matter more than reservoir-style basin structure.",
     invalidators: [
       "Current Atlantic striped bass regulations and seasonal closures supersede this biological profile.",
-      "Spawning reaches, staging concentrations, and migration bottlenecks are never emitted as target locations.",
+      "Spawning reaches, staging concentrations, and migration bottlenecks are never named as target locations.",
     ],
     note:
       "NOAA describes Atlantic striped bass as anadromous, with adults using coastal/estuarine habitat and returning to freshwater or brackish rivers to spawn.",
@@ -217,7 +217,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
     positioning:
       "Current-washed rock, deep runs, channel edges, and velocity breaks outrank reservoir-style basin searching in this declared population context.",
     invalidators: [
-      "Navigation structures and dams may create concentrations; this profile does not emit those locations.",
+      "Navigation structures and dams may create concentrations; this profile does not name those locations.",
       "Spring migration/spawning concentrations are explicitly excluded from target guidance.",
     ],
     note:
@@ -242,7 +242,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Channel current, deep pools, current breaks, and silt-free main-river structure define this archetype more than reservoir pelagic roaming.",
     invalidators: [
       "Seasonal river movement can be extensive; one channel/depth class is not a year-round rule.",
-      "Do not convert lock, dam, or concentration structure into a hotspot layer.",
+      "Do not convert lock, dam, or concentration structure into a hotspot map.",
     ],
     note:
       "Missouri describes blue catfish as a big-river fish favoring current, pools, and silt-free sand/gravel/rubble substrates.",
@@ -338,7 +338,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Treat occupied depth as a moving pelagic layer governed by season, time of day, life stage, plankton, and basin-scale temperature/oxygen rather than shoreline cover.",
     invalidators: [
       "A cisco school is mobile biological structure and never a coordinate output.",
-      "Spawning depth varies widely among stocks; spawning concentrations are not a targeting layer.",
+      "Spawning depth varies widely among stocks; spawning concentrations are not a place to target.",
     ],
     note:
       "USFWS describes Great Lakes cisco as pelagic zooplankton feeders that can occupy nearly the full depth range depending on season, time of day, and life stage.",
@@ -447,7 +447,7 @@ export function resolvePopulationContext(
   if (!profile) {
     return {
       profile: null,
-      error: "That regional/population context is not a reviewed profile. The instrument will not infer one from a water name or location.",
+      error: "That regional or population context is not one of our reviewed profiles. We do not infer one from a water name or a location.",
     };
   }
   if (profile.speciesId !== species.id) {

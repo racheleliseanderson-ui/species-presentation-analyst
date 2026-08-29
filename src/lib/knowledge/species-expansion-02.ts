@@ -26,7 +26,7 @@ export const SPECIES_EXPANSION_02: SpeciesRecord[] = [
     thermal: { preferredF: [68, 78], activeF: [58, 82], coldEdgeF: 50, warmEdgeF: 86 },
     spawning: {
       seasons: ["early_summer", "summer"],
-      note: "Nesting begins as littoral water warms into the upper 60s and 70s; colonial or concentrated nesting habitat is a conservation invalidator, not a targeting layer.",
+      note: "Nesting begins as littoral water warms into the upper 60s and 70s; colonial or concentrated nesting habitat is a conservation concern, not a place to target.",
     },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
@@ -76,7 +76,7 @@ export const SPECIES_EXPANSION_02: SpeciesRecord[] = [
     stillPresentations: ["bottom_contact", "slow_drag", "drop_presentation", "live_natural_bait_suspension"],
     exceptions: [
       "Mollusks are a defining forage class, but insect and crustacean feeding remains important where snails are sparse.",
-      "Nesting colonies are not emitted as target locations.",
+      "Nesting colonies are never named as target locations.",
     ],
     geographic: "Warm clear ponds, reservoirs, lakes, marshes, and slow protected river habitat of the South and stocked waters elsewhere.",
     sources: [
@@ -180,7 +180,7 @@ export const SPECIES_EXPANSION_02: SpeciesRecord[] = [
     stillPresentations: ["stop_and_go", "horizontal_retrieve", "subsurface_slow_roll", "surface_retrieve"],
     exceptions: [
       "Chain pickerel are cover-oriented esocids; open-pelagic pike logic should not be imported automatically.",
-      "Flooded spawning margins are not emitted as aggregation targets.",
+      "Flooded spawning margins are never named as aggregation targets.",
     ],
     geographic: "Atlantic slope and eastern interior waters, especially vegetated lakes, swamps, ponds, and sluggish rivers.",
     sources: [
@@ -370,7 +370,7 @@ export const SPECIES_EXPANSION_02: SpeciesRecord[] = [
     thermal: { preferredF: [50, 60], activeF: [40, 65], coldEdgeF: 34, warmEdgeF: 70 },
     spawning: {
       seasons: ["late_fall", "winter"],
-      note: "Fall-to-winter spawning ranges from shallow shoals to deep offshore habitat depending on stock; spawning depth is not emitted as a target location.",
+      note: "Fall-to-winter spawning ranges from shallow shoals to deep offshore habitat depending on stock; spawning depth is never given as a target location.",
     },
     habitat: {
       waterTypes: ["stillwater"],

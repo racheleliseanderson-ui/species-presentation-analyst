@@ -46,7 +46,7 @@ export function WhatIf({
     <section className="no-print rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
       <h3 className="font-display text-2xl">Change one thing</h3>
       <p className="mt-1 text-sm text-muted">
-        The reading updates immediately. Same model, different declaration — not a new guess.
+        The reading updates immediately. Same reviewed biology, different inputs — not a fresh guess.
       </p>
       <div className="mt-5 space-y-5">
         {populationProfiles.length > 0 && (
@@ -87,7 +87,7 @@ export function WhatIf({
               ))}
             </div>
             <p className="mt-2 text-xs text-dim">
-              Optional RPC-1.0 context. It is never inferred from a water name, jurisdiction, or coordinates; choose only a profile you recognize.
+              Optional. Regional context is never inferred from a water name, a jurisdiction, or coordinates — choose only a profile you recognize.
             </p>
           </div>
         )}
@@ -194,7 +194,7 @@ export function WhatIf({
             ))}
           </div>
           <p className="mt-2 text-xs text-dim">
-            {FORAGE_CLASSES.length} classes exist; these four change ranking most. Hatch Match carries a full observation packet.
+            {FORAGE_CLASSES.length} classes exist; these four change the ranking most. Hatch Match records a full set of observations and can carry them here.
           </p>
         </div>
       </div>

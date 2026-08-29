@@ -74,7 +74,7 @@ export const SPECIES_OVERRIDE_EXPANSION_COVERAGE: SpeciesOverrideCoverageRecord[
   { speciesId: "alosa_sapidissima", mode: "weighted", note: "American shad freshwater presentation is migration/interception context, not forage proof.", reviewedAt: "2026-08-27" },
   { speciesId: "salvelinus_confluentus", mode: "policy_only", note: "Conservation-sensitive context-only record; weighting remains intentionally unreachable.", reviewedAt: "2026-08-27" },
   { speciesId: "salmo_salar_anadromous", mode: "policy_only", note: "Protected wild anadromous U.S. Atlantic salmon record; presentation guidance remains disabled.", reviewedAt: "2026-08-27" },
-  { speciesId: "acipenser_fulvescens", mode: "weighted", note: "Regulated-context lake sturgeon remain bottom-oriented and jurisdiction-gated.", reviewedAt: "2026-08-27" },
+  { speciesId: "acipenser_fulvescens", mode: "weighted", note: "Regulated-context lake sturgeon remain bottom-oriented, and rules vary sharply by jurisdiction.", reviewedAt: "2026-08-27" },
   { speciesId: "polyodon_spathula", mode: "policy_only", note: "Filter-feeding regulated-context record intentionally carries no capture-method weighting.", reviewedAt: "2026-08-27" },
   { speciesId: "lepomis_auritus", mode: "weighted", note: "Redbreast sunfish preserve stronger moving-water use than bluegill-like generic panfish logic.", reviewedAt: "2026-08-27" },
   { speciesId: "lepomis_gulosus", mode: "weighted", note: "Warmouth remain quiet-water cover ambush fish.", reviewedAt: "2026-08-27" },

@@ -81,7 +81,7 @@ function WorkedExample({ onOpen }: { onOpen: () => void }) {
   if ("error" in result) return null;
   return (
     <aside className="instrument-rule rounded-[var(--radius-md)] bg-elevated p-5">
-      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">A worked reading</p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Example reading</p>
       <p className="mt-2 font-display text-xl text-fg">Brown trout · 54°F seam</p>
       <p className="mt-2 text-sm text-fg">
         Most plausible family: {result.presentations[0]?.label}. Not a lure. Not a bite score.
@@ -141,9 +141,9 @@ export function Instrument() {
       {pending && (
         <section className="no-print mb-8 instrument-rule rounded-[var(--radius-lg)] bg-elevated p-5 sm:p-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-            A packet arrived · nothing applied yet
+            Details arrived from another Hook the Horizon app · nothing applied yet
           </p>
-          <h2 className="mt-2 font-display text-2xl">Inspect before using these fields</h2>
+          <h2 className="mt-2 font-display text-2xl">Check these before you use them</h2>
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
             {incomingRows(pending).map((row) => (
               <div key={row.label}>
@@ -153,7 +153,7 @@ export function Instrument() {
             ))}
           </dl>
           <p className="mt-3 text-sm text-muted">
-            Coordinates are refused. Population context is never inferred from the water name. Apply only what you recognize.
+            Coordinates never travel between these apps. Population context is never inferred from the water name. Apply only what you recognize.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Button
@@ -179,7 +179,7 @@ export function Instrument() {
                 if (typeof window !== "undefined") window.history.replaceState(null, "", window.location.pathname);
               }}
             >
-              Apply these fields
+              Use these details
             </Button>
             <Button
               variant="ghost"
@@ -198,13 +198,13 @@ export function Instrument() {
         <section className="stagger-in mb-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">
-              HTH-SP-001 · biology before bravado
+              Biology before bravado
             </p>
             <h1 className="mt-4 max-w-xl font-display text-5xl text-fg sm:text-6xl">
               What is this species plausibly doing here?
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted">
-              You'll leave with a presentation family, a holding-water class, and a packet the rest of the suite can read. Not a lure SKU. Not a bite score.
+              You'll leave with a presentation family, a holding-water class, and a summary the rest of the Hook the Horizon apps can read. Not a lure to buy. Not a bite score.
             </p>
             <div className="mt-6 instrument-rule max-w-xl rounded-[var(--radius-md)] bg-elevated p-5 text-sm text-muted">
               No bite scores. No hotspots. No exact lures. A reviewed record, a declared water, and a reading you can falsify.
@@ -217,7 +217,7 @@ export function Instrument() {
         </section>
       )}
 
-      <nav className="mb-8 flex flex-wrap gap-2 no-print" aria-label="Declaration steps">
+      <nav className="mb-8 flex flex-wrap gap-2 no-print" aria-label="Reading steps">
         {STEPS.map((s) => {
           const on = session.step === s.id;
           return (
@@ -242,7 +242,7 @@ export function Instrument() {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Step 01 — Target</p>
           <h2 className="mt-2 font-display text-3xl">Which reviewed species?</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted">
-            Unreviewed names do not fall through to generic advice. {SPECIES.length} North American records are loaded. Search accepts common names and nicknames.
+            {SPECIES.length} North American records are loaded, and names we have not reviewed never fall through to generic advice. Search accepts common names and nicknames.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {STARTERS.map((s) => (
@@ -271,7 +271,7 @@ export function Instrument() {
           </label>
           {query.trim() && filtered.length === 0 && (
             <p className="mt-6 max-w-xl text-sm text-muted">
-              No reviewed record matches “{query}”. This will not invent biology for an unreviewed name.
+              No reviewed record matches “{query}”. Try another common name or nickname — we will not invent biology for a fish we have not reviewed.
             </p>
           )}
           {GROUPS.map((g) => {
@@ -314,7 +314,7 @@ export function Instrument() {
             {species ? species.commonNames[0] : "Declare water"}
           </h2>
           <p className="text-sm text-muted">
-            Name a public water if you want the packet to carry it. Water type is required. No coordinates.
+            Name a public water if you want it carried with your reading. Water type is required. No coordinates, ever.
           </p>
           <label className="block">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
@@ -340,7 +340,7 @@ export function Instrument() {
           />
           {mismatch && (
             <p className="instrument-rule rounded-[var(--radius-md)] bg-elevated px-4 py-3 text-sm">
-              {species.commonNames[0]} has no reviewed {labelOf(session.waterType)} record. The reading will refuse rather than guess. Switch type, or pick a different species.
+              {species.commonNames[0]} has no reviewed {labelOf(session.waterType)} record. We will say so rather than guess. Switch the water type, or pick a different species.
             </p>
           )}
           <div className="flex gap-2">
@@ -382,7 +382,7 @@ export function Instrument() {
               />
               <p className="flex min-h-12 items-center font-mono text-xs text-muted">
                 {session.tempF == null
-                  ? "UNKNOWN"
+                  ? "NOT MEASURED YET"
                   : `${session.tempF}°F — ${labelOf(session.tempSource).toUpperCase()}`}
               </p>
             </div>
@@ -447,7 +447,7 @@ export function Instrument() {
               Observed forage — optional
             </p>
             <p className="mb-3 text-sm text-muted">
-              Leave this unknown unless you saw it. Hatch Match is the observation instrument.
+              Leave this unknown unless you actually saw it. Hatch Match is where you record what you observed.
             </p>
             <div className="flex flex-wrap gap-2">
               <button
@@ -529,13 +529,13 @@ export function Instrument() {
 
       {session.step === "readout" && !session.speciesId && (
         <section className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 sm:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Cannot answer</p>
-          <h2 className="mt-2 font-display text-3xl text-fg">No reviewed species is declared.</h2>
+          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Nothing evaluated yet</p>
+          <h2 className="mt-2 font-display text-3xl text-fg">Add a species to begin.</h2>
           <p className="mt-4 max-w-xl text-sm text-muted">
-            Pick a reviewed record first. Unreviewed names do not fall through to generic advice.
+            Pick a reviewed species first and the reading fills in from there. Names we have not reviewed never fall through to generic advice.
           </p>
           <Button className="mt-6" variant="ghost" onClick={() => session.setStep("target")}>
-            Choose a reviewed species
+            Choose a species
           </Button>
         </section>
       )}

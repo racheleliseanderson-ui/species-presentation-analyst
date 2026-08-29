@@ -20,7 +20,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     group: "trout_salmon",
     targetStatus: "conservation_sensitive",
     targetStatusNote:
-      "Lower-48 U.S. bull trout remain listed as threatened under the Endangered Species Act. This record is retained for biological context only; the instrument will not emit presentation guidance.",
+      "Lower-48 U.S. bull trout remain listed as threatened under the Endangered Species Act. This record is retained for biological context only; we do not give presentation guidance for it.",
     nativeContext:
       "Native coldwater char of northwestern North America with resident, fluvial, adfluvial, and anadromous life-history forms.",
     thermal: { preferredF: [44, 54], activeF: [38, 60], coldEdgeF: 34, warmEdgeF: 64 },
@@ -112,7 +112,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     thermal: { preferredF: [50, 66], activeF: [40, 76], coldEdgeF: 34, warmEdgeF: 82 },
     spawning: {
       seasons: ["spring", "early_summer"],
-      note: "Adults migrate into rocky, swift river habitat to spawn as spring water warms; spawning aggregations are never emitted as targeting locations.",
+      note: "Adults migrate into rocky, swift river habitat to spawn as spring water warms; spawning aggregations are never named as targeting locations.",
     },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
@@ -149,7 +149,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     group: "other",
     targetStatus: "regulated_context",
     targetStatusNote:
-      "Paddlefish fisheries often use special seasons, permits, and legal methods. This record provides biology and positioning context but intentionally emits no presentation or capture-method guidance.",
+      "Paddlefish fisheries often use special seasons, permits, and legal methods. This record provides biology and positioning context but intentionally gives no presentation or capture-method guidance.",
     nativeContext:
       "Ancient native filter-feeding fish of the Mississippi River basin, dependent on large connected rivers and reservoirs.",
     thermal: { preferredF: [58, 74], activeF: [48, 82], coldEdgeF: 40, warmEdgeF: 86 },
@@ -335,7 +335,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     thermal: { preferredF: [60, 74], activeF: [50, 80], coldEdgeF: 44, warmEdgeF: 84 },
     spawning: {
       seasons: ["spring"],
-      note: "Spring spawner that can move into tributaries or shallow lake zones as water warms; exact aggregation points are not emitted.",
+      note: "Spring spawner that can move into tributaries or shallow lake zones as water warms; exact aggregation points are never named.",
     },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
@@ -379,7 +379,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       currentPreference:
         "Strongly attracted to current edges, tailwaters, feeder-creek plumes, and other places where moving water concentrates pelagic forage.",
       depthTendency:
-        "Pelagic and forage-following; summer depth is constrained by the combined temperature-oxygen envelope.",
+        "Pelagic and forage-following; summer depth is constrained by the combined temperature and oxygen squeeze.",
       lightResponse:
         "Low light, wind, and current can move schools shallower; bright stable periods often push fish and forage deeper.",
     },
