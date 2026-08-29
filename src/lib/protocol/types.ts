@@ -140,12 +140,15 @@ export type WaterPacket = {
   accessContext?: string;
 };
 
+export type TemperatureRangeF = [number, number];
+
 export type ScenarioInput = {
   speciesId: string;
   water: WaterPacket;
   waterType: WaterType;
   populationContext?: PopulationContextInput | null;
   tempF: number | null;
+  tempRangeF?: TemperatureRangeF | null;
   tempSource: TempSource;
   tempObservedAt?: string | null;
   flow?: FlowClass;
@@ -231,6 +234,7 @@ export type HthPacket = {
   conditions: {
     waterType: WaterType;
     tempF: number | null;
+    tempRangeF?: TemperatureRangeF | null;
     tempSource: TempSource;
     flow?: FlowClass;
     stillState?: StillState;

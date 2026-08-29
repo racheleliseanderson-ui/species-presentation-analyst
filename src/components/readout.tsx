@@ -441,7 +441,7 @@ What seems wrong:
           </Button>
           <Button variant="ghost" onClick={downloadJson}>
             <Download className="size-4" />
-            Download JSON
+            Download data
           </Button>
         </div>
         <div className="mt-6 border-t border-line pt-5">
@@ -490,7 +490,7 @@ What seems wrong:
           )}
         </div>
         <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.12em] text-dim">
-          Coordinates are never stored · record reviewed {result.species.reviewedAt}
+          Notes stay on this device · coordinates are never stored · record reviewed {result.species.reviewedAt}
         </p>
       </section>
 

@@ -87,7 +87,7 @@ export function WhatIf({
               ))}
             </div>
             <p className="mt-2 text-xs text-dim">
-              Optional. Regional context is never inferred from a water name, a jurisdiction, or coordinates — choose only a profile you recognize.
+              Optional population context. It is never inferred from a water name, a jurisdiction, or coordinates; choose only a profile you recognize.
             </p>
           </div>
         )}
@@ -194,7 +194,7 @@ export function WhatIf({
             ))}
           </div>
           <p className="mt-2 text-xs text-dim">
-            {FORAGE_CLASSES.length} classes exist; these four change the ranking most. Hatch Match records a full set of observations and can carry them here.
+            {FORAGE_CLASSES.length} classes exist; these four change the ranking most. Hatch Match can carry a forage observation here.
           </p>
         </div>
       </div>

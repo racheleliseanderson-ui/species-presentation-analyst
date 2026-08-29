@@ -36,7 +36,7 @@ describe("interpret", () => {
     assert.equal(r.thermalState, "preferred");
     assert.equal(r.presentations[0]?.id, "dead_drift");
     assert.equal(r.weightingModel.version, "SPW-1.1");
-    assert.equal(r.weightingModel.speciesOverrideVersion, "SPO-1.1");
+    assert.equal(r.weightingModel.speciesOverrideVersion, "SPO-1.2");
     assert.deepEqual(r.weightingModel.coreAxes, [
       "species",
       "season",
@@ -150,7 +150,7 @@ describe("interpret", () => {
     assert.ok(r.presentations.every((p) => ["vertical_jig", "trolling", "suspend_pause", "horizontal_retrieve"].includes(p.id)));
   });
 
-  it("applies SPO-1.1 white-bass pelagic forage weighting", () => {
+  it("applies SPO-1.2 white-bass pelagic forage weighting", () => {
     const r = interpret({
       speciesId: "morone_chrysops",
       water: { waterName: "Named public reservoir", waterType: "stillwater" },
@@ -174,7 +174,7 @@ describe("interpret", () => {
     assert.ok(r.presentations.every((p) => ["horizontal_retrieve", "stop_and_go", "vertical_jig"].includes(p.id)));
   });
 
-  it("applies SPO-1.1 redear mollusk weighting without inheriting bluegill surface logic", () => {
+  it("applies SPO-1.2 redear mollusk weighting without inheriting bluegill surface logic", () => {
     const r = interpret({
       speciesId: "lepomis_microlophus",
       water: { waterName: "Named public lake", waterType: "stillwater" },
@@ -198,7 +198,7 @@ describe("interpret", () => {
     assert.ok(r.presentations.every((p) => ["bottom_contact", "slow_drag", "drop_presentation", "live_natural_bait_suspension"].includes(p.id)));
   });
 
-  it("applies SPO-1.1 cisco plankton depth-band weighting", () => {
+  it("applies SPO-1.2 cisco plankton depth-band weighting", () => {
     const r = interpret({
       speciesId: "coregonus_artedi",
       water: { waterName: "Named public lake", waterType: "stillwater" },
@@ -242,7 +242,7 @@ describe("interpret", () => {
     assert.ok("error" in r);
     if (!("error" in r)) return;
     assert.match(r.error, /biological context only/i);
-    assert.match(r.error, /do not give presentation guidance/i);
+    assert.match(r.error, /no presentation guidance/i);
   });
 
   it("keeps policy-only paddlefish at zero presentation families", () => {
@@ -301,12 +301,12 @@ describe("interpret", () => {
   });
 });
 
-describe("SPO-1.1 catalog invariants", () => {
+describe("SPO-1.2 catalog invariants", () => {
   it("covers every reviewed species exactly once at the coverage layer", () => {
-    assert.equal(SPECIES_OVERRIDE_MODEL_VERSION, "SPO-1.1");
+    assert.equal(SPECIES_OVERRIDE_MODEL_VERSION, "SPO-1.2");
     const catalogIds = SPECIES.map((species) => species.id).sort();
     const coverageIds = SPECIES_OVERRIDE_COVERAGE.map((entry) => entry.speciesId).sort();
-    assert.equal(new Set(coverageIds).size, 60);
+    assert.equal(new Set(coverageIds).size, 75);
     assert.deepEqual(coverageIds, catalogIds);
   });
 

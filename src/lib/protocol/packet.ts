@@ -1,3 +1,5 @@
+import { carryFleetContext } from "./fleet-context";
+import { normalizeTemperatureRangeF } from "../engine/temperature";
 import {
   FORAGE_CLASSES,
   INSTRUMENT_ID,
@@ -14,13 +16,14 @@ import type {
   Interpretation,
   PopulationContextInput,
   ScenarioInput,
+  TemperatureRangeF,
   WaterPacket,
 } from "./types";
 
 export function buildPacket(input: ScenarioInput, result: Interpretation): HthPacket {
   const holding =
     input.waterType === "flowing" ? input.holdingRiver ?? undefined : input.holdingStill ?? undefined;
-  return {
+  const packet: HthPacket = {
     packetVersion: PACKET_VERSION,
     origin: "species-presentation",
     createdAt: new Date().toISOString(),
@@ -37,6 +40,7 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
     conditions: {
       waterType: input.waterType,
       tempF: input.tempF,
+      tempRangeF: normalizeTemperatureRangeF(input.tempRangeF),
       tempSource: input.tempSource,
       flow: input.flow,
       stillState: input.stillState,
@@ -98,11 +102,13 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
         : []),
       {
         source:
-          input.tempSource === "user_measured"
-            ? "user-measured water temperature"
-            : input.tempSource === "official_station"
-              ? "official station temperature"
-              : "temperature provenance declared",
+          normalizeTemperatureRangeF(input.tempRangeF)
+            ? "estimated water-temperature range"
+            : input.tempSource === "user_measured"
+              ? "user-measured water temperature"
+              : input.tempSource === "official_station"
+                ? "official station temperature"
+                : "temperature provenance declared",
         evidenceClass:
           input.tempSource === "user_measured"
             ? "user_measured"
@@ -119,6 +125,7 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       containsPrivateWater: false,
     },
   };
+  return carryFleetContext(packet);
 }
 
 export function encodePacketHash(packet: HthPacket): string {
@@ -139,6 +146,10 @@ function coerceTempSource(value: unknown): TempSource {
     return value as TempSource;
   }
   return "unknown";
+}
+
+function coerceTempRange(value: unknown): TemperatureRangeF | null {
+  return normalizeTemperatureRangeF(value);
 }
 
 function coerceForage(raw: unknown): ForagePacket | null {
@@ -199,14 +210,16 @@ export function parseIncomingPacket(hash: string): Partial<ScenarioInput> | null
     const observations = (data.observations ?? {}) as { forage?: unknown };
     const waterType = coerceWaterType(conditions.waterType) ?? water.waterType;
     const speciesId = typeof species?.id === "string" && species.id.trim() ? species.id : undefined;
-    const tempF =
+    const exactTempF =
       typeof conditions.tempF === "number" && Number.isFinite(conditions.tempF) ? conditions.tempF : null;
+    const tempRangeF = exactTempF == null ? coerceTempRange(conditions.tempRangeF) : null;
     return {
       speciesId,
       water,
       waterType,
       populationContext: coercePopulationContext(data.populationContext),
-      tempF,
+      tempF: exactTempF,
+      tempRangeF,
       tempSource: coerceTempSource(conditions.tempSource),
       forage: coerceForage(observations.forage ?? data.forage),
     };

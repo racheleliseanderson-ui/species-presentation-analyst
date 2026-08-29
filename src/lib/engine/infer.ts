@@ -15,39 +15,68 @@ import {
   resolvePopulationContext,
 } from "./population-context.ts";
 import { applyPopulationContextWeighting } from "./population-context-weighting.ts";
+import {
+  hasTemperatureQuantity,
+  resolveThermalState,
+  temperatureEvidenceLabel,
+  type ThermalResolution,
+} from "./temperature.ts";
 import type {
   Interpretation,
   RankedPresentation,
   ResolvedPopulationContext,
   ScenarioInput,
-  ThermalState,
 } from "../protocol/types.ts";
 import type { Confidence, ForageClass } from "../protocol/vocab.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
-function thermalState(tempF: number | null, species: NonNullable<typeof SPECIES_BY_ID[string]>): ThermalState {
-  if (tempF == null) return "unknown";
-  const [p0, p1] = species.thermal.preferredF;
-  const [a0, a1] = species.thermal.activeF;
-  if (tempF >= p0 && tempF <= p1) return "preferred";
-  if (tempF >= a0 && tempF <= a1) return "active";
-  if (tempF < species.thermal.coldEdgeF) return "cold_refuge";
-  if (tempF > species.thermal.warmEdgeF) return "warm_stress";
-  if (tempF < p0) return "cold_refuge";
-  return "warm_stress";
-}
-
-function thermalLabel(state: ThermalState, tempF: number | null, species: NonNullable<typeof SPECIES_BY_ID[string]>): string {
+function thermalLabel(
+  resolution: ThermalResolution,
+  species: NonNullable<typeof SPECIES_BY_ID[string]>,
+): string {
   const band = `${species.thermal.preferredF[0]}–${species.thermal.preferredF[1]}°F preferred`;
-  if (tempF == null) return `Water temperature unknown · ${band}`;
-  const map: Record<ThermalState, string> = {
-    preferred: `${tempF}°F is inside the preferred band (${band})`,
-    active: `${tempF}°F is metabolically active but outside the preferred core (${band})`,
-    cold_refuge: `${tempF}°F is on the cold side of this species' usual feeding band`,
-    warm_stress: `${tempF}°F is on the warm/stress side of this species' usual feeding band`,
-    unknown: band,
-  };
-  return map[state];
+
+  if (resolution.exactF != null) {
+    const tempF = resolution.exactF;
+    if (resolution.state === "preferred") {
+      return `${tempF}°F is inside the preferred band (${band})`;
+    }
+    if (resolution.state === "active") {
+      return `${tempF}°F is metabolically active but outside the preferred core (${band})`;
+    }
+    if (resolution.state === "cold_refuge") {
+      return `${tempF}°F is on the cold side of this species' usual feeding band`;
+    }
+    if (resolution.state === "warm_stress") {
+      return `${tempF}°F is on the warm/stress side of this species' usual feeding band`;
+    }
+  }
+
+  if (resolution.rangeF) {
+    const [low, high] = resolution.rangeF;
+    if (resolution.states.length === 1) {
+      const state = resolution.states[0];
+      if (state === "preferred") {
+        return `${low}–${high}°F stays inside the preferred band (${band})`;
+      }
+      if (state === "active") {
+        return `${low}–${high}°F stays inside the active band without crossing the preferred core (${band})`;
+      }
+      if (state === "cold_refuge") {
+        return `${low}–${high}°F stays on the cold side of this species' usual feeding band`;
+      }
+      if (state === "warm_stress") {
+        return `${low}–${high}°F stays on the warm/stress side of this species' usual feeding band`;
+      }
+    }
+
+    const states = resolution.states
+      .map((state) => state.replaceAll("_", " "))
+      .join(" / ");
+    return `${low}–${high}°F spans ${states || "multiple"} thermal states; the model withholds a single thermal bias rather than inventing a midpoint (${band})`;
+  }
+
+  return `Water temperature unknown · ${band}`;
 }
 
 function evidenceQuality(input: ScenarioInput): Confidence {
@@ -59,7 +88,8 @@ function evidenceQuality(input: ScenarioInput): Confidence {
 
 function envCompleteness(input: ScenarioInput): Confidence {
   const missing: boolean[] = [
-    input.tempF == null || input.tempSource === "unknown",
+    !hasTemperatureQuantity(input),
+    input.season === "unknown",
     input.clarity === "unknown",
     input.light === "unknown",
     input.weather === "unknown",
@@ -96,7 +126,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       species.targetStatusNote ??
       "Presentation guidance is deliberately withheld for this record.";
     return {
-      error: `${species.commonNames[0]} is here for biological context only. ${targetNote} We do not give presentation guidance for this species.`,
+      error: `Context only — no presentation guidance. ${species.commonNames[0]} is retained for biological context only. ${targetNote} We do not give presentation guidance for this species.`,
     };
   }
 
@@ -122,7 +152,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       }
     : undefined;
 
-  const tState = thermalState(input.tempF, species);
+  const thermalResolution = resolveThermalState(input, species);
+  const tState = thermalResolution.state;
+  const resolvedThermalLabel = thermalLabel(thermalResolution, species);
   const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
   const holdingLabel = holding ? labelOf(holding) : "holding water undeclared";
 
@@ -174,7 +206,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   }
 
   const whyParts: string[] = [];
-  whyParts.push(thermalLabel(tState, input.tempF, species) + ".");
+  whyParts.push(resolvedThermalLabel + ".");
+  if (input.season === "unknown") {
+    whyParts.push("Season is undeclared, so season is not used to rank presentations.");
+  }
   if (populationProfile) whyParts.push(populationProfile.note);
   whyParts.push(species.habitat.currentPreference);
   if (input.waterType === "flowing" && (input.flow === "moderate" || input.flow === "elevated")) {
@@ -267,7 +302,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       : null;
 
   const unknowns: string[] = [];
-  if (input.tempF == null || input.tempSource === "unknown") unknowns.push("water temperature");
+  if (!hasTemperatureQuantity(input)) unknowns.push("water temperature");
+  else if (input.tempSource === "unknown") unknowns.push("water temperature provenance");
+  if (input.season === "unknown") unknowns.push("season");
   if (input.clarity === "unknown") unknowns.push("clarity");
   if (input.light === "unknown") unknowns.push("light");
   if (input.weather === "unknown") unknowns.push("weather trend");
@@ -280,28 +317,41 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     unknowns.push("regional / population context");
   }
 
+  const topWeightTrace = top
+    ? top.weightReasons
+        .filter((reason) => reason.axis !== "species")
+        .map((reason) => `${reason.axis} ${reason.delta >= 0 ? "+" : ""}${reason.delta}`)
+        .join(" · ")
+    : "no weighted family";
+
+  const thermalTrace = thermalResolution.rangeF && thermalResolution.states.length > 1
+    ? `thermal range spans ${thermalResolution.states.map((state) => state.replaceAll("_", " ")).join(" / ")} · single thermal bias withheld`
+    : tState === "preferred"
+      ? "energy-efficient feeding positions favored"
+      : tState === "active"
+        ? "active thermal state retained"
+        : tState === "cold_refuge"
+          ? "compressed, slower lies favored"
+          : tState === "warm_stress"
+            ? "refuge from heat / low oxygen favored"
+            : "thermal state unresolved";
   const trace = [
     species.commonNames[0],
     targetStatus === "regulated_context"
       ? `closely regulated fishery · ${species.targetContext?.jurisdictionScope ?? "verify current local rules"}`
       : "no special conservation or regulatory status on this record",
     populationProfile
-      ? `regional context · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
+      ? `Regional context · ${populationProfile.label} · explicitly ${input.populationContext?.source?.replaceAll("_", " ") ?? "declared"}`
       : populationProfilesForSpecies(species.id, input.waterType).length > 0
-        ? "regional context · none declared; generic species record retained"
-        : "regional context · no reviewed profile applies to this species and water type",
-    input.tempF != null ? `${input.tempF}°F · ${labelOf(input.tempSource)}` : "temperature unknown",
+        ? "Regional context · none declared; generic species record retained"
+        : "Regional context · no reviewed profile applies to this species and water type",
+    temperatureEvidenceLabel(input),
+    `season · ${labelOf(input.season)}`,
     labelOf(input.waterType),
     input.waterType === "flowing" ? labelOf(input.flow ?? "unknown") : labelOf(input.stillState ?? "unknown"),
     holdingLabel,
     input.forage ? `${labelOf(input.forage.class)} observed` : forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
-    tState === "preferred"
-      ? "energy-efficient feeding positions favored"
-      : tState === "cold_refuge"
-        ? "compressed, slower lies favored"
-        : tState === "warm_stress"
-          ? "refuge from heat / low oxygen favored"
-          : "thermal state unresolved",
+    thermalTrace,
     "ranked on species, season, water temperature, water type, holding water, and observed forage",
     appliedSpeciesOverrides.length
       ? "reviewed adjustments for this species under these conditions were applied"
@@ -315,7 +365,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     species,
     populationContext: resolvedPopulationContext,
     thermalState: tState,
-    thermalLabel: thermalLabel(tState, input.tempF, species),
+    thermalLabel: resolvedThermalLabel,
     positioning: positioning.slice(0, 6),
     why: whyParts.join(" "),
     invalidators,
@@ -330,7 +380,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       regionalPopulationVersion: REGIONAL_POPULATION_MODEL_VERSION,
       appliedPopulationProfileId: populationProfile?.id,
       coreAxes: CORE_WEIGHT_AXES,
-      note: "Relative family weights rank only presentation families already reviewed for this species and water type. Species-specific overrides and declared RPC profiles are reviewed deltas inside that set, not new families, locations, or probabilities.",
+      note: "Families are ranked from reviewed reasons for this species and water type. Unknown season is not used to rank. A temperature range that crosses thermal states is not treated as a single temperature. Species-specific reasons and declared population context adjust that ranking — they do not add new families, locations, or probabilities.",
     },
     equipment,
     connection,

@@ -74,7 +74,7 @@ export function Chrome() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl justify-between px-4 pb-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim sm:px-6">
-        <span>Biology before bravado</span>
+<span>Species & Presentation</span>
         <span>Saved on this device only</span>
       </div>
     </header>

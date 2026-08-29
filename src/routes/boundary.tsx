@@ -24,7 +24,7 @@ function Boundary() {
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">The gaps are printed on the dial</p>
         <h1 className="mt-4 font-display text-5xl">What we will not tell you</h1>
         <p className="mt-5 text-base text-muted">
-          Species & Presentation Analyst explains biological plausibility. It does not compete with catch-prediction products. The list below is an editorial stance we have chosen, not a shortcoming we plan to fix.
+          Species & Presentation Analyst explains biological plausibility. It does not compete with catch-prediction products. The list below is an editorial stance we have chosen, not a shortcoming we plan to fix. These limits are product rules, not preferences.
         </p>
         <ul className="mt-8 space-y-3">
           {REFUSES.map((r) => (
