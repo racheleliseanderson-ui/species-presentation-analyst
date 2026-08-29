@@ -9,6 +9,15 @@ export type SpeciesImageRecord = {
   creator: string;
   license: string;
   imageType: "photograph" | "field_photograph" | "specimen_photograph" | "scientific_illustration";
+  /**
+   * How the species identification was established.
+   * "authoritative_source" — the publishing body (USFWS, USGS, a state agency)
+   *   labelled the subject, and the label carries the identification.
+   * "visual_review" — the asset came from a library whose keywords are not a
+   *   reliable identification (stock search returns the wrong species routinely),
+   *   so the identification rests on the diagnostic features named in visualQa.
+   */
+  identificationBasis?: "authoritative_source" | "visual_review";
   identificationConfidence: "high";
   visualQa: string;
   reviewedAt: string;
@@ -209,6 +218,62 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     identificationConfidence: "high",
     visualQa: "USFWS-labeled full-lateral flier illustration with unobstructed deep body and fin morphology.",
     reviewedAt: "2026-08-27",
+  },
+  {
+    speciesId: "salmo_trutta",
+    canonical: "/species/brown-trout/canonical.webp",
+    thumb: "/species/brown-trout/thumb.webp",
+    sourcePage: "https://stock.adobe.com/images/id/578037819",
+    sourceOrg: "Adobe Stock",
+    creator: "Adobe Stock contributor · asset 578037819",
+    license: "Adobe Stock Standard licence",
+    imageType: "photograph",
+    identificationBasis: "visual_review",
+    identificationConfidence: "high",
+    visualQa: "Full lateral adult filling the frame against a green riverbed. Identified on diagnostic features rather than the stock keywords: dense black flank spotting, red/orange spots ringed with pale halos along the lateral line, and an essentially unspotted tail — which separates it from rainbow trout. Adipose fin and blunt snout visible. Photographic, with no generative artefacts in fins, eye or background falloff.",
+    reviewedAt: "2026-08-29",
+  },
+  {
+    speciesId: "oncorhynchus_mykiss",
+    canonical: "/species/rainbow-trout/canonical.webp",
+    thumb: "/species/rainbow-trout/thumb.webp",
+    sourcePage: "https://stock.adobe.com/images/id/162652496",
+    sourceOrg: "Adobe Stock",
+    creator: "Adobe Stock contributor · asset 162652496",
+    license: "Adobe Stock Standard licence",
+    imageType: "photograph",
+    identificationBasis: "visual_review",
+    identificationConfidence: "high",
+    visualQa: "Full lateral adult in open water against a plain teal ground. Identified on fine black spotting carried across the body AND the tail, plus the silvery-pink lateral band, with no halo-ringed red spots — the combination that separates it from brown trout. Photographic; fins and eye are anatomically coherent.",
+    reviewedAt: "2026-08-29",
+  },
+  {
+    speciesId: "micropterus_nigricans",
+    canonical: "/species/largemouth-bass/canonical.webp",
+    thumb: "/species/largemouth-bass/thumb.webp",
+    sourcePage: "https://stock.adobe.com/images/id/369696445",
+    sourceOrg: "Adobe Stock",
+    creator: "Adobe Stock contributor · asset 369696445",
+    license: "Adobe Stock Standard licence",
+    imageType: "field_photograph",
+    identificationBasis: "visual_review",
+    identificationConfidence: "high",
+    visualQa: "Adult holding beside submerged wood in stained water. Identified on the upper jaw extending past the rear margin of the eye — the feature that separates largemouth from smallmouth — with the blotchy lateral band and deeply notched dorsal consistent. The wood is habitat context, not a location claim. Photographic: natural light shafts, coherent debris, plausible surface refraction.",
+    reviewedAt: "2026-08-29",
+  },
+  {
+    speciesId: "esox_lucius",
+    canonical: "/species/northern-pike/canonical.webp",
+    thumb: "/species/northern-pike/thumb.webp",
+    sourcePage: "https://stock.adobe.com/images/id/165356927",
+    sourceOrg: "Adobe Stock",
+    creator: "Adobe Stock contributor · asset 165356927",
+    license: "Adobe Stock Standard licence",
+    imageType: "field_photograph",
+    identificationBasis: "visual_review",
+    identificationConfidence: "high",
+    visualQa: "Full lateral adult among submerged weed. Identified on the duck-bill snout, pale bean-shaped spots on a dark green ground, and the single soft dorsal set far back — separating it from muskellunge, which carries dark markings on a pale ground. Weed is habitat context, not a location claim. Photographic.",
+    reviewedAt: "2026-08-29",
   },
 ];
 
