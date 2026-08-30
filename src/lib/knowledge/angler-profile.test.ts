@@ -192,3 +192,33 @@ test("AFP-1.3 uses seasonal calendars when reviewed without turning spawn into a
   assert.equal(brookCal?.status, "partial");
   assert.ok(brookCal?.gaps.includes("month-by-month location changes"));
 });
+
+test("AFP-Q-1.0 assigns every species a research wave without filling queued overlay gaps", () => {
+  for (const species of SPECIES) {
+    const profile = buildAnglerSpeciesProfile(species);
+    assert.ok(profile.research.waveId);
+    assert.ok(profile.research.groupLabel);
+    if (profile.research.waveStatus === "shipped") {
+      assert.equal(profile.research.waveId, "wave_01");
+      assert.ok(identificationDossierFor(species.id));
+    } else {
+      assert.equal(identificationDossierFor(species.id), null);
+      const fight = profile.sections.find((section) => section.id === "fight");
+      const food = profile.sections.find((section) => section.id === "food_value");
+      assert.equal(fight?.status, "not_reviewed");
+      assert.equal(food?.status, "not_reviewed");
+    }
+  }
+
+  const brown = SPECIES.find((species) => species.id === "salmo_trutta");
+  const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
+  assert.ok(brown && rainbow);
+  const brownProfile = buildAnglerSpeciesProfile(brown);
+  const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
+  assert.equal(brownProfile.research.waveId, "wave_02");
+  assert.equal(brownProfile.research.waveStatus, "queued");
+  assert.ok(brownProfile.research.groupMateIds.includes("salvelinus_fontinalis"));
+  const brownId = brownProfile.sections.find((section) => section.id === "identification");
+  assert.ok(brownId?.facts.some((fact) => fact.kind === "source"));
+  assert.equal(rainbowProfile.research.waveStatus, "shipped");
+});

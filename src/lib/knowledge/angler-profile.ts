@@ -16,6 +16,11 @@ import type {
   SeasonalCalendarDossier,
   SeasonalCalendarEntry,
 } from "./dossier-types.ts";
+import {
+  researchAssignmentFor,
+  type EnrichmentWaveStatus,
+  type OverlayLayerId,
+} from "./enrichment-queue.ts";
 import type { SpeciesRecord } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
@@ -70,6 +75,17 @@ export type AnglerSpeciesProfile = {
     partial: number;
     notReviewed: number;
   };
+  research: {
+    waveId: string;
+    waveLabel: string;
+    waveStatus: EnrichmentWaveStatus;
+    groupId: string;
+    groupLabel: string;
+    groupMateIds: string[];
+    alreadyCoveredIds: string[];
+    requiredLayers: OverlayLayerId[];
+    followOnLayers: OverlayLayerId[];
+  };
 };
 
 function labels(values: readonly string[]): string {
@@ -108,13 +124,25 @@ function identificationSection(species: SpeciesRecord, dossier: IdentificationDo
   ];
 
   if (!dossier) {
+    const catalogSources = species.sources?.map((source) => source.label).filter(Boolean) ?? [];
     return section(
       "identification",
       "Identification",
       "What fish is this?",
       "partial",
       "The catalog has authoritative naming and angler aliases, but it does not yet claim a complete visual-identification dossier.",
-      catalogFacts,
+      [
+        ...catalogFacts,
+        ...(catalogSources.length > 0
+          ? [
+              {
+                label: "Catalog sources",
+                value: catalogSources.join("; "),
+                kind: "source" as const,
+              },
+            ]
+          : []),
+      ],
       [
         "physical description and diagnostic traits",
         "color and regional appearance variation",
@@ -544,6 +572,9 @@ function foodSection(dossier: FoodValueDossier | null): AnglerProfileSection {
  * dossiers overlay the existing ten-question contract when reviewed. Missing
  * live-regulation facts stay visible as review gaps instead of being filled
  * with generic model text. Dossiers never feed presentation-family weighting.
+ *
+ * AFP-Q-1.0 assigns every catalog species to a research wave. Queued species
+ * keep visible gaps; the queue is a seed contract, not invented biology.
  */
 export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
   const flowing = species.flowingPresentations;
@@ -558,6 +589,10 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
   const calendar = seasonalCalendarDossierFor(species.id);
   const fight = fightDossierFor(species.id);
   const food = foodValueDossierFor(species.id);
+  const assignment = researchAssignmentFor(species.id);
+  if (!assignment) {
+    throw new Error(`AFP-Q-1.0: ${species.id} is missing from the enrichment queue`);
+  }
 
   const sections: AnglerProfileSection[] = [
     identificationSection(species, identification),
@@ -679,6 +714,17 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
       reviewed: sections.filter((item) => item.status === "reviewed").length,
       partial: sections.filter((item) => item.status === "partial").length,
       notReviewed: sections.filter((item) => item.status === "not_reviewed").length,
+    },
+    research: {
+      waveId: assignment.wave.id,
+      waveLabel: assignment.wave.label,
+      waveStatus: assignment.wave.status,
+      groupId: assignment.group.id,
+      groupLabel: assignment.group.label,
+      groupMateIds: assignment.group.speciesIds.filter((id) => id !== species.id),
+      alreadyCoveredIds: assignment.group.alreadyCoveredIds ?? [],
+      requiredLayers: assignment.wave.requiredLayers,
+      followOnLayers: assignment.wave.followOnLayers,
     },
   };
 }

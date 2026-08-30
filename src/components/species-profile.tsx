@@ -3,9 +3,19 @@ import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   buildAnglerSpeciesProfile,
   type AnglerProfileFact,
+  type AnglerProfileSectionId,
   type AnglerProfileStatus,
 } from "@/lib/knowledge/angler-profile";
 import { useSession } from "@/lib/store";
+
+const OVERLAY_SECTION_IDS: AnglerProfileSectionId[] = [
+  "identification",
+  "behavior",
+  "diet",
+  "seasonal_calendar",
+  "fight",
+  "food_value",
+];
 
 function statusLabel(status: AnglerProfileStatus): string {
   if (status === "reviewed") return "Reviewed";
@@ -92,6 +102,45 @@ export function SelectedSpeciesProfile() {
                 No extra population context is registered for this species{session.water.waterType ? " in the selected water type" : ""}. The reviewed species-level reading remains active without inventing regional behavior.
               </p>
             )}
+          </div>
+
+          <div className="mt-3 rounded-[var(--radius-md)] bg-subtle p-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.13em] text-dim">
+              Research wave · {profile.research.waveId.replace("_", " ")}
+            </p>
+            <p className="mt-2 text-sm text-fg">
+              {profile.research.waveStatus === "shipped"
+                ? `${profile.research.waveLabel}. Overlay dossiers for this lookalike group are on file.`
+                : `${profile.research.waveLabel} is queued. Catalog names, habitat, forage, and presentations stay in place. Visual keys, behavior biography, diet calendar, fight, and table character wait for agency sources.`}
+            </p>
+            <p className="mt-1 text-xs text-muted">
+              {profile.research.groupLabel}
+              {profile.research.groupMateIds.length > 0
+                ? ` · also ${profile.research.groupMateIds
+                    .map((id) => SPECIES_BY_ID[id]?.commonNames[0] ?? id)
+                    .join(", ")}`
+                : ""}
+              {profile.research.alreadyCoveredIds.length > 0
+                ? ` · still distinguish ${profile.research.alreadyCoveredIds
+                    .map((id) => SPECIES_BY_ID[id]?.commonNames[0] ?? id)
+                    .join(", ")}`
+                : ""}
+              .
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-1.5">
+              {OVERLAY_SECTION_IDS.map((id) => {
+                const section = profile.sections.find((item) => item.id === id);
+                if (!section) return null;
+                return (
+                  <li
+                    key={id}
+                    className={`rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider ${statusClass(section.status)}`}
+                  >
+                    {section.label} · {statusLabel(section.status)}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
           <div className="mt-5 grid gap-3 lg:grid-cols-2">

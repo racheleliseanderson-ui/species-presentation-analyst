@@ -30,33 +30,19 @@ import {
 } from "./dossier-catalog.ts";
 import { FORAGE_CLASSES, SEASONS } from "../protocol/vocab.ts";
 import { searchSpecies, ALIASES } from "./aliases.ts";
+import { WAVE_01_GROUPS } from "./enrichment-queue.ts";
 
 const FORBIDDEN = /best bite|hot bite|catch probability|secret spot|gps coordinate/i;
 const LOCATION = /exact spawning|staging location|migration bottleneck|hotspot/i;
 const FIGHT_SCORE = /fun rating|1–100|1-100|\b\d+\s*\/\s*100\b/i;
 const SAFE_CLAIM = /this species is safe to eat/i;
 
-const DISTINCTION_GROUPS: Record<string, string[]> = {
-  trout: ["oncorhynchus_mykiss", "oncorhynchus_clarkii"],
-  nerka: ["oncorhynchus_nerka_kokanee", "oncorhynchus_nerka_anadromous"],
-  black_bass: ["micropterus_nigricans", "micropterus_dolomieu", "micropterus_punctulatus"],
-  morone: [
-    "morone_saxatilis",
-    "morone_chrysops",
-    "morone_americana",
-    "morone_hybrid_wiper",
-  ],
-  coregonine: ["coregonus_artedi", "coregonus_clupeaformis"],
-  hiodontid: ["hiodon_alosoides", "hiodon_tergisus"],
-  buffalo_carp: ["cyprinus_carpio", "ictiobus_cyprinellus", "ictiobus_bubalus"],
-  gar: [
-    "lepisosteus_osseus",
-    "lepisosteus_oculatus",
-    "lepisosteus_platostomus",
-    "atractosteus_spatula",
-  ],
-  bullhead: ["ameiurus_nebulosus", "ameiurus_melas", "ameiurus_natalis"],
-};
+const DISTINCTION_GROUPS: Record<string, string[]> = Object.fromEntries(
+  WAVE_01_GROUPS.filter((group) => group.speciesIds.length > 1).map((group) => [
+    group.id,
+    group.speciesIds,
+  ]),
+);
 
 function normalize(value: string): string {
   return value.toLowerCase().replace(/[/-]/g, " ").replace(/\s+/g, " ").trim();
@@ -351,7 +337,7 @@ test("diet, seasonal, fight, and food overlays are not imported by the presentat
   const files = ["infer.ts", "presentation-weighting.ts", "population-context.ts", "species-weight-overrides.ts"];
   for (const file of files) {
     const source = readFileSync(new URL(file, engineDir), "utf8");
-    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers|fight-dossiers|food-dossiers/);
+    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers|fight-dossiers|food-dossiers|enrichment-queue/);
   }
 });
 

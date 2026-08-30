@@ -99,16 +99,16 @@ RPC guardrails remain unchanged:
 
 ## Next research order
 
-The next data work should not be another flat species expansion. It should fill the profile gaps in an order that improves field decisions without encouraging false precision:
+Do not add another flat species expansion. Fill overlays in ranked waves. `AFP-Q-1.0` is the seed contract: distinction groups, required layers, and do-not-copy rules. It does not invent identification or table facts.
 
-1. Identification dossiers: remaining 49 species after wave 01.
-2. Behavior dossiers: remaining 49 species; angling-pressure and frontal evidence still sparse.
-3. Diet calendars: remaining 49 species; waterbody-specific prey-size tables.
-4. Species-specific methods reference: equipment ranges, hook/rig families, retrieve mechanics, linked to Tackle Link and Knot Analyst rather than duplicating those engines.
-5. Seasonal calendars: remaining 49 species and population-archetype calendars, with spawning aggregations excluded from targeting guidance.
-6. Fight characteristics: remaining 49 species; several wave-01 lookalikes still partial.
-7. Food value: remaining 49 species; flavor/yield tables where sourced.
-8. Live regulation/consumption connectors: jurisdiction and waterbody-aware sources with timestamps; never freeze changing legal limits into the static species catalog.
-9. RPC expansion for the next high-value population distinctions.
+| Wave | Status | What it is |
+| --- | --- | --- |
+| 01 | Shipped | 26 high-confusion lookalikes (ID through food-value) |
+| 02 | Queued | Open-first salmonids, pike, walleye/sauger, large catfish, yellow perch (15) |
+| 03 | Queued | Sunfish and crappie (10) |
+| 04 | Queued | Remaining salmonids, mountain whitefish, grayling, burbot, smelt (10) |
+| 05 | Queued | Suckers, white catfish, drum/bowfin/eel/shad, conservation-gated records (14) |
+
+A later dossier PR should take the next queued wave, keep lookalike keys reciprocal, and leave missing fields omitted. Live regulation/consumption connectors and RPC expansion remain separate work.
 
 This preserves the product distinction: novices can ask “what should I use?” while the deeper model continues to answer the more useful question, “what is this fish trying to accomplish under the declared conditions?”
