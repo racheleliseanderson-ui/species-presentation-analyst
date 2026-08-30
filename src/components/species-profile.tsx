@@ -1,4 +1,9 @@
 import { populationProfilesForSpecies } from "@/lib/engine/population-context";
+import {
+  catalogOverlaySummary,
+  completeOverlayCount,
+  overlayPresence,
+} from "@/lib/knowledge/coverage";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   buildAnglerSpeciesProfile,
@@ -43,6 +48,9 @@ export function SelectedSpeciesProfile() {
   if (!species) return null;
 
   const profile = buildAnglerSpeciesProfile(species);
+  const knowledge = overlayPresence(species.id);
+  const overlayComplete = completeOverlayCount(knowledge);
+  const catalog = catalogOverlaySummary();
   const populationProfiles = populationProfilesForSpecies(
     species.id,
     session.water.waterType,
@@ -62,6 +70,11 @@ export function SelectedSpeciesProfile() {
               </h2>
               <p className="mt-2 max-w-3xl text-sm text-muted">
                 Ten angler questions, separated into what is already reviewed, what is only partly covered, and what still needs authoritative research. This does not fill missing facts with generic AI text.
+              </p>
+              <p className="mt-2 text-xs text-dim">
+                {overlayComplete === 4
+                  ? `Identification, behavior, diet, and season are reviewed for this fish. Catalog-wide: ${catalog.completeOverlays} of ${catalog.speciesTotal} species have that full overlay set.`
+                  : `This fish still has visible knowledge gaps (${overlayComplete} of 4 overlays). Catalog-wide: ${catalog.completeOverlays} of ${catalog.speciesTotal} species are fully overlaid. Missing research stays missing.`}
               </p>
             </div>
             <div className="text-right">
