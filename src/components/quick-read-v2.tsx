@@ -397,13 +397,13 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
       <section className="mb-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">
-            Quick Read · guided field logic
+            Quick Read
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl text-fg sm:text-5xl">
-            Tell me the basics. The model can do the rest.
+            Tell me the basics. We’ll fill in the rest from what you know.
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted">
-            Target and water type are enough to start. Date, time and temperature improve the read when you know them. Technical holding-water classification is never required.
+            Target and water type are enough to start. Date, time and temperature improve the read when you know them.
           </p>
         </div>
         <div className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)]">
@@ -565,7 +565,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           </div>
           <div className="mt-4 flex flex-wrap items-end gap-3">
             <label className="min-w-48">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-dim">Season used by the model</span>
+              <span className="font-mono text-[9px] uppercase tracking-wider text-dim">Season</span>
               <select
                 value={session.season}
                 onChange={(event) => {
@@ -590,8 +590,8 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 : context.seasonSource === "manual"
                   ? "Season was set manually."
                   : context.seasonSource === "unknown"
-                    ? "Season is intentionally unknown, so season is not used to rank presentations."
-                    : `Season is derived visibly from ${context.tripDate || "the trip date"}; change it if local conditions make that label misleading.`}
+                    ? "Season is left open, so it is not used to rank presentations."
+                    : `Season is set from ${context.tripDate || "today’s date"}. Change it if that doesn’t match the water.`}
             </p>
           </div>
         </section>
@@ -658,7 +658,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 />
               </div>
               <p className="mt-2 text-xs text-dim">
-                The range is stored as range evidence. The engine evaluates the thermal states it spans and never silently converts it into a midpoint.
+                The range stays a range. We look at the temperatures it covers — we do not turn it into a single midpoint.
               </p>
             </div>
           )}
@@ -676,7 +676,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           Show my Quick Read
         </Button>
         {!canRead && (
-          <p className="text-sm text-muted">Choose a reviewed species and river/stream or lake/reservoir first.</p>
+          <p className="text-sm text-muted">Pick a species and river/stream or lake/reservoir to start.</p>
         )}
         <button type="button" onClick={openFullAnalysis} className="ml-auto min-h-11 text-sm text-muted underline">
           Open Full Analysis

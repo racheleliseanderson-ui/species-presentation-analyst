@@ -397,7 +397,7 @@ export function QuickRead({ onOpenFull }: QuickReadProps) {
             <p className="max-w-xl pb-2 text-xs text-dim">
               {seasonWasDerived
                 ? "Season was derived from today's date for this new reading. Change it if your trip date is different."
-                : "Season is visible so it never influences the model silently."}
+                : "Season is set from the date you picked. Change it if that doesn’t match the water."}
             </p>
           </div>
         </section>
@@ -441,7 +441,7 @@ export function QuickRead({ onOpenFull }: QuickReadProps) {
         <Button disabled={!canRead} onClick={() => setShowResult(true)}>
           Show my Quick Read
         </Button>
-        {!canRead && <p className="text-sm text-muted">Choose a reviewed species and river/stream or lake/reservoir first.</p>}
+        {!canRead && <p className="text-sm text-muted">Pick a species and river/stream or lake/reservoir to start.</p>}
         <button type="button" onClick={openFullAnalysis} className="ml-auto min-h-11 text-sm text-muted underline">
           Open Full Analysis
         </button>
