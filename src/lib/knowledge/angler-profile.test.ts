@@ -7,6 +7,7 @@ import {
   buildAnglerSpeciesProfile,
   type AnglerProfileSectionId,
 } from "./angler-profile.ts";
+import { identificationDossierFor } from "./dossier-catalog.ts";
 
 const EXPECTED_SECTIONS: AnglerProfileSectionId[] = [
   "identification",
@@ -21,8 +22,8 @@ const EXPECTED_SECTIONS: AnglerProfileSectionId[] = [
   "regulations_conservation",
 ];
 
-test("AFP-1.0 exposes the complete ten-question angler profile contract for every species", () => {
-  assert.equal(ANGLER_PROFILE_MODEL_VERSION, "AFP-1.0");
+test("AFP-1.1 exposes the complete ten-question angler profile contract for every species", () => {
+  assert.equal(ANGLER_PROFILE_MODEL_VERSION, "AFP-1.1");
   assert.equal(SPECIES.length, 75);
 
   for (const species of SPECIES) {
@@ -40,7 +41,7 @@ test("AFP-1.0 exposes the complete ten-question angler profile contract for ever
   }
 });
 
-test("AFP-1.0 marks fight and food value as unreviewed instead of manufacturing generic claims", () => {
+test("AFP-1.1 marks fight and food value as unreviewed instead of manufacturing generic claims", () => {
   for (const species of SPECIES) {
     const profile = buildAnglerSpeciesProfile(species);
     const fight = profile.sections.find((section) => section.id === "fight");
@@ -52,7 +53,7 @@ test("AFP-1.0 marks fight and food value as unreviewed instead of manufacturing 
   }
 });
 
-test("AFP-1.0 keeps exact regulations outside the static species record", () => {
+test("AFP-1.1 keeps exact regulations outside the static species record", () => {
   for (const species of SPECIES) {
     const profile = buildAnglerSpeciesProfile(species);
     const regulations = profile.sections.find(
@@ -63,4 +64,40 @@ test("AFP-1.0 keeps exact regulations outside the static species record", () => 
     assert.ok(regulations?.gaps.includes("live bag / possession limits"));
     assert.ok(regulations?.gaps.includes("open / closed seasons"));
   }
+});
+
+test("AFP-1.1 uses identification dossiers when reviewed and leaves remaining species explicitly incomplete", () => {
+  const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
+  const brook = SPECIES.find((species) => species.id === "salvelinus_fontinalis");
+  assert.ok(rainbow && brook);
+
+  const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
+  const brookProfile = buildAnglerSpeciesProfile(brook);
+  const rainbowId = rainbowProfile.sections.find((section) => section.id === "identification");
+  const brookId = brookProfile.sections.find((section) => section.id === "identification");
+
+  assert.equal(identificationDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
+  assert.equal(rainbowId?.status, "reviewed");
+  assert.ok(rainbowId?.facts.some((fact) => fact.kind === "comparison"));
+  assert.equal(brookId?.status, "partial");
+  assert.ok(brookId?.gaps.includes("similar-species comparison keys"));
+});
+
+test("AFP-1.1 uses behavior dossiers when reviewed without converting them into catch claims", () => {
+  const whiteBass = SPECIES.find((species) => species.id === "morone_chrysops");
+  const bluegill = SPECIES.find((species) => species.id === "lepomis_macrochirus");
+  assert.ok(whiteBass && bluegill);
+
+  const whiteProfile = buildAnglerSpeciesProfile(whiteBass);
+  const bluegillProfile = buildAnglerSpeciesProfile(bluegill);
+  const whiteBehavior = whiteProfile.sections.find((section) => section.id === "behavior");
+  const bluegillBehavior = bluegillProfile.sections.find((section) => section.id === "behavior");
+
+  assert.equal(whiteBehavior?.status, "reviewed");
+  assert.ok(whiteBehavior?.facts.some((fact) => fact.label === "Social pattern"));
+  assert.equal(bluegillBehavior?.status, "partial");
+  assert.ok(bluegillBehavior?.gaps.includes("schooling versus solitary behavior"));
+
+  const blob = JSON.stringify(whiteProfile);
+  assert.doesNotMatch(blob, /best bite|hot bite|catch probability|they will bite/i);
 });

@@ -264,7 +264,7 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       "Native central and eastern North American bullhead tolerant of warm, slow, vegetated, and turbid water.",
     thermal: { preferredF: [68, 80], activeF: [58, 86], coldEdgeF: 50, warmEdgeF: 90 },
     spawning: {
-      seasons: ["late_spring", "early_summer"].filter(() => true) as never,
+      seasons: ["spring", "early_summer"],
       note: "Late-spring to early-summer cavity/nest spawner in mud or protected shallow habitat; both parents guard eggs and fry.",
     },
     habitat: {

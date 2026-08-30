@@ -1,6 +1,6 @@
 # Master angler profile coverage
 
-Model: `AFP-1.0`
+Model: `AFP-1.1`
 
 The Species & Presentation Analyst now treats the complete angler mental model as a separate reference layer rather than adding more required setup controls to Quick Read.
 
@@ -21,9 +21,9 @@ The profile contract is intentionally broader than the presentation engine. It a
 
 | Layer | Current status | Already structured | Important gaps |
 | --- | --- | --- | --- |
-| Identification | Partial | common/scientific names, aliases | diagnostic appearance, color variation, juvenile/adult differences, lookalikes, size/weight, age |
+| Identification | Reviewed for 26 high-confusion species; partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 49 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
-| Behavior | Partial | positioning, thermal state, light response, spawning caution, exceptions, RPC population/system context when reviewed | schooling, territoriality/aggression, angling-pressure response, predator avoidance, species-specific front/weather response |
+| Behavior | Reviewed for 26 high-confusion species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 49 species; angling-pressure and frontal evidence still sparse |
 | Diet | Partial | forage classes and observed-forage packet integration | seasonal diet, life-stage diet, prey-size preference, regional forage substitutions |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
 | Seasonal calendar | Partial | season is a core weighting axis; spawning seasons and caution are structured | month-by-month location/behavior calendar and non-aggregation seasonal progression |
@@ -32,7 +32,24 @@ The profile contract is intentionally broader than the presentation engine. It a
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
 | Regulations & conservation | Partial | target status, structured conservation/jurisdiction gates, fail-closed behavior | live size/bag limits, seasons, protected areas, management-unit population health, current consumption advisories |
 
-The status language is deliberate. `AFP-1.0` does not convert partial catalog data into a false claim of complete species coverage.
+The status language is deliberate. `AFP-1.1` overlays reviewed identification and behavior dossiers onto the same ten-question contract. Species without dossiers remain partial. Fight and food value stay unreviewed. The overlay never manufactures generic biology and never feeds presentation-family weighting.
+
+
+## AFP-ID-1.0 / AFP-BH-1.0 wave 01
+
+The first dossier wave covers the lookalike groups that most often collapse in the field:
+
+- rainbow trout vs cutthroat trout
+- kokanee vs anadromous sockeye
+- largemouth vs smallmouth vs spotted bass
+- striped bass vs white bass vs white perch vs wiper (yellow bass included as a lookalike)
+- cisco vs lake whitefish
+- goldeye vs mooneye
+- common carp vs bigmouth buffalo vs smallmouth buffalo
+- longnose vs spotted vs shortnose vs alligator gar
+- brown vs black vs yellow bullhead
+
+Characters come from agency, museum, and peer-reviewed keys (TPWD, USFWS, NOAA Fisheries, Minnesota DNR, North Dakota Game and Fish, Florida Museum, FWC, USGS). Generative visual identification is not used as authority. Remaining catalog species keep visible identification and behavior gaps.
 
 ## Regional / population context
 
