@@ -2,12 +2,16 @@ import { ALIASES } from "./aliases.ts";
 import {
   behaviorDossierFor,
   dietDossierFor,
+  fightDossierFor,
+  foodValueDossierFor,
   identificationDossierFor,
   seasonalCalendarDossierFor,
 } from "./dossier-catalog.ts";
 import type {
   BehaviorDossier,
   DietDossier,
+  FightDossier,
+  FoodValueDossier,
   IdentificationDossier,
   SeasonalCalendarDossier,
   SeasonalCalendarEntry,
@@ -15,7 +19,7 @@ import type {
 import type { SpeciesRecord } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
-export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.2" as const;
+export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.3" as const;
 
 export type AnglerProfileSectionId =
   | "identification"
@@ -31,7 +35,14 @@ export type AnglerProfileSectionId =
 
 export type AnglerProfileStatus = "reviewed" | "partial" | "not_reviewed";
 
-export type AnglerProfileFactKind = "default" | "trait" | "comparison" | "source" | "season" | "life_stage";
+export type AnglerProfileFactKind =
+  | "default"
+  | "trait"
+  | "comparison"
+  | "source"
+  | "season"
+  | "life_stage"
+  | "caution";
 
 export type AnglerProfileFact = {
   label: string;
@@ -383,13 +394,156 @@ function seasonalCalendarSection(
   );
 }
 
+function fightSection(dossier: FightDossier | null): AnglerProfileSection {
+  if (!dossier) {
+    return section(
+      "fight",
+      "Fight characteristics",
+      "What is it like to catch one?",
+      "not_reviewed",
+      "Fight behavior is not currently a reviewed data layer. The app should not infer it from body shape, reputation, or generic gamefish language.",
+      [],
+      [
+        "fight strength",
+        "speed and endurance",
+        "jumping tendency",
+        "head-shake / surge / running behavior",
+        "landing considerations",
+      ],
+    );
+  }
+
+  const facts: AnglerProfileFact[] = [
+    { label: "Overview", value: dossier.overview },
+    {
+      label: "Relative strength",
+      value: dossier.relativeStrength
+        ? `${labelOf(dossier.relativeStrength)}. ${dossier.relativeStrengthNote}`
+        : dossier.relativeStrengthNote,
+    },
+    ...(dossier.initialAcceleration
+      ? [{ label: "Initial acceleration", value: labelOf(dossier.initialAcceleration) }]
+      : []),
+    ...(dossier.sustainedEndurance
+      ? [{ label: "Sustained endurance", value: labelOf(dossier.sustainedEndurance) }]
+      : []),
+    ...(dossier.runTendency ? [{ label: "Run tendency", value: labelOf(dossier.runTendency) }] : []),
+    ...(dossier.jumping ? [{ label: "Jumping", value: labelOf(dossier.jumping) }] : []),
+    ...(dossier.headShaking ? [{ label: "Head shaking", value: labelOf(dossier.headShaking) }] : []),
+    ...(dossier.rollingTwisting
+      ? [{ label: "Rolling / twisting", value: labelOf(dossier.rollingTwisting) }]
+      : []),
+    ...(dossier.bulldogging ? [{ label: "Bulldogging", value: labelOf(dossier.bulldogging) }] : []),
+    ...(dossier.deepWaterPressure
+      ? [{ label: "Deep-water pressure", value: dossier.deepWaterPressure }]
+      : []),
+    ...(dossier.aerialBehavior
+      ? [{ label: "Aerial behavior", value: labelOf(dossier.aerialBehavior) }]
+      : []),
+    { label: "Landing considerations", value: dossier.landingConsiderations },
+    ...(dossier.handlingSensitivity
+      ? [
+          {
+            label: "Handling sensitivity",
+            value: dossier.handlingSensitivity,
+            kind: "caution" as const,
+          },
+        ]
+      : []),
+    {
+      label: "Fight sources",
+      value: dossier.sources.map((source) => source.label).join("; "),
+      kind: "source",
+    },
+  ];
+
+  return section(
+    "fight",
+    "Fight characteristics",
+    "What is it like to catch one?",
+    dossier.status,
+    dossier.status === "reviewed"
+      ? "Reviewed hooked-fish mechanics from agency or peer-reviewed sources. Categories are descriptive, not a 1–100 score or fun rating."
+      : "A partial fight dossier is on file. Remaining gaps stay visible instead of being filled from body shape or reputation.",
+    facts,
+    dossier.gaps,
+  );
+}
+
+function foodSection(dossier: FoodValueDossier | null): AnglerProfileSection {
+  if (!dossier) {
+    return section(
+      "food_value",
+      "Food value",
+      "Can I eat it?",
+      "not_reviewed",
+      "Table quality and consumption safety are not currently modeled. Consumption advisories must remain jurisdiction- and waterbody-aware rather than becoming a static species claim.",
+      [],
+      [
+        "table quality / flavor / texture",
+        "cleaning difficulty and fillet yield",
+        "cooking-method guidance",
+        "current mercury / contaminant advisories by jurisdiction and waterbody",
+      ],
+    );
+  }
+
+  const hazards = dossier.biologicalHazards ?? [];
+  const facts: AnglerProfileFact[] = [
+    { label: "Culinary frequency", value: labelOf(dossier.culinaryFrequency) },
+    { label: "Culinary reputation", value: dossier.culinaryReputation },
+    ...(dossier.flavor ? [{ label: "Flavor", value: dossier.flavor }] : []),
+    ...(dossier.texture ? [{ label: "Texture", value: dossier.texture }] : []),
+    ...(dossier.boneStructure ? [{ label: "Bone structure", value: dossier.boneStructure }] : []),
+    ...(dossier.cleaningDifficulty
+      ? [{ label: "Cleaning difficulty", value: dossier.cleaningDifficulty }]
+      : []),
+    ...(dossier.skinConsiderations ? [{ label: "Skin", value: dossier.skinConsiderations }] : []),
+    ...(dossier.filletYield ? [{ label: "Fillet yield", value: dossier.filletYield }] : []),
+    ...(dossier.preparationNotes ? [{ label: "Preparation", value: dossier.preparationNotes }] : []),
+    ...(dossier.commonCookingMethods && dossier.commonCookingMethods.length > 0
+      ? [{ label: "Common cooking methods", value: dossier.commonCookingMethods.join(", ") }]
+      : []),
+    ...hazards.map((hazard, index) => ({
+      label: hazards.length === 1 ? "Biological hazard" : `Biological hazard ${index + 1}`,
+      value: hazard,
+      kind: "caution" as const,
+    })),
+    {
+      label: "Consumption advisory",
+      value: dossier.consumptionAdvisoryRule,
+      kind: "caution" as const,
+    },
+    ...(dossier.harvestGateNote
+      ? [{ label: "Harvest context", value: dossier.harvestGateNote, kind: "caution" as const }]
+      : []),
+    {
+      label: "Food-value sources",
+      value: dossier.sources.map((source) => source.label).join("; "),
+      kind: "source",
+    },
+  ];
+
+  return section(
+    "food_value",
+    "Food value",
+    "Can I eat it?",
+    dossier.status,
+    dossier.status === "reviewed"
+      ? "Reviewed table character from agency sources. This is not a safety claim. Current mercury, PFAS, PCB, and other contaminant guidance stays waterbody-specific."
+      : "A partial food-value dossier is on file. Remaining gaps stay visible. Table character is never a consumption-safety claim.",
+    facts,
+    dossier.gaps,
+  );
+}
+
 /**
- * AFP-1.2 is a coverage-aware reference view over the reviewed species catalog.
+ * AFP-1.3 is a coverage-aware reference view over the reviewed species catalog.
  *
- * Identification, behavior, diet, and seasonal-calendar dossiers overlay the
- * existing ten-question contract when reviewed. Missing fight, table-quality,
- * or live-regulation facts stay visible as review gaps instead of being filled
- * with generic model text.
+ * Identification, behavior, diet, seasonal-calendar, fight, and food-value
+ * dossiers overlay the existing ten-question contract when reviewed. Missing
+ * live-regulation facts stay visible as review gaps instead of being filled
+ * with generic model text. Dossiers never feed presentation-family weighting.
  */
 export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
   const flowing = species.flowingPresentations;
@@ -402,6 +556,8 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
   const behavior = behaviorDossierFor(species.id);
   const diet = dietDossierFor(species.id);
   const calendar = seasonalCalendarDossierFor(species.id);
+  const fight = fightDossierFor(species.id);
+  const food = foodValueDossierFor(species.id);
 
   const sections: AnglerProfileSection[] = [
     identificationSection(species, identification),
@@ -484,35 +640,8 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
         "species-specific water-level response",
       ],
     ),
-    section(
-      "fight",
-      "Fight characteristics",
-      "What is it like to catch one?",
-      "not_reviewed",
-      "Fight behavior is not currently a reviewed data layer. The app should not infer it from body shape, reputation, or generic gamefish language.",
-      [],
-      [
-        "fight strength",
-        "speed and endurance",
-        "jumping tendency",
-        "head-shake / surge / running behavior",
-        "landing considerations",
-      ],
-    ),
-    section(
-      "food_value",
-      "Food value",
-      "Can I eat it?",
-      "not_reviewed",
-      "Table quality and consumption safety are not currently modeled. Consumption advisories must remain jurisdiction- and waterbody-aware rather than becoming a static species claim.",
-      [],
-      [
-        "table quality / flavor / texture",
-        "cleaning difficulty and fillet yield",
-        "cooking-method guidance",
-        "current mercury / contaminant advisories by jurisdiction and waterbody",
-      ],
-    ),
+    fightSection(fight),
+    foodSection(food),
     section(
       "regulations_conservation",
       "Regulations & conservation",

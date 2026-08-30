@@ -6,18 +6,25 @@ import { SPECIES, SPECIES_BY_ID } from "./species-catalog.ts";
 import { SPECIES_EXPANSION_03 } from "./species-expansion-03.ts";
 import { BEHAVIOR_DOSSIERS } from "./behavior-dossiers.ts";
 import { DIET_DOSSIERS } from "./diet-dossiers.ts";
+import { FIGHT_DOSSIERS } from "./fight-dossiers.ts";
+import { FOOD_VALUE_DOSSIERS } from "./food-dossiers.ts";
 import { IDENTIFICATION_DOSSIERS } from "./identification-dossiers.ts";
 import { SEASONAL_CALENDAR_DOSSIERS } from "./seasonal-calendar-dossiers.ts";
 import { PRESENTATIONS } from "./presentations.ts";
 import {
   BEHAVIOR_DOSSIER_VERSION,
+  CONSUMPTION_ADVISORY_RULE,
   DIET_DOSSIER_VERSION,
+  FIGHT_DOSSIER_VERSION,
+  FOOD_VALUE_DOSSIER_VERSION,
   IDENTIFICATION_DOSSIER_VERSION,
   SEASONAL_CALENDAR_VERSION,
 } from "./dossier-types.ts";
 import {
   behaviorDossierFor,
   dietDossierFor,
+  fightDossierFor,
+  foodValueDossierFor,
   identificationDossierFor,
   seasonalCalendarDossierFor,
 } from "./dossier-catalog.ts";
@@ -26,6 +33,8 @@ import { searchSpecies, ALIASES } from "./aliases.ts";
 
 const FORBIDDEN = /best bite|hot bite|catch probability|secret spot|gps coordinate/i;
 const LOCATION = /exact spawning|staging location|migration bottleneck|hotspot/i;
+const FIGHT_SCORE = /fun rating|1–100|1-100|\b\d+\s*\/\s*100\b/i;
+const SAFE_CLAIM = /this species is safe to eat/i;
 
 const DISTINCTION_GROUPS: Record<string, string[]> = {
   trout: ["oncorhynchus_mykiss", "oncorhynchus_clarkii"],
@@ -53,17 +62,22 @@ function normalize(value: string): string {
   return value.toLowerCase().replace(/[/-]/g, " ").replace(/\s+/g, " ").trim();
 }
 
-test("identification, behavior, diet, and seasonal versions are explicit overlays, not a new AFP contract", () => {
+test("identification, behavior, diet, seasonal, fight, and food versions are explicit overlays, not a new AFP contract", () => {
   assert.equal(IDENTIFICATION_DOSSIER_VERSION, "AFP-ID-1.0");
   assert.equal(BEHAVIOR_DOSSIER_VERSION, "AFP-BH-1.0");
   assert.equal(DIET_DOSSIER_VERSION, "AFP-DI-1.0");
   assert.equal(SEASONAL_CALENDAR_VERSION, "AFP-SC-1.0");
+  assert.equal(FIGHT_DOSSIER_VERSION, "AFP-FT-1.0");
+  assert.equal(FOOD_VALUE_DOSSIER_VERSION, "AFP-FV-1.0");
 });
 
 test("every dossier points at a reviewed catalog species and has provenance", () => {
   assert.equal(IDENTIFICATION_DOSSIERS.length, BEHAVIOR_DOSSIERS.length);
   assert.equal(IDENTIFICATION_DOSSIERS.length, DIET_DOSSIERS.length);
   assert.equal(IDENTIFICATION_DOSSIERS.length, SEASONAL_CALENDAR_DOSSIERS.length);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, FIGHT_DOSSIERS.length);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, FOOD_VALUE_DOSSIERS.length);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, 26);
 
   for (const dossier of IDENTIFICATION_DOSSIERS) {
     assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
@@ -124,6 +138,59 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
     assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
     assert.doesNotMatch(JSON.stringify(dossier), LOCATION);
   }
+
+  const STRENGTH = new Set(["light", "moderate", "powerful", "very_powerful"]);
+  const ACCEL = new Set(["gradual", "abrupt"]);
+  const ENDURANCE = new Set(["brief", "sustained", "prolonged"]);
+  const RUN = new Set(["short_surges", "long_runs", "mixed"]);
+  const JUMP = new Set(["rare", "occasional", "frequent"]);
+  const TENDENCY = new Set(["low", "moderate", "high"]);
+  const AERIAL = new Set(["rarely_aerial", "sometimes_aerial", "often_aerial"]);
+
+  for (const dossier of FIGHT_DOSSIERS) {
+    assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
+    assert.ok(dossier.sources.length > 0, `${dossier.speciesId} fight is missing sources`);
+    assert.ok(
+      dossier.sources.some((source) => source.class === "agency" || source.class === "peer_reviewed"),
+      `${dossier.speciesId} fight needs an agency or peer-reviewed source`,
+    );
+    assert.ok(dossier.overview.length > 0);
+    assert.ok(dossier.relativeStrengthNote.length > 0);
+    assert.ok(dossier.landingConsiderations.length > 0);
+    if (dossier.relativeStrength) assert.ok(STRENGTH.has(dossier.relativeStrength));
+    if (dossier.initialAcceleration) assert.ok(ACCEL.has(dossier.initialAcceleration));
+    if (dossier.sustainedEndurance) assert.ok(ENDURANCE.has(dossier.sustainedEndurance));
+    if (dossier.runTendency) assert.ok(RUN.has(dossier.runTendency));
+    if (dossier.jumping) assert.ok(JUMP.has(dossier.jumping));
+    if (dossier.headShaking) assert.ok(TENDENCY.has(dossier.headShaking));
+    if (dossier.rollingTwisting) assert.ok(TENDENCY.has(dossier.rollingTwisting));
+    if (dossier.bulldogging) assert.ok(TENDENCY.has(dossier.bulldogging));
+    if (dossier.aerialBehavior) assert.ok(AERIAL.has(dossier.aerialBehavior));
+    if (dossier.status === "reviewed") {
+      assert.ok(
+        dossier.relativeStrength,
+        `${dossier.speciesId} reviewed fight is missing a relative-strength class`,
+      );
+    }
+    assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+    assert.doesNotMatch(JSON.stringify(dossier), FIGHT_SCORE);
+  }
+
+  const FREQUENCY = new Set(["commonly_eaten", "sometimes_eaten", "rarely_eaten", "regionally_prized"]);
+
+  for (const dossier of FOOD_VALUE_DOSSIERS) {
+    assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
+    assert.ok(dossier.sources.length > 0, `${dossier.speciesId} food is missing sources`);
+    assert.ok(
+      dossier.sources.some((source) => source.class === "agency" || source.class === "peer_reviewed"),
+      `${dossier.speciesId} food needs an agency or peer-reviewed source`,
+    );
+    assert.ok(FREQUENCY.has(dossier.culinaryFrequency));
+    assert.ok(dossier.culinaryReputation.length > 0);
+    assert.equal(dossier.consumptionAdvisoryRule, CONSUMPTION_ADVISORY_RULE);
+    assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+    assert.doesNotMatch(JSON.stringify(dossier), SAFE_CLAIM);
+  }
 });
 
 test("incomplete research remains explicitly incomplete for species without dossiers", () => {
@@ -132,14 +199,20 @@ test("incomplete research remains explicitly incomplete for species without doss
     const behavior = behaviorDossierFor(species.id);
     const diet = dietDossierFor(species.id);
     const calendar = seasonalCalendarDossierFor(species.id);
+    const fight = fightDossierFor(species.id);
+    const food = foodValueDossierFor(species.id);
     if (!identification) {
       assert.equal(behavior, null, `${species.id} has behavior without identification`);
       assert.equal(diet, null, `${species.id} has diet without identification`);
       assert.equal(calendar, null, `${species.id} has calendar without identification`);
+      assert.equal(fight, null, `${species.id} has fight without identification`);
+      assert.equal(food, null, `${species.id} has food without identification`);
     } else {
       assert.ok(behavior, `${species.id} has identification without behavior`);
       assert.ok(diet, `${species.id} has identification without diet`);
       assert.ok(calendar, `${species.id} has identification without calendar`);
+      assert.ok(fight, `${species.id} has identification without fight`);
+      assert.ok(food, `${species.id} has identification without food`);
     }
   }
 
@@ -273,12 +346,12 @@ test("seasonal calendars do not introduce unreviewed presentation families", () 
   }
 });
 
-test("diet and seasonal overlays are not imported by the presentation engine", () => {
+test("diet, seasonal, fight, and food overlays are not imported by the presentation engine", () => {
   const engineDir = new URL("../engine/", import.meta.url);
   const files = ["infer.ts", "presentation-weighting.ts", "population-context.ts", "species-weight-overrides.ts"];
   for (const file of files) {
     const source = readFileSync(new URL(file, engineDir), "utf8");
-    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers/);
+    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers|fight-dossiers|food-dossiers/);
   }
 });
 
@@ -315,4 +388,78 @@ test("yellow bullhead source record uses canonical seasons without a catalog wor
   const seasons = calendar.entries.map((entry) => entry.season);
   assert.ok(seasons.includes("spring"));
   assert.ok(seasons.includes("early_summer"));
+});
+
+test("lookalike fight notes are not copied across species", () => {
+  const rainbow = fightDossierFor("oncorhynchus_mykiss");
+  const cutthroat = fightDossierFor("oncorhynchus_clarkii");
+  const kokanee = fightDossierFor("oncorhynchus_nerka_kokanee");
+  const sockeye = fightDossierFor("oncorhynchus_nerka_anadromous");
+  const smallmouth = fightDossierFor("micropterus_dolomieu");
+  const spotted = fightDossierFor("micropterus_punctulatus");
+  const largemouth = fightDossierFor("micropterus_nigricans");
+  const striper = fightDossierFor("morone_saxatilis");
+  const yellow = fightDossierFor("morone_mississippiensis");
+  const carp = fightDossierFor("cyprinus_carpio");
+  const bigmouth = fightDossierFor("ictiobus_cyprinellus");
+  assert.ok(rainbow && cutthroat && kokanee && sockeye);
+  assert.ok(smallmouth && spotted && largemouth && striper && yellow && carp && bigmouth);
+
+  assert.equal(rainbow.status, "reviewed");
+  assert.equal(cutthroat.status, "partial");
+  assert.doesNotMatch(JSON.stringify(cutthroat), /peeling line|MassWildlife/);
+  assert.equal(kokanee.status, "reviewed");
+  assert.equal(sockeye.status, "partial");
+  assert.doesNotMatch(JSON.stringify(sockeye), /light tackle/);
+  assert.match(JSON.stringify(smallmouth), /aerial acrobat|acrobatic/i);
+  assert.equal(spotted.status, "partial");
+  assert.equal(spotted.relativeStrength, undefined);
+  assert.equal(spotted.jumping, undefined);
+  assert.equal(largemouth.status, "partial");
+  assert.equal(largemouth.relativeStrength, undefined);
+  assert.equal(largemouth.jumping, undefined);
+  assert.equal(smallmouth.jumping, "frequent");
+  assert.match(JSON.stringify(striper), /nosedive|powerful fighting/i);
+  assert.doesNotMatch(JSON.stringify(yellow), /incredible fighters|nosedive/);
+  assert.match(JSON.stringify(carp), /long, strong fight/i);
+  assert.doesNotMatch(JSON.stringify(bigmouth), /long, strong fight|fighting the fish along with the current/);
+});
+
+test("food dossiers keep table character separate from safety claims and lookalike culinary quotes", () => {
+  const kokanee = foodValueDossierFor("oncorhynchus_nerka_kokanee");
+  const sockeye = foodValueDossierFor("oncorhynchus_nerka_anadromous");
+  const cisco = foodValueDossierFor("coregonus_artedi");
+  const whitefish = foodValueDossierFor("coregonus_clupeaformis");
+  const goldeye = foodValueDossierFor("hiodon_alosoides");
+  const mooneye = foodValueDossierFor("hiodon_tergisus");
+  const carp = foodValueDossierFor("cyprinus_carpio");
+  const alligator = foodValueDossierFor("atractosteus_spatula");
+  const longnose = foodValueDossierFor("lepisosteus_osseus");
+  const spotted = foodValueDossierFor("lepisosteus_oculatus");
+  const shortnose = foodValueDossierFor("lepisosteus_platostomus");
+  const bigmouth = foodValueDossierFor("ictiobus_cyprinellus");
+  const smallmouthBuffalo = foodValueDossierFor("ictiobus_bubalus");
+  assert.ok(kokanee && sockeye && cisco && whitefish && goldeye && mooneye);
+  assert.ok(carp && alligator && longnose && spotted && shortnose && bigmouth && smallmouthBuffalo);
+
+  assert.match(kokanee.flavor ?? "", /orange flesh|omega-3/i);
+  assert.match(sockeye.flavor ?? "", /bold, buttery flavor similar to Chinook/i);
+  assert.notEqual(kokanee.flavor, sockeye.flavor);
+  assert.ok(sockeye.harvestGateNote);
+  assert.match(whitefish.flavor ?? "", /mild flavor/i);
+  assert.equal(cisco.flavor, undefined);
+  assert.match(goldeye.culinaryReputation, /Winnipeg goldeye/i);
+  assert.equal(mooneye.status, "partial");
+  assert.equal(mooneye.flavor, undefined);
+  assert.ok(!mooneye.commonCookingMethods);
+  assert.match(carp.flavor ?? "", /skin tends to add a strong, fishy flavor/i);
+  assert.doesNotMatch(carp.flavor ?? "", /Hypophthalmichthys|silver carp|bighead/);
+  assert.ok(bigmouth.harvestGateNote);
+  assert.ok(smallmouthBuffalo.harvestGateNote);
+  assert.ok(alligator.harvestGateNote);
+
+  for (const dossier of [alligator, longnose, spotted, shortnose]) {
+    assert.ok(dossier.biologicalHazards?.some((item) => /egg/i.test(item)));
+    assert.match(dossier.biologicalHazards?.join(" ") ?? "", /toxic|poison/i);
+  }
 });

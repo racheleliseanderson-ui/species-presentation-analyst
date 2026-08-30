@@ -1,6 +1,6 @@
 # Master angler profile coverage
 
-Model: `AFP-1.2`
+Model: `AFP-1.3`
 
 The Species & Presentation Analyst now treats the complete angler mental model as a separate reference layer rather than adding more required setup controls to Quick Read.
 
@@ -28,11 +28,11 @@ The profile contract is intentionally broader than the presentation engine. It a
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
 | Seasonal calendar | Reviewed for 26 high-confusion species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 49 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
-| Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
-| Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
+| Fight characteristics | Reviewed or partial for 26 high-confusion species; not reviewed elsewhere | AFP-FT-1.0 descriptive classes (relative strength, acceleration, endurance, runs, jumps, landing, handling). Never a 1–100 score | remaining 49 species; several wave-01 lookalikes stay partial until a species-specific hooked-fight quote exists |
+| Food value | Reviewed or partial for 26 high-confusion species; not reviewed elsewhere | AFP-FV-1.0 table character, cooking notes, biological hazards; standing consumption-advisory rule | remaining 49 species; live waterbody contaminant advisories; some flavor/yield tables |
 | Regulations & conservation | Partial | target status, structured conservation/jurisdiction gates, fail-closed behavior | live size/bag limits, seasons, protected areas, management-unit population health, current consumption advisories |
 
-The status language is deliberate. `AFP-1.2` overlays reviewed identification, behavior, diet, and seasonal-calendar dossiers onto the same ten-question contract. Species without dossiers remain partial. Fight and food value stay unreviewed. The overlay never manufactures generic biology and never feeds presentation-family weighting.
+The status language is deliberate. `AFP-1.3` overlays reviewed identification, behavior, diet, seasonal-calendar, fight, and food-value dossiers onto the same ten-question contract. Species without dossiers remain partial or not-reviewed. The overlay never manufactures generic biology and never feeds presentation-family weighting.
 
 
 ## AFP-ID-1.0 / AFP-BH-1.0 wave 01
@@ -60,6 +60,17 @@ The same 26 lookalike species now have diet and seasonal-calendar overlays:
 - Seasonal calendars describe habitat class, depth, thermal context, and conservation-safe spawning notes. They are not “spring = shallow / summer = deep” tables.
 - Presentation notes may only mention already-reviewed families.
 - Kokanee remains a zooplankton specialist; anadromous sockeye freshwater adults are not feeding trout. Cisco stays pelagic-plankton; lake whitefish stays benthic. Carp, bigmouth buffalo, and smallmouth buffalo keep distinct feeding identities.
+
+## AFP-FT-1.0 / AFP-FV-1.0 wave 01
+
+The same 26 lookalike species now have fight and food-value overlays:
+
+- Fight records are descriptive classes and agency text. They are never a 1–100 score or a fun rating. Missing classes stay omitted rather than inferred from body shape.
+- Rainbow leaping notes are not copied onto cutthroat. Kokanee light-tackle notes are not copied onto anadromous sockeye. Smallmouth aerial-acrobat notes are not copied onto spotted or largemouth. Carp fight notes are not copied onto buffalo.
+- Food records describe table character, cleaning, and cooking. They always carry the standing consumption-advisory rule. They never write “this species is safe to eat.”
+- Gar eggs are a species-level biological hazard, not a waterbody contaminant advisory. Bullhead spines are a handling/cleaning hazard.
+- Harvest-gate notes on anadromous sockeye, buffalo, alligator gar, and similar regulated-context records are conservation/jurisdiction reminders, not keep recommendations.
+- Live mercury, PFAS, PCB, and other contaminant guidance stays outside the static catalog.
 
 ## Regional / population context
 
@@ -95,8 +106,9 @@ The next data work should not be another flat species expansion. It should fill 
 3. Diet calendars: remaining 49 species; waterbody-specific prey-size tables.
 4. Species-specific methods reference: equipment ranges, hook/rig families, retrieve mechanics, linked to Tackle Link and Knot Analyst rather than duplicating those engines.
 5. Seasonal calendars: remaining 49 species and population-archetype calendars, with spawning aggregations excluded from targeting guidance.
-6. Fight characteristics: descriptive reference only, not a quality score.
-7. Food value: table/cooking information kept separate from live contaminant advisories.
+6. Fight characteristics: remaining 49 species; several wave-01 lookalikes still partial.
+7. Food value: remaining 49 species; flavor/yield tables where sourced.
 8. Live regulation/consumption connectors: jurisdiction and waterbody-aware sources with timestamps; never freeze changing legal limits into the static species catalog.
+9. RPC expansion for the next high-value population distinctions.
 
 This preserves the product distinction: novices can ask “what should I use?” while the deeper model continues to answer the more useful question, “what is this fish trying to accomplish under the declared conditions?”

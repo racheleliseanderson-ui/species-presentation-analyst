@@ -1,5 +1,5 @@
 /**
- * AFP-1.2 dossier overlay types.
+ * AFP-1.3 dossier overlay types.
  *
  * These records populate existing AFP section IDs. They are not a competing
  * profile framework and they never feed presentation-family weighting.
@@ -174,9 +174,84 @@ export type SeasonalCalendarDossier = {
   gaps: string[];
 };
 
+/**
+ * Descriptive fight classes — never a 1–100 score or “fun rating.”
+ * Omit a class when no agency or peer-reviewed source supports it.
+ */
+export type RelativeStrength = "light" | "moderate" | "powerful" | "very_powerful";
+export type AccelerationClass = "gradual" | "abrupt";
+export type EnduranceClass = "brief" | "sustained" | "prolonged";
+export type RunTendency = "short_surges" | "long_runs" | "mixed";
+export type JumpingClass = "rare" | "occasional" | "frequent";
+export type TendencyClass = "low" | "moderate" | "high";
+export type AerialClass = "rarely_aerial" | "sometimes_aerial" | "often_aerial";
+
+export type FightDossier = {
+  speciesId: string;
+  status: "reviewed" | "partial";
+  overview: string;
+  relativeStrength?: RelativeStrength;
+  relativeStrengthNote: string;
+  initialAcceleration?: AccelerationClass;
+  sustainedEndurance?: EnduranceClass;
+  runTendency?: RunTendency;
+  jumping?: JumpingClass;
+  headShaking?: TendencyClass;
+  rollingTwisting?: TendencyClass;
+  bulldogging?: TendencyClass;
+  deepWaterPressure?: string;
+  aerialBehavior?: AerialClass;
+  landingConsiderations: string;
+  handlingSensitivity?: string;
+  sources: DossierSource[];
+  reviewedAt: string;
+  nextReviewAt: string;
+  gaps: string[];
+};
+
+export type CulinaryFrequency =
+  | "commonly_eaten"
+  | "sometimes_eaten"
+  | "rarely_eaten"
+  | "regionally_prized";
+
+export type FoodValueDossier = {
+  speciesId: string;
+  status: "reviewed" | "partial";
+  culinaryFrequency: CulinaryFrequency;
+  culinaryReputation: string;
+  flavor?: string;
+  texture?: string;
+  boneStructure?: string;
+  cleaningDifficulty?: string;
+  skinConsiderations?: string;
+  filletYield?: string;
+  preparationNotes?: string;
+  commonCookingMethods?: string[];
+  /**
+   * Species-level biological hazards (toxic eggs, venomous spines).
+   * Not a waterbody contaminant advisory.
+   */
+  biologicalHazards?: string[];
+  /**
+   * Always present. Table character is never a consumption-safety claim.
+   */
+  consumptionAdvisoryRule: string;
+  harvestGateNote?: string;
+  sources: DossierSource[];
+  reviewedAt: string;
+  nextReviewAt: string;
+  gaps: string[];
+};
+
 export const IDENTIFICATION_DOSSIER_VERSION = "AFP-ID-1.0" as const;
 export const BEHAVIOR_DOSSIER_VERSION = "AFP-BH-1.0" as const;
 export const DIET_DOSSIER_VERSION = "AFP-DI-1.0" as const;
 export const SEASONAL_CALENDAR_VERSION = "AFP-SC-1.0" as const;
+export const FIGHT_DOSSIER_VERSION = "AFP-FT-1.0" as const;
+export const FOOD_VALUE_DOSSIER_VERSION = "AFP-FV-1.0" as const;
 export const DOSSIER_REVIEWED_AT = "2026-08-30" as const;
 export const DOSSIER_NEXT_REVIEW_AT = "2026-11-28" as const;
+
+export const CONSUMPTION_ADVISORY_RULE =
+  "General table character is not a safety claim. Mercury, PFAS, PCB, selenium, and other contaminant guidance is waterbody-specific. Check the current jurisdictional advisory before keeping fish to eat.";

@@ -101,6 +101,7 @@ export function SelectedSpeciesProfile() {
               const comparisons = factsByKind(item.facts, "comparison");
               const seasons = factsByKind(item.facts, "season");
               const lifeStages = factsByKind(item.facts, "life_stage");
+              const cautions = factsByKind(item.facts, "caution");
               const sources = factsByKind(item.facts, "source");
 
               return (
@@ -121,6 +122,20 @@ export function SelectedSpeciesProfile() {
                     <p className="text-sm text-muted">{item.summary}</p>
 
                     <FactList facts={defaults} />
+
+                    {cautions.length > 0 && (
+                      <dl className="mt-4 grid gap-2">
+                        {cautions.map((fact) => (
+                          <div
+                            key={`${item.id}-${fact.label}`}
+                            className="rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5"
+                          >
+                            <dt className="font-mono text-[9px] uppercase tracking-wider text-mark">{fact.label}</dt>
+                            <dd className="mt-1 text-sm text-fg">{fact.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
 
                     {traits.length > 0 && (
                       <details className="mt-4 rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">

@@ -175,7 +175,7 @@ Engine tests cover six-axis weighting, AFP identification/behavior dossier integ
 
 ## Knowledge
 
-The Species Profile is the optional `AFP-1.2` reference layer: the same ten angler questions as `AFP-1.0`. Identification, behavior, diet, and seasonal calendar can be marked reviewed when `AFP-ID-1.0` / `AFP-BH-1.0` / `AFP-DI-1.0` / `AFP-SC-1.0` dossiers exist. Wave 01 covers 26 high-confusion species. Remaining species stay explicitly incomplete. Fight and food value stay unreviewed. Dossiers do not feed presentation weighting.
+The Species Profile is the optional `AFP-1.3` reference layer: the same ten angler questions as `AFP-1.0`. Identification, behavior, diet, seasonal calendar, fight, and food value can be marked reviewed when `AFP-ID-1.0` / `AFP-BH-1.0` / `AFP-DI-1.0` / `AFP-SC-1.0` / `AFP-FT-1.0` / `AFP-FV-1.0` dossiers exist. Wave 01 covers 26 high-confusion species. Remaining species stay explicitly incomplete. Fight is descriptive, never a score. Food is table character, never a consumption-safety claim. Dossiers do not feed presentation weighting.
 
 75 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`, `wiper`, `spoonbill`, `sockeye`, `dolly`, `sheefish`) resolve to reviewed records. Review date and next-review date are printed on the reading. Cadence: 90 days.
 
