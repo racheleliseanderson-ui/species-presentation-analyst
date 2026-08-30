@@ -226,6 +226,10 @@ export const LABELS: Record<string, string> = {
   crepuscular: "Crepuscular",
   diurnal: "Diurnal",
   nocturnal: "Nocturnal",
+  specialized: "Specialized",
+  benthic: "Benthic",
+  pelagic: "Pelagic",
+  surface: "Surface",
 };
 
 export function labelOf(id: string): string {

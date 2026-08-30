@@ -5,16 +5,27 @@ import test from "node:test";
 import { SPECIES, SPECIES_BY_ID } from "./species-catalog.ts";
 import { SPECIES_EXPANSION_03 } from "./species-expansion-03.ts";
 import { BEHAVIOR_DOSSIERS } from "./behavior-dossiers.ts";
+import { DIET_DOSSIERS } from "./diet-dossiers.ts";
 import { IDENTIFICATION_DOSSIERS } from "./identification-dossiers.ts";
+import { SEASONAL_CALENDAR_DOSSIERS } from "./seasonal-calendar-dossiers.ts";
+import { PRESENTATIONS } from "./presentations.ts";
 import {
   BEHAVIOR_DOSSIER_VERSION,
+  DIET_DOSSIER_VERSION,
   IDENTIFICATION_DOSSIER_VERSION,
+  SEASONAL_CALENDAR_VERSION,
 } from "./dossier-types.ts";
-import { behaviorDossierFor, identificationDossierFor } from "./dossier-catalog.ts";
-import { SEASONS } from "../protocol/vocab.ts";
+import {
+  behaviorDossierFor,
+  dietDossierFor,
+  identificationDossierFor,
+  seasonalCalendarDossierFor,
+} from "./dossier-catalog.ts";
+import { FORAGE_CLASSES, SEASONS } from "../protocol/vocab.ts";
 import { searchSpecies, ALIASES } from "./aliases.ts";
 
 const FORBIDDEN = /best bite|hot bite|catch probability|secret spot|gps coordinate/i;
+const LOCATION = /exact spawning|staging location|migration bottleneck|hotspot/i;
 
 const DISTINCTION_GROUPS: Record<string, string[]> = {
   trout: ["oncorhynchus_mykiss", "oncorhynchus_clarkii"],
@@ -38,13 +49,21 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   bullhead: ["ameiurus_nebulosus", "ameiurus_melas", "ameiurus_natalis"],
 };
 
-test("identification and behavior dossier versions are explicit overlays, not a new AFP contract", () => {
+function normalize(value: string): string {
+  return value.toLowerCase().replace(/[/-]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+test("identification, behavior, diet, and seasonal versions are explicit overlays, not a new AFP contract", () => {
   assert.equal(IDENTIFICATION_DOSSIER_VERSION, "AFP-ID-1.0");
   assert.equal(BEHAVIOR_DOSSIER_VERSION, "AFP-BH-1.0");
+  assert.equal(DIET_DOSSIER_VERSION, "AFP-DI-1.0");
+  assert.equal(SEASONAL_CALENDAR_VERSION, "AFP-SC-1.0");
 });
 
 test("every dossier points at a reviewed catalog species and has provenance", () => {
   assert.equal(IDENTIFICATION_DOSSIERS.length, BEHAVIOR_DOSSIERS.length);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, DIET_DOSSIERS.length);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, SEASONAL_CALENDAR_DOSSIERS.length);
 
   for (const dossier of IDENTIFICATION_DOSSIERS) {
     assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
@@ -65,10 +84,45 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
     assert.ok(dossier.feedingStrategy.modes.length > 0);
     assert.ok(dossier.spawningBehavior.length > 0);
     assert.ok(
-      !/exact spawning|staging location|migration bottleneck|hotspot/i.test(dossier.spawningBehavior),
+      !LOCATION.test(dossier.spawningBehavior),
       `${dossier.speciesId} spawning behavior names a vulnerable location`,
     );
     assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+  }
+
+  for (const dossier of DIET_DOSSIERS) {
+    const species = SPECIES_BY_ID[dossier.speciesId];
+    assert.ok(species, `missing catalog species ${dossier.speciesId}`);
+    assert.ok(dossier.sources.length > 0, `${dossier.speciesId} diet is missing sources`);
+    assert.ok(
+      dossier.sources.some((source) => source.class === "agency" || source.class === "peer_reviewed"),
+      `${dossier.speciesId} diet needs an agency or peer-reviewed source`,
+    );
+    assert.ok(dossier.primaryForage.length > 0);
+    for (const forage of dossier.primaryForage) {
+      assert.ok((FORAGE_CLASSES as readonly string[]).includes(forage), `${dossier.speciesId} has unknown forage ${forage}`);
+      assert.ok(
+        species.forageClasses.includes(forage),
+        `${dossier.speciesId} diet class ${forage} is not on the catalog record`,
+      );
+    }
+    assert.match(dossier.observedForageRule, /not proof/i);
+    assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+    assert.doesNotMatch(JSON.stringify(dossier), /they will bite/i);
+  }
+
+  for (const dossier of SEASONAL_CALENDAR_DOSSIERS) {
+    assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
+    assert.ok(dossier.sources.length > 0, `${dossier.speciesId} calendar is missing sources`);
+    assert.ok(dossier.entries.length >= 3, `${dossier.speciesId} calendar is too thin`);
+    const seasons = dossier.entries.map((entry) => entry.season);
+    assert.equal(new Set(seasons).size, seasons.length, `${dossier.speciesId} repeats a season`);
+    for (const season of seasons) {
+      assert.ok((SEASONS as readonly string[]).includes(season), `${dossier.speciesId} has non-canonical season ${season}`);
+      assert.notEqual(season, "unknown");
+    }
+    assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+    assert.doesNotMatch(JSON.stringify(dossier), LOCATION);
   }
 });
 
@@ -76,10 +130,16 @@ test("incomplete research remains explicitly incomplete for species without doss
   for (const species of SPECIES) {
     const identification = identificationDossierFor(species.id);
     const behavior = behaviorDossierFor(species.id);
+    const diet = dietDossierFor(species.id);
+    const calendar = seasonalCalendarDossierFor(species.id);
     if (!identification) {
       assert.equal(behavior, null, `${species.id} has behavior without identification`);
+      assert.equal(diet, null, `${species.id} has diet without identification`);
+      assert.equal(calendar, null, `${species.id} has calendar without identification`);
     } else {
       assert.ok(behavior, `${species.id} has identification without behavior`);
+      assert.ok(diet, `${species.id} has identification without diet`);
+      assert.ok(calendar, `${species.id} has identification without calendar`);
     }
   }
 
@@ -120,6 +180,42 @@ test("kokanee remains separate from anadromous sockeye in identification", () =>
   assert.match(sockeye.identificationTraits.join(" "), /1\.5|4–15 lb|4-15 lb/i);
 });
 
+test("kokanee diet is a zooplankton specialist and sockeye freshwater adults are not feeding trout", () => {
+  const kokanee = dietDossierFor("oncorhynchus_nerka_kokanee");
+  const sockeye = dietDossierFor("oncorhynchus_nerka_anadromous");
+  assert.ok(kokanee && sockeye);
+  assert.equal(kokanee.feedingStyle, "specialized");
+  assert.equal(kokanee.feedingZone, "pelagic");
+  assert.ok(kokanee.primaryForage.includes("zooplankton"));
+  assert.match(kokanee.primaryNote, /daphnia|zooplankton/i);
+  assert.match(sockeye.primaryNote, /cease feeding|do not feed|typically cease/i);
+  assert.match(JSON.stringify(sockeye.lifeStageDiet), /do not feed|cease/i);
+});
+
+test("cisco diet stays pelagic-plankton and lake whitefish stays benthic", () => {
+  const cisco = dietDossierFor("coregonus_artedi");
+  const whitefish = dietDossierFor("coregonus_clupeaformis");
+  assert.ok(cisco && whitefish);
+  assert.equal(cisco.feedingZone, "pelagic");
+  assert.ok(cisco.primaryForage.includes("zooplankton"));
+  assert.equal(whitefish.feedingZone, "benthic");
+  assert.ok(whitefish.primaryForage.includes("mollusks"));
+});
+
+test("carp, bigmouth buffalo, and smallmouth buffalo keep distinct feeding identities", () => {
+  const carp = dietDossierFor("cyprinus_carpio");
+  const bigmouth = dietDossierFor("ictiobus_cyprinellus");
+  const smallmouth = dietDossierFor("ictiobus_bubalus");
+  assert.ok(carp && bigmouth && smallmouth);
+  assert.equal(carp.feedingZone, "benthic");
+  assert.equal(carp.feedingStyle, "opportunistic");
+  assert.equal(bigmouth.feedingZone, "pelagic");
+  assert.equal(bigmouth.feedingStyle, "specialized");
+  assert.ok(bigmouth.primaryForage.includes("zooplankton"));
+  assert.equal(smallmouth.feedingZone, "benthic");
+  assert.ok(smallmouth.primaryForage.includes("mollusks"));
+});
+
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {
   const rainbow = identificationDossierFor("oncorhynchus_mykiss");
   const cutthroat = identificationDossierFor("oncorhynchus_clarkii");
@@ -150,6 +246,42 @@ test("Morone identification uses tongue tooth patches and stripe continuity", ()
   assert.match(perch.identificationTraits.join(" "), /stripe/i);
 });
 
+test("seasonal calendars do not introduce unreviewed presentation families", () => {
+  for (const dossier of SEASONAL_CALENDAR_DOSSIERS) {
+    const species = SPECIES_BY_ID[dossier.speciesId];
+    const reviewed = new Set([...species.flowingPresentations, ...species.stillPresentations]);
+    for (const entry of dossier.entries) {
+      const text = entry.presentationImplication;
+      if (!text) continue;
+      const normalized = normalize(text);
+      const mentioned = PRESENTATIONS.filter((family) => {
+        const label = normalize(family.label);
+        return label.length >= 5 && normalized.includes(label);
+      });
+      for (const family of mentioned) {
+        const label = normalize(family.label);
+        const coveredByLonger = mentioned.some(
+          (other) => other.id !== family.id && normalize(other.label).includes(label),
+        );
+        if (coveredByLonger) continue;
+        assert.ok(
+          reviewed.has(family.id),
+          `${dossier.speciesId} ${entry.season} mentions ${family.id} (${family.label}) which is not reviewed for this species`,
+        );
+      }
+    }
+  }
+});
+
+test("diet and seasonal overlays are not imported by the presentation engine", () => {
+  const engineDir = new URL("../engine/", import.meta.url);
+  const files = ["infer.ts", "presentation-weighting.ts", "population-context.ts", "species-weight-overrides.ts"];
+  for (const file of files) {
+    const source = readFileSync(new URL(file, engineDir), "utf8");
+    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers/);
+  }
+});
+
 test("all 75 species remain resolvable and spawning seasons stay inside the canonical vocabulary", () => {
   assert.equal(SPECIES.length, 75);
   assert.equal(new Set(SPECIES.map((species) => species.id)).size, 75);
@@ -177,4 +309,10 @@ test("yellow bullhead source record uses canonical seasons without a catalog wor
   const yellow = SPECIES_BY_ID.ameiurus_natalis;
   assert.ok(yellow);
   assert.deepEqual(yellow.spawning.seasons, ["spring", "early_summer"]);
+
+  const calendar = seasonalCalendarDossierFor("ameiurus_natalis");
+  assert.ok(calendar);
+  const seasons = calendar.entries.map((entry) => entry.season);
+  assert.ok(seasons.includes("spring"));
+  assert.ok(seasons.includes("early_summer"));
 });

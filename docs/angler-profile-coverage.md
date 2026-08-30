@@ -1,6 +1,6 @@
 # Master angler profile coverage
 
-Model: `AFP-1.1`
+Model: `AFP-1.2`
 
 The Species & Presentation Analyst now treats the complete angler mental model as a separate reference layer rather than adding more required setup controls to Quick Read.
 
@@ -24,15 +24,15 @@ The profile contract is intentionally broader than the presentation engine. It a
 | Identification | Reviewed for 26 high-confusion species; partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 49 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
 | Behavior | Reviewed for 26 high-confusion species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 49 species; angling-pressure and frontal evidence still sparse |
-| Diet | Partial | forage classes and observed-forage packet integration | seasonal diet, life-stage diet, prey-size preference, regional forage substitutions |
+| Diet | Reviewed for 26 high-confusion species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 49 species; prey-size tables by waterbody |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
-| Seasonal calendar | Partial | season is a core weighting axis; spawning seasons and caution are structured | month-by-month location/behavior calendar and non-aggregation seasonal progression |
+| Seasonal calendar | Reviewed for 26 high-confusion species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 49 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
 | Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
 | Regulations & conservation | Partial | target status, structured conservation/jurisdiction gates, fail-closed behavior | live size/bag limits, seasons, protected areas, management-unit population health, current consumption advisories |
 
-The status language is deliberate. `AFP-1.1` overlays reviewed identification and behavior dossiers onto the same ten-question contract. Species without dossiers remain partial. Fight and food value stay unreviewed. The overlay never manufactures generic biology and never feeds presentation-family weighting.
+The status language is deliberate. `AFP-1.2` overlays reviewed identification, behavior, diet, and seasonal-calendar dossiers onto the same ten-question contract. Species without dossiers remain partial. Fight and food value stay unreviewed. The overlay never manufactures generic biology and never feeds presentation-family weighting.
 
 
 ## AFP-ID-1.0 / AFP-BH-1.0 wave 01
@@ -50,6 +50,16 @@ The first dossier wave covers the lookalike groups that most often collapse in t
 - brown vs black vs yellow bullhead
 
 Characters come from agency, museum, and peer-reviewed keys (TPWD, USFWS, NOAA Fisheries, Minnesota DNR, North Dakota Game and Fish, Florida Museum, FWC, USGS). Generative visual identification is not used as authority. Remaining catalog species keep visible identification and behavior gaps.
+
+## AFP-DI-1.0 / AFP-SC-1.0 wave 01
+
+The same 26 lookalike species now have diet and seasonal-calendar overlays:
+
+- Diet records primary forage inside catalog classes, plus seasonal and life-stage notes where agency or peer-reviewed sources support them.
+- Observed forage still comes from the user or Hatch Match. Diet capacity never infers a current hatch.
+- Seasonal calendars describe habitat class, depth, thermal context, and conservation-safe spawning notes. They are not “spring = shallow / summer = deep” tables.
+- Presentation notes may only mention already-reviewed families.
+- Kokanee remains a zooplankton specialist; anadromous sockeye freshwater adults are not feeding trout. Cisco stays pelagic-plankton; lake whitefish stays benthic. Carp, bigmouth buffalo, and smallmouth buffalo keep distinct feeding identities.
 
 ## Regional / population context
 
@@ -80,11 +90,11 @@ RPC guardrails remain unchanged:
 
 The next data work should not be another flat species expansion. It should fill the profile gaps in an order that improves field decisions without encouraging false precision:
 
-1. Identification dossiers: diagnostic traits, life-stage appearance, lookalikes, size/age.
-2. Behavior dossiers: schooling/solitary, pressure response, activity period, territoriality, weather sensitivity.
-3. Diet calendars: seasonal and life-stage forage, prey-size shifts, regional substitutions.
+1. Identification dossiers: remaining 49 species after wave 01.
+2. Behavior dossiers: remaining 49 species; angling-pressure and frontal evidence still sparse.
+3. Diet calendars: remaining 49 species; waterbody-specific prey-size tables.
 4. Species-specific methods reference: equipment ranges, hook/rig families, retrieve mechanics, linked to Tackle Link and Knot Analyst rather than duplicating those engines.
-5. Seasonal calendars: broad month/season progression by population archetype, with spawning aggregations excluded from targeting guidance.
+5. Seasonal calendars: remaining 49 species and population-archetype calendars, with spawning aggregations excluded from targeting guidance.
 6. Fight characteristics: descriptive reference only, not a quality score.
 7. Food value: table/cooking information kept separate from live contaminant advisories.
 8. Live regulation/consumption connectors: jurisdiction and waterbody-aware sources with timestamps; never freeze changing legal limits into the static species catalog.

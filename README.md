@@ -175,7 +175,7 @@ Engine tests cover six-axis weighting, AFP identification/behavior dossier integ
 
 ## Knowledge
 
-The Species Profile is the optional `AFP-1.1` reference layer: the same ten angler questions as `AFP-1.0`, now able to mark identification and behavior as reviewed when an `AFP-ID-1.0` / `AFP-BH-1.0` dossier exists. Wave 01 covers 26 high-confusion species (trout lookalikes, kokanee vs sockeye, black bass, Morone, cisco vs whitefish, goldeye vs mooneye, buffalo vs carp, gars, bullheads). Remaining species stay explicitly incomplete. Fight and food value stay unreviewed. Dossiers do not feed presentation weighting.
+The Species Profile is the optional `AFP-1.2` reference layer: the same ten angler questions as `AFP-1.0`. Identification, behavior, diet, and seasonal calendar can be marked reviewed when `AFP-ID-1.0` / `AFP-BH-1.0` / `AFP-DI-1.0` / `AFP-SC-1.0` dossiers exist. Wave 01 covers 26 high-confusion species. Remaining species stay explicitly incomplete. Fight and food value stay unreviewed. Dossiers do not feed presentation weighting.
 
 75 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`, `wiper`, `spoonbill`, `sockeye`, `dolly`, `sheefish`) resolve to reviewed records. Review date and next-review date are printed on the reading. Cadence: 90 days.
 
