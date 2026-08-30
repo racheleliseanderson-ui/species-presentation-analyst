@@ -68,19 +68,19 @@ test("AFP-1.2 keeps exact regulations outside the static species record", () => 
 
 test("AFP-1.2 uses identification dossiers when reviewed and leaves remaining species explicitly incomplete", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const brook = SPECIES.find((species) => species.id === "salvelinus_fontinalis");
-  assert.ok(rainbow && brook);
+  const bluegill = SPECIES.find((species) => species.id === "lepomis_macrochirus");
+  assert.ok(rainbow && bluegill);
 
   const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
-  const brookProfile = buildAnglerSpeciesProfile(brook);
+  const bluegillProfile = buildAnglerSpeciesProfile(bluegill);
   const rainbowId = rainbowProfile.sections.find((section) => section.id === "identification");
-  const brookId = brookProfile.sections.find((section) => section.id === "identification");
+  const bluegillId = bluegillProfile.sections.find((section) => section.id === "identification");
 
   assert.equal(identificationDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowId?.status, "reviewed");
   assert.ok(rainbowId?.facts.some((fact) => fact.kind === "comparison"));
-  assert.equal(brookId?.status, "partial");
-  assert.ok(brookId?.gaps.includes("similar-species comparison keys"));
+  assert.equal(bluegillId?.status, "partial");
+  assert.ok(bluegillId?.gaps.includes("similar-species comparison keys"));
 });
 
 test("AFP-1.2 uses behavior dossiers when reviewed without converting them into catch claims", () => {
@@ -104,37 +104,61 @@ test("AFP-1.2 uses behavior dossiers when reviewed without converting them into 
 
 test("AFP-1.2 uses diet dossiers when reviewed and does not infer a current hatch", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const brook = SPECIES.find((species) => species.id === "salvelinus_fontinalis");
-  assert.ok(rainbow && brook);
+  const bluegill = SPECIES.find((species) => species.id === "lepomis_macrochirus");
+  assert.ok(rainbow && bluegill);
 
   const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
-  const brookProfile = buildAnglerSpeciesProfile(brook);
+  const bluegillProfile = buildAnglerSpeciesProfile(bluegill);
   const rainbowDiet = rainbowProfile.sections.find((section) => section.id === "diet");
-  const brookDiet = brookProfile.sections.find((section) => section.id === "diet");
+  const bluegillDiet = bluegillProfile.sections.find((section) => section.id === "diet");
 
   assert.equal(dietDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowDiet?.status, "reviewed");
   assert.ok(rainbowDiet?.facts.some((fact) => fact.kind === "season"));
   assert.ok(rainbowDiet?.facts.some((fact) => fact.kind === "life_stage"));
   assert.ok(rainbowDiet?.facts.some((fact) => /not proof/i.test(fact.value)));
-  assert.equal(brookDiet?.status, "partial");
-  assert.ok(brookDiet?.gaps.includes("spring / summer / fall / winter diet shifts"));
+  assert.equal(bluegillDiet?.status, "partial");
+  assert.ok(bluegillDiet?.gaps.includes("spring / summer / fall / winter diet shifts"));
 });
 
 test("AFP-1.2 uses seasonal calendars when reviewed without turning spawn into a target map", () => {
   const kokanee = SPECIES.find((species) => species.id === "oncorhynchus_nerka_kokanee");
-  const brook = SPECIES.find((species) => species.id === "salvelinus_fontinalis");
-  assert.ok(kokanee && brook);
+  const bluegill = SPECIES.find((species) => species.id === "lepomis_macrochirus");
+  assert.ok(kokanee && bluegill);
 
   const kokaneeProfile = buildAnglerSpeciesProfile(kokanee);
-  const brookProfile = buildAnglerSpeciesProfile(brook);
+  const bluegillProfile = buildAnglerSpeciesProfile(bluegill);
   const kokaneeCal = kokaneeProfile.sections.find((section) => section.id === "seasonal_calendar");
-  const brookCal = brookProfile.sections.find((section) => section.id === "seasonal_calendar");
+  const bluegillCal = bluegillProfile.sections.find((section) => section.id === "seasonal_calendar");
 
   assert.equal(seasonalCalendarDossierFor("oncorhynchus_nerka_kokanee")?.status, "reviewed");
   assert.equal(kokaneeCal?.status, "reviewed");
   assert.ok(kokaneeCal?.facts.some((fact) => fact.kind === "season"));
   assert.doesNotMatch(JSON.stringify(kokaneeCal), /exact spawning|staging location|migration bottleneck|hotspot/i);
-  assert.equal(brookCal?.status, "partial");
-  assert.ok(brookCal?.gaps.includes("month-by-month location changes"));
+  assert.equal(bluegillCal?.status, "partial");
+  assert.ok(bluegillCal?.gaps.includes("month-by-month location changes"));
+});
+
+test("AFP-1.2 wave 02a marks brown, brook, lake trout, and steelhead as reviewed without collapsing steelhead into rainbow", () => {
+  const ids = [
+    "salmo_trutta",
+    "salvelinus_fontinalis",
+    "salvelinus_namaycush",
+    "oncorhynchus_mykiss_steelhead",
+  ];
+  for (const id of ids) {
+    const species = SPECIES.find((item) => item.id === id);
+    assert.ok(species, id);
+    const profile = buildAnglerSpeciesProfile(species);
+    for (const sectionId of ["identification", "behavior", "diet", "seasonal_calendar"] as const) {
+      const section = profile.sections.find((item) => item.id === sectionId);
+      assert.equal(section?.status, "reviewed", `${id} ${sectionId}`);
+    }
+    assert.equal(profile.sections.find((item) => item.id === "fight")?.status, "not_reviewed");
+  }
+
+  const steelhead = SPECIES.find((species) => species.id === "oncorhynchus_mykiss_steelhead");
+  assert.ok(steelhead);
+  const steelheadDiet = buildAnglerSpeciesProfile(steelhead).sections.find((item) => item.id === "diet");
+  assert.match(JSON.stringify(steelheadDiet), /not feeding in the trout sense/i);
 });

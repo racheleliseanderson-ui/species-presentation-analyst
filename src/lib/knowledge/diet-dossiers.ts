@@ -1119,4 +1119,185 @@ export const DIET_DOSSIERS: DietDossier[] = [
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
   },
+  {
+    speciesId: "salmo_trutta",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "larger_prey_fish",
+      "worms_annelids",
+    ],
+    primaryNote:
+      "Browns take drift, emergences, terrestrials, crayfish-scale crustaceans, and fish. Catalog exception: large piscivorous adults may ignore insect-scale foods even when smaller trout are on them. Capacity is not a current hatch.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Lower metabolic demand; nymphs, midges, and other slow subsurface prey. Night and cover feeding remain plausible in clear water.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects and emergences as water warms. This is capacity, not a declared hatch.",
+      },
+      {
+        season: "summer",
+        emphasis: "Terrestrials, crayfish, and subsurface insects in the usable thermal band. Large fish add baitfish.",
+      },
+      {
+        season: "fall",
+        emphasis: "Opportunistic insects, crayfish, and fish. Fall spawning is conservation context, not an egg-forage prescription. Do not assume an egg event.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Aquatic invertebrates and drift-scale prey.",
+      juvenile: "Aquatic insects, emergences, and small crustaceans.",
+      adult: "Insects remain important; larger fish add crayfish and forage fish, then larger prey fish.",
+    },
+    preySizeShifts: "Prey length tracks gape. The catalog larger_prey_fish class belongs to large adults, not to parr.",
+    ontogeneticShift: "Insectivory to mixed insect–crustacean–fish, with some adults becoming primarily piscivorous.",
+    forageSubstitutions:
+      "Streams substitute hatches and terrestrials. Fertile rivers and lakes substitute crayfish and baitfish. Substitution is system-specific.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "USGS / state brown trout habitat notes", class: "agency" },
+      { label: "Elliott thermal biology of brown trout", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "salvelinus_fontinalis",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "terrestrial_insects", "crustaceans", "small_forage_fish"],
+    primaryNote:
+      "Small-water char diet: aquatic insects, terrestrials, crustaceans, and some small fish. Less piscivorous at typical angling size than brown trout or lake trout.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Slow subsurface invertebrates in remaining cold water.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects as water warms. Capacity, not a hatch declaration.",
+      },
+      {
+        season: "summer",
+        emphasis: "Terrestrials and aquatic insects in shaded or high-elevation water. Warm lowland water can be lethal regardless of forage.",
+      },
+      {
+        season: "fall",
+        emphasis: "Remaining insects and opportunistic small fish. Fall spawning is conservation context, not a forage event.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Tiny aquatic invertebrates.",
+      juvenile: "Aquatic insects and small crustaceans.",
+      adult: "Insects and terrestrials remain central; small fish where gape allows.",
+    },
+    ontogeneticShift: "Weaker shift to piscivory than brown trout at the same length in most streams.",
+    forageSubstitutions: "High lakes may add crustaceans; tiny streams stay insect-heavy. Brown trout competition can change who occupies a food-rich lie, not the brook diet list.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "U.S. Fish and Wildlife Service brook trout species profile", class: "agency" },
+      { label: "Raleigh habitat suitability (brook trout)", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "salvelinus_namaycush",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "pelagic",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "crustaceans", "aquatic_insects"],
+    primaryNote:
+      "Michigan DNR: adults feed primarily on other fish — native ciscoes and sculpin, and where available alewives, smelt, gobies — and will also take crustaceans, terrestrial insects, and plankton. That is adult capacity. Observed forage still has to be declared.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Fish and remaining invertebrates in the cold column. Shallower relative to summer without becoming a stream-trout diet.",
+      },
+      {
+        season: "spring",
+        emphasis: "Forage fish as lakes warm and before summer stratification pins the usable layer.",
+      },
+      {
+        season: "summer",
+        emphasis: "Piscivory on the usable oxythermal layer. Crustaceans (including Mysis where present) can matter in the same band.",
+      },
+      {
+        season: "fall",
+        emphasis: "Forage fish continue. Fall spawning is conservation context, not a forage map.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Zooplankton-scale prey and small invertebrates.",
+      juvenile: "Aquatic insects, crustaceans, and small fish.",
+      adult: "Primarily fish; crustaceans and insects remain possible.",
+    },
+    preySizeShifts: "Adult gape supports larger prey fish. Juvenile diets are not a proxy for adult trolling forage.",
+    ontogeneticShift: "Invertebrates and small fish to primarily piscivory.",
+    forageSubstitutions:
+      "Great Lakes substitutions (alewife, smelt, goby) differ from inland cisco/sculpin lakes. RPC overlays that split; this species diet does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Michigan DNR lake trout species account (adult piscivory: cisco, sculpin, alewife, smelt, goby)", class: "agency" },
+      { label: "Martin & Olver lake trout biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "waterbody-specific prey-size table for Great Lakes vs inland"],
+  },
+  {
+    speciesId: "oncorhynchus_mykiss_steelhead",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "eggs", "small_forage_fish"],
+    primaryNote:
+      "USFWS: steelhead feed on aquatic and terrestrial invertebrates and small fish. Catalog exception: many winter fish are not feeding in the trout sense. Eggs are a reviewed forage class here, not proof that an egg event is occurring.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Returning winter-run fish may take little. Do not convert presence into a nymph or egg hatch.",
+      },
+      {
+        season: "early_spring",
+        emphasis: "Insects and eggs remain capacity only. Spawning overlap is conservation context.",
+      },
+      {
+        season: "spring",
+        emphasis: "Same rule: forage classes exist; a hatch is not inferred. Summer-run stocks are not on this spring feeding story.",
+      },
+      {
+        season: "summer",
+        emphasis: "Summer-run adults may be in river systems. Heat and low flow are constraints. Still not an inland-rainbow hatch match.",
+      },
+      {
+        season: "fall",
+        emphasis: "Eggs and insects remain possible foods in some systems. Do not assume an egg event from the calendar.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "USFWS notes zooplankton-scale feeding when young; natal-stream parr then take aquatic invertebrates.",
+      juvenile: "Aquatic insects and crustaceans in freshwater rearing, then ocean prey after emigration — ocean diet is not this freshwater record's job.",
+      adult: "Returning adults may take insects, eggs, and small fish, or may not be feeding in the trout sense.",
+    },
+    ontogeneticShift:
+      "Freshwater insectivory to marine fish/invertebrate growth, then a freshwater return that is often not a feeding problem in the inland-rainbow sense.",
+    forageSubstitutions: "Great Lakes vs Pacific prey fields differ. This species overlay does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "NOAA Fisheries steelhead species profile", class: "agency" },
+      { label: "U.S. Fish and Wildlife Service rainbow / steelhead species profile (invertebrates and small fish)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "ocean vs freshwater adult diet as a structured split beyond the catalog exception"],
+  },
 ];

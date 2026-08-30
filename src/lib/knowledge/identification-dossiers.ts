@@ -60,6 +60,12 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
         distinction:
           "Browns have a plain, unspotted tail, orange/yellow adipose and anal-fin highlights, and red-orange spots with pale halos on the sides rather than a pink lateral band.",
       },
+      {
+        speciesId: "salvelinus_fontinalis",
+        name: "Brook trout",
+        distinction:
+          "Brook trout are char: worm-like vermiculations on the back, red spots with blue halos, a square tail, and white-then-black leading edges on the lower fins. Rainbows have a spotted tail, a pink lateral band, and lack those vermiculations.",
+      },
     ],
     averageAdultLength: "Inland stream adults commonly 10–16 in; many lake and reservoir fish 16–22 in.",
     commonAnglingSize: "10–18 in in most inland fisheries.",
@@ -1391,6 +1397,288 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ...R,
     gaps: [
       "longevity as a structured field",
+    ],
+  },
+  {
+    speciesId: "salmo_trutta",
+    status: "reviewed",
+    regionalNames: ["brownie", "german brown", "browns"],
+    bodyShape:
+      "Trout fusiform body, often slightly deeper than a rainbow of the same length. Caudal fin square to shallowly forked.",
+    identificationTraits: [
+      "Caudal fin is largely unspotted — a plain tail — unlike rainbow and cutthroat, whose tails carry black spots.",
+      "Sides show a mix of dark spots and red-to-orange spots, the red spots commonly ringed by pale halos.",
+      "Dark spots typically mark the operculum / gill cover.",
+      "Adipose and anal fins are often orange or yellow-tinted; there is no pink lateral stripe.",
+      "Maxillary commonly reaches past the eye in adults.",
+    ],
+    coloration:
+      "Golden-brown to olive back and sides, creamy or yellow belly. Spotting is coarser than a rainbow and includes the red haloed spots that give the species its field look.",
+    regionalColorVariation:
+      "Peaty or stained water often produces deeper gold. Lake and sea-run fish can be silvery until handled. Local spotting pattern is population-specific and is not a subspecies key in this catalog.",
+    spawningColoration:
+      "Fall spawners intensify gold, orange, and the kype on males. That color change is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Parr marks along the side; red spotting develops with age. Juveniles can be confused with other salmonid parr until the unspotted tail and haloed red spots are clear.",
+    adultAppearance:
+      "A golden-to-olive spotted trout with a plain tail and mixed black and haloed-red spotting. Large fish may look more brassy or silvery in lakes.",
+    sexualDimorphism:
+      "Breeding males develop a stronger kype and deeper color. Size overlap is large; sex is not a field ID key.",
+    similarSpecies: [
+      {
+        speciesId: "oncorhynchus_mykiss",
+        name: "Rainbow trout",
+        distinction:
+          "Rainbows have a pink-to-red lateral stripe and black spots on the caudal fin. Browns have a plain tail, haloed red spots, and no pink stripe.",
+      },
+      {
+        speciesId: "salvelinus_fontinalis",
+        name: "Brook trout",
+        distinction:
+          "Brook trout are char with worm-like vermiculations on the back, red spots with blue halos, a square tail, and white-then-black leading edges on the lower fins. Browns lack vermiculations and have a spotted-side / plain-tail trout look.",
+      },
+      {
+        speciesId: "salmo_salar_landlocked",
+        name: "Landlocked Atlantic salmon",
+        distinction:
+          "Landlocked Atlantic salmon have a more forked tail, smaller spots, and a different body language in lakes. They are a separate catalog record, not a large brown.",
+      },
+      {
+        name: "Tiger trout (brown × brook hybrid)",
+        distinction:
+          "Tiger trout show worm-like vermiculations wrapping onto the sides without the brook’s blue-haloed red spots. Treat as a hybrid; do not force the fish into either parent record.",
+      },
+    ],
+    averageAdultLength: "Stream adults commonly 10–16 in; many fertile rivers and lakes produce 16–22 in fish.",
+    commonAnglingSize: "12–18 in in most inland fisheries.",
+    typicalWeight: "Often 0.75–3 lb in streams; large piscivorous fish are much heavier.",
+    maximumDocumentedSize:
+      "Large lake and tailwater fish far exceed typical stream size. Continent-wide maxima are fishery-specific and are not a single catalog number.",
+    longevity: "Commonly 5–8 years in inland waters; older fish occur in some lakes and cold tailwaters.",
+    sources: [
+      { label: "USGS / state brown trout habitat notes", class: "agency" },
+      { label: "Elliott thermal biology of brown trout", class: "peer_reviewed" },
+      { label: "State inland trout identification keys (unspotted caudal, haloed red spots, opercular spotting)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "sea-run vs inland color maps as a structured field",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "salvelinus_fontinalis",
+    status: "reviewed",
+    regionalNames: ["brookie", "speckled trout", "squaretail", "speckled"],
+    bodyShape:
+      "Char body, typically deeper than a slim rainbow of the same length. Caudal fin square or only slightly emarginate — the squaretail name.",
+    identificationTraits: [
+      "Worm-like pale vermiculations on the olive-to-green back and upper sides. CDFW: the only trout in California with this maze pattern.",
+      "Red spots along the sides, commonly ringed by blue halos, on an olive-to-orange flank.",
+      "Pectoral, pelvic, and anal fins with a white leading edge, then a black streak, then orange or red — a char fin recipe, not a trout stripe.",
+      "Caudal fin square to barely notched, not the deep fork of lake trout.",
+      "Maxillary typically extends past the eye.",
+    ],
+    coloration:
+      "Olive-green back with vermiculations, flanks olive to orange-red with haloed red spots, milky or cream belly. Lower fins orange or red with the white-then-black leading edge.",
+    regionalColorVariation:
+      "High-elevation western introductions can look paler. Native eastern fish often show the strongest orange. Hatchery fish may be duller but still carry vermiculations and the fin recipe.",
+    spawningColoration:
+      "USFWS: as spawning approaches, colors intensify, especially in males whose flanks and belly become orange-red with a dark lateral stripe. That is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Parr marks plus developing vermiculations. The white fin edges appear early and are a better juvenile key than adult orange.",
+    adultAppearance:
+      "A square-tailed char with vermiculated back, haloed red spots, and white-black-orange lower fins.",
+    sexualDimorphism:
+      "Spawning males deepen orange-red and the dark lateral stripe. Size overlap is large.",
+    similarSpecies: [
+      {
+        speciesId: "salmo_trutta",
+        name: "Brown trout",
+        distinction:
+          "Browns have a plain, unspotted tail, haloed red-and-black side spots, and no vermiculations or white-black-orange fin sandwich. Brook trout are char.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss",
+        name: "Rainbow trout",
+        distinction:
+          "Rainbows have a pink lateral band and a spotted tail. They lack vermiculations and the char fin recipe.",
+      },
+      {
+        speciesId: "salvelinus_namaycush",
+        name: "Lake trout",
+        distinction:
+          "Lake trout have light spots on a dark body and a deeply forked tail. They lack brook vermiculations and the blue-haloed red side spots.",
+      },
+      {
+        speciesId: "salvelinus_confluentus",
+        name: "Bull trout",
+        distinction:
+          "Bull trout are a conservation-sensitive char with a larger head, paler spots, and no brook vermiculation maze. They remain a separate, fail-closed record.",
+      },
+      {
+        speciesId: "salvelinus_alpinus",
+        name: "Arctic char",
+        distinction:
+          "Arctic char lack the brook vermiculation maze and are a northern/lake record. Do not collapse the two chars.",
+      },
+      {
+        name: "Splake (brook × lake trout hybrid)",
+        distinction:
+          "Splake can mix a slightly forked tail with intermediate spotting. Treat as a hybrid; do not force either parent record.",
+      },
+    ],
+    averageAdultLength: "Wild stream adults commonly 6–12 in; pond and lake fish 10–16 in.",
+    commonAnglingSize: "7–12 in in most small-stream fisheries.",
+    typicalWeight: "Often well under 1 lb in streams; larger pond fish occur where summer temperatures allow.",
+    maximumDocumentedSize:
+      "Large lake and pond fish exceed typical stream size. Small-stream maxima are not a continent-wide number.",
+    longevity: "Often 3–5 years in streams; older fish occur in cold lakes.",
+    sources: [
+      { label: "U.S. Fish and Wildlife Service brook trout species profile", class: "agency", url: "https://www.fws.gov/species/brook-trout-salvelinus-fontinalis" },
+      { label: "California DFW brook trout identification (vermiculations, white fin edges, maxillary)", class: "agency", url: "https://wildlife.ca.gov/Fishing/Inland/Brook-Trout" },
+      { label: "Raleigh habitat suitability (brook trout)", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "eastern native vs western introduced color tables",
+      "splake meristics as a structured hybrid key",
+    ],
+  },
+  {
+    speciesId: "salvelinus_namaycush",
+    status: "reviewed",
+    regionalNames: ["laker", "mackinaw", "togue", "grey trout"],
+    bodyShape:
+      "Elongate char body with a long head. Caudal fin deeply forked, lobes of similar size — the primary field split from brook trout.",
+    identificationTraits: [
+      "Michigan DNR: light spots on a dark gray-to-black background, progressively paler toward a white belly.",
+      "Tail deeply forked with equal upper and lower lobes. Brook trout are square-tailed.",
+      "Lower fins often orange to orange-red with a white leading edge; the anal fin has 8–10 rays.",
+      "Back is dark with a dorsal and adipose fin; it does not carry brook-style vermiculations or blue-haloed red side spots.",
+      "Stillwater specialist in this catalog; river-current trout keys do not apply.",
+    ],
+    coloration:
+      "Dark olive, gray, or nearly black back and sides with pale spots; white belly. Fins may show orange with a white leading edge.",
+    regionalColorVariation:
+      "Great Lakes fish are often more silvery-gray. Inland lake fish can be darker. Siscowet and other deep-water forms are not separate catalog records and should not be forced from a photograph.",
+    spawningColoration:
+      "Fall spawners may darken. Color change on rocky spawning substrate is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Younger fish already show light spots on a dark ground and a forked tail. They are not vermiculated brook parr.",
+    adultAppearance:
+      "A deeply forked, light-spotted char of cold lakes. Large adults look more pike-like in the head than a stream trout.",
+    sexualDimorphism:
+      "Males may darken toward spawning. Size overlap is large; sex is not a field ID key.",
+    similarSpecies: [
+      {
+        speciesId: "salvelinus_fontinalis",
+        name: "Brook trout",
+        distinction:
+          "Brook trout have vermiculations, blue-haloed red spots, and a square tail. Lake trout have light spots on dark and a deep fork.",
+      },
+      {
+        speciesId: "salmo_salar_landlocked",
+        name: "Landlocked Atlantic salmon",
+        distinction:
+          "Landlocked Atlantic salmon have a different spotting language (x-marks / sparse dark spots) and are Salmo, not a pale-spotted char. Forked tails overlap; spotting and mouth do not.",
+      },
+      {
+        speciesId: "coregonus_clupeaformis",
+        name: "Lake whitefish",
+        distinction:
+          "Lake whitefish are coregonines with an overhanging snout, silvery unspotted sides, and a terminal-to-inferior mouth — not a spotted char.",
+      },
+      {
+        name: "Splake (brook × lake trout hybrid)",
+        distinction:
+          "Splake tails are intermediate and spotting can mix both parents. Do not force the hybrid into either char record.",
+      },
+    ],
+    averageAdultLength: "Inland-lake adults commonly 18–26 in; Great Lakes fish are often larger.",
+    commonAnglingSize: "20–30 in in many inland and Great Lakes fisheries.",
+    typicalWeight: "Often 3–8 lb inland; Great Lakes fish commonly heavier.",
+    maximumDocumentedSize:
+      "Large Great Lakes and big-lake fish far exceed inland pond size. Maxima are waterbody-specific.",
+    longevity: "Slow-growing and long-lived relative to stream trout; decades are documented in some northern lakes.",
+    sources: [
+      { label: "Michigan DNR lake trout species account (forked tail, light spots, white fin edges, adult piscivory)", class: "agency", url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-trout" },
+      { label: "Great Lakes / provincial lake trout assessments", class: "agency" },
+      { label: "Martin & Olver lake trout biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "siscowet / lean / inland morphometrics as structured forms",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "oncorhynchus_mykiss_steelhead",
+    status: "reviewed",
+    regionalNames: ["steelie", "steelhead trout", "steelhead"],
+    bodyShape:
+      "Same meristic trout body as inland rainbow, typically more elongate in ocean-grown adults. Caudal fin more forked than many inland rainbows.",
+    identificationTraits: [
+      "NOAA: steelhead are the anadromous life history of Oncorhynchus mykiss; fish that remain in fresh water are rainbow trout. This catalog keeps the two as separate records.",
+      "Fresh-from-the-ocean adults are chrome-silvery with a faint or absent pink stripe and sparse spotting until freshwater residence darkens them.",
+      "Typically larger than sympatric inland rainbows. Size is supporting context, not a species key by itself.",
+      "USFWS: scale or otolith chemistry is the laboratory confirmation of anadromy. In the field, treat run context, silvery ocean growth, and the steelhead record rather than forcing an inland rainbow ID.",
+      "Winter-run and summer-run stocks are the same species record and must not be collapsed into one calendar.",
+    ],
+    coloration:
+      "Ocean-bright fish are metallic silver with a bluish back. The pink lateral band and heavy spotting of inland rainbows develop or intensify after time in fresh water.",
+    regionalColorVariation:
+      "Great Lakes fish are anadromous into the lakes, not the Pacific. Pacific DPS appearance overlaps; geography and run timing are not read from color.",
+    spawningColoration:
+      "Freshwater adults darken, show more spots and a stronger pink band, and males may kype. Color is not a targeting cue.",
+    juvenileAppearance:
+      "Parr in natal streams look like rainbow parr. Juvenile appearance does not decide whether the fish will become a steelhead or a resident rainbow.",
+    adultAppearance:
+      "A large, often silvery Oncorhynchus mykiss in flowing water. Treat ocean- or Great Lakes-run adults as this record, not inland rainbow.",
+    sexualDimorphism:
+      "Spawning males kype and darken. Sex is not the record split; life history is.",
+    similarSpecies: [
+      {
+        speciesId: "oncorhynchus_mykiss",
+        name: "Rainbow trout (inland)",
+        distinction:
+          "Same species, resident life history. Inland rainbows are typically smaller, more heavily spotted, and show a clear pink band in fresh water. Anadromous fish belong on this steelhead record.",
+      },
+      {
+        speciesId: "oncorhynchus_kisutch",
+        name: "Coho salmon",
+        distinction:
+          "Coho have a white gum line, a different tail-spot language, and are semelparous Pacific salmon. Steelhead are iteroparous trout (NOAA: they can spawn more than once).",
+      },
+      {
+        speciesId: "oncorhynchus_tshawytscha",
+        name: "Chinook salmon",
+        distinction:
+          "Chinook are larger-bodied salmon with a black gum line and a different spot pattern on the back and tail. They are not anadromous rainbow trout.",
+      },
+      {
+        speciesId: "salmo_salar_anadromous",
+        name: "Atlantic salmon",
+        distinction:
+          "Atlantic salmon are Salmo, conservation-sensitive in this catalog, and a separate fail-closed record. Do not treat a chrome Pacific or Great Lakes steelhead as Atlantic salmon.",
+      },
+    ],
+    averageAdultLength: "Returning adults commonly 24–34 in; inland residuals and half-pounders are smaller.",
+    commonAnglingSize: "26–32 in in many Pacific and Great Lakes fisheries.",
+    typicalWeight: "Often 6–12 lb; larger fish occur. Inland rainbow weight bands do not apply.",
+    maximumDocumentedSize:
+      "Ocean- and Great Lakes-grown maxima far exceed inland rainbow size. Those maxima belong here, not on the inland rainbow dossier.",
+    longevity:
+      "NOAA: unlike most Pacific salmon, steelhead can spawn more than once. Age is stock-specific.",
+    sources: [
+      { label: "NOAA Fisheries steelhead species profile (anadromy vs resident rainbow, iteroparity)", class: "agency", url: "https://www.fisheries.noaa.gov/species/steelhead" },
+      { label: "U.S. Fish and Wildlife Service rainbow / steelhead species profile (otolith/scale confirmation of anadromy)", class: "agency", url: "https://www.fws.gov/species/rainbow-trout-oncorhynchus-mykiss" },
+      { label: "Withler / Quinn anadromous Oncorhynchus reviews", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "winter-run vs summer-run as a structured ID field — they are the same species",
+      "Pacific DPS vs Great Lakes run as a color key — they are not",
     ],
   },
 ];
