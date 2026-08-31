@@ -23,6 +23,7 @@ import {
 } from "./dossier-catalog.ts";
 import { FORAGE_CLASSES, SEASONS } from "../protocol/vocab.ts";
 import { searchSpecies, ALIASES } from "./aliases.ts";
+import { SEED_WAVES, seedWaveForSpecies } from "./seed-queue.ts";
 
 const FORBIDDEN = /best bite|hot bite|catch probability|secret spot|gps coordinate/i;
 const LOCATION = /exact spawning|staging location|migration bottleneck|hotspot/i;
@@ -73,6 +74,10 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   mountain_lake_whitefish: ["prosopium_williamsoni", "coregonus_clupeaformis"],
   arctic_char_dolly: ["salvelinus_alpinus", "salvelinus_malma"],
   arctic_char_laker: ["salvelinus_alpinus", "salvelinus_namaycush"],
+  dolly_bull: ["salvelinus_malma", "salvelinus_confluentus"],
+  brook_bull: ["salvelinus_fontinalis", "salvelinus_confluentus"],
+  landlocked_vs_wild_atlantic: ["salmo_salar_landlocked", "salmo_salar_anadromous"],
+  steelhead_wild_atlantic: ["oncorhynchus_mykiss_steelhead", "salmo_salar_anadromous"],
 };
 
 function normalize(value: string): string {
@@ -87,9 +92,15 @@ test("identification, behavior, diet, and seasonal versions are explicit overlay
 });
 
 test("every dossier points at a reviewed catalog species and has provenance", () => {
-  assert.equal(IDENTIFICATION_DOSSIERS.length, BEHAVIOR_DOSSIERS.length);
-  assert.equal(IDENTIFICATION_DOSSIERS.length, DIET_DOSSIERS.length);
-  assert.equal(IDENTIFICATION_DOSSIERS.length, SEASONAL_CALENDAR_DOSSIERS.length);
+  const identificationOnlyCount = SEED_WAVES.filter(
+    (wave) =>
+      wave.status === "landed" &&
+      wave.overlays.length === 1 &&
+      wave.overlays[0] === "identification",
+  ).reduce((count, wave) => count + wave.speciesIds.length, 0);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, BEHAVIOR_DOSSIERS.length + identificationOnlyCount);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, DIET_DOSSIERS.length + identificationOnlyCount);
+  assert.equal(IDENTIFICATION_DOSSIERS.length, SEASONAL_CALENDAR_DOSSIERS.length + identificationOnlyCount);
 
   for (const dossier of IDENTIFICATION_DOSSIERS) {
     assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
@@ -158,10 +169,17 @@ test("incomplete research remains explicitly incomplete for species without doss
     const behavior = behaviorDossierFor(species.id);
     const diet = dietDossierFor(species.id);
     const calendar = seasonalCalendarDossierFor(species.id);
+    const wave = seedWaveForSpecies(species.id);
+    const identificationOnly =
+      wave?.overlays.length === 1 && wave.overlays[0] === "identification";
     if (!identification) {
       assert.equal(behavior, null, `${species.id} has behavior without identification`);
       assert.equal(diet, null, `${species.id} has diet without identification`);
       assert.equal(calendar, null, `${species.id} has calendar without identification`);
+    } else if (identificationOnly) {
+      assert.equal(behavior, null, `${species.id} is identification-only but has behavior`);
+      assert.equal(diet, null, `${species.id} is identification-only but has diet`);
+      assert.equal(calendar, null, `${species.id} is identification-only but has calendar`);
     } else {
       assert.ok(behavior, `${species.id} has identification without behavior`);
       assert.ok(diet, `${species.id} has identification without diet`);
@@ -170,7 +188,8 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 14);
+  assert.equal(uncovered.length, 12);
+  assert.ok(uncovered.some((species) => species.id === "aplodinotus_grunniens"));
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -584,6 +603,47 @@ test("wave 02g remaining salmonids and burbot keep whitefish off trout, char pai
   const graylingCal = seasonalCalendarDossierFor("thymallus_arcticus");
   assert.ok(graylingCal);
   assert.doesNotMatch(JSON.stringify(graylingCal), /trolling|vertical jig|bottom-contact drift/i);
+});
+
+test("wave 03 conservation IDs keep bull trout off Dolly and brook, and wild Atlantic off landlocked, steelhead, and brown", () => {
+  const bull = identificationDossierFor("salvelinus_confluentus");
+  const atlantic = identificationDossierFor("salmo_salar_anadromous");
+  assert.ok(bull && atlantic);
+
+  assert.match(bull.identificationTraits.join(" "), /dorsal/i);
+  assert.match(bull.identificationTraits.join(" "), /spot/i);
+  assert.match(bull.identificationTraits.join(" "), /fork/i);
+  assert.match(bull.identificationTraits.join(" "), /white/i);
+  assert.match(bull.identificationTraits.join(" "), /threatened|ESA/i);
+  assert.ok(bull.similarSpecies.some((item) => item.speciesId === "salvelinus_malma"));
+  assert.ok(bull.similarSpecies.some((item) => item.speciesId === "salvelinus_fontinalis"));
+  assert.ok(bull.similarSpecies.some((item) => item.speciesId === "salvelinus_namaycush"));
+
+  assert.match(atlantic.identificationTraits.join(" "), /illegal|prohibited/i);
+  assert.match(atlantic.identificationTraits.join(" "), /Gulf of Maine|endangered/i);
+  assert.match(atlantic.identificationTraits.join(" "), /X-mark|x-shaped|fork/i);
+  assert.ok(atlantic.similarSpecies.some((item) => item.speciesId === "salmo_salar_landlocked"));
+  assert.ok(atlantic.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss_steelhead"));
+  assert.ok(atlantic.similarSpecies.some((item) => item.speciesId === "salmo_trutta"));
+
+  assert.equal(behaviorDossierFor("salvelinus_confluentus"), null);
+  assert.equal(dietDossierFor("salvelinus_confluentus"), null);
+  assert.equal(seasonalCalendarDossierFor("salvelinus_confluentus"), null);
+  assert.equal(behaviorDossierFor("salmo_salar_anadromous"), null);
+  assert.equal(dietDossierFor("salmo_salar_anadromous"), null);
+  assert.equal(seasonalCalendarDossierFor("salmo_salar_anadromous"), null);
+
+  assert.equal(SPECIES_BY_ID.salvelinus_confluentus.flowingPresentations.length, 0);
+  assert.equal(SPECIES_BY_ID.salvelinus_confluentus.stillPresentations.length, 0);
+  assert.equal(SPECIES_BY_ID.salmo_salar_anadromous.flowingPresentations.length, 0);
+  assert.equal(SPECIES_BY_ID.salmo_salar_anadromous.stillPresentations.length, 0);
+
+  assert.doesNotMatch(JSON.stringify(bull), LOCATION);
+  assert.doesNotMatch(JSON.stringify(atlantic), LOCATION);
+  assert.doesNotMatch(JSON.stringify(bull), /Dennys|Machias|Penobscot|Sheepscot|Ducktrap|Narraguagus/i);
+  assert.doesNotMatch(JSON.stringify(atlantic), /Dennys|Machias|Penobscot|Sheepscot|Ducktrap|Narraguagus/i);
+  assert.doesNotMatch(JSON.stringify(bull), /presentationImplication|trolling|vertical jig|horizontal retrieve/i);
+  assert.doesNotMatch(JSON.stringify(atlantic), /presentationImplication|trolling|vertical jig|horizontal retrieve/i);
 });
 
 

@@ -3806,7 +3806,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ...R,
     gaps: [
       "southern versus northern form as a structured RPC split",
-      "bull trout meristic field split as a dedicated conservation overlay (wave 03)",
+      "interior West bull trout meristics beyond the unmarked-dorsal / pale-spot split",
     ],
   },
   {
@@ -3865,6 +3865,142 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ...R,
     gaps: [
       "resident versus long-distance migrant size tables as a structured RPC split",
+    ],
+  },
+  {
+    speciesId: "salvelinus_confluentus",
+    status: "reviewed",
+    regionalNames: ["bull char", "bull trout"],
+    bodyShape:
+      "A large-headed char with an adipose fin, a slightly forked tail, and white leading edges on the fins. Not the square-tailed brook trout body and not the deeply forked lake trout body.",
+    identificationTraits: [
+      "USFWS: adult bull trout are olive or drab in overall color with pale orange, round spots along their sides.",
+      "Montana FWP identification guide: no black spots or lines on the dorsal fin; pink, yellow, or orange spots on the sides; slightly forked tail; white leading edges on the fins.",
+      "Oregon DFW dorsal-fin key (fish ≥125 mm): bull trout dorsal fin lacks light or dark markings, though some fish may have a few light marks along the base. Brook trout dorsal fins have solid black markings with distinct edges. That guide uses dorsal color only for the bull / brook / hybrid split.",
+      "Montana FWP: juveniles generally less than 20 in; adults commonly larger. USFWS: common length about 25 in.",
+      "ESA threatened in the coterminous United States (final listing 1999). This record is identification only. Presentation families stay empty. Dolly Varden is a different species and must not resolve here.",
+    ],
+    coloration:
+      "USFWS olive or drab with pale orange round spots along the sides. Montana FWP: pink, yellow, or orange spots on a dark olive-green body, white leading fin edges, and an unmarked dorsal fin.",
+    regionalColorVariation:
+      "Native from Alaska to northern California in northwestern North America. Lower-48 fish are the ESA-threatened listing. Canadian and Alaskan status is not this listing and must not be inferred from a photograph.",
+    spawningColoration:
+      "USFWS: adults mature at four to seven years and spawn between August and November, annually or every other year. Color change is biology. Redds and tributary names are conservation context, not targeting outputs.",
+    juvenileAppearance:
+      "Montana FWP: juveniles show the same unmarked dorsal and pale-spot char characters, generally under 20 in. Oregon DFW applies the dorsal-fin split only at ≥125 mm. Small char without brook vermiculations are not automatically this record.",
+    adultAppearance:
+      "An olive/drab char with pale orange round spots, an unmarked dorsal fin, a slightly forked tail, and white leading fin edges. Not Dolly Varden, not brook trout, and not lake trout.",
+    sexualDimorphism:
+      "Size overlap is large. Dorsal-fin markings, spot color, and tail fork — not sex — are the field key.",
+    similarSpecies: [
+      {
+        speciesId: "salvelinus_malma",
+        name: "Dolly Varden",
+        distinction:
+          "ADF&G: Dolly Varden generally have a greenish body with many small spots smaller than the pupil, a thick caudal peduncle, and a slightly forked tail, and in Alaska they use streams and may go to sea. Bull trout are the interior-West / Pacific Northwest char with pale orange round spots and an unmarked dorsal. They remain a fail-closed conservation record. Do not treat one as the other.",
+      },
+      {
+        speciesId: "salvelinus_fontinalis",
+        name: "Brook trout",
+        distinction:
+          "Brook trout have vermiculations, blue-haloed red spots, a square tail, and white-then-black lower-fin edges. Oregon DFW: brook dorsal fins carry solid black markings with distinct edges; bull trout dorsal fins do not. White leading edges overlap; the vermiculation maze and spotted dorsal do not.",
+      },
+      {
+        speciesId: "salvelinus_namaycush",
+        name: "Lake trout",
+        distinction:
+          "Lake trout have many small light spots on a dark body and a deeply forked tail. Bull trout have larger pale orange/pink/yellow spots and a slightly forked or more squared tail. Montana FWP treats the fork as the field split from lake trout.",
+      },
+      {
+        speciesId: "oncorhynchus_clarkii",
+        name: "Cutthroat trout",
+        distinction:
+          "Cutthroat are Oncorhynchus with a red-orange jaw slash and black spots on a lighter body. Bull trout are char: light spots on a darker body, no slash, and white leading fin edges.",
+      },
+    ],
+    averageAdultLength: "USFWS: common length about 25 in. Life-history form (resident vs migratory) changes size; do not force one number.",
+    commonAnglingSize:
+      "Not a fishing size. This record has no presentation families. USFWS common adults about 25 in; Montana FWP juveniles generally under 20 in.",
+    typicalWeight: "Not a fishing weight. Adult mass varies with resident, fluvial, and adfluvial form and is not a single catalog number.",
+    maximumDocumentedSize: "USFWS: maximum 40.5 in and 31 lb 15 oz. Those maxima are not typical and are not a fishing number.",
+    longevity:
+      "USFWS: mature between four and seven years; spawn annually or every other year. Age is form-specific.",
+    sources: [
+      { label: "U.S. Fish and Wildlife Service bull trout species profile (olive/drab with pale orange round spots, 25 in common, 40.5 in / 31 lb 15 oz max, ESA threatened lower 48)", class: "agency", url: "https://www.fws.gov/species/bull-trout-salvelinus-confluentus" },
+      { label: "Montana Fish, Wildlife & Parks bull trout identification guide (unmarked dorsal, pale side spots, slightly forked tail, white leading fin edges)", class: "agency", url: "https://myfwp.mt.gov/getRepositoryFile?objectID=79595" },
+      { label: "Oregon Department of Fish and Wildlife bull trout identification guide (dorsal fin lacks markings vs brook solid-black markings; ≥125 mm)", class: "agency", url: "https://myodfw.com/articles/bull-trout-identification-guide" },
+      { label: "USFWS bull trout 5-year status review", class: "agency", url: "https://www.fws.gov/node/5180216" },
+    ],
+    ...R,
+    gaps: [
+      "interior West versus northern Dolly Varden meristics beyond the unmarked-dorsal / pale-spot split",
+      "resident / fluvial / adfluvial / anadromous form as a structured ID field",
+      "behavior, diet, and seasonal calendar remain intentionally unreviewed — this is not a how-to-target layer",
+    ],
+  },
+  {
+    speciesId: "salmo_salar_anadromous",
+    status: "reviewed",
+    regionalNames: ["sea-run salmon", "sea run salmon", "wild atlantic", "black salmon", "kelt"],
+    bodyShape:
+      "A fusiform Salmo with a slightly forked caudal fin and a relatively thin caudal peduncle. Morphologically the same species complex as landlocked Atlantic salmon; life history and listing status, not body shape, split the two records.",
+    identificationTraits: [
+      "NOAA: the Gulf of Maine distinct population segment is endangered under the Endangered Species Act. The only remaining wild populations of U.S. Atlantic salmon are found in rivers in central and eastern Maine. Commercial and recreational fishing for Atlantic salmon in the United States is prohibited. NOAA: it is illegal to fish for, catch, or keep fish from the Gulf of Maine Atlantic salmon DPS.",
+      "Maine IFW: it is illegal to fish for or possess wild sea-run Atlantic salmon. This record is not the managed landlocked lake fishery.",
+      "Maine IFW morphological keys are the same Salmo characters used for landlocked Atlantic: slightly forked tail, small X-shaped markings, single-row vomerine teeth, a maxillary that typically does not extend much past the eye, and a dark adipose. Life history and ESA status, not spots, split this record from landlocked Atlantic.",
+      "NOAA: after two years at sea, adults average 28–30 in and 8–12 lb and may reach 30 lb. Maine IFW notes that average sea-run adults exceed 25 in; a 25 in river/stream cap on landlocked salmon exists to protect returning sea-run fish from accidental harvest. That is conservation context, not a method.",
+      "NOAA: unlike Pacific salmon, Atlantic salmon are iteroparous and can return to spawn more than once. After spawning, adults darken and are often called black salmon or kelts. Repeat spawners are rare.",
+    ],
+    coloration:
+      "NOAA: young in freshwater are brown to bronze with dark vertical bars and red and black spots. Smolts become silvery with nearly black backs. Returning adults are bright silver, then bronze toward spawning, then darker as black salmon after spawning.",
+    regionalColorVariation:
+      "This record is the U.S. Gulf of Maine DPS. Canadian and European sea-run fisheries are outside it. Do not infer a legal U.S. fishery from a photograph of a silvery Salmo.",
+    spawningColoration:
+      "NOAA: adults return to freshwater between May and October and spawn in October–November. They darken to bronze before spawning and to black salmon afterward. Color change is biology. Redds are conservation context, not targeting outputs.",
+    juvenileAppearance:
+      "NOAA: freshwater young are brown to bronze with dark vertical bars and red and black spots. Parr are about 2 in. Smolts turn silvery before the spring seaward migration. Juvenile appearance does not decide landlocked versus sea-run status.",
+    adultAppearance:
+      "A slightly forked, silvery Salmo with small X-marks. Not a landlocked lake fish, not a steelhead, and not a brown trout. U.S. recreational fishing is prohibited.",
+    sexualDimorphism:
+      "NOAA: typically a four-year-old returning fish has spent two years in freshwater and two at sea (2SW). Grilse return after one winter at sea and are smaller. Size overlap is large; listing status, not sex, is the record split.",
+    similarSpecies: [
+      {
+        speciesId: "salmo_salar_landlocked",
+        name: "Landlocked Atlantic salmon",
+        distinction:
+          "Same species complex, different life history and status. Landlocked Atlantic are a managed freshwater fishery. Wild Gulf of Maine sea-run Atlantic salmon are federally endangered and remain a fail-closed catalog record. Do not treat a managed landlocked lake fish as this fish.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss_steelhead",
+        name: "Steelhead",
+        distinction:
+          "Steelhead are anadromous rainbow trout (Oncorhynchus) with a spotted tail and, often, a pink band after freshwater residence. Wild Atlantic salmon are Salmo with X-marks and a slight fork, conservation-sensitive in this catalog, and a separate fail-closed record.",
+      },
+      {
+        speciesId: "salmo_trutta",
+        name: "Brown trout",
+        distinction:
+          "Maine IFW: brown trout have a square unforked tail, a zig-zag vomerine row, a maxillary that often extends past the eye, more and redder spots, and a larger often orange-tinted spotted adipose. Wild Atlantic salmon are the slightly forked, small-X, dark-adipose Salmo — and in the United States they are not a recreational fishery.",
+      },
+    ],
+    averageAdultLength: "NOAA: 28–30 in after two winters at sea. Grilse (one sea-winter) are smaller.",
+    commonAnglingSize:
+      "Not a fishing size. U.S. recreational fishing is prohibited. NOAA: 28–30 in after two winters at sea.",
+    typicalWeight: "NOAA: 8–12 lb after two winters at sea; may reach 30 lb. Not a fishing weight.",
+    maximumDocumentedSize:
+      "NOAA: may reach 30 lb. Those maxima are not typical and are not a landlocked-Atlantic number.",
+    longevity:
+      "NOAA: a typical U.S. returning fish is about four years old (two freshwater, two at sea). Iteroparous; currently fewer than 5% of spawners return to spawn again.",
+    sources: [
+      { label: "NOAA Fisheries Atlantic salmon protected species profile (Gulf of Maine DPS endangered, fishing prohibited, 28–30 in / 8–12 lb, iteroparity, black salmon)", class: "agency", url: "https://www.fisheries.noaa.gov/species/atlantic-salmon-protected" },
+      { label: "NOAA Fisheries Atlantic salmon protected spotlight (illegal to fish for, catch, or keep Gulf of Maine DPS fish)", class: "agency", url: "https://www.fisheries.noaa.gov/species/atlantic-salmon-protected/spotlight" },
+      { label: "Maine Department of Inland Fisheries and Wildlife landlocked salmon profile (illegal to fish for or possess wild sea-run Atlantic salmon; 25 in sea-run contrast)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
+    ],
+    ...R,
+    gaps: [
+      "Canadian and European sea-run fisheries as a structured overlay, which are outside this U.S. protected record",
+      "grilse versus two-sea-winter size as a structured field",
+      "behavior, diet, and seasonal calendar remain intentionally unreviewed — this is not a how-to-target layer",
     ],
   },
 
