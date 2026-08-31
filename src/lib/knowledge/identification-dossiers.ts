@@ -1681,4 +1681,423 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Pacific DPS vs Great Lakes run as a color key — they are not",
     ],
   },
+  {
+    speciesId: "sander_vitreus",
+    status: "reviewed",
+    regionalNames: ["walleyed pike", "marble-eye"],
+    bodyShape:
+      "Torpedo-shaped percid with two separate dorsal fins, a large mouth, and a distinctly forked tail. The eye is large and pearlescent.",
+    identificationTraits: [
+      "Minnesota DNR: the lower tip of the caudal fin — the tail — is white. Sauger’s lower lobe is dark, or the white mark is reduced.",
+      "Minnesota DNR: the spinous dorsal is dusky and lacks rows of dark spots, except for a dark splotch at the rear base of that fin — a mark sauger does not have.",
+      "Pearlescent eye from the tapetum lucidum, a reflective layer that aids night and turbid-water vision (Minnesota DNR).",
+      "Olive-brown to yellowish gold with brassy flecks. Sides lack the distinct dark saddle blotches of sauger.",
+      "Canine teeth in the jaws. Yellow perch of similar size have no canines and carry regular vertical bars.",
+    ],
+    coloration:
+      "Dark olive-brown to yellowish gold, brassy flecks on the sides, white belly. The eye looks milky or glowing in a beam of light.",
+    regionalColorVariation:
+      "Clear lakes often produce more gold. Turbid rivers can look darker and closer to sauger until the tail tip and dorsal characters are checked. Color is not the species key.",
+    spawningColoration:
+      "Early-spring spawners do not take on a trout-style breeding dress. Presence on rock or current-washed gravel is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Young fish already show the large eye and canines. They can be confused with yellow perch until the bars (perch) versus canines and unmarked dorsal (walleye) are checked.",
+    adultAppearance:
+      "A golden-olive percid with a glowing eye, a white lower tail tip, and a dusky first dorsal with a rear blotch rather than rows of spots.",
+    sexualDimorphism:
+      "Females commonly grow larger. Sex is not a field ID key; the tail and dorsal characters are.",
+    similarSpecies: [
+      {
+        speciesId: "sander_canadensis",
+        name: "Sauger",
+        distinction:
+          "Sauger have rows of dark spots on the first dorsal, distinct saddle blotches on the sides, and no (or a reduced) white lower tail tip. Walleye have the white tail tip, a rear-base dorsal blotch rather than spotted rows, and lack those saddles. Missouri DNR: sauger cheeks are scaled; hybrids exist.",
+      },
+      {
+        name: "Saugeye (walleye × sauger hybrid)",
+        distinction:
+          "Saugeye mix both parents — often a spotted dorsal plus a white tail mark. Missouri DNR: identification can be difficult. Do not force the hybrid into either parent record.",
+      },
+      {
+        speciesId: "perca_flavescens",
+        name: "Yellow perch",
+        distinction:
+          "Yellow perch have about seven blackish vertical bars, no canine teeth, and a smaller eye. Walleye are larger-mouthed percids with canines and no regular bar pattern.",
+      },
+      {
+        speciesId: "morone_chrysops",
+        name: "White bass",
+        distinction:
+          "White bass are temperate bass with horizontal stripes, a deeper body, and no tapetum eye. They are not percids.",
+      },
+    ],
+    averageAdultLength: "Commonly 15–22 in in inland waters; many fisheries produce larger fish.",
+    commonAnglingSize: "16–22 in in most inland and Great Lakes fisheries.",
+    typicalWeight: "Minnesota DNR: averages 1 to 2 lb in most waters; fish over 10 lb occur.",
+    maximumDocumentedSize:
+      "Large lake and river fish far exceed the 1–2 lb average. Maxima are waterbody-specific and are not a single catalog number.",
+    longevity: "Related Missouri DNR life-cycle notes put typical walleye longevity around 7–10 years; older fish occur.",
+    sources: [
+      {
+        label: "Minnesota DNR walleye biology (white lower tail tip, dorsal blotch vs sauger spots, tapetum, 1–2 lb average)",
+        class: "agency",
+        url: "https://www.dnr.state.mn.us/fish/walleye/biology.html",
+      },
+      { label: "Great Lakes / state walleye assessments", class: "agency" },
+      { label: "Colby et al. walleye biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "saugeye meristics as a structured hybrid key",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "sander_canadensis",
+    status: "reviewed",
+    regionalNames: ["sand pike", "jack salmon", "spotted jack"],
+    bodyShape:
+      "More slender than walleye of the same length. Two separate dorsal fins, large mouth with the upper jaw reaching about the hind edge of the eye, distinctly forked tail (Missouri DNR).",
+    identificationTraits: [
+      "Missouri DNR: distinct dark blotches or saddle marks on the sides — the primary body split from walleye.",
+      "Minnesota DNR / Missouri DNR: first dorsal marked by rows of dark spots and lacking the dark blotch at the rear base that walleye show.",
+      "Lower caudal lobe lacks a white blotch, or the blotch is reduced (Minnesota DNR; Missouri DNR).",
+      "Missouri DNR: scales present on the cheek; hind edge of the preopercle strongly saw-toothed.",
+      "Generally smaller than sympatric walleye. Size supports the ID; it is not the key by itself.",
+    ],
+    coloration:
+      "Darker, more brassy-brown than a typical walleye, with obvious saddle blotches and a spotted first dorsal. Belly paler.",
+    regionalColorVariation:
+      "Turbid-river fish can look uniformly dark until the saddles and dorsal spots are lit. Clear-water fish show the saddles more cleanly. Color is not a lake-versus-river key.",
+    spawningColoration:
+      "Early-spring spawners do not take on a bright breeding dress. Presence on rubble in current is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Saddles and dorsal spotting appear early. Young sauger can still be confused with young walleye and with yellow perch until canines, saddles, and the dorsal recipe are checked.",
+    adultAppearance:
+      "A slender river percid with saddle blotches, a spotted first dorsal, and a dark lower tail tip.",
+    sexualDimorphism:
+      "Females commonly grow larger. Sex is not the field key.",
+    similarSpecies: [
+      {
+        speciesId: "sander_vitreus",
+        name: "Walleye",
+        distinction:
+          "Walleye have a white lower tail tip, a dusky first dorsal with a rear-base blotch rather than spotted rows, and no distinct saddles. Sauger are the spotted-dorsal, saddled, usually smaller river fish.",
+      },
+      {
+        name: "Saugeye (walleye × sauger hybrid)",
+        distinction:
+          "Missouri DNR: sauger occasionally interbreed with walleye; the hybrid shares both parents and should not silently inherit this record.",
+      },
+      {
+        speciesId: "perca_flavescens",
+        name: "Yellow perch",
+        distinction:
+          "Yellow perch have regular vertical bars and no canine teeth. Sauger have canines, saddles rather than even bars, and a spotted first dorsal.",
+      },
+    ],
+    averageAdultLength: "Missouri DNR: total length commonly 12–15 in.",
+    commonAnglingSize: "12–18 in in large-river fisheries.",
+    typicalWeight: "Minnesota DNR: seldom exceeds 3 lb. Missouri DNR: weight commonly about 2½ lb, with a maximum around 4 lb.",
+    maximumDocumentedSize:
+      "River maxima exceed the 12–15 in typical band. Continent-wide records are fishery-specific.",
+    longevity: "Shorter-lived than the largest walleye in many systems; a single continent-wide age table is not reviewed here.",
+    sources: [
+      {
+        label: "Missouri Department of Conservation sauger field guide (saddles, spotted dorsal, cheek scales, size, river habitat)",
+        class: "agency",
+        url: "https://mdc.mo.gov/discover-nature/field-guide/sauger",
+      },
+      {
+        label: "Minnesota DNR walleye/sauger biology (dorsal spots, no white tail tip, seldom exceeds 3 lb, turbid-water vision)",
+        class: "agency",
+        url: "https://www.dnr.state.mn.us/fish/walleye/biology.html",
+      },
+      { label: "USGS sauger habitat and movement research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "saugeye meristics as a structured hybrid key",
+      "basin-specific mean length tables",
+    ],
+  },
+  {
+    speciesId: "esox_lucius",
+    status: "reviewed",
+    regionalNames: ["northern", "pike", "jack"],
+    bodyShape:
+      "Elongate esocid with a duckbill snout, a single soft dorsal fin set far back, and a long cylindrical body.",
+    identificationTraits: [
+      "Michigan DNR: light-colored spots on a darker body — light on dark, the reverse of muskellunge.",
+      "Michigan DNR: entire cheek scaled; only the upper half of the gill cover (opercle) scaled.",
+      "Michigan DNR: five to six submandibular pores on the underside of each lower jaw. Iowa DNR: five or fewer per side is pike; six or more is muskellunge.",
+      "Iowa DNR: bluish-green ground with light, bean-shaped spots in horizontal rows. Juveniles show oblique light-and-dark bars, not an adult chain pattern.",
+      "Tail lobes are more rounded than the pointed, more forked muskellunge tail (Iowa DNR).",
+    ],
+    coloration:
+      "Dark green to bluish-green back and sides with rows of light bean-shaped spots; pale belly. Lower fins often reddish or orange-tinted.",
+    regionalColorVariation:
+      "Stained water can mute the spots. Juveniles are barred and must not be forced into a chain-pickerel ID. Color pattern plus pores and cheek scaling is the key, not geography.",
+    spawningColoration:
+      "Ice-out fish do not take on a trout-style dress. Vegetated shallows at ice-out are biology, not a targeting cue.",
+    juvenileAppearance:
+      "Iowa DNR: juveniles have oblique bars of light and dark. Those bars are not the chain-pickerel chain, and they are not muskellunge dark-on-light marks.",
+    adultAppearance:
+      "A duck-billed esocid with light spots on a dark ground, a fully scaled cheek, and five or fewer pores per side.",
+    sexualDimorphism:
+      "Females grow larger and mature later (Michigan DNR: females at about three or four years, males at two to three). Size overlap is large; sex is not the field key.",
+    similarSpecies: [
+      {
+        speciesId: "esox_masquinongy",
+        name: "Muskellunge",
+        distinction:
+          "Muskellunge have dark marks on a lighter ground, scales on only the upper half of the cheek and gill cover, and six or more pores per side (Michigan DNR). Pike are light-on-dark with a fully scaled cheek and five or fewer pores.",
+      },
+      {
+        speciesId: "esox_niger",
+        name: "Chain pickerel",
+        distinction:
+          "Chain pickerel have a chain-like dark pattern, a dark bar streaming down from the eye, and a fully scaled cheek and opercle. They are a smaller eastern vegetated-water esocid, not a light-spotted northern.",
+      },
+      {
+        name: "Tiger muskellunge (northern pike × muskellunge hybrid)",
+        distinction:
+          "Tiger muskies mix both parents — often dark bars on a light ground with intermediate scaling and pores. Treat as a hybrid; do not force either parent record.",
+      },
+      {
+        name: "Grass pickerel (Esox americanus vermiculatus)",
+        distinction:
+          "Michigan DNR lists grass pickerel as a pike-family cousin. It is a small, fully scaled, worm-marked esocid and is not this catalog record.",
+      },
+    ],
+    averageAdultLength: "Inland adults commonly 18–28 in; larger fish occur in fertile northern waters.",
+    commonAnglingSize: "20–30 in in many inland and Great Lakes fisheries.",
+    typicalWeight: "Often 2–8 lb; large fish are much heavier. Michigan DNR notes continued weight gain after maturity, more slowly.",
+    maximumDocumentedSize:
+      "Large northern waters produce fish far above typical inland size. Maxima are waterbody-specific.",
+    longevity: "Michigan DNR: average life span six to eight years; some live as long as 15.",
+    sources: [
+      {
+        label: "Michigan DNR northern pike species account (light spots on dark, full cheek scales, 5–6 pores)",
+        class: "agency",
+        url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/pike",
+      },
+      {
+        label: "Iowa DNR pike vs muskellunge identification (pores, cheek scales, tail shape, color reverse)",
+        class: "agency",
+        url: "https://www.iowadnr.gov/news-release/2016-05-25/know-your-catch-how-id-northern-pike-and-muskies",
+      },
+      { label: "Casselman pike thermal ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "a single continent-wide mean length",
+      "grass pickerel meristics as a structured lookalike key",
+    ],
+  },
+  {
+    speciesId: "esox_masquinongy",
+    status: "reviewed",
+    regionalNames: ["muskie", "musky", "muskellunge"],
+    bodyShape:
+      "The largest North American esocid: long cylindrical body, duckbill jaws with large teeth, single soft dorsal set far back. Tail more pointed/forked than northern pike (Iowa DNR).",
+    identificationTraits: [
+      "Michigan DNR: dark spots on a lighter background on the body and dorsal fin — dark on light, the reverse of pike.",
+      "Michigan DNR: scales on only the upper half of the cheek and the upper half of the gill cover.",
+      "Michigan DNR: six to 10 submandibular pores per side. Iowa DNR: six or more on either side is muskellunge.",
+      "Michigan DNR treats clear, barred, and spotted color patterns as the same species (northern vs Great Lakes strain is management, not a catalog split).",
+      "Iowa DNR: a true muskellunge tail splits to two points. Color alone is not enough when barred, spotted, and clear fish all occur.",
+    ],
+    coloration:
+      "Olive, silver, or gray ground with dark bars, spots, or an almost clear pattern. Michigan DNR: Great Lakes fish more often spotted; some inland fish more barred or clear.",
+    regionalColorVariation:
+      "Barred, spotted, and clear fish are the same species record. Do not split them into separate catalog identities from a photograph.",
+    spawningColoration:
+      "Early-spring fish after ice-out, and after pike. Vegetated shallows are biology, not a targeting cue.",
+    juvenileAppearance:
+      "Iowa DNR: juveniles may show dark spots on a silvery ground. They are not light-spotted pike, and they are not chain pickerel.",
+    adultAppearance:
+      "A large duck-billed esocid with dark marks on a light ground, half-scaled cheek and opercle, and six or more pores per side.",
+    sexualDimorphism:
+      "Females grow larger. Size overlap is large; pores and scaling remain the key.",
+    similarSpecies: [
+      {
+        speciesId: "esox_lucius",
+        name: "Northern pike",
+        distinction:
+          "Pike are light-on-dark with a fully scaled cheek and five or fewer pores per side. Muskellunge are dark-on-light with a half-scaled cheek and six or more pores.",
+      },
+      {
+        speciesId: "esox_niger",
+        name: "Chain pickerel",
+        distinction:
+          "Chain pickerel have a chain pattern, a dark bar down from the eye, and a fully scaled cheek and opercle. They are much smaller eastern fish. North Carolina Wildlife: muskellunge lack that suborbital bar.",
+      },
+      {
+        name: "Tiger muskellunge (northern pike × muskellunge hybrid)",
+        distinction:
+          "Tiger muskies show intermediate bars, scaling, and pores. Treat as a hybrid. Do not force either parent.",
+      },
+    ],
+    averageAdultLength:
+      "Michigan muskellunge management literature: about 32 in at age 4 and exceeding 40 in at age 8 in Michigan waters.",
+    commonAnglingSize: "34–42 in in many managed fisheries.",
+    typicalWeight: "Often well above typical pike weight at the same water; large fish are common in managed waters.",
+    maximumDocumentedSize:
+      "Managed waters produce fish far above inland pike size. Maxima are waterbody-specific. Live size limits are jurisdiction rules, not this overlay.",
+    longevity: "Longer-lived than typical pike in many waters; age is stock-specific.",
+    sources: [
+      {
+        label: "Michigan DNR muskellunge species account (dark on light, half-scaled cheek and opercle, 6–10 pores, spawn after pike)",
+        class: "agency",
+        url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/muskie",
+      },
+      {
+        label: "Iowa DNR pike vs muskellunge identification",
+        class: "agency",
+        url: "https://www.iowadnr.gov/news-release/2016-05-25/know-your-catch-how-id-northern-pike-and-muskies",
+      },
+      { label: "Crossman muskellunge biology", class: "peer_reviewed" },
+      { label: "Michigan DNR muskellunge management plan (color patterns as one species; growth to 40 in)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "barred vs spotted vs clear as a structured ID field — they are the same species",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "esox_niger",
+    status: "reviewed",
+    regionalNames: ["pickerel", "chain pickerel"],
+    bodyShape:
+      "Narrowly elongated esocid with a long, narrow duckbill snout — smaller than pike or muskellunge at typical angling size (South Carolina DNR).",
+    identificationTraits: [
+      "South Carolina DNR: olive-green body with rows of a chain-like pattern along the side.",
+      "South Carolina DNR: a black bar streams straight down from the eye. North Carolina Wildlife: muskellunge do not have that suborbital bar.",
+      "Cheek and opercle both mostly scaled — the pickerel facial-scale recipe, unlike muskellunge (half-scaled) and unlike pike (cheek full, opercle half).",
+      "Typically four submandibular pores per side, fewer than pike or muskellunge.",
+      "South Carolina DNR: snout longer than redfin pickerel; the eye-bar streams straight down.",
+    ],
+    coloration:
+      "Olive to yellowish-green with a dark chain or reticulated network on the sides; cream belly; dark teardrop under the eye.",
+    regionalColorVariation:
+      "Stained swamp water can darken the chain. Juveniles may show a different teardrop slant than adults; the chain and fully scaled face remain the key.",
+    spawningColoration:
+      "Early-spring fish in flooded vegetation. That habitat is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Young fish already show a chain or reticulated pattern and the eye bar. They are not light-spotted pike juveniles.",
+    adultAppearance:
+      "A small-to-moderate duck-billed esocid with a chain pattern, a vertical eye-bar, and a fully scaled cheek and opercle.",
+    sexualDimorphism:
+      "Females may grow larger. Size overlap is large; the chain and eye-bar are the key.",
+    similarSpecies: [
+      {
+        speciesId: "esox_lucius",
+        name: "Northern pike",
+        distinction:
+          "Pike have light spots on a dark ground and only the upper half of the opercle scaled. Chain pickerel have a chain pattern, a vertical eye-bar, and a fully scaled opercle.",
+      },
+      {
+        speciesId: "esox_masquinongy",
+        name: "Muskellunge",
+        distinction:
+          "Muskellunge are much larger, dark-on-light, half-scaled on cheek and opercle, and lack the pickerel eye-bar (North Carolina Wildlife).",
+      },
+      {
+        name: "Redfin / grass pickerel (Esox americanus)",
+        distinction:
+          "South Carolina DNR: redfin pickerel have a shorter snout; the chain pickerel’s eye-bar streams straight down. Do not collapse the two pickerels. Grass/redfin are not this catalog record.",
+      },
+    ],
+    averageAdultLength: "South Carolina DNR: average length 14–15 in.",
+    commonAnglingSize: "12–18 in in vegetated eastern waters.",
+    typicalWeight: "South Carolina DNR: average size 12–14 oz.",
+    maximumDocumentedSize:
+      "Large chain pickerel exceed the 14–15 in average. They remain far smaller than typical muskellunge. Maxima are waterbody-specific.",
+    sources: [
+      {
+        label: "South Carolina DNR chain pickerel account (chain pattern, vertical eye-bar, 14–15 in / 12–14 oz)",
+        class: "agency",
+        url: "https://www.dnr.sc.gov/fish/species/chainpickerel.html",
+      },
+      {
+        label: "North Carolina Wildlife chain pickerel species account (eye-bar vs muskellunge)",
+        class: "agency",
+        url: "https://www.ncwildlife.gov/species/chain-pickerel",
+      },
+      { label: "USGS Nonindigenous Aquatic Species chain pickerel profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "redfin vs grass pickerel meristics as a structured lookalike key",
+      "longevity as a structured field",
+    ],
+  },
+  {
+    speciesId: "perca_flavescens",
+    status: "reviewed",
+    regionalNames: ["perch", "ring perch", "yellow perch"],
+    bodyShape:
+      "Laterally compressed perciform, deeper than a slim walleye of the same length, with two clearly separated dorsal fins.",
+    identificationTraits: [
+      "Michigan DNR: two dorsal fins separated into a spiny and a soft-rayed portion; yellow sides; seven blackish bars on the sides; no canine teeth.",
+      "The even vertical bars are the field look. Walleye and sauger of similar size have canines and do not carry this regular bar pattern.",
+      "Lower fins often orange to red-orange. The eye is not the pearlescent tapetum eye of walleye.",
+      "Mouth is smaller and more terminal than Sander; the upper jaw does not give the walleye canine profile.",
+      "A schooling fish. A single fish is still this species; a group is not a location pin.",
+    ],
+    coloration:
+      "Olive to golden-yellow sides with about seven dark vertical bars, white belly, orange-red lower fins.",
+    regionalColorVariation:
+      "Clear lakes can look more gold. Stained water can mute the bars. Great Lakes and inland fish share the same bar recipe; geography is not the key.",
+    spawningColoration:
+      "Spring fish laying gelatinous egg strings over vegetation, roots, and wood. That habitat is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Bars appear early. Young perch can be confused with young walleye until the canines (walleye) versus bars-and-no-canines (perch) are checked.",
+    adultAppearance:
+      "A yellow-sided, seven-barred perch with two dorsal fins and no canine teeth.",
+    sexualDimorphism:
+      "Michigan DNR: males mature at about three years, females at four. Females commonly grow larger. Sex is not the field key.",
+    similarSpecies: [
+      {
+        speciesId: "sander_vitreus",
+        name: "Walleye",
+        distinction:
+          "Walleye have canine teeth, a pearlescent tapetum eye, and no regular seven-bar pattern. Yellow perch have the bars and no canines.",
+      },
+      {
+        speciesId: "sander_canadensis",
+        name: "Sauger",
+        distinction:
+          "Sauger have canines, saddle blotches, and a spotted first dorsal. They are not a barred yellow perch.",
+      },
+      {
+        speciesId: "morone_americana",
+        name: "White perch",
+        distinction:
+          "White perch are Morone: deeper-bodied temperate bass without the yellow-perch bar recipe. Do not collapse the two “perch” names.",
+      },
+    ],
+    averageAdultLength: "Michigan DNR: average adult length four to 10 in. Crowded waters may never exceed six in.",
+    commonAnglingSize: "6–10 in in many inland and Great Lakes fisheries; larger fish occur where density allows.",
+    typicalWeight: "Michigan DNR: four to 10 oz at typical adult size.",
+    maximumDocumentedSize:
+      "Large Great Lakes and productive inland fish exceed the 4–10 in average. Stunting is density- and habitat-dependent (Michigan DNR).",
+    longevity: "Michigan DNR notes maturity at about three to four years; a continent-wide maximum age is not reviewed here.",
+    sources: [
+      {
+        label: "Michigan DNR yellow perch species account (seven bars, no canines, 4–10 in / 4–10 oz, schooling, ice activity)",
+        class: "agency",
+        url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/yellow-perch",
+      },
+      { label: "Great Lakes perch assessments", class: "agency" },
+      { label: "Thorpe yellow perch biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "Great Lakes vs inland mean-size tables",
+      "stunting thresholds by waterbody",
+    ],
+  },
 ];

@@ -45,7 +45,7 @@ test("landed waves have every required overlay; the next wave does not pretend t
 
   const next = nextSeedWave();
   assert.ok(next);
-  assert.equal(next.id, "02b");
+  assert.equal(next.id, "02c");
   for (const id of next.speciesIds) {
     assert.equal(hasCompleteKnowledgeOverlays(id), false, `${id} is queued as next but already complete`);
   }
@@ -64,15 +64,15 @@ test("conservation-sensitive records are recognition-only, not a targeting calen
 test("live coverage is computed from dossiers and does not invent fight or food", () => {
   const coverage = catalogKnowledgeCoverage();
   assert.equal(coverage.speciesTotal, 75);
-  assert.equal(coverage.completeOverlays, 30);
-  assert.equal(coverage.remainingOverlays, 45);
-  assert.equal(coverage.byOverlay.identification, 30);
-  assert.equal(coverage.byOverlay.behavior, 30);
-  assert.equal(coverage.byOverlay.diet, 30);
-  assert.equal(coverage.byOverlay.seasonal_calendar, 30);
+  assert.equal(coverage.completeOverlays, 36);
+  assert.equal(coverage.remainingOverlays, 39);
+  assert.equal(coverage.byOverlay.identification, 36);
+  assert.equal(coverage.byOverlay.behavior, 36);
+  assert.equal(coverage.byOverlay.diet, 36);
+  assert.equal(coverage.byOverlay.seasonal_calendar, 36);
   assert.equal(coverage.fightReviewed, 0);
   assert.equal(coverage.foodReviewed, 0);
-  assert.equal(coverage.nextWave?.id, "02b");
+  assert.equal(coverage.nextWave?.id, "02c");
 });
 
 test("Quick Read starters are species that already have the four knowledge overlays", () => {
@@ -91,8 +91,8 @@ test("seed doctrine keeps later layers deferred and refuses catch-prediction enr
   assert.ok(SEED_DOCTRINE.deferUntilHighUseKnowable.includes("live_regulations"));
   assert.ok(SEED_DOCTRINE.never.some((rule) => /bite score/i.test(rule)));
   assert.equal(KNOWLEDGE_OVERLAYS.length, 4);
-  assert.equal(identificationDossierFor("sander_vitreus"), null);
-  assert.equal(behaviorDossierFor("sander_vitreus"), null);
-  assert.equal(dietDossierFor("sander_vitreus"), null);
-  assert.equal(seasonalCalendarDossierFor("sander_vitreus"), null);
+  assert.equal(identificationDossierFor("pomoxis_spp"), null);
+  assert.equal(behaviorDossierFor("pomoxis_spp"), null);
+  assert.equal(dietDossierFor("pomoxis_spp"), null);
+  assert.equal(seasonalCalendarDossierFor("pomoxis_spp"), null);
 });

@@ -50,6 +50,8 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
     "atractosteus_spatula",
   ],
   bullhead: ["ameiurus_nebulosus", "ameiurus_melas", "ameiurus_natalis"],
+  sander: ["sander_vitreus", "sander_canadensis"],
+  esox: ["esox_lucius", "esox_masquinongy", "esox_niger"],
 };
 
 function normalize(value: string): string {
@@ -147,7 +149,7 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.ok(uncovered.length >= 40, "most of the catalog should still show identification gaps");
+  assert.equal(uncovered.length, 39);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -270,6 +272,70 @@ test("lake trout diet is adult piscivory and brook trout stays insect-weighted",
   assert.ok(brook.primaryForage.includes("aquatic_insects"));
   assert.ok(!brook.primaryForage.includes("larger_prey_fish"));
   assert.ok(brown.primaryForage.includes("larger_prey_fish"));
+});
+
+test("wave 02b walleye and sauger use agency tail, dorsal, and saddle characters", () => {
+  const walleye = identificationDossierFor("sander_vitreus");
+  const sauger = identificationDossierFor("sander_canadensis");
+  assert.ok(walleye && sauger);
+  assert.match(walleye.identificationTraits.join(" "), /white/i);
+  assert.match(walleye.identificationTraits.join(" "), /tail/i);
+  assert.match(sauger.identificationTraits.join(" "), /spot/i);
+  assert.match(sauger.identificationTraits.join(" "), /saddle/i);
+  assert.ok(walleye.similarSpecies.some((item) => item.speciesId === "sander_canadensis"));
+  assert.ok(sauger.similarSpecies.some((item) => item.speciesId === "sander_vitreus"));
+  assert.ok(walleye.similarSpecies.some((item) => /saugeye/i.test(item.name)));
+  assert.ok(sauger.similarSpecies.some((item) => /saugeye/i.test(item.name)));
+
+  const walleyeDiet = dietDossierFor("sander_vitreus");
+  const saugerDiet = dietDossierFor("sander_canadensis");
+  assert.ok(walleyeDiet && saugerDiet);
+  assert.ok(walleyeDiet.primaryForage.includes("larger_prey_fish"));
+  assert.ok(!saugerDiet.primaryForage.includes("larger_prey_fish"));
+  assert.equal(saugerDiet.feedingZone, "benthic");
+  assert.match(walleyeDiet.primaryNote, /perch/i);
+});
+
+test("wave 02b esocids use light-on-dark vs dark-on-light, pores, and the pickerel chain", () => {
+  const pike = identificationDossierFor("esox_lucius");
+  const muskie = identificationDossierFor("esox_masquinongy");
+  const pickerel = identificationDossierFor("esox_niger");
+  assert.ok(pike && muskie && pickerel);
+  assert.match(pike.identificationTraits.join(" "), /light/i);
+  assert.match(pike.identificationTraits.join(" "), /pore/i);
+  assert.match(muskie.identificationTraits.join(" "), /dark/i);
+  assert.match(muskie.identificationTraits.join(" "), /pore/i);
+  assert.match(pickerel.identificationTraits.join(" "), /chain/i);
+  assert.match(pickerel.identificationTraits.join(" "), /eye/i);
+  assert.ok(pike.similarSpecies.some((item) => item.speciesId === "esox_masquinongy"));
+  assert.ok(muskie.similarSpecies.some((item) => item.speciesId === "esox_lucius"));
+  assert.ok(pickerel.similarSpecies.some((item) => item.speciesId === "esox_lucius"));
+
+  const pikeDiet = dietDossierFor("esox_lucius");
+  const pickerelDiet = dietDossierFor("esox_niger");
+  assert.ok(pikeDiet && pickerelDiet);
+  assert.ok(pikeDiet.primaryForage.includes("larger_prey_fish"));
+  assert.ok(pickerelDiet.primaryForage.includes("crustaceans"));
+  assert.ok(!pikeDiet.primaryForage.includes("crustaceans"));
+});
+
+test("yellow perch identification uses bars and no canines, and stays a schooling insect-to-small-fish diet", () => {
+  const perch = identificationDossierFor("perca_flavescens");
+  const walleye = identificationDossierFor("sander_vitreus");
+  assert.ok(perch && walleye);
+  assert.match(perch.identificationTraits.join(" "), /bar/i);
+  assert.match(perch.identificationTraits.join(" "), /canine/i);
+  assert.ok(perch.similarSpecies.some((item) => item.speciesId === "sander_vitreus"));
+  assert.ok(walleye.similarSpecies.some((item) => item.speciesId === "perca_flavescens"));
+
+  const diet = dietDossierFor("perca_flavescens");
+  const behavior = behaviorDossierFor("perca_flavescens");
+  assert.ok(diet && behavior);
+  assert.ok(diet.primaryForage.includes("zooplankton"));
+  assert.ok(diet.primaryForage.includes("aquatic_insects"));
+  assert.ok(!diet.primaryForage.includes("larger_prey_fish"));
+  assert.equal(behavior.social.pattern, "schooling");
+  assert.match(behavior.spawningBehavior, /gelatinous|vegetation/i);
 });
 
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {

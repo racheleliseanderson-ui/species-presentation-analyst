@@ -1196,4 +1196,274 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, "stock-specific winter vs summer run calendars as a structured overlay"],
   },
+  {
+    speciesId: "sander_vitreus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Young fish may group more tightly than adults. Adults often share structure or a depth band without being a white-bass-style school.",
+      note: "A group on a breakline is a forage-and-light problem, not a named pin. Northern natural-lake vs large-river calendars are RPC overlays and must be declared.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "opportunistic"],
+      note: "Minnesota DNR: fish-eaters, preying heavily on yellow perch, which cannot see as well in low light. Insects and crustaceans remain capacity, especially in younger fish. Capacity is not a current forage event.",
+    },
+    territoriality:
+      "Not a hole-bound trout. Position follows the light-food compromise: deeper in bright clear water, shallower in stain, wind, and low light.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Minnesota DNR: usually feed in shallow water at dawn and dusk; daylight sends them into shade of structure or into deeper water. Turbidity, wave chop, or clouds can keep them active through the day. Catalog exception: dusk is metabolically and optically more plausible — it does not imply a bite.",
+    },
+    seasonalActivity:
+      "Early-spring spawning on rock and current-washed gravel is conservation context. Summer is a light and thermal-depth problem. Fall follows forage and cooling water.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 55–68°F. Cold edge near 42°F; warm edge near 76°F. Southern reservoirs depend on a cool hypolimnion and forage. Warm, bright surface water is a down-move, not a shallow default.",
+    currentFacing:
+      "Uses current and current-washed structure; not a slack-water ambush fish. Large-river vs lake-resident positioning is RPC.",
+    depthMovement:
+      "Follows the light-food compromise. Minnesota DNR: may suspend over deep water to feed on open-water species.",
+    clarityResponse:
+      "Clear bright water increases depth and shade use. Stain and chop can extend daylight feeding without proving a surface event.",
+    predatorAvoidance:
+      "Depth, shade, and turbidity. Bright midday in clear water is often a poor feeding window, not a location problem.",
+    coverUse:
+      "Points, drop-offs, breaklines, rocky shoreline, current breaks, tailwater, and thermocline edges. Wood and weeds are shade, not a pike-style ambush default.",
+    openWaterBehavior:
+      "Can suspend over basins when forage is pelagic. That is still not a white-bass school. RPC lake vs river must be declared.",
+    spawningBehavior:
+      "Minnesota DNR: spawn over rock, rubble, or gravel in rivers or windswept shallows as water leaves freezing, peaking near 42–50°F. Neither parent cares for eggs. Spawning substrate and any spring concentration are excluded from target guidance. Do not name reefs or reaches.",
+    sources: [
+      { label: "Minnesota DNR walleye biology", class: "agency" },
+      { label: "Great Lakes / state walleye assessments", class: "agency" },
+      { label: "Colby et al. walleye biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "sander_canadensis",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Adults often share deep runs and pools without being a pelagic school.",
+      note: "More riverine than walleye. A group in current is a habitat class, not a dam-name pin.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "benthic_feeding"],
+      note: "Missouri DNR: a variety of fish, crustaceans, and insects. Stronger lower-column association than walleye. Capacity is not a current forage event.",
+    },
+    territoriality:
+      "Holds deep runs, pools, and current breaks rather than a single defended hole.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Missouri DNR: most active during low light, or during daylight in highly turbid water. Minnesota DNR: sauger see even better than walleye in darkness or turbid water, and that determines distribution.",
+    },
+    seasonalActivity:
+      "Early-spring spawning in current is conservation context. Cool-season river use is the default; summer is still a bottom/current problem, not a weed-edge pike problem.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 55–68°F. Cold edge near 38°F; warm edge near 80°F. More tolerant of turbidity and current than walleye; not a reason to import lake-walleye basin logic.",
+    currentFacing:
+      "Missouri DNR: principally large, free-flowing streams; found mainly in flowing water and often swift current. Faces into flow on the bottom of runs and pools.",
+    depthMovement:
+      "Strong lower-column and bottom association, particularly in daylight and clearer water.",
+    clarityResponse:
+      "More tolerant of turbidity than walleye. Murk can extend daylight feeding in current. Clear water tightens them to depth and bottom.",
+    predatorAvoidance:
+      "Depth, turbidity, and current. Bright clear shallows are a poor default.",
+    coverUse:
+      "Deep pools, runs, tailwater, current breaks, and pool heads. Hard bottom and velocity, not vegetation ambush.",
+    openWaterBehavior:
+      "Stillwater use is secondary and still bottom-oriented (drop-offs, points, basins). Do not import open-pelagic predator logic.",
+    spawningBehavior:
+      "Missouri DNR: spawning occurs in early spring, often at night, with adhesive eggs on rubble in current. Catalog exception: dam and spawning-run concentrations are not treated as aggregation targets. Spawning substrate is excluded from target guidance.",
+    sources: [
+      { label: "Missouri Department of Conservation sauger field guide", class: "agency" },
+      { label: "Minnesota DNR walleye/sauger biology", class: "agency" },
+      { label: "USGS sauger habitat and movement research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "esox_lucius",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Young fish may share nursery vegetation. Adults are typically solitary ambush predators.",
+      note: "A group of pike is coincidence of habitat, not a school. Overlap with muskellunge is a conservation and identification problem, not a combined targeting layer.",
+    },
+    feedingStrategy: {
+      modes: ["ambush", "opportunistic"],
+      note: "Michigan DNR: about 90 percent smaller fish — yellow perch, sunfishes, minnows, and suckers — plus frogs and other living prey the jaws can surround. Crayfish, waterfowl, and small mammals appear in that agency note but are not catalog forage classes here. Capacity is not a current event.",
+    },
+    territoriality:
+      "Ambushes from slack adjacent to a food lane, not the current core. Vegetation, wood, and the slow side of a seam are typical lies.",
+    aggression:
+      "Can have significant impact on prey species (Michigan DNR). That is ecology, not a catch claim.",
+    dielTendency: {
+      class: "mixed",
+      note: "Sight ambush predator. Uses edges and low light, but will eat in daylight in stained water. Bright, clear, high-sky days often pin fish tighter to cover.",
+    },
+    seasonalActivity:
+      "Michigan DNR: spawn in the shallows right after ice leaves, and before muskellunge. That is conservation context. Summer is a deeper weed-edge and thermal problem. Catalog exception: warm, weedy southern water may hold pike that are thermally stressed, not feeding.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 50–65°F. Cold edge near 36°F; warm edge near 75°F. Casselman’s thermal ecology and the catalog: as water warms, fish use deeper weed edges and cooler ambush structure.",
+    currentFacing:
+      "Slack adjacent to a food lane. Not a mid-channel current fish.",
+    depthMovement:
+      "Weeds and shallows in cool water; deeper weed edges and thermocline as summer warms (Michigan DNR: retreat somewhat deeper in midsummer).",
+    clarityResponse:
+      "Clear water increases cover dependence. Stain can allow more open-edge daylight feeding without a surface event.",
+    predatorAvoidance:
+      "Vegetation, wood, and depth. Bright shallow open water in midsummer is a poor default.",
+    coverUse:
+      "Weed edges, inside and outside weedlines, wood, inlets, points, side channels, and eddies.",
+    openWaterBehavior:
+      "Not an open-basin wanderer by default. Open water is a travel lane between ambush edges.",
+    spawningBehavior:
+      "Michigan DNR: Great Lakes-region pike spawn in the shallows in April or May, right after ice-out, and before muskellunge. Vegetated ice-out shallows are excluded from target guidance. Do not name marshes or tributary mouths as pins.",
+    sources: [
+      { label: "Michigan DNR northern pike species account", class: "agency" },
+      { label: "Casselman pike thermal ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "esox_masquinongy",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Adults are typically solitary and use large structural and vegetation edges as travel and ambush corridors.",
+      note: "Catalog exception: we do not give aggregation or spawning-site recommendations. A muskellunge on an edge is a habitat class, not a named pin.",
+    },
+    feedingStrategy: {
+      modes: ["ambush", "pursuit", "opportunistic"],
+      note: "Michigan DNR: predominantly fish-eating — suckers, minnows, perch, sunfishes, and other available fish. Amphibians remain capacity. This is adult piscivory, not a declared forage event.",
+    },
+    territoriality:
+      "Uses large edges and funnels more than a single small pike hole. Follows forage along weed edges, points, and drop-offs.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Low light and weather changes matter. Bright high-sky days often pin them to cover. That is a cover/light shift, not a catch claim.",
+    },
+    seasonalActivity:
+      "Michigan DNR: spawns in early spring shortly after ice-out, but after northern pike. Conservation context. Summer is an edge-and-forage problem. Fall cooling can move fish with forage without becoming a spawn pin.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 55–70°F. Cold edge near 42°F; warm edge near 80°F. Warm edges push fish to deeper outside weedlines and structural shade.",
+    currentFacing:
+      "Edges of current and large structural funnels; not open-basin wanderers by default.",
+    depthMovement:
+      "Weed-associated mid-depth; follows forage more than a single contour.",
+    clarityResponse:
+      "Clear water increases cover pinning on bright days. Stain can allow more edge travel in daylight.",
+    predatorAvoidance:
+      "Cover, depth, and low light. Bright open flats are a poor default.",
+    coverUse:
+      "Weed edges, outside weedlines, points, inlets, wood, and drop-offs.",
+    openWaterBehavior:
+      "May travel between large structural pieces. That is not a pelagic school and is not a reason to import open-water trolling families this record does not have.",
+    spawningBehavior:
+      "Michigan DNR: early spring after ice-out, after pike. Vegetated shallows and tributary mouths in the catalog spawning note are biology. They are excluded from target guidance. Do not name aggregation sites.",
+    sources: [
+      { label: "Michigan DNR muskellunge species account", class: "agency" },
+      { label: "Crossman muskellunge biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "esox_niger",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Adults ambush from vegetation and slack cover. They are not open-pelagic pike.",
+      note: "Catalog exception: chain pickerel are cover-oriented esocids; open-pelagic pike logic should not be imported automatically.",
+    },
+    feedingStrategy: {
+      modes: ["ambush"],
+      note: "North Carolina Wildlife: young feed mainly on aquatic insects and crustaceans until about 4 in, then primarily fish. Amphibians remain capacity. Capacity is not a current event.",
+    },
+    territoriality:
+      "Ambushes from vegetation and slack-water cover. Sustained main-channel current is not the default feeding position.",
+    dielTendency: {
+      class: "mixed",
+      note: "Sight-oriented ambush predator. Low light and stained water can increase use of open edges; bright conditions reinforce cover.",
+    },
+    seasonalActivity:
+      "Early-spring spawning in flooded vegetation is conservation context. Summer is a weed-and-shade problem. Winter remains a cover-edge problem in ice-free eastern water.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 60–70°F. Cold edge near 42°F; warm edge near 82°F. More at home in warmer vegetated water than northern pike.",
+    currentFacing:
+      "Slack, side channels, and the slow side of a seam. Not a mid-channel fish.",
+    depthMovement:
+      "Primarily shallow to mid-depth around weeds and cover, with deeper edge use during bright or warm periods.",
+    clarityResponse:
+      "Stain can open the edge. Bright clear water pins fish inside vegetation.",
+    predatorAvoidance:
+      "Weeds, wood, and shade. Open pelagic water is a mismatch.",
+    coverUse:
+      "Weed edges, inside and outside weedlines, wood, and shallow flats adjacent to cover.",
+    openWaterBehavior:
+      "Not an open-water esocid. Open water is a short intercept off a weed edge, not a basin search.",
+    spawningBehavior:
+      "Early spring in flooded vegetation and shallow margins. Catalog exception: flooded spawning margins are never named as aggregation targets.",
+    sources: [
+      { label: "South Carolina DNR chain pickerel account", class: "agency" },
+      { label: "North Carolina Wildlife chain pickerel species account", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species chain pickerel profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "perca_flavescens",
+    status: "reviewed",
+    social: {
+      pattern: "schooling",
+      byLifeStage:
+        "Schools persist from juvenile through adult. Catalog exception: a school is a forage-linked, moving aggregation — not a named pin.",
+      note: "Michigan DNR: perch travel in schools, generally preferring relatively shallow water near shore.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "pursuit"],
+      note: "Michigan DNR: adults take immature insects, larger invertebrates (crayfish), and the eggs and young of other fish, from open water and from the bottom. Eggs are an agency diet note, not a catalog forage class on this record. Capacity is not a current hatch.",
+    },
+    territoriality:
+      "Schools more than holds a single lie. Mild current and current-washed points, not a defended hole.",
+    dielTendency: {
+      class: "diurnal",
+      note: "Michigan DNR: tend to travel shoreward each morning and evening to feed; in spring and fall they appear to feed throughout the day. At night they rest on the bottom and refrain from feeding. Low light may break schools toward shallows without turning night into the feeding default.",
+    },
+    seasonalActivity:
+      "Early-spring spawning over vegetation and wood is conservation context. Summer follows cooler, slightly deeper water. Michigan DNR: unlike many Great Lakes species, perch remain active all winter under ice in both shallow and deeper water.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 54–68°F. Michigan DNR: when given the choice they prefer about 66–70°F and often follow the 68°F level. Cold edge near 40°F; warm edge near 76°F. Summer surface heat is a down-move along a break, not a deep-basin lake-trout problem.",
+    currentFacing:
+      "Mild current and current-washed points. Schools move; they do not face a trout-style seam as a default.",
+    depthMovement:
+      "Michigan DNR: rarely taken from waters more than 30 feet deep; spring and fall shallower than in the heat of summer. Follows zooplankton and bait along a break.",
+    clarityResponse:
+      "Daylight schooling in a wide clarity range. Extreme turbidity is a walleye/sauger optical story, not this one.",
+    predatorAvoidance:
+      "Schooling and modest depth. Bass, walleye, and pike all prey on perch (Michigan DNR) — that is ecology, not a presentation rule.",
+    coverUse:
+      "Weed edges, drop-offs, points, basins, riprap, and inlets. Cover is a school location class, not an ambush hole.",
+    openWaterBehavior:
+      "Often mid-depth along a break or over a basin when following forage. Still a school, not a pelagic white-bass chase.",
+    spawningBehavior:
+      "Michigan DNR: spawn in the spring, laying eggs in gelatinous strings over dense vegetation, roots, and fallen trees in the shallows. That habitat is excluded from target guidance. Do not convert egg strings into a fishing cue.",
+    sources: [
+      { label: "Michigan DNR yellow perch species account", class: "agency" },
+      { label: "Great Lakes perch assessments", class: "agency" },
+      { label: "Thorpe yellow perch biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
 ];
