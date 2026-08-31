@@ -1,13 +1,21 @@
 import { ALIASES } from "./aliases.ts";
 import {
   behaviorDossierFor,
+  dietDossierFor,
   identificationDossierFor,
+  seasonalCalendarDossierFor,
 } from "./dossier-catalog.ts";
-import type { BehaviorDossier, IdentificationDossier } from "./dossier-types.ts";
+import type {
+  BehaviorDossier,
+  DietDossier,
+  IdentificationDossier,
+  SeasonalCalendarDossier,
+  SeasonalCalendarEntry,
+} from "./dossier-types.ts";
 import type { SpeciesRecord } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
-export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.1" as const;
+export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.2" as const;
 
 export type AnglerProfileSectionId =
   | "identification"
@@ -23,7 +31,7 @@ export type AnglerProfileSectionId =
 
 export type AnglerProfileStatus = "reviewed" | "partial" | "not_reviewed";
 
-export type AnglerProfileFactKind = "default" | "trait" | "comparison" | "source";
+export type AnglerProfileFactKind = "default" | "trait" | "comparison" | "source" | "season" | "life_stage";
 
 export type AnglerProfileFact = {
   label: string;
@@ -238,12 +246,150 @@ function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null
   );
 }
 
+function calendarEntryValue(entry: SeasonalCalendarEntry): string {
+  const parts = [entry.habitatClass];
+  if (entry.depthTendency) parts.push(entry.depthTendency);
+  if (entry.movementTendency) parts.push(entry.movementTendency);
+  if (entry.feedingEmphasis) parts.push(`Feeding: ${entry.feedingEmphasis}`);
+  if (entry.forageEmphasis) parts.push(`Forage: ${entry.forageEmphasis}`);
+  if (entry.thermalContext) parts.push(`Thermal: ${entry.thermalContext}`);
+  if (entry.currentUse) parts.push(`Current: ${entry.currentUse}`);
+  if (entry.coverUse) parts.push(`Cover: ${entry.coverUse}`);
+  if (entry.lightSensitivity) parts.push(`Light: ${entry.lightSensitivity}`);
+  if (entry.presentationImplication) parts.push(`Mechanics: ${entry.presentationImplication}`);
+  if (entry.conservationNote) parts.push(entry.conservationNote);
+  if (entry.invalidators && entry.invalidators.length > 0) {
+    parts.push(`Invalidators: ${entry.invalidators.join("; ")}`);
+  }
+  return parts.join(" ");
+}
+
+function dietSection(species: SpeciesRecord, dossier: DietDossier | null): AnglerProfileSection {
+  if (!dossier) {
+    return section(
+      "diet",
+      "Diet",
+      "What does it eat?",
+      "partial",
+      "Primary forage classes are structured and can be strengthened by an observed Hatch Match note. Seasonal and life-stage diet detail is not yet complete.",
+      [
+        {
+          label: "Reviewed forage classes",
+          value: species.forageClasses.length > 0 ? labels(species.forageClasses) : "No forage class reviewed",
+        },
+      ],
+      [
+        "spring / summer / fall / winter diet shifts",
+        "juvenile versus adult diet",
+        "prey-size preference",
+        "population-specific forage substitutions",
+      ],
+    );
+  }
+
+  const facts: AnglerProfileFact[] = [
+    { label: "Feeding style", value: `${labelOf(dossier.feedingStyle)}. ${dossier.primaryNote}` },
+    { label: "Feeding zone", value: labelOf(dossier.feedingZone) },
+    { label: "Primary forage", value: labels(dossier.primaryForage) },
+    ...(dossier.seasonalDiet ?? []).map((item) => ({
+      label: labelOf(item.season),
+      value: item.emphasis,
+      kind: "season" as const,
+    })),
+    ...(dossier.lifeStageDiet?.youngOfYear
+      ? [{ label: "Young-of-year", value: dossier.lifeStageDiet.youngOfYear, kind: "life_stage" as const }]
+      : []),
+    ...(dossier.lifeStageDiet?.juvenile
+      ? [{ label: "Juvenile", value: dossier.lifeStageDiet.juvenile, kind: "life_stage" as const }]
+      : []),
+    ...(dossier.lifeStageDiet?.adult
+      ? [{ label: "Adult", value: dossier.lifeStageDiet.adult, kind: "life_stage" as const }]
+      : []),
+    ...(dossier.preySizeShifts ? [{ label: "Prey-size shifts", value: dossier.preySizeShifts }] : []),
+    ...(dossier.ontogeneticShift ? [{ label: "Ontogenetic shift", value: dossier.ontogeneticShift }] : []),
+    ...(dossier.forageSubstitutions
+      ? [{ label: "Forage substitutions", value: dossier.forageSubstitutions }]
+      : []),
+    { label: "Observed forage rule", value: dossier.observedForageRule },
+    {
+      label: "Diet sources",
+      value: dossier.sources.map((source) => source.label).join("; "),
+      kind: "source",
+    },
+  ];
+
+  return section(
+    "diet",
+    "Diet",
+    "What does it eat?",
+    dossier.status,
+    dossier.status === "reviewed"
+      ? "Reviewed diet mechanics from agency or peer-reviewed sources. Diet capacity is not proof that a hatch or prey event is occurring."
+      : "A partial diet dossier is on file. Remaining gaps stay visible instead of being filled with generic model text.",
+    facts,
+    dossier.gaps,
+  );
+}
+
+function seasonalCalendarSection(
+  species: SpeciesRecord,
+  dossier: SeasonalCalendarDossier | null,
+): AnglerProfileSection {
+  if (!dossier) {
+    return section(
+      "seasonal_calendar",
+      "Seasonal calendar",
+      "When should I fish for them?",
+      "partial",
+      "Season already helps rank presentations, and spawning overlap is treated as caution, but this profile does not yet claim a species-authored month-by-month calendar.",
+      [
+        { label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) },
+        { label: "Spawning note", value: species.spawning.note },
+      ],
+      [
+        "month-by-month location changes",
+        "pre-spawn / spawn / post-spawn behavior outside protected aggregation guidance",
+        "seasonal feeding windows",
+        "winter holding-class behavior without named-concentration output",
+      ],
+    );
+  }
+
+  const facts: AnglerProfileFact[] = [
+    { label: "Overview", value: dossier.overview },
+    { label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) },
+    ...dossier.entries.map((entry) => ({
+      label: labelOf(entry.season),
+      value: calendarEntryValue(entry),
+      kind: "season" as const,
+    })),
+    {
+      label: "Calendar sources",
+      value: dossier.sources.map((source) => source.label).join("; "),
+      kind: "source",
+    },
+  ];
+
+  return section(
+    "seasonal_calendar",
+    "Seasonal calendar",
+    "When should I fish for them?",
+    dossier.status,
+    dossier.status === "reviewed"
+      ? "Reviewed seasonal progression by habitat class, depth, and conservation context. Spawning aggregations are excluded from targeting guidance."
+      : "A partial seasonal calendar is on file. Remaining gaps stay visible instead of being filled with generic model text.",
+    facts,
+    dossier.gaps,
+  );
+}
+
 /**
- * AFP-1.1 is a coverage-aware reference view over the reviewed species catalog.
+ * AFP-1.2 is a coverage-aware reference view over the reviewed species catalog.
  *
- * Identification and behavior dossiers overlay the existing ten-question contract
- * when reviewed. Missing fight, table-quality, or live-regulation facts stay
- * visible as review gaps instead of being filled with generic model text.
+ * Identification, behavior, diet, and seasonal-calendar dossiers overlay the
+ * existing ten-question contract when reviewed. Missing fight, table-quality,
+ * or live-regulation facts stay visible as review gaps instead of being filled
+ * with generic model text.
  */
 export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
   const flowing = species.flowingPresentations;
@@ -254,6 +400,8 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
   ];
   const identification = identificationDossierFor(species.id);
   const behavior = behaviorDossierFor(species.id);
+  const diet = dietDossierFor(species.id);
+  const calendar = seasonalCalendarDossierFor(species.id);
 
   const sections: AnglerProfileSection[] = [
     identificationSection(species, identification),
@@ -286,25 +434,7 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
       ],
     ),
     behaviorSection(species, behavior),
-    section(
-      "diet",
-      "Diet",
-      "What does it eat?",
-      "partial",
-      "Primary forage classes are structured and can be strengthened by an observed Hatch Match note. Seasonal and life-stage diet detail is not yet complete.",
-      [
-        {
-          label: "Reviewed forage classes",
-          value: species.forageClasses.length > 0 ? labels(species.forageClasses) : "No forage class reviewed",
-        },
-      ],
-      [
-        "spring / summer / fall / winter diet shifts",
-        "juvenile versus adult diet",
-        "prey-size preference",
-        "population-specific forage substitutions",
-      ],
-    ),
+    dietSection(species, diet),
     section(
       "methods",
       "Best fishing methods",
@@ -330,23 +460,7 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
         "retrieve-speed ranges where defensible",
       ],
     ),
-    section(
-      "seasonal_calendar",
-      "Seasonal calendar",
-      "When should I fish for them?",
-      "partial",
-      "Season already helps rank presentations, and spawning overlap is treated as caution, but this profile does not yet claim a species-authored month-by-month calendar.",
-      [
-        { label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) },
-        { label: "Spawning note", value: species.spawning.note },
-      ],
-      [
-        "month-by-month location changes",
-        "pre-spawn / spawn / post-spawn behavior outside protected aggregation guidance",
-        "seasonal feeding windows",
-        "winter concentration behavior without hotspot output",
-      ],
-    ),
+    seasonalCalendarSection(species, calendar),
     section(
       "conditions",
       "Conditions",

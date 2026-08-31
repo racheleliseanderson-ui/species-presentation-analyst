@@ -99,6 +99,8 @@ export function SelectedSpeciesProfile() {
               const defaults = factsByKind(item.facts, "default");
               const traits = factsByKind(item.facts, "trait");
               const comparisons = factsByKind(item.facts, "comparison");
+              const seasons = factsByKind(item.facts, "season");
+              const lifeStages = factsByKind(item.facts, "life_stage");
               const sources = factsByKind(item.facts, "source");
 
               return (
@@ -150,6 +152,46 @@ export function SelectedSpeciesProfile() {
                           {comparisons.map((fact) => (
                             <div key={fact.label}>
                               <dt className="text-sm font-medium text-fg">{fact.label.replace("Distinguish from ", "")}</dt>
+                              <dd className="mt-1 text-sm text-muted">{fact.value}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </details>
+                    )}
+
+                    {seasons.length > 0 && (
+                      <details className="mt-3 rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
+                        <summary className="cursor-pointer list-none">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                            By season · {seasons.length}
+                          </p>
+                          <p className="mt-1 text-xs text-muted">
+                            Broad seasonal progression. Spawning aggregations stay out of targeting guidance.
+                          </p>
+                        </summary>
+                        <dl className="mt-3 grid gap-3">
+                          {seasons.map((fact) => (
+                            <div key={`${item.id}-${fact.label}`}>
+                              <dt className="text-sm font-medium text-fg">{fact.label}</dt>
+                              <dd className="mt-1 text-sm text-muted">{fact.value}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </details>
+                    )}
+
+                    {lifeStages.length > 0 && (
+                      <details className="mt-3 rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
+                        <summary className="cursor-pointer list-none">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                            Life stage · {lifeStages.length}
+                          </p>
+                          <p className="mt-1 text-xs text-muted">What younger and older fish typically eat when those data exist.</p>
+                        </summary>
+                        <dl className="mt-3 grid gap-3">
+                          {lifeStages.map((fact) => (
+                            <div key={fact.label}>
+                              <dt className="text-sm font-medium text-fg">{fact.label}</dt>
                               <dd className="mt-1 text-sm text-muted">{fact.value}</dd>
                             </div>
                           ))}

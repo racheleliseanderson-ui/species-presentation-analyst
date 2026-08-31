@@ -1,0 +1,1029 @@
+import {
+  DOSSIER_NEXT_REVIEW_AT,
+  DOSSIER_REVIEWED_AT,
+  type SeasonalCalendarDossier,
+} from "./dossier-types.ts";
+
+const R = {
+  reviewedAt: DOSSIER_REVIEWED_AT,
+  nextReviewAt: DOSSIER_NEXT_REVIEW_AT,
+} as const;
+
+const MONTH_GAP = "month-by-month location changes inside a season, which are waterbody-specific";
+const POP_GAP = "population-archetype calendars beyond the species-level overlay (see RPC)";
+
+/**
+ * AFP-SC-1.0 wave 01 — seasonal calendars for the highest-confusion groups.
+ *
+ * Entries describe broad biological progression by canonical season.
+ * Spawning is conservation/biology context. Exact aggregation sites, staging
+ * concentrations, and migration bottlenecks are excluded. Presentation notes
+ * refer only to already-reviewed families.
+ */
+export const SEASONAL_CALENDAR_DOSSIERS: SeasonalCalendarDossier[] = [
+  {
+    speciesId: "oncorhynchus_mykiss",
+    status: "reviewed",
+    overview:
+      "Inland rainbows track food delivery and thermal refuge more than a single depth rule. Spring spawning is conservation context. Summer is an oxygen/temperature constraint. Lake and stream calendars differ; RPC does not auto-select them.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools, tailwater, and lake basins in the remaining active band.",
+        depthTendency: "Lower in the column than spring feeding stations.",
+        feedingEmphasis: "Slow subsurface intercept of nymphs and midges.",
+        thermalContext: "Near or below the 42°F cold edge, activity compresses.",
+        presentationImplication: "Dead-drift and tight-line drift remain the reviewed insect-scale jobs; stillwater leans on suspend-pause rather than fast retrieves.",
+        invalidators: ["treating winter as a surface-terrestrial problem", "inventing a hatch from diet capacity"],
+      },
+      {
+        season: "early_spring",
+        habitatClass: "Riffle-to-run and seams as flow and temperature rise together.",
+        movementTendency: "Fish redistribute onto feeding water. Spawning gravel is not a target class.",
+        thermalContext: "Leaving the cold edge toward the 45–65°F active band.",
+        conservationNote: "Early-spring spawning overlap is caution, not an aggregation opportunity.",
+        presentationImplication: "Dead-drift, tight-line drift, and suspended drift fit rising insect delivery.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Runs, seams, boulder pockets; lake inlets and drop-offs.",
+        forageEmphasis: "Aquatic insects and emergences where they occur.",
+        conservationNote: "Spring spawner in most inland waters. Spawning gravel and staging water are excluded from target guidance.",
+        presentationImplication: "Reviewed drift families stay primary; swing is a current-intercept option, not a new family.",
+        invalidators: ["using spawning substrate as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Oxygenated current, shade, tailwater, or lake thermocline edges.",
+        depthTendency: "Deeper on bright, warm, or pressured days.",
+        thermalContext: "Preferred 50–60°F. The 70°F warm edge is a constraint, not a feeding cue.",
+        coverUse: "Broken water and depth more than heavy wood.",
+        presentationImplication: "Stillwater: horizontal retrieve, stop-and-go, or trolling in the usable band. Flowing: drift remains valid in refuge water.",
+        invalidators: ["forcing shallow bright water above the warm edge"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Feeding stations reopen as water cools off the summer edge.",
+        forageEmphasis: "Opportunistic insects, baitfish, or eggs where those foods exist.",
+        presentationImplication: "Cross-current retrieve and swing can rise when fish, not insects, are the observed forage.",
+        invalidators: ["assuming an egg event from calendar alone"],
+      },
+    ],
+    sources: [
+      { label: "USFWS / state inland trout management summaries", class: "agency" },
+      { label: "Raleigh et al. habitat suitability (rainbow trout)", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "oncorhynchus_clarkii",
+    status: "reviewed",
+    overview:
+      "Interior cutthroat calendars are tributary- and inlet-linked. Spring spawning is conservation context. Many forms stay more insect-oriented than rainbow through summer.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper lake basins, inlets, or stream wintering pools.",
+        feedingEmphasis: "Subsurface invertebrates.",
+        presentationImplication: "Dead-drift and suspended drift in flowing water; horizontal retrieve or trolling in lakes.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Tributary-influenced water, seams, and lake inlets.",
+        movementTendency: "Many interior forms move into tributaries. That movement is biology, not a pin.",
+        conservationNote: "Spring spawner. Tributary spawning water is excluded from target guidance.",
+        presentationImplication: "Dead-drift, swing, surface-drift, and suspended drift remain the reviewed flowing families.",
+        invalidators: ["naming tributary mouths as secret staging"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Moderate current, drop-offs, and shade on bright alpine water.",
+        thermalContext: "Preferred 48–58°F; 68°F warm edge is a refuge problem.",
+        forageEmphasis: "Terrestrials and aquatic insects in streams; zooplankton possible in lakes.",
+        presentationImplication: "Surface-drift is a reviewed option when terrestrials are observed, not assumed.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Lake drop-offs and stream feeding water as temperatures ease.",
+        presentationImplication: "Horizontal retrieve and stop-and-go in lakes; drift families in rivers.",
+      },
+    ],
+    sources: [
+      { label: "State/tribal cutthroat status reviews", class: "agency" },
+      { label: "Behnke Oncorhynchus clarkii systematics", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "adfluvial vs resident calendars (RPC overlay)"],
+  },
+  {
+    speciesId: "oncorhynchus_nerka_kokanee",
+    status: "reviewed",
+    overview:
+      "Kokanee are pelagic lake fish. The calendar follows temperature, oxygen, and zooplankton depth — not shoreline cover. Fall spawning on shore or tributary gravel is conservation context. This is not anadromous sockeye migration.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Suspended open water and basin, often shallower than summer thermocline use.",
+        forageEmphasis: "Zooplankton in the remaining pelagic food layer.",
+        presentationImplication: "Trolling, horizontal retrieve, suspend-pause, and vertical jig — the reviewed stillwater set.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Upper-column suspended water as lakes mix.",
+        depthTendency: "Often higher in the column than midsummer.",
+        forageEmphasis: "Zooplankton; insects secondary.",
+        presentationImplication: "Trolling and horizontal retrieve in the mixing band.",
+        invalidators: ["treating kokanee as shoreline trout"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Thermocline edge and suspended open water in the 50–59°F preferred band.",
+        depthTendency: "Bright periods commonly push usable depth deeper.",
+        thermalContext: "65°F warm edge plus oxygen squeeze can pin fish to a thin layer.",
+        presentationImplication: "Trolling and suspend-pause on the usable layer; vertical jig when the band is compact.",
+        invalidators: ["forcing surface retrieves above a warm, low-oxygen cap"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Fish leave pelagic feeding water as they ripen.",
+        conservationNote: "Fall spawner on suitable lake shore or tributary gravel. Mature staging and spawning fish are not a forage-matching problem.",
+        presentationImplication: "Reviewed families still describe pelagic mechanics for non-ripe fish; spawning fish are an invalidator.",
+        invalidators: ["using spawning shore or tributary gravel as a target class"],
+      },
+      {
+        season: "late_fall",
+        habitatClass: "Spawning overlap continues. Remaining pelagic fish are not a separate concentration class.",
+        conservationNote: "Late-fall spawning remains excluded from target guidance.",
+      },
+    ],
+    sources: [
+      { label: "Washington Department of Fish and Wildlife kokanee profile", class: "agency" },
+      { label: "Idaho Department of Fish and Game kokanee management", class: "agency" },
+      { label: "Scott & Crossman freshwater fishes synthesis for kokanee/sockeye ecology", class: "synthesis" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "reservoir vs natural-lake depth calendars"],
+  },
+  {
+    speciesId: "oncorhynchus_nerka_anadromous",
+    status: "reviewed",
+    overview:
+      "Freshwater adult sockeye are a migration and conservation problem, not a feeding-trout calendar. Ocean feeding is behind them. ESA-listed populations and spawning reaches are invalidators. This record is not kokanee.",
+    entries: [
+      {
+        season: "summer",
+        habitatClass: "River travel lanes, velocity relief, and lake/river transitions.",
+        movementTendency: "Adults return through freshwater toward lake/tributary spawning systems.",
+        feedingEmphasis: "Freshwater adults typically do not feed.",
+        presentationImplication: "Swing, cross-current retrieve, downstream retrieve, and pulse-jig remain the reviewed flowing families for lawful, non-listed contexts — they do not imply feeding lies.",
+        conservationNote: "Spawning reaches, staging concentrations, and ESA-listed populations are invalidators, never target layers.",
+        invalidators: ["converting migration into a trout feeding calendar", "using juvenile lake residence as an adult proxy"],
+      },
+      {
+        season: "late_summer",
+        habitatClass: "Continuing freshwater travel and holding in non-target migration water.",
+        conservationNote: "Listed ESUs stay fail-closed regardless of season.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Spawning systems. Not a presentation problem.",
+        conservationNote: "Spawning fish are excluded from target guidance.",
+        invalidators: ["naming spawning reaches or bottlenecks"],
+      },
+    ],
+    sources: [
+      { label: "NOAA Fisheries Sockeye Salmon species profile", class: "agency" },
+      { label: "NOAA Fisheries Sockeye Salmon protected-ESU profile", class: "agency" },
+    ],
+    ...R,
+    gaps: ["stock-specific run timing tables", MONTH_GAP],
+  },
+  {
+    speciesId: "micropterus_nigricans",
+    status: "reviewed",
+    overview:
+      "Largemouth calendars follow vegetation, wood, and shade — not a contour number. Spring nests in protected shallows are conservation context. Reservoir shad populations and vegetated natural lakes do not share one map.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper edges of wood, docks, and outside weedlines rather than featureless basin.",
+        feedingEmphasis: "Reduced; remaining crayfish and slower fish near cover.",
+        thermalContext: "Below the 48°F cold edge, activity compresses.",
+        presentationImplication: "Bottom-contact, drop-presentation, and stationary-bait remain the reviewed slow jobs.",
+      },
+      {
+        season: "early_spring",
+        habitatClass: "Transition from winter cover toward protected shallows as water climbs through the 50s.",
+        movementTendency: "Fish redistribute with warming; this is not a GPS path.",
+        presentationImplication: "Subsurface slow-roll and stop-and-go as fish use mid-depth cover edges.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Protected shallows, inside weedline, wood, and docks.",
+        conservationNote: "Spawns as water holds in the mid-60s; nests in protected shallows. Nests are not a target class.",
+        presentationImplication: "Reviewed stillwater families stay cover-oriented. Do not add an unreviewed sight-fishing family.",
+        invalidators: ["publishing nest locations", "treating spawning as a bite window"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Weed edges, wood, dock shade, and the outside weedline.",
+        depthTendency: "Shallow to mid under cover; bright high-sky days push into shade.",
+        thermalContext: "Preferred 65–78°F; 88°F warm edge is a shade/oxygen problem.",
+        presentationImplication: "Subsurface slow-roll, stop-and-go, surface-retrieve, and drop-presentation — all already reviewed.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Points, weed edges, and remaining vegetation as baitfish group.",
+        forageEmphasis: "Baitfish can rise in importance where shad exist. Capacity is not a current event.",
+        presentationImplication: "Stop-and-go and subsurface slow-roll on edges; flowing water still uses pulse-jig and stationary-bait.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife largemouth bass species account", class: "agency" },
+      { label: "Heidinger largemouth life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "vegetation-lake vs reservoir-structure calendars"],
+  },
+  {
+    speciesId: "micropterus_dolomieu",
+    status: "reviewed",
+    overview:
+      "Smallmouth calendars are rock- and current-shaped. River and reservoir overlays exist in RPC and must be declared. Spring rock nests are conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper rock, channel edges, and the slow side of remaining current.",
+        feedingEmphasis: "Reduced crayfish and benthic fish.",
+        presentationImplication: "Bottom-contact, vertical jig, and drop-presentation in still water; bottom-contact drift in current.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Rocky shoreline, points, boulder pockets, and current breaks.",
+        conservationNote: "Spawns on rock in current or on windward lake gravel as water holds near 60°F. Nests are not a target class.",
+        lightSensitivity: "Feeds in daylight; wind can move fish shallower on the same rock.",
+        presentationImplication: "Cross-current retrieve, pulse-jig, and upstream retrieve in flowing water.",
+        invalidators: ["using spawning gravel as a target class"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Current breaks, seams, points, and drop-offs.",
+        depthTendency: "Slides deeper on bright, calm, or post-front days.",
+        thermalContext: "Preferred 60–72°F.",
+        currentUse: "Holds on the slow side of fast water, not in dead slack only.",
+        presentationImplication: "Cross-current retrieve and pulse-jig in rivers; bottom-contact and stop-and-go on lake rock.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Points, secondary points, and current seams as baitfish group.",
+        forageEmphasis: "Fish can increase relative to crayfish.",
+        presentationImplication: "Horizontal retrieve and stop-and-go when bait is the observed forage.",
+      },
+    ],
+    sources: [
+      { label: "USGS / provincial smallmouth assessments", class: "agency" },
+      { label: "Coble smallmouth biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "river vs reservoir calendars (RPC)"],
+  },
+  {
+    speciesId: "micropterus_punctulatus",
+    status: "reviewed",
+    overview:
+      "Spotted bass stay more offshore and channel-oriented than largemouth through the year. Spring spawning is often slightly deeper. Do not copy a vegetation-largemouth calendar onto this record.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Channel edges, drop-offs, and submerged humps.",
+        presentationImplication: "Horizontal retrieve, vertical jig, and drop-presentation.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Breaklines and rocky shoreline, often slightly deeper than largemouth.",
+        conservationNote: "Spring spawner. Nests are not a target class.",
+        presentationImplication: "Drop-presentation and stop-and-go along channel-adjacent structure.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Drop-offs, points, breaklines, and outside weedline — more pelagic than largemouth.",
+        forageEmphasis: "Shad and other small fish along channel edges.",
+        presentationImplication: "Horizontal retrieve, vertical jig, and downstream retrieve in current.",
+        invalidators: ["forcing dock-shade largemouth positioning as the default"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Channel swings and points following bait.",
+        presentationImplication: "Horizontal retrieve and stop-and-go.",
+      },
+    ],
+    sources: [
+      { label: "State spotted bass notes (KY, TN, AL, OK)", class: "agency" },
+      { label: "Baker & Ross spotted bass habitat", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "morone_saxatilis",
+    status: "reviewed",
+    overview:
+      "Striped bass follow bait in the column. Atlantic anadromous and landlocked reservoir calendars are RPC overlays and must be declared. Spring flowing-water spawning is conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep pools, tailwaters, or remaining pelagic bait water depending on declared population.",
+        presentationImplication: "Trolling, horizontal retrieve, and vertical jig in still water; cross-current retrieve in flow.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Flowing water, tailraces, and large tributaries for spawning populations.",
+        conservationNote: "Flowing-water spawner. Dam tailraces and tributaries are not named pins; spawning concentrations are excluded.",
+        presentationImplication: "Swing, cross-current retrieve, and downstream retrieve — reviewed flowing families only.",
+        invalidators: ["naming spawning rivers as target pins"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Suspended open water and thermocline edge in reservoirs; current breaks in rivers.",
+        depthTendency: "Bright summer midday is often deep.",
+        thermalContext: "Preferred 55–70°F; 78°F warm edge plus oxygen squeeze can pin the usable layer.",
+        presentationImplication: "Trolling and vertical jig on the bait layer; pulse-jig in current.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Points, inlets, and suspended bait water.",
+        forageEmphasis: "Clupeids where they concentrate. Not a location map.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, and trolling.",
+      },
+    ],
+    sources: [
+      { label: "ASMFC / state striped bass plans", class: "agency" },
+      { label: "Setzler-Hamilton striped bass life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "anadromous vs landlocked calendars (RPC)"],
+  },
+  {
+    speciesId: "morone_chrysops",
+    status: "reviewed",
+    overview:
+      "White bass are schooling pelagic predators with a short spring river or windblown-shore spawning movement. That run is conservation context. Summer is a bait-following problem, not a cover problem.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper open water and drop-offs with remaining shad.",
+        presentationImplication: "Horizontal retrieve and vertical jig.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Tributary mouths, runs, and tailwaters during the spawning movement.",
+        conservationNote: "Upriver or windblown-shore spawning run; short and crowded by nature. Exact aggregation points are never named.",
+        presentationImplication: "Cross-current retrieve, pulse-jig, and downstream retrieve in flow.",
+        invalidators: ["publishing run locations", "treating the run as a targeting invitation"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Points, suspended open water, and drop-offs following shad.",
+        lightSensitivity: "Wind and low light can move the feed shallower.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, and vertical jig.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Open-water bait schools and points.",
+        presentationImplication: "Horizontal retrieve and vertical jig.",
+      },
+    ],
+    sources: [
+      { label: "State white bass notes (TX, OK, KS, TN)", class: "agency" },
+      { label: "Riggs white bass life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "reservoir vs seasonal-river-movement calendars"],
+  },
+  {
+    speciesId: "morone_americana",
+    status: "reviewed",
+    overview:
+      "White perch use deeper basins by day and seasonally move toward rivers or shallows for spawning. They are more omnivorous and more basin-oriented than white bass.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Basin and drop-off.",
+        presentationImplication: "Vertical jig, drop-presentation, and horizontal retrieve.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Tributary mouths, runs, and shallow lake habitat during spawning movement.",
+        conservationNote: "Spring spawning moves fish from deeper water toward rivers, tributaries, or shallow lake habitat. Runs are not secret-location outputs.",
+        presentationImplication: "Cross-current retrieve, pulse-jig, and bottom-contact drift.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Basin, drop-off, and suspended open water.",
+        depthTendency: "Often deeper by day.",
+        presentationImplication: "Vertical jig and horizontal retrieve.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Basin edges and points.",
+        presentationImplication: "Stop-and-go and drop-presentation.",
+      },
+    ],
+    sources: [
+      { label: "USGS Nonindigenous Aquatic Species white perch profile", class: "agency" },
+      { label: "Great Lakes white perch diet and ecology literature", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "morone_hybrid_wiper",
+    status: "reviewed",
+    overview:
+      "Hybrids follow current edges and pelagic bait. Spring tributary movement with white bass is not a reproductive run. Summer depth is an oxygen–temperature squeeze.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep pools, tailwaters, and suspended bait water.",
+        presentationImplication: "Trolling, horizontal retrieve, and vertical jig.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Tailwaters, current breaks, and tributary mouths.",
+        conservationNote: "Sterile hybrids may travel with white bass but do not establish a normal reproductive run.",
+        presentationImplication: "Cross-current retrieve, downstream retrieve, swing, and pulse-jig.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Thermocline edge, points, and suspended open water.",
+        thermalContext: "Preferred 60–72°F; warm-edge oxygen squeeze is an invalidator for shallow bright water.",
+        presentationImplication: "Trolling and horizontal retrieve on the usable layer.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Points, inlets, and bait-following open water.",
+        presentationImplication: "Stop-and-go and vertical jig.",
+      },
+    ],
+    sources: [
+      { label: "Missouri Department of Conservation hybrid striped bass field guide", class: "agency" },
+      { label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "morone_mississippiensis",
+    status: "reviewed",
+    overview:
+      "Yellow bass use quieter pools and backwaters more than white bass, while reservoir fish can still school in open water. Do not copy a white-bass river-run calendar onto this record.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools and basins.",
+        presentationImplication: "Vertical jig and horizontal retrieve.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Tributary mouths or shallow lake zones as water warms.",
+        conservationNote: "Spring spawner. Exact aggregation points are never named.",
+        presentationImplication: "Cross-current retrieve and pulse-jig.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Deep pools, eddies, and suspended open water.",
+        presentationImplication: "Horizontal retrieve, vertical jig, and stop-and-go.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Basin and drop-off.",
+        presentationImplication: "Horizontal retrieve and vertical jig.",
+      },
+    ],
+    sources: [
+      { label: "Missouri Department of Conservation yellow bass field guide", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "coregonus_artedi",
+    status: "reviewed",
+    overview:
+      "Cisco calendars are oxythermal. Depth follows cold, oxygenated water and zooplankton, including under ice. Late-fall to winter spawning ranges from shallow shoals to deep offshore habitat depending on stock — never published as a target depth.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Suspended open water under ice or in the remaining cold band. Spawning may overlap early winter depending on stock.",
+        feedingEmphasis: "Zooplankton; cisco can feed heavily under ice.",
+        presentationImplication: "Vertical jig, suspend-pause, and horizontal retrieve.",
+        conservationNote: "Winter spawning overlap remains excluded from target guidance.",
+        invalidators: ["converting under-ice feeding into a named concentration", "naming shoals or offshore spawning depth as a pin"],
+      },
+      {
+        season: "spring",
+        habitatClass: "Mixing pelagic water; sometimes higher in the column than summer.",
+        forageEmphasis: "Zooplankton; insects possible during emergences.",
+        presentationImplication: "Trolling and horizontal retrieve.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Thermocline edge and basin in the 50–60°F preferred band.",
+        thermalContext: "Oxythermal squeeze is a hard invalidator. Warm, low-oxygen water is not usable cisco habitat.",
+        presentationImplication: "Vertical jig, trolling, and suspend-pause on the remaining cold, oxygenated layer.",
+        invalidators: ["forcing shallow summer water above the warm edge"],
+      },
+      {
+        season: "late_fall",
+        habitatClass: "Spawning habitat class is stock-specific and is not published as a target.",
+        conservationNote: "Fall-to-winter spawning. Spawning depth is never given as a target location.",
+        invalidators: ["naming shoals or offshore spawning depth as a pin"],
+      },
+    ],
+    sources: [
+      { label: "U.S. Fish and Wildlife Service cisco species account", class: "agency" },
+      { label: "Michigan Sea Grant cisco (lake herring) notes", class: "agency" },
+      { label: "Peer-reviewed cisco oxythermal habitat literature", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "Great Lakes vs inland calendars (RPC)"],
+  },
+  {
+    speciesId: "coregonus_clupeaformis",
+    status: "reviewed",
+    overview:
+      "Lake whitefish are bottom-associated over much of the year, deeper in summer, and spawn in late fall to early winter over clean rock. That spawn is conservation context. This is not a cisco plankton calendar.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Basin and drop-off, still bottom-associated.",
+        feedingEmphasis: "Benthic invertebrates.",
+        presentationImplication: "Bottom-contact, slow-drag, drop-presentation, and live-natural-bait suspension.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Rocky shoreline, drop-offs, and remaining shallow benthos as ice leaves.",
+        forageEmphasis: "Benthic crustaceans, mollusks, and eggs of other fishes where those events occur.",
+        presentationImplication: "Bottom-contact and slow-drag.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Deeper basin, drop-off, and thermocline edge.",
+        depthTendency: "Often deeper in summer; may suspend when prey distributions warrant it.",
+        thermalContext: "Preferred 46–57°F; 68°F warm edge is a constraint.",
+        presentationImplication: "Vertical jig and bottom-contact on the cold benthic layer.",
+      },
+      {
+        season: "late_fall",
+        habitatClass: "Clean rock, rubble, gravel, or firm shoals as water cools into the 40s.",
+        conservationNote: "Late-fall to early-winter spawner. Spawning shoals are excluded from target guidance.",
+        invalidators: ["publishing spawning shoal locations"],
+      },
+    ],
+    sources: [
+      { label: "USGS lake whitefish thermal ecology research", class: "agency" },
+      { label: "Michigan Department of Natural Resources lake whitefish biology", class: "agency" },
+      { label: "Minnesota Department of Natural Resources lake whitefish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "Great Lakes vs inland calendars"],
+  },
+  {
+    speciesId: "hiodon_alosoides",
+    status: "reviewed",
+    overview:
+      "Goldeye calendars are large-river and surface-column calendars. Large eyes make low light and turbidity plausible feeding windows. Spring spawning is conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools and current breaks.",
+        presentationImplication: "Swing and cross-current retrieve in remaining flow; horizontal retrieve in still water.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Runs, pool tails, and eddies as insects increase.",
+        conservationNote: "Spawns in spring to early summer in large-river systems. Spawning concentrations are not used as target recommendations.",
+        presentationImplication: "Surface-drift, swing, and cross-current retrieve.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Upper-column runs and eddies; surface when terrestrials or emergences occur.",
+        lightSensitivity: "Low light and turbid water are especially plausible windows.",
+        presentationImplication: "Surface-drift and downstream retrieve. Surface-retrieve in still water.",
+        invalidators: ["assuming a surface event from eye size alone"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Pool tails and current breaks.",
+        presentationImplication: "Swing and cross-current retrieve.",
+      },
+    ],
+    sources: [
+      { label: "Government of Alberta goldeye species profile", class: "agency" },
+      { label: "Canadian and U.S. hiodontid life-history literature", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "hiodon_tergisus",
+    status: "reviewed",
+    overview:
+      "Mooneye stay with clearer runs and pool margins than goldeye. The calendar is insect-drift shaped rather than turbid-surface shaped.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep pools.",
+        presentationImplication: "Dead-drift and swing.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Runs, seams, and pool tails.",
+        conservationNote: "Spring to early-summer spawner. Timing varies with latitude and flow.",
+        presentationImplication: "Dead-drift, surface-drift, and swing.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Clearer runs and current breaks.",
+        forageEmphasis: "Drift, emergences, and terrestrials.",
+        presentationImplication: "Dead-drift and surface-drift. Surface-retrieve in still water.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Pool tails and seams.",
+        presentationImplication: "Dead-drift and cross-current retrieve.",
+      },
+    ],
+    sources: [
+      { label: "Ontario mooneye species profile", class: "agency" },
+      { label: "Hiodontidae life-history synthesis", class: "synthesis" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "cyprinus_carpio",
+    status: "reviewed",
+    overview:
+      "Carp feed on shallow flats as water warms and winter deeper in some systems. Spring vegetation spawning is conservation context. This is not a buffalo calendar.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper basins and slow inside bends.",
+        presentationImplication: "Stationary-bait, bottom-contact, and slow-drag.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Shallow flats, inlets, and weed edges.",
+        conservationNote: "Spawns in shallow vegetation when water holds in the 60s. Vegetation spawning is not a target map.",
+        presentationImplication: "Bottom-contact drift and stationary-bait.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Shallow flats, inside weedline, and inlets.",
+        feedingEmphasis: "Daytime benthic omnivory; more cautious in very clear bright water.",
+        presentationImplication: "Bottom-contact, slow-drag, and live-natural-bait suspension.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Flats remaining warm enough, then a shift toward deeper wintering water in some systems.",
+        presentationImplication: "Stationary-bait and slow-drag.",
+      },
+    ],
+    sources: [
+      { label: "USGS NAS carp fact sheet", class: "agency" },
+      { label: "Balon carp domestication / biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "ictiobus_cyprinellus",
+    status: "reviewed",
+    overview:
+      "Bigmouth buffalo filter zooplankton in slow channels, backwaters, and reservoirs. Spring flooded-margin spawning is conservation context. Extreme longevity means the adult calendar is a plankton problem for decades.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper slow pools and basins.",
+        presentationImplication: "Stationary-bait and bottom-contact drift — reviewed families only, not a new filter-net method.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Slow channels, side channels, and backwaters as water approaches 60–65°F.",
+        conservationNote: "Brief spring spawning in flooded margins, marshes, and tributary habitat. Spawning concentrations are not target outputs.",
+        presentationImplication: "Stationary-bait and bottom-contact.",
+        invalidators: ["using flooded spawning margins as a target class"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Slow river channels, backwaters, and reservoir flats/basins.",
+        feedingEmphasis: "Pelagic and mid-depth zooplankton filtering.",
+        presentationImplication: "Suspended-stationary and slow-drag in still water.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Channels and basins with remaining plankton.",
+        presentationImplication: "Bottom-contact and slow-drag.",
+      },
+    ],
+    sources: [
+      { label: "USGS Bigmouth Buffalo species profile", class: "agency" },
+      { label: "Lackmann et al. validated centenarian longevity research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "ictiobus_bubalus",
+    status: "reviewed",
+    overview:
+      "Smallmouth buffalo stay on channel bottoms and pool edges. The calendar is benthic, not a carp-flat calendar and not a plankton-buffalo calendar.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep pools and channel edges.",
+        presentationImplication: "Bottom-contact drift and stationary-bait.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Runs, pool tails, and channel edges as water reaches roughly 60–65°F.",
+        conservationNote: "Broadcast spawning over vegetation, mud, and flooded margins is conservation context.",
+        presentationImplication: "Bottom-contact and slow-drag.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Deep pools, current breaks, and reservoir drop-offs.",
+        feedingEmphasis: "Channel-bottom invertebrates and mollusks.",
+        presentationImplication: "Bottom-contact, slow-drag, and live-natural-bait suspension.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Channel edges and basins.",
+        presentationImplication: "Bottom-contact and slow-drag.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife smallmouth buffalo species account", class: "agency" },
+      { label: "USGS smallmouth buffalo population-demographic research", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepisosteus_osseus",
+    status: "reviewed",
+    overview:
+      "Longnose gar patrol slow or open water and use deep water as a refuge. Near-surface cruising can be respiratory. Spring backwater spawning is conservation context. Eggs are toxic.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep pools and current margins.",
+        presentationImplication: "Stationary-bait and cross-current retrieve.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Quiet backwaters and vegetated margins as water warms.",
+        conservationNote: "Spring spawning in shallow quiet water. Gar eggs are toxic and should never be treated as forage or food.",
+        presentationImplication: "Stationary-bait and downstream retrieve.",
+        invalidators: ["using spawning backwaters as a target class"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Runs, open flats, and suspended-open patrol water.",
+        lightSensitivity: "Visual predator; warm calm periods often produce visible near-surface cruising without implying a feeding event.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, and surface-retrieve — surface does not prove feeding.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Points, drop-offs, and remaining patrol water.",
+        presentationImplication: "Cross-current retrieve and live-natural-bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "NOAA Mississippi River longnose gar life-history synthesis", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepisosteus_oculatus",
+    status: "reviewed",
+    overview:
+      "Spotted gar stay with vegetation, timber, and backwaters. The calendar is littoral, not a main-channel longnose calendar.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper edges of wood and remaining vegetation.",
+        presentationImplication: "Stationary-bait and pulse-jig.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Shallow vegetated margins, flooded timber, or backwater habitat.",
+        conservationNote: "Spring spawning. Spawning sites are excluded from target guidance. Eggs are toxic.",
+        presentationImplication: "Stationary-bait and cross-current retrieve in slow water.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Inside weedline, weed edge, and wood.",
+        feedingEmphasis: "Ambush on small fish in vegetation lanes.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, and surface-retrieve.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Remaining weed edges and wood as vegetation thins.",
+        presentationImplication: "Live-natural-bait suspension and stop-and-go.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife Department spotted gar account", class: "agency" },
+      { label: "Missouri Department of Conservation spotted gar account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepisosteus_platostomus",
+    status: "reviewed",
+    overview:
+      "Shortnose gar use large-river backwaters and slower margins. Spawning is later than spotted gar. Turbidity is less limiting than for longnose gar.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep pools.",
+        presentationImplication: "Stationary-bait and cross-current retrieve.",
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Quiet shallow water, side channels, and vegetated objects.",
+        conservationNote: "Late-spring through summer spawning. Adhesive eggs over vegetation are conservation context. Eggs are toxic.",
+        presentationImplication: "Stationary-bait and downstream retrieve.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Side channels, eddies, and backwater flats.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, and live-natural-bait suspension.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Deep pools and tributary mouths as water cools.",
+        presentationImplication: "Cross-current retrieve.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife shortnose gar species account", class: "agency" },
+      { label: "Missouri Department of Conservation shortnose gar field guide", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "atractosteus_spatula",
+    status: "reviewed",
+    overview:
+      "Alligator gar use deep main-channel pools and shift into shallow connected habitat under favorable seasonal flooding. Flooded spawning habitat is an invalidator. Surface air-gulping is respiratory.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep main-channel pools.",
+        presentationImplication: "Stationary-bait and live-natural-bait suspension.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Connected side channels and backwaters as water warms.",
+        conservationNote: "Successful spawning is linked to warm seasonal flooding and vegetated inundated habitat. Flooded spawning habitat is an invalidator, not a target map.",
+        presentationImplication: "Stationary-bait and pulse-jig in lawful, non-closed water.",
+        invalidators: ["using inundated spawning habitat as a target class"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Deep pools, eddies, and open connected water.",
+        lightSensitivity: "Surface air-gulping is respiratory behavior and must not be interpreted as surface feeding.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, and subsurface slow-roll.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Deep pools and drop-offs as water cools.",
+        presentationImplication: "Stationary-bait and live-natural-bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "U.S. Fish and Wildlife Service Alligator Gar species profile", class: "agency" },
+      { label: "State and USFWS alligator gar life-history and floodplain recruitment literature", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "managed-population calendars"],
+  },
+  {
+    speciesId: "ameiurus_nebulosus",
+    status: "reviewed",
+    overview:
+      "Brown bullhead are nocturnal and bottom-oriented. They move shallower under darkness or stain and winter deeper. Nest guarding is conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper basins and wood.",
+        presentationImplication: "Bottom-contact, slow-drag, and live-natural-bait suspension.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Protected shallow cavities, wood, and weed edges as water warms.",
+        conservationNote: "Spawning in protected shallow cavities or depressions. Parental guarding is not a target cue.",
+        presentationImplication: "Stationary-bait and bottom-contact drift.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Basin, wood, weed edge, and dock shade by day; shallower at night.",
+        lightSensitivity: "Strong low-light and night feeding tendency.",
+        presentationImplication: "Bottom-contact and slow-drag. Pulse-jig in flowing water.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Inlets and remaining cover before wintering deeper.",
+        presentationImplication: "Stationary-bait and live-natural-bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "USGS Nonindigenous Aquatic Species brown bullhead profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "ameiurus_melas",
+    status: "reviewed",
+    overview:
+      "Black bullhead tolerate turbid, soft-bottomed, low-current water that excludes many sight-oriented fishes. The calendar is still nocturnal and benthic.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper basins and cover.",
+        presentationImplication: "Bottom-contact and slow-drag.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Protected shallow habitat in slow, often turbid water.",
+        conservationNote: "Late-spring and summer cavity/depression spawning. Family groups are not target aggregations.",
+        presentationImplication: "Stationary-bait and bottom-contact drift.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Shallow flats at night; deeper or tighter to cover in bright conditions.",
+        lightSensitivity: "Low-light and nocturnal feeding is common; olfaction reduces dependence on visibility.",
+        presentationImplication: "Bottom-contact, slow-drag, and live-natural-bait suspension.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Inlets and remaining soft-bottom cover.",
+        presentationImplication: "Stationary-bait.",
+      },
+    ],
+    sources: [
+      { label: "Washington Department of Fish and Wildlife black bullhead sportfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "ameiurus_natalis",
+    status: "reviewed",
+    overview:
+      "Yellow bullhead use slower, often more vegetated or woody margins than black bullhead. Canonical spawning seasons are spring and early_summer. Both parents guard eggs and fry.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools and wood.",
+        presentationImplication: "Bottom-contact and slow-drag.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Mud or protected shallow habitat, side channels, and weed edges.",
+        conservationNote: "Cavity/nest spawner. Both parents guard eggs and fry.",
+        presentationImplication: "Stationary-bait and bottom-contact drift.",
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Protected shallow habitat while guarding continues.",
+        conservationNote: "Early-summer overlap with parental care. Guarding is not a targeting cue.",
+        presentationImplication: "Stationary-bait.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Wood, weed edge, and shallow flats at night.",
+        lightSensitivity: "Low-light and nocturnal feeding are common; turbid water can extend activity into daylight.",
+        presentationImplication: "Bottom-contact, slow-drag, and live-natural-bait suspension.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Inlets and remaining woody margins.",
+        presentationImplication: "Stationary-bait.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife yellow bullhead species account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+];

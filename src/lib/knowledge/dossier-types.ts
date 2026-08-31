@@ -1,5 +1,5 @@
 /**
- * AFP-1.1 dossier overlay types.
+ * AFP-1.2 dossier overlay types.
  *
  * These records populate existing AFP section IDs. They are not a competing
  * profile framework and they never feed presentation-family weighting.
@@ -7,6 +7,8 @@
  * Incomplete research stays incomplete. Missing fields are omitted rather than
  * filled with generic model text.
  */
+
+import type { ForageClass, Season } from "../protocol/vocab.ts";
 
 export type DossierSourceClass = "agency" | "peer_reviewed" | "synthesis";
 
@@ -102,7 +104,79 @@ export type BehaviorDossier = {
   gaps: string[];
 };
 
+export type FeedingStyle = "opportunistic" | "specialized" | "mixed";
+export type FeedingZone = "benthic" | "pelagic" | "surface" | "mixed";
+
+export type SeasonalDietNote = {
+  season: Exclude<Season, "unknown">;
+  emphasis: string;
+};
+
+export type DietDossier = {
+  speciesId: string;
+  status: "reviewed" | "partial";
+  feedingStyle: FeedingStyle;
+  feedingZone: FeedingZone;
+  primaryForage: ForageClass[];
+  primaryNote: string;
+  seasonalDiet?: SeasonalDietNote[];
+  lifeStageDiet?: {
+    youngOfYear?: string;
+    juvenile?: string;
+    adult?: string;
+  };
+  preySizeShifts?: string;
+  ontogeneticShift?: string;
+  forageSubstitutions?: string;
+  /**
+   * Reminder that diet capacity is not proof of a current hatch.
+   * Observed forage still comes from the user or Hatch Match.
+   */
+  observedForageRule: string;
+  sources: DossierSource[];
+  reviewedAt: string;
+  nextReviewAt: string;
+  gaps: string[];
+};
+
+export type SeasonalCalendarEntry = {
+  season: Exclude<Season, "unknown">;
+  habitatClass: string;
+  depthTendency?: string;
+  movementTendency?: string;
+  feedingEmphasis?: string;
+  forageEmphasis?: string;
+  thermalContext?: string;
+  currentUse?: string;
+  coverUse?: string;
+  lightSensitivity?: string;
+  /**
+   * Mechanical implication for already-reviewed presentation families only.
+   * Must not introduce an unreviewed family or a lure catalog.
+   */
+  presentationImplication?: string;
+  invalidators?: string[];
+  /**
+   * Biological / conservation context only.
+   * Must not name spawning sites, staging concentrations, or migration bottlenecks.
+   */
+  conservationNote?: string;
+};
+
+export type SeasonalCalendarDossier = {
+  speciesId: string;
+  status: "reviewed" | "partial";
+  overview: string;
+  entries: SeasonalCalendarEntry[];
+  sources: DossierSource[];
+  reviewedAt: string;
+  nextReviewAt: string;
+  gaps: string[];
+};
+
 export const IDENTIFICATION_DOSSIER_VERSION = "AFP-ID-1.0" as const;
 export const BEHAVIOR_DOSSIER_VERSION = "AFP-BH-1.0" as const;
+export const DIET_DOSSIER_VERSION = "AFP-DI-1.0" as const;
+export const SEASONAL_CALENDAR_VERSION = "AFP-SC-1.0" as const;
 export const DOSSIER_REVIEWED_AT = "2026-08-30" as const;
 export const DOSSIER_NEXT_REVIEW_AT = "2026-11-28" as const;
