@@ -2836,4 +2836,324 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "black vs white crappie confusion tables by drainage",
     ],
   },
+  {
+    speciesId: "ictalurus_punctatus",
+    status: "reviewed",
+    regionalNames: ["channel cat", "catfish", "forked-tail cat"],
+    bodyShape:
+      "Elongate ictalurid with a deeply forked tail. Missouri DNR: the back from the dorsal fin forward is gently sloping and slightly rounded, less wedge-shaped than a blue catfish.",
+    identificationTraits: [
+      "Missouri DNR / Texas Parks and Wildlife: deeply forked tail — the split from bullheads and from flathead, which have a square or only slightly notched tail.",
+      "Missouri DNR / Indiana DNR / North Carolina Wildlife: outer margin of the anal fin rounded outward (convex), usually 24–29 rays, with a relatively shorter anal-fin base than blue catfish.",
+      "Scattered dark spots on the back and sides. Missouri DNR: spots are often absent in the smallest young and in large adults. Spots are not a blue-catfish mark.",
+      "Texas Parks and Wildlife: upper jaw projects beyond the lower jaw. Flathead have the reverse — a projecting lower jaw.",
+      "Olive-brown to slate-blue back and sides, silvery-white belly. Breeding males may darken and show a swollen, knobby head (Missouri DNR). Color is not the species key by itself.",
+    ],
+    coloration:
+      "Olive-brown to slate-blue with a white belly. Small and mid-size fish usually show roundish black spots; large adults often lose them.",
+    regionalColorVariation:
+      "Turbid prairie rivers produce paler, less spotted fish. Clearer streams hold more contrast. Color is not a native-versus-stocked key.",
+    spawningColoration:
+      "Missouri DNR: breeding males a deep blue-black on the back and sides, head swollen and knobby, lips thickened. That is a reproductive state, not a targeting cue.",
+    juvenileAppearance:
+      "Young fish are often steel-gray and peppered with dark spots (Minnesota DNR). They already have a forked tail and are not square-tailed bullheads.",
+    adultAppearance:
+      "A spotted-or-plain, deeply forked-tail catfish with a rounded anal fin of 24–29 rays — not a blue, not a flathead, not a bullhead.",
+    sexualDimorphism:
+      "Missouri DNR: nesting males darken and the head swells. Size overlap is large; the anal fin, not color, is the key.",
+    similarSpecies: [
+      {
+        speciesId: "ictalurus_furcatus",
+        name: "Blue catfish",
+        distinction:
+          "Blue catfish also have a deeply forked tail but a straight-edged anal fin with 30 or more rays, a longer anal-fin base, a more wedge-shaped nape, and (except the Rio Grande population noted by Texas Parks and Wildlife) no dark spots. Channel catfish have a convex anal fin of 24–29 rays and usually carry spots until large.",
+      },
+      {
+        speciesId: "pylodictis_olivaris",
+        name: "Flathead catfish",
+        distinction:
+          "Flathead have a broad flattened head, a projecting lower jaw, a square to slightly notched tail, and 14–17 anal rays. Channel catfish have a forked tail and an overbite.",
+      },
+      {
+        speciesId: "ameiurus_catus",
+        name: "White catfish",
+        distinction:
+          "White catfish are an Ameiurus: moderately forked tail with rounded lobes, a wider head and mouth, 18–24 anal rays, and light chin barbels. Channel catfish are more slender, more deeply forked, and usually spotted when young.",
+      },
+      {
+        speciesId: "ameiurus_nebulosus",
+        name: "Brown bullhead",
+        distinction:
+          "Bullheads have a square to slightly notched tail, not a deep fork. Channel catfish are not pond bullheads.",
+      },
+    ],
+    averageAdultLength: "Missouri DNR: commonly 12–32 in. Minnesota DNR: stream fish often much smaller than lake-stocked fish.",
+    commonAnglingSize: "12–24 in in rivers, reservoirs, and ponds.",
+    typicalWeight: "Minnesota DNR: commonly 1–10 lb and rarely exceeds 20 lb in many waters. Missouri DNR: commonly 1–15 lb.",
+    maximumDocumentedSize:
+      "Missouri DNR: specimens as large as 45 lb are uncommon there. Texas Parks and Wildlife: fish in excess of 36 lb have been landed in Texas. Maxima are waterbody-specific and are not a blue-catfish number.",
+    longevity:
+      "Missouri DNR: mature at about 4–5 years or 12–15 in; lifespan usually does not exceed 6 or 7 years, though some live more than 10. Texas Parks and Wildlife: natural populations mature at 3–6 years.",
+    sources: [
+      {
+        label: "Missouri Department of Conservation channel catfish field guide (forked tail, convex anal 24–29 rays, spots, cavity spawn)",
+        class: "agency",
+        url: "https://mdc.mo.gov/discover-nature/field-guide/channel-catfish",
+      },
+      {
+        label: "Texas Parks and Wildlife channel catfish account (forked tail, 24–29 anal rays, overbite, omnivory)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/ccf/",
+      },
+      {
+        label: "North Carolina Wildlife channel catfish account (rounded anal 24–29 vs blue 30–36 straight)",
+        class: "agency",
+        url: "https://www.ncwildlife.gov/species/channel-catfish",
+      },
+      { label: "Indiana DNR catfish identification (channel vs blue anal-fin shape and ray counts)", class: "agency" },
+      { label: "Minnesota DNR catfish biology (forked tail, spots fade with age, size band)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "stocked-pond vs large-river mean length tables",
+    ],
+  },
+  {
+    speciesId: "ictalurus_furcatus",
+    status: "reviewed",
+    regionalNames: ["blue cat", "forked-tail cat", "humpback blue"],
+    bodyShape:
+      "Heavy-bodied Ictalurus with a deeply forked tail. Virginia DWR: wide head and a dorsal hump — deepest just in front of the dorsal fin. Missouri DNR: more distinctly wedge-shaped nape than channel catfish.",
+    identificationTraits: [
+      "Deeply forked tail, shared with channel catfish and not with flathead or bullheads.",
+      "Indiana DNR / North Carolina Wildlife / Texas Parks and Wildlife: anal fin straight-edged (not rounded), 30–36 rays, relatively long base, tapering like a barber’s comb or razor. Channel catfish have a convex anal fin of 24–29 rays.",
+      "Body without dark spots. Texas Parks and Wildlife: only the Rio Grande population has dark spots on the back and sides. Do not use spots as a universal blue-catfish mark.",
+      "Slate blue on the back, shading to white on the belly (Texas Parks and Wildlife / North Carolina Wildlife). NOAA Fisheries: four pairs of barbels around the mouth.",
+      "USGS NAS / Virginia DWR: native to the Mississippi–Missouri–Ohio and Gulf drainages. Chesapeake and many Atlantic-slope populations are introduced; Virginia DWR and NOAA treat Chesapeake tributary populations as invasive. Status is jurisdiction-specific and is not a targeting endorsement.",
+    ],
+    coloration:
+      "Slate-blue to silvery-blue back, white belly, usually unspotted. Large fish can look uniformly steel-blue.",
+    regionalColorVariation:
+      "Texas Parks and Wildlife: the Rio Grande population can show dark spots. Turbid large-river fish look paler. Color is not a native-versus-introduced key.",
+    spawningColoration:
+      "Cavity spawning as water holds in the low-to-mid 70s. Nesting is conservation context, not a place to target.",
+    juvenileAppearance:
+      "Young already lack the channel-catfish spot recipe (except the Rio Grande note). The straight anal-fin margin is the split even at small size.",
+    adultAppearance:
+      "A large, usually unspotted, deeply forked-tail catfish with a straight, long anal fin of 30 or more rays — not a channel catfish and not a flathead.",
+    sexualDimorphism:
+      "Virginia DWR: both sexes tend the nest, males as primary caretakers. Size overlap is large; the anal fin is the key.",
+    similarSpecies: [
+      {
+        speciesId: "ictalurus_punctatus",
+        name: "Channel catfish",
+        distinction:
+          "Channel catfish have a rounded (convex) anal fin of 24–29 rays, a shorter anal-fin base, a gentler nape, and usually dark spots until large. Blue catfish have a straight anal fin of 30 or more rays and usually no spots.",
+      },
+      {
+        speciesId: "pylodictis_olivaris",
+        name: "Flathead catfish",
+        distinction:
+          "Flathead have a flattened head, a projecting lower jaw, a square to slightly notched tail, and 14–17 anal rays. Blue catfish are forked-tailed Ictalurus with an overbite.",
+      },
+      {
+        speciesId: "ameiurus_catus",
+        name: "White catfish",
+        distinction:
+          "Virginia DWR: white catfish have a more emarginate (less forked) caudal fin, a rounded anal fin, a bulbous head, and in Virginia typically do not exceed 15 in. They are an Ameiurus, not a large-river blue catfish.",
+      },
+    ],
+    averageAdultLength: "North Carolina Wildlife: commonly reach 36 in. NOAA Fisheries: adults usually less than 2 ft, with much larger fish documented.",
+    commonAnglingSize: "20–40 in in large rivers and reservoirs where the species is established.",
+    typicalWeight: "Texas Parks and Wildlife: commonly 20–40 lb in waters that grow large fish. Many fisheries see much smaller averages.",
+    maximumDocumentedSize:
+      "Texas Parks and Wildlife: may reach well in excess of 100 lb. Virginia DWR cites a 143 lb record fish. USGS NAS: to about 165 cm. Historical Mississippi-River maxima are not a current-waterbody promise.",
+    longevity: "Virginia DWR: average life span about 9–10 years; maximum about 25 years.",
+    sources: [
+      {
+        label: "Texas Parks and Wildlife blue catfish account (30–35 anal rays, unspotted except Rio Grande, large-river habitat)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/blc/",
+      },
+      {
+        label: "Texas Parks and Wildlife catfish comparison (straight anal 30–36 rays, no spots)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/catfish-identification",
+      },
+      {
+        label: "North Carolina Wildlife blue catfish account (straight anal 30–36 rays, invasive in NC, piscivorous when large)",
+        class: "agency",
+        url: "https://www.ncwildlife.gov/species/blue-catfish",
+      },
+      {
+        label: "Virginia DWR blue catfish account (straight anal, dorsal hump, Chesapeake introduced/invasive status, omnivory to piscivory)",
+        class: "agency",
+        url: "https://dwr.virginia.gov/wildlife/information/blue-catfish/",
+      },
+      {
+        label: "USGS Nonindigenous Aquatic Species blue catfish profile (native vs introduced range, anal-fin shape vs channel)",
+        class: "agency",
+        url: "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=740",
+      },
+      { label: "NOAA Fisheries blue catfish species page (Chesapeake invasive context, large-river habitat)", class: "agency" },
+      { label: "Indiana DNR catfish identification (straight anal 30–35 rays, barber’s-comb edge)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "Rio Grande spotted-population meristics as a structured field",
+      "Chesapeake vs native-range mean size tables",
+    ],
+  },
+  {
+    speciesId: "pylodictis_olivaris",
+    status: "reviewed",
+    regionalNames: ["flathead", "mud cat", "shovelhead", "yellow cat", "opelousas cat"],
+    bodyShape:
+      "Broad, flattened head with small eyes on top and a projecting lower jaw (Missouri DNR / Texas Parks and Wildlife). Body deeper and more mottled than a forked-tail Ictalurus of the same length.",
+    identificationTraits: [
+      "Missouri DNR: lower jaw projects far beyond the upper jaw except in the smallest young. Channel and blue catfish have the reverse overbite.",
+      "Tail mostly squared off with a slight notch — not deeply forked (Missouri DNR / Texas Parks and Wildlife / Indiana DNR).",
+      "Missouri DNR / Indiana DNR: anal fin rounded, 14–17 rays — far fewer than channel or blue.",
+      "Body often strongly mottled with brown or black. Texas Parks and Wildlife: pale yellow to light brown, highly mottled; young may be almost black. Mottling can be weak in turbid-water adults (Missouri DNR).",
+      "Missouri DNR: upper tip of the tail fin lighter than the rest of the fin; adipose a free lobe widely separate from the tail. Those are supporting marks, not the only key.",
+    ],
+    coloration:
+      "Pale yellow to olive-brown, mottled with darker brown or black, cream to yellow belly. Young can be nearly black.",
+    regionalColorVariation:
+      "Clear rivers hold stronger mottling. Turbid large-river adults can look plain brown. Color is not a native-versus-introduced key.",
+    spawningColoration:
+      "Late-spring to summer cavity nesting. Nesting is conservation context, not a place to target.",
+    juvenileAppearance:
+      "Missouri DNR: young often on riffles among rocks. The flattened head and underbite develop early. They are not madtoms and not channel-cat fry.",
+    adultAppearance:
+      "A mottled, flat-headed catfish with a projecting lower jaw and a square, slightly notched tail — a shovelhead, not a forked-tail Ictalurus.",
+    sexualDimorphism:
+      "Males guard eggs and fry. Size overlap is large; jaw and tail, not color, are the key.",
+    similarSpecies: [
+      {
+        speciesId: "ictalurus_punctatus",
+        name: "Channel catfish",
+        distinction:
+          "Channel catfish have a deeply forked tail, an overbite, and 24–29 anal rays. Flathead have a square tail, an underbite, and 14–17 anal rays.",
+      },
+      {
+        speciesId: "ictalurus_furcatus",
+        name: "Blue catfish",
+        distinction:
+          "Blue catfish are forked-tailed, usually unspotted, with a straight anal fin of 30 or more rays. Flathead are mottled, square-tailed, and under-jawed.",
+      },
+      {
+        speciesId: "ameiurus_natalis",
+        name: "Yellow bullhead",
+        distinction:
+          "Yellow bullhead are small square-tailed Ameiurus with white chin barbels. They are not a 20–40 in shovelhead. Do not collapse ‘yellow cat’ nicknames.",
+      },
+    ],
+    averageAdultLength: "Missouri DNR: commonly 15–45 in. National Park Service / Minnesota DNR: often larger-bodied than sympatric channel catfish.",
+    commonAnglingSize: "18–36 in in large rivers and reservoirs with wood and deep pools.",
+    typicalWeight: "Missouri DNR: commonly 1–45 lb in the documented adult band. Texas Parks and Wildlife: 50-pounders are not unusual where mature populations exist.",
+    maximumDocumentedSize:
+      "Missouri DNR / Texas Parks and Wildlife / Minnesota DNR: about 100 lb class, with larger commercial reports. Maxima are waterbody-specific.",
+    longevity:
+      "Texas Parks and Wildlife: average lifespan 12–14 years; one recorded fish lived 24 years. Mature at about 4–5 years or about 18 in (Missouri DNR).",
+    sources: [
+      {
+        label: "Missouri Department of Conservation flathead catfish field guide (flattened head, underbite, square tail, 14–17 anal rays, solitary cover)",
+        class: "agency",
+        url: "https://mdc.mo.gov/discover-nature/field-guide/flathead-catfish",
+      },
+      {
+        label: "Texas Parks and Wildlife flathead catfish account (projecting lower jaw, slightly notched tail, live-fish diet)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/catfish/",
+      },
+      { label: "Indiana DNR catfish identification (square tail, 14–17 anal rays, mottling)", class: "agency" },
+      { label: "Minnesota DNR catfish biology (largest native MN catfish, live-fish diet, cavity spawn)", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species flathead catfish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "introduced-range vs native-range mean length tables",
+    ],
+  },
+  {
+    speciesId: "ameiurus_catus",
+    status: "reviewed",
+    regionalNames: ["white cat", "white bullhead"],
+    bodyShape:
+      "Stockier than a channel catfish of the same length, with a broader, more bulbous head (Connecticut DEEP / Virginia DWR). Tail moderately forked with rounded lobes — deeper than a bullhead, shallower than a channel.",
+    identificationTraits: [
+      "Connecticut DEEP: tail fin forked; upper lobe may be slightly longer than the lower; lobes rounded rather than the pointed lobes of channel catfish. Virginia DWR: more emarginate (less forked) than blue catfish.",
+      "Connecticut DEEP: anal fin shorter than channel catfish, 18–24 rays. Channel catfish 24–29; blue catfish 30 or more.",
+      "Connecticut DEEP: chin barbels light. Chesapeake Bay Program: white chin with barbels. That is a bullhead-family mark, not a channel-catfish mark.",
+      "Connecticut DEEP: head and mouth generally larger and wider than channel catfish; no black spots on young fish; outer edges of adult eyes often blue.",
+      "Virginia DWR: in Virginia they typically do not exceed 15 in. They are an Ameiurus, not a small channel catfish and not a yellow bullhead.",
+    ],
+    coloration:
+      "Connecticut DEEP: typically dark gray, sometimes brownish on the back, fading to light gray on the sides and white on the belly.",
+    regionalColorVariation:
+      "Coastal-river fish can look bluish-gray (Chesapeake Bay Program). Pond fish look duskier. Color is not a tidal-versus-freshwater key, and this record does not cover saltwater.",
+    spawningColoration:
+      "Late-spring to summer cavity or depression spawning around banks, roots, and structure. Guarded nests are not target cues.",
+    juvenileAppearance:
+      "Connecticut DEEP: no black spots on young fish — a practical split from young channel catfish. The moderate fork and wide head are already visible.",
+    adultAppearance:
+      "A gray, wide-headed Ameiurus with a moderately forked, round-lobed tail and light chin barbels — not a channel catfish and not a square-tailed pond bullhead.",
+    sexualDimorphism:
+      "Size overlap is large. Head width, anal-ray count, and tail fork, not color, are the key.",
+    similarSpecies: [
+      {
+        speciesId: "ictalurus_punctatus",
+        name: "Channel catfish",
+        distinction:
+          "Channel catfish are more slender, more deeply forked with pointed tail lobes, usually spotted when young, and have 24–29 anal rays. White catfish have a wider head, 18–24 anal rays, light chin barbels, and no juvenile spots.",
+      },
+      {
+        speciesId: "ameiurus_natalis",
+        name: "Yellow bullhead",
+        distinction:
+          "Yellow bullhead have white chin barbels like white catfish, but a square to slightly rounded, un-notched tail. White catfish have a moderately forked tail.",
+      },
+      {
+        speciesId: "ictalurus_furcatus",
+        name: "Blue catfish",
+        distinction:
+          "Virginia DWR: blue catfish are deeply forked with a straight anal fin and a dorsal hump. White catfish are a small, rounded-head Ameiurus with a less forked tail.",
+      },
+      {
+        speciesId: "ameiurus_nebulosus",
+        name: "Brown bullhead",
+        distinction:
+          "Brown bullhead have dark chin barbels and a square to slightly notched tail. White catfish have light chin barbels and a moderate fork.",
+      },
+    ],
+    averageAdultLength: "Connecticut DEEP: commonly 8–17 in. Virginia DWR: in Virginia typically do not exceed 15 in.",
+    commonAnglingSize: "8–16 in in coastal rivers, reservoirs, and slow tributaries.",
+    typicalWeight: "Usually well under 3 lb. They are not a blue-catfish weight class.",
+    maximumDocumentedSize:
+      "Connecticut DEEP: state survey max 21.7 in; max reported size 37 in; listed world record 18.9 lb. Those maxima are not typical.",
+    sources: [
+      {
+        label: "Connecticut DEEP white catfish account (forked rounded lobes, 18–24 anal rays, wide head, light chin barbels)",
+        class: "agency",
+        url: "https://portal.ct.gov/deep/fishing/freshwater/freshwater-fishes-of-connecticut/white-catfish",
+      },
+      {
+        label: "Virginia DWR blue catfish account (white catfish comparison: emarginate tail, rounded anal, bulbous head, ≤15 in in VA)",
+        class: "agency",
+        url: "https://dwr.virginia.gov/wildlife/information/blue-catfish/",
+      },
+      {
+        label: "Chesapeake Bay Program white catfish field guide (white chin barbels, moderately forked rounded lobes, omnivory)",
+        class: "agency",
+        url: "https://www.chesapeakebay.net/discover/field-guide/entry/white-catfish",
+      },
+      { label: "Smithsonian NEMESIS white catfish summary (broad head, omnivory, sluggish habitat)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "a single continent-wide mean length",
+      "exact spawn-temperature table with primary-source support",
+    ],
+  },
 ];

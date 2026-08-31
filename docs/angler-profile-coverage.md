@@ -21,12 +21,12 @@ The profile contract is intentionally broader than the presentation engine. It a
 
 | Layer | Current status | Already structured | Important gaps |
 | --- | --- | --- | --- |
-| Identification | Reviewed for 46 species (26 lookalikes + 02a trout + 02b coolwater + 02c panfish + 02d remaining sunfish); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 29 species; some subspecies/strain tables |
+| Identification | Reviewed for 50 species (26 lookalikes + 02a trout + 02b coolwater + 02c panfish + 02d remaining sunfish + 02e catfish); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 25 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
-| Behavior | Reviewed for 46 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 29 species; angling-pressure and frontal evidence still sparse |
-| Diet | Reviewed for 46 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 29 species; prey-size tables by waterbody |
+| Behavior | Reviewed for 50 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 25 species; angling-pressure and frontal evidence still sparse |
+| Diet | Reviewed for 50 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 25 species; prey-size tables by waterbody |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
-| Seasonal calendar | Reviewed for 46 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 29 species; month-by-month location/behavior calendars |
+| Seasonal calendar | Reviewed for 50 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 25 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
 | Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
@@ -92,6 +92,16 @@ The leftover Lepomis/Centrarchus set, written as one distinction group after the
 
 Agency keys: long, entirely black flap no wider than the eye (redbreast, North Carolina Wildlife / South Carolina DNR); elongated black flap often white-edged plus short rounded pectorals (longear, Missouri DNR / Illinois DNR); tongue teeth, three anal spines, eye-streaks (warmouth, TPWD / FWC); 11–13 dorsal spines, 7–8 anal spines, black teardrop (flier, South Carolina DNR / Georgia DNR). Longear do not inherit a mollusk forage class. Warmouth stay solitary cover fish, not rock bass. Flier stay a backwater sunfish, not the crappie complex. Grouped nests stay conservation context.
 
+## AFP wave 02e — catfish
+
+Same family, four different jobs:
+
+- channel vs blue (forked tails, anal-fin shape and ray count, spots)
+- flathead kept off both Ictalurus records (square tail, underbite, live-fish diet)
+- white catfish kept off channel and off square-tailed bullheads
+
+Agency keys: convex anal fin 24–29 rays and spots that fade on large fish (channel, Missouri DNR / TPWD / North Carolina Wildlife); straight anal fin 30–36 rays, usually unspotted (blue, TPWD / Indiana DNR / North Carolina Wildlife); flattened head, projecting lower jaw, 14–17 anal rays (flathead, Missouri DNR / TPWD); moderately forked rounded lobes, 18–24 anal rays, light chin barbels, wide head (white catfish, Connecticut DEEP / Virginia DWR). Flathead stay solitary live-fish predators, not scavengers. Blue catfish eat fish earlier than channel and can roam in reservoirs; Chesapeake and other Atlantic-slope introductions stay conservation context. White catfish stay a small coastal Ameiurus. Cavity nests stay conservation context.
+
 ## AFP-DI-1.0 / AFP-SC-1.0 wave 01
 
 The same 26 lookalike species now have diet and seasonal-calendar overlays:
@@ -140,15 +150,15 @@ Rules:
 - Fight, food value, gear ranges, and live regulations wait until the high-use set is knowable.
 - A wave is `landed` only when tests show every required overlay exists.
 
-Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass), wave 02d (redbreast, warmouth, longear, flier).
-Next: wave 02e — channel catfish, blue catfish, flathead, white catfish.
+Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass), wave 02d (redbreast, warmouth, longear, flier), wave 02e (channel catfish, blue catfish, flathead, white catfish).
+Next: wave 02f — chinook, coho, pink, chum, and landlocked Atlantic.
 
 ## Next research order
 
 The next data work follows `SEED_WAVES`, not a flat 75-species dump:
 
-1. Wave 02e catfish — all four overlays together.
-2. Waves 02f–02g remaining salmon and salmonids.
+1. Wave 02f Pacific and landlocked salmon — all four overlays together.
+2. Wave 02g remaining salmonids and burbot.
 3. Wave 03 identification-only for fail-closed conservation records.
 4. Wave 04 remaining catalog.
 5. Methods ranges, then fight, then food, then live regulation connectors — after the high-use set is knowable.

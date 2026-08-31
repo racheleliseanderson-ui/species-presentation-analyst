@@ -1966,4 +1966,191 @@ export const DIET_DOSSIERS: DietDossier[] = [
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
   },
+  {
+    speciesId: "ictalurus_punctatus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "benthic",
+    primaryForage: ["aquatic_insects", "small_forage_fish", "crustaceans", "mollusks", "worms_annelids"],
+    primaryNote:
+      "Missouri DNR: omnivorous — fish, insects, crayfish, mollusks, and plant material. North Carolina Wildlife: adults eat plant material, insect larvae, crayfish, mollusks, small fish, and even dead fish. Minnesota DNR: snails, crayfish, aquatic insects, other invertebrates, and small fish; more likely than flathead to take carrion. Larger-prey-fish is not a catalog class on this record.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Slow bottom intercept of remaining invertebrates and fish in deep, current-protected water.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crustaceans, and small fish as water warms. Upstream movement is a class, not a hatch declaration.",
+      },
+      {
+        season: "early_summer",
+        emphasis: "Omnivory around cover and night shallows. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, crayfish, mollusks, worms, and small forage fish on the bottom of the usable band. Night shallows are a delivery window, not a current event.",
+      },
+      {
+        season: "fall",
+        emphasis: "Remaining fish and invertebrates as fish move toward deeper current protection.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Missouri DNR: less than 4 in feed almost entirely on small insects. North Carolina Wildlife notes plankton in young; zooplankton is not a catalog class here.",
+      juvenile: "Aquatic insects, crustaceans, and small invertebrates.",
+      adult: "Omnivorous: insects, mollusks, crustaceans, worms, small forage fish, and carrion. Not a live-fish-only flathead diet.",
+    },
+    ontogeneticShift: "Insects to mixed benthic omnivory. Weaker early piscivory than blue catfish.",
+    forageSubstitutions: "Ponds substitute prepared and invertebrate foods; large rivers substitute different small fish and mollusks. Do not import a flathead live-fish diet wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Missouri Department of Conservation channel catfish field guide (omnivory, insects to fish, night feeding)", class: "agency" },
+      { label: "Texas Parks and Wildlife channel catfish account (insects, mollusks, crustaceans, fish, some plant material)", class: "agency" },
+      { label: "North Carolina Wildlife channel catfish account (omnivory including dead fish)", class: "agency" },
+      { label: "Minnesota DNR catfish biology (invertebrates and small fish; more carrion than flathead)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "ictalurus_furcatus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks", "aquatic_insects"],
+    primaryNote:
+      "Texas Parks and Wildlife: varied diet but eats fish earlier than channel catfish; individuals larger than 8 in eat fish and large invertebrates. Virginia DWR: trophic generalist — small fish, crayfish, mollusks, and plant matter, becoming increasingly piscivorous at large size. USGS NAS: highly omnivorous, including scavenged items. Worms are not a catalog class on this record.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Texas Parks and Wildlife: downstream toward warmer water. Remaining fish and invertebrates in the usable band.",
+      },
+      {
+        season: "spring",
+        emphasis: "Fish, crustaceans, and insects as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "early_summer",
+        emphasis: "Mixed fish and invertebrate feeding. Nesting is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Texas Parks and Wildlife: upstream toward cooler water. Large fish emphasize piscivory. Reservoir roamers may suspend with forage — that is not a current bait event.",
+      },
+      {
+        season: "fall",
+        emphasis: "Fish and remaining invertebrates along channel and basin structure.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Texas Parks and Wildlife: invertebrates still the major portion, but fish as small as 4 in have consumed fish.",
+      juvenile: "Fish and large invertebrates.",
+      adult: "Increasingly piscivorous; crustaceans, mollusks, and insects remain possible. NOAA / North Carolina Wildlife: large fish consume native fishes in introduced Atlantic-slope waters — conservation context, not a targeting list.",
+    },
+    ontogeneticShift: "Invertebrates to mixed fish earlier than channel catfish, then larger prey fish at adult size.",
+    forageSubstitutions: "Native large-river diets differ from introduced tidal-river diets. Do not import a flathead live-fish-only rule or a channel carrion default wholesale. RPC already splits river-channel vs reservoir-roaming.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Texas Parks and Wildlife blue catfish account (earlier piscivory, 4 in and 8 in diet notes)", class: "agency" },
+      { label: "Virginia DWR blue catfish account (omnivory to piscivory)", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species blue catfish profile (highly omnivorous diet composition)", class: "agency" },
+      { label: "NOAA Fisheries blue catfish species page (opportunistic generalist; Chesapeake native-fish predation as conservation context)", class: "agency" },
+      { label: "North Carolina Wildlife blue catfish account (piscivorous when large)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "introduced-range vs native-range prey tables"],
+  },
+  {
+    speciesId: "pylodictis_olivaris",
+    status: "reviewed",
+    feedingStyle: "specialized",
+    feedingZone: "mixed",
+    primaryForage: ["larger_prey_fish", "small_forage_fish", "crustaceans"],
+    primaryNote:
+      "Missouri DNR: adults prefer fish and crayfish; unlike channel catfish they are not scavengers and rarely eat dead or decaying material. Texas Parks and Wildlife: from about 10 in, diet consists entirely of live fish — shad, carp, suckers, sunfish, bass, and other catfish. Minnesota DNR: primarily other fish, hunted by smell and vibration. Aquatic insects are an agency young-of-year note off this catalog list.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Remaining live fish around deep wood and current refuge. Not a carrion default.",
+      },
+      {
+        season: "spring",
+        emphasis: "Live fish and crayfish as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "early_summer",
+        emphasis: "Live prey around wood and pools. Nesting is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Night intercept of live fish off deep cover. Crayfish remain capacity. This is not a current baitfish declaration.",
+      },
+      {
+        season: "fall",
+        emphasis: "Live fish along wood, pools, and remaining structure.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Missouri DNR: smaller than 4 in eat insect larvae. Texas Parks and Wildlife: young feed mostly on invertebrates. Insects are not a catalog class here.",
+      juvenile: "Texas Parks and Wildlife: invertebrates, then live fish by about 10 in.",
+      adult: "Live fish and crayfish. Not scavengers.",
+    },
+    ontogeneticShift: "Invertebrates to live-fish specialization. Stronger piscivory than channel catfish at the same length.",
+    forageSubstitutions: "Rivers substitute different live fish than reservoirs. Do not import channel-catfish carrion or insect defaults. Introduced-range diets stay waterbody-specific.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Missouri Department of Conservation flathead catfish field guide (night forage, live fish and crayfish, not scavengers)", class: "agency" },
+      { label: "Texas Parks and Wildlife flathead catfish account (live fish from about 10 in)", class: "agency" },
+      { label: "Minnesota DNR catfish biology (primarily other fish; shun dead bait relative to channel catfish)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "ameiurus_catus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "benthic",
+    primaryForage: ["aquatic_insects", "crustaceans", "small_forage_fish", "mollusks", "worms_annelids"],
+    primaryNote:
+      "Smithsonian NEMESIS: omnivorous — aquatic plants, benthic invertebrates, and small fishes. Chesapeake Bay Program: adults favor other fish but also consume crustaceans, insects, and aquatic plants. Larger-prey-fish is not a catalog class. Plant material is an agency note off this catalog list.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Slow bottom intercept of remaining invertebrates in holes and basins.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crustaceans, and small fish as water warms.",
+      },
+      {
+        season: "early_summer",
+        emphasis: "Mixed benthic omnivory. Nesting overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, crustaceans, mollusks, worms, and small forage fish around wood and current relief. Daylight feeding is more plausible than a bullhead night-only default.",
+      },
+      {
+        season: "fall",
+        emphasis: "Remaining invertebrates and small fish along structure.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Smithsonian NEMESIS: small invertebrates (amphipods, mysids, midge larvae in estuary notes). Freshwater young stay insect- and invertebrate-weighted.",
+      juvenile: "Benthic invertebrates and small crustaceans.",
+      adult: "Insects, crustaceans, mollusks, worms, and small forage fish. Not a blue-catfish piscivore.",
+    },
+    ontogeneticShift: "Small invertebrates to mixed benthic omnivory with some small fish.",
+    forageSubstitutions: "Coastal rivers substitute different invertebrates than inland ponds. Do not inherit a bullhead night-only diet or a channel-catfish carrion story wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Smithsonian NEMESIS white catfish summary (omnivory: plants, benthic invertebrates, small fishes)", class: "agency" },
+      { label: "Chesapeake Bay Program white catfish field guide (omnivory; adults favor fish plus crustaceans and insects)", class: "agency" },
+      { label: "Connecticut DEEP white catfish account (slow-water habitat)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
 ];
