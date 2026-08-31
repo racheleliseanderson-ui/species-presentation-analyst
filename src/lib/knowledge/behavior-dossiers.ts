@@ -1017,4 +1017,183 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
   },
+  {
+    speciesId: "salmo_trutta",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Juveniles may share nursery water. Adults typically hold individual lies and become more hole-bound as they grow, especially large piscivores.",
+      note: "Adult browns use a defended or repeatedly used lie more than rainbows of the same size. They are not a schooling pelagic species.",
+    },
+    feedingStrategy: {
+      modes: ["ambush", "drift_feeding", "opportunistic"],
+      note: "Intercepts drift and emergences, then shifts toward crayfish and fish as gape allows. Catalog exception: large piscivorous adults may ignore insect-scale presentations even when smaller fish are on them.",
+    },
+    territoriality:
+      "More hole-bound and cover-oriented than rainbow. Velocity boundaries, undercut banks, wood, and the slow side of fast water are typical adult lies.",
+    aggression:
+      "Larger fish can exclude smaller trout from prime lies. That is spacing, not a catch claim.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Catalog light response: strong low-light and night feeding, especially in clear or pressured water. Daytime feeding still occurs in broken light and stain.",
+    },
+    seasonalActivity:
+      "Fall spawning is conservation context. Summer thermal refuge and winter slowing are constraints. Do not treat fall color as a targeting window.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 50–60°F. Elliott's thermal work and the catalog put the cold edge near 40°F and the warm edge near 70°F. Warm edges push fish into cover, depth, or faster oxygenated water.",
+    currentFacing:
+      "Balances food delivery against energy cost. Faces into flow on seams, pool heads, and current breaks rather than occupying the fastest core.",
+    depthMovement:
+      "Holds deeper than rainbow in daylight; slides shallower in low light.",
+    clarityResponse:
+      "Very clear water increases nocturnal and cover use. Stain can allow more daylight feeding without implying a surface event.",
+    anglingPressureResponse:
+      "Catalog already ties pressure to stronger low-light and night feeding in clear water. This is a cover/light shift, not a catch-probability claim.",
+    predatorAvoidance:
+      "Undercut banks, wood, depth, and darkness. More cover-dependent than rainbow.",
+    coverUse:
+      "Undercut banks, submerged wood, deep pools, seams, and current breaks.",
+    openWaterBehavior:
+      "Lake fish use weed edges, drop-offs, inlets, wood, and thermocline edges rather than a river undercut. They still are not pelagic schoolers.",
+    spawningBehavior:
+      "Fall spawner as days shorten and temperature drops. Fish move onto gravel; spawning substrate and any pre-spawn holding water are excluded from target guidance.",
+    sources: [
+      { label: "USGS / state brown trout habitat notes", class: "agency" },
+      { label: "Elliott thermal biology of brown trout", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "salvelinus_fontinalis",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Juveniles often share small pockets. Adults may feed near one another in tiny water without being a pelagic school.",
+      note: "A small-water char. Competitive displacement by brown trout is a documented conservation/ecology fact, not a presentation rule.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "drift_feeding"],
+      note: "Aquatic insects, terrestrials, and crustaceans; small fish where gape allows. Do not infer a current hatch from that capacity.",
+    },
+    territoriality:
+      "Holds pockets and cover in small water rather than a single large-river hole.",
+    dielTendency: {
+      class: "diurnal",
+      note: "Uses shade and broken water; less nocturnal than brown trout.",
+    },
+    seasonalActivity:
+      "Fall spawning over groundwater-influenced gravel is conservation context. Summer warm lowland water is often lethal — presence does not imply a workable day.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 46–56°F. Cold edge near 38°F; warm edge near 68°F. Stenothermal relative to brown trout.",
+    currentFacing:
+      "Avoids sustained high velocity. Uses pockets, undercuts, side channels, and wood in small water.",
+    depthMovement:
+      "Often shallow relative to other trout when cover is present.",
+    predatorAvoidance:
+      "Shade, broken water, undercuts, and wood. Small streams provide cover by structure, not depth.",
+    coverUse:
+      "Undercut banks, deep pockets, seams, side channels, and submerged wood.",
+    openWaterBehavior:
+      "Pond and high-lake fish use inlets, weed edges, wood, and drop-offs. They are not lake-trout pelagic char.",
+    spawningBehavior:
+      "Fall spawner over groundwater-influenced gravel. USFWS describes redd digging and male courtship. Redds and spawning gravel are excluded from target guidance.",
+    sources: [
+      { label: "U.S. Fish and Wildlife Service brook trout species profile", class: "agency" },
+      { label: "Raleigh habitat suitability (brook trout)", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "salvelinus_namaycush",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Juveniles may use shallower rocky or shoal habitat. Adults are typically scattered pelagic or basin fish, not a tight bait-chasing school like white bass.",
+      note: "A deep-water char. Great Lakes pelagic vs inland natural-lake calendars are RPC overlays and must be declared.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "opportunistic"],
+      note: "Michigan DNR: adults feed primarily on other fish — native ciscoes and sculpin, and where available alewives, smelt, gobies, plus crustaceans and insects. That is diet capacity, not a current forage event.",
+    },
+    territoriality:
+      "Not a hole-bound stream trout. Position follows temperature, oxygen, forage, and basin structure.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Low light and depth. Bright midday summer often pushes fish down. Night and low light can allow shallower movement without proving a surface feed.",
+    },
+    seasonalActivity:
+      "Fall spawning on rocky reefs is conservation context — fish leave the depths, and that substrate is not a target class. Summer is an oxythermal squeeze.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 42–52°F. Warm edge near 60°F. Summer surface presence is usually a cold-water exception, not a default pattern.",
+    currentFacing:
+      "Stillwater. Uses points, humps, drop-offs, and basin edges, not river current.",
+    depthMovement:
+      "Deep and pelagic in summer; shallower in spring/fall and at night.",
+    predatorAvoidance:
+      "Depth and low light. Bright summer midday is a down-move, not a cover-wood problem.",
+    coverUse:
+      "Thermocline edge, basin, submerged humps, drop-offs, rocky shoreline, and suspended open water — structure as depth and forage, not stream wood.",
+    openWaterBehavior:
+      "Default adult mode is pelagic or basin-oriented. Inland vs Great Lakes pelagic detail is RPC.",
+    spawningBehavior:
+      "Fall spawner on rocky reefs as fish leave summer depth. Spawning substrate is excluded from target guidance. Do not name reefs or concentrations.",
+    sources: [
+      { label: "Michigan DNR lake trout species account", class: "agency" },
+      { label: "Great Lakes / provincial lake trout assessments", class: "agency" },
+      { label: "Martin & Olver lake trout biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "species-specific diel vertical-migration amplitudes by lake"],
+  },
+  {
+    speciesId: "oncorhynchus_mykiss_steelhead",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Juveniles rear in natal streams like rainbow parr. Returning adults use travel lanes and holding lies, not a feeding school.",
+      note: "Adult steelhead are migratory trout in current. They are not inland rainbows that happen to be large.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "drift_feeding"],
+      note: "Catalog exception: this record does not imply a hatch match; many winter fish are not feeding in the trout sense. Eggs, insects, and small fish are capacity, not a declared event.",
+    },
+    territoriality:
+      "Holds travel-adjacent lies rather than a defended inland-rainbow feeding station.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Low light and colored water increase movement. Bright, low, clear water often holds them tight to cover and depth.",
+    },
+    seasonalActivity:
+      "Winter-run and summer-run stocks differ and must not be collapsed. Spawning overlap is conservation context. Listed Pacific DPSs require current NOAA and state rules.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 42–55°F. Cold edge near 36°F; warm edge near 65°F. Summer low flow and heat are invalidators, not a shallow feeding cue.",
+    currentFacing:
+      "Travel lanes and holding lies adjacent to strong current, not the fastest core.",
+    depthMovement:
+      "Often near bottom in winter; higher in the column as water warms within band.",
+    flowChangeResponse:
+      "Flow pulses can move fish. That is migration/holding mechanics, not a named bottleneck.",
+    clarityResponse:
+      "Colored water can increase movement. Bright low clear water tightens lies.",
+    predatorAvoidance:
+      "Depth, current, and broken water. Bright low water is a hold-tight problem.",
+    coverUse:
+      "Runs, seams, tailwater, current breaks, pool heads, deep pools, and boulder pockets.",
+    openWaterBehavior:
+      "This catalog record is flowing water only. Stillwater steelhead is a fail-closed mismatch, not a lake-rainbow substitute.",
+    spawningBehavior:
+      "NOAA: hatch in gravel-bottomed, fast-flowing, well-oxygenated rivers; return to freshwater to spawn; may spawn more than once. Winter and summer-run timing must not be collapsed. Spawning gravel is excluded from target guidance. Listed DPSs are regulatory invalidators, never target layers.",
+    sources: [
+      { label: "NOAA Fisheries steelhead species profile", class: "agency" },
+      { label: "Withler / Quinn anadromous Oncorhynchus reviews", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "stock-specific winter vs summer run calendars as a structured overlay"],
+  },
 ];

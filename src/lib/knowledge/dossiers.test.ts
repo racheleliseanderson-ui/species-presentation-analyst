@@ -29,6 +29,9 @@ const LOCATION = /exact spawning|staging location|migration bottleneck|hotspot/i
 
 const DISTINCTION_GROUPS: Record<string, string[]> = {
   trout: ["oncorhynchus_mykiss", "oncorhynchus_clarkii"],
+  inland_trout: ["oncorhynchus_mykiss", "salmo_trutta", "salvelinus_fontinalis"],
+  anadromous_rainbow: ["oncorhynchus_mykiss", "oncorhynchus_mykiss_steelhead"],
+  char_lakers: ["salvelinus_fontinalis", "salvelinus_namaycush"],
   nerka: ["oncorhynchus_nerka_kokanee", "oncorhynchus_nerka_anadromous"],
   black_bass: ["micropterus_nigricans", "micropterus_dolomieu", "micropterus_punctulatus"],
   morone: [
@@ -214,6 +217,59 @@ test("carp, bigmouth buffalo, and smallmouth buffalo keep distinct feeding ident
   assert.ok(bigmouth.primaryForage.includes("zooplankton"));
   assert.equal(smallmouth.feedingZone, "benthic");
   assert.ok(smallmouth.primaryForage.includes("mollusks"));
+});
+
+test("wave 02a inland trout use agency tail, vermiculation, and halo characters", () => {
+  const brown = identificationDossierFor("salmo_trutta");
+  const brook = identificationDossierFor("salvelinus_fontinalis");
+  const laker = identificationDossierFor("salvelinus_namaycush");
+  assert.ok(brown && brook && laker);
+  assert.match(brown.identificationTraits.join(" "), /unspotted|plain tail/i);
+  assert.match(brook.identificationTraits.join(" "), /vermiculation/i);
+  assert.match(brook.identificationTraits.join(" "), /white/i);
+  assert.match(laker.identificationTraits.join(" "), /forked/i);
+  assert.match(laker.identificationTraits.join(" "), /light spots/i);
+  assert.ok(brown.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss"));
+  assert.ok(brook.similarSpecies.some((item) => item.speciesId === "salmo_trutta"));
+  assert.ok(laker.similarSpecies.some((item) => item.speciesId === "salvelinus_fontinalis"));
+});
+
+test("steelhead stays a separate anadromous record from inland rainbow", () => {
+  const matches = searchSpecies("steelhead").map((species) => species.id);
+  assert.ok(matches.includes("oncorhynchus_mykiss_steelhead"));
+  assert.ok(!matches.includes("oncorhynchus_mykiss"));
+
+  const steelhead = identificationDossierFor("oncorhynchus_mykiss_steelhead");
+  const rainbow = identificationDossierFor("oncorhynchus_mykiss");
+  assert.ok(steelhead && rainbow);
+  assert.ok(steelhead.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss"));
+  assert.ok(rainbow.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss_steelhead"));
+  assert.match(steelhead.identificationTraits.join(" "), /anadromous/i);
+  assert.match(steelhead.identificationTraits.join(" "), /winter-run|summer-run/i);
+
+  const steelheadDiet = dietDossierFor("oncorhynchus_mykiss_steelhead");
+  assert.ok(steelheadDiet);
+  assert.match(steelheadDiet.primaryNote, /not feeding in the trout sense/i);
+  assert.ok(steelheadDiet.primaryForage.includes("eggs"));
+  assert.ok(!steelheadDiet.primaryForage.includes("zooplankton"));
+
+  const calendar = seasonalCalendarDossierFor("oncorhynchus_mykiss_steelhead");
+  assert.ok(calendar);
+  assert.equal(SPECIES_BY_ID.oncorhynchus_mykiss_steelhead.stillPresentations.length, 0);
+  assert.match(calendar.overview, /flowing-water only|must not be collapsed/i);
+});
+
+test("lake trout diet is adult piscivory and brook trout stays insect-weighted", () => {
+  const laker = dietDossierFor("salvelinus_namaycush");
+  const brook = dietDossierFor("salvelinus_fontinalis");
+  const brown = dietDossierFor("salmo_trutta");
+  assert.ok(laker && brook && brown);
+  assert.equal(laker.feedingZone, "pelagic");
+  assert.ok(laker.primaryForage.includes("larger_prey_fish"));
+  assert.match(laker.primaryNote, /cisco/i);
+  assert.ok(brook.primaryForage.includes("aquatic_insects"));
+  assert.ok(!brook.primaryForage.includes("larger_prey_fish"));
+  assert.ok(brown.primaryForage.includes("larger_prey_fish"));
 });
 
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {

@@ -21,12 +21,12 @@ The profile contract is intentionally broader than the presentation engine. It a
 
 | Layer | Current status | Already structured | Important gaps |
 | --- | --- | --- | --- |
-| Identification | Reviewed for 26 high-confusion species; partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 49 species; some subspecies/strain tables |
+| Identification | Reviewed for 30 species (26 lookalikes + wave 02a trout); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 45 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
-| Behavior | Reviewed for 26 high-confusion species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 49 species; angling-pressure and frontal evidence still sparse |
-| Diet | Reviewed for 26 high-confusion species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 49 species; prey-size tables by waterbody |
+| Behavior | Reviewed for 30 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 45 species; angling-pressure and frontal evidence still sparse |
+| Diet | Reviewed for 30 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 45 species; prey-size tables by waterbody |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
-| Seasonal calendar | Reviewed for 26 high-confusion species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 49 species; month-by-month location/behavior calendars |
+| Seasonal calendar | Reviewed for 30 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 45 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
 | Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
@@ -50,6 +50,17 @@ The first dossier wave covers the lookalike groups that most often collapse in t
 - brown vs black vs yellow bullhead
 
 Characters come from agency, museum, and peer-reviewed keys (TPWD, USFWS, NOAA Fisheries, Minnesota DNR, North Dakota Game and Fish, Florida Museum, FWC, USGS). Generative visual identification is not used as authority. Remaining catalog species keep visible identification and behavior gaps.
+
+## AFP wave 02a — high-use trout
+
+The usefulness pass starts with the trout people actually open:
+
+- brown trout
+- brook trout
+- lake trout
+- steelhead (kept separate from inland rainbow)
+
+Agency keys: unspotted caudal and haloed red spots (brown); vermiculations and white-then-black fin edges (brook, USFWS/CDFW); deeply forked tail and light-on-dark spotting (lake trout, Michigan DNR); anadromy vs residency (steelhead, NOAA/USFWS). Winter-run and summer-run steelhead are not collapsed. Many winter steelhead are not treated as feeding inland rainbows. Lake trout adult piscivory (cisco, sculpin, and substitutions) stays distinct from brook insectivory.
 
 ## AFP-DI-1.0 / AFP-SC-1.0 wave 01
 
@@ -90,11 +101,11 @@ RPC guardrails remain unchanged:
 
 The next data work should not be another flat species expansion. It should fill the profile gaps in an order that improves field decisions without encouraging false precision:
 
-1. Identification dossiers: remaining 49 species after wave 01.
-2. Behavior dossiers: remaining 49 species; angling-pressure and frontal evidence still sparse.
-3. Diet calendars: remaining 49 species; waterbody-specific prey-size tables.
+1. Identification dossiers: remaining 45 species after waves 01 and 02a; next high-use set is walleye/sauger/pike/muskie/perch, then panfish and catfish.
+2. Behavior dossiers: remaining 45 species; angling-pressure and frontal evidence still sparse.
+3. Diet calendars: remaining 45 species; waterbody-specific prey-size tables.
 4. Species-specific methods reference: equipment ranges, hook/rig families, retrieve mechanics, linked to Tackle Link and Knot Analyst rather than duplicating those engines.
-5. Seasonal calendars: remaining 49 species and population-archetype calendars, with spawning aggregations excluded from targeting guidance.
+5. Seasonal calendars: remaining 45 species and population-archetype calendars, with spawning aggregations excluded from targeting guidance.
 6. Fight characteristics: descriptive reference only, not a quality score.
 7. Food value: table/cooking information kept separate from live contaminant advisories.
 8. Live regulation/consumption connectors: jurisdiction and waterbody-aware sources with timestamps; never freeze changing legal limits into the static species catalog.
