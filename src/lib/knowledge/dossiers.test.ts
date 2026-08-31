@@ -59,6 +59,10 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
     "lepomis_cyanellus",
   ],
   rock_bass_smallmouth: ["ambloplites_rupestris", "micropterus_dolomieu"],
+  longear_redbreast: ["lepomis_auritus", "lepomis_megalotis"],
+  longear_pumpkinseed: ["lepomis_megalotis", "lepomis_gibbosus"],
+  warmouth_lookalikes: ["lepomis_gulosus", "lepomis_cyanellus", "ambloplites_rupestris"],
+  flier_crappie: ["centrarchus_macropterus", "pomoxis_spp"],
 };
 
 function normalize(value: string): string {
@@ -156,7 +160,7 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 33);
+  assert.equal(uncovered.length, 29);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -382,6 +386,40 @@ test("wave 02c panfish use agency ear-flap, mouth, spine, and shellcracker chara
   assert.ok(redearDiet.primaryForage.includes("mollusks"));
   assert.ok(greenDiet.primaryForage.includes("small_forage_fish"));
   assert.equal(behaviorDossierFor("pomoxis_spp")?.social.pattern, "schooling");
+});
+
+test("wave 02d remaining sunfish use agency ear-flap, tongue-teeth, and flier-spine characters", () => {
+  const redbreast = identificationDossierFor("lepomis_auritus");
+  const warmouth = identificationDossierFor("lepomis_gulosus");
+  const longear = identificationDossierFor("lepomis_megalotis");
+  const flier = identificationDossierFor("centrarchus_macropterus");
+  assert.ok(redbreast && warmouth && longear && flier);
+
+  assert.match(redbreast.identificationTraits.join(" "), /entirely black|no wider than the eye/i);
+  assert.match(longear.identificationTraits.join(" "), /white/i);
+  assert.match(longear.identificationTraits.join(" "), /rounded/i);
+  assert.match(warmouth.identificationTraits.join(" "), /tongue/i);
+  assert.match(warmouth.identificationTraits.join(" "), /three|3/i);
+  assert.match(flier.identificationTraits.join(" "), /teardrop/i);
+  assert.match(flier.identificationTraits.join(" "), /11|thirteen|dorsal/i);
+
+  assert.ok(redbreast.similarSpecies.some((item) => item.speciesId === "lepomis_megalotis"));
+  assert.ok(longear.similarSpecies.some((item) => item.speciesId === "lepomis_auritus"));
+  assert.ok(warmouth.similarSpecies.some((item) => item.speciesId === "ambloplites_rupestris"));
+  assert.ok(flier.similarSpecies.some((item) => item.speciesId === "pomoxis_spp"));
+
+  const redbreastDiet = dietDossierFor("lepomis_auritus");
+  const warmouthDiet = dietDossierFor("lepomis_gulosus");
+  const longearDiet = dietDossierFor("lepomis_megalotis");
+  const flierDiet = dietDossierFor("centrarchus_macropterus");
+  assert.ok(redbreastDiet && warmouthDiet && longearDiet && flierDiet);
+  assert.ok(redbreastDiet.primaryForage.includes("mollusks"));
+  assert.ok(!longearDiet.primaryForage.includes("mollusks"));
+  assert.ok(warmouthDiet.primaryForage.includes("small_forage_fish"));
+  assert.ok(!warmouthDiet.primaryForage.includes("zooplankton"));
+  assert.ok(flierDiet.primaryForage.includes("aquatic_insects"));
+  assert.equal(behaviorDossierFor("lepomis_gulosus")?.social.pattern, "solitary");
+  assert.equal(behaviorDossierFor("centrarchus_macropterus")?.social.pattern, "loose_aggregation");
 });
 
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {

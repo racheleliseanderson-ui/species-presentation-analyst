@@ -1726,4 +1726,177 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
   },
+  {
+    speciesId: "lepomis_auritus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Adults use pools, current margins, wood, and rocky or sandy cover. They overlap other Lepomis without sharing bluegill’s still-water default.",
+      note: "Catalog exception: more comfortable in moving water than bluegill. South Carolina DNR nests may be solitary or in groups of more than 80; colonies are never a targeting recommendation.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "benthic_feeding"],
+      note: "South Carolina DNR: aquatic and terrestrial insects, crayfish, mollusks, and other fish. North Carolina Wildlife: bottom-dwelling insect larvae, snails, clams, shrimp, crayfish, and small fish. Virginia DWR: opportunistic on what is seasonally available. Capacity is not a current hatch.",
+    },
+    territoriality:
+      "Pools, current breaks, wood, and rocky or sandy margins rather than a fast core. Nesting males guard a saucer.",
+    dielTendency: {
+      class: "diurnal",
+      note: "Catalog light response: daylight sight feeder, with shade and broken light improving shallow cover use.",
+    },
+    seasonalActivity:
+      "South Carolina DNR: spawn late May through July at about 65–75°F. Virginia DWR: May through July. That is conservation context. Stream pools remain usable later than a still-water bluegill pond.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–80°F. Cold edge near 50°F; warm edge near 88°F. Warm river and creek water is the default, not a trout thermal story.",
+    currentFacing:
+      "Virginia DWR: can inhabit faster flowing waters than many other sunfish species. Still favors pools, current margins, and cover over the fastest lane.",
+    depthMovement:
+      "Shallow to mid-depth around rock, wood, and vegetation; deeper when bright, cold, or pressured.",
+    predatorAvoidance:
+      "Wood, boulders, undercut margins, and shade. Bright open sand without cover is a poor default.",
+    coverUse:
+      "Pool tails, runs, current breaks, boulder pockets, submerged wood, rocky shoreline, weed edges, and dock shade.",
+    openWaterBehavior:
+      "Not a pelagic schooler. Open water is a short intercept off cover.",
+    spawningBehavior:
+      "South Carolina DNR: males construct large saucer-shaped nests typically in shallow water on sand or gravel; nests may be solitary or built in groups of more than 80. Males guard. Colonies are excluded from target guidance.",
+    sources: [
+      { label: "South Carolina DNR redbreast sunfish account", class: "agency" },
+      { label: "North Carolina Wildlife Resources Commission redbreast sunfish profile", class: "agency" },
+      { label: "Virginia DWR redbreast sunfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "lepomis_gulosus",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Virginia DWR: often solitary, preferring to isolate in thick submerged vegetative cover near hard structure or undercut banks. Juveniles may share cover.",
+      note: "Texas Parks and Wildlife: quite secretive. Seek cover in rocky banks, stumps or weeds. Catalog exception: warmouth and rock bass are distinct despite overlapping nicknames such as goggle-eye. Texas Parks and Wildlife: hybridization with bluegill and green sunfish is documented; a hybrid should not silently inherit this record.",
+    },
+    feedingStrategy: {
+      modes: ["ambush", "opportunistic"],
+      note: "Texas Parks and Wildlife: sight feeders. FWC: crayfish, shrimp, insects, and small fishes make up the bulk of the diet. Adults also take mollusks (Texas Parks and Wildlife). Capacity is not a current crayfish event.",
+    },
+    territoriality:
+      "Stumps, wood, vegetation, and quiet water. FWC: solitary nesters that prefer to nest adjacent to a submerged object. Nesting males aggressively defend eggs and fry (Texas Parks and Wildlife).",
+    dielTendency: {
+      class: "diurnal",
+      note: "FWC: most feeding is done in the morning; the account describes little night feeding. Shade and cover remain useful through the day.",
+    },
+    seasonalActivity:
+      "Texas Parks and Wildlife: spawn in the spring when water reaches about 71°F and continuing through the summer. FWC: often more than once a year, usually between April and August. Conservation context. Quiet cover remains the job.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 70–82°F. Cold edge near 52°F; warm edge near 90°F. Texas Parks and Wildlife: can survive in polluted, low-oxygenated waters where other sunfish cannot. That is tolerance, not a targeting cue.",
+    currentFacing:
+      "Quiet or slow water. Lakes, ponds, swamps, and quiet stream areas with muddy bottoms and vegetation (Texas Parks and Wildlife). Not a current-core fish.",
+    depthMovement:
+      "Usually shallow to mid-depth tight to cover. FWC: nests over a wide range of water depths; that is spawning biology, not a depth rule.",
+    clarityResponse:
+      "FWC: more tolerance for muddy water than most species. Murk is not a reason to import walleye optics.",
+    predatorAvoidance:
+      "Stumps, weeds, undercut banks, and shade. Open bright flats are a poor default.",
+    coverUse:
+      "Wood, weed edges, inside weedlines, shallow flats, dock shade, eddies, and side channels.",
+    openWaterBehavior:
+      "Not an open-water sunfish.",
+    spawningBehavior:
+      "Texas Parks and Wildlife: males construct a disc-shaped nest by fanning silt and debris; after the female deposits eggs the male fertilizes and aggressively defends nest, eggs, and fry. FWC: solitary nesters adjacent to a submerged object. Nests are excluded from target guidance.",
+    sources: [
+      { label: "Texas Parks and Wildlife warmouth account", class: "agency" },
+      { label: "Florida Fish and Wildlife Conservation Commission warmouth profile", class: "agency" },
+      { label: "Virginia DWR warmouth account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "lepomis_megalotis",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Adults use clear stream pools, inlets, and overflow water adjacent to channels. They overlap other Lepomis without inheriting a bluegill pond default.",
+      note: "Missouri DNR: nests in colonies, often so close that rims nearly touch. Colonial nests are never a targeting recommendation. Catalog exception: more stream-associated than bluegill but still avoids the fastest current core.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "benthic_feeding"],
+      note: "Missouri DNR: carnivorous, feeding on insects, small crustaceans, and some small fish. Illinois DNR: follows turtles and suckers as they feed on the bottom, eating organisms dislodged from the substrate. That is a feeding mechanic, not a current event and not a recommendation to work nesting colonies of other sunfish.",
+    },
+    territoriality:
+      "Pools, inlets, and protected edges. Nesting males remain with the nest for more than two weeks (Missouri DNR).",
+    dielTendency: {
+      class: "diurnal",
+      note: "Missouri DNR: most active in daytime. Clear water and structure support visual insect and crustacean feeding.",
+    },
+    seasonalActivity:
+      "Missouri DNR: nests in colonies from mid-May to early or mid-August. Illinois DNR: spawns May through August. Conservation context. Summer remains a clear-stream pool problem.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–80°F. Cold edge near 50°F; warm edge near 90°F. Clear permanent-flow water is the default, not a weedy bluegill pond.",
+    currentFacing:
+      "Missouri DNR: avoids strong currents. Occurs in reservoirs, ponds, and in pools, inlets, and overflow waters adjacent to stream channels. Favors clear, permanent-flowing streams with sandy or rocky bottoms and aquatic vegetation.",
+    depthMovement:
+      "Primarily shallow-to-mid littoral and pool water around rock, sand, vegetation, and current relief.",
+    predatorAvoidance:
+      "Pools, vegetation, and current relief. The fastest open lane is a poor default.",
+    coverUse:
+      "Eddy, side channel, current break, pool tail, submerged wood, weed edge, shallow flat, rocky shoreline, and inlets.",
+    openWaterBehavior:
+      "Not a pelagic schooler.",
+    spawningBehavior:
+      "Missouri DNR: evenly rounded nests nearly always fanned over small chert gravel; rims often nearly touch; the male stays with the nest for more than two weeks until fry have hatched and dispersed. Colonies are excluded from target guidance.",
+    sources: [
+      { label: "Missouri Department of Conservation longear sunfish field guide", class: "agency" },
+      { label: "Illinois Department of Natural Resources longear sunfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "centrarchus_macropterus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Adults use vegetated, tannic or clear backwater rather than a current core. They can overlap crappie cover without sharing Pomoxis schooling language.",
+      note: "Catalog exception: habitat is low-gradient backwater; do not apply generic river-current sunfish mechanics simply because the water is technically flowing. South Carolina DNR nests are often in groups; grouped nests are never a targeting recommendation.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic"],
+      note: "South Carolina DNR: small aquatic insects and small fishes. Illinois DNR: insects, fishes, and crustaceans. Catalog also lists mollusks, worms, and zooplankton as capacity. Observed forage still outranks an assumed single prey class.",
+    },
+    territoriality:
+      "Vegetation, wood, and protected backwater. Nesting males build and defend nests (South Carolina DNR).",
+    dielTendency: {
+      class: "diurnal",
+      note: "Cover and tannic water reduce high-sun exposure; insect and invertebrate feeding remains plausible throughout daylight in protected habitat.",
+    },
+    seasonalActivity:
+      "South Carolina DNR: spawning begins earlier than most sunfish, around March to May at about 55–65°F. Illinois DNR: spawns in April. Conservation context. Summer remains a vegetated backwater problem, not a river-current sunfish problem.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 62–76°F. Cold edge near 46°F; warm edge near 86°F. Cooler and earlier than most Lepomis spawn calendars.",
+    currentFacing:
+      "Strongest fit is slack to very slow, vegetated backwater. South Carolina DNR: swamps, creeks, ponds, backwaters, sloughs, and low-flowing streams. Not a sustained current fish.",
+    depthMovement:
+      "Usually shallow-to-mid around vegetation, wood, and protected backwater structure.",
+    predatorAvoidance:
+      "Weeds, wood, and tannic cover. Bright open water is a poor default.",
+    coverUse:
+      "Weed edges, inside weedlines, wood, shallow flats, inlets, dock shade, eddies, side channels, and deep pools as slack, not as current.",
+    openWaterBehavior:
+      "Not a pelagic schooler and not a crappie basin fish.",
+    spawningBehavior:
+      "South Carolina DNR: males build and defend nests which are often in groups; females deposit 20,000–35,000 eggs. Illinois DNR: male fans a nest. Grouped nests are excluded from target guidance.",
+    sources: [
+      { label: "South Carolina DNR flier account", class: "agency" },
+      { label: "Illinois Department of Natural Resources flier account", class: "agency" },
+      { label: "Georgia DNR freshwater fish identification (sluggish lowland habitat)", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
 ];

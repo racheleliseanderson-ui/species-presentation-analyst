@@ -1731,4 +1731,185 @@ export const SEASONAL_CALENDAR_DOSSIERS: SeasonalCalendarDossier[] = [
     ...R,
     gaps: [MONTH_GAP, POP_GAP],
   },
+  {
+    speciesId: "lepomis_auritus",
+    status: "reviewed",
+    overview:
+      "Redbreast calendars are pool-and-current-margin calendars. They use moving water more readily than bluegill. Colonial or grouped nests are conservation context and are never a targeting recommendation. They are not longear and they are not a still-water bluegill.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools, wood, and remaining current breaks in the usable band.",
+        feedingEmphasis: "Slow intercept of remaining benthic insects and crustaceans.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension. Flowing water: dead drift and stationary bait.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Pool tails, current breaks, wood, and rocky or sandy margins as water warms into the 60s.",
+        conservationNote: "South Carolina DNR: spawn late May through July at about 65–75°F; nests may be solitary or in groups of more than 80. Colonies are excluded from target guidance.",
+        presentationImplication: "Drop presentation, pulse / jig, and dead drift along cover. Stationary bait in slack.",
+        invalidators: ["using grouped nests as holding water"],
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Pools, current margins, wood, and rocky shoreline. Nesting overlap continues.",
+        conservationNote: "Virginia DWR: spawn between May and July; males guard. Guarded nests remain caution.",
+        presentationImplication: "Drop presentation, slow drag, and pulse / jig. Flowing water: dead drift.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Pool tails, runs as margins, wood, rocky shoreline, and weed edges — as cover, not as a bluegill pond flat.",
+        thermalContext: "Preferred 68–80°F. Virginia DWR: can inhabit faster water than many sunfish, still off the fastest lane.",
+        lightSensitivity: "Daylight sight feeder; shade and broken light improve shallow cover use.",
+        presentationImplication: "Drop presentation and slow drag. Surface retrieve only when terrestrials are observed, not assumed. Flowing water: dead drift and pulse / jig.",
+        invalidators: ["importing a still-water bluegill default into a river pool", "collapsing redbreast into longear"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Pools, wood, and remaining current breaks as water cools.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "South Carolina DNR redbreast sunfish account", class: "agency" },
+      { label: "Virginia DWR redbreast sunfish account", class: "agency" },
+      { label: "North Carolina Wildlife Resources Commission redbreast sunfish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepomis_gulosus",
+    status: "reviewed",
+    overview:
+      "Warmouth calendars are stump-and-quiet-cover calendars. They are solitary, secretive, and more mud-and-weed than rock bass. Shared goggle-eye nicknames do not collapse the two. Nesting is conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Wood, deep cover, and remaining weeds in the usable band.",
+        feedingEmphasis: "Slow intercept of remaining insects, crayfish, and small fish in cover.",
+        presentationImplication: "Drop presentation, slow drag, and stop-and-go. Flowing slack: stationary bait.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Wood, weed edges, stumps, and quiet stream margins as water warms toward 71°F.",
+        conservationNote: "Texas Parks and Wildlife: spawn when water reaches about 71°F and continuing through summer. FWC: solitary nesters adjacent to a submerged object. Nests are excluded from target guidance.",
+        presentationImplication: "Drop presentation, pulse / jig, and stop-and-go. Flowing water: stationary bait and cross-current retrieve along cover.",
+        invalidators: ["using guarded nests as holding water"],
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Stumps, weeds, wood, and undercut margins. Nesting overlap continues.",
+        conservationNote: "FWC: often more than once a year, usually between April and August. Nesting remains caution.",
+        presentationImplication: "Drop presentation, stop-and-go, and pulse / jig.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Wood, inside weedlines, stumps, and quiet stream margins.",
+        thermalContext: "Preferred 70–82°F. FWC: more tolerance for muddy water than most species. FWC: most feeding in the morning.",
+        coverUse: "Structure first. Open flats are a mismatch.",
+        presentationImplication: "Drop presentation, stop-and-go, and slow drag. Surface retrieve along cover when terrestrials are observed. Flowing water: pulse / jig and cross-current retrieve.",
+        invalidators: ["treating warmouth as rock bass", "importing a round-pond bluegill default into stump cover"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Wood, weeds, and remaining cover as water cools.",
+        presentationImplication: "Drop presentation, stop-and-go, and slow drag.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife warmouth account", class: "agency" },
+      { label: "Florida Fish and Wildlife Conservation Commission warmouth profile", class: "agency" },
+      { label: "Virginia DWR warmouth account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepomis_megalotis",
+    status: "reviewed",
+    overview:
+      "Longear calendars are clear-stream pool calendars. They are more stream-associated than bluegill but still avoid the fastest current core. Colonial nests from mid-May into August are conservation context. They are not redbreast.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools and remaining current relief in the usable band.",
+        feedingEmphasis: "Slow intercept of remaining insects and crustaceans.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension. Flowing water: dead drift and stationary bait.",
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Clear stream pools, inlets, overflow water, and vegetated rocky or sandy margins.",
+        conservationNote: "Missouri DNR: nests in colonies from mid-May to early or mid-August; rims often nearly touch. Colonies are excluded from target guidance.",
+        presentationImplication: "Drop presentation, pulse / jig, and dead drift in slack.",
+        invalidators: ["using nesting colonies as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Pools, inlets, overflow water, weed edges, and rocky shoreline adjacent to moving water.",
+        thermalContext: "Preferred 68–80°F. Missouri DNR: most active in daytime. Avoids strong currents.",
+        lightSensitivity: "Clear water increases visual feeding and shade use at high sun.",
+        presentationImplication: "Drop presentation and slow drag. Surface retrieve only when terrestrials are observed. Flowing water: dead drift, pulse / jig, and stationary bait.",
+        invalidators: ["collapsing longear into redbreast", "forcing a still-water bluegill pond default"],
+      },
+      {
+        season: "late_summer",
+        habitatClass: "Pools and vegetated edges. Nesting overlap may continue into August.",
+        conservationNote: "Missouri DNR: male remains with the nest for more than two weeks. Nesting remains caution.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Pools, inlets, and remaining wood as water cools.",
+        presentationImplication: "Drop presentation, slow drag, and dead drift.",
+      },
+    ],
+    sources: [
+      { label: "Missouri Department of Conservation longear sunfish field guide", class: "agency" },
+      { label: "Illinois Department of Natural Resources longear sunfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "centrarchus_macropterus",
+    status: "reviewed",
+    overview:
+      "Flier calendars are vegetated coastal-plain backwater calendars. Spawning starts earlier and cooler than most sunfish. They can share cover language with crappie without sharing Pomoxis schooling or spine counts. Grouped nests are conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Vegetated backwater, wood, and remaining slack in the usable band.",
+        feedingEmphasis: "Slow intercept of remaining insects and small fish.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension. Flowing slack: dead drift and stationary bait.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Weeds, wood, sloughs, and protected backwater as water holds in the mid-50s to mid-60s.",
+        conservationNote: "South Carolina DNR: spawning begins earlier than most sunfish, around March to May at about 55–65°F; nests often in groups. Grouped nests are excluded from target guidance.",
+        presentationImplication: "Drop presentation, pulse / jig, and live / natural bait suspension. Dead drift in slack.",
+        invalidators: ["using grouped nests as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Weed edges, inside weedlines, wood, sloughs, and low-flowing vegetated water.",
+        thermalContext: "Preferred 62–76°F. Slack, tannic or clear backwater — not a river-current sunfish problem.",
+        coverUse: "Vegetation and wood first. Open current is a mismatch.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension. Surface retrieve along cover when terrestrials are observed. Flowing slack: pulse / jig and dead drift.",
+        invalidators: ["treating flier as crappie", "importing a river-current sunfish default into backwater"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Weeds, wood, and remaining backwater as water cools.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "South Carolina DNR flier account", class: "agency" },
+      { label: "Illinois Department of Natural Resources flier account", class: "agency" },
+      { label: "Georgia DNR freshwater fish identification", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
 ];

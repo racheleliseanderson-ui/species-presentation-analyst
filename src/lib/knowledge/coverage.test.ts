@@ -45,7 +45,7 @@ test("landed waves have every required overlay; the next wave does not pretend t
 
   const next = nextSeedWave();
   assert.ok(next);
-  assert.equal(next.id, "02d");
+  assert.equal(next.id, "02e");
   for (const id of next.speciesIds) {
     assert.equal(hasCompleteKnowledgeOverlays(id), false, `${id} is queued as next but already complete`);
   }
@@ -64,15 +64,15 @@ test("conservation-sensitive records are recognition-only, not a targeting calen
 test("live coverage is computed from dossiers and does not invent fight or food", () => {
   const coverage = catalogKnowledgeCoverage();
   assert.equal(coverage.speciesTotal, 75);
-  assert.equal(coverage.completeOverlays, 42);
-  assert.equal(coverage.remainingOverlays, 33);
-  assert.equal(coverage.byOverlay.identification, 42);
-  assert.equal(coverage.byOverlay.behavior, 42);
-  assert.equal(coverage.byOverlay.diet, 42);
-  assert.equal(coverage.byOverlay.seasonal_calendar, 42);
+  assert.equal(coverage.completeOverlays, 46);
+  assert.equal(coverage.remainingOverlays, 29);
+  assert.equal(coverage.byOverlay.identification, 46);
+  assert.equal(coverage.byOverlay.behavior, 46);
+  assert.equal(coverage.byOverlay.diet, 46);
+  assert.equal(coverage.byOverlay.seasonal_calendar, 46);
   assert.equal(coverage.fightReviewed, 0);
   assert.equal(coverage.foodReviewed, 0);
-  assert.equal(coverage.nextWave?.id, "02d");
+  assert.equal(coverage.nextWave?.id, "02e");
 });
 
 test("Quick Read starters are species that already have the four knowledge overlays", () => {
@@ -91,8 +91,8 @@ test("seed doctrine keeps later layers deferred and refuses catch-prediction enr
   assert.ok(SEED_DOCTRINE.deferUntilHighUseKnowable.includes("live_regulations"));
   assert.ok(SEED_DOCTRINE.never.some((rule) => /bite score/i.test(rule)));
   assert.equal(KNOWLEDGE_OVERLAYS.length, 4);
-  assert.equal(identificationDossierFor("lepomis_auritus"), null);
-  assert.equal(behaviorDossierFor("lepomis_auritus"), null);
-  assert.equal(dietDossierFor("lepomis_auritus"), null);
-  assert.equal(seasonalCalendarDossierFor("lepomis_auritus"), null);
+  assert.equal(identificationDossierFor("ictalurus_punctatus"), null);
+  assert.equal(behaviorDossierFor("ictalurus_punctatus"), null);
+  assert.equal(dietDossierFor("ictalurus_punctatus"), null);
+  assert.equal(seasonalCalendarDossierFor("ictalurus_punctatus"), null);
 });
