@@ -1551,4 +1551,249 @@ export const DIET_DOSSIERS: DietDossier[] = [
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
   },
+  {
+    speciesId: "pomoxis_spp",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["small_forage_fish", "zooplankton", "aquatic_insects", "crustaceans"],
+    primaryNote:
+      "Minnesota DNR: young eat small aquatic invertebrates; adults can continue on plankton but usually eat a lot of small fish as well. Observed forage still has to be declared.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Zooplankton and remaining invertebrates in deeper timber or basins, with small fish where they occur.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crustaceans, and small fish as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Small forage fish around cover and suspended bait. Zooplankton remains capacity, especially for smaller fish.",
+      },
+      {
+        season: "fall",
+        emphasis: "Small forage fish continue as schools follow bait.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small aquatic invertebrates and zooplankton.",
+      juvenile: "Zooplankton, insects, and crustaceans.",
+      adult: "Usually a lot of small fish, with plankton still possible (Minnesota DNR).",
+    },
+    ontogeneticShift: "Invertebrates and zooplankton to small forage fish.",
+    forageSubstitutions:
+      "Black vs white forage fields in the same lake can differ with depth and clarity. This complex overlay does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Minnesota DNR crappie biology (invertebrates then small fish and plankton)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "lepomis_macrochirus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "zooplankton", "crustaceans", "terrestrial_insects", "worms_annelids"],
+    primaryNote:
+      "Michigan DNR: fry eat zooplankton; larger fish add aquatic insects. Small fish and some plant matter appear in that agency note; small fish are not a catalog forage class on this record. Terrestrials and worms remain capacity. Do not infer a current hatch.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Slow subsurface insects and remaining invertebrates around deeper cover.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects and zooplankton as water warms. Capacity, not a hatch declaration.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, crustaceans, and terrestrials around weeds and docks. Surface foods are capacity only when observed.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and remaining terrestrials along edges.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Zooplankton.",
+      juvenile: "Zooplankton, aquatic insects, and small crustaceans.",
+      adult: "Aquatic insects, crustaceans, terrestrials, and worms. Small fish stay an agency note off this catalog list.",
+    },
+    ontogeneticShift: "Zooplankton to insects and crustaceans. Weaker piscivory than green sunfish or crappie because that class is not on this record.",
+    forageSubstitutions: "Weed ponds substitute insects and terrestrials. Do not invent a hatch from this list.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Michigan DNR bluegill species account (zooplankton then insects)", class: "agency" },
+      { label: "Werner / Mittelbach sunfish foraging ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "lepomis_gibbosus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "mollusks", "crustaceans", "zooplankton", "small_forage_fish"],
+    primaryNote:
+      "Stronger mollusk and benthic-invertebrate component than bluegill, weaker snail specialization than redear. Insects remain central. Capacity is not a current snail event.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Benthic invertebrates and remaining insects around cover.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crustaceans, and mollusks as water warms.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects and mollusks in vegetation. Small fish where gape allows.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and remaining mollusks along edges.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Zooplankton and tiny invertebrates.",
+      juvenile: "Aquatic insects and crustaceans.",
+      adult: "Insects, mollusks, and crustaceans; some small fish.",
+    },
+    ontogeneticShift: "Zooplankton to insects and mollusks.",
+    forageSubstitutions: "Lakes with snails add mollusks; snail-poor ponds stay insect-heavy. Do not import a redear shellcracker diet wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "USGS Nonindigenous Aquatic Species pumpkinseed profile", class: "agency" },
+      { label: "Smithsonian NEMESIS pumpkinseed summary (insects, crustaceans, clams and snails)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "lepomis_microlophus",
+    status: "reviewed",
+    feedingStyle: "specialized",
+    feedingZone: "benthic",
+    primaryForage: ["mollusks", "aquatic_insects", "crustaceans", "worms_annelids"],
+    primaryNote:
+      "Missouri DNR: feeding primarily on snails and other mollusks — the shellcracker name. Insects, crustaceans, and worms remain important where snails are sparse. Zooplankton and small forage fish are not catalog classes on this record.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Remaining benthic invertebrates on the bottom of the usable band.",
+      },
+      {
+        season: "spring",
+        emphasis: "Mollusks and insects as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Snails and other mollusks on vegetation, sand, mud, and shell substrate. Insects where snails are sparse.",
+      },
+      {
+        season: "fall",
+        emphasis: "Mollusks and remaining benthic invertebrates.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Agency pond notes describe zooplankton-scale feeding in fry; zooplankton is not a catalog class here. Insects follow.",
+      juvenile: "Small mollusks and insect larvae.",
+      adult: "Primarily snails and other mollusks; insects and crustaceans remain possible.",
+    },
+    ontogeneticShift: "Insects to primarily mollusks.",
+    forageSubstitutions: "Snail-poor water substitutes insects and crustaceans. That does not turn this record into a bluegill.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Missouri Department of Conservation redear sunfish field guide (snails and other mollusks; shellcracker)", class: "agency" },
+      { label: "NC State Extension redear sunfish pond-management guidance", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "snail-density diet tables by waterbody"],
+  },
+  {
+    speciesId: "lepomis_cyanellus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "terrestrial_insects", "crustaceans", "small_forage_fish", "mollusks"],
+    primaryNote:
+      "Texas Parks and Wildlife: adults feed on insects and small fish. More piscivorous at typical angling size than bluegill. Mollusks and terrestrials remain capacity. Capacity is not a current event.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Insects and remaining small fish in cover.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects and small fish as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, terrestrials, and small forage fish around wood and shade.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and small fish along cover.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Aquatic insects and small crustaceans.",
+      juvenile: "Insects and crustaceans.",
+      adult: "Insects and small forage fish.",
+    },
+    ontogeneticShift: "Insects to mixed insect–fish, stronger piscivory than bluegill at the same length.",
+    forageSubstitutions: "Streams substitute different small fish than ponds. Hybrids should not inherit this list.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Texas Parks and Wildlife green sunfish account (insects and small fish)", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species green sunfish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "ambloplites_rupestris",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["crustaceans", "aquatic_insects", "small_forage_fish", "mollusks"],
+    primaryNote:
+      "Michigan DNR: smaller fish, yellow perch, and minnows, plus insects and crustaceans; equal-opportunity feeders on baitfish, aquatic insects, and crayfish. Crayfish-scale crustaceans are central. This is not a smallmouth diet copy, and it is not a current crayfish event.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Crustaceans and remaining fish around deeper rock and wood.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crayfish, and small fish as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Crayfish and small forage fish around rock. Surface foods are occasional agency notes, not a catalog surface default.",
+      },
+      {
+        season: "fall",
+        emphasis: "Crustaceans and small fish along rocky structure.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Aquatic insects and small crustaceans.",
+      juvenile: "Insects and crayfish-scale crustaceans.",
+      adult: "Crayfish, insects, and small forage fish.",
+    },
+    ontogeneticShift: "Insects to mixed crustacean–fish.",
+    forageSubstitutions: "Rocky rivers substitute crayfish; lakes substitute other small fish. Do not import a smallmouth forage table wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Michigan DNR rock bass species account (fish, insects, crustaceans, crayfish)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
 ];

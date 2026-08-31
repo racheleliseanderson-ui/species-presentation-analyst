@@ -1481,4 +1481,254 @@ export const SEASONAL_CALENDAR_DOSSIERS: SeasonalCalendarDossier[] = [
     ...R,
     gaps: [MONTH_GAP, POP_GAP],
   },
+  {
+    speciesId: "pomoxis_spp",
+    status: "reviewed",
+    overview:
+      "Crappie follow schools, cover, and bait more than a sunfish nest calendar. This record is the black/white complex. Spring colonial nests in wood are conservation context. A school is a moving aggregation, not a named pin.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper timber, basins, and drop-offs in the remaining active band.",
+        depthTendency: "Often deeper than the summer cover default.",
+        feedingEmphasis: "Slow intercept of remaining plankton and small fish.",
+        thermalContext: "Near the 44°F cold edge, activity compresses.",
+        presentationImplication: "Vertical jig, suspend / pause, and slow drag. Live / natural bait suspension where the band is known.",
+        invalidators: ["treating winter as a shallow-weed bluegill problem"],
+      },
+      {
+        season: "spring",
+        habitatClass: "Wood, dock shade, weed edges, and inlets as water holds in the upper 50s to mid-60s.",
+        conservationNote: "Minnesota DNR: spawn in May and June in the mid-60s; males guard nests in colonies. Colonial wood is excluded from target guidance.",
+        presentationImplication: "Drop presentation, suspend / pause, and pulse / jig. Stationary bait in slack.",
+        invalidators: ["using nesting wood as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Wood, dock shade, weed edges, and suspended open water around bait.",
+        depthTendency: "Bright clear days push fish tighter to cover or deeper.",
+        lightSensitivity: "Night, dawn, and dusk feeding windows are optically more plausible. That does not imply a catch.",
+        presentationImplication: "Suspend / pause, drop presentation, and live / natural bait suspension. Vertical jig when fish are marked in the column.",
+        invalidators: ["forcing a bright open-flat default", "collapsing black and white habitat splits into one depth rule"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Wood, drop-offs, and basins as schools follow bait.",
+        forageEmphasis: "Small forage fish. Do not infer a bait event from the calendar.",
+        presentationImplication: "Vertical jig, slow drag, and suspend / pause.",
+      },
+    ],
+    sources: [
+      { label: "Minnesota DNR crappie biology", class: "agency" },
+      { label: "State crappie management summaries", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "black vs white calendars inside the complex"],
+  },
+  {
+    speciesId: "lepomis_macrochirus",
+    status: "reviewed",
+    overview:
+      "Bluegill calendars are vegetated-slack calendars. Colonial summer nests are conservation context and are never a targeting recommendation. They are not crappie and they are not redear.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper weed edges, wood, and dock shade on bright cold days.",
+        feedingEmphasis: "Slow subsurface insects.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension. Flowing slack: dead drift and stationary bait.",
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Weed edges, inside weedlines, and shallow flats as water holds near 65°F.",
+        conservationNote: "Michigan DNR: spawns in the shallows when water reaches about 65°F. Catalog exception: bed targeting of spawning colonies is never a recommendation.",
+        presentationImplication: "Drop presentation and slow drag off the colony, not on it.",
+        invalidators: ["using nesting colonies as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Weed edges, inside weedlines, dock shade, and wood.",
+        thermalContext: "Preferred 68–80°F. Warm edge near 90°F.",
+        lightSensitivity: "Daytime sight feeder; shade in high sun.",
+        presentationImplication: "Drop presentation and slow drag. Surface retrieve only when terrestrials are observed, not assumed. Flowing slack: dead drift.",
+        invalidators: ["forcing a crappie suspend default this record does not have"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Weed edges and remaining docks as water cools.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "Michigan DNR bluegill species account", class: "agency" },
+      { label: "Werner / Mittelbach sunfish foraging ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepomis_gibbosus",
+    status: "reviewed",
+    overview:
+      "Pumpkinseed calendars are vegetated-margin calendars with a stronger benthic/mollusk lean than bluegill. Nesting colonies are conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Remaining weed edges, wood, and dock shade.",
+        feedingEmphasis: "Benthic invertebrates and remaining insects.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension.",
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Weed edges, inside weedlines, and shallow flats as littoral water warms into the upper 60s.",
+        conservationNote: "Colonial or concentrated nesting habitat is excluded from target guidance.",
+        presentationImplication: "Drop presentation and dead drift in slack. Pulse / jig along cover.",
+        invalidators: ["using nesting colonies as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Weed edges, inside weedlines, wood, and shallow flats.",
+        thermalContext: "Preferred 68–78°F.",
+        presentationImplication: "Drop presentation, slow drag, and live / natural bait suspension. Surface retrieve only when terrestrials are observed.",
+        invalidators: ["importing a redear shellcracker bottom default wholesale"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Weed edges and wood as water cools.",
+        presentationImplication: "Drop presentation and slow drag.",
+      },
+    ],
+    sources: [
+      { label: "National Park Service pumpkinseed species account", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species pumpkinseed profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepomis_microlophus",
+    status: "reviewed",
+    overview:
+      "Redear calendars are bottom-and-mollusk calendars, often slightly deeper than bluegill. They are not a surface sunfish. Nesting colonies are conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper weed edges, drop-offs, and remaining bottom cover in the usable band.",
+        feedingEmphasis: "Slow bottom intercept of remaining invertebrates.",
+        presentationImplication: "Bottom contact, slow drag, and drop presentation.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Weed edges, outside weedlines, and shallow flats as water warms toward 70–75°F.",
+        conservationNote: "Spawning commonly in warm shallow water, often somewhat deeper than bluegill nests. Colonies are excluded from target guidance.",
+        presentationImplication: "Slow drag, drop presentation, and bottom-contact drift in protected slack.",
+        invalidators: ["using nesting colonies as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Weed edges, outside weedlines, wood, and drop-offs — as bottom, not as a surface edge.",
+        depthTendency: "Often slightly deeper littoral water than bluegill.",
+        thermalContext: "Preferred 72–81°F. Most active in daylight.",
+        presentationImplication: "Bottom contact, slow drag, drop presentation, and live / natural bait suspension. Pulse / jig on the bottom of protected water.",
+        invalidators: ["forcing a bluegill surface default this record does not have"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Outside weedlines and drop-offs as water cools.",
+        forageEmphasis: "Mollusks and remaining benthic invertebrates. Do not infer a snail event from the calendar.",
+        presentationImplication: "Bottom contact, slow drag, and stationary bait.",
+      },
+    ],
+    sources: [
+      { label: "Missouri Department of Conservation redear sunfish field guide", class: "agency" },
+      { label: "Texas Parks and Wildlife redear sunfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "lepomis_cyanellus",
+    status: "reviewed",
+    overview:
+      "Green sunfish calendars are cover-and-pool calendars. They tolerate streams and turbidity better than most Lepomis. Hybrids do not inherit this record. Nesting colonies are conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Wood, deep pools, and remaining cover in the usable band.",
+        feedingEmphasis: "Insects and remaining small fish in cover.",
+        presentationImplication: "Drop presentation, slow drag, and stop-and-go. Flowing water: stationary bait and dead drift.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Wood, weed edges, riprap, and stream pools as water warms into the upper 60s.",
+        conservationNote: "Nests in shallow colonies on gravel or rock. Colonies are excluded from target guidance.",
+        presentationImplication: "Drop presentation, pulse / jig, and cross-current retrieve along cover.",
+        invalidators: ["using nesting colonies as holding water"],
+      },
+      {
+        season: "summer",
+        habitatClass: "Wood, dock shade, weed edges, riprap, and stream pools.",
+        thermalContext: "Preferred 70–82°F. Tolerates turbidity and silt better than pumpkinseed or redear.",
+        coverUse: "Structure first. Open flats are a mismatch.",
+        presentationImplication: "Drop presentation, stop-and-go, and slow drag. Surface retrieve along cover when terrestrials are observed. Flowing water: dead drift and pulse / jig.",
+        invalidators: ["importing a round-pond bluegill default into a stream pool"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Wood, riprap, and pools as water cools.",
+        presentationImplication: "Drop presentation, stop-and-go, and cross-current retrieve.",
+      },
+    ],
+    sources: [
+      { label: "Texas Parks and Wildlife green sunfish account", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species green sunfish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "ambloplites_rupestris",
+    status: "reviewed",
+    overview:
+      "Rock bass calendars are rock-and-velocity-relief calendars. They coexist with smallmouth without sharing the same prey scale. Nest guarding is conservation context.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools, drop-offs, and remaining rock and wood.",
+        feedingEmphasis: "Slow intercept of crayfish and remaining small fish.",
+        presentationImplication: "Bottom contact, drop presentation, and stop-and-go. Flowing water: bottom-contact drift and stationary bait.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Rocky shoreline, riprap, points, boulder pockets, and pool heads as water warms.",
+        conservationNote: "Michigan DNR: spawn from April to early June; males guard nests. Nests are excluded from target guidance.",
+        presentationImplication: "Cross-current retrieve, pulse / jig, and bottom-contact drift.",
+        invalidators: ["using guarded nests as holding water"],
+      },
+      {
+        season: "early_summer",
+        habitatClass: "Rock, wood, and current breaks. Nesting overlap may continue.",
+        conservationNote: "Early-summer nest guarding remains caution.",
+        presentationImplication: "Bottom contact, horizontal retrieve, and stop-and-go.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Rocky shoreline, riprap, points, wood, and drop-offs.",
+        depthTendency: "Deeper with high sun. Shade and rock remain useful through the day.",
+        thermalContext: "Preferred 68–76°F. Evening and early morning feeding is optically more plausible.",
+        presentationImplication: "Horizontal retrieve, stop-and-go, bottom contact, and drop presentation. Flowing water: pulse / jig and cross-current retrieve.",
+        invalidators: ["treating rock bass as smallmouth", "forcing a bluegill weed-edge default"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Rock, points, and wood as water cools.",
+        presentationImplication: "Bottom contact, horizontal retrieve, and bottom-contact drift.",
+      },
+    ],
+    sources: [
+      { label: "Michigan DNR rock bass species account", class: "agency" },
+      { label: "Illinois Department of Natural Resources rock bass account", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
 ];

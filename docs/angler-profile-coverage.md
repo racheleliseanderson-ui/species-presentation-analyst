@@ -21,12 +21,12 @@ The profile contract is intentionally broader than the presentation engine. It a
 
 | Layer | Current status | Already structured | Important gaps |
 | --- | --- | --- | --- |
-| Identification | Reviewed for 36 species (26 lookalikes + 02a trout + 02b coolwater); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 39 species; some subspecies/strain tables |
+| Identification | Reviewed for 42 species (26 lookalikes + 02a trout + 02b coolwater + 02c panfish); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 33 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
-| Behavior | Reviewed for 36 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 39 species; angling-pressure and frontal evidence still sparse |
-| Diet | Reviewed for 36 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 39 species; prey-size tables by waterbody |
+| Behavior | Reviewed for 42 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 33 species; angling-pressure and frontal evidence still sparse |
+| Diet | Reviewed for 42 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 33 species; prey-size tables by waterbody |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
-| Seasonal calendar | Reviewed for 36 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 39 species; month-by-month location/behavior calendars |
+| Seasonal calendar | Reviewed for 42 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 33 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
 | Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
@@ -71,6 +71,16 @@ The next usefulness pass is the coolwater set people actually search after the o
 - yellow perch kept off both Sander records
 
 Agency keys: white lower tail tip and rear-base dorsal blotch (walleye, Minnesota DNR) vs spotted first dorsal and saddle marks (sauger, Minnesota DNR / Missouri DNR); light spots on dark, full cheek scales, five or fewer pores (pike, Michigan / Iowa DNR) vs dark marks on light, half-scaled cheek, six or more pores (muskellunge); chain pattern and vertical eye-bar (chain pickerel, South Carolina DNR / North Carolina Wildlife); seven bars and no canines (yellow perch, Michigan DNR). Sauger stay more riverine and benthic than walleye. Pickerel stay cover-oriented and are not open-pelagic pike. Yellow perch remain a schooling insect-to-small-fish diet, not a walleye piscivore.
+
+## AFP wave 02c — core panfish
+
+The pile anglers treat as “sunfish” and “crappie”:
+
+- crappie as a black/white complex (Minnesota DNR dorsal-spine split stays inside one record)
+- bluegill vs pumpkinseed vs redear vs green sunfish
+- rock bass kept off smallmouth
+
+Agency keys: black 7–8 dorsal spines vs white 5–6 and bars (crappie, Minnesota DNR); soft-dorsal spot, pointed pectorals, plain black ear flap (bluegill, Michigan DNR); red-orange flap spot and wavy blue cheek lines (pumpkinseed); red/orange flap edge and snail-crushing throat teeth (redear, TPWD / Missouri DNR); large mouth and bass-like body, common hybrids (green sunfish, TPWD); six anal spines and red eyes (rock bass, Michigan DNR). Redear stay a benthic mollusk specialist. Bluegill do not inherit a small-fish forage class. Colonial nests stay conservation context.
 
 ## AFP-DI-1.0 / AFP-SC-1.0 wave 01
 
@@ -120,15 +130,15 @@ Rules:
 - Fight, food value, gear ranges, and live regulations wait until the high-use set is knowable.
 - A wave is `landed` only when tests show every required overlay exists.
 
-Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch).
-Next: wave 02c — crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass.
+Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass).
+Next: wave 02d — redbreast, warmouth, longear, flier.
 
 ## Next research order
 
 The next data work follows `SEED_WAVES`, not a flat 75-species dump:
 
-1. Wave 02c core panfish (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass) — all four overlays together.
-2. Waves 02d–02e remaining sunfish then catfish.
+1. Wave 02d remaining sunfish (redbreast, warmouth, longear, flier) — all four overlays together.
+2. Wave 02e catfish.
 3. Waves 02f–02g remaining salmon and salmonids.
 4. Wave 03 identification-only for fail-closed conservation records.
 5. Wave 04 remaining catalog.

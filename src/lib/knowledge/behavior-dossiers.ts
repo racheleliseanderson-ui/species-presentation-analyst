@@ -1466,4 +1466,264 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
   },
+  {
+    speciesId: "pomoxis_spp",
+    status: "reviewed",
+    social: {
+      pattern: "schooling",
+      byLifeStage:
+        "Minnesota DNR: both species travel open water in schools. A school is a forage-linked, moving aggregation — not a named pin. Catalog exception: a strong year-class can make a water look uniformly sized; that is population structure, not a location.",
+      note: "This record is the black/white complex. Black crappie often use deeper, cooler, clearer water than white crappie in the same system. That split is not a separate catalog identity.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "pursuit"],
+      note: "Minnesota DNR: young eat small aquatic invertebrates; adults can continue on plankton but usually eat a lot of small fish as well. Capacity is not a current forage event.",
+    },
+    territoriality:
+      "Schools more than holds a single lie. Slack and slow water; river fish use backwaters, not the main current.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Minnesota DNR: feeding on similar foods at night, dawn, and dusk. Bright clear days push fish tighter to cover or deeper. That is a light/cover shift, not a catch claim.",
+    },
+    seasonalActivity:
+      "Spring spawning in wood and brush as water holds in the upper 50s to mid-60s is conservation context. Winter often deeper timber or basins. Summer follows bait around cover and shade.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 58–72°F. Cold edge near 44°F; warm edge near 82°F. Black crappie in the complex prefer cooler, clearer water than white crappie.",
+    currentFacing:
+      "Slack. Backwaters, eddies, and side channels — not the current core.",
+    depthMovement:
+      "Suspend around cover and follow bait. Winter often deeper timber or basins. Bright midday summer is a down-move or a tighter-to-wood move.",
+    clarityResponse:
+      "Stain can allow shallower daylight use. Bright clear water increases depth and shade.",
+    predatorAvoidance:
+      "Wood, docks, shade, and depth. Open bright flats are a poor default.",
+    coverUse:
+      "Wood, dock shade, weed edges, drop-offs, basins, inlets, and suspended open water around bait.",
+    openWaterBehavior:
+      "Schools travel open water when following forage. That is still not a white-bass pelagic chase, and it is not a pin.",
+    spawningBehavior:
+      "Minnesota DNR: spawn in May and June in water in the mid-60s, in water up to several feet deep. Males build and guard nests in colonies. Colonial wood and brush are excluded from target guidance.",
+    sources: [
+      { label: "Minnesota DNR crappie biology", class: "agency" },
+      { label: "State crappie management summaries", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "lepomis_macrochirus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Juveniles often share vegetation. Adults feed in loose groups around cover without being a crappie-style open-water school.",
+      note: "Colonial nesting is a reproductive state. Catalog exception: bed targeting of spawning colonies is never a recommendation.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "drift_feeding"],
+      note: "Michigan DNR: fry eat zooplankton; larger fish add aquatic insects and some plant matter. Small fish appear in that agency note but are not a catalog forage class on this record. Terrestrials and worms remain capacity. Do not infer a current hatch.",
+    },
+    territoriality:
+      "Holds vegetated slack rather than a current core. Nesting males defend a saucer; that is spawning biology.",
+    dielTendency: {
+      class: "diurnal",
+      note: "Daytime sight feeder in and around cover; shade in high sun.",
+    },
+    seasonalActivity:
+      "Michigan DNR: spawns in the shallows in late spring or early summer when water reaches about 65°F, and waves can continue through summer. That is conservation context. Winter may use deeper cover on bright days.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–80°F. Cold edge near 52°F; warm edge near 90°F. Warm still water is the default, not a trout thermal story.",
+    currentFacing:
+      "Little current. Vegetated slack, eddies, and side channels.",
+    depthMovement:
+      "Shallow to mid around vegetation; deeper on bright winter days in some lakes.",
+    clarityResponse:
+      "Clear water increases shade and weed use at high sun. Stain can allow more open-edge daylight feeding.",
+    predatorAvoidance:
+      "Weeds, docks, wood, and shade. Open bright shallows without cover are a poor default.",
+    coverUse:
+      "Weed edges, inside weedlines, dock shade, shallow flats, and wood.",
+    openWaterBehavior:
+      "Not a pelagic schooler. Open water is a short intercept off a weed or dock edge.",
+    spawningBehavior:
+      "Colonial nests in shallows through much of summer. Males guard eggs and newly hatched young (Michigan DNR). Spawning colonies are excluded from target guidance.",
+    sources: [
+      { label: "Michigan DNR bluegill species account", class: "agency" },
+      { label: "Werner / Mittelbach sunfish foraging ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "lepomis_gibbosus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Adults use vegetated margins, often overlapping bluegill without sharing the same benthic emphasis.",
+      note: "Catalog exception: pumpkinseed and bluegill frequently overlap, but pumpkinseed generally has a stronger mollusk and benthic-invertebrate component. Do not convert visible nesting colonies into a targeting recommendation.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "benthic_feeding"],
+      note: "Insects, mollusks, crustaceans, zooplankton, and some small fish. Molar-like pharyngeal teeth can crack clam and snail shells (NEMESIS / Jenkins & Burkhead). That is capacity, not a current snail event.",
+    },
+    territoriality:
+      "Protected margins, vegetation, and wood. Nesting males defend a saucer.",
+    dielTendency: {
+      class: "diurnal",
+      note: "Primarily a daylight feeder; shade and broken light concentrate cover use on bright days.",
+    },
+    seasonalActivity:
+      "Nesting as littoral water warms into the upper 60s and 70s. Conservation context. Winter remains a vegetated-edge problem, not a basin-crappie problem.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–78°F. Cold edge near 50°F; warm edge near 86°F.",
+    currentFacing:
+      "Absent to sluggish current. Protected margins rather than a fast core.",
+    depthMovement:
+      "Mostly shallow to mid-depth around vegetation; deeper edges under bright light or seasonal cooling.",
+    predatorAvoidance:
+      "Weeds, wood, and dock shade.",
+    coverUse:
+      "Weed edges, inside weedlines, wood, dock shade, and shallow flats.",
+    openWaterBehavior:
+      "Not an open-water schooler.",
+    spawningBehavior:
+      "Early-summer and summer nesting in littoral water. Colonial or concentrated nesting habitat is excluded from target guidance.",
+    sources: [
+      { label: "National Park Service pumpkinseed species account", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species pumpkinseed profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "lepomis_microlophus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Adults feed near bottom around vegetation, sand, mud, and shell-bearing substrate, often slightly deeper than bluegill.",
+      note: "Mollusks are a defining forage class, but insect and crustacean feeding remains important where snails are sparse. Nesting colonies are never named as target locations.",
+    },
+    feedingStrategy: {
+      modes: ["benthic_feeding"],
+      note: "Missouri DNR: carnivorous, feeding primarily on snails and other mollusks — the shellcracker name. Throat teeth crush shells. Insects and crustaceans remain capacity. This is not a current snail declaration.",
+    },
+    territoriality:
+      "Bottom and cover, not a current core. Nesting males defend closely packed saucers.",
+    dielTendency: {
+      class: "diurnal",
+      note: "Missouri DNR: most active in daylight. Bright clear conditions can shift fish deeper while preserving bottom and cover association.",
+    },
+    seasonalActivity:
+      "Spawning commonly in warm shallow water around 70–75°F, often somewhat deeper than bluegill nests. Conservation context. Summer remains a bottom-and-mollusk problem.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 72–81°F. Cold edge near 52°F; warm edge near 90°F. A warmwater, still-water fish.",
+    currentFacing:
+      "Still water or protected overflow pools and bays. Avoids sustained main-channel current (Missouri DNR).",
+    depthMovement:
+      "Often slightly deeper littoral water than bluegill, still near bottom.",
+    predatorAvoidance:
+      "Depth, vegetation, and bottom. Bright surface water is a poor default.",
+    coverUse:
+      "Weed edges, outside weedlines, wood, shallow flats, and drop-offs — as bottom, not as a bluegill surface edge.",
+    openWaterBehavior:
+      "Not a pelagic schooler. Open water is not the job.",
+    spawningBehavior:
+      "Missouri DNR: nesting in May or June, sometimes again in August; saucer-shaped colonies with rims often almost touching. Colonies are excluded from target guidance.",
+    sources: [
+      { label: "Missouri Department of Conservation redear sunfish field guide", class: "agency" },
+      { label: "Texas Parks and Wildlife redear sunfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "lepomis_cyanellus",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Juveniles may share cover. Adults are strongly structure-oriented and more territorial than bluegill.",
+      note: "Catalog exception: green sunfish readily hybridize with other sunfishes; a hybrid should not silently inherit this record. Introduced populations can affect native fish and amphibians; local status matters.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "ambush"],
+      note: "Texas Parks and Wildlife: adults feed on insects and small fish. Crustaceans, terrestrials, and mollusks remain capacity. More piscivorous at typical size than bluegill.",
+    },
+    territoriality:
+      "Pools, margins, wood, and reduced velocity. Nesting males defend closely packed nests for several days after eggs are deposited (Texas Parks and Wildlife).",
+    dielTendency: {
+      class: "diurnal",
+      note: "Daylight feeder that uses shade, cover, and turbidity to reduce exposure.",
+    },
+    seasonalActivity:
+      "Spawning begins as water warms into the upper 60s to low 70s and may repeat through summer. Conservation context. Stream pools remain usable later than many Lepomis.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 70–82°F. Cold edge near 50°F; warm edge near 90°F. Notably tolerant of turbidity, silt, and variable habitat.",
+    currentFacing:
+      "More stream-tolerant than many Lepomis but still favors pools, margins, cover, and reduced velocity over a fast current core.",
+    depthMovement:
+      "Usually shallow to mid-depth and structure-oriented; larger fish use deeper cover when light or pressure increases.",
+    clarityResponse:
+      "Tolerates turbidity better than pumpkinseed or redear. Murk is not a reason to import walleye optics.",
+    predatorAvoidance:
+      "Wood, riprap, shade, and undercut margins.",
+    coverUse:
+      "Wood, weed edges, dock shade, shallow flats, riprap, eddies, and side channels.",
+    openWaterBehavior:
+      "Not an open-water sunfish.",
+    spawningBehavior:
+      "Texas Parks and Wildlife: nests in shallow colonies, often closely packed, usually on gravel or rock. Males defend nests. Colonies are excluded from target guidance.",
+    sources: [
+      { label: "Texas Parks and Wildlife green sunfish account", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species green sunfish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "ambloplites_rupestris",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Adults hold rock, wood, and velocity relief. They often coexist with smallmouth without sharing the same prey scale.",
+      note: "Catalog exception: rock bass cover use and prey scale should not be treated as identical to smallmouth. Nest guarding is a reproductive state, not a recommendation to target beds.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "ambush"],
+      note: "Michigan DNR: smaller fish (including their own young at times), yellow perch, and minnows, plus insects and crustaceans. Equal-opportunity feeders on baitfish, aquatic insects, and crayfish. Occasionally take food from the surface. Capacity is not a current crayfish event.",
+    },
+    territoriality:
+      "Rock, wood, pool structure, and velocity relief rather than the fastest lane. Nesting males aggressively guard a saucer.",
+    aggression:
+      "Michigan DNR: nesting males can become quite aggressive defending territory. That is spawning biology, not a catch claim.",
+    dielTendency: {
+      class: "crepuscular",
+      note: "Michigan DNR: adult rock bass may eat heavily in the evening and early morning. Shade and rock cover remain useful through the day.",
+    },
+    seasonalActivity:
+      "Spring to early-summer nest spawning over gravel, sand, and rocky littoral habitat. Conservation context. Summer remains a rock-and-crayfish problem.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–76°F. Cold edge near 48°F; warm edge near 84°F. Clear rocky water is the default, not a weedy bluegill pond.",
+    currentFacing:
+      "Permanent-flow streams, holding around rock, wood, and velocity relief — not the fastest lane.",
+    depthMovement:
+      "Shallow to mid-depth around rock and cover, moving deeper with high sun, pressure, or seasonal cooling.",
+    predatorAvoidance:
+      "Rock, shade, and depth. Bright open sand is a poor default.",
+    coverUse:
+      "Rocky shoreline, riprap, points, wood, drop-offs, boulder pockets, current breaks, and pool heads.",
+    openWaterBehavior:
+      "Not a pelagic schooler. Open water is a short intercept off rock.",
+    spawningBehavior:
+      "Michigan DNR: spawning from April to early June as water warms; the male digs a nest near lake shallows and guards eggs and young. Nesting areas may be closely packed. Nests are excluded from target guidance.",
+    sources: [
+      { label: "Michigan DNR rock bass species account", class: "agency" },
+      { label: "Illinois Department of Natural Resources rock bass account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
 ];
