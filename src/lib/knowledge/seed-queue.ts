@@ -96,7 +96,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02b",
-    status: "next",
+    status: "landed",
     title: "Coolwater predators",
     reason:
       "Walleye/sauger and the Esox/perch set are the next search targets. They collapse in the field and they drive Quick Read after the opener chips.",
@@ -112,7 +112,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02c",
-    status: "queued",
+    status: "next",
     title: "Core panfish",
     reason: "Crappie and sunfish that anglers treat as one pile.",
     overlays: KNOWLEDGE_OVERLAYS,

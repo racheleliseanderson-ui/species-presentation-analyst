@@ -162,3 +162,30 @@ test("AFP-1.2 wave 02a marks brown, brook, lake trout, and steelhead as reviewed
   const steelheadDiet = buildAnglerSpeciesProfile(steelhead).sections.find((item) => item.id === "diet");
   assert.match(JSON.stringify(steelheadDiet), /not feeding in the trout sense/i);
 });
+
+test("AFP-1.2 wave 02b marks walleye, sauger, pike, muskie, pickerel, and yellow perch as reviewed without inventing fight or food", () => {
+  const ids = [
+    "sander_vitreus",
+    "sander_canadensis",
+    "esox_lucius",
+    "esox_masquinongy",
+    "esox_niger",
+    "perca_flavescens",
+  ];
+  for (const id of ids) {
+    const species = SPECIES.find((item) => item.id === id);
+    assert.ok(species, id);
+    const profile = buildAnglerSpeciesProfile(species);
+    for (const sectionId of ["identification", "behavior", "diet", "seasonal_calendar"] as const) {
+      const section = profile.sections.find((item) => item.id === sectionId);
+      assert.equal(section?.status, "reviewed", `${id} ${sectionId}`);
+    }
+    assert.equal(profile.sections.find((item) => item.id === "fight")?.status, "not_reviewed");
+    assert.equal(profile.sections.find((item) => item.id === "food_value")?.status, "not_reviewed");
+  }
+
+  const walleye = SPECIES.find((species) => species.id === "sander_vitreus");
+  assert.ok(walleye);
+  const walleyeId = buildAnglerSpeciesProfile(walleye).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(walleyeId), /sauger/i);
+});

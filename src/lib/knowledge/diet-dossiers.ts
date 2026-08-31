@@ -1300,4 +1300,255 @@ export const DIET_DOSSIERS: DietDossier[] = [
     ...R,
     gaps: [SEASONAL_GAP, "ocean vs freshwater adult diet as a structured split beyond the catalog exception"],
   },
+  {
+    speciesId: "sander_vitreus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "aquatic_insects", "crustaceans"],
+    primaryNote:
+      "Minnesota DNR: walleye are fish-eaters, preying heavily on yellow perch. Insects and crustaceans remain capacity, especially before the shift to fish. Observed forage still has to be declared.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Forage fish in the remaining active band. Shallower relative to bright summer without becoming a perch-school diet.",
+      },
+      {
+        season: "spring",
+        emphasis: "Fish remain primary. Insects and crustaceans are capacity for smaller fish. Spawning overlap is conservation context, not a forage map.",
+      },
+      {
+        season: "summer",
+        emphasis: "Piscivory on the usable light and thermal layer. Perch and other forage fish where they occur. Do not infer a current bait event.",
+      },
+      {
+        season: "fall",
+        emphasis: "Forage fish continue as water cools. Fall is not an egg-forage prescription.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Zooplankton-scale and insect prey before the fish shift. Zooplankton is not a catalog forage class on this record.",
+      juvenile: "Aquatic insects, crustaceans, and small forage fish.",
+      adult: "Primarily fish, including yellow perch where they occur; larger prey fish as gape allows.",
+    },
+    preySizeShifts: "Prey length tracks gape. The larger_prey_fish class belongs to adults, not to young-of-year.",
+    ontogeneticShift: "Invertebrates and small fish to primarily piscivory.",
+    forageSubstitutions:
+      "Lake forage (perch, cisco-scale pelagic fish) differs from large-river forage. RPC lake vs river overlays that split; this species diet does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Minnesota DNR walleye biology (piscivory, yellow perch as primary prey)", class: "agency" },
+      { label: "Colby et al. walleye biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "sander_canadensis",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "benthic",
+    primaryForage: ["small_forage_fish", "aquatic_insects", "crustaceans"],
+    primaryNote:
+      "Missouri DNR: a variety of fish, crustaceans, and insects. More lower-column than walleye. Larger prey fish are not a catalog forage class on this record — do not import adult-walleye piscivory wholesale.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Small forage fish and remaining benthic invertebrates in deep runs and pools.",
+      },
+      {
+        season: "spring",
+        emphasis: "Fish, insects, and crustaceans as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Small forage fish along the bottom of current. Not a weed-edge pike diet.",
+      },
+      {
+        season: "fall",
+        emphasis: "Small forage fish continue in current and on the bottom.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Insects and small crustaceans.",
+      juvenile: "Aquatic insects, crustaceans, and small fish.",
+      adult: "Small forage fish with insects and crustaceans still in the mix.",
+    },
+    ontogeneticShift: "Invertebrates to small fish. Weaker shift to large piscivory than walleye because that class is not on this record.",
+    forageSubstitutions: "Large-river forage fields differ from reservoir sauger. This overlay does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Missouri Department of Conservation sauger field guide (fish, crustaceans, insects)", class: "agency" },
+      { label: "USGS sauger habitat and movement research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "esox_lucius",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "amphibians"],
+    primaryNote:
+      "Michigan DNR: about 90 percent smaller fish — yellow perch, sunfishes, minnows, and suckers — plus frogs and other living prey the jaws can surround. Crayfish, waterfowl, and small mammals appear in that agency note but are not catalog forage classes here.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Fish in remaining cold, weedy, or wooded water. Activity compresses near the cold edge.",
+      },
+      {
+        season: "early_spring",
+        emphasis: "Fish and amphibians as ice leaves. Spawning overlap is conservation context, not a frog-hatch declaration.",
+      },
+      {
+        season: "summer",
+        emphasis: "Fish along deeper weed edges. Warm weedy water can be a thermal stressor, not a feeding cue.",
+      },
+      {
+        season: "fall",
+        emphasis: "Forage fish as water cools back into the preferred band.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Michigan DNR: young pike grow rapidly. Invertebrates and tiny fish; invertebrates are not a catalog class here beyond later amphibians and fish.",
+      juvenile: "Small forage fish.",
+      adult: "Fish, including larger prey fish, plus amphibians.",
+    },
+    preySizeShifts: "Gape supports large prey. Juvenile diets are not a proxy for adult ambush forage.",
+    ontogeneticShift: "Small fish to larger piscivory, with amphibians as a reviewed supplement.",
+    forageSubstitutions: "Perch, sunfish, minnow, and sucker substitutions are waterbody-specific. Do not invent a current bait from this list.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Michigan DNR northern pike species account (90 percent fish; perch, sunfish, minnow, sucker, frogs)", class: "agency" },
+      { label: "Casselman pike thermal ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "esox_masquinongy",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["larger_prey_fish", "small_forage_fish", "amphibians"],
+    primaryNote:
+      "Michigan DNR: predominantly a fish-eating fish — suckers, minnows, perch, sunfishes, and other available fish. Larger prey fish are the adult center of gravity. Amphibians remain capacity. Not a declared forage event.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Forage fish in remaining cold structure. Activity compresses.",
+      },
+      {
+        season: "spring",
+        emphasis: "Fish as water leaves ice-out. Spawning overlap after pike is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Larger prey fish along weed edges, points, and drop-offs.",
+      },
+      {
+        season: "fall",
+        emphasis: "Forage fish as water cools. Fall is not a spawn-forage map.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small fish and invertebrates; invertebrates are not a catalog class on this record.",
+      juvenile: "Small forage fish.",
+      adult: "Primarily larger prey fish; small forage fish and amphibians remain possible.",
+    },
+    preySizeShifts: "Adult gape supports large prey. Do not treat a perch-school diet as the muskellunge problem.",
+    ontogeneticShift: "Small fish to primarily large piscivory.",
+    forageSubstitutions: "Sucker, perch, and sunfish substitutions are waterbody-specific. This overlay does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Michigan DNR muskellunge species account (suckers, minnows, perch, sunfishes)", class: "agency" },
+      { label: "Crossman muskellunge biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "esox_niger",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "amphibians", "crustaceans"],
+    primaryNote:
+      "North Carolina Wildlife: young feed mainly on aquatic insects and crustaceans until about 4 in, then primarily fish, and will eat other small prey. Insects are an agency juvenile note; they are not a catalog forage class on this record. Adult center of gravity is small forage fish in vegetation.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Small forage fish along remaining weed and wood edges in ice-free eastern water.",
+      },
+      {
+        season: "spring",
+        emphasis: "Fish, crustaceans, and amphibians as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Small forage fish inside and along weed edges. Not an open-pelagic pike diet.",
+      },
+      {
+        season: "fall",
+        emphasis: "Small forage fish continue around vegetation.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "North Carolina Wildlife: aquatic insects and crustaceans until about 4 in. Insects stay an agency note, not a catalog class here.",
+      juvenile: "Crustaceans and small forage fish.",
+      adult: "Primarily small forage fish; larger prey fish and amphibians where gape allows.",
+    },
+    ontogeneticShift: "Invertebrates and crustaceans to fish around 4 in (North Carolina Wildlife).",
+    forageSubstitutions: "Vegetated eastern waters substitute different small fish than northern pike lakes. Do not import a Great Lakes perch story wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "North Carolina Wildlife chain pickerel species account (insects and crustaceans to fish near 4 in)", class: "agency" },
+      { label: "South Carolina DNR chain pickerel account", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "perca_flavescens",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["zooplankton", "aquatic_insects", "small_forage_fish", "crustaceans"],
+    primaryNote:
+      "Michigan DNR: adults dine primarily on immature insects, larger invertebrates (crayfish), and the eggs and young of other fish, taken from open water and from the bottom. Eggs are an agency note, not a catalog forage class here. Young-of-year add zooplankton. Capacity is not a current hatch.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Insects, crustaceans, and small fish in the cold column. Michigan DNR: remain active under ice — that is winter capacity, not a bite claim.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crustaceans, and small fish as water warms. Spawning overlap is conservation context, not an egg-forage prescription.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects and small forage fish along breaks and weed edges. Follows forage and the cooler band, not a deep-basin default.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and small forage fish as schools use shallower structure than in summer heat.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Zooplankton-scale prey.",
+      juvenile: "Aquatic insects, crustaceans, and zooplankton.",
+      adult: "Immature insects, crayfish-scale crustaceans, and young of other fish (small_forage_fish).",
+    },
+    preySizeShifts: "Typical angling-size perch do not take larger_prey_fish. That class is not on this record.",
+    ontogeneticShift: "Zooplankton to insects and crustaceans to small fish.",
+    forageSubstitutions: "Great Lakes vs inland prey fields differ. Stunted populations stay insect-heavy. This overlay does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Michigan DNR yellow perch species account (insects, crayfish, eggs and young of other fish)", class: "agency" },
+      { label: "Thorpe yellow perch biology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
 ];
