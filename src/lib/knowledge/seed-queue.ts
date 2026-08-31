@@ -135,7 +135,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02e",
-    status: "next",
+    status: "landed",
     title: "Catfish",
     reason: "Same family, four different jobs.",
     overlays: KNOWLEDGE_OVERLAYS,
@@ -143,7 +143,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02f",
-    status: "queued",
+    status: "next",
     title: "Pacific and landlocked salmon",
     reason: "Keep chinook, coho, pink, chum, and landlocked Atlantic from collapsing into trout or steelhead.",
     overlays: KNOWLEDGE_OVERLAYS,

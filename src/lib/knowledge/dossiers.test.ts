@@ -63,6 +63,10 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   longear_pumpkinseed: ["lepomis_megalotis", "lepomis_gibbosus"],
   warmouth_lookalikes: ["lepomis_gulosus", "lepomis_cyanellus", "ambloplites_rupestris"],
   flier_crappie: ["centrarchus_macropterus", "pomoxis_spp"],
+  ictalurus: ["ictalurus_punctatus", "ictalurus_furcatus"],
+  catfish_jobs: ["ictalurus_punctatus", "ictalurus_furcatus", "pylodictis_olivaris"],
+  white_cat_channel: ["ameiurus_catus", "ictalurus_punctatus"],
+  white_cat_bullhead: ["ameiurus_catus", "ameiurus_natalis"],
 };
 
 function normalize(value: string): string {
@@ -160,7 +164,7 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 29);
+  assert.equal(uncovered.length, 25);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -421,6 +425,43 @@ test("wave 02d remaining sunfish use agency ear-flap, tongue-teeth, and flier-sp
   assert.equal(behaviorDossierFor("lepomis_gulosus")?.social.pattern, "solitary");
   assert.equal(behaviorDossierFor("centrarchus_macropterus")?.social.pattern, "loose_aggregation");
 });
+
+test("wave 02e catfish use agency anal-fin, tail, and jaw characters", () => {
+  const channel = identificationDossierFor("ictalurus_punctatus");
+  const blue = identificationDossierFor("ictalurus_furcatus");
+  const flathead = identificationDossierFor("pylodictis_olivaris");
+  const white = identificationDossierFor("ameiurus_catus");
+  assert.ok(channel && blue && flathead && white);
+
+  assert.match(channel.identificationTraits.join(" "), /24|29/);
+  assert.match(channel.identificationTraits.join(" "), /convex|round/i);
+  assert.match(blue.identificationTraits.join(" "), /30/);
+  assert.match(blue.identificationTraits.join(" "), /straight/i);
+  assert.match(flathead.identificationTraits.join(" "), /lower jaw|project/i);
+  assert.match(flathead.identificationTraits.join(" "), /14|17/);
+  assert.match(white.identificationTraits.join(" "), /18|24/);
+  assert.match(white.identificationTraits.join(" "), /light/i);
+
+  assert.ok(channel.similarSpecies.some((item) => item.speciesId === "ictalurus_furcatus"));
+  assert.ok(blue.similarSpecies.some((item) => item.speciesId === "ictalurus_punctatus"));
+  assert.ok(flathead.similarSpecies.some((item) => item.speciesId === "ictalurus_punctatus"));
+  assert.ok(white.similarSpecies.some((item) => item.speciesId === "ictalurus_punctatus"));
+  assert.ok(white.similarSpecies.some((item) => item.speciesId === "ameiurus_natalis"));
+
+  const channelDiet = dietDossierFor("ictalurus_punctatus");
+  const blueDiet = dietDossierFor("ictalurus_furcatus");
+  const flatheadDiet = dietDossierFor("pylodictis_olivaris");
+  const whiteDiet = dietDossierFor("ameiurus_catus");
+  assert.ok(channelDiet && blueDiet && flatheadDiet && whiteDiet);
+  assert.ok(!channelDiet.primaryForage.includes("larger_prey_fish"));
+  assert.ok(blueDiet.primaryForage.includes("larger_prey_fish"));
+  assert.equal(flatheadDiet.feedingStyle, "specialized");
+  assert.ok(flatheadDiet.primaryForage.includes("larger_prey_fish"));
+  assert.ok(!whiteDiet.primaryForage.includes("larger_prey_fish"));
+  assert.equal(behaviorDossierFor("pylodictis_olivaris")?.social.pattern, "solitary");
+  assert.match(JSON.stringify(flatheadDiet), /not scavenger/i);
+});
+
 
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {
   const rainbow = identificationDossierFor("oncorhynchus_mykiss");

@@ -1899,4 +1899,188 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
   },
+  {
+    speciesId: "ictalurus_punctatus",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Missouri DNR: young often in riffles or shallower parts of pools; adults in larger pools, deep water, or around logs and other cover. They are not a pelagic schooler.",
+      note: "Minnesota DNR: more wide-ranging than flathead, including smaller waters. Do not convert a night shallow move into a named pin.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "benthic_feeding"],
+      note: "Missouri DNR: omnivorous; locates food on the bottom by taste, smell, and touch. North Carolina Wildlife: adults eat plant material, insect larvae, crayfish, mollusks, small fish, and even dead fish. Capacity is not a current event.",
+    },
+    territoriality:
+      "Daytime cover in deep water, drift, or wood. Nesting males guard a dark cavity. Cavities are excluded from target guidance.",
+    dielTendency: {
+      class: "nocturnal",
+      note: "Missouri DNR: at night, move onto riffles or into shallows of pools to feed; by day retire to deep water or cover. Catalog: more daytime activity in stain and current is plausible. This is not a catch claim.",
+    },
+    seasonalActivity:
+      "Texas Parks and Wildlife / Missouri DNR: spawn in late spring or early summer as water reaches about 75°F. Minnesota DNR: may move far upstream in spring and back downstream in late fall. Movement is a class, not a named reach.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 70–82°F. Cold edge near 50°F; warm edge near 90°F. Minnesota DNR: can tolerate turbid water and temperatures in the high 90s, while still needing reliable oxygenated flow in rivers.",
+    currentFacing:
+      "Texas Parks and Wildlife: most abundant in large streams with low or moderate current. Uses current-swept holes and the slow side of moving water, not the fastest core.",
+    depthMovement:
+      "Bottom-oriented. Shallower at night and in stained water. Winter: Minnesota DNR — deep water and protection from current.",
+    clarityResponse:
+      "Feeds in turbid water by taste and touch. Clear bright shallows without cover are a poor daytime default.",
+    predatorAvoidance:
+      "Depth, wood, and darkness. Spines are a defensive anatomy note, not a fight claim.",
+    coverUse:
+      "Deep pools, current breaks, runs, tributary mouths, submerged wood, drop-offs, riprap, inlets, and basins.",
+    openWaterBehavior:
+      "Not a pelagic rover. Open water is a short intercept off bottom or cover.",
+    spawningBehavior:
+      "Missouri DNR / Texas Parks and Wildlife: male selects and cleans a dark secluded cavity — drift, logs, undercut banks, burrows — as water holds near 75°F. Female does not guard. Male guards eggs and fry until they leave. Cavities and fry schools are excluded from target guidance.",
+    sources: [
+      { label: "Missouri Department of Conservation channel catfish field guide", class: "agency" },
+      { label: "Texas Parks and Wildlife channel catfish account", class: "agency" },
+      { label: "Minnesota DNR catfish biology", class: "agency" },
+      { label: "North Carolina Wildlife channel catfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "ictalurus_furcatus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Large-river fish use channels and current. Reservoir fish can roam with forage rather than remain pinned to a single cover object. They are not solitary flatheads.",
+      note: "Catalog exception: seasonal movement can be extensive; one depth or channel class is not a year-round rule. Introduced Chesapeake and Atlantic-slope status is conservation context, not a how-to.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "pursuit"],
+      note: "Texas Parks and Wildlife: varied diet but tends to eat fish earlier in life than channel catfish; fish as small as 4 in have consumed fish. Virginia DWR / NOAA: trophic generalists that become increasingly piscivorous at large size. USGS NAS: highly omnivorous, including scavenged items. Capacity is not a current forage event.",
+    },
+    territoriality:
+      "Channel and basin space more than a single log. Nesting males are primary nest caretakers (Virginia DWR). Cavities are excluded from target guidance.",
+    dielTendency: {
+      class: "mixed",
+      note: "Virginia DWR: often lie in deep holes in peak daylight and relocate to shallower moving water in low light. Catalog: current, forage, temperature, and turbidity can make daytime feeding fully plausible.",
+    },
+    seasonalActivity:
+      "Texas Parks and Wildlife: tend to move upstream in summer toward cooler water and downstream in winter toward warmer water. Virginia DWR / NOAA: spawn once per year in late spring and early summer as water holds about 70–75°F. Do not name tributaries as concentration pins.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 72–84°F. Cold edge near 42°F; warm edge near 90°F. More cool-tolerant at the bottom of the band than many channel-catfish pond defaults.",
+    currentFacing:
+      "North Carolina Wildlife: often favor faster currents than other catfish. USGS NAS / NOAA: deep, swift channels and large-river habitat; reservoir fish also use open water. Do not collapse river-channel and reservoir-roaming jobs — RPC already names those archetypes.",
+    depthMovement:
+      "Often deep and near bottom, but adults may suspend with open-water forage in reservoirs (catalog).",
+    clarityResponse:
+      "USGS NAS: many occupied rivers and reservoirs are turbid. Taste, current, and forage matter more than a clear-water sight default.",
+    predatorAvoidance:
+      "Depth, channel, and low light. Open bright shallows without forage are a poor default.",
+    coverUse:
+      "Deep pools, runs, current breaks, tributary mouths, submerged wood, basins, drop-offs, points, inlets, riprap, and — in reservoirs — suspended open water.",
+    openWaterBehavior:
+      "Reservoir fish can roam and suspend with forage. That is not a license to treat every blue catfish as a pelagic schooler, and it is not a named pin.",
+    spawningBehavior:
+      "Virginia DWR: spawn once per year in late spring and early summer at about 70–75°F; males are primary nest caretakers. NOAA: once per year from late May into June. Cavity and structure nesting is conservation context. Do not name smaller tributaries as target locations.",
+    sources: [
+      { label: "Texas Parks and Wildlife blue catfish account", class: "agency" },
+      { label: "Virginia DWR blue catfish account", class: "agency" },
+      { label: "NOAA Fisheries blue catfish species page", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species blue catfish profile", class: "agency" },
+      { label: "North Carolina Wildlife blue catfish account", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "pylodictis_olivaris",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Missouri DNR: a single unit of cover usually yields only one, or at most two or three, adults. Young remain on riffles. Adults take up a solitary life after leaving the nest.",
+      note: "Texas Parks and Wildlife: adults usually solitary, each staking out a favorite deep-cover spot. Catalog exception: introduced populations can be invasive; presence is not a harvest endorsement.",
+    },
+    feedingStrategy: {
+      modes: ["ambush"],
+      note: "Missouri DNR: forage at night; adults prefer fish and crayfish; unlike channel catfish they are not scavengers and rarely eat dead or decaying material. Texas Parks and Wildlife: from about 10 in, diet consists entirely of live fish. Minnesota DNR: hunt by smell and vibration. This is not a current baitfish event.",
+    },
+    territoriality:
+      "Missouri DNR: each individual normally has a favorite resting place. Nesting males guard eggs and fry. Cover objects and cavities are excluded from target guidance.",
+    aggression:
+      "Minnesota DNR: after spawning the male may drive the female from the nest. Texas Parks and Wildlife: males defend the nest and eggs aggressively. That is spawning biology, not a catch claim.",
+    dielTendency: {
+      class: "nocturnal",
+      note: "Missouri DNR / Texas Parks and Wildlife: adults move at night from deeper water or cover into shallows to feed. Young on riffles are active at night. Stronger night default than channel catfish.",
+    },
+    seasonalActivity:
+      "Missouri DNR: spawn in late spring or early summer, somewhat later than channel catfish. Minnesota DNR: about 72–75°F. Texas Parks and Wildlife: late May through August at 75–80°F. Winter: Minnesota DNR — deep water with boulders or logs as refuge from current.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–82°F. Cold edge near 48°F; warm edge near 90°F. Large-river wood and pool habitat, not a pond-channel default.",
+    currentFacing:
+      "Missouri DNR: prefers slow current; avoids high-gradient or intermittent streams. Holds on the protected side of wood, scour, or structure rather than the fastest lane.",
+    depthMovement:
+      "Deep cover by day; shallower at night. Winter deeper with current refuge.",
+    predatorAvoidance:
+      "Wood, depth, and darkness. Open sand without cover is a poor default.",
+    coverUse:
+      "Deep pools, submerged wood, current breaks, runs, pool heads, drop-offs, basins, and riprap — as occupied cover, not as a crowd.",
+    openWaterBehavior:
+      "Not a pelagic rover. Open water is a night intercept off a home cover object.",
+    spawningBehavior:
+      "Missouri DNR: saucer in a natural cavity or near a large submerged object; male guards fry about 7 days; young remain in a compact school near the nest for several days then disperse. Texas Parks and Wildlife: hollow logs, caves, or areas beneath banks. Cavities and fry schools are excluded from target guidance.",
+    sources: [
+      { label: "Missouri Department of Conservation flathead catfish field guide", class: "agency" },
+      { label: "Texas Parks and Wildlife flathead catfish account", class: "agency" },
+      { label: "Minnesota DNR catfish biology", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "ameiurus_catus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Uses slow coastal-river, reservoir, and pond habitat. Not a solitary flathead and not a pelagic blue catfish.",
+      note: "Catalog exception: fresh/brackish tolerance is not a license to use this freshwater model in tidal saltwater without a reviewed salinity layer. Do not silently inherit brown/black/yellow bullhead night-only reasons.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "benthic_feeding"],
+      note: "Smithsonian NEMESIS: omnivorous — aquatic plants, benthic invertebrates, and small fishes. Chesapeake Bay Program: adults favor other fish but also consume crustaceans, insects, and aquatic plants. Larger-prey-fish is not a catalog class on this record.",
+    },
+    territoriality:
+      "Bottom structure and current relief. Guarded nests are a reproductive state, not a recommendation to target cavities.",
+    dielTendency: {
+      class: "mixed",
+      note: "Catalog: more willing to feed during daylight than many bullheads, while still using scent, taste, and bottom contact heavily.",
+    },
+    seasonalActivity:
+      "Catalog: late-spring to summer cavity or depression spawning around banks, roots, and structure. Exact spawn-temperature tables stay a gap.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 68–80°F. Cold edge near 48°F; warm edge near 90°F. Slow to moderate coastal-river and reservoir water.",
+    currentFacing:
+      "Connecticut DEEP: backwaters and slow-moving areas of larger rivers and streams as well as lakes and ponds. Favors bottom structure and current relief over fast water.",
+    depthMovement:
+      "Bottom-oriented from shallow cover to deeper holes and basins, moving shallower to forage under favorable conditions.",
+    clarityResponse:
+      "Scent and bottom contact work in stain. Bright open sand without structure is a poor default.",
+    predatorAvoidance:
+      "Wood, riprap, depth, and banks.",
+    coverUse:
+      "Deep pools, current breaks, submerged wood, side channels, eddies, basins, riprap, inlets, and drop-offs.",
+    openWaterBehavior:
+      "Not a pelagic schooler.",
+    spawningBehavior:
+      "Cavity or depression spawning around banks, roots, and structure. Guarded nests are excluded from target guidance. Exact temperature and nest-density tables remain a gap.",
+    sources: [
+      { label: "Connecticut DEEP white catfish account", class: "agency" },
+      { label: "Chesapeake Bay Program white catfish field guide", class: "agency" },
+      { label: "Smithsonian NEMESIS white catfish summary", class: "agency" },
+      { label: "Virginia DWR white catfish comparison notes", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
 ];
