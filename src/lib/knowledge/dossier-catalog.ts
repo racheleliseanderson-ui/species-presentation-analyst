@@ -1,8 +1,10 @@
 import { BEHAVIOR_DOSSIERS } from "./behavior-dossiers.ts";
+import { BEHAVIOR_DOSSIERS_WAVE_02 } from "./behavior-dossiers-wave-02.ts";
 import { DIET_DOSSIERS } from "./diet-dossiers.ts";
 import { FIGHT_DOSSIERS } from "./fight-dossiers.ts";
 import { FOOD_VALUE_DOSSIERS } from "./food-dossiers.ts";
 import { IDENTIFICATION_DOSSIERS } from "./identification-dossiers.ts";
+import { IDENTIFICATION_DOSSIERS_WAVE_02 } from "./identification-dossiers-wave-02.ts";
 import { SEASONAL_CALENDAR_DOSSIERS } from "./seasonal-calendar-dossiers.ts";
 import type {
   BehaviorDossier,
@@ -30,12 +32,22 @@ export {
   SEASONAL_CALENDAR_VERSION,
 };
 
+const ALL_IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
+  ...IDENTIFICATION_DOSSIERS,
+  ...IDENTIFICATION_DOSSIERS_WAVE_02,
+];
+
+const ALL_BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
+  ...BEHAVIOR_DOSSIERS,
+  ...BEHAVIOR_DOSSIERS_WAVE_02,
+];
+
 export const IDENTIFICATION_BY_SPECIES: Record<string, IdentificationDossier> = Object.fromEntries(
-  IDENTIFICATION_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]),
+  ALL_IDENTIFICATION_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]),
 );
 
 export const BEHAVIOR_BY_SPECIES: Record<string, BehaviorDossier> = Object.fromEntries(
-  BEHAVIOR_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]),
+  ALL_BEHAVIOR_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]),
 );
 
 export const DIET_BY_SPECIES: Record<string, DietDossier> = Object.fromEntries(
@@ -78,8 +90,8 @@ export function foodValueDossierFor(speciesId: string): FoodValueDossier | null 
   return FOOD_VALUE_BY_SPECIES[speciesId] ?? null;
 }
 
-export const IDENTIFICATION_COVERAGE_IDS = IDENTIFICATION_DOSSIERS.map((dossier) => dossier.speciesId);
-export const BEHAVIOR_COVERAGE_IDS = BEHAVIOR_DOSSIERS.map((dossier) => dossier.speciesId);
+export const IDENTIFICATION_COVERAGE_IDS = ALL_IDENTIFICATION_DOSSIERS.map((dossier) => dossier.speciesId);
+export const BEHAVIOR_COVERAGE_IDS = ALL_BEHAVIOR_DOSSIERS.map((dossier) => dossier.speciesId);
 export const DIET_COVERAGE_IDS = DIET_DOSSIERS.map((dossier) => dossier.speciesId);
 export const SEASONAL_CALENDAR_COVERAGE_IDS = SEASONAL_CALENDAR_DOSSIERS.map((dossier) => dossier.speciesId);
 export const FIGHT_COVERAGE_IDS = FIGHT_DOSSIERS.map((dossier) => dossier.speciesId);

@@ -3,12 +3,13 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { SPECIES, SPECIES_BY_ID } from "./species-catalog.ts";
-import { identificationDossierFor } from "./dossier-catalog.ts";
+import { identificationDossierFor, behaviorDossierFor, dietDossierFor, fightDossierFor, foodValueDossierFor, seasonalCalendarDossierFor } from "./dossier-catalog.ts";
 import {
   ENRICHMENT_QUEUE_VERSION,
   ENRICHMENT_WAVES,
   FOLLOW_ON_OVERLAY_LAYERS,
   PRIMARY_OVERLAY_LAYERS,
+  inProgressSpeciesIds,
   queuedSpeciesIds,
   researchAssignmentFor,
   shippedSpeciesIds,
@@ -19,7 +20,9 @@ test("AFP-Q-1.0 is an overlay queue, not a new AFP contract or presentation axis
   assert.equal(ENRICHMENT_QUEUE_VERSION, "AFP-Q-1.0");
   assert.equal(ENRICHMENT_WAVES[0]?.id, "wave_01");
   assert.equal(ENRICHMENT_WAVES[0]?.status, "shipped");
-  assert.ok(ENRICHMENT_WAVES.slice(1).every((wave) => wave.status === "queued"));
+  assert.equal(ENRICHMENT_WAVES[1]?.id, "wave_02");
+  assert.equal(ENRICHMENT_WAVES[1]?.status, "in_progress");
+  assert.ok(ENRICHMENT_WAVES.slice(2).every((wave) => wave.status === "queued"));
 });
 
 test("every catalog species belongs to exactly one enrichment wave and one distinction group", () => {
@@ -60,7 +63,7 @@ test("wave 01 is the shipped lookalike set and matches identification coverage",
 
 test("queued waves do not invent overlay dossiers", () => {
   const queued = queuedSpeciesIds();
-  assert.equal(queued.length, 49);
+  assert.equal(queued.length, 34);
   for (const id of queued) {
     assert.equal(identificationDossierFor(id), null, `${id} is queued but already has an identification dossier`);
     const assignment = researchAssignmentFor(id);
@@ -71,7 +74,25 @@ test("queued waves do not invent overlay dossiers", () => {
   }
 });
 
-test("wave 02 keeps the open-first lookalikes that still lack dossiers", () => {
+test("wave 02 is in progress with identification and behavior, not later overlays", () => {
+  const inProgress = inProgressSpeciesIds();
+  assert.equal(inProgress.length, 15);
+  for (const id of inProgress) {
+    const assignment = researchAssignmentFor(id);
+    assert.ok(assignment);
+    assert.equal(assignment.wave.status, "in_progress");
+    assert.ok(identificationDossierFor(id), `${id} is in progress without identification`);
+    assert.ok(behaviorDossierFor(id), `${id} is in progress without behavior`);
+    assert.equal(dietDossierFor(id), null, `${id} invented a diet dossier`);
+    assert.equal(seasonalCalendarDossierFor(id), null, `${id} invented a calendar dossier`);
+    assert.equal(fightDossierFor(id), null, `${id} invented a fight dossier`);
+    assert.equal(foodValueDossierFor(id), null, `${id} invented a food dossier`);
+    assert.deepEqual(assignment.wave.requiredLayers, PRIMARY_OVERLAY_LAYERS);
+    assert.deepEqual(assignment.wave.followOnLayers, FOLLOW_ON_OVERLAY_LAYERS);
+  }
+});
+
+test("wave 02 keeps the open-first lookalikes", () => {
   const wave = ENRICHMENT_WAVES.find((item) => item.id === "wave_02");
   assert.ok(wave);
   assert.ok(wave.speciesIds.includes("salmo_trutta"));

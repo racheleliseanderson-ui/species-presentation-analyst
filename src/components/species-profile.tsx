@@ -111,7 +111,9 @@ export function SelectedSpeciesProfile() {
             <p className="mt-2 text-sm text-fg">
               {profile.research.waveStatus === "shipped"
                 ? `${profile.research.waveLabel}. Overlay dossiers for this lookalike group are on file.`
-                : `${profile.research.waveLabel} is queued. Catalog names, habitat, forage, and presentations stay in place. Visual keys, behavior biography, diet calendar, fight, and table character wait for agency sources.`}
+                : profile.research.waveStatus === "in_progress"
+                  ? `${profile.research.waveLabel} is in progress. Some overlay dossiers are on file for this lookalike group. Remaining required layers stay as visible gaps until sourced.`
+                  : `${profile.research.waveLabel} is queued. Catalog names, habitat, forage, and presentations stay in place. Visual keys, behavior biography, diet calendar, fight, and table character wait for agency sources.`}
             </p>
             <p className="mt-1 text-xs text-muted">
               {profile.research.groupLabel}

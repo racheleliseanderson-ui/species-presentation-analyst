@@ -5,10 +5,12 @@ import test from "node:test";
 import { SPECIES, SPECIES_BY_ID } from "./species-catalog.ts";
 import { SPECIES_EXPANSION_03 } from "./species-expansion-03.ts";
 import { BEHAVIOR_DOSSIERS } from "./behavior-dossiers.ts";
+import { BEHAVIOR_DOSSIERS_WAVE_02 } from "./behavior-dossiers-wave-02.ts";
 import { DIET_DOSSIERS } from "./diet-dossiers.ts";
 import { FIGHT_DOSSIERS } from "./fight-dossiers.ts";
 import { FOOD_VALUE_DOSSIERS } from "./food-dossiers.ts";
 import { IDENTIFICATION_DOSSIERS } from "./identification-dossiers.ts";
+import { IDENTIFICATION_DOSSIERS_WAVE_02 } from "./identification-dossiers-wave-02.ts";
 import { SEASONAL_CALENDAR_DOSSIERS } from "./seasonal-calendar-dossiers.ts";
 import { PRESENTATIONS } from "./presentations.ts";
 import {
@@ -30,7 +32,7 @@ import {
 } from "./dossier-catalog.ts";
 import { FORAGE_CLASSES, SEASONS } from "../protocol/vocab.ts";
 import { searchSpecies, ALIASES } from "./aliases.ts";
-import { WAVE_01_GROUPS } from "./enrichment-queue.ts";
+import { ENRICHMENT_WAVES } from "./enrichment-queue.ts";
 
 const FORBIDDEN = /best bite|hot bite|catch probability|secret spot|gps coordinate/i;
 const LOCATION = /exact spawning|staging location|migration bottleneck|hotspot/i;
@@ -38,10 +40,10 @@ const FIGHT_SCORE = /fun rating|1–100|1-100|\b\d+\s*\/\s*100\b/i;
 const SAFE_CLAIM = /this species is safe to eat/i;
 
 const DISTINCTION_GROUPS: Record<string, string[]> = Object.fromEntries(
-  WAVE_01_GROUPS.filter((group) => group.speciesIds.length > 1).map((group) => [
-    group.id,
-    group.speciesIds,
-  ]),
+  ENRICHMENT_WAVES.filter((wave) => wave.status !== "queued")
+    .flatMap((wave) => wave.groups)
+    .filter((group) => group.speciesIds.length > 1)
+    .map((group) => [group.id, group.speciesIds]),
 );
 
 function normalize(value: string): string {
@@ -64,6 +66,8 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
   assert.equal(IDENTIFICATION_DOSSIERS.length, FIGHT_DOSSIERS.length);
   assert.equal(IDENTIFICATION_DOSSIERS.length, FOOD_VALUE_DOSSIERS.length);
   assert.equal(IDENTIFICATION_DOSSIERS.length, 26);
+  assert.equal(IDENTIFICATION_DOSSIERS_WAVE_02.length, 15);
+  assert.equal(IDENTIFICATION_DOSSIERS_WAVE_02.length, BEHAVIOR_DOSSIERS_WAVE_02.length);
 
   for (const dossier of IDENTIFICATION_DOSSIERS) {
     assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
@@ -78,7 +82,32 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
     assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
   }
 
+  for (const dossier of IDENTIFICATION_DOSSIERS_WAVE_02) {
+    assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
+    assert.ok(dossier.sources.length > 0, `${dossier.speciesId} identification is missing sources`);
+    assert.ok(
+      dossier.sources.some((source) => source.class === "agency" || source.class === "peer_reviewed"),
+      `${dossier.speciesId} identification needs an agency or peer-reviewed source`,
+    );
+    assert.ok(dossier.identificationTraits.length >= 3, `${dossier.speciesId} needs diagnostic traits`);
+    assert.ok(dossier.similarSpecies.length >= 1, `${dossier.speciesId} needs a lookalike key`);
+    assert.equal(dossier.reviewedAt, "2026-08-30");
+    assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+  }
+
   for (const dossier of BEHAVIOR_DOSSIERS) {
+    assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
+    assert.ok(dossier.sources.length > 0, `${dossier.speciesId} behavior is missing sources`);
+    assert.ok(dossier.feedingStrategy.modes.length > 0);
+    assert.ok(dossier.spawningBehavior.length > 0);
+    assert.ok(
+      !LOCATION.test(dossier.spawningBehavior),
+      `${dossier.speciesId} spawning behavior names a vulnerable location`,
+    );
+    assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
+  }
+
+  for (const dossier of BEHAVIOR_DOSSIERS_WAVE_02) {
     assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
     assert.ok(dossier.sources.length > 0, `${dossier.speciesId} behavior is missing sources`);
     assert.ok(dossier.feedingStrategy.modes.length > 0);
@@ -195,15 +224,23 @@ test("incomplete research remains explicitly incomplete for species without doss
       assert.equal(food, null, `${species.id} has food without identification`);
     } else {
       assert.ok(behavior, `${species.id} has identification without behavior`);
-      assert.ok(diet, `${species.id} has identification without diet`);
-      assert.ok(calendar, `${species.id} has identification without calendar`);
-      assert.ok(fight, `${species.id} has identification without fight`);
-      assert.ok(food, `${species.id} has identification without food`);
+      const hasLaterLayer = diet || calendar || fight || food;
+      if (hasLaterLayer) {
+        assert.ok(diet, `${species.id} has a later overlay without diet`);
+        assert.ok(calendar, `${species.id} has a later overlay without calendar`);
+        assert.ok(fight, `${species.id} has a later overlay without fight`);
+        assert.ok(food, `${species.id} has a later overlay without food`);
+      } else {
+        assert.equal(diet, null, `${species.id} invented diet without the rest of the later overlays`);
+        assert.equal(calendar, null, `${species.id} invented calendar without the rest of the later overlays`);
+        assert.equal(fight, null, `${species.id} invented fight without the rest of the later overlays`);
+        assert.equal(food, null, `${species.id} invented food without the rest of the later overlays`);
+      }
     }
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.ok(uncovered.length >= 40, "most of the catalog should still show identification gaps");
+  assert.equal(uncovered.length, 34, "waves 03–05 should still show identification gaps");
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -337,7 +374,7 @@ test("diet, seasonal, fight, and food overlays are not imported by the presentat
   const files = ["infer.ts", "presentation-weighting.ts", "population-context.ts", "species-weight-overrides.ts"];
   for (const file of files) {
     const source = readFileSync(new URL(file, engineDir), "utf8");
-    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers|fight-dossiers|food-dossiers|enrichment-queue/);
+    assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers|fight-dossiers|food-dossiers|enrichment-queue|identification-dossiers-wave-02|behavior-dossiers-wave-02/);
   }
 });
 
@@ -448,4 +485,98 @@ test("food dossiers keep table character separate from safety claims and lookali
     assert.ok(dossier.biologicalHazards?.some((item) => /egg/i.test(item)));
     assert.match(dossier.biologicalHazards?.join(" ") ?? "", /toxic|poison/i);
   }
+});
+
+test("wave 02 inland trout and char keep separate visual and diel identities", () => {
+  const brown = identificationDossierFor("salmo_trutta");
+  const brook = identificationDossierFor("salvelinus_fontinalis");
+  const lake = identificationDossierFor("salvelinus_namaycush");
+  const brownBehavior = behaviorDossierFor("salmo_trutta");
+  const brookBehavior = behaviorDossierFor("salvelinus_fontinalis");
+  const lakeBehavior = behaviorDossierFor("salvelinus_namaycush");
+  assert.ok(brown && brook && lake && brownBehavior && brookBehavior && lakeBehavior);
+
+  assert.match(brown.identificationTraits.join(" "), /halo|unspotted|tail/i);
+  assert.match(brook.identificationTraits.join(" "), /worm|vermiculation|white leading edge/i);
+  assert.match(lake.identificationTraits.join(" "), /forked|light spots/i);
+  assert.equal(brownBehavior.dielTendency.class, "crepuscular");
+  assert.equal(brookBehavior.dielTendency.class, "diurnal");
+  assert.doesNotMatch(JSON.stringify(brookBehavior), /more nocturnal habits/);
+  assert.doesNotMatch(JSON.stringify(brownBehavior), /100 to 200/);
+  assert.doesNotMatch(JSON.stringify(brookBehavior), /100 to 200/);
+  assert.match(lakeBehavior.thermalDrivenBehavior ?? "", /40–55|100 to 200/i);
+});
+
+test("steelhead is anadromous rainbow, not inland rainbow with a different name", () => {
+  const steelhead = identificationDossierFor("oncorhynchus_mykiss_steelhead");
+  const steelheadBehavior = behaviorDossierFor("oncorhynchus_mykiss_steelhead");
+  assert.ok(steelhead && steelheadBehavior);
+  assert.ok(steelhead.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss"));
+  assert.match(steelhead.identificationTraits.join(" "), /otolith|scale/i);
+  assert.match(steelhead.identificationTraits.join(" "), /same species|anadromous/i);
+  assert.match(steelheadBehavior.feedingStrategy.note, /not feeding|hatch/i);
+  assert.match(steelheadBehavior.seasonalActivity ?? "", /summer run|winter run/i);
+});
+
+test("Chinook and Coho keep gumline and tail-spot characters apart", () => {
+  const chinook = identificationDossierFor("oncorhynchus_tshawytscha");
+  const coho = identificationDossierFor("oncorhynchus_kisutch");
+  assert.ok(chinook && coho);
+  assert.match(chinook.identificationTraits.join(" "), /blackmouth|black pigment|gum/i);
+  assert.match(chinook.identificationTraits.join(" "), /both lobes|both caudal/i);
+  assert.match(coho.identificationTraits.join(" "), /white|lighter pigment|gum/i);
+  assert.match(coho.identificationTraits.join(" "), /upper lobe|no spots on the lower/i);
+  assert.ok(chinook.similarSpecies.some((item) => item.speciesId === "oncorhynchus_kisutch"));
+  assert.ok(coho.similarSpecies.some((item) => item.speciesId === "oncorhynchus_tshawytscha"));
+  assert.doesNotMatch(JSON.stringify(chinook), /zooplankton specialist|daphnia/i);
+  assert.doesNotMatch(JSON.stringify(coho), /zooplankton specialist|daphnia/i);
+});
+
+test("walleye and sauger keep tail-tip and dorsal-spot keys apart", () => {
+  const walleye = identificationDossierFor("sander_vitreus");
+  const sauger = identificationDossierFor("sander_canadensis");
+  assert.ok(walleye && sauger);
+  assert.match(walleye.identificationTraits.join(" "), /white/i);
+  assert.match(walleye.identificationTraits.join(" "), /dark splotch|rear base/i);
+  assert.match(sauger.identificationTraits.join(" "), /rows of dark spots|spotted/i);
+  assert.match(sauger.identificationTraits.join(" "), /lacks the white|all-dark|no white/i);
+  assert.doesNotMatch(JSON.stringify(sauger), /white lower tail tip is the tail key against sauger/);
+});
+
+test("Esox cheek, opercle, and pore keys stay species-specific", () => {
+  const pike = identificationDossierFor("esox_lucius");
+  const muskie = identificationDossierFor("esox_masquinongy");
+  const pickerel = identificationDossierFor("esox_niger");
+  const pickerelBehavior = behaviorDossierFor("esox_niger");
+  assert.ok(pike && muskie && pickerel && pickerelBehavior);
+  assert.match(pike.identificationTraits.join(" "), /entire cheek|fully scaled cheek|five or fewer/i);
+  assert.match(muskie.identificationTraits.join(" "), /top half|six or more/i);
+  assert.match(pickerel.identificationTraits.join(" "), /fully scaled cheeks and gill covers|opercle and cheek fully scaled/i);
+  assert.match(pickerelBehavior.coverUse ?? "", /vegetation|weed/i);
+  assert.doesNotMatch(JSON.stringify(pickerel), /open-water size class of muskellunge is this record/);
+});
+
+test("channel, blue, and flathead catfish keep tail, jaw, and anal-ray keys apart", () => {
+  const channel = identificationDossierFor("ictalurus_punctatus");
+  const blue = identificationDossierFor("ictalurus_furcatus");
+  const flathead = identificationDossierFor("pylodictis_olivaris");
+  const channelBehavior = behaviorDossierFor("ictalurus_punctatus");
+  const flatheadBehavior = behaviorDossierFor("pylodictis_olivaris");
+  assert.ok(channel && blue && flathead && channelBehavior && flatheadBehavior);
+  assert.match(channel.identificationTraits.join(" "), /24–29|24-29/i);
+  assert.match(blue.identificationTraits.join(" "), /30–35|30-35|30 or more/i);
+  assert.match(blue.identificationTraits.join(" "), /Rio Grande/i);
+  assert.match(flathead.identificationTraits.join(" "), /slightly notched|projecting lower jaw/i);
+  assert.match(channelBehavior.feedingStrategy.note, /omnivorous/i);
+  assert.match(flatheadBehavior.feedingStrategy.note, /live fish/i);
+  assert.doesNotMatch(JSON.stringify(channelBehavior), /prey only on live fish/);
+});
+
+test("yellow perch is not white perch and not walleye", () => {
+  const perch = identificationDossierFor("perca_flavescens");
+  assert.ok(perch);
+  assert.match(perch.identificationTraits.join(" "), /six to eight|6–8|vertical/i);
+  assert.ok(perch.similarSpecies.some((item) => item.speciesId === "morone_americana"));
+  assert.ok(perch.similarSpecies.some((item) => item.speciesId === "sander_vitreus"));
+  assert.doesNotMatch(perch.identificationTraits.join(" "), /white lower tail tip is the tail key/);
 });

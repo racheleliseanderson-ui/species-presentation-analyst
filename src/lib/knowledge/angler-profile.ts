@@ -574,7 +574,8 @@ function foodSection(dossier: FoodValueDossier | null): AnglerProfileSection {
  * with generic model text. Dossiers never feed presentation-family weighting.
  *
  * AFP-Q-1.0 assigns every catalog species to a research wave. Queued species
- * keep visible gaps; the queue is a seed contract, not invented biology.
+ * keep visible gaps; in-progress waves may have some overlay dossiers on file
+ * without inventing the rest. The queue is a seed contract, not invented biology.
  */
 export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
   const flowing = species.flowingPresentations;

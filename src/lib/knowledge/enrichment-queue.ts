@@ -5,13 +5,15 @@
  * It does not invent identification, diet, fight, or food facts.
  * A queued species keeps visible gaps until a later reviewed dossier wave.
  *
- * Wave 01 is already shipped (26 lookalikes). Waves 02–05 rank the remaining
- * 49 by field confusion and how often anglers actually open the record.
+ * Wave 01 is already shipped (26 lookalikes). Wave 02 is in progress
+ * (identification and behavior for 15 open-first records). Waves 03–05
+ * rank the remaining 34 by field confusion and how often anglers actually
+ * open the record.
  */
 
 export const ENRICHMENT_QUEUE_VERSION = "AFP-Q-1.0" as const;
 
-export type EnrichmentWaveStatus = "shipped" | "queued";
+export type EnrichmentWaveStatus = "shipped" | "in_progress" | "queued";
 
 export type OverlayLayerId =
   | "identification"
@@ -195,7 +197,7 @@ export const ENRICHMENT_WAVES: EnrichmentWave[] = [
   {
     id: "wave_02",
     label: "Open-first salmonids, pike, walleye, and large catfish",
-    status: "queued",
+    status: "in_progress",
     rationale:
       "The remaining records people actually open, plus the lookalikes that sit next to them: brown/brook/lake trout, steelhead vs inland rainbow, Chinook vs Coho, walleye vs sauger, pike vs muskie vs pickerel, channel vs blue vs flathead, yellow perch vs white perch.",
     requiredLayers: PRIMARY_OVERLAY_LAYERS,
@@ -523,6 +525,10 @@ export function researchAssignmentFor(speciesId: string): ResearchAssignment | n
 
 export function queuedSpeciesIds(): string[] {
   return ENRICHMENT_WAVES.filter((wave) => wave.status === "queued").flatMap((wave) => wave.speciesIds);
+}
+
+export function inProgressSpeciesIds(): string[] {
+  return ENRICHMENT_WAVES.filter((wave) => wave.status === "in_progress").flatMap((wave) => wave.speciesIds);
 }
 
 export function shippedSpeciesIds(): string[] {

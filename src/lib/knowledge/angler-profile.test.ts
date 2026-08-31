@@ -122,19 +122,19 @@ test("AFP-1.3 keeps exact regulations outside the static species record", () => 
 
 test("AFP-1.3 uses identification dossiers when reviewed and leaves remaining species explicitly incomplete", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const brook = SPECIES.find((species) => species.id === "salvelinus_fontinalis");
-  assert.ok(rainbow && brook);
+  const bluegill = SPECIES.find((species) => species.id === "lepomis_macrochirus");
+  assert.ok(rainbow && bluegill);
 
   const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
-  const brookProfile = buildAnglerSpeciesProfile(brook);
+  const bluegillProfile = buildAnglerSpeciesProfile(bluegill);
   const rainbowId = rainbowProfile.sections.find((section) => section.id === "identification");
-  const brookId = brookProfile.sections.find((section) => section.id === "identification");
+  const bluegillId = bluegillProfile.sections.find((section) => section.id === "identification");
 
   assert.equal(identificationDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowId?.status, "reviewed");
   assert.ok(rainbowId?.facts.some((fact) => fact.kind === "comparison"));
-  assert.equal(brookId?.status, "partial");
-  assert.ok(brookId?.gaps.includes("similar-species comparison keys"));
+  assert.equal(bluegillId?.status, "partial");
+  assert.ok(bluegillId?.gaps.includes("similar-species comparison keys"));
 });
 
 test("AFP-1.3 uses behavior dossiers when reviewed without converting them into catch claims", () => {
@@ -201,6 +201,17 @@ test("AFP-Q-1.0 assigns every species a research wave without filling queued ove
     if (profile.research.waveStatus === "shipped") {
       assert.equal(profile.research.waveId, "wave_01");
       assert.ok(identificationDossierFor(species.id));
+    } else if (profile.research.waveStatus === "in_progress") {
+      assert.equal(profile.research.waveId, "wave_02");
+      assert.ok(identificationDossierFor(species.id));
+      const fight = profile.sections.find((section) => section.id === "fight");
+      const food = profile.sections.find((section) => section.id === "food_value");
+      const diet = profile.sections.find((section) => section.id === "diet");
+      const calendar = profile.sections.find((section) => section.id === "seasonal_calendar");
+      assert.equal(fight?.status, "not_reviewed");
+      assert.equal(food?.status, "not_reviewed");
+      assert.equal(diet?.status, "partial");
+      assert.equal(calendar?.status, "partial");
     } else {
       assert.equal(identificationDossierFor(species.id), null);
       const fight = profile.sections.find((section) => section.id === "fight");
@@ -216,9 +227,11 @@ test("AFP-Q-1.0 assigns every species a research wave without filling queued ove
   const brownProfile = buildAnglerSpeciesProfile(brown);
   const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
   assert.equal(brownProfile.research.waveId, "wave_02");
-  assert.equal(brownProfile.research.waveStatus, "queued");
+  assert.equal(brownProfile.research.waveStatus, "in_progress");
   assert.ok(brownProfile.research.groupMateIds.includes("salvelinus_fontinalis"));
   const brownId = brownProfile.sections.find((section) => section.id === "identification");
+  assert.equal(brownId?.status, "reviewed");
+  assert.ok(brownId?.facts.some((fact) => fact.kind === "trait"));
   assert.ok(brownId?.facts.some((fact) => fact.kind === "source"));
   assert.equal(rainbowProfile.research.waveStatus, "shipped");
 });
