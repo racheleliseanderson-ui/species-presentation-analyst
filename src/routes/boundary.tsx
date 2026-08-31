@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Chrome } from "@/components/chrome";
+import { catalogOverlaySummary } from "@/lib/knowledge/coverage";
+import { SEED_DOCTRINE, SEED_WAVES } from "@/lib/knowledge/seed-queue";
+import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { REFUSES } from "@/lib/protocol/vocab";
 
 export const Route = createFileRoute("/boundary")({
@@ -17,6 +20,14 @@ export const Route = createFileRoute("/boundary")({
 });
 
 function Boundary() {
+  const coverage = catalogOverlaySummary();
+  const next = coverage.nextWave;
+  const landed = SEED_WAVES.filter((wave) => wave.status === "landed");
+  const nextNames = (next?.speciesIds ?? [])
+    .map((id) => SPECIES_BY_ID[id]?.commonNames[0])
+    .filter(Boolean)
+    .join(", ");
+
   return (
     <div className="min-h-dvh bg-bg text-fg">
       <Chrome />
@@ -36,6 +47,43 @@ function Boundary() {
         <p className="mt-8 text-sm text-muted">
           No unreviewed species falls through to generic AI-written text. If we have no reviewed record for a fish, we say so and stop.
         </p>
+
+        <section className="mt-12 border-t border-line pt-10" aria-labelledby="catalog-knowledge-heading">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">Catalog knowledge</p>
+          <h2 id="catalog-knowledge-heading" className="mt-4 font-display text-3xl">
+            What we actually know
+          </h2>
+          <p className="mt-4 text-sm text-muted">
+            Enrichment is a ranked queue of lookalike groups, not a race to fill seventy-five encyclopedia pages. A species becomes knowable only when identification, behavior, diet, and seasonal calendar are reviewed together from agency or peer-reviewed sources.
+          </p>
+          <p className="mt-5 text-sm text-fg">
+            {coverage.completeOverlays} of {coverage.speciesTotal} species have that full overlay set.
+            Identification {coverage.byOverlay.identification} · behavior {coverage.byOverlay.behavior} · diet {coverage.byOverlay.diet} · season {coverage.byOverlay.seasonal_calendar}.
+            Fight and food value stay unreviewed. Live limits stay outside the static catalog.
+          </p>
+          <ul className="mt-6 space-y-3">
+            {landed.map((wave) => (
+              <li key={wave.id} className="rounded-[var(--radius-md)] bg-elevated px-5 py-4">
+                <p className="font-mono text-[9px] uppercase tracking-wider text-dim">Landed · wave {wave.id}</p>
+                <p className="mt-1 text-sm font-medium text-fg">{wave.title}</p>
+                <p className="mt-1 text-sm text-muted">{wave.reason}</p>
+              </li>
+            ))}
+            {next && (
+              <li className="rounded-[var(--radius-md)] bg-subtle px-5 py-4 shadow-[var(--shadow-border)]">
+                <p className="font-mono text-[9px] uppercase tracking-wider text-mark">Next · wave {next.id}</p>
+                <p className="mt-1 text-sm font-medium text-fg">{next.title}</p>
+                <p className="mt-1 text-sm text-muted">{next.reason}</p>
+                <p className="mt-2 text-sm text-fg">{nextNames}</p>
+              </li>
+            )}
+          </ul>
+          <p className="mt-6 text-xs leading-5 text-dim">
+            {SEED_DOCTRINE.unit} {SEED_DOCTRINE.usefulFirst} We do not fill remaining species with model text.
+            Deferred until the high-use set is knowable: fight, table quality, gear ranges, and live regulations.
+          </p>
+        </section>
+
         <Link
           to="/"
           className="mt-8 inline-flex min-h-11 items-center text-sm text-fg"

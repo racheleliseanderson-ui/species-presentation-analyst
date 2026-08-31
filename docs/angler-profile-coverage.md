@@ -97,17 +97,31 @@ RPC guardrails remain unchanged:
 - no new presentation family outside the reviewed species/water-type set;
 - no catch probability or bite score.
 
+## Seeding doctrine
+
+Enrichment is a ranked queue (`src/lib/knowledge/seed-queue.ts`). Live coverage is computed from dossiers (`src/lib/knowledge/coverage.ts`), never copied by hand.
+
+Rules:
+
+- The unit of work is a **distinction group**, with identification, behavior, diet, and seasonal calendar written together.
+- High-use / opener species before rare leftovers.
+- Agency or peer-reviewed sources. Visible gaps beat generic model text.
+- Conservation-sensitive records (bull trout, wild anadromous Atlantic salmon) may receive identification only. They do not get a how-to-target calendar.
+- Fight, food value, gear ranges, and live regulations wait until the high-use set is knowable.
+- A wave is `landed` only when tests show every required overlay exists.
+
+Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead).
+Next: wave 02b — walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch.
+
 ## Next research order
 
-The next data work should not be another flat species expansion. It should fill the profile gaps in an order that improves field decisions without encouraging false precision:
+The next data work follows `SEED_WAVES`, not a flat 75-species dump:
 
-1. Identification dossiers: remaining 45 species after waves 01 and 02a; next high-use set is walleye/sauger/pike/muskie/perch, then panfish and catfish.
-2. Behavior dossiers: remaining 45 species; angling-pressure and frontal evidence still sparse.
-3. Diet calendars: remaining 45 species; waterbody-specific prey-size tables.
-4. Species-specific methods reference: equipment ranges, hook/rig families, retrieve mechanics, linked to Tackle Link and Knot Analyst rather than duplicating those engines.
-5. Seasonal calendars: remaining 45 species and population-archetype calendars, with spawning aggregations excluded from targeting guidance.
-6. Fight characteristics: descriptive reference only, not a quality score.
-7. Food value: table/cooking information kept separate from live contaminant advisories.
-8. Live regulation/consumption connectors: jurisdiction and waterbody-aware sources with timestamps; never freeze changing legal limits into the static species catalog.
+1. Wave 02b coolwater predators (walleye, sauger, pike, muskie, pickerel, perch) — all four overlays together.
+2. Waves 02c–02e panfish then catfish.
+3. Waves 02f–02g remaining salmon and salmonids.
+4. Wave 03 identification-only for fail-closed conservation records.
+5. Wave 04 remaining catalog.
+6. Methods ranges, then fight, then food, then live regulation connectors — after the high-use set is knowable.
 
 This preserves the product distinction: novices can ask “what should I use?” while the deeper model continues to answer the more useful question, “what is this fish trying to accomplish under the declared conditions?”
