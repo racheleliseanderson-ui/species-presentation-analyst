@@ -79,8 +79,9 @@ test("AFP-1.2 uses identification dossiers when reviewed and leaves remaining sp
   assert.equal(identificationDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowId?.status, "reviewed");
   assert.ok(rainbowId?.facts.some((fact) => fact.kind === "comparison"));
-  assert.equal(bulltroutId?.status, "partial");
-  assert.ok(bulltroutId?.gaps.includes("similar-species comparison keys"));
+  assert.equal(bulltroutId?.status, "reviewed");
+  assert.ok(bulltroutId?.facts.some((fact) => fact.kind === "comparison"));
+  assert.ok(bulltroutId?.facts.some((fact) => /dorsal/i.test(fact.value)));
 });
 
 test("AFP-1.2 uses behavior dossiers when reviewed without converting them into catch claims", () => {
@@ -358,5 +359,36 @@ test("AFP-1.2 wave 02g marks mountain whitefish, grayling, burbot, Arctic char, 
   assert.ok(dolly);
   const dollyId = buildAnglerSpeciesProfile(dolly).sections.find((item) => item.id === "identification");
   assert.match(JSON.stringify(dollyId), /bull trout/i);
+});
+
+test("AFP-1.2 wave 03 marks bull trout and wild Atlantic identification reviewed while behavior, diet, and calendar stay incomplete", () => {
+  const ids = ["salvelinus_confluentus", "salmo_salar_anadromous"];
+  for (const id of ids) {
+    const species = SPECIES.find((item) => item.id === id);
+    assert.ok(species, id);
+    const profile = buildAnglerSpeciesProfile(species);
+    assert.equal(profile.sections.find((item) => item.id === "identification")?.status, "reviewed", `${id} identification`);
+    assert.equal(profile.sections.find((item) => item.id === "behavior")?.status, "partial", `${id} behavior`);
+    assert.equal(profile.sections.find((item) => item.id === "diet")?.status, "partial", `${id} diet`);
+    assert.equal(profile.sections.find((item) => item.id === "seasonal_calendar")?.status, "partial", `${id} calendar`);
+    assert.equal(profile.sections.find((item) => item.id === "fight")?.status, "not_reviewed");
+    assert.equal(profile.sections.find((item) => item.id === "food_value")?.status, "not_reviewed");
+    assert.equal(species.flowingPresentations.length, 0);
+    assert.equal(species.stillPresentations.length, 0);
+  }
+
+  const bull = SPECIES.find((species) => species.id === "salvelinus_confluentus");
+  assert.ok(bull);
+  const bullId = buildAnglerSpeciesProfile(bull).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(bullId), /dorsal/i);
+  assert.match(JSON.stringify(bullId), /Dolly Varden|brook trout/i);
+  assert.doesNotMatch(JSON.stringify(bullId), /presentationImplication|how to catch|best lure/i);
+
+  const atlantic = SPECIES.find((species) => species.id === "salmo_salar_anadromous");
+  assert.ok(atlantic);
+  const atlanticId = buildAnglerSpeciesProfile(atlantic).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(atlanticId), /illegal|prohibited/i);
+  assert.match(JSON.stringify(atlanticId), /landlocked/i);
+  assert.doesNotMatch(JSON.stringify(atlanticId), /Dennys|Machias|Penobscot/i);
 });
 

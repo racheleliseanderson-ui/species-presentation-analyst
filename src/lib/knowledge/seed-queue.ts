@@ -172,7 +172,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "03",
-    status: "next",
+    status: "landed",
     title: "Recognition-only conservation records",
     reason:
       "Bull trout and wild anadromous Atlantic salmon stay fail-closed. Identification helps people not confuse them. Behavior, diet, and seasonal calendars are not a how-to-target layer.",
@@ -181,7 +181,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "04",
-    status: "queued",
+    status: "next",
     title: "Remaining catalog",
     reason:
       "Drum, bowfin, smelt, eel, shad, sturgeons, paddlefish, and suckers after the fish people actually search.",
