@@ -2100,4 +2100,409 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "stunting thresholds by waterbody",
     ],
   },
+  {
+    speciesId: "pomoxis_spp",
+    status: "reviewed",
+    regionalNames: ["specks", "sac-a-lait", "papermouth"],
+    bodyShape:
+      "Deep, compressed centrarchid with a large mouth for a panfish and a distinctly concave forehead. Longer and less round than a bluegill of the same length.",
+    identificationTraits: [
+      "Minnesota DNR: this catalog record is the black/white crappie complex, not a subspecies key. Black crappie are generally darker with seven or eight dorsal spines; white crappie often show vertical bars and usually have five or six dorsal spines.",
+      "Mouth is large relative to Lepomis sunfish — the upper jaw reaches well under the eye. Bluegill and pumpkinseed mouths are small.",
+      "Irregular dark speckling (black crappie) or faint vertical bars (white crappie) on a silvery-green to olive ground. Not the even sunfish bar recipe of bluegill.",
+      "Dorsal fin is long, with the spinous and soft portions connected. Spines are the in-complex split, not a sunfish-versus-crappie key.",
+      "Catalog exception: black and white habitat splits in the same lake. Do not force a fish into a species that is not a separate catalog record.",
+    ],
+    coloration:
+      "Silvery-green to olive with dark speckles or bars. Black crappie look darker and more mottled; white crappie look paler with more regular bars.",
+    regionalColorVariation:
+      "Clear lakes produce more contrast. Turbid reservoirs wash out the pattern until the dorsal-spine count is checked. Color is not the species key, and it is not a lake-versus-river key.",
+    spawningColoration:
+      "Spring nesting males darken. Colonial wood and brush in the upper 50s to mid-60s is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Young fish already show the large mouth and speckled or barred sides. They are not round, small-mouthed bluegill fry.",
+    adultAppearance:
+      "A deep, large-mouthed panfish, silvery-olive, speckled or barred. Treat black and white as this complex unless a future reviewed split exists.",
+    sexualDimorphism:
+      "Males darken on the nest. Size overlap is large; sex is not the field key.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a small mouth, a dark ear flap, a soft-dorsal spot, and even vertical bars. Crappie have a much larger mouth and the Pomoxis speckle/bar language, not a Lepomis ear flap.",
+      },
+      {
+        speciesId: "morone_chrysops",
+        name: "White bass",
+        distinction:
+          "White bass are temperate bass with continuous horizontal stripes and a deeper, more predatory body. They are not speckled Pomoxis.",
+      },
+      {
+        speciesId: "perca_flavescens",
+        name: "Yellow perch",
+        distinction:
+          "Yellow perch have about seven regular blackish bars, two clearly separated dorsal fins, and no canine-free crappie mouth. They are percids, not centrarchids.",
+      },
+    ],
+    averageAdultLength: "Commonly 8–12 in. Minnesota DNR: the two species are similar in size.",
+    commonAnglingSize: "9–12 in in many reservoirs and lakes.",
+    typicalWeight: "Minnesota DNR: a 2-pound fish is unusually large.",
+    maximumDocumentedSize:
+      "Fish over 2 lb occur. Maxima are waterbody-specific and are not a single catalog number.",
+    sources: [
+      {
+        label: "Minnesota DNR crappie biology (dorsal-spine split, 2 lb unusually large, schooling, nest colonies)",
+        class: "agency",
+        url: "https://www.dnr.state.mn.us/fish/crappie/biology.html",
+      },
+      { label: "State crappie management summaries", class: "agency" },
+      { label: "Trautman / Scott & Crossman perciform notes", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "black vs white as separate catalog records — they are a complex here",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "lepomis_macrochirus",
+    status: "reviewed",
+    regionalNames: ["gill", "bream", "brim", "sunfish"],
+    bodyShape:
+      "Deep, compressed Lepomis with a small mouth and long, pointed pectoral fins. Rounder than green sunfish or rock bass of the same length.",
+    identificationTraits: [
+      "Michigan DNR: two broadly joined dorsal fins; small mouth; long pointed pectoral fins; a faint black spot toward the rear of the soft dorsal that other sunfish lack.",
+      "Dark opercular (ear) flap without a red or orange spot. Pumpkinseed and redear carry color on that flap; bluegill’s flap is black.",
+      "Five to nine faint vertical bars on the sides. Breeding males show blue on the gill cover and an orange to copper breast — color is not the species key by itself.",
+      "Upper jaw does not reach past the front of the eye. Green sunfish and warmouth mouths are much larger.",
+      "Michigan DNR notes hybridization with pumpkinseed and green sunfish. Hybrids should not be forced into this record.",
+    ],
+    coloration:
+      "Olive to bronze back, yellow to copper sides, dark ear flap, bluish cheek in many adults. Vertical bars vary with water color.",
+    regionalColorVariation:
+      "Clear water produces more blue and copper. Stained ponds look darker. Southern ‘coppernose’ appearance is a regional morph, not a separate catalog record.",
+    spawningColoration:
+      "Colonial nesters as water holds near 65°F and through summer. Catalog exception: bed targeting of spawning colonies is a conservation choice, never a recommendation.",
+    juvenileAppearance:
+      "Bars and the dark ear flap appear early. The soft-dorsal spot is the juvenile split from pumpkinseed more than adult orange is.",
+    adultAppearance:
+      "A round, small-mouthed sunfish with a black ear flap, a soft-dorsal spot, and long pointed pectorals.",
+    sexualDimorphism:
+      "Nesting males darken and show more orange on the breast. Size overlap is large.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_gibbosus",
+        name: "Pumpkinseed",
+        distinction:
+          "Pumpkinseed have a bright red or orange spot on a white-margined ear flap and wavy blue lines on the cheek. Bluegill have a plain black flap and a soft-dorsal spot.",
+      },
+      {
+        speciesId: "lepomis_microlophus",
+        name: "Redear sunfish",
+        distinction:
+          "Redear have a red or orange edge on the ear flap and lack the bluegill soft-dorsal spot. They are more slab-sided and bottom-oriented.",
+      },
+      {
+        speciesId: "lepomis_cyanellus",
+        name: "Green sunfish",
+        distinction:
+          "Green sunfish have a large mouth, a more elongated bass-like body, rounded pectorals, and often a dark spot at the dorsal base with pale fin margins. Bluegill mouths are small.",
+      },
+      {
+        speciesId: "pomoxis_spp",
+        name: "Crappie",
+        distinction:
+          "Crappie have a much larger mouth and Pomoxis speckling or bars, not a Lepomis ear flap or a round bluegill body.",
+      },
+    ],
+    averageAdultLength: "Commonly 6–9 in; crowded ponds stunt well below that.",
+    commonAnglingSize: "6–8 in in most warm still waters.",
+    typicalWeight: "Often 4–8 oz; a 1 lb fish is a large inland bluegill.",
+    maximumDocumentedSize:
+      "Fish well over 1 lb occur in fertile waters. Stunting is density-dependent. Maxima are waterbody-specific.",
+    sources: [
+      {
+        label: "Michigan DNR bluegill species account (joined dorsals, small mouth, pointed pectorals, soft-dorsal spot, 65°F spawn)",
+        class: "agency",
+        url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/bluegill",
+      },
+      { label: "State inland panfish notes", class: "agency" },
+      { label: "Werner / Mittelbach sunfish foraging ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "coppernose vs inland morphometrics as a structured field",
+      "hybrid meristics as a structured key",
+    ],
+  },
+  {
+    speciesId: "lepomis_gibbosus",
+    status: "reviewed",
+    regionalNames: ["pumpkinseed sunfish", "sunny"],
+    bodyShape:
+      "Deep, compressed Lepomis, similar in outline to bluegill, with a small mouth and long pectoral fins.",
+    identificationTraits: [
+      "Ear flap black with a bright red or orange spot and a pale to white margin — the primary field split from bluegill’s plain black flap.",
+      "Wavy blue and orange lines on the cheek and gill cover. Redear lack that cheek maze.",
+      "Sides often carry orange, gold, or copper spots on an olive-to-brassy ground.",
+      "Small mouth; upper jaw does not reach past the eye. Pectorals are long, as in bluegill, not the rounded green-sunfish pectoral.",
+      "Three anal spines, as in other Lepomis. Rock bass have six.",
+    ],
+    coloration:
+      "Olive to brassy sides with orange or gold spotting, a colorful cheek, and a red-orange ear-flap spot on a pale margin.",
+    regionalColorVariation:
+      "Northern fish often show the strongest orange. Introduced western fish can look paler but still carry the flap spot and cheek lines.",
+    spawningColoration:
+      "Early-summer and summer nesters as littoral water warms into the upper 60s and 70s. Colonial nesting habitat is conservation context, not a place to target.",
+    juvenileAppearance:
+      "The ear-flap spot and cheek lines develop with size. Small fish can still be separated from bluegill once the flap color is visible.",
+    adultAppearance:
+      "A round sunfish with a red-orange ear-flap spot, wavy blue cheek lines, and orange body spotting.",
+    sexualDimorphism:
+      "Males intensify color on the nest. Size overlap is large.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a plain black ear flap and a soft-dorsal spot. Pumpkinseed have the red-orange flap spot and wavy blue cheek lines.",
+      },
+      {
+        speciesId: "lepomis_microlophus",
+        name: "Redear sunfish",
+        distinction:
+          "Redear have a red or orange edge on the flap, not a discrete spot with a white margin, and they lack pumpkinseed’s wavy blue cheek lines. Redear are the snail specialist.",
+      },
+      {
+        speciesId: "lepomis_cyanellus",
+        name: "Green sunfish",
+        distinction:
+          "Green sunfish have a large mouth and an elongated body. Pumpkinseed mouths are small.",
+      },
+      {
+        name: "Longear sunfish",
+        distinction:
+          "Longear have a much longer opercular flap. They are a separate catalog record in the leftover sunfish wave, not this pumpkinseed.",
+      },
+    ],
+    averageAdultLength: "Commonly 5–8 in; often smaller than sympatric bluegill.",
+    commonAnglingSize: "5–7 in in vegetated lakes and ponds.",
+    typicalWeight: "Often well under 8 oz.",
+    maximumDocumentedSize:
+      "Large pumpkinseed exceed the 5–8 in band but remain smaller than trophy bluegill or redear in most waters.",
+    sources: [
+      { label: "National Park Service pumpkinseed species account", class: "agency" },
+      { label: "USGS Nonindigenous Aquatic Species pumpkinseed profile", class: "agency" },
+      { label: "Smithsonian NEMESIS pumpkinseed summary (ear-flap spot, white margin, wavy cheek lines, mollusk feeding)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "eastern native vs introduced western color tables",
+      "longevity as a structured field",
+    ],
+  },
+  {
+    speciesId: "lepomis_microlophus",
+    status: "reviewed",
+    regionalNames: ["shellcracker", "chinquapin", "georgia bream"],
+    bodyShape:
+      "Deep, slab-sided Lepomis with a small mouth. Missouri DNR: upper jaw not reaching past the front of the eye.",
+    identificationTraits: [
+      "Texas Parks and Wildlife: the most distinct character is the red edge on the opercle flap of the male (orange on the female). The flap is never greatly elongated.",
+      "Missouri DNR: ear flap black with a whitish border and a prominent orange or red spot/edge. Pumpkinseed’s flap is a discrete red spot with a white margin plus wavy blue cheek lines — redear lack that cheek maze.",
+      "No bluegill-style black spot at the rear of the soft dorsal. Pectorals long; mouth small.",
+      "Texas Parks and Wildlife: typically 10 dorsal spines and three anal spines. Sides often show faint vertical bars on olive-to-gold ground.",
+      "Pharyngeal (throat) teeth are broad and flattened for crushing mollusk shells (Missouri DNR). That is diet anatomy, not a field-visible ID for most anglers.",
+    ],
+    coloration:
+      "Dark olive above to yellow or orange-yellow on the belly; sides yellow-green, often with faint bars. The red or orange flap edge is the namesake mark.",
+    regionalColorVariation:
+      "Southern native fish often show the strongest flap color. Stocked ponds elsewhere can look paler until the flap edge is checked.",
+    spawningColoration:
+      "Missouri DNR: nesting in May or June, sometimes again in August; colonies with nest rims often almost touching. Nesting colonies are never named as target locations.",
+    juvenileAppearance:
+      "The flap edge color develops with size. Young redear can be confused with bluegill until the dorsal spot (bluegill) versus flap edge (redear) is clear.",
+    adultAppearance:
+      "A slab-sided, small-mouthed sunfish with a red or orange ear-flap edge and no bluegill dorsal spot.",
+    sexualDimorphism:
+      "Texas Parks and Wildlife: red edge on the male flap, orange on the female. Size overlap is large.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a plain black ear flap and a soft-dorsal spot. Redear have the colored flap edge and lack that dorsal spot.",
+      },
+      {
+        speciesId: "lepomis_gibbosus",
+        name: "Pumpkinseed",
+        distinction:
+          "Pumpkinseed have a discrete red-orange flap spot, a white margin, and wavy blue cheek lines. Redear have a colored flap edge and lack the cheek maze.",
+      },
+      {
+        speciesId: "lepomis_cyanellus",
+        name: "Green sunfish",
+        distinction:
+          "Green sunfish have a large mouth and an elongated body. Redear mouths are small.",
+      },
+    ],
+    averageAdultLength: "Missouri DNR: total length commonly 8–10½ in.",
+    commonAnglingSize: "8–11 in in ponds and reservoirs where snails are present.",
+    typicalWeight: "Missouri DNR: commonly 6½–12 oz.",
+    maximumDocumentedSize:
+      "Missouri DNR: can be more than 12 in and more than 4 lb. Those maxima are waterbody-specific.",
+    longevity: "Missouri DNR: individuals can live for 6 years.",
+    sources: [
+      {
+        label: "Missouri Department of Conservation redear sunfish field guide (flap edge, small mouth, mollusk diet, size)",
+        class: "agency",
+        url: "https://mdc.mo.gov/discover-nature/field-guide/redear-sunfish",
+      },
+      {
+        label: "Texas Parks and Wildlife redear sunfish account (red/orange opercle edge, 10 dorsal spines)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/sunfish/",
+      },
+      { label: "USGS Nonindigenous Aquatic Species redear sunfish profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "snail-density vs body-size tables by waterbody",
+    ],
+  },
+  {
+    speciesId: "lepomis_cyanellus",
+    status: "reviewed",
+    regionalNames: ["greenie"],
+    bodyShape:
+      "Texas Parks and Wildlife: a large mouth and a heavy, black-bass body shape — more elongated than bluegill or pumpkinseed.",
+    identificationTraits: [
+      "Mouth large: the upper jaw reaches to or past the eye, unlike bluegill, pumpkinseed, and redear.",
+      "Texas sunfish key: dark (often orange-edged) ear flap; dark spot at the base of the dorsal fin; rounded pectoral fins; white margins on the fins.",
+      "Body dark green, almost blue, on the back, fading to lighter green on the sides and yellow to white on the belly (Texas Parks and Wildlife).",
+      "More stream-tolerant than most Lepomis. That is habitat, not an ID key by itself.",
+      "Texas Parks and Wildlife: hybridization with other sunfish is very common. A hybrid should not silently inherit this record. Warmouth also has a large mouth and is a leftover-wave lookalike.",
+    ],
+    coloration:
+      "Dark green to bluish back, lighter green sides, yellow breast. Pale fin margins and a dark dorsal-base spot are supporting marks.",
+    regionalColorVariation:
+      "Turbid-water fish can look uniformly dark. Clear-stream fish show more blue-green. Color is not a native-versus-introduced key.",
+    spawningColoration:
+      "Nests in shallow colonies on gravel or rock as water warms into the upper 60s and 70s, and may repeat through summer. Colonial nests are conservation context.",
+    juvenileAppearance:
+      "The large mouth is already the split from bluegill fry. Fin margins and the dorsal-base spot develop with size.",
+    adultAppearance:
+      "An elongated, large-mouthed sunfish with pale fin edges and a dark ear flap — the most bass-like Lepomis in this wave.",
+    sexualDimorphism:
+      "Males defend nests. Size overlap is large; the mouth, not color, is the key.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a small mouth, long pointed pectorals, and a soft-dorsal spot. Green sunfish have a large mouth, rounded pectorals, and a more elongated body.",
+      },
+      {
+        speciesId: "lepomis_gibbosus",
+        name: "Pumpkinseed",
+        distinction:
+          "Pumpkinseed have a small mouth and a red-orange ear-flap spot with wavy blue cheek lines. Green sunfish do not.",
+      },
+      {
+        speciesId: "lepomis_microlophus",
+        name: "Redear sunfish",
+        distinction:
+          "Redear have a small mouth and a red/orange flap edge. Green sunfish mouths are large.",
+      },
+      {
+        name: "Warmouth",
+        distinction:
+          "Warmouth also have a large mouth and a bass-like body, often with a stripe through the eye and more mottling. They are a leftover-wave record. Do not collapse the two large-mouthed sunfish.",
+      },
+    ],
+    averageAdultLength: "Commonly 5–8 in; large stream fish exceed that.",
+    commonAnglingSize: "5–7 in in ponds and small streams.",
+    typicalWeight: "Often well under 8 oz; large fish occur in fertile cover.",
+    maximumDocumentedSize:
+      "Large green sunfish exceed typical pond size. They remain smaller than adult bass. Maxima are waterbody-specific.",
+    sources: [
+      {
+        label: "Texas Parks and Wildlife green sunfish account (large mouth, bass-like body, hybridization, insect and small-fish diet)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/greensunfish/",
+      },
+      { label: "USGS Nonindigenous Aquatic Species green sunfish profile", class: "agency" },
+      { label: "USFWS green sunfish habitat-use synthesis", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "hybrid meristics as a structured key",
+      "warmouth vs green sunfish as a structured leftover-wave split",
+    ],
+  },
+  {
+    speciesId: "ambloplites_rupestris",
+    status: "reviewed",
+    regionalNames: ["red eye", "redeye", "goggle-eye"],
+    bodyShape:
+      "Michigan DNR: elongated in shape with a large mouth — deeper than a slim smallmouth of the same length, more bass-like than a round Lepomis.",
+    identificationTraits: [
+      "Michigan DNR: six spines on the anal fin, as opposed to other sunfish which only have three. Iowa DNR: six anal spines and about 12 dorsal spines distinguish this fish from other sunfish.",
+      "Michigan DNR: red eyes. The eye color is a supporting mark, not the only key.",
+      "Large mouth. Rows of dark spots or mottling on golden-brown to olive sides, not Lepomis vertical bars and not smallmouth bronze bars.",
+      "Michigan DNR: an uncanny ability to change color to match surroundings. Color is therefore a poor single key.",
+      "Not Micropterus: the body is deeper, the anal-spine count is six, and the eye is red. Smallmouth mouths stop at the eye and show vertical bronze bars.",
+    ],
+    coloration:
+      "Golden brown to olive with a white to silver belly and rows of dark spots. Color can shift quickly toward the background.",
+    regionalColorVariation:
+      "Clear rocky rivers produce more gold. Stained lakes look darker. Color change on the fish is a behavior, not a population key.",
+    spawningColoration:
+      "Spring to early-summer nest spawning over gravel, sand, and rocky littoral habitat. Nest guarding is a reproductive state, not a recommendation to target beds.",
+    juvenileAppearance:
+      "Red eyes and mottling appear early. Young rock bass can be confused with young smallmouth until the anal-spine count and bar language are checked.",
+    adultAppearance:
+      "A red-eyed, large-mouthed, mottled sunfish with six anal spines — a goggle-eye, not a smallmouth and not a bluegill.",
+    sexualDimorphism:
+      "Males guard nests. Size overlap is large; spines and the eye are the key.",
+    similarSpecies: [
+      {
+        speciesId: "micropterus_dolomieu",
+        name: "Smallmouth bass",
+        distinction:
+          "Smallmouth have vertical bronze bars, a Micropterus profile, and three anal spines. Rock bass have six anal spines, red eyes, and mottled sides rather than bronze bars.",
+      },
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a small mouth, three anal spines, and a round Lepomis body. Rock bass have a large mouth, six anal spines, and red eyes.",
+      },
+      {
+        speciesId: "lepomis_cyanellus",
+        name: "Green sunfish",
+        distinction:
+          "Green sunfish have three anal spines and Lepomis fin language. Rock bass have six anal spines and red eyes.",
+      },
+    ],
+    averageAdultLength: "Commonly 6–10 in in rocky streams and lake shores.",
+    commonAnglingSize: "7–10 in in Great Lakes and interior rocky water.",
+    typicalWeight: "Often 4–10 oz; larger fish occur around rock and wood.",
+    maximumDocumentedSize:
+      "Large rock bass exceed typical stream size but remain far smaller than adult smallmouth. Maxima are waterbody-specific.",
+    sources: [
+      {
+        label: "Michigan DNR rock bass species account (six anal spines, red eyes, large mouth, color change, crayfish and fish diet)",
+        class: "agency",
+        url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/rock-bass",
+      },
+      { label: "Illinois Department of Natural Resources rock bass account", class: "agency" },
+      { label: "Iowa DNR rock bass identification (six anal spines, ~12 dorsal spines)", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "a single continent-wide mean length",
+    ],
+  },
 ];

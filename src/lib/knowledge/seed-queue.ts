@@ -112,7 +112,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02c",
-    status: "next",
+    status: "landed",
     title: "Core panfish",
     reason: "Crappie and sunfish that anglers treat as one pile.",
     overlays: KNOWLEDGE_OVERLAYS,
@@ -127,7 +127,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02d",
-    status: "queued",
+    status: "next",
     title: "Remaining sunfish",
     reason: "After the core panfish set, finish the Lepomis/Centrarchus leftovers as one group.",
     overlays: KNOWLEDGE_OVERLAYS,

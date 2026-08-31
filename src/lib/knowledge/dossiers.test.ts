@@ -52,6 +52,13 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   bullhead: ["ameiurus_nebulosus", "ameiurus_melas", "ameiurus_natalis"],
   sander: ["sander_vitreus", "sander_canadensis"],
   esox: ["esox_lucius", "esox_masquinongy", "esox_niger"],
+  lepomis_core: [
+    "lepomis_macrochirus",
+    "lepomis_gibbosus",
+    "lepomis_microlophus",
+    "lepomis_cyanellus",
+  ],
+  rock_bass_smallmouth: ["ambloplites_rupestris", "micropterus_dolomieu"],
 };
 
 function normalize(value: string): string {
@@ -149,7 +156,7 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 39);
+  assert.equal(uncovered.length, 33);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -336,6 +343,45 @@ test("yellow perch identification uses bars and no canines, and stays a schoolin
   assert.ok(!diet.primaryForage.includes("larger_prey_fish"));
   assert.equal(behavior.social.pattern, "schooling");
   assert.match(behavior.spawningBehavior, /gelatinous|vegetation/i);
+});
+
+test("wave 02c panfish use agency ear-flap, mouth, spine, and shellcracker characters", () => {
+  const crappie = identificationDossierFor("pomoxis_spp");
+  const bluegill = identificationDossierFor("lepomis_macrochirus");
+  const pumpkinseed = identificationDossierFor("lepomis_gibbosus");
+  const redear = identificationDossierFor("lepomis_microlophus");
+  const green = identificationDossierFor("lepomis_cyanellus");
+  const rock = identificationDossierFor("ambloplites_rupestris");
+  assert.ok(crappie && bluegill && pumpkinseed && redear && green && rock);
+
+  assert.match(crappie.identificationTraits.join(" "), /dorsal spine|seven or eight|five or six/i);
+  assert.match(crappie.identificationTraits.join(" "), /complex/i);
+  assert.match(bluegill.identificationTraits.join(" "), /dorsal/i);
+  assert.match(bluegill.identificationTraits.join(" "), /pectoral/i);
+  assert.match(pumpkinseed.identificationTraits.join(" "), /orange|red/i);
+  assert.match(redear.identificationTraits.join(" "), /red|orange/i);
+  assert.match(green.identificationTraits.join(" "), /large mouth|upper jaw/i);
+  assert.match(rock.identificationTraits.join(" "), /six/i);
+  assert.match(rock.identificationTraits.join(" "), /anal/i);
+
+  assert.ok(crappie.similarSpecies.some((item) => item.speciesId === "lepomis_macrochirus"));
+  assert.ok(bluegill.similarSpecies.some((item) => item.speciesId === "lepomis_gibbosus"));
+  assert.ok(rock.similarSpecies.some((item) => item.speciesId === "micropterus_dolomieu"));
+
+  const crappieDiet = dietDossierFor("pomoxis_spp");
+  const bluegillDiet = dietDossierFor("lepomis_macrochirus");
+  const pumpkinDiet = dietDossierFor("lepomis_gibbosus");
+  const redearDiet = dietDossierFor("lepomis_microlophus");
+  const greenDiet = dietDossierFor("lepomis_cyanellus");
+  assert.ok(crappieDiet && bluegillDiet && pumpkinDiet && redearDiet && greenDiet);
+  assert.ok(crappieDiet.primaryForage.includes("small_forage_fish"));
+  assert.ok(!bluegillDiet.primaryForage.includes("small_forage_fish"));
+  assert.ok(pumpkinDiet.primaryForage.includes("mollusks"));
+  assert.equal(redearDiet.feedingStyle, "specialized");
+  assert.equal(redearDiet.feedingZone, "benthic");
+  assert.ok(redearDiet.primaryForage.includes("mollusks"));
+  assert.ok(greenDiet.primaryForage.includes("small_forage_fish"));
+  assert.equal(behaviorDossierFor("pomoxis_spp")?.social.pattern, "schooling");
 });
 
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {
