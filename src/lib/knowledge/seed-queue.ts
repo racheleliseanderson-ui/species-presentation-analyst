@@ -127,7 +127,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02d",
-    status: "next",
+    status: "landed",
     title: "Remaining sunfish",
     reason: "After the core panfish set, finish the Lepomis/Centrarchus leftovers as one group.",
     overlays: KNOWLEDGE_OVERLAYS,
@@ -135,7 +135,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02e",
-    status: "queued",
+    status: "next",
     title: "Catfish",
     reason: "Same family, four different jobs.",
     overlays: KNOWLEDGE_OVERLAYS,

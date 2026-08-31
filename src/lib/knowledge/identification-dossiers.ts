@@ -2144,6 +2144,12 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
         distinction:
           "Yellow perch have about seven regular blackish bars, two clearly separated dorsal fins, and no canine-free crappie mouth. They are percids, not centrarchids.",
       },
+      {
+        speciesId: "centrarchus_macropterus",
+        name: "Flier",
+        distinction:
+          "Fliers are almost circular, carry a black teardrop under the eye, and have 11–13 dorsal spines — more than either crappie. They are a coastal-plain swamp sunfish, not this Pomoxis complex.",
+      },
     ],
     averageAdultLength: "Commonly 8–12 in. Minnesota DNR: the two species are similar in size.",
     commonAnglingSize: "9–12 in in many reservoirs and lakes.",
@@ -2281,9 +2287,10 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Green sunfish have a large mouth and an elongated body. Pumpkinseed mouths are small.",
       },
       {
+        speciesId: "lepomis_megalotis",
         name: "Longear sunfish",
         distinction:
-          "Longear have a much longer opercular flap. They are a separate catalog record in the leftover sunfish wave, not this pumpkinseed.",
+          "Longear have a much longer opercular flap, often white-edged. Pumpkinseed’s flap is short, with a discrete red-orange spot and a white margin.",
       },
     ],
     averageAdultLength: "Commonly 5–8 in; often smaller than sympatric bluegill.",
@@ -2416,9 +2423,10 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Redear have a small mouth and a red/orange flap edge. Green sunfish mouths are large.",
       },
       {
+        speciesId: "lepomis_gulosus",
         name: "Warmouth",
         distinction:
-          "Warmouth also have a large mouth and a bass-like body, often with a stripe through the eye and more mottling. They are a leftover-wave record. Do not collapse the two large-mouthed sunfish.",
+          "Warmouth also have a large mouth and a bass-like body, often with streaks through the eye, tongue teeth, and more mottling. Do not collapse the two large-mouthed sunfish.",
       },
     ],
     averageAdultLength: "Commonly 5–8 in; large stream fish exceed that.",
@@ -2485,6 +2493,12 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
         distinction:
           "Green sunfish have three anal spines and Lepomis fin language. Rock bass have six anal spines and red eyes.",
       },
+      {
+        speciesId: "lepomis_gulosus",
+        name: "Warmouth",
+        distinction:
+          "Warmouth share the goggle-eye nickname and a large mouth, but have three anal spines and teeth on the tongue. Rock bass have six anal spines and lack that tongue-tooth key.",
+      },
     ],
     averageAdultLength: "Commonly 6–10 in in rocky streams and lake shores.",
     commonAnglingSize: "7–10 in in Great Lakes and interior rocky water.",
@@ -2503,6 +2517,323 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ...R,
     gaps: [
       "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "lepomis_auritus",
+    status: "reviewed",
+    regionalNames: ["redbelly sunfish", "redbreast", "robin"],
+    bodyShape:
+      "South Carolina DNR: laterally compressed like other sunfishes, but more elongated than bluegill or pumpkinseed of the same length.",
+    identificationTraits: [
+      "North Carolina Wildlife: the most distinguishing character is a long, narrow (no wider than the eye) extension of the gill cover. These flaps may exceed a length of 1 inch and are entirely black.",
+      "South Carolina DNR: blue lines on the face or cheek; teeth present on the roof of the mouth; caudal fin generally orange-red.",
+      "Delaware DNREC: bright bluish-green stripes originate near the mouth and extend backward toward the base of the elongated black ear flap. Vertical rows of red-brown to orange spots on the sides (South Carolina DNR).",
+      "Three anal spines, as in other Lepomis. Rock bass have six. The mouth is moderate — larger than bluegill, smaller than warmouth or green sunfish.",
+      "Longear also have a long flap, but longear flaps are often white-edged and longear pectorals are short and rounded. Redbreast flaps are entirely black.",
+    ],
+    coloration:
+      "Olive to bluish-green back fading to a bright orange-yellow belly in females and a deep orange-red belly in males (South Carolina DNR). North Carolina Wildlife: green-to yellow-brown sides with reddish spots and a reddish-orange belly.",
+    regionalColorVariation:
+      "Atlantic-slope fish often show the strongest breast color. Color is not a native-versus-introduced key (USGS NAS documents introduced occurrences west of the native Atlantic/Gulf slope range).",
+    spawningColoration:
+      "Breeding males have a bright orange-red breast (Delaware DNREC). South Carolina DNR: spawn late May through July at about 65–75°F; nests may be solitary or in groups of more than 80. Colonies are conservation context.",
+    juvenileAppearance:
+      "The long black flap and cheek lines develop with size. Small fish can still be split from bluegill once the flap length is visible.",
+    adultAppearance:
+      "An elongated sunfish with a long, entirely black ear flap, blue cheek lines, and an orange to red breast.",
+    sexualDimorphism:
+      "Males deepen the orange-red breast; females stay orange-yellow. Size overlap is large; the flap, not color, is the key.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_megalotis",
+        name: "Longear sunfish",
+        distinction:
+          "Longear flaps are elongated and often white-edged; pectorals are short and rounded; the head has sky-blue vermiculations. Redbreast flaps are entirely black and no wider than the eye; the body is more elongated than a slab-sided longear.",
+      },
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a short black ear flap, a soft-dorsal spot, and long pointed pectorals. Redbreast have a long entirely black flap and lack that dorsal spot.",
+      },
+      {
+        speciesId: "lepomis_gibbosus",
+        name: "Pumpkinseed",
+        distinction:
+          "Pumpkinseed have a short flap with a discrete red-orange spot and a white margin. Redbreast flaps are long and entirely black.",
+      },
+      {
+        speciesId: "lepomis_microlophus",
+        name: "Redear sunfish",
+        distinction:
+          "Redear have a short flap with a red or orange edge and lack blue cheek lines. Redbreast have a long black flap and blue cheek lines.",
+      },
+    ],
+    averageAdultLength: "South Carolina DNR: commonly 2–9 in. Virginia DWR: adults typically 3.5–8+ in.",
+    commonAnglingSize: "5–8 in in warm rivers, creeks, and connected reservoirs.",
+    typicalWeight: "South Carolina DNR: commonly 3–8 oz.",
+    maximumDocumentedSize:
+      "South Carolina DNR notes a state record of 2 lb (1975). Large fish exceed typical creek size. Maxima are waterbody-specific.",
+    longevity: "South Carolina DNR / Virginia DWR: approximately 8 years.",
+    sources: [
+      {
+        label: "North Carolina Wildlife Resources Commission redbreast sunfish profile (long narrow entirely black flap)",
+        class: "agency",
+        url: "https://www.ncwildlife.gov/species/redbreast-sunfish",
+      },
+      {
+        label: "South Carolina DNR redbreast sunfish account (elongated body, long black lobe, cheek lines, diet, 65–75°F spawn)",
+        class: "agency",
+        url: "https://www.dnr.sc.gov/fish/species/redbreastsunfish.html",
+      },
+      {
+        label: "Virginia DWR redbreast sunfish account (3 anal spines, faster-water use than many sunfish)",
+        class: "agency",
+        url: "https://dwr.virginia.gov/wildlife/information/redbreast-sunfish/",
+      },
+      {
+        label: "Delaware DNREC Fish Facts redbreast sunfish (bluish-green cheek stripes to elongated black flap)",
+        class: "agency",
+      },
+    ],
+    ...R,
+    gaps: [
+      "native Atlantic-slope vs introduced interior morphometrics as a structured field",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "lepomis_gulosus",
+    status: "reviewed",
+    regionalNames: ["stumpknocker", "mud bass", "goggle-eye", "weed bass", "warmouth bass"],
+    bodyShape:
+      "Texas Parks and Wildlife: large-mouthed and heavy-bodied, somewhat larger than either rock bass or green sunfish with which it is often confused. Florida Museum: relatively thick compared with other sunfishes.",
+    identificationTraits: [
+      "Texas Parks and Wildlife: three anal spines, 10 dorsal spines, and small teeth present on the tongue. Rock bass have six anal spines and lack that tongue-tooth key.",
+      "Florida Museum: upper jaw extends beyond the pupil of the eye. Three to five reddish-brown streaks radiate from the eyes (Texas Parks and Wildlife). FWC: three or four dark stripes radiating back from the eye across the cheek and gill cover.",
+      "Adults dark and mottled brown; belly generally golden; gill flaps often red (Texas Parks and Wildlife). FWC: red eye and large mouth are conspicuous field marks.",
+      "Males may show a bright orange spot at the base of the dorsal fin (Texas Parks and Wildlife). Virginia DWR: dark opercular flap with a small off-color margin that is often white and red.",
+      "Texas Parks and Wildlife lists regional nicknames that collide with rock bass (goggle-eye, rock bass). Anal-spine count and tongue teeth split them. Do not collapse the two.",
+    ],
+    coloration:
+      "Mottled tan to dark brown with gold on the belly and streaks through the eye. Color is a supporting mark; spines and tongue teeth are the key.",
+    regionalColorVariation:
+      "Southern fish often show the strongest red eye and cheek streaks. Turbid swamp fish can look uniformly dark until the mouth and anal spines are checked.",
+    spawningColoration:
+      "Texas Parks and Wildlife: when in breeding condition the males' eyes turn red. Virginia DWR: spawning individuals often have a peppering of green spots along the sides. Nesting is conservation context.",
+    juvenileAppearance:
+      "The large mouth and eye streaks appear early. Young warmouth can be confused with green sunfish until tongue teeth and mottling are checked.",
+    adultAppearance:
+      "A thick, large-mouthed, mottled sunfish with eye-streaks, often a red eye, three anal spines, and teeth on the tongue.",
+    sexualDimorphism:
+      "Texas Parks and Wildlife: males may show a bright orange spot at the base of the dorsal fin. Size overlap is large.",
+    similarSpecies: [
+      {
+        speciesId: "ambloplites_rupestris",
+        name: "Rock bass",
+        distinction:
+          "Texas Parks and Wildlife: the difference is the anal fin — warmouth have three spines, rock bass have six. Warmouth also have teeth on the tongue. Shared nicknames (goggle-eye) are not an ID.",
+      },
+      {
+        speciesId: "lepomis_cyanellus",
+        name: "Green sunfish",
+        distinction:
+          "Green sunfish also have a large mouth and a bass-like body, but they lack warmouth’s tongue teeth and the strong eye-streak / mottled-brown recipe. Texas Parks and Wildlife: hybridization with green sunfish is documented; a hybrid should not silently inherit this record.",
+      },
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a small mouth, a round body, and a soft-dorsal spot. Warmouth mouths are large and the body is thick and mottled.",
+      },
+    ],
+    averageAdultLength: "Texas Parks and Wildlife: commonly 4–10 in. Virginia DWR: quality specimens typically 6–8 in; can reach about 10 in.",
+    commonAnglingSize: "5–8 in around wood, weeds, and swampy cover.",
+    typicalWeight: "Often well under 1 lb; large fish occur in fertile cover.",
+    maximumDocumentedSize:
+      "Texas Parks and Wildlife: can grow to more than 12 in and weigh up to 2.25 lb. FWC notes a Florida state record of 2.44 lb. Maxima are waterbody-specific.",
+    longevity: "Virginia DWR: up to 8 years.",
+    sources: [
+      {
+        label: "Texas Parks and Wildlife warmouth account (tongue teeth, 3 anal / 10 dorsal spines, eye streaks, low-oxygen tolerance)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/war/",
+      },
+      {
+        label: "Florida Fish and Wildlife Conservation Commission warmouth profile (red eye, war-paint cheek streaks, solitary nesting)",
+        class: "agency",
+        url: "https://myfwc.com/wildlifehabitats/profiles/freshwater/warmouth/",
+      },
+      {
+        label: "Florida Museum warmouth species profile (jaw past pupil, dark lines from red eye)",
+        class: "agency",
+        url: "https://www.floridamuseum.ufl.edu/discover-fish/florida-fishes-gallery/warmouth/",
+      },
+      {
+        label: "Virginia DWR warmouth account (solitary cover use, acidic swamp habitat)",
+        class: "agency",
+        url: "https://dwr.virginia.gov/wildlife/information/warmouth/",
+      },
+    ],
+    ...R,
+    gaps: [
+      "hybrid meristics as a structured key",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "lepomis_megalotis",
+    status: "reviewed",
+    regionalNames: ["creek perch", "sun perch", "longear"],
+    bodyShape:
+      "Missouri DNR: deep-bodied, slab-sided, with a moderate-sized mouth, the upper jaw nearly reaching the front of the eye.",
+    identificationTraits: [
+      "Missouri DNR: the ear (gill) flap is elongated, black, and often bordered in white. Illinois DNR: the black flap on the gill cover is very long and white-edged.",
+      "Missouri DNR / Illinois DNR: pectoral fin is rounded and short — not the long pointed bluegill or pumpkinseed pectoral.",
+      "Missouri DNR: side of the head olive or light orange with sky-blue vermiculations (undulating, worm-like markings).",
+      "Back and sides blue-green speckled with yellow and emerald; belly yellow or orange (Missouri DNR). Breeding males show a bright red-orange belly (Illinois DNR).",
+      "The long flap is the namesake mark, but the white edge plus short rounded pectorals split this fish from redbreast, whose flap is entirely black.",
+    ],
+    coloration:
+      "Blue-green sides speckled with yellow and emerald, orange or yellow belly, and a sky-blue maze on the cheek. Color intensifies on nesting males and is not the only key.",
+    regionalColorVariation:
+      "Ozark and clear-stream fish often show the strongest blue and orange. Turbid water washes the vermiculations until the flap and pectorals are checked.",
+    spawningColoration:
+      "Illinois DNR: breeding male has a bright red-orange belly. Missouri DNR: courting males tilt to display brightly colored sides. Colonial nests are conservation context.",
+    juvenileAppearance:
+      "The long flap and cheek vermiculations develop with size. Small fish can still be split from pumpkinseed once flap length is visible.",
+    adultAppearance:
+      "A slab-sided, short-pectoral sunfish with a very long, often white-edged black ear flap and sky-blue head markings.",
+    sexualDimorphism:
+      "Males intensify belly and side color on the nest. Size overlap is large; the flap, not color, is the key.",
+    similarSpecies: [
+      {
+        speciesId: "lepomis_auritus",
+        name: "Redbreast sunfish",
+        distinction:
+          "Redbreast flaps are entirely black and no wider than the eye; the body is more elongated. Longear flaps are often white-edged; pectorals are short and rounded; the body is deep and slab-sided.",
+      },
+      {
+        speciesId: "lepomis_gibbosus",
+        name: "Pumpkinseed",
+        distinction:
+          "Pumpkinseed have a short flap with a discrete red-orange spot and a white margin, plus long pectorals. Longear have a much longer, often white-edged flap and short rounded pectorals.",
+      },
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a short plain black flap, a soft-dorsal spot, and long pointed pectorals. Longear have a very long white-edged flap and rounded pectorals.",
+      },
+      {
+        speciesId: "lepomis_cyanellus",
+        name: "Green sunfish",
+        distinction:
+          "Green sunfish have a large mouth and an elongated body. Longear mouths are moderate; the body is deep and slab-sided.",
+      },
+    ],
+    averageAdultLength: "Missouri DNR: total length commonly 5–6 in. Illinois DNR: typically about 6–7 in.",
+    commonAnglingSize: "4–7 in in clear rocky or sandy streams and connected pools.",
+    typicalWeight: "Missouri DNR: maximum about 7 in and 4.5 oz in that account. Typical fish are lighter.",
+    maximumDocumentedSize:
+      "Large longear exceed the 5–7 in band in some waters but remain smaller than trophy bluegill or redear. Maxima are waterbody-specific.",
+    longevity: "Missouri DNR: individuals can live for 6 years.",
+    sources: [
+      {
+        label: "Missouri Department of Conservation longear sunfish field guide (white-edged elongated flap, rounded pectoral, vermiculations, size)",
+        class: "agency",
+        url: "https://mdc.mo.gov/discover-nature/field-guide/longear-sunfish",
+      },
+      {
+        label: "Illinois Department of Natural Resources longear sunfish account (very long white-edged flap, short rounded pectorals)",
+        class: "agency",
+        url: "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsunfish/waflongearsunfish.html",
+      },
+    ],
+    ...R,
+    gaps: [
+      "eastern vs interior subspecies / form tables as a structured field",
+      "a single continent-wide mean length",
+    ],
+  },
+  {
+    speciesId: "centrarchus_macropterus",
+    status: "reviewed",
+    regionalNames: ["flier sunfish"],
+    bodyShape:
+      "South Carolina DNR: the flier looks almost circular. Florida Museum: strongly compressed, deep body.",
+    identificationTraits: [
+      "South Carolina DNR: a distinct, large black teardrop-shaped marking below the eye. Florida Museum: a large black teardrop.",
+      "South Carolina DNR: the most dorsal-fin spines of any sunfish, usually 11–13. Georgia DNR: long anal fin with 7–8 anal spines. Crappie have 5–8 dorsal spines and three anal spines — not this count.",
+      "South Carolina DNR / Florida Museum: interrupted rows of black spots along the side. Georgia DNR: scales marked with a brown spot forming a series of horizontal lines.",
+      "Young fliers have a dark spot outlined in an orange ring on the dorsal fin; these spots fade and disappear with age (South Carolina DNR). Do not use the juvenile dorsal spot as an adult key.",
+      "Operculum lobe is black (South Carolina DNR). The body is olive green to silver, not a Lepomis ear-flap sunfish and not a Pomoxis speckle pattern.",
+    ],
+    coloration:
+      "Olive green to silver with interrupted rows of dark spots and a black teardrop under the eye. Young fish may show an orange-ringed dorsal spot that adults lose.",
+    regionalColorVariation:
+      "Tannic coastal-plain water can darken the ground color. The teardrop and spine counts remain the key.",
+    spawningColoration:
+      "South Carolina DNR: spawning begins earlier than most sunfish, around March to May at about 55–65°F; males build and defend nests, often in groups. Grouped nests are conservation context.",
+    juvenileAppearance:
+      "South Carolina DNR: young have a dark spot outlined in an orange ring on the dorsal fin. That mark fades. The teardrop is already useful.",
+    adultAppearance:
+      "An almost circular, deep-bodied sunfish with a black teardrop under the eye, interrupted rows of dark spots, and more dorsal spines than a crappie.",
+    sexualDimorphism:
+      "Illinois DNR: females grow larger than males. Size overlap is still large; spines and the teardrop are the key.",
+    similarSpecies: [
+      {
+        speciesId: "pomoxis_spp",
+        name: "Crappie",
+        distinction:
+          "Crappie have 5–8 dorsal spines and a concave Pomoxis forehead, without a black teardrop under the eye. Fliers have 11–13 dorsal spines, 7–8 anal spines, and the teardrop. They are not this crappie complex.",
+      },
+      {
+        speciesId: "lepomis_macrochirus",
+        name: "Bluegill",
+        distinction:
+          "Bluegill have a small mouth, a dark ear flap, a soft-dorsal spot, and three anal spines. Fliers are almost circular, carry a teardrop, and have 11–13 dorsal spines.",
+      },
+      {
+        speciesId: "lepomis_gulosus",
+        name: "Warmouth",
+        distinction:
+          "Warmouth are thick, large-mouthed, and mottled, with tongue teeth and three anal spines. Fliers are round, teardrop-marked, and high-spined.",
+      },
+    ],
+    averageAdultLength: "South Carolina DNR: average about 5 in. Illinois DNR: averages about 7 in.",
+    commonAnglingSize: "4–7 in in vegetated coastal-plain backwater.",
+    typicalWeight: "South Carolina DNR: average about 3 oz. Georgia DNR: most less than ½ lb.",
+    maximumDocumentedSize:
+      "South Carolina DNR notes a state record of 1 lb 4 oz (1977). Large fish remain small compared with adult crappie. Maxima are waterbody-specific.",
+    longevity: "South Carolina DNR: approximately 8 years.",
+    sources: [
+      {
+        label: "South Carolina DNR flier account (almost circular, teardrop, 11–13 dorsal spines, early 55–65°F spawn)",
+        class: "agency",
+        url: "https://www.dnr.sc.gov/fish/species/flier.html",
+      },
+      {
+        label: "Georgia DNR freshwater fish identification (7–8 anal spines, horizontal scale-spot rows, sluggish lowland habitat)",
+        class: "agency",
+        url: "https://georgiawildlife.com/fishing/identification",
+      },
+      {
+        label: "Florida Museum flier species profile (large black teardrop, interrupted rows of black spots)",
+        class: "agency",
+        url: "https://www.floridamuseum.ufl.edu/discover-fish/florida-fishes-gallery/flier/",
+      },
+      {
+        label: "Illinois Department of Natural Resources flier account (teardrop, April spawn, vegetated low-current water)",
+        class: "agency",
+        url: "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsunfish/wafflier.html",
+      },
+    ],
+    ...R,
+    gaps: [
+      "a single continent-wide mean length",
+      "black vs white crappie confusion tables by drainage",
     ],
   },
 ];

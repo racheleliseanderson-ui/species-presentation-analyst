@@ -1796,4 +1796,174 @@ export const DIET_DOSSIERS: DietDossier[] = [
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
   },
+  {
+    speciesId: "lepomis_auritus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "crustaceans", "mollusks", "small_forage_fish", "worms_annelids"],
+    primaryNote:
+      "South Carolina DNR: predominantly aquatic and terrestrial insects, crayfish, mollusks, and other fish. North Carolina Wildlife: bottom-dwelling insect larvae, snails, clams, shrimp, crayfish, and small fish. Delaware DNREC: mainly insects, also crayfish, leeches, snails, and small fishes. Terrestrial insects are an agency note; they sit beside aquatic insects on this mixed record. Capacity is not a current hatch.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Remaining benthic insects, worms, and crustaceans around deeper pools and cover.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects, crustaceans, and mollusks as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, crayfish, mollusks, and small forage fish around wood and current margins. Terrestrials are capacity when observed.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and remaining small fish along cover.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small aquatic insects and invertebrates.",
+      juvenile: "Aquatic insects, crustaceans, and small mollusks.",
+      adult: "Insects, crayfish, mollusks, worms, and small forage fish.",
+    },
+    ontogeneticShift: "Insects to mixed insect–crustacean–mollusk, with small fish where gape allows.",
+    forageSubstitutions: "Sandy rivers substitute different mollusks and crayfish than vegetated reservoirs. Do not import a bluegill pond diet wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "South Carolina DNR redbreast sunfish account (insects, crayfish, mollusks, other fish)", class: "agency" },
+      { label: "North Carolina Wildlife Resources Commission redbreast sunfish profile (insect larvae, snails, clams, shrimp, crayfish, small fish)", class: "agency" },
+      { label: "Delaware DNREC Fish Facts redbreast sunfish (insects, crayfish, leeches, snails, small fishes)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "lepomis_gulosus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "crustaceans", "mollusks", "small_forage_fish"],
+    primaryNote:
+      "Texas Parks and Wildlife: adults feed on insects, mollusks, and small fish. FWC: crayfish, shrimp, insects, and small fishes. Virginia DWR also lists terrestrial insects and snails; terrestrials are not a catalog class here and stay an agency note. Young zooplankton (Texas Parks and Wildlife) is likewise off this catalog list. Capacity is not a current crayfish event.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Insects, remaining crayfish, and small fish in cover.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, crayfish, and small fish as water warms. Spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Crayfish, insects, mollusks, and small forage fish around stumps and weeds.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects, crayfish, and remaining small fish in cover.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Texas Parks and Wildlife: zooplankton and small insects. Zooplankton is not a catalog class on this record.",
+      juvenile: "Insects and small crustaceans.",
+      adult: "Insects, crayfish, mollusks, and small forage fish.",
+    },
+    ontogeneticShift: "Small invertebrates to mixed insect–crayfish–fish, stronger piscivory than bluegill at the same length.",
+    forageSubstitutions: "Swamps substitute crayfish and insects; ponds substitute different small fish. Hybrids should not inherit this list.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Texas Parks and Wildlife warmouth account (young zooplankton and insects; adults insects, mollusks, small fish)", class: "agency" },
+      { label: "Florida Fish and Wildlife Conservation Commission warmouth profile (crayfish, shrimp, insects, small fishes)", class: "agency" },
+      { label: "Virginia DWR warmouth account (insects, snails, crayfish, small fishes)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "lepomis_megalotis",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "terrestrial_insects", "crustaceans", "small_forage_fish"],
+    primaryNote:
+      "Missouri DNR: insects, small crustaceans, and some small fish. Illinois DNR: insects, fishes, and crayfish. Mollusks are not a catalog class on this record — do not import a pumpkinseed or redear snail diet. Capacity is not a current hatch.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Remaining insects and crustaceans in deeper pools.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects and crustaceans as water warms.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, terrestrials, crayfish, and some small forage fish in clear stream pools. Surface foods are capacity when observed.",
+      },
+      {
+        season: "late_summer",
+        emphasis: "Insects and remaining terrestrials along pool edges. Nesting overlap may continue; that is conservation context.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and remaining small fish along cover.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small aquatic insects and crustaceans.",
+      juvenile: "Insects and small crustaceans.",
+      adult: "Insects, terrestrials, crayfish-scale crustaceans, and some small forage fish.",
+    },
+    ontogeneticShift: "Small invertebrates to mixed insect–crustacean, with small fish where gape allows.",
+    forageSubstitutions: "Clear rocky streams substitute crayfish and insects. Do not import a mollusk specialist diet this record does not have.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Missouri Department of Conservation longear sunfish field guide (insects, small crustaceans, some small fish)", class: "agency" },
+      { label: "Illinois Department of Natural Resources longear sunfish account (insects, fishes, crayfish)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "centrarchus_macropterus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "small_forage_fish", "crustaceans"],
+    primaryNote:
+      "South Carolina DNR: small aquatic insects and small fishes. Illinois DNR: insects, fishes, and crustaceans. Catalog also lists mollusks, worms, and zooplankton as capacity; they are not treated as primary without a matching agency emphasis. Observed forage still outranks an assumed single prey class.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Remaining insects and small fish in vegetated backwater.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects, crustaceans, and small fish as water warms. Early spawning overlap is conservation context.",
+      },
+      {
+        season: "summer",
+        emphasis: "Insects, crustaceans, and small forage fish in weeds and wood.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects and remaining small fish along vegetated edges.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small aquatic insects. Zooplankton is catalog capacity, not a sourced primary class here.",
+      juvenile: "Insects and small crustaceans.",
+      adult: "Insects, crustaceans, and small forage fish.",
+    },
+    ontogeneticShift: "Small insects to mixed insect–fish in vegetated backwater.",
+    forageSubstitutions: "Tannic swamps substitute different insects than clear oxbows. Do not import a crappie plankton-and-schooling diet wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "South Carolina DNR flier account (small aquatic insects and small fishes)", class: "agency" },
+      { label: "Illinois Department of Natural Resources flier account (insects, fishes, crustaceans)", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP],
+  },
 ];
