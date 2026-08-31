@@ -2083,4 +2083,223 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
   },
+  {
+    speciesId: "oncorhynchus_tshawytscha",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Juveniles rear in streams then move to ocean or Great Lakes. Returning Pacific adults travel in groups. Great Lakes adults may group on a pelagic forage layer. Neither is a named concentration.",
+      note: "Pacific freshwater adults are migration/interception context, not trout feeding stations. Great Lakes lake fish still feed. This overlay does not auto-select those jobs.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "opportunistic"],
+      note: "NOAA: young Chinook feed on terrestrial and aquatic insects, amphipods, and other crustaceans; older Chinook primarily feed on other fish. Catalog exception: spawning adults are interception, not forage matching. Do not target redds.",
+    },
+    dielTendency: {
+      class: "mixed",
+      note: "Catalog light response: low light movement; bright conditions push lake fish down along the thermocline. Light is positioning, not a catch claim.",
+    },
+    seasonalActivity:
+      "NOAA: return to natal streams generally in summer or early fall. Great Lakes lake feeding and Pacific freshwater return must not be collapsed. ESA-listed populations (NOAA: two endangered, seven threatened as of 2025) are status, not a location.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 44–55°F; warm edge near 64°F. Warm, low-oxygen travel water is a constraint.",
+    currentFacing:
+      "River travel and holding in moderate-to-strong lanes. Lakes are pelagic. Returning Pacific adults use travel lanes rather than trout feeding lies.",
+    depthMovement:
+      "Often deep or suspended in lakes; river depth follows holding water, not a single number. Bright conditions push lake fish down along the thermocline.",
+    flowChangeResponse:
+      "Flow pulses can move traveling adults. That is migration mechanics, not a named bottleneck.",
+    clarityResponse:
+      "Clarity can alter travel depth and visibility. It does not convert a spawning adult into a feeding trout.",
+    predatorAvoidance:
+      "Depth, turbidity, and grouping during travel. Not a cover-oriented ambush fish.",
+    coverUse:
+      "Runs, deep pools, seams, tailwater, and current breaks as travel/holding classes. Redds are excluded.",
+    openWaterBehavior:
+      "Great Lakes and ocean phases are pelagic piscivores. That lake job is not the Pacific freshwater-return job.",
+    spawningBehavior:
+      "NOAA: Chinook dig gravel nests (redds) on stream bottoms; all die after spawning. Mature typically at age 3 or 4. Redds, listed ESUs, and spawning concentrations are invalidators, never target layers.",
+    sources: [
+      { label: "NOAA Fisheries Chinook Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/chinook-salmon" },
+      { label: "Healey chinook life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "Pacific freshwater-return vs Great Lakes lake feeding as a structured RPC split"],
+  },
+  {
+    speciesId: "oncorhynchus_kisutch",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Juveniles rear in streams. Returning adults travel in groups. Great Lakes adults may group higher in the column than Chinook. Neither is a named concentration.",
+      note: "Catalog: willing to use upper-column current and tributary plumes more than Chinook. Tributary mouths are a habitat class, not a license to crowd spawning water.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "opportunistic"],
+      note: "NOAA: young in fresh water feed on plankton and insects; in the ocean they switch to small fishes. Catalog forage does not include larger prey fish. Pacific freshwater adults are interception, not forage matching.",
+    },
+    aggression:
+      "Catalog light response: low light and overcast favor higher, more aggressive positioning than Chinook. Aggression is a positioning note, not a catch claim.",
+    dielTendency: {
+      class: "mixed",
+      note: "Low light and overcast favor higher positioning. Bright conditions do not convert a spawning adult into a feeding trout.",
+    },
+    seasonalActivity:
+      "NOAA: return generally in fall or early winter after about 1½ years in the ocean. Great Lakes lake feeding and Pacific freshwater return must not be collapsed. NOAA: one ESU endangered and three threatened as of 2025; California DFW lists additional state status. Status is not a location.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 46–56°F; warm edge near 65°F. Warm travel water is a constraint.",
+    currentFacing:
+      "Willing to use upper-column current more than Chinook. Returning adults still use travel lanes rather than trout feeding lies.",
+    depthMovement:
+      "Often higher in the column than Chinook in lakes; river holding is mid to lower. Catalog depth, not a contour number.",
+    flowChangeResponse:
+      "Flow pulses can move traveling adults. That is migration mechanics, not a named bottleneck.",
+    clarityResponse:
+      "Clarity and overcast can alter how high fish sit. They do not imply a surface event.",
+    predatorAvoidance:
+      "Depth, turbidity, and grouping. Not a wood-ambush trout.",
+    coverUse:
+      "Runs, seams, pool heads, current breaks, and tributary mouths as classes. Spawning tributaries are excluded from target guidance.",
+    openWaterBehavior:
+      "Great Lakes and ocean phases are pelagic. Inland lake behavior is not identical to ocean-run fish (catalog).",
+    spawningBehavior:
+      "NOAA: females dig gravel nests; all coho die after spawning. Fall return. Redds, listed ESUs, and crowded spawning tributaries are invalidators, never target layers.",
+    sources: [
+      { label: "NOAA Fisheries Coho Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/coho-salmon" },
+      { label: "California DFW Coho Salmon conservation profile", class: "agency", url: "https://wildlife.ca.gov/Conservation/Fishes/Coho-Salmon" },
+      { label: "Sandercock coho life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "Pacific freshwater-return vs Great Lakes lake feeding as a structured RPC split"],
+  },
+  {
+    speciesId: "oncorhynchus_gorbuscha",
+    status: "reviewed",
+    social: {
+      pattern: "schooling",
+      byLifeStage:
+        "Juveniles move quickly from gravel toward estuary and ocean. Returning adults travel in groups. Neither is a named concentration.",
+      note: "This catalog record is flowing water only. Freshwater adults are migratory river fish.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "pursuit"],
+      note: "Alaska DFG: adults returning to spawn do not eat. Young migrating to the ocean may eat aquatic insects and zooplankton. Ocean diet is plankton, shrimp/krill, smaller fish, and squid. Freshwater presentation is interception/reaction only.",
+    },
+    dielTendency: {
+      class: "mixed",
+      note: "Catalog: lower light can alter migration depth and visibility but is not evidence that returning adults have resumed feeding.",
+    },
+    seasonalActivity:
+      "Alaska DFG: return between late June and mid-October after about 18 months at sea. NOAA: independent odd-year and even-year populations. Abundance must not be inferred from habitat. This record has no stillwater job.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 44–58°F. Warm, low flow is a travel constraint, not a shallow feeding cue.",
+    currentFacing:
+      "Velocity relief and travel lanes matter more than resident feeding stations (catalog).",
+    depthMovement:
+      "Typically mid-column to lower-column during river migration, varying with flow, channel form, and light.",
+    flowChangeResponse:
+      "Flow pulses can move traveling adults. That is migration mechanics, not a named bottleneck.",
+    predatorAvoidance:
+      "Depth, turbidity, and grouping during travel.",
+    coverUse:
+      "Runs, pool heads, pool tails, current breaks, and tributary mouths as travel classes. Redds are excluded.",
+    openWaterBehavior:
+      "Ocean phase is pelagic. This freshwater record has no stillwater presentations.",
+    spawningBehavior:
+      "NOAA: females construct redds; all pink salmon die after they spawn. Alaska DFG: a group of nests is a redd. Redds and concentrated spawning fish are excluded from target guidance. Odd/even year structure is not a targeting calendar.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Pink Salmon species profile (adults do not eat in freshwater; two-year cycle)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main" },
+      { label: "NOAA Fisheries Pink Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/pink-salmon" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "oncorhynchus_keta",
+    status: "reviewed",
+    social: {
+      pattern: "schooling",
+      byLifeStage:
+        "Most juveniles move quickly from freshwater into estuarine and marine habitat. Returning adults travel in groups. Neither is a named concentration.",
+      note: "This catalog record is flowing water only. Adult freshwater presentation is migration/interception context, not proof of active feeding.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "pursuit"],
+      note: "Alaska DFG: when adults return to fresh water on the spawning run, they cease feeding and their digestive tract degrades. Ocean feeding is behind them. Juvenile insect feeding is not a catalog forage class on this record.",
+    },
+    dielTendency: {
+      class: "mixed",
+      note: "Light and turbidity can alter visibility and travel depth; neither is a bite predictor (catalog).",
+    },
+    seasonalActivity:
+      "NOAA: spawn from late summer to March, with peak spawning concentrated in early winter. Hood Canal summer-run and Columbia River ESUs are federally threatened. Population-level status must be declared; it is not a location.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 42–56°F. Warm, low flow is a travel constraint.",
+    currentFacing:
+      "Returning adults use migration lanes and velocity relief in coastal rivers; the record does not convert spawning migration into a feeding model (catalog).",
+    depthMovement:
+      "Generally travels through mid and lower river columns with flow and channel depth rather than holding as a resident trout.",
+    flowChangeResponse:
+      "NOAA notes peak spawning concentrated in early winter when river flows are high. Flow is hydrology, not a named bottleneck.",
+    predatorAvoidance:
+      "Depth, turbidity, and grouping during travel.",
+    coverUse:
+      "Runs, current breaks, pool heads, pool tails, and tributary mouths as travel classes. Redds are excluded.",
+    openWaterBehavior:
+      "Ocean phase is pelagic. This freshwater record has no stillwater presentations.",
+    spawningBehavior:
+      "NOAA: spawn from late summer to March. Listed ESUs and spawning concentrations are conservation context, not target opportunities. Alaska DFG: energy stored in body tissues fuels the run after feeding ceases.",
+    sources: [
+      { label: "NOAA Fisheries Chum Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/chum-salmon" },
+      { label: "NOAA Fisheries Chum Salmon protected-ESU profile", class: "agency" },
+      { label: "Alaska Department of Fish and Game Chum Salmon species profile (cease feeding on the spawning run; no dark spots; silver on tail)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "salmo_salar_landlocked",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Maine IFW: young wild fish spend one to four years in a stream before migrating to a lake. Lake adults are primarily pelagic. They are not a cover-bound brown trout.",
+      note: "Lake fish forage-link to smelt and other pelagic prey rather than holding a wood hole. River fish use cold drift lanes and pools.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "drift_feeding", "opportunistic"],
+      note: "Maine IFW: rainbow smelt are the principal forage in Maine lakes; growth can be poor without adequate smelt. River fish take aquatic, emerging, and terrestrial insects. Unlike Pacific salmon freshwater adults, this form still feeds.",
+    },
+    dielTendency: {
+      class: "mixed",
+      note: "Catalog: low light and broken surface conditions can support higher positioning; bright summer conditions reinforce depth in clear lakes.",
+    },
+    seasonalActivity:
+      "Maine IFW: wild fish spawn in lake inlets or outlets from mid-October through late November. Spawning runs are invalidators, not target layers. Summer is a cold-oxygen problem under 65°F preference.",
+    thermalDrivenBehavior:
+      "Maine IFW: a coldwater fish that prefers water temperatures below 65°F. Catalog preferred band roughly 48–60°F; warm edge near 68°F. Summer stratification sends fish into cold oxygenated water.",
+    currentFacing:
+      "River fish use cold drift lanes and pools. Lake fish are pelagic, not current-bound.",
+    depthMovement:
+      "Often near surface in cool spring/fall conditions, then commonly descends into cold oxygenated water during summer stratification (catalog).",
+    clarityResponse:
+      "Bright summer in clear lakes reinforces depth. Broken surface can support higher positioning. Neither is a catch claim.",
+    predatorAvoidance:
+      "Depth and pelagic distance in lakes; broken water and pools in rivers. Not a wood-ambush brown.",
+    coverUse:
+      "River: runs, seams, pool heads, pool tails, current breaks. Lake: suspended open water, thermocline edges, inlets, outlets, drop-offs, and basins as classes. Inlets and outlets during the spawn window are conservation context.",
+    openWaterBehavior:
+      "Lake default is pelagic smelt-linked pursuit. Absence of smelt or equivalent pelagic forage can materially change growth and positioning (catalog).",
+    spawningBehavior:
+      "Maine IFW: wild fish spawn in lake inlets or outlets from mid-October through late November; eggs buried in gravel; landlocked salmon may spawn more than once. Spawning runs are invalidators. Do not confuse this record with federally endangered wild Gulf of Maine sea-run Atlantic salmon.",
+    sources: [
+      { label: "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
+      { label: "Maine landlocked Atlantic salmon management literature", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "smelt-present vs smelt-absent lake calendars as a structured RPC split"],
+  },
+
 ];

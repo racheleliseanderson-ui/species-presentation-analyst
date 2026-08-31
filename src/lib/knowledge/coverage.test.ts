@@ -45,7 +45,7 @@ test("landed waves have every required overlay; the next wave does not pretend t
 
   const next = nextSeedWave();
   assert.ok(next);
-  assert.equal(next.id, "02f");
+  assert.equal(next.id, "02g");
   for (const id of next.speciesIds) {
     assert.equal(hasCompleteKnowledgeOverlays(id), false, `${id} is queued as next but already complete`);
   }
@@ -64,15 +64,15 @@ test("conservation-sensitive records are recognition-only, not a targeting calen
 test("live coverage is computed from dossiers and does not invent fight or food", () => {
   const coverage = catalogKnowledgeCoverage();
   assert.equal(coverage.speciesTotal, 75);
-  assert.equal(coverage.completeOverlays, 50);
-  assert.equal(coverage.remainingOverlays, 25);
-  assert.equal(coverage.byOverlay.identification, 50);
-  assert.equal(coverage.byOverlay.behavior, 50);
-  assert.equal(coverage.byOverlay.diet, 50);
-  assert.equal(coverage.byOverlay.seasonal_calendar, 50);
+  assert.equal(coverage.completeOverlays, 55);
+  assert.equal(coverage.remainingOverlays, 20);
+  assert.equal(coverage.byOverlay.identification, 55);
+  assert.equal(coverage.byOverlay.behavior, 55);
+  assert.equal(coverage.byOverlay.diet, 55);
+  assert.equal(coverage.byOverlay.seasonal_calendar, 55);
   assert.equal(coverage.fightReviewed, 0);
   assert.equal(coverage.foodReviewed, 0);
-  assert.equal(coverage.nextWave?.id, "02f");
+  assert.equal(coverage.nextWave?.id, "02g");
 });
 
 test("Quick Read starters are species that already have the four knowledge overlays", () => {
@@ -91,8 +91,8 @@ test("seed doctrine keeps later layers deferred and refuses catch-prediction enr
   assert.ok(SEED_DOCTRINE.deferUntilHighUseKnowable.includes("live_regulations"));
   assert.ok(SEED_DOCTRINE.never.some((rule) => /bite score/i.test(rule)));
   assert.equal(KNOWLEDGE_OVERLAYS.length, 4);
-  assert.equal(identificationDossierFor("oncorhynchus_tshawytscha"), null);
-  assert.equal(behaviorDossierFor("oncorhynchus_tshawytscha"), null);
-  assert.equal(dietDossierFor("oncorhynchus_tshawytscha"), null);
-  assert.equal(seasonalCalendarDossierFor("oncorhynchus_tshawytscha"), null);
+  assert.equal(identificationDossierFor("prosopium_williamsoni"), null);
+  assert.equal(behaviorDossierFor("prosopium_williamsoni"), null);
+  assert.equal(dietDossierFor("prosopium_williamsoni"), null);
+  assert.equal(seasonalCalendarDossierFor("prosopium_williamsoni"), null);
 });
