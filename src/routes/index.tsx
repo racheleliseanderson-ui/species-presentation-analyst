@@ -4,7 +4,6 @@ import { Chrome } from "@/components/chrome";
 import { Instrument } from "@/components/instrument";
 import { QuickReadV2 } from "@/components/quick-read-v2";
 import { SelectedSpeciesProfile } from "@/components/species-profile";
-import { FLEET } from "@/lib/protocol/packet";
 import { NEXT_REVIEW, REVIEWED_AT } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
 
@@ -58,16 +57,13 @@ function Home() {
       <footer className="border-t border-line px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">The fleet</p>
-            <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-              {FLEET.map((f) => (
-                <li key={f.href}>
-                  <a href={f.href} className="text-muted no-underline hover:text-fg">
-                    {f.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+              Northern Lantern House Labs
+            </p>
+            <p className="mt-2 text-sm text-muted">Species & Presentation Analyst</p>
+            <Link to="/" className="mt-2 inline-block text-sm text-muted no-underline hover:text-fg">
+              Home
+            </Link>
           </div>
           <div className="flex flex-col gap-2 sm:items-end">
             <Link
