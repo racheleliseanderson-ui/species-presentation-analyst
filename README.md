@@ -171,9 +171,11 @@ npm run typecheck
 npm test
 ```
 
-Engine tests cover six-axis weighting, species-specific distinctions, full 75-record override coverage, policy-only records, expansion-04 alias separation, RPC candidate monotonicity, canonical-image registration, RPC profile integrity and family containment, explicit-vs-undeclared population behavior, profile/species/water mismatch fail-closed behavior, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
+Engine tests cover six-axis weighting, AFP identification/behavior dossier integrity, canonical spawning seasons, species-specific distinctions, full 75-record override coverage, policy-only records, expansion-04 alias separation, RPC candidate monotonicity, canonical-image registration, RPC profile integrity and family containment, explicit-vs-undeclared population behavior, profile/species/water mismatch fail-closed behavior, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
 
 ## Knowledge
+
+The Species Profile is the optional `AFP-1.1` reference layer: the same ten angler questions as `AFP-1.0`, now able to mark identification and behavior as reviewed when an `AFP-ID-1.0` / `AFP-BH-1.0` dossier exists. Wave 01 covers 26 high-confusion species (trout lookalikes, kokanee vs sockeye, black bass, Morone, cisco vs whitefish, goldeye vs mooneye, buffalo vs carp, gars, bullheads). Remaining species stay explicitly incomplete. Fight and food value stay unreviewed. Dossiers do not feed presentation weighting.
 
 75 reviewed North American records. Informal names (`brownie`, `smallie`, `laker`, `grayling`, `wiper`, `spoonbill`, `sockeye`, `dolly`, `sheefish`) resolve to reviewed records. Review date and next-review date are printed on the reading. Cadence: 90 days.
 

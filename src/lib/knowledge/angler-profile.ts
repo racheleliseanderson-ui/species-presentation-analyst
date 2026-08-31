@@ -1,8 +1,13 @@
 import { ALIASES } from "./aliases.ts";
+import {
+  behaviorDossierFor,
+  identificationDossierFor,
+} from "./dossier-catalog.ts";
+import type { BehaviorDossier, IdentificationDossier } from "./dossier-types.ts";
 import type { SpeciesRecord } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
-export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.0" as const;
+export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.1" as const;
 
 export type AnglerProfileSectionId =
   | "identification"
@@ -18,9 +23,12 @@ export type AnglerProfileSectionId =
 
 export type AnglerProfileStatus = "reviewed" | "partial" | "not_reviewed";
 
+export type AnglerProfileFactKind = "default" | "trait" | "comparison" | "source";
+
 export type AnglerProfileFact = {
   label: string;
   value: string;
+  kind?: AnglerProfileFactKind;
 };
 
 export type AnglerProfileSection = {
@@ -65,37 +73,29 @@ function section(
   return { id, label, question, status, summary, facts, gaps };
 }
 
-/**
- * AFP-1.0 is a coverage-aware reference view over the reviewed species catalog.
- *
- * It deliberately does not fabricate fields that the current catalog has not yet
- * reviewed. Missing identification, fight, table-quality, or regulation facts stay
- * visible as review gaps instead of being filled with generic model text.
- */
-export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
+function feedingModeLabel(mode: BehaviorDossier["feedingStrategy"]["modes"][number]): string {
+  return labelOf(mode);
+}
+
+function identificationSection(species: SpeciesRecord, dossier: IdentificationDossier | null): AnglerProfileSection {
   const aliases = ALIASES[species.id] ?? [];
-  const flowing = species.flowingPresentations;
-  const still = species.stillPresentations;
-  const holding = [
-    ...species.habitat.riverHolding,
-    ...species.habitat.stillHolding,
+  const catalogFacts: AnglerProfileFact[] = [
+    { label: "Common name", value: species.commonNames[0] },
+    { label: "Scientific name", value: species.scientificName },
+    {
+      label: "Also called",
+      value: aliases.length > 0 ? aliases.join(", ") : "No additional reviewed angler aliases stored",
+    },
   ];
 
-  const sections: AnglerProfileSection[] = [
-    section(
+  if (!dossier) {
+    return section(
       "identification",
       "Identification",
       "What fish is this?",
       "partial",
       "The catalog has authoritative naming and angler aliases, but it does not yet claim a complete visual-identification dossier.",
-      [
-        { label: "Common name", value: species.commonNames[0] },
-        { label: "Scientific name", value: species.scientificName },
-        {
-          label: "Also called",
-          value: aliases.length > 0 ? aliases.join(", ") : "No additional reviewed angler aliases stored",
-        },
-      ],
+      catalogFacts,
       [
         "physical description and diagnostic traits",
         "color and regional appearance variation",
@@ -104,7 +104,159 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
         "average and maximum size / weight",
         "age potential",
       ],
-    ),
+    );
+  }
+
+  const facts: AnglerProfileFact[] = [
+    ...catalogFacts,
+    ...(dossier.regionalNames.length > 0
+      ? [{ label: "Regional / local names", value: dossier.regionalNames.join(", ") }]
+      : []),
+    { label: "Body shape", value: dossier.bodyShape },
+    { label: "Adult appearance", value: dossier.adultAppearance },
+    { label: "Coloration", value: dossier.coloration },
+    ...(dossier.regionalColorVariation
+      ? [{ label: "Regional color variation", value: dossier.regionalColorVariation }]
+      : []),
+    ...(dossier.spawningColoration
+      ? [{ label: "Spawning coloration", value: dossier.spawningColoration }]
+      : []),
+    ...(dossier.juvenileAppearance
+      ? [{ label: "Juvenile appearance", value: dossier.juvenileAppearance }]
+      : []),
+    ...(dossier.sexualDimorphism
+      ? [{ label: "Sexual dimorphism", value: dossier.sexualDimorphism }]
+      : []),
+    ...dossier.identificationTraits.map((trait, index) => ({
+      label: dossier.identificationTraits.length === 1 ? "Diagnostic trait" : `Diagnostic trait ${index + 1}`,
+      value: trait,
+      kind: "trait" as const,
+    })),
+    ...dossier.similarSpecies.map((item) => ({
+      label: `Distinguish from ${item.name}`,
+      value: item.distinction,
+      kind: "comparison" as const,
+    })),
+    { label: "Average adult length", value: dossier.averageAdultLength },
+    { label: "Common angling size", value: dossier.commonAnglingSize },
+    { label: "Typical weight", value: dossier.typicalWeight },
+    { label: "Maximum documented size", value: dossier.maximumDocumentedSize },
+    ...(dossier.longevity ? [{ label: "Longevity / age potential", value: dossier.longevity }] : []),
+    {
+      label: "Identification sources",
+      value: dossier.sources.map((source) => source.label).join("; "),
+      kind: "source",
+    },
+  ];
+
+  return section(
+    "identification",
+    "Identification",
+    "What fish is this?",
+    dossier.status,
+    dossier.status === "reviewed"
+      ? "Reviewed identification characters, lookalike keys, and size ranges from agency, museum, or peer-reviewed sources. Visual claims are not taken from generative imagery."
+      : "A partial identification dossier is on file. Remaining gaps stay visible instead of being filled with generic model text.",
+    facts,
+    dossier.gaps,
+  );
+}
+
+function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null): AnglerProfileSection {
+  if (!dossier) {
+    return section(
+      "behavior",
+      "Behavior",
+      "What is the fish trying to accomplish?",
+      "partial",
+      "The decision engine models positioning, thermal state, light response, spawning caution, and population/system context when reviewed. It does not yet maintain a complete behavioral biography for every species.",
+      [
+        { label: "Light response", value: species.habitat.lightResponse },
+        { label: "Spawning context", value: species.spawning.note },
+        {
+          label: "Important exceptions",
+          value: species.exceptions.length > 0 ? species.exceptions.join(" ") : "No additional reviewed exception note",
+        },
+      ],
+      [
+        "schooling versus solitary behavior",
+        "territoriality / aggression profile",
+        "species-specific angling-pressure response",
+        "weather-front response beyond generic condition reasons",
+        "predator-avoidance behavior",
+      ],
+    );
+  }
+
+  const facts: AnglerProfileFact[] = [
+    { label: "Social pattern", value: `${labelOf(dossier.social.pattern)}. ${dossier.social.note}` },
+    ...(dossier.social.byLifeStage
+      ? [{ label: "Schooling by life stage", value: dossier.social.byLifeStage }]
+      : []),
+    {
+      label: "Feeding strategy",
+      value: `${dossier.feedingStrategy.modes.map(feedingModeLabel).join(", ")}. ${dossier.feedingStrategy.note}`,
+    },
+    { label: "Diel tendency", value: `${labelOf(dossier.dielTendency.class)}. ${dossier.dielTendency.note}` },
+    ...(dossier.territoriality ? [{ label: "Territoriality", value: dossier.territoriality }] : []),
+    ...(dossier.aggression ? [{ label: "Aggression", value: dossier.aggression }] : []),
+    ...(dossier.seasonalActivity ? [{ label: "Seasonal activity", value: dossier.seasonalActivity }] : []),
+    ...(dossier.thermalDrivenBehavior
+      ? [{ label: "Thermal-driven behavior", value: dossier.thermalDrivenBehavior }]
+      : []),
+    ...(dossier.currentFacing ? [{ label: "Current-facing behavior", value: dossier.currentFacing }] : []),
+    ...(dossier.depthMovement ? [{ label: "Depth movement", value: dossier.depthMovement }] : []),
+    ...(dossier.waterLevelResponse ? [{ label: "Water-level response", value: dossier.waterLevelResponse }] : []),
+    ...(dossier.flowChangeResponse ? [{ label: "Flow-change response", value: dossier.flowChangeResponse }] : []),
+    ...(dossier.clarityResponse ? [{ label: "Clarity response", value: dossier.clarityResponse }] : []),
+    ...(dossier.coldFrontResponse ? [{ label: "Cold-front response", value: dossier.coldFrontResponse }] : []),
+    ...(dossier.anglingPressureResponse
+      ? [{ label: "Angling-pressure response", value: dossier.anglingPressureResponse }]
+      : []),
+    ...(dossier.predatorAvoidance ? [{ label: "Predator avoidance", value: dossier.predatorAvoidance }] : []),
+    ...(dossier.coverUse ? [{ label: "Cover use", value: dossier.coverUse }] : []),
+    ...(dossier.openWaterBehavior ? [{ label: "Open-water behavior", value: dossier.openWaterBehavior }] : []),
+    { label: "Spawning behavior", value: dossier.spawningBehavior },
+    { label: "Light response (catalog)", value: species.habitat.lightResponse },
+    {
+      label: "Behavior sources",
+      value: dossier.sources.map((source) => source.label).join("; "),
+      kind: "source",
+    },
+  ];
+
+  return section(
+    "behavior",
+    "Behavior",
+    "What is the fish trying to accomplish?",
+    dossier.status,
+    dossier.status === "reviewed"
+      ? "Reviewed behavioral mechanics for positioning, feeding mode, social pattern, and conservation-safe spawning context. This is plausibility, not a claim that fish will bite."
+      : "A partial behavior dossier is on file. Remaining gaps stay visible instead of being filled with generic model text.",
+    facts,
+    dossier.gaps,
+  );
+}
+
+/**
+ * AFP-1.1 is a coverage-aware reference view over the reviewed species catalog.
+ *
+ * Identification and behavior dossiers overlay the existing ten-question contract
+ * when reviewed. Missing fight, table-quality, or live-regulation facts stay
+ * visible as review gaps instead of being filled with generic model text.
+ */
+export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
+  const flowing = species.flowingPresentations;
+  const still = species.stillPresentations;
+  const holding = [
+    ...species.habitat.riverHolding,
+    ...species.habitat.stillHolding,
+  ];
+  const identification = identificationDossierFor(species.id);
+  const behavior = behaviorDossierFor(species.id);
+
+  const sections: AnglerProfileSection[] = [
+    identificationSection(species, identification),
     section(
       "habitat_location",
       "Habitat & location",
@@ -133,28 +285,7 @@ export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpecies
         "migration detail at population scale where appropriate",
       ],
     ),
-    section(
-      "behavior",
-      "Behavior",
-      "What is the fish trying to accomplish?",
-      "partial",
-      "The decision engine models positioning, thermal state, light response, spawning caution, and population/system context when reviewed. It does not yet maintain a complete behavioral biography for every species.",
-      [
-        { label: "Light response", value: species.habitat.lightResponse },
-        { label: "Spawning context", value: species.spawning.note },
-        {
-          label: "Important exceptions",
-          value: species.exceptions.length > 0 ? species.exceptions.join(" ") : "No additional reviewed exception note",
-        },
-      ],
-      [
-        "schooling versus solitary behavior",
-        "territoriality / aggression profile",
-        "species-specific angling-pressure response",
-        "weather-front response beyond generic condition reasons",
-        "predator-avoidance behavior",
-      ],
-    ),
+    behaviorSection(species, behavior),
     section(
       "diet",
       "Diet",

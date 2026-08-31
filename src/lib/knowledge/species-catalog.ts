@@ -9,16 +9,6 @@ import { TARGET_CONTEXT_BY_SPECIES } from "./target-context.ts";
 function normalizeSpecies(species: SpeciesRecord): SpeciesRecord {
   let normalized = species;
 
-  if (species.id === "ameiurus_natalis") {
-    normalized = {
-      ...normalized,
-      spawning: {
-        ...normalized.spawning,
-        seasons: ["spring", "early_summer"] as SpeciesRecord["spawning"]["seasons"],
-      },
-    };
-  }
-
   const targetContext = TARGET_CONTEXT_BY_SPECIES[species.id];
   if (targetContext) {
     normalized = {

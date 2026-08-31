@@ -213,6 +213,19 @@ export const LABELS: Record<string, string> = {
   eggs: "Eggs",
   amphibians: "Amphibians",
   zooplankton: "Zooplankton",
+  schooling: "Schooling",
+  solitary: "Solitary",
+  loose_aggregation: "Loose aggregation",
+  mixed_by_life_stage: "Mixed by life stage",
+  ambush: "Ambush",
+  pursuit: "Pursuit",
+  drift_feeding: "Drift feeding",
+  benthic_feeding: "Benthic feeding",
+  filter: "Filter / plankton feeding",
+  opportunistic: "Opportunistic",
+  crepuscular: "Crepuscular",
+  diurnal: "Diurnal",
+  nocturnal: "Nocturnal",
 };
 
 export function labelOf(id: string): string {

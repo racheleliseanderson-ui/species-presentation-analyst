@@ -2,6 +2,7 @@ import { populationProfilesForSpecies } from "@/lib/engine/population-context";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   buildAnglerSpeciesProfile,
+  type AnglerProfileFact,
   type AnglerProfileStatus,
 } from "@/lib/knowledge/angler-profile";
 import { useSession } from "@/lib/store";
@@ -16,6 +17,24 @@ function statusClass(status: AnglerProfileStatus): string {
   if (status === "reviewed") return "bg-subtle text-fg";
   if (status === "partial") return "bg-elevated text-muted";
   return "bg-bg text-dim";
+}
+
+function factsByKind(facts: AnglerProfileFact[], kind: AnglerProfileFact["kind"]) {
+  return facts.filter((fact) => (fact.kind ?? "default") === kind);
+}
+
+function FactList({ facts }: { facts: AnglerProfileFact[] }) {
+  if (facts.length === 0) return null;
+  return (
+    <dl className="mt-4 grid gap-2">
+      {facts.map((fact) => (
+        <div key={`${fact.label}-${fact.value.slice(0, 24)}`} className="rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
+          <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">{fact.label}</dt>
+          <dd className="mt-1 text-sm text-fg">{fact.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
 }
 
 export function SelectedSpeciesProfile() {
@@ -48,7 +67,7 @@ export function SelectedSpeciesProfile() {
             <div className="text-right">
               <p className="font-mono text-[10px] uppercase tracking-wider text-dim">Open profile</p>
               <p className="mt-1 text-xs text-muted">
-                {profile.coverage.partial} partial · {profile.coverage.notReviewed} needs research
+                {profile.coverage.reviewed} reviewed · {profile.coverage.partial} partial · {profile.coverage.notReviewed} needs research
               </p>
             </div>
           </div>
@@ -76,43 +95,84 @@ export function SelectedSpeciesProfile() {
           </div>
 
           <div className="mt-5 grid gap-3 lg:grid-cols-2">
-            {profile.sections.map((item) => (
-              <details key={item.id} className="rounded-[var(--radius-md)] bg-subtle p-4 shadow-[var(--shadow-border)]">
-                <summary className="cursor-pointer list-none">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="font-medium text-fg">{item.label}</p>
-                      <p className="mt-0.5 text-xs text-muted">{item.question}</p>
+            {profile.sections.map((item) => {
+              const defaults = factsByKind(item.facts, "default");
+              const traits = factsByKind(item.facts, "trait");
+              const comparisons = factsByKind(item.facts, "comparison");
+              const sources = factsByKind(item.facts, "source");
+
+              return (
+                <details key={item.id} className="rounded-[var(--radius-md)] bg-subtle p-4 shadow-[var(--shadow-border)]">
+                  <summary className="cursor-pointer list-none">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="font-medium text-fg">{item.label}</p>
+                        <p className="mt-0.5 text-xs text-muted">{item.question}</p>
+                      </div>
+                      <span className={`shrink-0 rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider ${statusClass(item.status)}`}>
+                        {statusLabel(item.status)}
+                      </span>
                     </div>
-                    <span className={`shrink-0 rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider ${statusClass(item.status)}`}>
-                      {statusLabel(item.status)}
-                    </span>
+                  </summary>
+
+                  <div className="mt-4 border-t border-line pt-4">
+                    <p className="text-sm text-muted">{item.summary}</p>
+
+                    <FactList facts={defaults} />
+
+                    {traits.length > 0 && (
+                      <details className="mt-4 rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
+                        <summary className="cursor-pointer list-none">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                            Diagnostic traits · {traits.length}
+                          </p>
+                          <p className="mt-1 text-xs text-muted">Open for the field characters used to tell this fish apart.</p>
+                        </summary>
+                        <ul className="mt-3 grid gap-2">
+                          {traits.map((trait) => (
+                            <li key={trait.label} className="text-sm text-fg">
+                              {trait.value}
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
+
+                    {comparisons.length > 0 && (
+                      <details className="mt-3 rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
+                        <summary className="cursor-pointer list-none">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                            Tell it apart · {comparisons.length}
+                          </p>
+                          <p className="mt-1 text-xs text-muted">Similar species and the reviewed characters that separate them.</p>
+                        </summary>
+                        <dl className="mt-3 grid gap-3">
+                          {comparisons.map((fact) => (
+                            <div key={fact.label}>
+                              <dt className="text-sm font-medium text-fg">{fact.label.replace("Distinguish from ", "")}</dt>
+                              <dd className="mt-1 text-sm text-muted">{fact.value}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </details>
+                    )}
+
+                    {sources.length > 0 && (
+                      <p className="mt-4 text-xs leading-5 text-dim">
+                        {sources.map((source) => source.value).join(" · ")}
+                      </p>
+                    )}
+
+                    {item.gaps.length > 0 && (
+                      <div className="mt-4">
+                        <p className="font-mono text-[9px] uppercase tracking-wider text-dim">Still needs reviewed data</p>
+                        <p className="mt-1 text-xs leading-5 text-muted">{item.gaps.join(" · ")}</p>
+                      </div>
+                    )}
                   </div>
-                </summary>
-
-                <div className="mt-4 border-t border-line pt-4">
-                  <p className="text-sm text-muted">{item.summary}</p>
-
-                  {item.facts.length > 0 && (
-                    <dl className="mt-4 grid gap-2">
-                      {item.facts.map((fact) => (
-                        <div key={`${item.id}-${fact.label}`} className="rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
-                          <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">{fact.label}</dt>
-                          <dd className="mt-1 text-sm text-fg">{fact.value}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  )}
-
-                  {item.gaps.length > 0 && (
-                    <div className="mt-4">
-                      <p className="font-mono text-[9px] uppercase tracking-wider text-dim">Still needs reviewed data</p>
-                      <p className="mt-1 text-xs leading-5 text-muted">{item.gaps.join(" · ")}</p>
-                    </div>
-                  )}
-                </div>
-              </details>
-            ))}
+                </details>
+              );
+            })}
           </div>
 
           <p className="mt-5 text-xs leading-5 text-dim">
