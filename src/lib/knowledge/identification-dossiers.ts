@@ -1584,6 +1584,12 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Landlocked Atlantic salmon have a different spotting language (x-marks / sparse dark spots) and are Salmo, not a pale-spotted char. Forked tails overlap; spotting and mouth do not.",
       },
       {
+        speciesId: "salvelinus_alpinus",
+        name: "Arctic char",
+        distinction:
+          "Arctic char have fewer, larger cream-to-orange spots, a slimmer caudal peduncle, and a gold-to-rose spawning dress. Lake trout have many small light spots on a dark body. ADF&G treats Alaska Arctic char as lake-resident; do not collapse the two lake chars.",
+      },
+      {
         speciesId: "coregonus_clupeaformis",
         name: "Lake whitefish",
         distinction:
@@ -3492,6 +3498,373 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     gaps: [
       "a single northeastern mean length",
       "ouananiche vs sebago form tables as structured fields",
+    ],
+  },
+
+  {
+    speciesId: "prosopium_williamsoni",
+    status: "reviewed",
+    regionalNames: ["whitefish", "rocky mountain whitefish", "mountain herring"],
+    bodyShape:
+      "Slender, nearly cylindrical salmonid with an adipose fin and a forked tail. The head is short; the snout overhangs a small round mouth.",
+    identificationTraits: [
+      "Idaho Fish and Game: small mouth without teeth; light grayish-blue back, silvery sides, dull whitish belly. An adipose fin is present — this is a salmonid, not a sucker or large minnow.",
+      "Idaho Fish and Game: larger scales and a lack of trout coloration are why anglers misread them as suckers. The adipose fin and small toothless mouth are the split.",
+      "Montana Field Guide: pointed snout and small round mouth; mouth overhung by the snout. That vacuuming mouth is not a trout gape.",
+      "Montana Field Guide: typical fish are cylindrical 10–16 in; they can reach 5 lb. They are an interior-West Prosopium, not a Great Lakes Coregonus.",
+      "Do not collapse this record into trout behavior. They are more consistently benthic than sympatric trout.",
+    ],
+    coloration:
+      "Idaho Fish and Game: light grayish-blue on the back, silvery on the sides, dull whitish on the belly. Little trout spotting. Scales can look large and pale compared with a trout of the same length.",
+    regionalColorVariation:
+      "Clear western rivers often look brighter silver. Lake and reservoir fish can be duskier. Color is not a basin key.",
+    spawningColoration:
+      "Late-fall to winter broadcast spawners. There is no salmon-red dress. Congregations on gravel are conservation context, not a target class.",
+    juvenileAppearance:
+      "Small silvery salmonids with the same small overhung mouth. They are not trout parr.",
+    adultAppearance:
+      "A cylindrical, small-mouthed, adipose-finned whitefish of cold western rivers and connected lakes — not a sucker and not a lake whitefish.",
+    sexualDimorphism:
+      "Size overlap is large. Snout, mouth, and adipose fin, not color, are the key.",
+    similarSpecies: [
+      {
+        speciesId: "coregonus_clupeaformis",
+        name: "Lake whitefish",
+        distinction:
+          "Lake whitefish are a deeper-bodied Coregonus of Great Lakes and boreal lakes with a blunt, overhanging snout. Mountain whitefish are an interior river/lake Prosopium with a more pointed snout and a smaller mouth.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss",
+        name: "Rainbow trout",
+        distinction:
+          "Rainbows have a larger toothed mouth, spotting on the body and tail, and often a pink band. Mountain whitefish have a small toothless overhung mouth and little spotting.",
+      },
+      {
+        speciesId: "thymallus_arcticus",
+        name: "Arctic grayling",
+        distinction:
+          "Grayling have a large sail-like dorsal fin and a black slash on each side of the lower jaw. Mountain whitefish have a short dorsal and a small overhung mouth.",
+      },
+      {
+        speciesId: "catostomus_commersonii",
+        name: "White sucker",
+        distinction:
+          "White suckers lack an adipose fin and have a fleshy ventral sucker mouth. Mountain whitefish are salmonids with an adipose fin and a small terminal-to-inferior round mouth.",
+      },
+    ],
+    averageAdultLength: "Montana Field Guide: typically 10–16 in.",
+    commonAnglingSize: "10–16 in in western rivers and connected lakes.",
+    typicalWeight: "Often well under 2 lb; Montana Field Guide notes fish can reach 5 lb.",
+    maximumDocumentedSize:
+      "Montana Field Guide: can reach a weight of 5 lb. Continent-wide maxima are waterbody-specific.",
+    sources: [
+      { label: "Idaho Fish and Game resident fish identification (small toothless mouth, adipose fin, gray-blue back)", class: "agency", url: "https://idfg.idaho.gov/fish/identification/resident" },
+      { label: "Idaho Fish and Game lesser-known species notes (larger scales, small mouth, not a sucker)", class: "agency", url: "https://idfg.idaho.gov/blog/2021/05/what-fish-identifying-some-lesser-known-species-anglers-catch-southwest-idaho" },
+      { label: "Montana Field Guide mountain whitefish (pointed snout, overhung mouth, 10–16 in, broadcast spawn)", class: "agency", url: "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCHA03060" },
+      { label: "Boyer et al. mountain whitefish reproductive ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "a single interior-West mean length table",
+      "lake-form zooplankton fraction (no catalog forage class on this record)",
+    ],
+  },
+  {
+    speciesId: "thymallus_arcticus",
+    status: "reviewed",
+    regionalNames: ["grayling", "arctic grayling"],
+    bodyShape:
+      "Salmonid with a large, sail-like dorsal fin that is the field mark. Body thicker than a slim trout of the same length. Adipose fin present. Tail forked.",
+    identificationTraits: [
+      "Alaska Department of Fish and Game: the most striking physical feature is the large, sail-like dorsal fin, typically fringed in red and dotted with large iridescent red, aqua, or purple spots.",
+      "ADF&G: a black slash lies on each side of the lower jaw. Pelvic fins are striated with iridescent orange, red, or pink. The iris is often gold.",
+      "ADF&G: sides of the body and head can be freckled with black spots. Backs are usually dark; sides can be black, silver, gold, or blue.",
+      "ADF&G: largest measured in Alaska 24 in and 5 lb 1 oz. This is not a trout with an oversized dorsal.",
+      "Many lower-48 populations are conservation-sensitive. Geographic presence must be verified, not inferred from habitat.",
+    ],
+    coloration:
+      "ADF&G: coloration varies from stream to stream. Dark back; sides black, silver, gold, or blue, often with a gold band above a white belly. Dorsal fin is the color plate.",
+    regionalColorVariation:
+      "ADF&G: color can vary from stream to stream. Large fish show the most dramatic dorsal markings. Color is not a stock key and is not a lower-48 versus Alaska split by itself.",
+    spawningColoration:
+      "Spring spawners. Color intensification is biology, not a targeting cue. Lower-48 remnant and reintroduced populations remain conservation context.",
+    juvenileAppearance:
+      "ADF&G: fry are about ½ in at hatch and grow to about 2–4 in by the end of summer. The sail dorsal develops with age; small fish can still be told from trout by the dorsal and jaw slash when those marks are visible.",
+    adultAppearance:
+      "A sail-dorsal salmonid with a black lower-jaw slash and colorful pelvic fins. Not a mountain whitefish and not a trout.",
+    sexualDimorphism:
+      "Large adults show the strongest dorsal color. Size overlap is large; the sail, not sex, is the key.",
+    similarSpecies: [
+      {
+        speciesId: "prosopium_williamsoni",
+        name: "Mountain whitefish",
+        distinction:
+          "Mountain whitefish have a short dorsal, a small overhung toothless mouth, and little color. Grayling have a sail-like dorsal and a black slash on the lower jaw.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss",
+        name: "Rainbow trout",
+        distinction:
+          "Rainbows have a spotted body and tail and a pink band. They lack the grayling sail dorsal and the black lower-jaw slash.",
+      },
+      {
+        speciesId: "salvelinus_alpinus",
+        name: "Arctic char",
+        distinction:
+          "Arctic char are lake-resident chars with light spots and no sail dorsal. Grayling are a Thymallus of rivers and cold lakes.",
+      },
+    ],
+    averageAdultLength: "Adults commonly 10–16 in in many northern fisheries; ADF&G notes first spawn around 10–12 in.",
+    commonAnglingSize: "10–16 in.",
+    typicalWeight: "Often 0.5–2 lb; large northern fish are heavier.",
+    maximumDocumentedSize:
+      "ADF&G: largest measured in Alaska 610 mm (24 in) and 2.3 kg (5 lb 1 oz).",
+    longevity: "ADF&G: can live up to 32 years in Alaska and may spawn many times.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic grayling species profile (sail dorsal, jaw slash, diet, lower-48 decline)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main" },
+      { label: "USGS Arctic Grayling species profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "interior-West remnant versus Alaska mean-size tables",
+    ],
+  },
+  {
+    speciesId: "lota_lota",
+    status: "reviewed",
+    regionalNames: ["eelpout", "ling", "mariah", "lawyer"],
+    bodyShape:
+      "Elongate, eel-like freshwater cod. Single chin barbel. Two dorsal fins, the second long. Pelvic fins forward. Tail rounded, not forked.",
+    identificationTraits: [
+      "Minnesota DNR: resembles an eel more than other freshwater fish. Scales small; skin has a slimy feel.",
+      "Minnesota DNR: large chin barbel with tubular nostrils similar to catfish, for detecting food. That is a single barbel, not a catfish cluster.",
+      "Minnesota DNR: coloration yellow-brown to brown or dark olive with black mottling and blotching — a camouflage look.",
+      "Minnesota DNR: typically under 8 lb and less than 28 in. State record 19 lb 3 oz.",
+      "This is a coldwater benthic predator, not a bowfin and not a snakehead.",
+    ],
+    coloration:
+      "Minnesota DNR: yellow-brown to brown or even dark olive with black mottling and blotching.",
+    regionalColorVariation:
+      "Lake Superior and deep northern-lake fish can look darker. River fish can look more mottled. Color is not a basin key.",
+    spawningColoration:
+      "Minnesota DNR: mid-winter into early spring, before ice-off. No nest. Spawning groups are conservation context, never a map.",
+    juvenileAppearance:
+      "Minnesota DNR: hatch at about 0.15 in — among the smallest freshwater larvae. Young fish already show the barbel and elongate body.",
+    adultAppearance:
+      "A mottled, slimy, single-barbel eel-shaped cod of cold lakes and rivers. Night and bottom are the organizing ideas, not a surface predator.",
+    sexualDimorphism:
+      "A single female can lay as many as 1 million eggs (Minnesota DNR). Size overlap is large; barbel and body, not color, are the key.",
+    similarSpecies: [
+      {
+        speciesId: "amia_calva",
+        name: "Bowfin",
+        distinction:
+          "Bowfin have a long dorsal fin, a bony gular plate, and no chin barbel. Burbot are a mottled freshwater cod with a single chin barbel. Do not collapse the two ‘eel-like’ fish.",
+      },
+      {
+        speciesId: "ictalurus_punctatus",
+        name: "Channel catfish",
+        distinction:
+          "Channel catfish have eight barbels, a forked tail, and an adipose fin. Burbot have one chin barbel, a rounded tail, and no adipose fin.",
+      },
+      {
+        name: "Northern snakehead (invasive)",
+        distinction:
+          "Snakeheads have a long anal fin and no chin barbel. Burbot are a native coldwater cod. Treat snakehead as a separate invasive ID problem.",
+      },
+    ],
+    averageAdultLength: "Minnesota DNR: typically less than 28 in.",
+    commonAnglingSize: "18–26 in in many northern lakes and rivers.",
+    typicalWeight: "Minnesota DNR: typically under 8 lb.",
+    maximumDocumentedSize:
+      "Minnesota DNR: state record 19 lb 3 oz (Lake of the Woods). Maxima are waterbody-specific.",
+    longevity: "Minnesota DNR: can live up to 15 years.",
+    sources: [
+      { label: "Minnesota DNR burbot species profile (eel shape, chin barbel, mottling, winter spawn, perch/walleye diet)", class: "agency", url: "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html" },
+      { label: "USGS Great Lakes burbot thermal-distribution research", class: "peer_reviewed" },
+      { label: "USGS Lake Superior burbot life-history literature", class: "agency" },
+    ],
+    ...R,
+    gaps: [
+      "a single continent-wide mean length",
+      "meristic dorsal-ray table as a structured field",
+    ],
+  },
+  {
+    speciesId: "salvelinus_alpinus",
+    status: "reviewed",
+    regionalNames: ["arctic char", "arctic charr", "char"],
+    bodyShape:
+      "Lake-resident char with a relatively slim caudal peduncle and a noticeably forked tail. Adipose fin present. This catalog record is stillwater.",
+    identificationTraits: [
+      "ADF&G: fewer and larger spots (larger than the pupil), a more deeply forked tail, and a narrower caudal peduncle than Dolly Varden.",
+      "ADF&G: bronzish-yellow body with cream-to-orange spots is the usual contrast with Dolly Varden’s greenish body and many small spots.",
+      "ADF&G: spawning fish are usually gold, orange, yellow, or rose and only infrequently red. Spawning male kype is much smaller than in Dolly Varden.",
+      "ADF&G: in Alaska, all known populations appear to spend their entire lives in lakes and do not migrate. This record is not a sea-run char.",
+      "Polymorphic: ADF&G notes dwarf and normal forms in some lakes, with different habitat, food, growth, and size at maturity. Do not force one size story.",
+    ],
+    coloration:
+      "ADF&G: generally bronzish-yellow with fewer, larger cream-to-orange spots. Spawning dress gold to rose more often than bright red.",
+    regionalColorVariation:
+      "Lake-to-lake color and spot size vary with form. Eurasian anadromous char are outside this record. Do not infer form from a photograph of color alone.",
+    spawningColoration:
+      "ADF&G: spawning takes place in lakes between August and October over gravel/rubble. Shoals are not target locations. Color change is biology.",
+    juvenileAppearance:
+      "Young char already show light spots on a darker ground. They are not vermiculated brook parr and not Dolly Varden of streams.",
+    adultAppearance:
+      "A lake-resident char with large light spots, a slim peduncle, and a deep fork. Not Dolly Varden and not a lake trout.",
+    sexualDimorphism:
+      "ADF&G: spawning male kype is much smaller than in Dolly Varden. Most fish spawn only every other year.",
+    similarSpecies: [
+      {
+        speciesId: "salvelinus_malma",
+        name: "Dolly Varden",
+        distinction:
+          "ADF&G: Dolly Varden generally have a greenish body with many small spots (smaller than the pupil), a thick caudal peduncle, and a slightly forked tail. Arctic char have fewer larger spots, a slim peduncle, and a deeper fork. In Alaska, Dolly Varden use streams and may go to sea; Arctic char complete their lives in lakes.",
+      },
+      {
+        speciesId: "salvelinus_namaycush",
+        name: "Lake trout",
+        distinction:
+          "Lake trout have many small light spots on a dark body and a deeply forked tail, but they lack Arctic char’s cream-to-orange large spots and spawning gold/rose dress. They are a different char record.",
+      },
+      {
+        speciesId: "salvelinus_fontinalis",
+        name: "Brook trout",
+        distinction:
+          "Brook trout have vermiculations and blue-haloed red spots on a square tail. Arctic char lack the vermiculation maze and are a northern lake record.",
+      },
+    ],
+    averageAdultLength: "Highly lake-dependent. ADF&G: some lakes do not produce fish over 2 lb even at great age; others commonly exceed 10 lb.",
+    commonAnglingSize: "12–24 in depending on the lake form.",
+    typicalWeight: "ADF&G: highly variable; over 10 lb is not uncommon in some Alaska lakes.",
+    maximumDocumentedSize:
+      "ADF&G: up to 38 in and 15 lb, varying with lake productivity and other fishes present.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic Char species profile (lake-resident, spots vs Dolly Varden, dwarf/normal forms)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main" },
+    ],
+    ...R,
+    gaps: [
+      "dwarf versus normal form meristics as a structured overlay",
+      "Eurasian anadromous forms, which are outside this record",
+    ],
+  },
+  {
+    speciesId: "salvelinus_malma",
+    status: "reviewed",
+    regionalNames: ["dolly", "dollies", "dolly varden"],
+    bodyShape:
+      "Char with a relatively thick caudal peduncle and a slightly forked tail. Adipose fin present. Resident stream fish are often small; sea-run and lake-wintering fish are larger.",
+    identificationTraits: [
+      "ADF&G: greenish body with many small spots (smaller than the pupil of the eye), a relatively thick caudal peduncle, and a slightly forked tail.",
+      "ADF&G: spawning fish are usually red or pink on the lower abdomen with bright red spots. Spawning males usually develop a distinct kype, which is absent or reduced in Arctic char.",
+      "ADF&G: in Alaska, Dolly Varden spawn and usually live in streams and rivers (southern form often overwinters in lakes) and may migrate to and from the ocean. Arctic char in Alaska generally complete their lives in lakes.",
+      "Northern and southern forms differ in vertebrae and chromosomes. Resident versus sea-run life histories must be declared through RPC, not inferred from a water name.",
+      "Bull trout remain a separate, fail-closed conservation record. Do not treat a Dolly Varden as a bull trout or the reverse.",
+    ],
+    coloration:
+      "ADF&G: generally greenish with many small spots. Spawning fish red or pink on the lower abdomen with bright red spots.",
+    regionalColorVariation:
+      "Sea-run fish can be silvery until freshwater residence colors them. Resident dwarfs in small headwaters may stay small and dark. Color is not the northern/southern form key.",
+    spawningColoration:
+      "Fall spawners, generally September through November. Redds and concentrations are excluded from target guidance.",
+    juvenileAppearance:
+      "ADF&G: juveniles feed in slow water near banks. Small char without brook vermiculations. Form (resident vs sea-run) is not decided from a juvenile photograph.",
+    adultAppearance:
+      "A small-spotted, thick-peduncle char of cold streams, rivers, and connected lakes. Not Arctic char and not bull trout.",
+    sexualDimorphism:
+      "ADF&G: spawning males usually develop a distinct kype. Resident dwarfs may mature at 3–6 in.",
+    similarSpecies: [
+      {
+        speciesId: "salvelinus_alpinus",
+        name: "Arctic char",
+        distinction:
+          "ADF&G: Arctic char have fewer, larger spots, a slim caudal peduncle, and a noticeably forked tail, and in Alaska they live in lakes. Dolly Varden have many small spots, a thick peduncle, a slight fork, and use streams, with sea-run forms.",
+      },
+      {
+        speciesId: "salvelinus_confluentus",
+        name: "Bull trout",
+        distinction:
+          "Bull trout are a conservation-sensitive char and a fail-closed record in this catalog. Identification helps people not confuse them with Dolly Varden. Behavior, diet, and calendars are not a how-to-target layer for bull trout.",
+      },
+      {
+        speciesId: "salvelinus_fontinalis",
+        name: "Brook trout",
+        distinction:
+          "Brook trout have vermiculations and white-then-black lower-fin edges. Dolly Varden lack that maze pattern.",
+      },
+    ],
+    averageAdultLength: "Resident dwarfs may mature at 3–6 in (ADF&G). Sea-run and lake-wintering fish are much larger.",
+    commonAnglingSize: "10–22 in for many stream and sea-run fisheries; dwarfs are smaller.",
+    typicalWeight: "ADF&G: southern form up to about 10 lb; northern form commonly larger.",
+    maximumDocumentedSize:
+      "ADF&G: can grow to lengths over 30 in and weigh nearly 30 lb. Northern form up to 27 lb; southern form rarely longer-lived than 8 years, up to 28 in and 10 lb.",
+    longevity: "ADF&G: southern form rarely longer than 8 years; northern form up to 16 years.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Dolly Varden species profile (spots vs Arctic char, forms, diet, fall spawn)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main" },
+    ],
+    ...R,
+    gaps: [
+      "southern versus northern form as a structured RPC split",
+      "bull trout meristic field split as a dedicated conservation overlay (wave 03)",
+    ],
+  },
+  {
+    speciesId: "stenodus_leucichthys",
+    status: "reviewed",
+    regionalNames: ["inconnu", "shee", "sheefish"],
+    bodyShape:
+      "The largest coregonine: elongate, large-scaled, predatory whitefish with a projecting lower jaw. Adipose fin present. Not a trout body and not a small mountain whitefish.",
+    identificationTraits: [
+      "ADF&G: the lower jaw extends beyond the upper jaw and the mouth is full of small densely packed teeth.",
+      "ADF&G: white or silvery without spots or other markings, with very large scales. The largest member of the whitefish subfamily.",
+      "This is a piscivorous adult predator, not a benthic insect whitefish. Juvenile insectivory does not apply to adults.",
+      "Regulated-context record. Long-distance migrations and relatively discrete spawning areas must not become location guidance.",
+      "Interior river fish tend to be much smaller than the largest northwestern Alaska fish. Size is not a species key by itself.",
+    ],
+    coloration:
+      "ADF&G: white or silvery without spots or other markings. Large scales.",
+    regionalColorVariation:
+      "Glacial, silt-laden rivers can produce a duskier silver. Color is not a resident-versus-migratory key.",
+    spawningColoration:
+      "ADF&G: broadcast spawners from late September to early October. They do not dig nests. Known spawning areas are excluded from target guidance.",
+    juvenileAppearance:
+      "Young sheefish are smaller-mouthed insect feeders. They are not adult piscivores and not mountain whitefish.",
+    adultAppearance:
+      "A large, silvery, undershot-jaw whitefish of northern rivers and lakes. The jaw and scale size separate it from mountain and lake whitefish.",
+    sexualDimorphism:
+      "Size overlap is large. Projecting lower jaw and large scales, not color, are the key.",
+    similarSpecies: [
+      {
+        speciesId: "coregonus_clupeaformis",
+        name: "Lake whitefish",
+        distinction:
+          "Lake whitefish have a subterminal, overhung snout and a smaller, less toothy mouth. Sheefish have a projecting lower jaw and are the largest coregonine.",
+      },
+      {
+        speciesId: "prosopium_williamsoni",
+        name: "Mountain whitefish",
+        distinction:
+          "Mountain whitefish have a small toothless overhung mouth and are an interior-West river insectivore. Sheefish are a large northern piscivore with an undershot jaw.",
+      },
+      {
+        speciesId: "esox_lucius",
+        name: "Northern pike",
+        distinction:
+          "Pike have a duckbill, light spots on a dark ground, and no adipose fin. Sheefish are a silvery coregonine with an adipose fin.",
+      },
+    ],
+    averageAdultLength: "ADF&G: can grow to about 1 m (~42 in). Interior rivers tend to produce much smaller fish.",
+    commonAnglingSize: "20–36 in in many northern fisheries; interior fish run smaller.",
+    typicalWeight: "ADF&G: anything over 13.6 kg (30 lb) is considered large. Interior fish are often much lighter.",
+    maximumDocumentedSize:
+      "ADF&G: in some northwestern Alaska waters may weigh up to ~27 kg (~60 lb) and exceed ~42 in. Record sport-caught fish 24 kg (53 lb). Those maxima are not interior-river size.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Sheefish species profile (projecting jaw, broadcast spawn, adult piscivory, long migrations)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main" },
+    ],
+    ...R,
+    gaps: [
+      "resident versus long-distance migrant size tables as a structured RPC split",
     ],
   },
 

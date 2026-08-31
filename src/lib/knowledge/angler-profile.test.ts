@@ -68,35 +68,35 @@ test("AFP-1.2 keeps exact regulations outside the static species record", () => 
 
 test("AFP-1.2 uses identification dossiers when reviewed and leaves remaining species explicitly incomplete", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(rainbow && whitefish);
+  const bulltrout = SPECIES.find((species) => species.id === "salvelinus_confluentus");
+  assert.ok(rainbow && bulltrout);
 
   const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
-  const whitefishProfile = buildAnglerSpeciesProfile(whitefish);
+  const bulltroutProfile = buildAnglerSpeciesProfile(bulltrout);
   const rainbowId = rainbowProfile.sections.find((section) => section.id === "identification");
-  const whitefishId = whitefishProfile.sections.find((section) => section.id === "identification");
+  const bulltroutId = bulltroutProfile.sections.find((section) => section.id === "identification");
 
   assert.equal(identificationDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowId?.status, "reviewed");
   assert.ok(rainbowId?.facts.some((fact) => fact.kind === "comparison"));
-  assert.equal(whitefishId?.status, "partial");
-  assert.ok(whitefishId?.gaps.includes("similar-species comparison keys"));
+  assert.equal(bulltroutId?.status, "partial");
+  assert.ok(bulltroutId?.gaps.includes("similar-species comparison keys"));
 });
 
 test("AFP-1.2 uses behavior dossiers when reviewed without converting them into catch claims", () => {
   const whiteBass = SPECIES.find((species) => species.id === "morone_chrysops");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(whiteBass && whitefish);
+  const bulltrout = SPECIES.find((species) => species.id === "salvelinus_confluentus");
+  assert.ok(whiteBass && bulltrout);
 
   const whiteProfile = buildAnglerSpeciesProfile(whiteBass);
-  const whitefishProfile = buildAnglerSpeciesProfile(whitefish);
+  const bulltroutProfile = buildAnglerSpeciesProfile(bulltrout);
   const whiteBehavior = whiteProfile.sections.find((section) => section.id === "behavior");
-  const whitefishBehavior = whitefishProfile.sections.find((section) => section.id === "behavior");
+  const bulltroutBehavior = bulltroutProfile.sections.find((section) => section.id === "behavior");
 
   assert.equal(whiteBehavior?.status, "reviewed");
   assert.ok(whiteBehavior?.facts.some((fact) => fact.label === "Social pattern"));
-  assert.equal(whitefishBehavior?.status, "partial");
-  assert.ok(whitefishBehavior?.gaps.includes("schooling versus solitary behavior"));
+  assert.equal(bulltroutBehavior?.status, "partial");
+  assert.ok(bulltroutBehavior?.gaps.includes("schooling versus solitary behavior"));
 
   const blob = JSON.stringify(whiteProfile);
   assert.doesNotMatch(blob, /best bite|hot bite|catch probability|they will bite/i);
@@ -104,39 +104,39 @@ test("AFP-1.2 uses behavior dossiers when reviewed without converting them into 
 
 test("AFP-1.2 uses diet dossiers when reviewed and does not infer a current hatch", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(rainbow && whitefish);
+  const bulltrout = SPECIES.find((species) => species.id === "salvelinus_confluentus");
+  assert.ok(rainbow && bulltrout);
 
   const rainbowProfile = buildAnglerSpeciesProfile(rainbow);
-  const whitefishProfile = buildAnglerSpeciesProfile(whitefish);
+  const bulltroutProfile = buildAnglerSpeciesProfile(bulltrout);
   const rainbowDiet = rainbowProfile.sections.find((section) => section.id === "diet");
-  const whitefishDiet = whitefishProfile.sections.find((section) => section.id === "diet");
+  const bulltroutDiet = bulltroutProfile.sections.find((section) => section.id === "diet");
 
   assert.equal(dietDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowDiet?.status, "reviewed");
   assert.ok(rainbowDiet?.facts.some((fact) => fact.kind === "season"));
   assert.ok(rainbowDiet?.facts.some((fact) => fact.kind === "life_stage"));
   assert.ok(rainbowDiet?.facts.some((fact) => /not proof/i.test(fact.value)));
-  assert.equal(whitefishDiet?.status, "partial");
-  assert.ok(whitefishDiet?.gaps.includes("spring / summer / fall / winter diet shifts"));
+  assert.equal(bulltroutDiet?.status, "partial");
+  assert.ok(bulltroutDiet?.gaps.includes("spring / summer / fall / winter diet shifts"));
 });
 
 test("AFP-1.2 uses seasonal calendars when reviewed without turning spawn into a target map", () => {
   const kokanee = SPECIES.find((species) => species.id === "oncorhynchus_nerka_kokanee");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(kokanee && whitefish);
+  const bulltrout = SPECIES.find((species) => species.id === "salvelinus_confluentus");
+  assert.ok(kokanee && bulltrout);
 
   const kokaneeProfile = buildAnglerSpeciesProfile(kokanee);
-  const whitefishProfile = buildAnglerSpeciesProfile(whitefish);
+  const bulltroutProfile = buildAnglerSpeciesProfile(bulltrout);
   const kokaneeCal = kokaneeProfile.sections.find((section) => section.id === "seasonal_calendar");
-  const whitefishCal = whitefishProfile.sections.find((section) => section.id === "seasonal_calendar");
+  const bulltroutCal = bulltroutProfile.sections.find((section) => section.id === "seasonal_calendar");
 
   assert.equal(seasonalCalendarDossierFor("oncorhynchus_nerka_kokanee")?.status, "reviewed");
   assert.equal(kokaneeCal?.status, "reviewed");
   assert.ok(kokaneeCal?.facts.some((fact) => fact.kind === "season"));
   assert.doesNotMatch(JSON.stringify(kokaneeCal), /exact spawning|staging location|migration bottleneck|hotspot/i);
-  assert.equal(whitefishCal?.status, "partial");
-  assert.ok(whitefishCal?.gaps.includes("month-by-month location changes"));
+  assert.equal(bulltroutCal?.status, "partial");
+  assert.ok(bulltroutCal?.gaps.includes("month-by-month location changes"));
 });
 
 test("AFP-1.2 wave 02a marks brown, brook, lake trout, and steelhead as reviewed without collapsing steelhead into rainbow", () => {
@@ -316,5 +316,47 @@ test("AFP-1.2 wave 02f marks chinook, coho, pink, chum, and landlocked Atlantic 
   const landlockedId = buildAnglerSpeciesProfile(landlocked).sections.find((item) => item.id === "identification");
   assert.match(JSON.stringify(landlockedId), /brown/i);
   assert.match(JSON.stringify(landlockedId), /sea-run|anadromous|endangered/i);
+});
+
+test("AFP-1.2 wave 02g marks mountain whitefish, grayling, burbot, Arctic char, Dolly Varden, and sheefish as reviewed without collapsing char or whitefish pairs", () => {
+  const ids = [
+    "prosopium_williamsoni",
+    "thymallus_arcticus",
+    "lota_lota",
+    "salvelinus_alpinus",
+    "salvelinus_malma",
+    "stenodus_leucichthys",
+  ];
+  for (const id of ids) {
+    const species = SPECIES.find((item) => item.id === id);
+    assert.ok(species, id);
+    const profile = buildAnglerSpeciesProfile(species);
+    for (const sectionId of ["identification", "behavior", "diet", "seasonal_calendar"] as const) {
+      const section = profile.sections.find((item) => item.id === sectionId);
+      assert.equal(section?.status, "reviewed", `${id} ${sectionId}`);
+    }
+    assert.equal(profile.sections.find((item) => item.id === "fight")?.status, "not_reviewed");
+    assert.equal(profile.sections.find((item) => item.id === "food_value")?.status, "not_reviewed");
+  }
+
+  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
+  assert.ok(whitefish);
+  const whitefishId = buildAnglerSpeciesProfile(whitefish).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(whitefishId), /small mouth|toothless|adipose/i);
+
+  const grayling = SPECIES.find((species) => species.id === "thymallus_arcticus");
+  assert.ok(grayling);
+  const graylingId = buildAnglerSpeciesProfile(grayling).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(graylingId), /sail/i);
+
+  const burbot = SPECIES.find((species) => species.id === "lota_lota");
+  assert.ok(burbot);
+  const burbotId = buildAnglerSpeciesProfile(burbot).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(burbotId), /barbel/i);
+
+  const dolly = SPECIES.find((species) => species.id === "salvelinus_malma");
+  assert.ok(dolly);
+  const dollyId = buildAnglerSpeciesProfile(dolly).sections.find((item) => item.id === "identification");
+  assert.match(JSON.stringify(dollyId), /bull trout/i);
 });
 

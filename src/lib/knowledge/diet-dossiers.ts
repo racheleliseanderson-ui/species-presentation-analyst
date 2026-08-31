@@ -2357,4 +2357,269 @@ export const DIET_DOSSIERS: DietDossier[] = [
     gaps: [SEASONAL_GAP, SUB_GAP, "smelt-present vs smelt-absent diet as a structured split"],
   },
 
+  {
+    speciesId: "prosopium_williamsoni",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "benthic",
+    primaryForage: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "eggs"],
+    primaryNote:
+      "Montana Field Guide: lives mostly on aquatic insects but also takes terrestrial insects which fall into the water. May eat fish eggs, but rarely takes fish. The small overhung mouth is a benthic vacuum, not a trout gape. Observed forage still has to be declared.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Montana Field Guide: feeds actively in winter. Benthic insects in deeper pools. Spawn gravel is not a forage map.",
+      },
+      {
+        season: "spring",
+        emphasis: "Aquatic insects and emergences as water warms. Capacity is not a hatch declaration.",
+      },
+      {
+        season: "summer",
+        emphasis: "Benthic aquatic insects in moderate runs and riffle transitions. Terrestrials are capacity.",
+      },
+      {
+        season: "fall",
+        emphasis: "Insects remain primary. Eggs become capacity in mixed salmonid systems. Do not assume an egg event from the calendar.",
+      },
+      {
+        season: "late_fall",
+        emphasis: "Broadcast spawning overlap. Eggs are conservation biology as well as a forage class. Do not target gravel.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small aquatic invertebrates in slower margins.",
+      juvenile: "Aquatic insects and emergences.",
+      adult: "Benthic aquatic insects, some terrestrials, occasional eggs. Not a fish-eater as a default.",
+    },
+    ontogeneticShift: "Insectivory throughout. Montana Field Guide: rarely fishes. Do not import a lake-whitefish mollusk diet or a trout piscivore diet.",
+    forageSubstitutions:
+      "Montana Field Guide notes zooplankton as important in lakes; zooplankton is not a catalog forage class on this record. Streams substitute taxa within aquatic insects. Do not convert that gap into a kokanee plankton job.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Montana Field Guide mountain whitefish (aquatic and terrestrial insects, eggs, rarely fish, lake zooplankton note)", class: "agency", url: "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCHA03060" },
+      { label: "Idaho Fish and Game mountain whitefish native-status notes", class: "agency" },
+    ],
+    ...R,
+    gaps: ["lake zooplankton fraction (no catalog forage class)", SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "thymallus_arcticus",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "zooplankton", "small_forage_fish", "eggs"],
+    primaryNote:
+      "ADF&G: drifting aquatic insects — especially black flies, mayflies, stoneflies, and caddisflies — are the primary food. Terrestrials, salmon eggs, and smaller fish are capacity. Voles and shrews appear in agency anecdotes and are not a catalog forage class.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "ADF&G: feed minimally. Energy conservation in lakes or deeper, slow-current pools. Do not invent a winter hatch.",
+      },
+      {
+        season: "early_spring",
+        emphasis: "Leaving winter water toward spring spawning movement. Insects remain capacity. Spawn gravel is conservation context.",
+      },
+      {
+        season: "spring",
+        emphasis: "Drift and emergences as water warms. Capacity is not a declared hatch.",
+      },
+      {
+        season: "summer",
+        emphasis: "ADF&G: voracious feeders during the brief summer — that is metabolic capacity, not a catch claim. Insects first; fish and eggs where they occur.",
+      },
+      {
+        season: "fall",
+        emphasis: "Return toward wintering water. Remaining insects and occasional fish. Do not assume an egg event.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Small invertebrates in calm shoreline water after hatch.",
+      juvenile: "Aquatic insects; zooplankton-scale prey where it occurs.",
+      adult: "Drift insects primary; terrestrials, eggs, and small fish as capacity.",
+    },
+    ontogeneticShift: "Insectivory remains central. Small-fish capacity increases with gape but does not convert grayling into a pike.",
+    forageSubstitutions:
+      "Salmon-egg events and small-fish pulses are system-specific. Lower-48 remnant populations must not inherit an Alaska salmon-egg story.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic grayling species profile (drift insects, eggs, small fish)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main" },
+      { label: "USGS Arctic Grayling species profile", class: "agency" },
+    ],
+    ...R,
+    gaps: ["mammal anecdata (no catalog forage class)", SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "lota_lota",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "benthic",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "crustaceans", "aquatic_insects"],
+    primaryNote:
+      "Minnesota DNR: eat mostly other fish such as small yellow perch and walleyes, but also crayfish, mayfly larvae, and other aquatic insects. Eggs and clams appear in the agency diet and are not catalog forage classes here.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Minnesota DNR: most active in winter, including under ice. Fish remain primary. Spawn overlap is conservation context, not a forage map.",
+      },
+      {
+        season: "spring",
+        emphasis: "Remaining fish and benthic invertebrates as ice leaves. Not a surface insect problem.",
+      },
+      {
+        season: "summer",
+        emphasis: "Deep, cold, benthic piscivory and crayfish. Water above about 70°F is a constraint (Minnesota DNR).",
+      },
+      {
+        season: "fall",
+        emphasis: "Fish and crustaceans as water cools toward winter activity. Not a trout egg prescription.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Minnesota DNR: tiny larvae. Invertebrates first.",
+      juvenile: "Aquatic insects, crustaceans, and small fish as gape allows.",
+      adult: "Mostly fish — perch and walleye among documented items — plus crayfish and insects.",
+    },
+    ontogeneticShift: "Invertebrates to fish. Adults are predators, not scavenger catfish.",
+    forageSubstitutions:
+      "Great Lakes prey fields (goby, sculpin, perch) versus inland lakes. This overlay does not auto-select them. Eggs and mollusks stay off-catalog.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Minnesota DNR burbot species profile (perch, walleye, crayfish, insects)", class: "agency", url: "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html" },
+      { label: "USGS Great Lakes burbot thermal-distribution research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: ["eggs and mollusks in the agency diet (no catalog forage class)", SEASONAL_GAP, SUB_GAP],
+  },
+  {
+    speciesId: "salvelinus_alpinus",
+    status: "reviewed",
+    feedingStyle: "mixed",
+    feedingZone: "mixed",
+    primaryForage: ["zooplankton", "aquatic_insects", "emerging_insects", "crustaceans", "small_forage_fish", "larger_prey_fish"],
+    primaryNote:
+      "ADF&G: zooplankton and insects to other fish, including smaller char, depending on waterbody, age, relative size, and season. Dwarf and normal forms in the same lake can eat different things. Do not collapse those jobs.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Cold-lake foraging on the usable food layer. Form still matters: insect/plankton versus fish.",
+      },
+      {
+        season: "spring",
+        emphasis: "Insects, zooplankton, and fish as ice leaves. Capacity is not a current event.",
+      },
+      {
+        season: "summer",
+        emphasis: "Littoral insects for some forms; pelagic or deep fish for others. Bright clear water can push depth.",
+      },
+      {
+        season: "late_summer",
+        emphasis: "Spawning overlap begins in some lakes. Shoals are conservation context.",
+      },
+      {
+        season: "fall",
+        emphasis: "ADF&G: spawn August–October. Feeding takes a back seat to spawning biology for ripe fish.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Zooplankton and small insects.",
+      juvenile: "Insects, zooplankton, and crustaceans. Dwarf forms may stay here.",
+      adult: "Form-dependent: insects and plankton, or fish including smaller char.",
+    },
+    ontogeneticShift: "Often toward piscivory with size, but dwarf forms may not make that shift. Lake-specific.",
+    forageSubstitutions: "Do not substitute a Dolly Varden stream-egg diet or a lake-trout cisco diet wholesale.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic Char species profile (zooplankton to fish, dwarf/normal forms)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "form-specific diet tables by lake"],
+  },
+  {
+    speciesId: "salvelinus_malma",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["aquatic_insects", "emerging_insects", "eggs", "crustaceans", "small_forage_fish", "larger_prey_fish"],
+    primaryNote:
+      "ADF&G: juveniles mostly winged insects and mayfly and midge larvae. Growing fish add crustaceans, salmon eggs, and small fish. Sea-run fish eat amphipods and small fish. Eggs are scavenged drift — ADF&G: primarily drifting eggs that would not have hatched — never a license to target redds.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Southern form often in lakes; northern form in rivers or springs (ADF&G). Remaining insects and fish. Not a hatch match.",
+      },
+      {
+        season: "spring",
+        emphasis: "ADF&G: sea-run fish continue feeding while moving, including outmigrating salmon fry where available. Capacity, not a current fry event.",
+      },
+      {
+        season: "summer",
+        emphasis: "Stream insects and, for sea-run fish, marine amphipods and small fish. This freshwater overlay does not auto-select the ocean job.",
+      },
+      {
+        season: "fall",
+        emphasis: "Eggs can rise in mixed salmon systems. Do not convert that capacity into redd targeting. Spawn overlap is conservation context.",
+      },
+      {
+        season: "late_fall",
+        emphasis: "Spawning continues in some populations. Redds stay excluded.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Insects in slow margins.",
+      juvenile: "ADF&G: mostly insects near banks, then crustaceans, eggs, and small fish in deeper pools.",
+      adult: "Mixed insects, crustaceans, eggs, and fish. Sea-run adults add marine prey.",
+    },
+    ontogeneticShift: "Insectivory to mixed insect–crustacean–egg–fish. Resident dwarfs may stay insect-weighted.",
+    forageSubstitutions:
+      "Resident versus sea-run prey fields differ. Pink-fry and egg events are system-specific and must be observed, not inferred. Do not import an Arctic char lake-plankton diet.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Alaska Department of Fish and Game Dolly Varden species profile (insects, eggs as scavenged drift, marine amphipods and small fish)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "resident versus sea-run diet as a structured RPC split"],
+  },
+  {
+    speciesId: "stenodus_leucichthys",
+    status: "reviewed",
+    feedingStyle: "specialized",
+    feedingZone: "pelagic",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "aquatic_insects"],
+    primaryNote:
+      "ADF&G: juveniles feed mainly on insects and other small prey. As they mature, sheefish feed almost exclusively on other fish. Adult piscivory is the reviewed job. Do not average juvenile insects into the adult story.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Adults remain fish-eaters in remaining cold water. Not an insect hatch.",
+      },
+      {
+        season: "spring",
+        emphasis: "Piscivory on forage fish where they occur. Capacity is not a current bait event.",
+      },
+      {
+        season: "summer",
+        emphasis: "ADF&G: some populations move long distances within a summer looking for food. That is movement biology, not a named route. Adults still eat fish.",
+      },
+      {
+        season: "fall",
+        emphasis: "Broadcast spawning overlap. Ripe fish are not a forage-matching problem. Known spawning areas stay excluded.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Insects and other small prey.",
+      juvenile: "ADF&G: mainly insects.",
+      adult: "Almost exclusively other fish.",
+    },
+    ontogeneticShift: "Insectivory to near-exclusive piscivory. Do not treat an adult as a mountain whitefish.",
+    forageSubstitutions:
+      "Resident lake/river prey fields versus migratory river/bay prey fields. This overlay does not auto-select them.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Alaska Department of Fish and Game Sheefish species profile (juvenile insects, adult piscivory)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "forage-fish taxa tables by drainage"],
+  },
+
 ];

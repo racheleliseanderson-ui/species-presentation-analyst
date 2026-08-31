@@ -21,12 +21,12 @@ The profile contract is intentionally broader than the presentation engine. It a
 
 | Layer | Current status | Already structured | Important gaps |
 | --- | --- | --- | --- |
-| Identification | Reviewed for 55 species (26 lookalikes + 02a trout + 02b coolwater + 02c panfish + 02d remaining sunfish + 02e catfish + 02f Pacific and landlocked salmon); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 20 species; some subspecies/strain tables |
+| Identification | Reviewed for 61 species (26 lookalikes + 02a–02g); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 14 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
-| Behavior | Reviewed for 55 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 20 species; angling-pressure and frontal evidence still sparse |
-| Diet | Reviewed for 55 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 20 species; prey-size tables by waterbody |
+| Behavior | Reviewed for 61 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 14 species; angling-pressure and frontal evidence still sparse |
+| Diet | Reviewed for 61 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 14 species; prey-size tables by waterbody |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
-| Seasonal calendar | Reviewed for 55 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 20 species; month-by-month location/behavior calendars |
+| Seasonal calendar | Reviewed for 61 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 14 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
 | Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
@@ -114,6 +114,18 @@ Agency keys: NOAA black gums and spots on both tail lobes, typical 3 ft / 30 lb,
 
 Pacific freshwater spawning adults are interception, not forage matching. Great Lakes chinook and coho still feed in lakes — the species overlay does not auto-select those jobs. Pink and chum are flowing-only. Landlocked Atlantic still feeds and stays off the fail-closed wild sea-run Atlantic record. Redds stay excluded.
 
+## AFP wave 02g — remaining salmonids and burbot
+
+After the trout and Pacific salmon people actually open, finish the leftover salmonids and the coldwater cod:
+
+- mountain whitefish vs lake whitefish vs trout (small toothless overhung mouth, adipose fin, not a sucker)
+- Arctic grayling (sail dorsal, black jaw slash) kept off whitefish and trout; lower-48 remnants stay conservation-sensitive
+- burbot (single chin barbel, eel-like, nocturnal, winter spawn)
+- Arctic char vs Dolly Varden (fewer larger spots and a deep fork vs many small spots and a thick peduncle; Alaska char are lake-resident)
+- sheefish as the large piscivorous coregonine (projecting lower jaw), not a mountain whitefish
+
+Agency keys: Idaho Fish and Game / Montana Field Guide (mountain whitefish); ADF&G grayling, Arctic char, Dolly Varden, and sheefish profiles; Minnesota DNR burbot. Arctic char calendars are stillwater only. Dolly Varden egg feeding is scavenged drift, never a redd method. Bull trout stay fail-closed. Sheefish long-distance movement and broadcast spawning stay conservation context. Fight and food stay unreviewed.
+
 ## AFP-DI-1.0 / AFP-SC-1.0 wave 01
 
 The same 26 lookalike species now have diet and seasonal-calendar overlays:
@@ -162,16 +174,15 @@ Rules:
 - Fight, food value, gear ranges, and live regulations wait until the high-use set is knowable.
 - A wave is `landed` only when tests show every required overlay exists.
 
-Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass), wave 02d (redbreast, warmouth, longear, flier), wave 02e (channel catfish, blue catfish, flathead, white catfish), wave 02f (chinook, coho, pink, chum, landlocked Atlantic).
-Next: wave 02g — remaining salmonids and burbot.
+Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass), wave 02d (redbreast, warmouth, longear, flier), wave 02e (channel catfish, blue catfish, flathead, white catfish), wave 02f (chinook, coho, pink, chum, landlocked Atlantic), wave 02g (mountain whitefish, Arctic grayling, burbot, Arctic char, Dolly Varden, sheefish).
+Next: wave 03 — identification-only for bull trout and wild anadromous Atlantic salmon.
 
 ## Next research order
 
 The next data work follows `SEED_WAVES`, not a flat 75-species dump:
 
-1. Wave 02g remaining salmonids and burbot — all four overlays together.
-2. Wave 03 identification-only for fail-closed conservation records.
-3. Wave 04 remaining catalog.
-4. Methods ranges, then fight, then food, then live regulation connectors — after the high-use set is knowable.
+1. Wave 03 identification-only for fail-closed conservation records.
+2. Wave 04 remaining catalog.
+3. Methods ranges, then fight, then food, then live regulation connectors — after the high-use set is knowable.
 
 This preserves the product distinction: novices can ask “what should I use?” while the deeper model continues to answer the more useful question, “what is this fish trying to accomplish under the declared conditions?”
