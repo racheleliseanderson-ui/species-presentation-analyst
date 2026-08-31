@@ -3156,4 +3156,343 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "exact spawn-temperature table with primary-source support",
     ],
   },
+  {
+    speciesId: "oncorhynchus_tshawytscha",
+    status: "reviewed",
+    regionalNames: ["king", "kings", "tyee", "blackmouth", "chinook"],
+    bodyShape:
+      "The largest Pacific salmon: deep-bodied, heavy-shouldered, with a thick caudal peduncle. Caudal fin moderately forked. Not a trout body.",
+    identificationTraits: [
+      "NOAA: black pigment along the gum line, thus the nickname blackmouth. Oregon DFW: the lower jaw is a uniform dark coloration (in some cases mottled). Gum line on the LOWER jaw is the enforcement split from coho.",
+      "NOAA: black spots on the upper half of the body and on both lobes of the tail fin.",
+      "Oregon DFW: do not rely on ocean-phase body color or spots alone — all ocean salmon are primarily silver, and spots vary within and between species. Use the lower-jaw gum line.",
+      "NOAA: typical mature length and weight about 3 ft and 30 lb; can grow as long as 4.9 ft and up to 129 lb.",
+      "Semelparous Pacific salmon (all die after spawning). Do not treat as steelhead. Great Lakes fish belong on this record, not on coho or inland trout.",
+    ],
+    coloration:
+      "Ocean and Great Lakes phase: metallic green-blue over silver. Freshwater adults darken toward olive, maroon, or brown. Color is not the gum-line key and is not a targeting cue.",
+    regionalColorVariation:
+      "Pacific ocean-bright fish are silver until freshwater residence. Great Lakes fish share the gum-line and tail-spot characters. Color does not split Pacific from Great Lakes.",
+    spawningColoration:
+      "Adults darken; males kype. NOAA: all Chinook salmon die after spawning. Color change is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Parr in natal streams are not an adult targeting proxy. Young fish do not carry the adult blackmouth gum-line key as a field default.",
+    adultAppearance:
+      "A large, black-gummed Pacific salmon with spots on both tail lobes. Size supports the ID; gum line decides it against coho.",
+    sexualDimorphism:
+      "Spawning males kype and deepen. Jacks (early-returning males) occur and are smaller; they are still this record.",
+    similarSpecies: [
+      {
+        speciesId: "oncorhynchus_kisutch",
+        name: "Coho salmon",
+        distinction:
+          "Oregon DFW: coho lower jaw shows a dark-light-dark band at the tooth base; Chinook is uniform dark. NOAA: coho have a lighter gumline and spots on the upper tail lobe only. Chinook spots both lobes and are typically much larger.",
+      },
+      {
+        speciesId: "oncorhynchus_nerka_anadromous",
+        name: "Sockeye salmon",
+        distinction:
+          "Sockeye lack large black spots on back and tail. Chinook are spotted on both tail lobes and have black gums. Do not collapse a large unspotted red/green spawner into Chinook.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss_steelhead",
+        name: "Steelhead",
+        distinction:
+          "Steelhead are iteroparous anadromous rainbow trout, not blackmouth salmon. They lack the Chinook black gum line as a salmon key and can spawn more than once (NOAA).",
+      },
+      {
+        speciesId: "oncorhynchus_gorbuscha",
+        name: "Pink salmon",
+        distinction:
+          "Pink are much smaller (ADF&G: 3.5–5 lb, 20–25 in) with large oval spots on the entire tail, very small scales, and no silver on the tail. Chinook are the large blackmouth.",
+      },
+    ],
+    averageAdultLength: "NOAA: typical mature about 3 ft. Common returning adults often 28–40 in depending on stock.",
+    commonAnglingSize: "28–40 in in many Pacific and Great Lakes fisheries.",
+    typicalWeight: "NOAA: typical mature about 30 lb. Many fisheries see smaller adults; stock means vary.",
+    maximumDocumentedSize:
+      "NOAA: as long as 4.9 ft and up to 129 lb. Those maxima are not typical and are not a Great Lakes mean.",
+    longevity:
+      "NOAA: sexually mature between ages 2 and 7, typically 3 or 4 when they return; all die after spawning.",
+    sources: [
+      { label: "NOAA Fisheries Chinook Salmon species profile (black gums / blackmouth, spots on both tail lobes, typical 3 ft / 30 lb, ESA counts)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chinook-salmon" },
+      { label: "Oregon Department of Fish and Wildlife Chinook vs coho gum-line key (lower-jaw uniform dark vs banding; enforcement character)", class: "agency", url: "https://myodfw.com/articles/it-coho-or-chinook" },
+      { label: "Healey chinook life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "stock-specific mean length tables",
+      "ocean vs Great Lakes appearance as a structured split",
+    ],
+  },
+  {
+    speciesId: "oncorhynchus_kisutch",
+    status: "reviewed",
+    regionalNames: ["silver", "silvers", "coho"],
+    bodyShape:
+      "A medium Pacific salmon, slimmer and typically much smaller than Chinook, with a more moderate caudal peduncle. Not a steelhead trout body.",
+    identificationTraits: [
+      "NOAA: the gumline in the lower jaw has lighter pigment than on Chinook salmon. California DFW: gums of the lower jaw are usually gray except the upper area at the base of the teeth, which is white.",
+      "Oregon DFW: lower jaw shows a distinct banding pattern — dark outside the teeth, white or very light at the base of the teeth, dark inside. Gum line on the LOWER jaw is the enforcement split from Chinook.",
+      "NOAA: small black spots on the back and on the upper lobe of the tail while in the ocean. California DFW: no spots on the lower lobe of the caudal fin.",
+      "Oregon DFW: do not rely on ocean-phase spots or body color alone. All ocean salmon are primarily silver.",
+      "NOAA: adult coho usually weigh 8 to 12 lb and are 24 to 30 in long. They are not a Chinook size class.",
+    ],
+    coloration:
+      "Ocean and Great Lakes phase: bright silver with a metallic blue-green back. Freshwater adults may show maroon or dark sides. Color is not the gum-line key.",
+    regionalColorVariation:
+      "California, Pacific Northwest, Alaska, and Great Lakes fish share the white-at-tooth-base gum character. Geography is not read from color. California ESUs are listed; that is status, not a color key.",
+    spawningColoration:
+      "Adults darken; males may show red-maroon sides and a kype. NOAA: all coho salmon die after spawning. Color is not a targeting cue.",
+    juvenileAppearance:
+      "NOAA: while in fresh water, young coho feed on plankton and insects. Parr are not an adult targeting proxy.",
+    adultAppearance:
+      "A medium silver salmon with a lighter/white gum line at the tooth base and spots on the upper tail lobe only.",
+    sexualDimorphism:
+      "Spawning males kype and deepen. Size overlap with females is large; gum line, not sex, is the field key.",
+    similarSpecies: [
+      {
+        speciesId: "oncorhynchus_tshawytscha",
+        name: "Chinook salmon",
+        distinction:
+          "Chinook have a uniform dark lower jaw / black gums and spots on both tail lobes, and are typically much larger. Coho have the dark-light-dark gum band and upper-lobe-only tail spots (Oregon DFW / NOAA / California DFW).",
+      },
+      {
+        speciesId: "oncorhynchus_nerka_anadromous",
+        name: "Sockeye salmon",
+        distinction:
+          "Sockeye tails are unspotted and the spawning dress is red body / green head. Coho have upper-lobe tail spots and a white gum line at the tooth base.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss_steelhead",
+        name: "Steelhead",
+        distinction:
+          "Steelhead are iteroparous trout (NOAA: they can spawn more than once). Coho are semelparous Pacific salmon with the white-at-tooth-base gum line.",
+      },
+      {
+        speciesId: "oncorhynchus_gorbuscha",
+        name: "Pink salmon",
+        distinction:
+          "Pink have large oval spots on both tail lobes, very small scales, and no silver on the tail. Coho spots are small and restricted to the upper tail lobe.",
+      },
+    ],
+    averageAdultLength: "NOAA: 24–30 in. California DFW (Moyle): spawning adults typically 55–70 cm fork length.",
+    commonAnglingSize: "22–30 in in many Pacific and Great Lakes fisheries.",
+    typicalWeight: "NOAA: 8–12 lb. California DFW (Moyle): 3–6 kg for spawning adults.",
+    maximumDocumentedSize:
+      "Oregon DFW notes coho have been observed in the 25–30 lb range. Those fish are not typical and do not convert the record into Chinook.",
+    longevity:
+      "NOAA: about 1½ years feeding in the ocean, then return; all die after spawning.",
+    sources: [
+      { label: "NOAA Fisheries Coho Salmon species profile (lighter gumline, upper-lobe tail spots, 8–12 lb / 24–30 in, ESA counts)", class: "agency", url: "https://www.fisheries.noaa.gov/species/coho-salmon" },
+      { label: "Oregon Department of Fish and Wildlife Chinook vs coho gum-line key (dark-light-dark banding; lower-jaw enforcement character)", class: "agency", url: "https://myodfw.com/articles/it-coho-or-chinook" },
+      { label: "California DFW Coho Salmon conservation profile (white at tooth base, no lower-tail spots, California listing)", class: "agency", url: "https://wildlife.ca.gov/Conservation/Fishes/Coho-Salmon" },
+      { label: "Sandercock coho life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [
+      "stock-specific mean length tables",
+      "ocean vs Great Lakes appearance as a structured split",
+    ],
+  },
+  {
+    speciesId: "oncorhynchus_gorbuscha",
+    status: "reviewed",
+    regionalNames: ["pink", "humpy", "humpback", "humpback salmon"],
+    bodyShape:
+      "The smallest North American Pacific salmon. Ocean fish are relatively slender; spawning males develop a very large dorsal hump. Caudal fin with large oval spots on both lobes.",
+    identificationTraits: [
+      "Alaska DFG ocean-phase key: large oval spots on both lobes of the tail; large black spots on the back; no silver on the tail; very small scales compared with other salmon of similar size.",
+      "Alaska DFG: mouth is white with a black gum line; very small or almost no teeth; no teeth on the tongue; pointed lower jaw.",
+      "NOAA: large dark oval spots on the back and the entire tail fin. Males develop a hump on their back — the humpy name.",
+      "Alaska DFG / NOAA: smallest Pacific salmon in North America, averaging 3.5–5 lb and 20–25 in.",
+      "Two-year life cycle with independent odd-year and even-year populations (NOAA). That cycle is biology, not an abundance claim from habitat.",
+    ],
+    coloration:
+      "Alaska DFG: ocean adults bright greenish-blue on top and silvery on the sides. Approaching fresh water, males turn brown to black on the back with a bright white belly; females olive with dusky bars or patches.",
+    regionalColorVariation:
+      "NOAA: in the southern part of the range they usually spawn in odd years in most river systems; some even-year runs occur. Northwestern Alaska even-year runs can predominate. Color does not read the cycle.",
+    spawningColoration:
+      "Males develop a very large hump and hooked jaws. NOAA: all pink salmon die after they spawn. Color and hump are not targeting cues.",
+    juvenileAppearance:
+      "Alaska DFG: young pink salmon are completely silver without dark vertical bars or spots. They move quickly toward estuary and ocean; they are not an adult targeting proxy.",
+    adultAppearance:
+      "A small Pacific salmon with large oval spots on the entire tail, very small scales, and no silver on the tail. Spawning males are the humpy.",
+    sexualDimorphism:
+      "Males develop the large hump and kype. Females remain more fusiform with olive and dusky bars. Both die after spawning.",
+    similarSpecies: [
+      {
+        speciesId: "oncorhynchus_keta",
+        name: "Chum salmon",
+        distinction:
+          "Chum have no dark spots on back or tail and show silver streaks along the tail-fin rays (Alaska DFG). Pink have large oval spots on both tail lobes, no silver on the tail, and very small scales. Chum are also much larger.",
+      },
+      {
+        speciesId: "oncorhynchus_tshawytscha",
+        name: "Chinook salmon",
+        distinction:
+          "Chinook are the large blackmouth with spots on both tail lobes but ordinary salmon scales and a heavy body. Pink are small, oval-spotted, small-scaled, and lack silver on the tail.",
+      },
+      {
+        speciesId: "oncorhynchus_kisutch",
+        name: "Coho salmon",
+        distinction:
+          "Coho have small spots on the upper tail lobe only and a white band at the tooth base. Pink spots are large ovals on the entire tail.",
+      },
+    ],
+    averageAdultLength: "Alaska DFG / NOAA: 20–25 in (Alaska DFG fast facts also 18–25 in).",
+    commonAnglingSize: "18–25 in in coastal river fisheries where harvest is lawful.",
+    typicalWeight: "Alaska DFG / NOAA: 3.5–5 lb (fast facts 3–5.5 lb).",
+    maximumDocumentedSize:
+      "Occasional larger fish occur; they remain far below Chinook and typical chum size. Maxima are not a continent-wide catalog number.",
+    longevity:
+      "Alaska DFG: shortest Pacific salmon lifespan in North America; they mature and complete the entire life cycle in two years. NOAA: typically spawn at age 2.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Pink Salmon species profile (ocean-phase ID, small scales, no silver on tail, adults do not eat in freshwater, two-year cycle)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main" },
+      { label: "NOAA Fisheries Pink Salmon species profile (oval spots on entire tail, 3.5–5 lb / 20–25 in, odd/even year structure)", class: "agency", url: "https://www.fisheries.noaa.gov/species/pink-salmon" },
+    ],
+    ...R,
+    gaps: [
+      "odd-year vs even-year mean size as a structured split",
+    ],
+  },
+  {
+    speciesId: "oncorhynchus_keta",
+    status: "reviewed",
+    regionalNames: ["chum", "dog salmon", "calico salmon", "keta"],
+    bodyShape:
+      "A large Pacific salmon, second only to Chinook in typical size (Alaska DFG). More slab-sided than coho; spawning males develop enlarged canine-like teeth.",
+    identificationTraits: [
+      "Alaska DFG: unlike Chinook, coho, pink, and steelhead, chum salmon have no dark spots on their back or tail. Tiny speckles may be present and are not those large spots.",
+      "Alaska DFG: the tail has silver streaks along (but not between) the fin rays — a split from sockeye, which lack those silver streaks.",
+      "NOAA: spawning males develop enormous canine-like fangs and a striking calico pattern, with a bold jagged reddish line on the front of the flank and a jagged black line aft. Both sexes can show a tiger-stripe pattern of bold red and black.",
+      "Alaska DFG: average 24–28 in and 10–13 lb. NOAA: can grow up to 3.6 ft and 30–35 lb; average weight 8–15 lb. They are not pinks.",
+      "Hood Canal summer-run and Columbia River ESUs are federally threatened (NOAA). That is conservation status, not a field-ID key and not a target.",
+    ],
+    coloration:
+      "Alaska DFG: ocean-stage fish metallic bluish-green along the back with a silvery side. Freshwater adults take on calico or tiger-stripe marks. Color is not a targeting cue.",
+    regionalColorVariation:
+      "Calico intensity varies by maturity and sex. Listed Pacific ESUs are a status overlay; appearance does not declare listing.",
+    spawningColoration:
+      "Calico / tiger stripes; males with canine-like fangs. NOAA: they spawn from late summer to March, with peak spawning concentrated in early winter. Color change is biology, not a targeting cue.",
+    juvenileAppearance:
+      "NOAA: when juvenile chum are about to migrate to sea they lose parr marks and gain the dark-back / light-belly of open water. Juveniles are not an adult targeting proxy.",
+    adultAppearance:
+      "An unspotted Pacific salmon with silver on the tail-fin rays. Spawning fish may be calico. They are not pinks and not sockeye.",
+    sexualDimorphism:
+      "Males develop the fangs and stronger calico marks and are usually larger than females (Alaska DFG). Both sexes can show bars.",
+    similarSpecies: [
+      {
+        speciesId: "oncorhynchus_gorbuscha",
+        name: "Pink salmon",
+        distinction:
+          "Pink have large oval spots on both tail lobes, very small scales, and no silver on the tail. Chum have no dark spots and silver streaks along the tail rays, and they are much larger.",
+      },
+      {
+        speciesId: "oncorhynchus_nerka_anadromous",
+        name: "Sockeye salmon",
+        distinction:
+          "Both can lack large black spots. Alaska DFG: chum have silver streaks along the tail-fin rays; sockeye do not. Sockeye spawning dress is red body / green head, not calico bars.",
+      },
+      {
+        speciesId: "oncorhynchus_tshawytscha",
+        name: "Chinook salmon",
+        distinction:
+          "Chinook have black gums and black spots on both tail lobes. Chum have no dark spots on back or tail.",
+      },
+      {
+        speciesId: "oncorhynchus_kisutch",
+        name: "Coho salmon",
+        distinction:
+          "Coho have small spots on the upper tail lobe and a white band at the tooth base. Chum are unspotted with silver on the tail rays.",
+      },
+    ],
+    averageAdultLength: "Alaska DFG: 24–28 in. NOAA working range extends toward 3.6 ft at the documented maximum.",
+    commonAnglingSize: "24–30 in in lawful coastal fisheries.",
+    typicalWeight: "Alaska DFG: 10–13 lb. NOAA: average 8–15 lb.",
+    maximumDocumentedSize:
+      "NOAA: 30–35 lb class at 3.6 ft. Those maxima are not typical and are not a pink-salmon number.",
+    longevity:
+      "Anadromous; NOAA notes spawning from late summer into March depending on population. All die after spawning. Age is stock-specific.",
+    sources: [
+      { label: "NOAA Fisheries Chum Salmon species profile (calico / tiger stripes, size, two threatened ESUs, spawn timing)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chum-salmon" },
+      { label: "NOAA Fisheries Chum Salmon protected-ESU profile (Hood Canal summer-run and Columbia River threatened ESUs)", class: "agency" },
+      { label: "Alaska Department of Fish and Game Chum Salmon species profile (no dark spots, silver on tail rays, cease feeding on the spawning run)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main" },
+    ],
+    ...R,
+    gaps: [
+      "stock-specific mean length tables",
+      "gum-line character with a primary-source key beyond the no-spot / silver-tail split",
+    ],
+  },
+  {
+    speciesId: "salmo_salar_landlocked",
+    status: "reviewed",
+    regionalNames: ["landlocked salmon", "sebago", "ouananiche", "landlocked atlantic"],
+    bodyShape:
+      "A fusiform Salmo with a slightly forked caudal fin and a relatively thin caudal peduncle. Not the square-tailed brown trout body and not a pale-spotted lake trout.",
+    identificationTraits: [
+      "Maine IFW: salmon have a slightly forked caudal fin; brown trout have a square tail with almost no fork. The caudal peduncle on salmon is thinner; brown trout tend to be thick there.",
+      "Maine IFW: salmon vomerine teeth are small and arranged in a single row on the shaft, few to none on the vomerine head. Brown trout have well-developed teeth on both vomerine head and shaft, in a zig-zag row on the shaft.",
+      "Maine IFW: the maxillary on salmon typically will not extend much past the eye; brown trout often have a maxillary that slightly extends past the eye.",
+      "Maine IFW: adults are generally silvery with small X-shaped markings on the back and upper sides. Spots are smaller and less defined than brown trout, which usually have more spots and a few more reddish spots.",
+      "Maine IFW: salmon usually have a dark adipose fin; if spotted, the spots are harder to see. Brown trout tend to have larger adipose fins, often orange-tinted and obviously spotted.",
+    ],
+    coloration:
+      "Maine IFW: adults generally silvery with small X-shaped markings on the back and upper sides. Juveniles have a dark red spot between each pair of parr marks.",
+    regionalColorVariation:
+      "Lake fish can be brighter silver. River fish may look duskier. Color does not split this freshwater form from wild sea-run Atlantic salmon — life history and listing status do.",
+    spawningColoration:
+      "Maine IFW: wild fish spawn in lake inlets or outlets from mid-October through late November. Color change on the run is biology, not a targeting cue.",
+    juvenileAppearance:
+      "Maine IFW: juveniles have a dark red spot between each pair of parr marks. Young wild fish spend one to four years in a stream (about 75% spend two years) before migrating to a lake.",
+    adultAppearance:
+      "A slightly forked, silvery Salmo with small X-marks, a short maxillary, a dark adipose, and single-row vomerine teeth. Not a brown trout and not wild sea-run Atlantic salmon.",
+    sexualDimorphism:
+      "Maine IFW: males usually spawn first at age 3–4, females at 4–5. Size overlap is large; tail, vomer, and maxillary, not sex, are the key.",
+    similarSpecies: [
+      {
+        speciesId: "salmo_trutta",
+        name: "Brown trout",
+        distinction:
+          "Maine IFW: brown trout have a square unforked tail, a zig-zag vomerine row with teeth on the vomerine head, a maxillary that often extends past the eye, more and redder spots, and a larger often orange-tinted spotted adipose. Landlocked salmon are the slightly forked, small-X, dark-adipose Salmo.",
+      },
+      {
+        speciesId: "salvelinus_namaycush",
+        name: "Lake trout",
+        distinction:
+          "Lake trout are char with light spots on a dark body and a deeply forked tail. Landlocked salmon have small dark X-marks on silver and a slight fork. Mouth and spotting, not fork alone, split them.",
+      },
+      {
+        speciesId: "salmo_salar_anadromous",
+        name: "Wild anadromous Atlantic salmon",
+        distinction:
+          "Same species complex, different life history and status. Wild Gulf of Maine sea-run Atlantic salmon are federally endangered and remain a fail-closed catalog record. Do not treat a managed landlocked lake fish as that fish, and do not use this overlay as a how-to-target layer for sea-run Atlantic salmon.",
+      },
+      {
+        speciesId: "oncorhynchus_mykiss_steelhead",
+        name: "Steelhead",
+        distinction:
+          "Steelhead are anadromous rainbow trout with a spotted tail and, often, a pink band after freshwater residence. Landlocked Atlantic salmon are Salmo with X-marks and a slight fork, not an Oncorhynchus.",
+      },
+    ],
+    averageAdultLength: "Maine lake adults commonly 16–22 in; larger fish occur where smelt forage is adequate.",
+    commonAnglingSize: "16–22 in in many northeastern managed lakes.",
+    typicalWeight: "Often 1.5–4 lb. Maine IFW: growth can be poor without adequate smelt.",
+    maximumDocumentedSize:
+      "Large lake fish exceed typical size where pelagic forage is strong. Maxima are waterbody-specific and are not a sea-run Atlantic number.",
+    longevity:
+      "Maine IFW: landlocked salmon may spawn more than once (iteroparous), in consecutive or alternate years. Most fish observed on spawning runs are spawning for the first time.",
+    sources: [
+      { label: "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile (smelt forage, <65°F, spawn timing, iteroparity)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
+      { label: "Maine IFW identification of salmon and brown trout (vomerine row, slightly forked vs square tail)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/difference-salmon-brown-trout.html" },
+      { label: "Maine IFW landlocked salmon vs brown trout field tips (maxillary, X-spots, dark adipose, caudal peduncle)", class: "agency", url: "https://www.maine.gov/ifw/blogs/mdifw-blog/landlocked-salmon-and-brown-trout-tips-identifying-your-catch" },
+    ],
+    ...R,
+    gaps: [
+      "a single northeastern mean length",
+      "ouananiche vs sebago form tables as structured fields",
+    ],
+  },
+
 ];

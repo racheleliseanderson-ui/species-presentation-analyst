@@ -143,7 +143,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02f",
-    status: "next",
+    status: "landed",
     title: "Pacific and landlocked salmon",
     reason: "Keep chinook, coho, pink, chum, and landlocked Atlantic from collapsing into trout or steelhead.",
     overlays: KNOWLEDGE_OVERLAYS,
@@ -157,7 +157,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02g",
-    status: "queued",
+    status: "next",
     title: "Remaining salmonids and burbot",
     reason: "Whitefish, grayling, chars, sheefish, and burbot after the trout people actually open.",
     overlays: KNOWLEDGE_OVERLAYS,

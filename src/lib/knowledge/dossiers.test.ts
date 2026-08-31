@@ -67,6 +67,9 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   catfish_jobs: ["ictalurus_punctatus", "ictalurus_furcatus", "pylodictis_olivaris"],
   white_cat_channel: ["ameiurus_catus", "ictalurus_punctatus"],
   white_cat_bullhead: ["ameiurus_catus", "ameiurus_natalis"],
+  chinook_coho: ["oncorhynchus_tshawytscha", "oncorhynchus_kisutch"],
+  pink_chum: ["oncorhynchus_gorbuscha", "oncorhynchus_keta"],
+  landlocked_atlantic_brown: ["salmo_salar_landlocked", "salmo_trutta"],
 };
 
 function normalize(value: string): string {
@@ -164,7 +167,7 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 25);
+  assert.equal(uncovered.length, 20);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -460,6 +463,68 @@ test("wave 02e catfish use agency anal-fin, tail, and jaw characters", () => {
   assert.ok(!whiteDiet.primaryForage.includes("larger_prey_fish"));
   assert.equal(behaviorDossierFor("pylodictis_olivaris")?.social.pattern, "solitary");
   assert.match(JSON.stringify(flatheadDiet), /not scavenger/i);
+});
+
+test("wave 02f Pacific and landlocked salmon keep chinook off coho, pink off chum, and landlocked off brown and wild Atlantic", () => {
+  const chinook = identificationDossierFor("oncorhynchus_tshawytscha");
+  const coho = identificationDossierFor("oncorhynchus_kisutch");
+  const pink = identificationDossierFor("oncorhynchus_gorbuscha");
+  const chum = identificationDossierFor("oncorhynchus_keta");
+  const landlocked = identificationDossierFor("salmo_salar_landlocked");
+  assert.ok(chinook && coho && pink && chum && landlocked);
+
+  assert.match(chinook.identificationTraits.join(" "), /blackmouth|gum/i);
+  assert.match(chinook.identificationTraits.join(" "), /both lobes|both tail/i);
+  assert.match(coho.identificationTraits.join(" "), /gum/i);
+  assert.match(coho.identificationTraits.join(" "), /upper/i);
+  assert.match(pink.identificationTraits.join(" "), /oval/i);
+  assert.match(pink.identificationTraits.join(" "), /scale/i);
+  assert.match(chum.identificationTraits.join(" "), /spot/i);
+  assert.match(chum.identificationTraits.join(" "), /silver/i);
+  assert.match(landlocked.identificationTraits.join(" "), /fork/i);
+  assert.match(landlocked.identificationTraits.join(" "), /vomer/i);
+
+  assert.ok(chinook.similarSpecies.some((item) => item.speciesId === "oncorhynchus_kisutch"));
+  assert.ok(coho.similarSpecies.some((item) => item.speciesId === "oncorhynchus_tshawytscha"));
+  assert.ok(pink.similarSpecies.some((item) => item.speciesId === "oncorhynchus_keta"));
+  assert.ok(chum.similarSpecies.some((item) => item.speciesId === "oncorhynchus_gorbuscha"));
+  assert.ok(landlocked.similarSpecies.some((item) => item.speciesId === "salmo_trutta"));
+  assert.ok(
+    landlocked.similarSpecies.some(
+      (item) => item.speciesId === "salmo_salar_anadromous" || /sea-run|anadromous Atlantic|wild.*Atlantic/i.test(item.name + item.distinction),
+    ),
+  );
+
+  const chinookDiet = dietDossierFor("oncorhynchus_tshawytscha");
+  const cohoDiet = dietDossierFor("oncorhynchus_kisutch");
+  const pinkDiet = dietDossierFor("oncorhynchus_gorbuscha");
+  const chumDiet = dietDossierFor("oncorhynchus_keta");
+  const landlockedDiet = dietDossierFor("salmo_salar_landlocked");
+  assert.ok(chinookDiet && cohoDiet && pinkDiet && chumDiet && landlockedDiet);
+  assert.ok(chinookDiet.primaryForage.includes("larger_prey_fish"));
+  assert.ok(!cohoDiet.primaryForage.includes("larger_prey_fish"));
+  assert.match(chinookDiet.primaryNote, /interception|not forage matching/i);
+  assert.match(pinkDiet.primaryNote, /do not eat|stop eating|not eat/i);
+  assert.match(chumDiet.primaryNote, /cease feeding|ceased feeding|digestive tract/i);
+  assert.match(landlockedDiet.primaryNote, /smelt/i);
+  assert.match(landlockedDiet.primaryNote, /still feeds/i);
+  assert.ok(!landlockedDiet.primaryForage.includes("larger_prey_fish"));
+
+  assert.equal(SPECIES_BY_ID.oncorhynchus_gorbuscha.stillPresentations.length, 0);
+  assert.equal(SPECIES_BY_ID.oncorhynchus_keta.stillPresentations.length, 0);
+
+  const pinkCal = seasonalCalendarDossierFor("oncorhynchus_gorbuscha");
+  const chumCal = seasonalCalendarDossierFor("oncorhynchus_keta");
+  assert.ok(pinkCal && chumCal);
+  assert.doesNotMatch(JSON.stringify(pinkCal), /trolling|vertical jig|horizontal retrieve|stop-and-go|suspend \/ pause|surface retrieve/i);
+  assert.doesNotMatch(JSON.stringify(chumCal), /trolling|vertical jig|horizontal retrieve|stop-and-go|suspend \/ pause|surface retrieve/i);
+  assert.match(pinkCal.overview, /flowing-water only|flowing water only/i);
+  assert.match(chumCal.overview, /flowing-water only|flowing water only/i);
+
+  const landlockedCal = seasonalCalendarDossierFor("salmo_salar_landlocked");
+  assert.ok(landlockedCal);
+  assert.match(JSON.stringify(landlockedCal), /smelt|65/i);
+  assert.match(JSON.stringify(landlockedCal), /sea-run|anadromous/i);
 });
 
 

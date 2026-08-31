@@ -21,12 +21,12 @@ The profile contract is intentionally broader than the presentation engine. It a
 
 | Layer | Current status | Already structured | Important gaps |
 | --- | --- | --- | --- |
-| Identification | Reviewed for 50 species (26 lookalikes + 02a trout + 02b coolwater + 02c panfish + 02d remaining sunfish + 02e catfish); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 25 species; some subspecies/strain tables |
+| Identification | Reviewed for 55 species (26 lookalikes + 02a trout + 02b coolwater + 02c panfish + 02d remaining sunfish + 02e catfish + 02f Pacific and landlocked salmon); partial elsewhere | common/scientific names, aliases; AFP-ID-1.0 dossiers with diagnostic traits, lookalike keys, size/age where sourced | remaining 20 species; some subspecies/strain tables |
 | Habitat & location | Partial / strong | range, origin context, water type, depth tendency, current preference, thermal bands, light response, holding-water classes | species-specific oxygen/clarity detail, complete movement/migration calendar |
-| Behavior | Reviewed for 50 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 25 species; angling-pressure and frontal evidence still sparse |
-| Diet | Reviewed for 50 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 25 species; prey-size tables by waterbody |
+| Behavior | Reviewed for 55 species; partial elsewhere | positioning, thermal state, light response, spawning caution, exceptions, RPC; AFP-BH-1.0 social/feeding/diel/cover dossiers | remaining 20 species; angling-pressure and frontal evidence still sparse |
+| Diet | Reviewed for 55 species; partial elsewhere | forage classes, observed-forage packet integration; AFP-DI-1.0 primary/seasonal/life-stage diet | remaining 20 species; prey-size tables by waterbody |
 | Best fishing methods | Partial / strong | reviewed presentation families, mechanical equipment job, downstream tackle/knot/rig handoffs | species-profile rod/reel/line ranges, hook reference, bait/lure-family reference, retrieve-speed ranges |
-| Seasonal calendar | Reviewed for 50 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 25 species; month-by-month location/behavior calendars |
+| Seasonal calendar | Reviewed for 55 species; partial elsewhere | season as a core weighting axis; spawning caution; AFP-SC-1.0 habitat-class progression | remaining 20 species; month-by-month location/behavior calendars |
 | Conditions | Partial / strong | temperature, flow/still state, clarity, light, weather trend, season, holding water, forage | species-specific wind/rain/water-level evidence, barometric pressure, moon evidence |
 | Fight characteristics | Not reviewed | — | fight strength, speed, endurance, jumps, runs, head shakes/surges, landing considerations |
 | Food value | Not reviewed | — | table quality, texture/flavor, cleaning/fillet yield, cooking, current waterbody-specific consumption advisories |
@@ -102,6 +102,18 @@ Same family, four different jobs:
 
 Agency keys: convex anal fin 24–29 rays and spots that fade on large fish (channel, Missouri DNR / TPWD / North Carolina Wildlife); straight anal fin 30–36 rays, usually unspotted (blue, TPWD / Indiana DNR / North Carolina Wildlife); flattened head, projecting lower jaw, 14–17 anal rays (flathead, Missouri DNR / TPWD); moderately forked rounded lobes, 18–24 anal rays, light chin barbels, wide head (white catfish, Connecticut DEEP / Virginia DWR). Flathead stay solitary live-fish predators, not scavengers. Blue catfish eat fish earlier than channel and can roam in reservoirs; Chesapeake and other Atlantic-slope introductions stay conservation context. White catfish stay a small coastal Ameiurus. Cavity nests stay conservation context.
 
+## AFP wave 02f — Pacific and landlocked salmon
+
+Keep chinook, coho, pink, chum, and landlocked Atlantic from collapsing into trout or steelhead:
+
+- chinook vs coho (blackmouth / both-lobe tail spots vs white-at-tooth-base gums / upper-lobe spots)
+- pink vs chum (large oval spots, small scales, no silver on the tail vs unspotted with silver on the tail rays and calico spawners)
+- landlocked Atlantic vs brown trout (slight fork, single-row vomer, short maxillary, dark adipose) and named as not wild sea-run Atlantic salmon
+
+Agency keys: NOAA black gums and spots on both tail lobes, typical 3 ft / 30 lb, two endangered and seven threatened ESUs as of 2025 (chinook); NOAA lighter gumline, upper-lobe spots, 8–12 lb / 24–30 in, one endangered and three threatened ESUs (coho); Oregon DFW lower-jaw gum line as the enforcement split; California DFW white at the tooth base and no lower-tail spots; ADF&G pink adults do not eat in freshwater, two-year odd/even cycle, large oval spots on the entire tail, very small scales, no silver on the tail; ADF&G chum cease feeding on the spawning run, no dark spots, silver streaks along tail rays; NOAA two threatened chum ESUs; Maine IFW smelt as principal lake forage, prefer water below 65°F, slightly forked tail vs square brown tail, single-row vs zig-zag vomerine teeth.
+
+Pacific freshwater spawning adults are interception, not forage matching. Great Lakes chinook and coho still feed in lakes — the species overlay does not auto-select those jobs. Pink and chum are flowing-only. Landlocked Atlantic still feeds and stays off the fail-closed wild sea-run Atlantic record. Redds stay excluded.
+
 ## AFP-DI-1.0 / AFP-SC-1.0 wave 01
 
 The same 26 lookalike species now have diet and seasonal-calendar overlays:
@@ -150,17 +162,16 @@ Rules:
 - Fight, food value, gear ranges, and live regulations wait until the high-use set is knowable.
 - A wave is `landed` only when tests show every required overlay exists.
 
-Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass), wave 02d (redbreast, warmouth, longear, flier), wave 02e (channel catfish, blue catfish, flathead, white catfish).
-Next: wave 02f — chinook, coho, pink, chum, and landlocked Atlantic.
+Landed: wave 01 (26 lookalikes), wave 02a (brown, brook, lake trout, steelhead), wave 02b (walleye, sauger, northern pike, muskellunge, chain pickerel, yellow perch), wave 02c (crappie, bluegill, pumpkinseed, redear, green sunfish, rock bass), wave 02d (redbreast, warmouth, longear, flier), wave 02e (channel catfish, blue catfish, flathead, white catfish), wave 02f (chinook, coho, pink, chum, landlocked Atlantic).
+Next: wave 02g — remaining salmonids and burbot.
 
 ## Next research order
 
 The next data work follows `SEED_WAVES`, not a flat 75-species dump:
 
-1. Wave 02f Pacific and landlocked salmon — all four overlays together.
-2. Wave 02g remaining salmonids and burbot.
-3. Wave 03 identification-only for fail-closed conservation records.
-4. Wave 04 remaining catalog.
-5. Methods ranges, then fight, then food, then live regulation connectors — after the high-use set is knowable.
+1. Wave 02g remaining salmonids and burbot — all four overlays together.
+2. Wave 03 identification-only for fail-closed conservation records.
+3. Wave 04 remaining catalog.
+4. Methods ranges, then fight, then food, then live regulation connectors — after the high-use set is knowable.
 
 This preserves the product distinction: novices can ask “what should I use?” while the deeper model continues to answer the more useful question, “what is this fish trying to accomplish under the declared conditions?”

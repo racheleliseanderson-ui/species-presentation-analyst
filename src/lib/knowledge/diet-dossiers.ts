@@ -2153,4 +2153,208 @@ export const DIET_DOSSIERS: DietDossier[] = [
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
   },
+  {
+    speciesId: "oncorhynchus_tshawytscha",
+    status: "reviewed",
+    feedingStyle: "mixed",
+    feedingZone: "pelagic",
+    primaryForage: ["small_forage_fish", "larger_prey_fish", "aquatic_insects"],
+    primaryNote:
+      "NOAA: young Chinook feed on terrestrial and aquatic insects, amphipods, and other crustaceans; older Chinook primarily feed on other fish. Terrestrial insects and crustaceans are not catalog forage classes on this record. Catalog exception: spawning adults are interception, not forage matching. Great Lakes lake adults still feed; Pacific freshwater returning adults are not treated as feeding trout.",
+    seasonalDiet: [
+      {
+        season: "spring",
+        emphasis: "Great Lakes and ocean feeding remain piscivorous capacity where those fish are in open water. Aquatic insects remain juvenile/young capacity. Do not infer a current bait event.",
+      },
+      {
+        season: "summer",
+        emphasis: "Older fish on other fish. Lake fish track the cool pelagic layer. Pacific freshwater return is not this feeding story.",
+      },
+      {
+        season: "late_summer",
+        emphasis: "Pacific freshwater adults are interception, not forage matching. Great Lakes lake feeding may still be underway. Do not collapse the two.",
+      },
+      {
+        season: "fall",
+        emphasis: "Spawning adults are not a feeding-trout problem. Redds are excluded. Diet capacity does not license targeting spawners.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "NOAA: terrestrial and aquatic insects, amphipods, and other crustaceans. Terrestrial insects and crustaceans stay off the catalog forage list here.",
+      juvenile: "Aquatic insects remain; fish enter as gape allows.",
+      adult: "Older Chinook primarily feed on other fish (NOAA). Freshwater spawning adults are interception, not forage matching.",
+    },
+    preySizeShifts: "Gape tracks the shift from insects to fish. Large adults take larger prey fish; that does not apply to spawning freshwater adults as a feeding model.",
+    ontogeneticShift: "Insects/crustaceans in young fish to piscivory in older fish, then feeding largely stops as a model for Pacific freshwater spawners.",
+    forageSubstitutions:
+      "Great Lakes alewife/smelt fields vs Pacific herring-scale forage are not interchangeable. This species overlay does not auto-select them. Do not import an inland-rainbow hatch match.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "NOAA Fisheries Chinook Salmon species profile (young insects/crustaceans; older fish; ESA counts)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chinook-salmon" },
+      { label: "Healey chinook life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "Pacific vs Great Lakes adult diet as a structured split", "terrestrial insects / crustaceans fraction (no catalog forage class here)"],
+  },
+  {
+    speciesId: "oncorhynchus_kisutch",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "pelagic",
+    primaryForage: ["small_forage_fish", "aquatic_insects", "terrestrial_insects"],
+    primaryNote:
+      "NOAA: while in fresh water, young coho feed on plankton and insects; in the ocean they switch to small fishes such as herring, sandlance, anchovies, and sardines, and may eat juveniles of other salmon. Zooplankton is not a catalog forage class here. Larger prey fish is not a catalog class on this record — do not import Chinook piscivory. Pacific freshwater adults are interception, not forage matching.",
+    seasonalDiet: [
+      {
+        season: "spring",
+        emphasis: "Great Lakes and ocean fish on small forage fish where those fish are in open water. Insects remain juvenile/young capacity.",
+      },
+      {
+        season: "summer",
+        emphasis: "Small fishes in the usable pelagic band. Catalog: often higher in the column than Chinook. Capacity is not a current bait event.",
+      },
+      {
+        season: "fall",
+        emphasis: "Pacific freshwater adults are interception, not forage matching. Do not treat tributary-mouth habitat as a license to crowd spawning tributaries.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "NOAA: plankton and insects in fresh water. Zooplankton stays off the catalog forage list here.",
+      juvenile: "Insects and, as gape allows, small fish before ocean or lake entry.",
+      adult: "Ocean and Great Lakes adults on small fishes. Freshwater spawning adults are not a feeding-trout model. They do not inherit Chinook larger-prey-fish forage.",
+    },
+    ontogeneticShift: "Plankton/insects in freshwater young to small-fish feeding in ocean/lake adults; Pacific freshwater return is not a forage-matching problem.",
+    forageSubstitutions:
+      "Great Lakes vs Pacific small-fish fields differ. Do not substitute Chinook larger-prey-fish forage, and do not substitute an inland-rainbow hatch match.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "NOAA Fisheries Coho Salmon species profile (young plankton and insects; ocean small fishes)", class: "agency", url: "https://www.fisheries.noaa.gov/species/coho-salmon" },
+      { label: "Sandercock coho life history", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "Pacific vs Great Lakes adult diet as a structured split", "zooplankton fraction in young fish (no catalog forage class here)"],
+  },
+  {
+    speciesId: "oncorhynchus_gorbuscha",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "pelagic",
+    primaryForage: ["aquatic_insects", "zooplankton", "small_forage_fish"],
+    primaryNote:
+      "Alaska DFG: adults returning to spawn do not eat. Young salmon migrating to the ocean may eat aquatic insects and zooplankton. NOAA: pink salmon feed on small crustaceans, zooplankton, squid, and small fish — crustaceans are not a catalog forage class here. Freshwater adult diet is interception/reaction, not forage matching.",
+    seasonalDiet: [
+      {
+        season: "summer",
+        emphasis: "Returning freshwater adults do not eat (Alaska DFG). Ocean feeding is behind them. Odd/even year structure is not a diet event.",
+      },
+      {
+        season: "late_summer",
+        emphasis: "Migration and ripening, not a forage-matching problem.",
+      },
+      {
+        season: "fall",
+        emphasis: "Spawning fish do not establish feeding lies. Diet guidance for freshwater adults stays conservation-first.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Alaska DFG: aquatic insects and zooplankton on the way to the ocean. They leave gravel quickly.",
+      juvenile: "Short freshwater residence; ocean entry on plankton, shrimp/krill, and small fish.",
+      adult: "Alaska DFG: adults returning to spawn do not eat. As with the pink freshwater record, presentation describes interception/reaction mechanics only.",
+    },
+    ontogeneticShift: "Brief freshwater insect/zooplankton feeding, marine pelagic feeding, then feeding stops on the freshwater return.",
+    forageSubstitutions:
+      "Do not substitute a trout hatch match, a Chinook piscivore diet, or a stillwater pelagic diet — this record is flowing-only and freshwater adults do not eat.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Alaska Department of Fish and Game Pink Salmon species profile (adults returning to spawn do not eat; young insects and zooplankton)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main" },
+      { label: "NOAA Fisheries Pink Salmon species profile (zooplankton, small crustaceans, small fish)", class: "agency", url: "https://www.fisheries.noaa.gov/species/pink-salmon" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "crustacean fraction (no catalog forage class here)"],
+  },
+  {
+    speciesId: "oncorhynchus_keta",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "pelagic",
+    primaryForage: ["small_forage_fish", "crustaceans", "zooplankton"],
+    primaryNote:
+      "Alaska DFG: adults on the spawning run cease feeding and their digestive tract degrades. At sea they feed on copepods, tunicates, mollusks, and a variety of fishes. NOAA: young feed on insects as they migrate downriver — aquatic insects are not a catalog forage class on this record. Freshwater adult diet is interception, not forage matching.",
+    seasonalDiet: [
+      {
+        season: "late_summer",
+        emphasis: "Returning freshwater adults have ceased feeding (Alaska DFG). Ocean feeding is behind them.",
+      },
+      {
+        season: "fall",
+        emphasis: "Migration and ripening, not a forage-matching problem. Listed ESUs remain conservation context.",
+      },
+      {
+        season: "late_fall",
+        emphasis: "NOAA: spawning continues toward early winter in some populations. Spawners are not feeding trout.",
+      },
+      {
+        season: "winter",
+        emphasis: "Peak spawning can be concentrated in early winter (NOAA). Diet guidance stays conservation-first.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "NOAA / Alaska DFG: insects on the seaward movement. That insect fraction is not a catalog forage class here; crustaceans and zooplankton are.",
+      juvenile: "Nearshore crustaceans and small fishes after ocean entry (Alaska DFG).",
+      adult: "Ocean: copepods, fishes, mollusks, squid, and tunicates (NOAA / Alaska DFG). Freshwater adults cease feeding.",
+    },
+    ontogeneticShift: "Brief freshwater insect feeding off-catalog, marine crustacean/fish feeding, then digestive-tract shutdown on the spawning run.",
+    forageSubstitutions:
+      "Do not substitute a trout hatch match or a pink small-scale diet as if they were the same fish. Do not add stillwater families — this record is flowing-only.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Alaska Department of Fish and Game Chum Salmon species profile (cease feeding; ocean copepods, tunicates, mollusks, fishes)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main" },
+      { label: "NOAA Fisheries Chum Salmon species profile (young insects off-catalog; adult marine diet; threatened ESUs)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chum-salmon" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, "aquatic insect fraction in young fish (no catalog forage class here)"],
+  },
+  {
+    speciesId: "salmo_salar_landlocked",
+    status: "reviewed",
+    feedingStyle: "opportunistic",
+    feedingZone: "mixed",
+    primaryForage: ["small_forage_fish", "aquatic_insects", "emerging_insects", "terrestrial_insects"],
+    primaryNote:
+      "Maine IFW: rainbow smelt are the principal forage for landlocked salmon in Maine lakes; growth can be poor without adequate smelt. River fish take aquatic, emerging, and terrestrial insects. Unlike Pacific salmon freshwater adults, this form still feeds. Larger prey fish is not a catalog class here — do not import lake trout or brown-trout piscivory wholesale.",
+    seasonalDiet: [
+      {
+        season: "winter",
+        emphasis: "Pelagic forage fish in the remaining cold band. Insects recede. Capacity is not a current smelt event.",
+      },
+      {
+        season: "spring",
+        emphasis: "Smelt-scale forage in lakes as water leaves winter; insects and emergences in connected rivers. Do not infer a hatch.",
+      },
+      {
+        season: "summer",
+        emphasis: "Maine IFW: prefer water below 65°F. Lake fish follow cold oxygenated water and pelagic forage. Surface insects are capacity, not a default.",
+      },
+      {
+        season: "fall",
+        emphasis: "Forage continues until spawning overlap. Maine IFW: mid-October through late November spawn window is an invalidator, not a forage map.",
+      },
+    ],
+    lifeStageDiet: {
+      youngOfYear: "Stream insects during the one-to-four-year river residence (Maine IFW).",
+      juvenile: "Aquatic and emerging insects in streams, then a shift toward pelagic forage after lake entry.",
+      adult: "Maine IFW: rainbow smelt principal lake forage. Insects remain river capacity. This is not wild sea-run Atlantic salmon, and it is not a non-feeding Pacific spawner.",
+    },
+    ontogeneticShift: "Stream insectivory to lake pelagic smelt-linked feeding. Absence of smelt or equivalent pelagic forage can materially change growth (catalog).",
+    forageSubstitutions:
+      "Lakes substitute other pelagic forage fish when smelt are scarce; growth often suffers. Rivers substitute hatches and terrestrials. Do not substitute a brown-trout hole diet or a steelhead egg diet as the default.",
+    observedForageRule: OBSERVED,
+    sources: [
+      { label: "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile (rainbow smelt principal lake forage; <65°F)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
+      { label: "Maine landlocked Atlantic salmon management literature", class: "agency" },
+    ],
+    ...R,
+    gaps: [SEASONAL_GAP, SUB_GAP, "smelt-present vs smelt-absent diet as a structured split"],
+  },
+
 ];
