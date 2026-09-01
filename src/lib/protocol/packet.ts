@@ -1,5 +1,7 @@
 import { carryFleetContext } from "./fleet-context";
 import { normalizeTemperatureRangeF } from "../engine/temperature";
+import { matchesSpecies } from "../knowledge/aliases";
+import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog";
 import {
   FORAGE_CLASSES,
   INSTRUMENT_ID,
@@ -206,10 +208,26 @@ export function parseIncomingPacket(hash: string): Partial<ScenarioInput> | null
     const data = JSON.parse(raw) as Record<string, unknown>;
     const water = coerceWater(data.water);
     const conditions = (data.conditions ?? {}) as Record<string, unknown>;
-    const species = data.species as { id?: string } | undefined;
+    const species = data.species as
+      | { id?: string; speciesId?: string; commonName?: string; commonNames?: unknown[] }
+      | undefined;
     const observations = (data.observations ?? {}) as { forage?: unknown };
     const waterType = coerceWaterType(conditions.waterType) ?? water.waterType;
-    const speciesId = typeof species?.id === "string" && species.id.trim() ? species.id : undefined;
+    const carriedSpeciesId =
+      typeof species?.id === "string" && species.id.trim()
+        ? species.id.trim()
+        : typeof species?.speciesId === "string" && species.speciesId.trim()
+          ? species.speciesId.trim()
+          : undefined;
+    const carriedNames = [
+      ...(Array.isArray(species?.commonNames)
+        ? species.commonNames.filter((name): name is string => typeof name === "string")
+        : []),
+      ...(typeof species?.commonName === "string" ? [species.commonName] : []),
+    ];
+    const speciesId =
+      (carriedSpeciesId && SPECIES_BY_ID[carriedSpeciesId] ? carriedSpeciesId : undefined) ??
+      SPECIES.find((candidate) => carriedNames.some((name) => matchesSpecies(candidate, name)))?.id;
     const exactTempF =
       typeof conditions.tempF === "number" && Number.isFinite(conditions.tempF) ? conditions.tempF : null;
     const tempRangeF = exactTempF == null ? coerceTempRange(conditions.tempRangeF) : null;
