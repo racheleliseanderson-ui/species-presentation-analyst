@@ -115,7 +115,7 @@ export function Readout({
 }) {
   const input = toInput(session);
   const [copied, setCopied] = useState<"packet" | "brief" | "correction" | null>(null);
-  const [inspect, setInspect] = useState<"tackle" | "knot" | "rig" | "hatch" | null>(null);
+  const [inspect, setInspect] = useState<"ops" | "tackle" | "knot" | "rig" | "hatch" | null>(null);
   const [saved, setSaved] = useState<NamedScenario[]>([]);
   const [saveName, setSaveName] = useState("");
 
@@ -164,6 +164,7 @@ export function Readout({
   const tackle = FLEET.find((f) => f.name === "Tackle Link")!;
   const knot = FLEET.find((f) => f.name === "Knot Analyst")!;
   const rig = FLEET.find((f) => f.name === "Rig Signal")!;
+  const ops = FLEET.find((f) => f.name === "Field Ops Desk")!;
   const species = SPECIES_BY_ID[session.speciesId!];
   const fresh = freshness(species.reviewedAt, species.nextReviewAt);
   const top = result.presentations[0];
@@ -173,12 +174,14 @@ export function Readout({
       : `${session.tempF}°F — ${labelOf(session.tempSource).toUpperCase()}`;
 
   const carryHref = {
+    ops: `${ops.href}${encodePacketHash(packet)}`,
     tackle: `${tackle.href}${encodePacketHash(packet)}`,
     knot: `${knot.href}${encodePacketHash(packet)}`,
     rig: `${rig.href}${encodePacketHash(packet)}`,
     hatch: `${hatch.href}${encodePacketHash(packet)}`,
   };
   const carryLabel = {
+    ops: "Field Ops Desk",
     tackle: "Tackle Link",
     knot: "Knot Analyst",
     rig: "Rig Signal",
@@ -411,6 +414,10 @@ What seems wrong:
           Nothing leaves this device unless you send it, and what travels carries no coordinates and no bite score.
         </p>
         <div className="mt-5 grid gap-2 sm:grid-cols-2">
+          <Button className="sm:col-span-2" onClick={() => setInspect("ops")}>
+            Carry this trip context back to Field Ops
+            <ArrowUpRight className="size-4" />
+          </Button>
           <Button onClick={() => setInspect("tackle")}>
             Carry to Tackle
             <ArrowUpRight className="size-4" />
