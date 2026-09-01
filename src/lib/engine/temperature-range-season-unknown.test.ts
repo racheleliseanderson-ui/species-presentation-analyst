@@ -82,4 +82,18 @@ describe("temperature ranges and unknown season", () => {
     assert.deepEqual(parsed?.tempRangeF, range);
     assert.equal(parsed?.tempF, null);
   });
+
+  it("resolves a Field Ops species slug through the carried common name", () => {
+    const packet = {
+      packetVersion: "HTH-1.0",
+      origin: "field-ops-desk",
+      species: { speciesId: "brown-trout", commonNames: ["Brown trout"] },
+      water: { waterName: "Named public river", waterType: "flowing" },
+      conditions: { waterType: "flowing" },
+      privacy: { containsCoordinates: false, containsPrivateWater: false },
+    };
+
+    const parsed = parseIncomingPacket(`#packet=${encodeURIComponent(JSON.stringify(packet))}`);
+    assert.equal(parsed?.speciesId, "salmo_trutta");
+  });
 });
