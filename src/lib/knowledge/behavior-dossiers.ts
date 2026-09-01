@@ -2302,4 +2302,243 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     gaps: [PRESSURE_GAP, FRONT_GAP, "smelt-present vs smelt-absent lake calendars as a structured RPC split"],
   },
 
+  {
+    speciesId: "prosopium_williamsoni",
+    status: "reviewed",
+    social: {
+      pattern: "schooling",
+      byLifeStage:
+        "Adults commonly group in runs and winter pools. A group is a habitat-class association, not a named pin.",
+      note: "More consistently grouped and benthic than sympatric trout. Do not treat a whitefish pod as a trout feeding station.",
+    },
+    feedingStrategy: {
+      modes: ["benthic_feeding", "drift_feeding"],
+      note: "Montana Field Guide: pointed snout and small round mouth make them efficient at vacuuming invertebrates from the substrate, while trout tend to feed more on drifting insects. Drift still occurs. Capacity is not a current hatch.",
+    },
+    dielTendency: {
+      class: "diurnal",
+      note: "Catalog: can feed through the day, with benthic feeding and shallower movement often improving under softer light.",
+    },
+    seasonalActivity:
+      "Late-fall to winter broadcast spawning over gravel and rubble is conservation context. Winter fish commonly consolidate in deeper pools. Feeds actively in winter (Montana Field Guide) without converting spawn gravel into a target.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 48–56°F. Warm edges push fish toward deeper, slower, more oxygenated water rather than proving a surface event.",
+    currentFacing:
+      "Adults commonly feed in moderate runs and riffle transitions, then use larger pools as temperatures fall.",
+    depthMovement:
+      "Usually near bottom or in the lower column. Winter fish commonly go deeper.",
+    predatorAvoidance:
+      "Depth and the group. Not a wood-ambush trout.",
+    coverUse:
+      "Runs, riffle-to-run, pool tails, deep pools, and seams. Lakes: drop-offs, rocky shoreline, basins, inlets.",
+    openWaterBehavior:
+      "Lake and reservoir fish remain lower-column more than pelagic plankton specialists. Zooplankton in lakes is noted by Montana Field Guide but is not a catalog forage class here.",
+    spawningBehavior:
+      "Montana Field Guide: fall broadcast spawner, peak late October to early November at 35–44°F, typically in riffles over gravel or small rubble; has been seen along lake shorelines. Congregations and tributary gravel are invalidators, never target layers.",
+    sources: [
+      { label: "Montana Field Guide mountain whitefish (benthic vacuuming mouth, winter feeding, broadcast spawn)", class: "agency", url: "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCHA03060" },
+      { label: "Idaho Fish and Game mountain whitefish identification and native-status notes", class: "agency" },
+      { label: "Boyer et al. mountain whitefish reproductive ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "thymallus_arcticus",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "ADF&G: older, larger adults tend to use cooler upper reaches; sub-adults the middle; juveniles the lower, warmer reaches. That is a size-class pattern, not a map.",
+      note: "Some complete their lives in a short section of one stream or lake. Others move among spawning, feeding, and wintering water. RPC does not auto-select those jobs.",
+    },
+    feedingStrategy: {
+      modes: ["drift_feeding", "opportunistic"],
+      note: "ADF&G: primary food is drifting aquatic insects. Terrestrials, eggs, and smaller fish are capacity. Presence of a forage class is not a current event.",
+    },
+    dielTendency: {
+      class: "diurnal",
+      note: "Daylight and broken-light surface feeding is common when insects are available. Clear water increases the value of approach and distance. That is optics, not a bite claim.",
+    },
+    seasonalActivity:
+      "Spring spawning is conservation context. Winter feeding is minimal (ADF&G): fish occupy lakes or deeper, slow-current pools. Summer is a drift-and-surface insect problem in cold water.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 48–60°F. Warm, low-oxygen water is a constraint. Lower-48 remnant populations are conservation-sensitive.",
+    currentFacing:
+      "Feeds where drifting food crosses moderate current. Uses deeper, slower pools for refuge and wintering.",
+    depthMovement:
+      "Often upper-to-mid column while feeding on drift; deeper when bright, pressured, warm, or wintering.",
+    predatorAvoidance:
+      "Distance, broken light, and depth in clear water.",
+    coverUse:
+      "Riffle-to-run, runs, pool heads, seams, side channels, deep pools. Lakes: inlets, outlets, drop-offs, rocky shoreline.",
+    openWaterBehavior:
+      "Lake fish still organize around inlets, outlets, and insect delivery more than a pelagic basin default.",
+    spawningBehavior:
+      "ADF&G: first spawn about age 4–7 and about 10–12 in. Spring movement toward spawning gravel is conservation context. Lower-48 decline (overfishing, introduced species, habitat loss) and remnant interior populations stay invalidators. Eggs lodge in pebbles; they are not a targeting cue.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic grayling species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main" },
+      { label: "USGS Arctic Grayling species profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "resident versus migratory grayling calendars as a structured RPC split"],
+  },
+  {
+    speciesId: "lota_lota",
+    status: "reviewed",
+    social: {
+      pattern: "solitary",
+      byLifeStage:
+        "Minnesota DNR: reproduction may occur in pairs or in groups. Those winter groups are conservation context, not a congregation to seek.",
+      note: "Outside spawning this is a secretive, bottom-oriented predator, not a pelagic school.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit", "benthic_feeding", "opportunistic"],
+      note: "Minnesota DNR: mostly other fish such as small yellow perch and walleyes; also crayfish, mayfly larvae, and other aquatic insects. Eggs and clams appear in the agency diet and are not catalog forage classes here.",
+    },
+    dielTendency: {
+      class: "nocturnal",
+      note: "Minnesota DNR: especially active during low light in winter. Catalog: strongly associated with night and low-light activity; daylight often reinforces cover, depth, and bottom contact. Night activity does not justify a surface family.",
+    },
+    seasonalActivity:
+      "Minnesota DNR: come winter, these predators come alive and are most active — including a mid-winter spawn before ice-off. Summer is a deep, cold, benthic constraint (typically require water cooler than 70°F).",
+    thermalDrivenBehavior:
+      "Preferred band roughly 42–52°F. Minnesota DNR: typically require water temps lower than 70°F in summer. Warm water is a down-and-deep problem, not a shallow default.",
+    currentFacing:
+      "Bottom-oriented; favors deeper or slower current margins rather than sustained high-velocity lanes.",
+    depthMovement:
+      "Deep and benthic through much of the warm season; cold-season movement can bring fish shallower without becoming a surface fish.",
+    predatorAvoidance:
+      "Depth, mottling, and night. Daylight is a hold-tight, on-bottom problem.",
+    coverUse:
+      "Basins, rocky shoreline, drop-offs, submerged humps, thermocline edges. Rivers: deep pools, current breaks, pool tails, wood.",
+    openWaterBehavior:
+      "Not pelagic. Open water is used as a bottom desert, not a chase column.",
+    spawningBehavior:
+      "Minnesota DNR: mid-winter into early spring, before ice-off; no nest and no care. Fish may spawn in pairs or in groups over sand or gravel in shallow cold water. Those groups and that substrate are invalidators, never a map.",
+    sources: [
+      { label: "Minnesota DNR burbot species profile", class: "agency", url: "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html" },
+      { label: "USGS Great Lakes burbot thermal-distribution research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
+  },
+  {
+    speciesId: "salvelinus_alpinus",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Dwarf and normal forms in the same lake can use different habitat and food. A group on a shoal in fall is spawn biology, not a target.",
+      note: "ADF&G: in Alaska, all known populations spend their entire lives in lakes and do not migrate. This is not a river char.",
+    },
+    feedingStrategy: {
+      modes: ["opportunistic", "pursuit", "filter"],
+      note: "ADF&G: zooplankton and insects to other fish, including smaller char, depending on waterbody, age, size, and season. Polymorphism means one lake is not every lake.",
+    },
+    dielTendency: {
+      class: "mixed",
+      note: "Clear water and bright conditions can reinforce deeper positioning. Insect availability can pull smaller or feeding fish higher. That is optics and forage, not a bite window.",
+    },
+    seasonalActivity:
+      "ADF&G: spawning in lakes August–October over gravel/rubble. Most ready to spawn at 6–9 years; usually every other year. Shoals are invalidators.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 39–50°F. Warm, low-oxygen water is unusable. This is a cold-lake fish.",
+    currentFacing:
+      "Reviewed as a lake-resident fish. Basin circulation and coldwater structure matter more than river current classes. This record has no flowing presentations.",
+    depthMovement:
+      "Highly population- and season-dependent: littoral/insect feeding to deep cold basin use. Larger fish often become more piscivorous.",
+    predatorAvoidance:
+      "Depth in clear water. Dwarf forms may stay closer to structure.",
+    coverUse:
+      "Basins, drop-offs, rocky shoreline, submerged humps, thermocline edges, inlets.",
+    openWaterBehavior:
+      "Pelagic and benthic jobs both occur depending on form. Do not collapse dwarf insectivores into large piscivores.",
+    spawningBehavior:
+      "ADF&G: fall months of August–October in lakes; eggs deposited over jumbles of substrate or gravel shoals. Shoals are not target locations. Eurasian anadromous char are outside this record.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic Char species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "dwarf versus normal form behavior as a structured overlay"],
+  },
+  {
+    speciesId: "salvelinus_malma",
+    status: "reviewed",
+    social: {
+      pattern: "mixed_by_life_stage",
+      byLifeStage:
+        "Resident dwarfs may spend an entire life in one small stream. Sea-run fish move through river, lake, and coastal water. Those jobs are not one calendar.",
+      note: "Northern versus southern form, and resident versus sea-run, must be declared through RPC rather than inferred from a water name.",
+    },
+    feedingStrategy: {
+      modes: ["drift_feeding", "opportunistic", "pursuit"],
+      note: "ADF&G: juveniles mostly insects in slow water; growing fish add crustaceans, salmon eggs, and small fish. Sea-run fish eat amphipods and small fish at sea. Eggs are scavenged drift, not a license to target redds. ADF&G: they primarily eat drifting salmon eggs that would not have hatched anyway.",
+    },
+    dielTendency: {
+      class: "crepuscular",
+      note: "Clear cold water rewards cover and depth under bright conditions. Drift and low light can allow shallower feeding positions.",
+    },
+    seasonalActivity:
+      "Fall spawn September–November. Sea-run summer feeding is not this freshwater overlay’s ocean story. Southern-form lake wintering versus northern-form river wintering is RPC.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 42–55°F. Warm, low water is a constraint.",
+    currentFacing:
+      "Resident stream fish use pools and drift lanes. Migratory fish use cold rivers, connected lakes, and estuarine transitions.",
+    depthMovement:
+      "Stream fish: pools and lanes. Lake/wintering forms may use deeper water.",
+    predatorAvoidance:
+      "Cover, depth, and current. Bright low clear water tightens lies.",
+    coverUse:
+      "Runs, seams, pool heads and tails, deep pools, current breaks. Lakes: inlets, outlets, rocky shoreline, drop-offs, basins.",
+    openWaterBehavior:
+      "Sea-run and lake-wintering fish can use open water. Resident stream dwarfs do not become pelagic lake trout.",
+    spawningBehavior:
+      "ADF&G: spawn in fall, September–November, over gravel in small headwater streams or occasionally larger rivers. Redds and concentrations are excluded. Bull trout remain a separate fail-closed record.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Dolly Varden species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "southern versus northern and resident versus sea-run calendars as RPC"],
+  },
+  {
+    speciesId: "stenodus_leucichthys",
+    status: "reviewed",
+    social: {
+      pattern: "loose_aggregation",
+      byLifeStage:
+        "Juveniles feed on insects; adults are almost exclusively piscivorous (ADF&G). Do not average those stages.",
+      note: "Migratory adults use large-river travel corridors and forage transitions. Resident fish can remain in freshwater lake/river systems year-round. RPC does not auto-select them.",
+    },
+    feedingStrategy: {
+      modes: ["pursuit"],
+      note: "ADF&G: as they mature, sheefish feed almost exclusively on other fish. Juvenile insectivory is not an adult forage-matching job.",
+    },
+    dielTendency: {
+      class: "mixed",
+      note: "Turbidity and northern seasonal light reduce the usefulness of a simple day/night rule. Forage position and current often matter more.",
+    },
+    seasonalActivity:
+      "ADF&G: spawn from late September to early October as broadcast spawners. Long-distance movements are biology. Named travel constrictions and spawning areas are not target layers.",
+    thermalDrivenBehavior:
+      "Preferred band roughly 45–58°F. Cold, large-river and lake water. Warm, stagnant water is unusable.",
+    currentFacing:
+      "Migratory adults use large-river travel corridors. Resident fish can remain in lake/river systems. Neither is a trout feeding lie.",
+    depthMovement:
+      "Adult position is strongly forage- and movement-linked and can range from deep channels to pelagic feeding zones.",
+    predatorAvoidance:
+      "Depth, turbidity, and size. Not a cover-ambush pike.",
+    coverUse:
+      "Runs, deep pools, current breaks, pool heads and tails, tributary mouths as a class. Lakes: suspended open water, inlets, outlets, drop-offs, basins.",
+    openWaterBehavior:
+      "Adults can feed pelagically on forage fish. This is a predator whitefish, not a benthic insect Prosopium.",
+    spawningBehavior:
+      "ADF&G: broadcast spawners, late September to early October. They release eggs and milt into the water column; they do not dig nests. Fertilized eggs drift and lodge in gravel. The few known spawning areas are explicitly excluded from target guidance. Migrations exceeding 1,000 miles in some populations are biology, not a chokepoint map.",
+    sources: [
+      { label: "Alaska Department of Fish and Game Sheefish species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main" },
+    ],
+    ...R,
+    gaps: [PRESSURE_GAP, FRONT_GAP, "resident versus long-distance migrant behavior as a structured RPC split"],
+  },
+
 ];

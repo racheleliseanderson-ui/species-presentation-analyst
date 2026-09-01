@@ -2325,4 +2325,274 @@ export const SEASONAL_CALENDAR_DOSSIERS: SeasonalCalendarDossier[] = [
     gaps: [MONTH_GAP, "smelt-present vs smelt-absent lake calendars as a structured RPC split"],
   },
 
+  {
+    speciesId: "prosopium_williamsoni",
+    status: "reviewed",
+    overview:
+      "Mountain whitefish calendars are benthic and cold. They are not trout calendars. Late-fall to winter broadcast spawning is conservation context. River versus connected-lake jobs are RPC and must be declared.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deeper pools, slower runs, and lake basins in the remaining cold band.",
+        depthTendency: "Lower column; winter fish commonly consolidate in deeper water.",
+        feedingEmphasis: "Montana Field Guide: feeds actively in winter. Benthic insects, not a surface event.",
+        thermalContext: "Near or below the 34°F cold edge, activity compresses into deeper, slower water.",
+        presentationImplication: "Dead drift, tight-line drift, and bottom-contact drift in flow; slow drag, vertical jig, and live / natural bait suspension in still water.",
+        invalidators: ["treating winter whitefish as a trout nymphing clone", "using spawn gravel as holding water"],
+      },
+      {
+        season: "spring",
+        habitatClass: "Runs, riffle-to-run, and pool tails as water leaves winter depths.",
+        forageEmphasis: "Aquatic insects and emergences. Capacity is not a hatch.",
+        presentationImplication: "Dead drift, tight-line drift, and suspended drift. Still water: drop presentation and slow drag.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Moderate runs and riffle transitions; lake drop-offs and rocky shoreline in the cool band.",
+        depthTendency: "Usually near bottom or in the lower column.",
+        thermalContext: "Preferred 48–56°F. Warm edge near 68°F is a deeper, slower problem.",
+        presentationImplication: "Dead drift, bottom-contact drift, and tight-line drift. Still water: slow drag and drop presentation.",
+        invalidators: ["collapsing whitefish into a trout surface default"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Runs and pool tails; movement toward gravel is biology, not a target class.",
+        forageEmphasis: "Insects remain primary. Eggs are capacity only.",
+        presentationImplication: "Dead drift and tight-line drift.",
+      },
+      {
+        season: "late_fall",
+        habitatClass: "Broadcast-spawn gravel and rubble as a conservation class, not a presentation problem.",
+        conservationNote: "Montana Field Guide: peak late October to early November at 35–44°F. Congregations and tributary gravel are invalidators.",
+        presentationImplication: "Reviewed families remain lawful feeding jobs away from the spawn window; they are not a gravel method.",
+        invalidators: ["naming spawning riffles", "converting a school on gravel into a target"],
+      },
+    ],
+    sources: [
+      { label: "Montana Field Guide mountain whitefish", class: "agency", url: "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCHA03060" },
+      { label: "Boyer et al. mountain whitefish reproductive ecology", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "thymallus_arcticus",
+    status: "reviewed",
+    overview:
+      "Grayling calendars follow drift insects and cold water. Spring spawning is conservation context. Winter feeding is minimal. Lower-48 remnant and reintroduced populations stay geographically restrained. This record must not inherit unreviewed stillwater families.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Lakes or deeper, slow-current pools (ADF&G). Energy conservation, not a feeding peak.",
+        feedingEmphasis: "ADF&G: feed minimally.",
+        presentationImplication: "Dead drift and tight-line drift in remaining flow; suspend / pause and drop presentation in still water.",
+        invalidators: ["inventing a winter hatch from diet capacity"],
+      },
+      {
+        season: "early_spring",
+        habitatClass: "Leaving winter pools toward spring river water. Gravel is not a target class.",
+        conservationNote: "Spring spawning overlap. Lower-48 presence must be verified.",
+        presentationImplication: "Dead drift and tight-line drift.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Riffle-to-run, runs, pool heads, seams, and side channels as water warms inside band.",
+        forageEmphasis: "Drift insects. Capacity is not a declared hatch.",
+        presentationImplication: "Dead drift, surface drift, tight-line drift, and swing.",
+        conservationNote: "Spawning gravel stays excluded. Remnant interior populations are invalidators.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Moderate current with insect delivery; lake inlets, outlets, and drop-offs in cold water.",
+        depthTendency: "Upper-to-mid column while feeding; deeper when bright, pressured, or warm.",
+        thermalContext: "Preferred 48–60°F. Warm edge near 68°F.",
+        presentationImplication: "Dead drift, surface drift, and swing in flow; horizontal retrieve, surface retrieve, and suspend / pause in still water.",
+        invalidators: ["forcing a lower-48 population from habitat alone"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Movement toward wintering pools and lakes. Remaining insect water.",
+        presentationImplication: "Dead drift, tight-line drift, and swing.",
+      },
+    ],
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic grayling species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main" },
+      { label: "USGS Arctic Grayling species profile", class: "agency" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "lower-48 remnant versus Alaska calendars as a structured RPC split"],
+  },
+  {
+    speciesId: "lota_lota",
+    status: "reviewed",
+    overview:
+      "Burbot calendars are nocturnal, benthic, and cold. Winter is both peak activity and spawn conservation. Night does not justify a surface family. Summer is a deep, cold constraint.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Cold basins, rocky shoreline, and river deep pools, including under ice.",
+        feedingEmphasis: "Minnesota DNR: most active in winter. Fish remain primary.",
+        thermalContext: "Preferred 42–52°F. This is the active band, not a reason to publish congregations.",
+        conservationNote: "Mid-winter spawn before ice-off over sand or gravel. Groups are invalidators, never a map.",
+        presentationImplication: "Vertical jig, bottom contact, slow drag, and live / natural bait suspension in still water; bottom-contact drift, pulse / jig, and stationary bait in flow.",
+        invalidators: ["treating winter groups as a place to go", "adding a surface family — this record has none"],
+      },
+      {
+        season: "spring",
+        habitatClass: "Leaving spawn substrate toward deeper remaining cold water.",
+        conservationNote: "Spawn can continue into early spring before ice-off (Minnesota DNR).",
+        presentationImplication: "Bottom contact, slow drag, and vertical jig; flow: bottom-contact drift and stationary bait.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Deep basins, drop-offs, thermocline edges, and river deep pools.",
+        depthTendency: "Deep and benthic. Minnesota DNR: typically require water cooler than 70°F.",
+        thermalContext: "Warm edge near 64°F in the catalog; agency summer ceiling near 70°F.",
+        presentationImplication: "Vertical jig, bottom contact, and slow drag. Flow: bottom-contact drift and pulse / jig.",
+        invalidators: ["forcing a warm shallow default", "using night as a surface cue"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Drop-offs and basins as water cools toward winter activity.",
+        presentationImplication: "Vertical jig, slow drag, and live / natural bait suspension.",
+      },
+    ],
+    sources: [
+      { label: "Minnesota DNR burbot species profile", class: "agency", url: "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html" },
+      { label: "USGS Great Lakes burbot thermal-distribution research", class: "peer_reviewed" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, POP_GAP],
+  },
+  {
+    speciesId: "salvelinus_alpinus",
+    status: "reviewed",
+    overview:
+      "Arctic char calendars are stillwater only. ADF&G: Alaska populations spend their entire lives in lakes and do not migrate. Dwarf and normal forms must not be collapsed. Spawning shoals are invalidators. This record must not inherit flowing-water families.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Cold lake basins and drop-offs in the remaining oxygenated band.",
+        depthTendency: "Often deeper; form still matters.",
+        presentationImplication: "Vertical jig, slow drag, trolling, and drop presentation.",
+        invalidators: ["forcing a flowing family — this record has none"],
+      },
+      {
+        season: "spring",
+        habitatClass: "Drop-offs, rocky shoreline, and inlets as ice leaves.",
+        forageEmphasis: "Insects, zooplankton, or fish depending on form. Capacity is not a current event.",
+        presentationImplication: "Horizontal retrieve, vertical jig, drop presentation, and trolling.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Littoral insect water for some forms; thermocline edges and basins for others.",
+        thermalContext: "Preferred 39–50°F. Warm edge near 60°F is unusable.",
+        presentationImplication: "Trolling, vertical jig, horizontal retrieve, and surface retrieve where insects pull fish up. Slow drag on the bottom job.",
+        invalidators: ["collapsing dwarf insectivores into large piscivores"],
+      },
+      {
+        season: "late_summer",
+        habitatClass: "Continuing lake structure. Shoal overlap begins in some lakes.",
+        conservationNote: "ADF&G: spawn August–October over gravel/rubble. Shoals are not target locations.",
+        presentationImplication: "Vertical jig, trolling, and horizontal retrieve away from the spawn window.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Spawning lakes. Not a presentation problem on the shoal itself.",
+        conservationNote: "Ripe fish and gravel/rubble are invalidators.",
+        presentationImplication: "Reviewed stillwater families remain lawful feeding jobs away from shoals; they are not a shoal method.",
+        invalidators: ["naming spawning shoals"],
+      },
+    ],
+    sources: [
+      { label: "Alaska Department of Fish and Game Arctic Char species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "dwarf versus normal form calendars"],
+  },
+  {
+    speciesId: "salvelinus_malma",
+    status: "reviewed",
+    overview:
+      "Dolly Varden calendars must not collapse resident stream dwarfs into sea-run fish, or northern into southern form. Fall spawning is conservation context. Eggs are scavenged drift, never a redd method. Bull trout stay fail-closed.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Southern form often in lakes; northern form in rivers or springs (ADF&G). Deep pools and basins.",
+        presentationImplication: "Dead drift, bottom-contact drift, and swing in flow; vertical jig, slow drag, suspend / pause, and trolling in still water.",
+        invalidators: ["collapsing northern river wintering into southern lake wintering"],
+      },
+      {
+        season: "spring",
+        habitatClass: "Pools, seams, and travel water. Sea-run movement is biology, not a named route.",
+        forageEmphasis: "Insects; fry are capacity only where they occur.",
+        presentationImplication: "Dead drift, swing, and pulse / jig. Still water: horizontal retrieve and vertical jig.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Runs, seams, and pools in cold streams; lake inlets and drop-offs for lake-connected fish.",
+        thermalContext: "Preferred 42–55°F. Warm edge near 65°F.",
+        presentationImplication: "Dead drift, swing, cross-current retrieve, and pulse / jig. Still water: horizontal retrieve, suspend / pause, and trolling.",
+      },
+      {
+        season: "fall",
+        habitatClass: "Holding and travel water adjacent to current. Gravel is not a target class.",
+        forageEmphasis: "Eggs remain scavenged-drift capacity. Do not convert that into redd targeting.",
+        conservationNote: "ADF&G: spawn September–November over gravel. Redds stay excluded. Bull trout remain a separate fail-closed record.",
+        presentationImplication: "Dead drift, swing, and bottom-contact drift.",
+        invalidators: ["using redds as feeding stations", "collapsing Dolly Varden into bull trout"],
+      },
+      {
+        season: "late_fall",
+        habitatClass: "Continuing spawn overlap in some populations.",
+        conservationNote: "Spawn window remains an invalidator.",
+        presentationImplication: "Reviewed flowing families remain lawful feeding jobs away from the spawn window.",
+      },
+    ],
+    sources: [
+      { label: "Alaska Department of Fish and Game Dolly Varden species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "resident versus sea-run and north versus south calendars as RPC"],
+  },
+  {
+    speciesId: "stenodus_leucichthys",
+    status: "reviewed",
+    overview:
+      "Sheefish calendars are adult piscivory in large northern rivers and lakes. Juveniles eating insects is a different job. Broadcast spawning in fall is conservation context. Long-distance movement is biology, not a named route. This regulated-context record must not inherit unreviewed families.",
+    entries: [
+      {
+        season: "winter",
+        habitatClass: "Deep channels, basins, and remaining forage water in the cold band.",
+        feedingEmphasis: "Adults still eat fish.",
+        presentationImplication: "Vertical jig, trolling, and suspend / pause in still water; pulse / jig and swing in flow.",
+      },
+      {
+        season: "spring",
+        habitatClass: "Large-river travel corridors and lake/river transitions as forage fish move.",
+        forageEmphasis: "Forage fish where they occur. Capacity is not a current bait event.",
+        presentationImplication: "Cross-current retrieve, downstream retrieve, pulse / jig, and swing. Still water: horizontal retrieve, trolling, and vertical jig.",
+      },
+      {
+        season: "summer",
+        habitatClass: "Pelagic and channel forage water. Some populations move long distances; that is not a route map.",
+        thermalContext: "Preferred 45–58°F.",
+        presentationImplication: "Trolling, horizontal retrieve, vertical jig, and suspend / pause. Flow: cross-current retrieve, downstream retrieve, and swing.",
+        invalidators: ["publishing travel constrictions as places to be"],
+      },
+      {
+        season: "fall",
+        habitatClass: "Broadcast-spawn current as a conservation class, not a presentation problem.",
+        conservationNote: "ADF&G: late September to early October; no nest. Known spawning areas are excluded. Eggs drift and lodge in gravel.",
+        presentationImplication: "Reviewed families remain lawful feeding jobs away from the spawn window; they are not a gravel method.",
+        invalidators: ["naming spawning areas", "averaging juvenile insectivory into the adult job"],
+      },
+    ],
+    sources: [
+      { label: "Alaska Department of Fish and Game Sheefish species profile", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main" },
+    ],
+    ...R,
+    gaps: [MONTH_GAP, "resident versus long-distance migrant calendars as RPC"],
+  },
+
 ];

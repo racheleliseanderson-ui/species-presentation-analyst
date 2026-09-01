@@ -157,7 +157,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02g",
-    status: "next",
+    status: "landed",
     title: "Remaining salmonids and burbot",
     reason: "Whitefish, grayling, chars, sheefish, and burbot after the trout people actually open.",
     overlays: KNOWLEDGE_OVERLAYS,
@@ -172,7 +172,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "03",
-    status: "queued",
+    status: "next",
     title: "Recognition-only conservation records",
     reason:
       "Bull trout and wild anadromous Atlantic salmon stay fail-closed. Identification helps people not confuse them. Behavior, diet, and seasonal calendars are not a how-to-target layer.",

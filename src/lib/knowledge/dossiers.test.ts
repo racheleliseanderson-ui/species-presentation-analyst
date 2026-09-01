@@ -70,6 +70,9 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   chinook_coho: ["oncorhynchus_tshawytscha", "oncorhynchus_kisutch"],
   pink_chum: ["oncorhynchus_gorbuscha", "oncorhynchus_keta"],
   landlocked_atlantic_brown: ["salmo_salar_landlocked", "salmo_trutta"],
+  mountain_lake_whitefish: ["prosopium_williamsoni", "coregonus_clupeaformis"],
+  arctic_char_dolly: ["salvelinus_alpinus", "salvelinus_malma"],
+  arctic_char_laker: ["salvelinus_alpinus", "salvelinus_namaycush"],
 };
 
 function normalize(value: string): string {
@@ -167,7 +170,7 @@ test("incomplete research remains explicitly incomplete for species without doss
   }
 
   const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 20);
+  assert.equal(uncovered.length, 14);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -525,6 +528,62 @@ test("wave 02f Pacific and landlocked salmon keep chinook off coho, pink off chu
   assert.ok(landlockedCal);
   assert.match(JSON.stringify(landlockedCal), /smelt|65/i);
   assert.match(JSON.stringify(landlockedCal), /sea-run|anadromous/i);
+});
+
+test("wave 02g remaining salmonids and burbot keep whitefish off trout, char pairs apart, and sheefish as an adult piscivore", () => {
+  const whitefish = identificationDossierFor("prosopium_williamsoni");
+  const grayling = identificationDossierFor("thymallus_arcticus");
+  const burbot = identificationDossierFor("lota_lota");
+  const arcticChar = identificationDossierFor("salvelinus_alpinus");
+  const dolly = identificationDossierFor("salvelinus_malma");
+  const sheefish = identificationDossierFor("stenodus_leucichthys");
+  assert.ok(whitefish && grayling && burbot && arcticChar && dolly && sheefish);
+
+  assert.match(whitefish.identificationTraits.join(" "), /small mouth|toothless/i);
+  assert.match(whitefish.identificationTraits.join(" "), /adipose/i);
+  assert.match(grayling.identificationTraits.join(" "), /sail/i);
+  assert.match(grayling.identificationTraits.join(" "), /slash/i);
+  assert.match(burbot.identificationTraits.join(" "), /barbel/i);
+  assert.match(burbot.identificationTraits.join(" "), /eel/i);
+  assert.match(arcticChar.identificationTraits.join(" "), /fork/i);
+  assert.match(arcticChar.identificationTraits.join(" "), /spot/i);
+  assert.match(dolly.identificationTraits.join(" "), /spot/i);
+  assert.match(dolly.identificationTraits.join(" "), /stream|sea-run|ocean/i);
+  assert.match(sheefish.identificationTraits.join(" "), /jaw/i);
+
+  assert.ok(whitefish.similarSpecies.some((item) => item.speciesId === "coregonus_clupeaformis"));
+  assert.ok(arcticChar.similarSpecies.some((item) => item.speciesId === "salvelinus_malma"));
+  assert.ok(dolly.similarSpecies.some((item) => item.speciesId === "salvelinus_alpinus"));
+  assert.ok(dolly.similarSpecies.some((item) => item.speciesId === "salvelinus_confluentus"));
+  assert.ok(arcticChar.similarSpecies.some((item) => item.speciesId === "salvelinus_namaycush"));
+
+  const whitefishDiet = dietDossierFor("prosopium_williamsoni");
+  const graylingDiet = dietDossierFor("thymallus_arcticus");
+  const burbotDiet = dietDossierFor("lota_lota");
+  const charDiet = dietDossierFor("salvelinus_alpinus");
+  const dollyDiet = dietDossierFor("salvelinus_malma");
+  const sheeDiet = dietDossierFor("stenodus_leucichthys");
+  assert.ok(whitefishDiet && graylingDiet && burbotDiet && charDiet && dollyDiet && sheeDiet);
+  assert.ok(!whitefishDiet.primaryForage.includes("small_forage_fish"));
+  assert.ok(whitefishDiet.primaryForage.includes("aquatic_insects"));
+  assert.ok(graylingDiet.primaryForage.includes("aquatic_insects"));
+  assert.ok(burbotDiet.primaryForage.includes("larger_prey_fish"));
+  assert.equal(burbotDiet.feedingZone, "benthic");
+  assert.ok(charDiet.primaryForage.includes("zooplankton"));
+  assert.match(dollyDiet.primaryNote, /redd|hatch|scavenge/i);
+  assert.equal(sheeDiet.feedingStyle, "specialized");
+  assert.match(sheeDiet.primaryNote, /exclusively on other fish|almost exclusively/i);
+  assert.ok(sheeDiet.primaryForage.includes("larger_prey_fish"));
+
+  assert.equal(SPECIES_BY_ID.salvelinus_alpinus.flowingPresentations.length, 0);
+  const charCal = seasonalCalendarDossierFor("salvelinus_alpinus");
+  assert.ok(charCal);
+  assert.match(charCal.overview, /stillwater only/i);
+  assert.doesNotMatch(JSON.stringify(charCal), /dead drift|tight-line drift|swing|bottom-contact drift/i);
+
+  const graylingCal = seasonalCalendarDossierFor("thymallus_arcticus");
+  assert.ok(graylingCal);
+  assert.doesNotMatch(JSON.stringify(graylingCal), /trolling|vertical jig|bottom-contact drift/i);
 });
 
 
