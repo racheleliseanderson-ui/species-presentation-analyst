@@ -397,13 +397,14 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
       <section className="mb-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">
-            Quick Read
+            Water → Species → Presentation
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl text-fg sm:text-5xl">
-            Tell me the basics. We’ll fill in the rest from what you know.
+            Read the species. Then choose the presentation.
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted">
-            Target and water type are enough to start. Date, time and temperature improve the read when you know them.
+            Water sets the situation. Species behavior explains it. Presentation follows from that
+            relationship—not from a product ranking.
           </p>
         </div>
         <div className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)]">

@@ -6,6 +6,7 @@ import { QuickReadV2 } from "@/components/quick-read-v2";
 import { SelectedSpeciesProfile } from "@/components/species-profile";
 import { NEXT_REVIEW, REVIEWED_AT } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
+import { TripContextBar } from "@/components/trip-context-bar";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -20,6 +21,7 @@ function Home() {
         Skip to reading
       </a>
       <Chrome />
+      <TripContextBar />
 
       <div className="mx-auto max-w-6xl px-4 pt-5 sm:px-6">
         <div
