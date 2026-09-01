@@ -1,5 +1,6 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
+import { BuyMeACoffeeWidget } from "@/components/BuyMeACoffeeWidget";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { PwaRegister } from "@/components/pwa-register";
 import appCss from "../styles.css?url";
@@ -50,6 +51,7 @@ function Root() {
         <AuthProvider>
           <Outlet />
         </AuthProvider>
+        <BuyMeACoffeeWidget />
         <Scripts />
       </body>
     </html>
