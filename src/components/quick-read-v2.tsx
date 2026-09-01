@@ -7,7 +7,7 @@ import {
 import { AlternativesPanel } from "@/components/alternatives-panel";
 import { Button } from "@/components/ui/button";
 import { Handoffs } from "@/components/handoffs";
-import { SeasonRead } from "@/components/season-read";
+import { ResponseRead, SeasonRead } from "@/components/season-read";
 import { TackleRequirements } from "@/components/tackle-requirements";
 import {
   assessTemperatureRange,
@@ -20,6 +20,7 @@ import { interpret } from "@/lib/engine/infer";
 import { normalizeTemperatureRangeF } from "@/lib/engine/temperature";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { useSpeciesOverlays } from "@/lib/knowledge/use-species-overlays";
 import { SpeciesThumb } from "@/components/species-thumb";
 import { parseEnhancedIncomingPacket } from "@/lib/protocol/enhanced-packet";
 import type { ScenarioInput } from "@/lib/protocol/types";
@@ -179,6 +180,7 @@ function timeBandForLight(light: Light | undefined): string | null {
 
 export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   const session = useSession();
+  const overlays = useSpeciesOverlays(session.speciesId);
   const [query, setQuery] = useState("");
   const [context, setContext] = useState<QuickContext>(() => defaultContext());
   const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
@@ -848,11 +850,18 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 </article>
               )}
 
-              <SeasonRead input={input} compact />
+              <div className="grid gap-3 lg:grid-cols-2 lg:items-start">
+                <SeasonRead input={input} overlays={overlays} compact />
+                <ResponseRead input={input} overlays={overlays} />
+              </div>
 
               <TackleRequirements result={readableResult ?? result} />
 
-              <AlternativesPanel input={input} result={readableResult ?? result} />
+              <AlternativesPanel
+                input={input}
+                result={readableResult ?? result}
+                overlays={overlays}
+              />
 
               <Handoffs
                 input={input}

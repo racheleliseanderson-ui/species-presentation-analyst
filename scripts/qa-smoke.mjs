@@ -69,6 +69,27 @@ async function session(width, height, label) {
       note(`Quick Read is missing a section: ${heading}`);
     }
   }
+  // The reviewed dossiers now arrive from the database, so the reading must
+  // actually contain them — not a spinner, and not the "unavailable" wording,
+  // which would mean the app is claiming a research gap that is really a
+  // failed fetch.
+  await page.waitForFunction(
+    () => !document.body.innerText.includes("Reading the reviewed record"),
+    null,
+    { timeout: 10_000 },
+  ).catch(() => note("the reviewed record never finished loading"));
+
+  const bodyText = await page.evaluate(() => document.body.innerText);
+  if (bodyText.includes("could not be loaded")) {
+    note("the reviewed record could not be loaded from the database");
+  }
+  if (!/Where it should be · /.test(bodyText)) {
+    note("the seasonal read did not render a reviewed season");
+  }
+  if (!/What it is responding to/.test(bodyText)) {
+    note("the condition response section is missing");
+  }
+
   await page.screenshot({ path: `${OUT}/desktop-quickread.png`, fullPage: true });
 
   // Handoffs reach every app in the chain, including Waterways.

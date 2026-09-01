@@ -11,7 +11,7 @@
  * record has nothing to say the alternative is simply not offered.
  */
 
-import { behaviorDossierFor } from "../knowledge/dossier-catalog.ts";
+import type { SpeciesOverlays } from "../knowledge/overlays.ts";
 import type { Interpretation, RankedPresentation, ScenarioInput } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
@@ -46,7 +46,11 @@ function contrast(a: RankedPresentation, b: RankedPresentation): string | null {
   return null;
 }
 
-export function alternatives(input: ScenarioInput, result: Interpretation): Alternative[] {
+export function alternatives(
+  input: ScenarioInput,
+  result: Interpretation,
+  overlays: SpeciesOverlays,
+): Alternative[] {
   const out: Alternative[] = [];
   const [first, second, third] = result.presentations;
   if (!first) return out;
@@ -85,7 +89,7 @@ export function alternatives(input: ScenarioInput, result: Interpretation): Alte
 
   // 3. Time of day, from the reviewed diel note — the change that costs nothing
   //    but patience, and the one anglers skip most often.
-  const behavior = behaviorDossierFor(input.speciesId);
+  const behavior = overlays.behavior;
   if (behavior && (input.light === "bright" || input.light === "mixed")) {
     out.push({
       id: "time-of-day",

@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BoundaryRouteImport } from './routes/boundary'
+import { Route as ApiDossierCoverageRouteImport } from './routes/api/dossier-coverage'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
+import { Route as ApiDossiersSpeciesIdRouteImport } from './routes/api/dossiers.$speciesId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +25,74 @@ const BoundaryRoute = BoundaryRouteImport.update({
   path: '/boundary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDossierCoverageRoute = ApiDossierCoverageRouteImport.update({
+  id: '/api/dossier-coverage',
+  path: '/api/dossier-coverage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiHealthRoute = ApiHealthRouteImport.update({
   id: '/api/health',
   path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDossiersSpeciesIdRoute = ApiDossiersSpeciesIdRouteImport.update({
+  id: '/api/dossiers/$speciesId',
+  path: '/api/dossiers/$speciesId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/boundary': typeof BoundaryRoute
+  '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
+  '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/boundary': typeof BoundaryRoute
+  '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
+  '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/boundary': typeof BoundaryRoute
+  '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
+  '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boundary' | '/api/health'
+  fullPaths:
+    | '/'
+    | '/boundary'
+    | '/api/dossier-coverage'
+    | '/api/health'
+    | '/api/dossiers/$speciesId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boundary' | '/api/health'
-  id: '__root__' | '/' | '/boundary' | '/api/health'
+  to:
+    | '/'
+    | '/boundary'
+    | '/api/dossier-coverage'
+    | '/api/health'
+    | '/api/dossiers/$speciesId'
+  id:
+    | '__root__'
+    | '/'
+    | '/boundary'
+    | '/api/dossier-coverage'
+    | '/api/health'
+    | '/api/dossiers/$speciesId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BoundaryRoute: typeof BoundaryRoute
+  ApiDossierCoverageRoute: typeof ApiDossierCoverageRoute
   ApiHealthRoute: typeof ApiHealthRoute
+  ApiDossiersSpeciesIdRoute: typeof ApiDossiersSpeciesIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +111,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BoundaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/dossier-coverage': {
+      id: '/api/dossier-coverage'
+      path: '/api/dossier-coverage'
+      fullPath: '/api/dossier-coverage'
+      preLoaderRoute: typeof ApiDossierCoverageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/health': {
       id: '/api/health'
       path: '/api/health'
       fullPath: '/api/health'
       preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/dossiers/$speciesId': {
+      id: '/api/dossiers/$speciesId'
+      path: '/api/dossiers/$speciesId'
+      fullPath: '/api/dossiers/$speciesId'
+      preLoaderRoute: typeof ApiDossiersSpeciesIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +138,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BoundaryRoute: BoundaryRoute,
+  ApiDossierCoverageRoute: ApiDossierCoverageRoute,
   ApiHealthRoute: ApiHealthRoute,
+  ApiDossiersSpeciesIdRoute: ApiDossiersSpeciesIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

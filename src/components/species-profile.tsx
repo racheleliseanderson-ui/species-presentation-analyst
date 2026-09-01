@@ -1,10 +1,10 @@
 import { populationProfilesForSpecies } from "@/lib/engine/population-context";
+import { completeOverlayCount, overlayPresence } from "@/lib/knowledge/overlays";
 import {
-  catalogOverlaySummary,
-  completeOverlayCount,
-  overlayPresence,
-} from "@/lib/knowledge/coverage";
-import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+  useDossierCoverage,
+  useSpeciesOverlays,
+} from "@/lib/knowledge/use-species-overlays";
+import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   buildAnglerSpeciesProfile,
   type AnglerProfileFact,
@@ -45,12 +45,15 @@ function FactList({ facts }: { facts: AnglerProfileFact[] }) {
 export function SelectedSpeciesProfile() {
   const session = useSession();
   const species = session.speciesId ? SPECIES_BY_ID[session.speciesId] : null;
+  // Hooks run before the early return so their order never depends on whether a
+  // species happens to be selected.
+  const { status, overlays } = useSpeciesOverlays(session.speciesId);
+  const coverage = useDossierCoverage(SPECIES.length);
   if (!species) return null;
 
-  const profile = buildAnglerSpeciesProfile(species);
-  const knowledge = overlayPresence(species.id);
+  const profile = buildAnglerSpeciesProfile(species, overlays);
+  const knowledge = overlayPresence(overlays);
   const overlayComplete = completeOverlayCount(knowledge);
-  const catalog = catalogOverlaySummary();
   const populationProfiles = populationProfilesForSpecies(
     species.id,
     session.water.waterType,
@@ -72,9 +75,13 @@ export function SelectedSpeciesProfile() {
                 Ten angler questions, separated into what is already reviewed, what is only partly covered, and what still needs authoritative research. This does not fill missing facts with generic AI text.
               </p>
               <p className="mt-2 text-xs text-dim">
-                {overlayComplete === 4
-                  ? `Identification, behavior, diet, and season are reviewed for this fish. Catalog-wide: ${catalog.completeOverlays} of ${catalog.speciesTotal} species have that full overlay set.`
-                  : `This fish still has visible knowledge gaps (${overlayComplete} of 4 overlays). Catalog-wide: ${catalog.completeOverlays} of ${catalog.speciesTotal} species are fully overlaid. Missing research stays missing.`}
+                {status === "loading"
+                  ? "Loading the reviewed record for this fish…"
+                  : status === "unavailable"
+                    ? "The reviewed record could not be loaded right now. That is a connection problem, not a gap in the research — nothing below is missing on purpose."
+                    : overlayComplete === 4
+                      ? `Identification, behavior, diet, and season are reviewed for this fish.${coverage.status === "ready" ? ` Catalog-wide: ${coverage.coverage.completeOverlays} of ${coverage.speciesTotal} species have that full overlay set.` : ""}`
+                      : `This fish still has visible knowledge gaps (${overlayComplete} of 4 overlays).${coverage.status === "ready" ? ` Catalog-wide: ${coverage.coverage.completeOverlays} of ${coverage.speciesTotal} species are fully overlaid.` : ""} Missing research stays missing.`}
               </p>
             </div>
             <div className="text-right">

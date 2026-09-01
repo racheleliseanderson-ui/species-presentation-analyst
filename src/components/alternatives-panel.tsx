@@ -1,4 +1,5 @@
 import { alternatives } from "@/lib/engine/alternatives";
+import { EMPTY_OVERLAYS, type OverlayState } from "@/lib/knowledge/overlays";
 import type { Interpretation, ScenarioInput } from "@/lib/protocol/types";
 
 /**
@@ -12,11 +13,20 @@ import type { Interpretation, ScenarioInput } from "@/lib/protocol/types";
 export function AlternativesPanel({
   input,
   result,
+  overlays,
 }: {
   input: ScenarioInput;
   result: Interpretation;
+  overlays: OverlayState;
 }) {
-  const moves = alternatives(input, result);
+  // Most of the fallback plan comes from the ranked families and the species
+  // record, so it is still worth showing while the dossiers are in flight; the
+  // one move that needs them simply does not appear until they arrive.
+  const moves = alternatives(
+    input,
+    result,
+    overlays.status === "ready" ? overlays.overlays : EMPTY_OVERLAYS,
+  );
   if (moves.length === 0) return null;
 
   return (

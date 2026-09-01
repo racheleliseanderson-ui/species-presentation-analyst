@@ -1,4 +1,5 @@
 import { responseRead, seasonRead } from "@/lib/engine/condition-read";
+import type { OverlayState } from "@/lib/knowledge/overlays";
 import type { ScenarioInput } from "@/lib/protocol/types";
 import { labelOf } from "@/lib/protocol/vocab";
 import { cn } from "@/lib/utils";
@@ -12,8 +13,23 @@ import { cn } from "@/lib/utils";
  * now" were sitting one step away from the reading that needed them.
  */
 
-export function SeasonRead({ input, compact = false }: { input: ScenarioInput; compact?: boolean }) {
-  const read = seasonRead(input);
+export function SeasonRead({
+  input,
+  overlays,
+  compact = false,
+}: {
+  input: ScenarioInput;
+  overlays: OverlayState;
+  compact?: boolean;
+}) {
+  if (overlays.status !== "ready") {
+    return (
+      <Shell title="Where it should be, this season">
+        <p className="text-sm text-muted">{overlayNote(overlays.status)}</p>
+      </Shell>
+    );
+  }
+  const read = seasonRead(input, overlays.overlays);
 
   if (read.status === "no_season") {
     return (
@@ -110,8 +126,21 @@ export function SeasonRead({ input, compact = false }: { input: ScenarioInput; c
   );
 }
 
-export function ResponseRead({ input }: { input: ScenarioInput }) {
-  const read = responseRead(input);
+export function ResponseRead({
+  input,
+  overlays,
+}: {
+  input: ScenarioInput;
+  overlays: OverlayState;
+}) {
+  if (overlays.status !== "ready") {
+    return (
+      <Shell title="What it is responding to">
+        <p className="text-sm text-muted">{overlayNote(overlays.status)}</p>
+      </Shell>
+    );
+  }
+  const read = responseRead(input, overlays.overlays);
   if (read.notes.length === 0) {
     return (
       <Shell title="What it is responding to">
@@ -141,6 +170,16 @@ export function ResponseRead({ input }: { input: ScenarioInput }) {
       )}
     </Shell>
   );
+}
+
+/**
+ * A record that has not loaded is not the same claim as a record that has not
+ * been researched, and this app is not allowed to blur the two.
+ */
+function overlayNote(status: OverlayState["status"]): string {
+  return status === "loading"
+    ? "Reading the reviewed record for this species…"
+    : "The reviewed record could not be loaded right now. This is a connection problem, not a gap in the research — nothing is being withheld.";
 }
 
 function Shell({

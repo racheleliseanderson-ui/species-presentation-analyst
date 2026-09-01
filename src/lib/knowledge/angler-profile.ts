@@ -1,10 +1,5 @@
 import { ALIASES } from "./aliases.ts";
-import {
-  behaviorDossierFor,
-  dietDossierFor,
-  identificationDossierFor,
-  seasonalCalendarDossierFor,
-} from "./dossier-catalog.ts";
+import type { SpeciesOverlays } from "./overlays.ts";
 import type {
   BehaviorDossier,
   DietDossier,
@@ -391,17 +386,27 @@ function seasonalCalendarSection(
  * or live-regulation facts stay visible as review gaps instead of being filled
  * with generic model text.
  */
-export function buildAnglerSpeciesProfile(species: SpeciesRecord): AnglerSpeciesProfile {
+/**
+ * The ten-question angler profile for one species.
+ *
+ * `overlays` is passed in rather than looked up: the reviewed dossiers now live
+ * in Supabase and arrive per species, so this stays a pure function of the
+ * record plus whatever research has actually been reviewed for it.
+ */
+export function buildAnglerSpeciesProfile(
+  species: SpeciesRecord,
+  overlays: SpeciesOverlays,
+): AnglerSpeciesProfile {
   const flowing = species.flowingPresentations;
   const still = species.stillPresentations;
   const holding = [
     ...species.habitat.riverHolding,
     ...species.habitat.stillHolding,
   ];
-  const identification = identificationDossierFor(species.id);
-  const behavior = behaviorDossierFor(species.id);
-  const diet = dietDossierFor(species.id);
-  const calendar = seasonalCalendarDossierFor(species.id);
+  const identification = overlays.identification;
+  const behavior = overlays.behavior;
+  const diet = overlays.diet;
+  const calendar = overlays.seasonalCalendar;
 
   const sections: AnglerProfileSection[] = [
     identificationSection(species, identification),

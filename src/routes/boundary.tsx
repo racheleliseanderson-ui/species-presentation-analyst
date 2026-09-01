@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Chrome } from "@/components/chrome";
-import { catalogOverlaySummary } from "@/lib/knowledge/coverage";
-import { SEED_DOCTRINE, SEED_WAVES } from "@/lib/knowledge/seed-queue";
-import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { SEED_DOCTRINE, SEED_WAVES, nextSeedWave } from "@/lib/knowledge/seed-queue";
+import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { useDossierCoverage } from "@/lib/knowledge/use-species-overlays";
 import { REFUSES } from "@/lib/protocol/vocab";
 
 export const Route = createFileRoute("/boundary")({
@@ -20,8 +20,8 @@ export const Route = createFileRoute("/boundary")({
 });
 
 function Boundary() {
-  const coverage = catalogOverlaySummary();
-  const next = coverage.nextWave;
+  const coverage = useDossierCoverage(SPECIES.length);
+  const next = nextSeedWave();
   const landed = SEED_WAVES.filter((wave) => wave.status === "landed");
   const nextNames = (next?.speciesIds ?? [])
     .map((id) => SPECIES_BY_ID[id]?.commonNames[0])
@@ -56,11 +56,20 @@ function Boundary() {
           <p className="mt-4 text-sm text-muted">
             Enrichment is a ranked queue of lookalike groups, not a race to fill seventy-five encyclopedia pages. A species becomes knowable only when identification, behavior, diet, and seasonal calendar are reviewed together from agency or peer-reviewed sources.
           </p>
-          <p className="mt-5 text-sm text-fg">
-            {coverage.completeOverlays} of {coverage.speciesTotal} species have that full overlay set.
-            Identification {coverage.byOverlay.identification} · behavior {coverage.byOverlay.behavior} · diet {coverage.byOverlay.diet} · season {coverage.byOverlay.seasonal_calendar}.
-            Fight and food value stay unreviewed. Live limits stay outside the static catalog.
-          </p>
+          {coverage.status === "ready" ? (
+            <p className="mt-5 text-sm text-fg">
+              {coverage.coverage.completeOverlays} of {coverage.speciesTotal} species have that full overlay set.
+              Identification {coverage.coverage.identification} · behavior {coverage.coverage.behavior} · diet {coverage.coverage.diet} · season {coverage.coverage.seasonal_calendar}.
+              Fight and food value stay unreviewed. Live limits stay outside the static catalog.
+            </p>
+          ) : (
+            <p className="mt-5 text-sm text-muted">
+              {coverage.status === "loading"
+                ? "Counting the reviewed overlays…"
+                : "The live overlay count could not be read right now. The catalog holds " +
+                  `${coverage.speciesTotal} reviewed species; how many carry the full overlay set is what is temporarily unavailable, not the records themselves.`}
+            </p>
+          )}
           <ul className="mt-6 space-y-3">
             {landed.map((wave) => (
               <li key={wave.id} className="rounded-[var(--radius-md)] bg-elevated px-5 py-4">

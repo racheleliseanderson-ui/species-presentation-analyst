@@ -12,15 +12,11 @@
  * season, that is the answer.
  */
 
-import {
-  behaviorDossierFor,
-  dietDossierFor,
-  seasonalCalendarDossierFor,
-} from "../knowledge/dossier-catalog.ts";
 import type {
   DossierSource,
   SeasonalCalendarEntry,
 } from "../knowledge/dossier-types.ts";
+import type { SpeciesOverlays } from "../knowledge/overlays.ts";
 import type { ScenarioInput } from "../protocol/types.ts";
 import { labelOf, type Season } from "../protocol/vocab.ts";
 
@@ -99,11 +95,11 @@ function rowsFor(entry: SeasonalCalendarEntry): SeasonRow[] {
 }
 
 /** Where the fish should be, for the season the angler declared. */
-export function seasonRead(input: ScenarioInput): SeasonRead {
+export function seasonRead(input: ScenarioInput, overlays: SpeciesOverlays): SeasonRead {
   if (input.season === "unknown") return { status: "no_season" };
   const declared = input.season as ReviewedSeason;
 
-  const dossier = seasonalCalendarDossierFor(input.speciesId);
+  const dossier = overlays.seasonalCalendar;
   if (!dossier) return { status: "no_calendar" };
 
   const covered = dossier.entries.map((entry) => entry.season);
@@ -135,9 +131,9 @@ export function seasonRead(input: ScenarioInput): SeasonRead {
  * What the fish is responding to, limited to conditions the angler actually
  * declared. Declaring nothing produces no notes rather than a generic list.
  */
-export function responseRead(input: ScenarioInput): ResponseRead {
-  const behavior = behaviorDossierFor(input.speciesId);
-  const diet = dietDossierFor(input.speciesId);
+export function responseRead(input: ScenarioInput, overlays: SpeciesOverlays): ResponseRead {
+  const behavior = overlays.behavior;
+  const diet = overlays.diet;
   const notes: ResponseNote[] = [];
   const unreviewed: string[] = [];
   const sources: DossierSource[] = [];

@@ -140,6 +140,18 @@ function fieldWorkboxPlugin(): Plugin {
           clientsClaim: true,
           runtimeCaching: [
             {
+              // Reviewed dossiers change on a review cycle measured in months,
+              // and the app is meant to stay readable when the radio drops, so
+              // a species that has been opened once stays available offline.
+              urlPattern: ({ url }) => url.pathname.startsWith("/api/dossiers"),
+              handler: "StaleWhileRevalidate",
+              options: {
+                cacheName: "hth-dossiers",
+                expiration: { maxEntries: 120, maxAgeSeconds: 60 * 60 * 24 * 90 },
+                cacheableResponse: { statuses: [200] },
+              },
+            },
+            {
               urlPattern: ({ request }) => request.destination === "document",
               handler: "NetworkFirst",
               options: { cacheName: "hth-pages", networkTimeoutSeconds: 3 },
@@ -214,6 +226,15 @@ export default defineConfig(({ command, isPreview }) => ({
         skipWaiting: true,
         navigateFallback: null,
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith("/api/dossiers"),
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "hth-dossiers",
+              expiration: { maxEntries: 120, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
           {
             urlPattern: ({ request }) => request.destination === "document",
             handler: "NetworkFirst",

@@ -160,3 +160,113 @@ git rm .write-test-tmp `
 
 `server/` is then empty and can go too. The build will fail until these are
 gone, because `vite.config.ts` no longer imports the Grok plugin.
+
+---
+
+# Second pass — species knowledge moved to Supabase
+
+You asked for the knowledge to live in the database rather than the JSON, and
+for no sign-in. Both are done, and the first one was worth doing on the numbers
+alone.
+
+## There was never a sign-in to remove
+
+`authEnabled` is `import.meta.env.VITE_AUTH_ENABLED !== "false"`, the shipped
+default is `false`, and the repo has no `/login` route. Nothing gates the app
+today. The dossier tables follow the same pattern your other Hook apps already
+use for public reference data — a `SELECT` policy for the `anon` role — so
+reading them involves no account either.
+
+## What the bundle was costing
+
+| | Before | After |
+| --- | --- | --- |
+| Largest client chunk | 647 KB (`coverage-*.js`) | 155 KB (`vocab-*.js`) |
+| Total client JavaScript | 1,253 KB | 762 KB |
+
+**−491 KB, a 39% cut.** Every visitor was downloading all 75 species — 220
+dossiers, ~530 KB of JSON — in order to read one.
+
+## Schema
+
+Migration `species_dossiers` created:
+
+- **`public.species_dossiers`** — `(species_id, kind)` primary key, `kind` one of
+  identification / behavior / diet / seasonal_calendar. `payload` is the whole
+  reviewed record as authored, so the round-trip is lossless and the app reads
+  it as its existing TypeScript type; `status`, `sources`, `gaps`, `reviewed_at`,
+  `next_review_at` and `model_version` are extracted alongside for indexing.
+  RLS on, one policy: `select` for `anon` and `authenticated` where `published`.
+- **`public.species_dossier_coverage`** — a one-row view counting how many
+  species carry each overlay and how many carry all four. Declared
+  `security_invoker = true`, so it enforces the caller's RLS rather than the
+  creator's — the thing your security advisor currently flags on
+  `public.observation_summary`, which is a Waterways object I left alone.
+
+## Migration, and how it was verified
+
+220 rows across 55 species loaded. Then, rather than trusting the load:
+
+I reproduced PostgreSQL's `jsonb::text` serialisation in JavaScript (keys ordered
+by byte length then bytewise, `", "` / `": "` separators) and compared an MD5
+digest of every record, computed on both sides:
+
+| Overlay | Rows | Digest | |
+| --- | --- | --- | --- |
+| identification | 55 | `2fda983b22c91526a556d7da829d7c60` | match |
+| behavior | 55 | `acbf3b1702ca631b749dc754dc09a34f` | match |
+| diet | 55 | `5750e80e4097cc6b3cf5e86667a9e782` | match |
+| seasonal_calendar | 55 | `c0bbbc8c16258c9d1517c03bf5237756` | match |
+
+All 220 dossiers round-trip identically, character count included.
+
+`scripts/seed-dossiers.mjs` makes this repeatable. `npm run db:seed-dossiers`
+prints those digests without touching anything — the fastest way to check the
+repo and the database are still in step. Adding `-- --write` with `DATABASE_URL`
+set re-seeds (idempotent, in a transaction) and verifies the digests afterwards.
+
+## Read path
+
+- `GET /api/dossiers/:speciesId` and `GET /api/dossier-coverage` read Supabase
+  over PostgREST with plain `fetch` — no new dependency. Cached hard at the edge
+  (`s-maxage=86400`, a week of stale-while-revalidate), because these records
+  change on a review cycle measured in months.
+- Deliberately **not** through the app's existing Postgres pool: that pool falls
+  back to an embedded PGLite when `DATABASE_URL` is unset, and a fallback
+  returning zero rows would make the app claim a research gap that does not
+  exist.
+- `useSpeciesOverlays()` is a ~60-line module-level cache, not a query library —
+  adding a client cache framework to read this back would undo part of the point.
+- The service worker caches `/api/dossiers/*` stale-while-revalidate for 90 days,
+  so a species opened once stays readable when the radio drops.
+
+**The distinction the UI now makes:** "this fish has not been reviewed yet" is a
+statement this product makes on purpose; "the reviewed record could not be
+loaded" is a failure. `OverlayStatus` keeps them apart, and no failure path ever
+renders as a research gap.
+
+## Configuration you need to set
+
+`SUPABASE_URL` and `SUPABASE_ANON_KEY`, in Vercel and in a local `.env` — see the
+new `.env.example`. Without them the app still runs, but every species reads as
+"could not be loaded" instead of showing the seasonal and behavior layers.
+
+## What the dossier TypeScript files are now
+
+They are no longer imported by the running app — that is where the 491 KB went —
+but they are still in the repo as the authored, diffable history and as the seed
+source. `coverage.ts` and the dossier tests read them directly, which is what
+keeps the authored records honest before they are loaded. Once you are happy the
+database is the source of truth, deleting them is a follow-up.
+
+## Verification
+
+- `tsc --noEmit`, `eslint .`, `vite build`: clean.
+- TypeScript suite: **135 tests, 0 failures**.
+- Contrast audit: **0 failing nodes** in all three themes.
+- `scripts/qa-smoke.mjs`: green, now including that the seasonal and behavior
+  layers actually render reviewed content rather than a spinner or an error.
+- The whole read path was exercised end-to-end against a local stand-in for the
+  Supabase REST endpoint serving the same rows: both API routes, the cache
+  headers, the 404 for an unknown species, and both reading modes rendering the
+  reviewed content.

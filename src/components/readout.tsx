@@ -10,6 +10,7 @@ import { fieldBrief, freshness } from "@/lib/engine/brief";
 import { interpret } from "@/lib/engine/infer";
 import { drivingChanges } from "@/lib/engine/sensitivity";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { useSpeciesOverlays } from "@/lib/knowledge/use-species-overlays";
 import { buildPacket } from "@/lib/protocol/packet";
 import { labelOf } from "@/lib/protocol/vocab";
 import {
@@ -117,6 +118,7 @@ export function Readout({
   advanced?: boolean;
 }) {
   const input = toInput(session);
+  const overlays = useSpeciesOverlays(session.speciesId);
   const [copied, setCopied] = useState<"packet" | "brief" | "correction" | null>(null);
   const [saved, setSaved] = useState<NamedScenario[]>([]);
   const [saveName, setSaveName] = useState("");
@@ -232,8 +234,8 @@ What seems wrong:
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
-        <SeasonRead input={input} />
-        <ResponseRead input={input} />
+        <SeasonRead input={input} overlays={overlays} />
+        <ResponseRead input={input} overlays={overlays} />
       </div>
 
       <section className="space-y-4">
@@ -299,7 +301,7 @@ What seems wrong:
 
       <TackleRequirements result={result} />
 
-      <AlternativesPanel input={input} result={result} />
+      <AlternativesPanel input={input} result={result} overlays={overlays} />
 
       <WhatIf session={session} onPatch={onPatch} />
 
