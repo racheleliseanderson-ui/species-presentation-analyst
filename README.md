@@ -11,7 +11,8 @@ Field PWA: `vite-plugin-pwa` emits `sw.js` (NetworkFirst pages, CacheFirst image
 ## Product boundary (non-negotiable)
 
 - Explains biological and environmental **plausibility**, never catch probability.
-- No bite scores, hotspots, coordinates, lure SKUs, or silent tracking.
+- No bite scores, hotspots, coordinates, lure SKUs, product rankings, or silent tracking.
+- Field Ops owns the active trip. This instrument receives context only after an explicit carry and offers an explicit carry back to Field Ops after the reading.
 - Unreviewed species names do not fall through to generic model text.
 - Holding-water class is ecological structure, not a pin.
 - Temperature provenance stays visible. Air temperature is never substituted silently.
@@ -143,7 +144,9 @@ The structured layer covers bull trout, wild anadromous Atlantic salmon, lake st
 
 ## Intelligence chain
 
-Field Sense (named public water + optional explicit population context) → **this instrument** (species + population archetype + presentation families) → Hatch Match (observed forage) / Tackle Link (system job) / Knot Analyst (connection job) / Rig Signal (device question).
+**Field Ops** (active trip) → Field Sense (named public water + optional explicit population context) → **Species & Presentation** (the biological decision pivot) → presentation family → downstream system questions → **back to Field Ops**.
+
+The interface exposes three learning paths: beginner guidance, competent full-chain construction, and advanced inspection of assumptions, invalidators, weighting, sources, and the species dossier. The biology and product boundary do not change between paths.
 
 ## Canonical species images · `IMG-1.0`
 
