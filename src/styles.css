@@ -31,7 +31,9 @@
   --bg-subtle: #1c1d18;
   --fg: #ece8dc;
   --fg-muted: #a39e8c;
-  --fg-subtle: #7a7668;
+  /* Clears WCAG AA (>=4.6:1) on bg, elevated AND subtle. `text-dim` is used for
+     the 9-12px mono labels, which is exactly where 4.5:1 is not optional. */
+  --fg-subtle: #8a8676;
   --border: color-mix(in oklab, var(--fg) 12%, transparent);
   --border-strong: color-mix(in oklab, var(--fg) 22%, transparent);
   --accent: #ece8dc;
@@ -51,12 +53,14 @@
   --bg-subtle: #e7e1d2;
   --fg: #1c1b16;
   --fg-muted: #5c584c;
-  --fg-subtle: #7a7568;
+  /* Same AA floor as the dark palette: 4.74:1 at worst, on bg-subtle. */
+  --fg-subtle: #656156;
   --border: color-mix(in oklab, var(--fg) 12%, transparent);
   --border-strong: color-mix(in oklab, var(--fg) 22%, transparent);
   --accent: #1c1b16;
   --accent-fg: #f3efe4;
-  --mark: #8a7348;
+  /* Was #8a7348 — 3.48:1 on bg-subtle, under AA for the small caps it marks. */
+  --mark: #735f3c;
   --warn: #8a5a22;
   --ok: #3f5c3a;
   --shadow-border:
@@ -70,46 +74,30 @@
   --plate-water: color-mix(in oklab, var(--fg) 7%, transparent);
 }
 
-[data-theme="atelier"] {
-  --bg: #e8dfcc;
-  --bg-elevated: #f1eadb;
-  --bg-subtle: #d9cfb8;
-  --fg: #2a2418;
-  --fg-muted: #5e5646;
-  --fg-subtle: #7a705c;
-  --border: color-mix(in oklab, var(--fg) 14%, transparent);
-  --border-strong: color-mix(in oklab, var(--fg) 24%, transparent);
-  --accent: #2a2418;
-  --accent-fg: #f1eadb;
-  --mark: #7a6238;
-  --warn: #7a4e1c;
-  --ok: #3a5236;
-  --shadow-border:
-    0 0 0 1px rgba(42, 36, 24, 0.1),
-    0 1px 2px -1px rgba(42, 36, 24, 0.06);
-  --shadow-border-hover: 0 0 0 1px rgba(42, 36, 24, 0.16);
-  --plate-seam: color-mix(in oklab, var(--mark) 42%, transparent);
-  --plate-water: color-mix(in oklab, var(--fg) 8%, transparent);
-}
-
-[data-theme="bw"] {
-  --bg: #111111;
-  --bg-elevated: #1a1a1a;
-  --bg-subtle: #242424;
-  --fg: #f2f2f2;
-  --fg-muted: #a3a3a3;
-  --fg-subtle: #737373;
-  --border: color-mix(in oklab, var(--fg) 14%, transparent);
-  --border-strong: color-mix(in oklab, var(--fg) 24%, transparent);
-  --accent: #f2f2f2;
-  --accent-fg: #111111;
-  --mark: #d4d4d4;
-  --warn: #d4d4d4;
-  --ok: #d4d4d4;
-  --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.1);
-  --shadow-border-hover: 0 0 0 1px rgba(255, 255, 255, 0.16);
-  --plate-seam: rgba(255, 255, 255, 0.22);
-  --plate-water: rgba(255, 255, 255, 0.06);
+/**
+ * Accessibility mode. High contrast, and deliberately blue / orange / teal
+ * rather than red / green, so the three status colors stay separable under
+ * protanopia, deuteranopia and tritanopia. Every value below clears WCAG AA
+ * against its own background at the sizes this app uses.
+ */
+[data-theme="colorsafe"] {
+  --bg: #ffffff;
+  --bg-elevated: #f4f4f5;
+  --bg-subtle: #e6e6e8;
+  --fg: #101013;
+  --fg-muted: #35353b;
+  --fg-subtle: #4f4f57;
+  --border: color-mix(in oklab, var(--fg) 32%, transparent);
+  --border-strong: color-mix(in oklab, var(--fg) 55%, transparent);
+  --accent: #101013;
+  --accent-fg: #ffffff;
+  --mark: #0b4f8f;
+  --warn: #8a4400;
+  --ok: #0a5a68;
+  --shadow-border: 0 0 0 1px color-mix(in oklab, var(--fg) 34%, transparent);
+  --shadow-border-hover: 0 0 0 2px color-mix(in oklab, var(--fg) 62%, transparent);
+  --plate-seam: color-mix(in oklab, var(--mark) 55%, transparent);
+  --plate-water: color-mix(in oklab, var(--fg) 9%, transparent);
 }
 
 @layer base {

@@ -95,7 +95,7 @@ function WorkedExample({ onOpen }: { onOpen: () => void }) {
   );
 }
 
-export function Instrument() {
+export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
   const session = useSession();
   const [query, setQuery] = useState("");
   const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
@@ -558,6 +558,7 @@ export function Instrument() {
       {session.step === "readout" && session.speciesId && (
         <Readout
           session={session}
+          advanced={advanced}
           onPatch={(partial) => session.patch(partial)}
           onReset={() => session.reset()}
           onBack={() => session.setStep("water")}

@@ -1,12 +1,16 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowUpRight, Copy, Download, Printer, RotateCcw, Bookmark } from "lucide-react";
+import { Copy, Download, Printer, RotateCcw, Bookmark } from "lucide-react";
+import { AlternativesPanel } from "@/components/alternatives-panel";
 import { Button } from "@/components/ui/button";
+import { Handoffs } from "@/components/handoffs";
+import { ResponseRead, SeasonRead } from "@/components/season-read";
+import { TackleRequirements } from "@/components/tackle-requirements";
 import { WhatIf } from "@/components/what-if";
-import { fieldBrief, freshness, packetSummary } from "@/lib/engine/brief";
+import { fieldBrief, freshness } from "@/lib/engine/brief";
 import { interpret } from "@/lib/engine/infer";
 import { drivingChanges } from "@/lib/engine/sensitivity";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
-import { buildPacket, encodePacketHash, FLEET } from "@/lib/protocol/packet";
+import { buildPacket } from "@/lib/protocol/packet";
 import { labelOf } from "@/lib/protocol/vocab";
 import {
   deleteScenario,
@@ -18,16 +22,14 @@ import {
 } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
-/** Reader-facing names for the tackle requirements a presentation implies. */
-const SYSTEM_LABEL: Record<string, string> = {
-  depthControl: "Depth control",
-  sensitivity: "Sensitivity",
-  castingDistance: "Casting distance",
-  lureWeightBand: "Weight range",
-  coverResistance: "Cover resistance",
-  lineVisibilityPreference: "Line visibility",
-  retieFrequency: "How often to retie",
-};
+/** Comparison axes shown on the runner-up cards — the full requirement set for
+ *  the leading family gets its own section, so repeating all seven here would
+ *  say the same thing twice. */
+const COMPARE_AXES: { key: string; label: string }[] = [
+  { key: "depthControl", label: "Depth control" },
+  { key: "lureWeightBand", label: "Weight range" },
+  { key: "coverResistance", label: "Cover resistance" },
+];
 
 /** How the water temperature reaching this reading was obtained. */
 const EVIDENCE_WORD: Record<string, string> = {
@@ -94,9 +96,7 @@ function Layer({
       className="rounded-[var(--radius-lg)] bg-elevated shadow-[var(--shadow-border)]"
       open={defaultOpen}
     >
-      <summary className="cursor-pointer px-6 py-4 font-display text-xl sm:px-8">
-        {title}
-      </summary>
+      <summary className="cursor-pointer px-6 py-4 font-display text-xl sm:px-8">{title}</summary>
       <div className="border-t border-line px-6 pb-6 pt-4 sm:px-8 sm:pb-8">{children}</div>
     </details>
   );
@@ -107,28 +107,22 @@ export function Readout({
   onPatch,
   onReset,
   onBack,
+  advanced = false,
 }: {
   session: Session;
   onPatch: (partial: Partial<Session>) => void;
   onReset: () => void;
   onBack: () => void;
+  /** Advanced pathway: open the evidence layers instead of folding them away. */
+  advanced?: boolean;
 }) {
   const input = toInput(session);
   const [copied, setCopied] = useState<"packet" | "brief" | "correction" | null>(null);
-  const [inspect, setInspect] = useState<"ops" | "tackle" | "knot" | "rig" | "hatch" | null>(null);
   const [saved, setSaved] = useState<NamedScenario[]>([]);
   const [saveName, setSaveName] = useState("");
 
   useEffect(() => {
     setSaved(loadScenarios());
-  }, []);
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setInspect(null);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   if (!input) return null;
@@ -137,10 +131,13 @@ export function Readout({
   if ("error" in result) {
     return (
       <section className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 sm:p-8">
-        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">We cannot read this combination</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+          We cannot read this combination
+        </p>
         <h2 className="mt-2 font-display text-3xl text-fg">{result.error}</h2>
         <p className="mt-4 max-w-xl text-sm text-muted">
-          Change the water type, or pick a species that has a reviewed record for this kind of water. Your selections are still saved on this device.
+          Change the water type, or pick a species that has a reviewed record for this kind of
+          water. Your selections are still saved on this device.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           <Button variant="ghost" onClick={onBack}>
@@ -158,13 +155,7 @@ export function Readout({
   const packet = buildPacket(input, result);
   const json = JSON.stringify(packet, null, 2);
   const brief = fieldBrief(input, result);
-  const summary = packetSummary(input, result);
   const drivers = drivingChanges(input);
-  const hatch = FLEET.find((f) => f.name === "Hatch Match")!;
-  const tackle = FLEET.find((f) => f.name === "Tackle Link")!;
-  const knot = FLEET.find((f) => f.name === "Knot Analyst")!;
-  const rig = FLEET.find((f) => f.name === "Rig Signal")!;
-  const ops = FLEET.find((f) => f.name === "Field Ops Desk")!;
   const species = SPECIES_BY_ID[session.speciesId!];
   const fresh = freshness(species.reviewedAt, species.nextReviewAt);
   const top = result.presentations[0];
@@ -173,28 +164,13 @@ export function Readout({
       ? "temperature unknown"
       : `${session.tempF}°F — ${labelOf(session.tempSource).toUpperCase()}`;
 
-  const carryHref = {
-    ops: `${ops.href}${encodePacketHash(packet)}`,
-    tackle: `${tackle.href}${encodePacketHash(packet)}`,
-    knot: `${knot.href}${encodePacketHash(packet)}`,
-    rig: `${rig.href}${encodePacketHash(packet)}`,
-    hatch: `${hatch.href}${encodePacketHash(packet)}`,
-  };
-  const carryLabel = {
-    ops: "Field Ops Desk",
-    tackle: "Tackle Link",
-    knot: "Knot Analyst",
-    rig: "Rig Signal",
-    hatch: "Hatch Match",
-  };
-
   async function copy(kind: "packet" | "brief" | "correction", text: string) {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(kind);
       window.setTimeout(() => setCopied(null), 1600);
     } catch {
-      /* ignore */
+      /* clipboard unavailable — the print and download paths still work */
     }
   }
 
@@ -238,22 +214,27 @@ What seems wrong:
             Most plausible family: {top.label}.
           </p>
         )}
-        <p className="mt-3 max-w-3xl text-base text-fg">
-          {result.thermalLabel}. {species.habitat.currentPreference}
-        </p>
+        <p className="mt-3 max-w-3xl text-base text-fg">{result.why}</p>
         <p className="mt-4 max-w-3xl text-sm text-muted">
-          This is not a prediction that fish will bite. If the temperature, light, or forage declaration is wrong, the family can move — change one thing below.
+          This is not a prediction that fish will bite. If the temperature, light, or forage
+          declaration is wrong, the family can move — change one thing below.
         </p>
       </section>
 
-      <section className="grid gap-3 sm:grid-cols-4">
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Axis label="Water temperature" value={EVIDENCE_WORD[result.confidence.evidence]} />
-        <Axis label="Conditions you declared" value={COMPLETENESS_WORD[result.confidence.environment]} />
+        <Axis
+          label="Conditions you declared"
+          value={COMPLETENESS_WORD[result.confidence.environment]}
+        />
         <Axis label="Forage" value={FORAGE_WORD[result.confidence.forage]} />
         <Axis label="Presentation fit" value={FIT_WORD[result.confidence.presentation]} />
       </section>
 
-      <WhatIf session={session} onPatch={onPatch} />
+      <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
+        <SeasonRead input={input} />
+        <ResponseRead input={input} />
+      </div>
 
       <section className="space-y-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
@@ -287,26 +268,42 @@ What seems wrong:
                 </li>
               ))}
             </ul>
-            {i === 0 && result.presentations[1] && (
-              <p className="mt-4 text-sm text-muted">
-                Trade-off versus {result.presentations[1].label}: {p.label} is the better mechanical match for the declared light, forage, and holding class. {result.presentations[1].label} remains plausible if that declaration is wrong.
-              </p>
+            {i === 0 ? (
+              <>
+                {result.presentations[1] && (
+                  <p className="mt-4 text-sm text-muted">
+                    Trade-off versus {result.presentations[1].label}: {p.label} is the better
+                    mechanical match for the declared light, forage, and holding class.{" "}
+                    {result.presentations[1].label} remains plausible if that declaration is wrong.
+                  </p>
+                )}
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-dim">
+                  Full tackle requirements for this family are below
+                </p>
+              </>
+            ) : (
+              <dl className="mt-4 grid grid-cols-1 gap-2 text-xs sm:grid-cols-3">
+                {COMPARE_AXES.filter((axis) => p.system[axis.key]).map((axis) => (
+                  <div key={axis.key} className="rounded-[var(--radius-xs)] bg-subtle px-2.5 py-2">
+                    <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                      {axis.label}
+                    </dt>
+                    <dd className="mt-0.5 text-fg">{p.system[axis.key].replaceAll("_", " ")}</dd>
+                  </div>
+                ))}
+              </dl>
             )}
-            <dl className="mt-4 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
-              {Object.entries(p.system).map(([k, v]) => (
-                <div key={k} className="rounded-[var(--radius-xs)] bg-subtle px-2.5 py-2">
-                  <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">
-                    {SYSTEM_LABEL[k] ?? k.replaceAll(/([A-Z])/g, " $1")}
-                  </dt>
-                  <dd className="mt-0.5 text-fg">{v.replaceAll("_", " ")}</dd>
-                </div>
-              ))}
-            </dl>
           </article>
         ))}
       </section>
 
-      <Layer title="Most plausible positioning">
+      <TackleRequirements result={result} />
+
+      <AlternativesPanel input={input} result={result} />
+
+      <WhatIf session={session} onPatch={onPatch} />
+
+      <Layer title="Most plausible positioning" defaultOpen={advanced}>
         <ul className="space-y-3">
           {result.positioning.map((p) => (
             <li key={p.text} className="flex gap-3 text-sm">
@@ -319,7 +316,7 @@ What seems wrong:
         </ul>
       </Layer>
 
-      <Layer title="Forage classes">
+      <Layer title="Forage classes" defaultOpen={advanced}>
         <p className="text-sm text-muted">{result.forageNote}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {result.forageClasses.map((f) => (
@@ -331,14 +328,10 @@ What seems wrong:
             </span>
           ))}
         </div>
-        <button
-          type="button"
-          onClick={() => setInspect("hatch")}
-          className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm text-fg"
-        >
-          Observed something? See what Hatch Match would receive
-          <ArrowUpRight className="size-4" />
-        </button>
+        <p className="mt-4 text-sm text-muted">
+          Observed something? Hatch Match is in the handoffs below — it is where an observation
+          becomes evidence instead of an assumption.
+        </p>
       </Layer>
 
       <Layer title="What would change this answer" defaultOpen>
@@ -349,14 +342,16 @@ What seems wrong:
                 <span className="font-medium">{d.variable}</span>
                 <span className="text-muted">
                   {" "}
-                  {d.from} → {d.to} moves the leading family from {d.familyBefore} to {d.familyAfter}.
+                  {d.from} → {d.to} moves the leading family from {d.familyBefore} to {d.familyAfter}
+                  .
                 </span>
               </li>
             ))}
           </ul>
         ) : (
           <p className="text-sm text-muted">
-            None of the usual single-variable flips reorder the leading family. Completeness is still limited by whatever is unknown.
+            None of the usual single-variable flips reorder the leading family. Completeness is
+            still limited by whatever is unknown.
           </p>
         )}
         <h4 className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
@@ -374,9 +369,10 @@ What seems wrong:
         )}
       </Layer>
 
-      <Layer title="How we reached this, and what it rests on">
+      <Layer title="How we reached this, and what it rests on" defaultOpen={advanced}>
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-dim">
-          Record {RECORD_WORD[fresh]} · reviewed {species.reviewedAt} · next review {species.nextReviewAt}
+          Record {RECORD_WORD[fresh]} · reviewed {species.reviewedAt} · next review{" "}
+          {species.nextReviewAt}
         </p>
         <ol className="mt-4 space-y-1 font-mono text-xs text-muted">
           {result.trace.map((line, i) => (
@@ -396,7 +392,9 @@ What seems wrong:
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm text-muted">{species.nativeContext} {species.geographic}</p>
+        <p className="mt-4 text-sm text-muted">
+          {species.nativeContext} {species.geographic}
+        </p>
         <Button
           className="mt-4"
           variant="ghost"
@@ -408,31 +406,14 @@ What seems wrong:
         </Button>
       </Layer>
 
+      <Handoffs input={input} result={result} />
+
       <section className="no-print rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)] sm:p-8">
-        <h3 className="font-display text-2xl">Keep it, or carry the job</h3>
+        <h3 className="font-display text-2xl">Keep this reading</h3>
         <p className="mt-2 text-sm text-muted">
-          Nothing leaves this device unless you send it, and what travels carries no coordinates and no bite score.
+          Nothing leaves this device unless you send it, and what travels carries no coordinates and
+          no bite score.
         </p>
-        <div className="mt-5 grid gap-2 sm:grid-cols-2">
-          <Button className="sm:col-span-2" onClick={() => setInspect("ops")}>
-            Carry this trip context back to Field Ops
-            <ArrowUpRight className="size-4" />
-          </Button>
-          <Button onClick={() => setInspect("tackle")}>
-            Carry to Tackle
-            <ArrowUpRight className="size-4" />
-          </Button>
-          <Button variant="ghost" onClick={() => setInspect("knot")}>
-            Carry connection job to Knot
-            <ArrowUpRight className="size-4" />
-          </Button>
-          {result.rigQuestion && (
-            <Button variant="ghost" className="sm:col-span-2" onClick={() => setInspect("rig")}>
-              Ask Rig Signal: {result.rigQuestion}
-              <ArrowUpRight className="size-4 shrink-0" />
-            </Button>
-          )}
-        </div>
         <div className="mt-4 flex flex-wrap gap-2">
           <Button variant="ghost" onClick={() => copy("brief", brief)}>
             <Copy className="size-4" />
@@ -452,7 +433,9 @@ What seems wrong:
           </Button>
         </div>
         <div className="mt-6 border-t border-line pt-5">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Save on this device</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+            Save on this device
+          </p>
           <div className="mt-2 flex flex-wrap gap-2">
             <input
               value={saveName}
@@ -476,7 +459,7 @@ What seems wrong:
                 <li key={s.id} className="flex flex-wrap items-center justify-between gap-2 text-sm">
                   <button
                     type="button"
-                    className="text-left text-fg hover:underline"
+                    className="min-h-11 text-left text-fg hover:underline"
                     onClick={() => onPatch(s.session)}
                   >
                     {s.name}
@@ -484,11 +467,7 @@ What seems wrong:
                       {s.savedAt.slice(0, 10)}
                     </span>
                   </button>
-                  <Button
-                    variant="quiet"
-                    size="sm"
-                    onClick={() => setSaved(deleteScenario(s.id))}
-                  >
+                  <Button variant="quiet" size="sm" onClick={() => setSaved(deleteScenario(s.id))}>
                     Remove
                   </Button>
                 </li>
@@ -497,54 +476,12 @@ What seems wrong:
           )}
         </div>
         <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.12em] text-dim">
-          Notes stay on this device · coordinates are never stored · record reviewed {result.species.reviewedAt}
+          Notes stay on this device · coordinates are never stored · record reviewed{" "}
+          {result.species.reviewedAt}
         </p>
       </section>
 
-      {inspect && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="packet-inspect-title"
-          className="no-print fixed inset-0 z-40 grid place-items-end bg-bg/70 p-4 sm:place-items-center"
-          onClick={() => setInspect(null)}
-        >
-          <div
-            className="max-h-[85dvh] w-full max-w-lg overflow-auto rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border-hover)]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Check before sending</p>
-            <h3 id="packet-inspect-title" className="mt-2 font-display text-2xl">
-              Carry to {carryLabel[inspect]}?
-            </h3>
-            <p className="mt-2 text-sm text-muted">
-              Only these fields move. Nothing is sent until you confirm.
-            </p>
-            <dl className="mt-4 space-y-2 text-sm">
-              {summary.map((row) => (
-                <div key={row.label} className="flex justify-between gap-4">
-                  <dt className="text-dim">{row.label}</dt>
-                  <dd className="text-right text-fg">{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <a
-                href={carryHref[inspect]}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-accent px-4 text-sm text-accent-fg no-underline"
-              >
-                Send these details
-                <ArrowUpRight className="size-4" />
-              </a>
-              <Button variant="ghost" onClick={() => setInspect(null)}>
-                Cancel
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <pre className="hidden print:block whitespace-pre-wrap font-mono text-xs">{brief}</pre>
+      <pre className="hidden whitespace-pre-wrap font-mono text-xs print:block">{brief}</pre>
     </div>
   );
 }

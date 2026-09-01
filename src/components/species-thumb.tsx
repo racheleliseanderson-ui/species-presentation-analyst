@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 /**
  * A fixed-size slot for a species record's reviewed image.
  *
- * Only 15 of the 75 reviewed species currently carry a reviewed image, so the
- * previous `image && <img>` pattern left most rows with no slot at all: names
+ * Most reviewed species do not carry a reviewed image yet, so the previous
+ * `image && <img>` pattern left most rows with no slot at all: names
  * sat at different indents, cards collapsed to different heights, and the grid
  * read as half-finished rather than half-reviewed.
  *

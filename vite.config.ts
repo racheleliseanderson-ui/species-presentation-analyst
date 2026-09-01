@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
@@ -7,8 +7,6 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import { VitePWA } from "vite-plugin-pwa";
-// @ts-expect-error JS plugin alongside the TS vite config
-import { grokPwaPlugin } from "./scripts/grok-pwa-plugin.mjs";
 // @ts-expect-error JS plugin alongside the TS vite config
 import { appEnvPlugin } from "./scripts/app-env-plugin.mjs";
 import { isMigrationFile } from "./scripts/migration-plan.mjs";
@@ -131,12 +129,6 @@ function fieldWorkboxPlugin(): Plugin {
         if (!existsSync(join(outDir, "assets")) || !existsSync(join(outDir, "favicon.svg"))) {
           return;
         }
-        const { renderWebManifest } = await import("./scripts/grok-pwa-shared.mjs");
-        const grokDir = join(outDir, "__grok");
-        mkdirSync(grokDir, { recursive: true });
-        const manifest = renderWebManifest("species.hookthehorizon.blog");
-        writeFileSync(join(grokDir, "manifest.webmanifest"), manifest);
-        writeFileSync(join(grokDir, "manifest.json"), manifest);
         const { generateSW } = await import("workbox-build");
         await generateSW({
           globDirectory: outDir,
@@ -192,14 +184,12 @@ export default defineConfig(({ command, isPreview }) => ({
     pgliteBootstrapPlugin(),
     authPopupPlugin(),
     appEnvPlugin(),
-    grokPwaPlugin(),
     tailwindcss(),
     tanstackStart(),
     ...(command === "build" || isPreview
       ? [
           nitro({
             preset: "vercel",
-            serverDir: "./server",
           }),
         ]
       : []),
@@ -209,7 +199,7 @@ export default defineConfig(({ command, isPreview }) => ({
       injectRegister: false,
       filename: "sw.js",
       manifest: false,
-      includeAssets: ["favicon.svg", "__grok/icon-180.png"],
+      includeAssets: ["favicon.svg", "icon-180.png", "manifest.webmanifest"],
       includeManifestIcons: false,
       integration: {
         closeBundleOrder: "post",

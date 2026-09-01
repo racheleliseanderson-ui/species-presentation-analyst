@@ -4,7 +4,11 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { AlternativesPanel } from "@/components/alternatives-panel";
 import { Button } from "@/components/ui/button";
+import { Handoffs } from "@/components/handoffs";
+import { SeasonRead } from "@/components/season-read";
+import { TackleRequirements } from "@/components/tackle-requirements";
 import {
   assessTemperatureRange,
   coarseHoldingChoices,
@@ -844,9 +848,24 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 </article>
               )}
 
+              <SeasonRead input={input} compact />
+
+              <TackleRequirements result={readableResult ?? result} />
+
+              <AlternativesPanel input={input} result={readableResult ?? result} />
+
+              <Handoffs
+                input={input}
+                result={readableResult ?? result}
+                heading="Hand this off"
+                intro="Quick Read stops at the presentation. These take the next job — where to fish it, what is actually hatching, and what the rig, tackle and connection have to do. Nothing is sent until you check what travels."
+              />
+
               <div className="flex flex-wrap gap-2">
                 <Button onClick={openFullAnalysis}>See Full Analysis</Button>
-                <Button variant="ghost" onClick={() => setShowResult(false)}>Adjust Quick Read</Button>
+                <Button variant="ghost" onClick={() => setShowResult(false)}>
+                  Adjust Quick Read
+                </Button>
               </div>
             </>
           )}

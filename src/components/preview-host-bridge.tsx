@@ -1,6 +1,8 @@
 /**
- * Mount once in `__root.tsx` so the Grok preview chrome can drive navigation
- * (and later receive registered routes). Noops when the app is not embedded.
+ * Development-only bridge that lets an external preview pane drive navigation
+ * while the app is embedded in one. It noops when the app is not embedded, but
+ * it is mounted behind `import.meta.env.DEV` in `__root.tsx` so the deployed
+ * app ships no builder-preview listener at all.
  */
 
 import { useEffect } from "react";

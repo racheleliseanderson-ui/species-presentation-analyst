@@ -364,6 +364,7 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       ? "reviewed adjustments for this species under these conditions were applied"
       : "no species-specific adjustment applied",
     top ? `${top.label} ranks first for this combination` : "no reviewed presentation for this water type",
+    `weighting for the leading family · ${topWeightTrace}`,
     presentations.map((p) => p.label).join(" + ") || "no reviewed presentation for this water type",
     "ranking compares reviewed presentations only — it is never the chance of a bite",
   ];
