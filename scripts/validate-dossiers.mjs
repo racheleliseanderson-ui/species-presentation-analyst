@@ -17,6 +17,45 @@ import { pathToFileURL } from "node:url";
 
 const KINDS = ["identification", "behavior", "diet", "seasonal_calendar"];
 
+/**
+ * Words that must appear in `gaps` for an empty required field to be accepted.
+ *
+ * The product's promise is not "every field is filled" — for several saltwater
+ * species nobody has published a look-alike key or a regional nickname, and
+ * inventing one would be the actual defect. The promise is that nothing is
+ * missing *silently*. So an empty field is allowed exactly when the record
+ * says out loud, in its own gaps, that it is missing and why.
+ */
+const GAP_KEYWORDS = {
+  regionalNames: ["regional", "nickname", "common name", "colloquial"],
+  similarSpecies: ["similar", "look-alike", "look alike", "confus", "misidentif"],
+  identificationTraits: ["identification", "field mark", "trait"],
+  coloration: ["colora", "colour", "color"],
+  adultAppearance: ["adult appearance", "appearance"],
+  averageAdultLength: ["average", "length"],
+  commonAnglingSize: ["angling size", "common size", "typical size"],
+  typicalWeight: ["weight"],
+  maximumDocumentedSize: ["maximum", "max size"],
+  primaryForage: ["forage", "diet", "prey"],
+  primaryNote: ["forage", "diet", "prey"],
+  observedForageRule: ["forage", "diet", "prey"],
+  entries: ["seasonal", "calendar", "season"],
+  overview: ["overview", "seasonal"],
+  sources: ["source", "no species-specific", "not found", "no data"],
+  spawningBehavior: ["spawn"],
+  feedingStrategy: ["feeding"],
+  dielTendency: ["diel", "light", "time of day"],
+  social: ["social", "schooling"],
+};
+
+/** Does the record name this empty field in its own gaps? */
+function gapExplains(record, field) {
+  const gaps = (record?.gaps ?? []).join(" ").toLowerCase();
+  if (!gaps) return false;
+  const keywords = GAP_KEYWORDS[field] ?? [field.replace(/([A-Z])/g, " $1").toLowerCase()];
+  return keywords.some((word) => gaps.includes(word));
+}
+
 const REQUIRED = {
   identification: [
     "speciesId", "status", "regionalNames", "bodyShape", "identificationTraits",
@@ -49,18 +88,39 @@ const ENUMS = {
   feedingZone: ["benthic", "pelagic", "surface", "mixed"],
 };
 
-/** Prose in `presentationImplication` may only name a family the engine ranks. */
-const FAMILY_WORDS = [
-  "dead drift", "dead-drift", "tight-line", "tight line", "swing", "suspended drift",
-  "bottom-contact", "bottom contact", "cross-current", "upstream retrieve",
-  "downstream retrieve", "pulse jig", "surface drift", "wake skate", "stationary bait",
-  "horizontal retrieve", "stop-and-go", "stop and go", "suspend-pause", "suspend pause",
-  "vertical jig", "slow drag", "drop presentation", "surface retrieve",
-  "subsurface slow roll", "slow roll", "suspended stationary", "trolling",
-  "live bait", "natural bait", "live/natural bait",
-];
+/**
+ * Prose in `presentationImplication` may only name a family the engine ranks.
+ *
+ * Derived from the presentation catalog rather than hand-listed, because the
+ * hand-listed version silently went stale the moment saltwater added fourteen
+ * families and then warned on every correct marine record. Both sides are
+ * normalized so "Live-bait slow troll", "live bait slow troll" and
+ * "live_bait_slow_troll" all match the same family.
+ */
+function normalizeProse(value) {
+  return value
+    .toLowerCase()
+    .replaceAll("\u2011", "-")
+    .replace(/[-_/]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
-export function validate(record, kind, vocab, catalog) {
+function familyPhrases(presentations) {
+  const phrases = new Set();
+  for (const family of presentations) {
+    phrases.add(normalizeProse(family.id));
+    phrases.add(normalizeProse(family.label));
+  }
+  // A few families are habitually referred to by a shorter phrase in reviewed
+  // prose; these are aliases for existing families, never new ones.
+  for (const alias of ["slow roll", "natural bait", "live bait", "stop and go", "dead drift"]) {
+    phrases.add(alias);
+  }
+  return [...phrases];
+}
+
+export function validate(record, kind, vocab, catalog, familyWords = []) {
   const errors = [];
   const warnings = [];
   const at = (f) => `${record?.speciesId ?? "?"}/${kind}.${f}`;
@@ -72,7 +132,13 @@ export function validate(record, kind, vocab, catalog) {
       value === null ||
       (typeof value === "string" && !value.trim()) ||
       (Array.isArray(value) && field !== "gaps" && value.length === 0);
-    if (empty) errors.push(`${at(field)} is missing or empty`);
+    if (empty) {
+      if (gapExplains(record, field)) {
+        warnings.push(`${at(field)} is empty, declared in gaps`);
+      } else {
+        errors.push(`${at(field)} is missing or empty and no gap explains it`);
+      }
+    }
   }
 
   if (record?.status && !ENUMS.status.includes(record.status)) {
@@ -134,8 +200,8 @@ export function validate(record, kind, vocab, catalog) {
       }
       const implication = entry?.presentationImplication;
       if (implication) {
-        const lower = implication.toLowerCase();
-        if (!FAMILY_WORDS.some((word) => lower.includes(word))) {
+        const lower = normalizeProse(implication);
+        if (!familyWords.some((word) => lower.includes(word))) {
           warnings.push(
             `${at("entries")} ${entry.season}: presentationImplication names no known family — "${implication.slice(0, 60)}"`,
           );
@@ -177,6 +243,8 @@ async function main() {
   const dir = process.argv[2] ?? "/tmp/dossiers";
   const vocab = await import("../src/lib/protocol/vocab.ts");
   const { SPECIES_BY_ID } = await import("../src/lib/knowledge/species-catalog.ts");
+  const { PRESENTATIONS } = await import("../src/lib/knowledge/presentations.ts");
+  const familyWords = familyPhrases(PRESENTATIONS);
 
   let errors = 0;
   let warnings = 0;
@@ -199,7 +267,7 @@ async function main() {
       if (record.speciesId !== speciesId) {
         problems.push(`${speciesId}/${kind}.speciesId is "${record.speciesId}"`);
       }
-      const result = validate(record, kind, vocab, catalog);
+      const result = validate(record, kind, vocab, catalog, familyWords);
       problems.push(...result.errors);
       for (const warning of result.warnings) console.log(`  warn  ${warning}`);
       warnings += result.warnings.length;

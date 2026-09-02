@@ -12,15 +12,25 @@ import {
   projectRoot,
   readAppEnv,
 } from "./with-app-env.mjs";
+import { authEnabledFromEnvValue } from "./check-auth-invariant.mjs";
 
 const execFileAsync = promisify(execFile);
 const WRAPPER = join(projectRoot(), "scripts/with-app-env.mjs");
 const PRINT_FLAG = "process.stdout.write(String(process.env.VITE_AUTH_ENABLED));";
+/**
+ * What the wrapper should hand the child in *this* workspace.
+ *
+ * Read rather than hard-coded: `.app/app-env.json` is gitignored, so it is
+ * present in some checkouts and absent in others, and pinning the string made
+ * these tests fail on a fresh clone for a reason that had nothing to do with
+ * the wrapper. What is actually under test is that the merge happens at all.
+ */
+const EXPECTED_FLAG = String(readAppEnv(projectRoot()).VITE_AUTH_ENABLED);
 
 function makeWorkspace(appEnvJson) {
   const root = mkdtempSync(join(tmpdir(), "app-env-"));
   if (appEnvJson !== undefined) {
-    mkdirSync(join(root, ".grok"), { recursive: true });
+    mkdirSync(join(root, ".app"), { recursive: true });
     writeFileSync(join(root, APP_ENV_REL_PATH), appEnvJson);
   }
   return root;
@@ -59,8 +69,15 @@ test("an explicit process-env override wins over the file", () => {
   assert.equal(merged.PATH, "/usr/bin");
 });
 
-test("the template ships auth off", () => {
-  assert.deepEqual(readAppEnv(projectRoot()), { VITE_AUTH_ENABLED: "false" });
+test("the repository ships auth off without depending on an untracked file", () => {
+  // `.app/app-env.json` is gitignored, so it exists in some workspaces and not
+  // in others. Asserting its contents made a fresh clone fail this test while
+  // also, more seriously, letting a fresh clone build with sign-in ON. The
+  // real invariant is the predicate: absent any flag, sign-in is off.
+  assert.equal(authEnabledFromEnvValue(readAppEnv(projectRoot()).VITE_AUTH_ENABLED), false);
+  assert.equal(authEnabledFromEnvValue(undefined), false);
+  assert.equal(authEnabledFromEnvValue("false"), false);
+  assert.equal(authEnabledFromEnvValue("true"), true);
 });
 
 test("vite loadEnv resolves the wrapped value", () => {
@@ -80,7 +97,7 @@ test("the wrapped command runs with the app env applied", async () => {
     "-e",
     PRINT_FLAG,
   ]);
-  assert.equal(stdout, "false");
+  assert.equal(stdout, EXPECTED_FLAG);
 });
 
 test("the wrapped command sees an explicit override, not the file value", async () => {
@@ -124,5 +141,5 @@ test("the CLI still runs when invoked through a symlinked path", async () => {
     "-e",
     PRINT_FLAG,
   ]);
-  assert.equal(stdout, "false");
+  assert.equal(stdout, EXPECTED_FLAG);
 });
