@@ -4,7 +4,10 @@ import type {
   ThermalState,
 } from "../protocol/types.ts";
 import type { ForageClass, Season, WaterType } from "../protocol/vocab.ts";
-import type { SpeciesWeightOverrideRule } from "./species-weight-overrides.ts";
+import {
+  matchesOverrideRule,
+  type SpeciesWeightOverrideRule,
+} from "./species-weight-overrides.ts";
 
 export const SPECIES_OVERRIDE_EXPANSION_VERSION = "SPO-1.1" as const;
 
@@ -21,7 +24,19 @@ type OverrideWhen = {
 
 export type SpeciesOverrideCoverageRecord = {
   speciesId: string;
-  mode: "weighted" | "policy_only";
+  /**
+   * - `weighted` — reviewed species-specific deltas exist.
+   * - `policy_only` — the species gets no presentation guidance at all, because
+   *   its conservation or regulatory status suppresses it.
+   * - `no_reviewed_rule` — guidance is given normally, but nothing in the
+   *   reviewed record justified a species-specific delta.
+   *
+   * The last two used to share a name, which made twelve saltwater species
+   * whose records were simply thin look as though the app was deliberately
+   * withholding advice about them. They are different statements and a reader
+   * is owed the difference.
+   */
+  mode: "weighted" | "policy_only" | "no_reviewed_rule";
   note: string;
   reviewedAt: string;
 };
@@ -439,37 +454,11 @@ export const SPECIES_WEIGHT_OVERRIDES_EXPANSION: SpeciesWeightOverrideRule[] = [
   ),
 ];
 
-function currentHolding(input: ScenarioInput): string | undefined {
-  return input.waterType === "flowing"
-    ? input.holdingRiver ?? undefined
-    : input.holdingStill ?? undefined;
-}
-
-function matchesRule(
-  candidate: SpeciesWeightOverrideRule,
-  input: ScenarioInput,
-  thermalState: ThermalState,
-): boolean {
-  if (candidate.speciesId !== input.speciesId) return false;
-  if (candidate.when.seasons && !candidate.when.seasons.includes(input.season)) return false;
-  if (candidate.when.thermalStates && !candidate.when.thermalStates.includes(thermalState)) return false;
-  if (candidate.when.waterTypes && !candidate.when.waterTypes.includes(input.waterType)) return false;
-  if (candidate.when.light && !candidate.when.light.includes(input.light)) return false;
-  if (candidate.when.holding) {
-    const holding = currentHolding(input);
-    if (!holding || !candidate.when.holding.includes(holding)) return false;
-  }
-  if (candidate.when.forage) {
-    if (!input.forage || !candidate.when.forage.includes(input.forage.class)) return false;
-  }
-  return true;
-}
-
 export function matchingSpeciesWeightOverrideExpansion(
   input: ScenarioInput,
   thermalState: ThermalState,
 ): SpeciesWeightOverrideRule[] {
   return SPECIES_WEIGHT_OVERRIDES_EXPANSION.filter((candidate) =>
-    matchesRule(candidate, input, thermalState),
+    matchesOverrideRule(candidate, input, thermalState),
   );
 }

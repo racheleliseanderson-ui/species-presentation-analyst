@@ -9,6 +9,7 @@ import type {
 } from "./dossier-types.ts";
 import type { SpeciesRecord } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
+import { reviewedHoldingFor, reviewedPresentationsFor } from "../engine/water.ts";
 
 export const ANGLER_PROFILE_MODEL_VERSION = "AFP-1.2" as const;
 
@@ -55,6 +56,44 @@ export type AnglerSpeciesProfile = {
     notReviewed: number;
   };
 };
+
+/**
+ * Temperature rows, written so a missing figure reads as a missing figure.
+ *
+ * Roughly a third of the saltwater catalog has no published thermal band, and
+ * several more carry only an edge or only a range. Printing "–°F" or silently
+ * dropping the row would both be worse than saying nothing is reviewed: the
+ * angler needs to know the product looked and came up empty, not wonder
+ * whether it forgot to ask.
+ */
+function thermalRow(
+  species: SpeciesRecord,
+  label: string,
+  read: (thermal: NonNullable<SpeciesRecord["thermal"]>) => string | null,
+): { label: string; value: string } {
+  const value = species.thermal ? read(species.thermal) : null;
+  return { label, value: value ?? "Not reviewed for this species" };
+}
+
+/** The caveat row, present only when the record knows what kind of figure it has. */
+function thermalBasisRows(species: SpeciesRecord): { label: string; value: string }[] {
+  const thermal = species.thermal;
+  if (!thermal) return [];
+  const rows: { label: string; value: string }[] = [];
+  if (thermal.basis) {
+    rows.push({
+      label: "What these numbers are",
+      value:
+        thermal.basis === "preference"
+          ? "A measured preference or optimum."
+          : thermal.basis === "distribution"
+            ? "Where the species is found or caught, which is not the same as what it prefers."
+            : "A mix of measured preference and distribution data.",
+    });
+  }
+  if (thermal.note) rows.push({ label: "Thermal band source", value: thermal.note });
+  return rows;
+}
 
 function labels(values: readonly string[]): string {
   return values.map((value) => labelOf(value)).join(", ");
@@ -174,8 +213,14 @@ function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null
       "partial",
       "The decision engine models positioning, thermal state, light response, spawning caution, and population/system context when reviewed. It does not yet maintain a complete behavioral biography for every species.",
       [
-        { label: "Light response", value: species.habitat.lightResponse },
-        { label: "Spawning context", value: species.spawning.note },
+        {
+          label: "Light response",
+          value: species.habitat.lightResponse ?? "Not reviewed for this species",
+        },
+        {
+          label: "Spawning context",
+          value: species.spawning?.note ?? "Not reviewed for this species",
+        },
         {
           label: "Important exceptions",
           value: species.exceptions.length > 0 ? species.exceptions.join(" ") : "No additional reviewed exception note",
@@ -220,7 +265,9 @@ function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null
     ...(dossier.coverUse ? [{ label: "Cover use", value: dossier.coverUse }] : []),
     ...(dossier.openWaterBehavior ? [{ label: "Open-water behavior", value: dossier.openWaterBehavior }] : []),
     { label: "Spawning behavior", value: dossier.spawningBehavior },
-    { label: "Light response (catalog)", value: species.habitat.lightResponse },
+    ...(species.habitat.lightResponse
+      ? [{ label: "Light response (catalog)", value: species.habitat.lightResponse }]
+      : []),
     {
       label: "Behavior sources",
       value: dossier.sources.map((source) => source.label).join("; "),
@@ -283,9 +330,23 @@ function dietSection(species: SpeciesRecord, dossier: DietDossier | null): Angle
   }
 
   const facts: AnglerProfileFact[] = [
-    { label: "Feeding style", value: `${labelOf(dossier.feedingStyle)}. ${dossier.primaryNote}` },
-    { label: "Feeding zone", value: labelOf(dossier.feedingZone) },
-    { label: "Primary forage", value: labels(dossier.primaryForage) },
+    {
+      label: "Feeding style",
+      value: dossier.feedingStyle
+        ? `${labelOf(dossier.feedingStyle)}. ${dossier.primaryNote}`
+        : dossier.primaryNote,
+    },
+    {
+      label: "Feeding zone",
+      value: dossier.feedingZone ? labelOf(dossier.feedingZone) : "Not reviewed for this species",
+    },
+    {
+      label: "Primary forage",
+      value:
+        dossier.primaryForage.length > 0
+          ? labels(dossier.primaryForage)
+          : "No diet source found for this species",
+    },
     ...(dossier.seasonalDiet ?? []).map((item) => ({
       label: labelOf(item.season),
       value: item.emphasis,
@@ -338,8 +399,14 @@ function seasonalCalendarSection(
       "partial",
       "Season already helps rank presentations, and spawning overlap is treated as caution, but this profile does not yet claim a species-authored month-by-month calendar.",
       [
-        { label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) },
-        { label: "Spawning note", value: species.spawning.note },
+        {
+          label: "Reviewed spawning seasons",
+          value: species.spawning ? labels(species.spawning.seasons) : "Not reviewed for this species",
+        },
+        {
+          label: "Spawning note",
+          value: species.spawning?.note ?? "Not reviewed for this species",
+        },
       ],
       [
         "month-by-month location changes",
@@ -352,7 +419,9 @@ function seasonalCalendarSection(
 
   const facts: AnglerProfileFact[] = [
     { label: "Overview", value: dossier.overview },
-    { label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) },
+    ...(species.spawning
+      ? [{ label: "Reviewed spawning seasons", value: labels(species.spawning.seasons) }]
+      : []),
     ...dossier.entries.map((entry) => ({
       label: labelOf(entry.season),
       value: calendarEntryValue(entry),
@@ -397,12 +466,14 @@ export function buildAnglerSpeciesProfile(
   species: SpeciesRecord,
   overlays: SpeciesOverlays,
 ): AnglerSpeciesProfile {
-  const flowing = species.flowingPresentations;
-  const still = species.stillPresentations;
-  const holding = [
-    ...species.habitat.riverHolding,
-    ...species.habitat.stillHolding,
-  ];
+  // Built per water type the species is actually reviewed for. The previous
+  // version read only the two freshwater lists, so a red drum's profile showed
+  // "no presentation family reviewed" and no holding water at all — the record
+  // was complete, the profile just was not asking it the right question.
+  const waterTypes = species.habitat.waterTypes;
+  const holding = waterTypes.flatMap((waterType) => [
+    ...reviewedHoldingFor(species, waterType),
+  ]);
   const identification = overlays.identification;
   const behavior = overlays.behavior;
   const diet = overlays.diet;
@@ -420,12 +491,14 @@ export function buildAnglerSpeciesProfile(
         { label: "Range", value: species.geographic },
         { label: "Native / introduced context", value: species.nativeContext },
         { label: "Water types", value: labels(species.habitat.waterTypes) },
-        {
-          label: "Preferred water temperature",
-          value: `${species.thermal.preferredF[0]}–${species.thermal.preferredF[1]}°F`,
-        },
+        thermalRow(species, "Preferred water temperature", (thermal) =>
+          thermal.preferredF ? `${thermal.preferredF[0]}–${thermal.preferredF[1]}°F` : null,
+        ),
         { label: "Depth tendency", value: species.habitat.depthTendency },
-        { label: "Current preference", value: species.habitat.currentPreference },
+        {
+          label: "Current preference",
+          value: species.habitat.currentPreference ?? "Not reviewed for this species",
+        },
         {
           label: "Reviewed structure / holding water",
           value: holding.length > 0 ? labels(holding) : "No holding-water class reviewed",
@@ -447,14 +520,16 @@ export function buildAnglerSpeciesProfile(
       "partial",
       "The application already reviews presentation families and then derives the mechanical equipment job. It intentionally avoids a generic best-lure catalog.",
       [
-        {
-          label: "Flowing-water presentations",
-          value: flowing.length > 0 ? labels(flowing) : "No flowing-water presentation family reviewed",
-        },
-        {
-          label: "Stillwater presentations",
-          value: still.length > 0 ? labels(still) : "No stillwater presentation family reviewed",
-        },
+        ...waterTypes.map((waterType) => {
+          const families = reviewedPresentationsFor(species, waterType);
+          return {
+            label: `${labelOf(waterType)} presentations`,
+            value:
+              families.length > 0
+                ? labels(families)
+                : `No ${labelOf(waterType).toLowerCase()} presentation family reviewed`,
+          };
+        }),
       ],
       [
         "species-profile rod power / action ranges",
@@ -473,13 +548,20 @@ export function buildAnglerSpeciesProfile(
       "partial",
       "The live scenario already accepts water temperature, flow or stillwater state, clarity, light, weather trend, season, holding water, and observed forage. Species-specific effects are strongest for thermal and light biology today.",
       [
+        thermalRow(species, "Active thermal band", (thermal) =>
+          thermal.activeF ? `${thermal.activeF[0]}–${thermal.activeF[1]}°F` : null,
+        ),
+        thermalRow(species, "Cold edge", (thermal) =>
+          thermal.coldEdgeF != null ? `${thermal.coldEdgeF}°F` : null,
+        ),
+        thermalRow(species, "Warm edge", (thermal) =>
+          thermal.warmEdgeF != null ? `${thermal.warmEdgeF}°F` : null,
+        ),
+        ...thermalBasisRows(species),
         {
-          label: "Active thermal band",
-          value: `${species.thermal.activeF[0]}–${species.thermal.activeF[1]}°F`,
+          label: "Light response",
+          value: species.habitat.lightResponse ?? "Not reviewed for this species",
         },
-        { label: "Cold edge", value: `${species.thermal.coldEdgeF}°F` },
-        { label: "Warm edge", value: `${species.thermal.warmEdgeF}°F` },
-        { label: "Light response", value: species.habitat.lightResponse },
       ],
       [
         "species-specific wind response",

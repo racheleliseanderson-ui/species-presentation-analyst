@@ -1,6 +1,6 @@
-import { rememberIncomingFleetPacket } from "./fleet-context";
-import { parseIncomingPacket, coerceWaterType } from "./packet";
-import type { ScenarioInput } from "./types";
+import { rememberIncomingFleetPacket } from "./fleet-context.ts";
+import { parseIncomingPacket, coerceWaterType } from "./packet.ts";
+import type { ScenarioInput } from "./types.ts";
 import {
   CLARITY,
   FLOW_CLASSES,
@@ -18,7 +18,7 @@ import {
   type StillHolding,
   type StillState,
   type WeatherTrend,
-} from "./vocab";
+} from "./vocab.ts";
 
 function enumValue<T extends string>(value: unknown, allowed: readonly T[]): T | undefined {
   return typeof value === "string" && allowed.includes(value as T)

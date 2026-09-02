@@ -5,16 +5,32 @@ import type {
   FlowClass,
   ForageClass,
   Light,
+  MarineHolding,
+  MarineType,
   RiverHolding,
   Season,
   StillHolding,
   StillState,
   TempSource,
+  TideMovement,
+  TideStrength,
   WaterType,
   WeatherTrend,
 } from "./vocab.ts";
 
-export type SpeciesGroup = "trout_salmon" | "bass_panfish" | "predator" | "other";
+export type SpeciesGroup =
+  | "trout_salmon"
+  | "bass_panfish"
+  | "predator"
+  | "other"
+  // Saltwater. Grouped by the kind of fishing rather than by taxonomy, because
+  // an angler picking a species is standing somewhere specific: on a beach, over
+  // structure, or offshore. Sharks are separated out because misidentifying one
+  // has legal consequences the other groups do not carry.
+  | "inshore_surf"
+  | "reef_bottom"
+  | "offshore_pelagic"
+  | "sharks";
 
 export type TargetStatus =
   | "standard"
@@ -55,6 +71,7 @@ export type WeightAxis =
   | "forage"
   | "species_override"
   | "population_context"
+  | "tide"
   | "light";
 
 export type PresentationWeightReason = {
@@ -87,7 +104,43 @@ export type PresentationId =
   | "subsurface_slow_roll"
   | "suspended_stationary"
   | "trolling"
-  | "live_natural_bait_suspension";
+  | "live_natural_bait_suspension"
+  // Saltwater families.
+  | "surf_bait_soak"
+  | "surf_metal_cast"
+  | "surf_swim_retrieve"
+  | "flats_sight_cast"
+  | "tidal_drift_bait"
+  | "structure_pitch"
+  | "dock_light_ambush"
+  | "structure_vertical"
+  | "chum_established_drift"
+  | "tide_line_drift"
+  | "trolling_spread"
+  | "deep_drop"
+  | "run_and_gun_cast"
+  | "live_bait_slow_troll";
+
+/**
+ * Whether a temperature figure describes what the fish prefers or merely where
+ * it happens to be caught. Anglers read the two very differently and sources
+ * conflate them constantly, so the record says which it has.
+ */
+export type ThermalBasis = "preference" | "distribution" | "mixed";
+
+export type ThermalBand = {
+  /** A sourced preference or optimum range. */
+  preferredF?: [number, number];
+  /** The range over which the species is reported active and feeding. */
+  activeF?: [number, number];
+  /** Where it goes inactive, avoids, or suffers cold stress. */
+  coldEdgeF?: number;
+  /** The same at the top end. */
+  warmEdgeF?: number;
+  basis?: ThermalBasis;
+  /** Where the numbers came from, and any caveat worth showing a reader. */
+  note?: string;
+};
 
 export type SpeciesRecord = {
   id: string;
@@ -98,27 +151,61 @@ export type SpeciesRecord = {
   targetStatusNote?: string;
   targetContext?: TargetContext;
   nativeContext: string;
-  thermal: {
-    preferredF: [number, number];
-    activeF: [number, number];
-    coldEdgeF: number;
-    warmEdgeF: number;
-  };
-  spawning: { seasons: Season[]; note: string };
+  /**
+   * The reviewed temperature band, or absent when nobody has published one.
+   *
+   * Every field is optional and many marine species carry only one or two of
+   * them. That is deliberate: freshwater sport fish have decades of hatchery
+   * and lab work behind their preferenda, while for a scamp or a silvergray
+   * rockfish the honest answer is that no agency publishes a number. The
+   * reading degrades to "thermal band not reviewed" rather than inventing one,
+   * because a fabricated preferendum is exactly the failure this product
+   * exists to avoid.
+   */
+  thermal?: ThermalBand;
+  /**
+   * Conservation context only — never timing or a place to go. Optional
+   * because a few reef species have no spawning account that can be written
+   * down without describing an aggregation, and silence is the correct
+   * outcome there.
+   */
+  spawning?: { seasons: Season[]; note: string };
   habitat: {
     waterTypes: WaterType[];
     riverHolding: RiverHolding[];
     stillHolding: StillHolding[];
-    currentPreference: string;
+    /**
+     * Holding classes per marine water type. Kept as a map rather than a flat
+     * list because the four saltwater types do not share a vocabulary — an
+     * offshore temperature break is not an answer to a surf question.
+     */
+    marineHolding?: Partial<Record<MarineType, MarineHolding[]>>;
+    /**
+     * How the fish uses moving water; tide for the marine types. Optional
+     * because it is prose from a source, and a handful of offshore species
+     * have none that a review would accept.
+     */
+    currentPreference?: string;
     depthTendency: string;
-    lightResponse: string;
+    /** Diel and light behaviour, where a source describes it. */
+    lightResponse?: string;
   };
   forageClasses: ForageClass[];
   flowingPresentations: PresentationId[];
   stillPresentations: PresentationId[];
+  marinePresentations?: Partial<Record<MarineType, PresentationId[]>>;
   exceptions: string[];
   geographic: string;
-  sources: { label: string; class: "agency" | "peer_reviewed" | "synthesis" }[];
+  /**
+   * Where each claim came from. `url` is optional because the freshwater
+   * records predate it, but a record that carries one is checkable by the
+   * reader, which is the point of insisting on sources in the first place.
+   */
+  sources: {
+    label: string;
+    class: "agency" | "peer_reviewed" | "synthesis";
+    url?: string;
+  }[];
   reviewedAt: string;
   nextReviewAt: string;
 };
@@ -153,12 +240,21 @@ export type ScenarioInput = {
   tempObservedAt?: string | null;
   flow?: FlowClass;
   stillState?: StillState;
+  /** Saltwater's equivalent of flow and stillwater state. */
+  tideMovement?: TideMovement;
+  tideStrength?: TideStrength;
   clarity: Clarity;
   light: Light;
   weather: WeatherTrend;
   season: Season;
   holdingRiver?: RiverHolding | null;
   holdingStill?: StillHolding | null;
+  /**
+   * One field for all four marine types: only one water type is declared at a
+   * time, and each carries its own class list, so a per-type field would only
+   * ever hold one value between them.
+   */
+  holdingMarine?: MarineHolding | null;
   forage?: ForagePacket | null;
 };
 
@@ -238,6 +334,13 @@ export type HthPacket = {
     tempSource: TempSource;
     flow?: FlowClass;
     stillState?: StillState;
+    /**
+     * Saltwater movement. Optional so that a Hook app which only knows flowing
+     * and stillwater can still read this packet — it sees a water type it does
+     * not recognise and falls back, rather than choking on a required field.
+     */
+    tideMovement?: TideMovement;
+    tideStrength?: TideStrength;
     clarity: Clarity;
     light: Light;
     weather: WeatherTrend;

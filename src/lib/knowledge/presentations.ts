@@ -1,10 +1,18 @@
 import type { PresentationId } from "../protocol/types.ts";
-import type { WaterType } from "../protocol/vocab.ts";
+import type { PresentationSlot } from "../protocol/vocab.ts";
 
 export type PresentationFamily = {
   id: PresentationId;
   label: string;
-  water: WaterType | "both";
+  /**
+   * Where this family may be offered. `both` is the two freshwater types;
+   * `saltwater` is all four marine ones; an array lists specific waters.
+   *
+   * A list rather than a duplicate record: vertical jigging a wreck is the same
+   * job as vertical jigging a hump, and giving it two names would let the two
+   * copies drift apart.
+   */
+  water: PresentationSlot | PresentationSlot[];
   job: string;
   mechanics: string[];
   system: Record<string, string>;
@@ -206,7 +214,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "horizontal_retrieve",
     label: "Horizontal retrieve",
-    water: "stillwater",
+    water: ["stillwater", "inshore", "surf"],
     job: "Move a swimming bait through a chosen depth band along structure or open water.",
     mechanics: ["count down", "steady or pulsing retrieve", "keep the band", "cover the edge"],
     system: {
@@ -222,7 +230,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "stop_and_go",
     label: "Stop-and-go",
-    water: "stillwater",
+    water: ["stillwater", "inshore"],
     job: "Imitate injured or hesitating prey by mixing travel with pauses that hold the bait in the strike zone.",
     mechanics: ["travel", "pause", "keep depth on the pause", "restart without jumping the band"],
     system: {
@@ -254,7 +262,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "vertical_jig",
     label: "Vertical jig",
-    water: "stillwater",
+    water: ["stillwater", "nearshore", "offshore"],
     job: "Work a compact bait up and down through a marked depth, basin, or timber pocket.",
     mechanics: ["stay over the target", "measured lift", "controlled drop", "watch slack"],
     system: {
@@ -270,7 +278,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "bottom_contact",
     label: "Bottom contact",
-    water: "stillwater",
+    water: ["stillwater", "nearshore"],
     job: "Keep a bait on or just above the substrate along a break, flat, or inside a weed edge.",
     mechanics: ["feel bottom", "drag or hop", "pause on the break", "stay in contact"],
     system: {
@@ -302,7 +310,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "drop_presentation",
     label: "Drop presentation",
-    water: "stillwater",
+    water: ["stillwater", "nearshore"],
     job: "Let a bait fall on a controlled line into cover, along a wall, or through a hole in vegetation.",
     mechanics: ["place then fall", "watch the line", "hold at depth", "short hop only after the fall"],
     system: {
@@ -318,7 +326,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "surface_retrieve",
     label: "Surface retrieve",
-    water: "stillwater",
+    water: ["stillwater", "inshore", "surf"],
     job: "Work a floating bait across shade, weed edges, or low-light shallows.",
     mechanics: ["walk, pop, or crawl", "pause in holes", "keep it on top", "cover the edge"],
     system: {
@@ -350,7 +358,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "suspended_stationary",
     label: "Suspended stationary",
-    water: "stillwater",
+    water: ["stillwater", "offshore"],
     job: "Park a live or scent bait in the column where fish are already using a depth band.",
     mechanics: ["find the band", "hold it", "minimal motion", "refresh bait"],
     system: {
@@ -366,7 +374,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "trolling",
     label: "Trolling",
-    water: "stillwater",
+    water: ["stillwater", "nearshore", "offshore"],
     job: "Cover a depth contour or basin at a controlled speed to intercept mobile fish.",
     mechanics: ["speed control", "depth control", "follow the contour", "turn to change action"],
     system: {
@@ -382,7 +390,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   {
     id: "live_natural_bait_suspension",
     label: "Live / natural bait suspension",
-    water: "both",
+    water: ["stillwater", "inshore", "nearshore"],
     job: "Present a natural food form with enough life or scent to hold in a station without looking mechanical.",
     mechanics: ["keep it alive or fresh", "match the holding depth", "minimize hardware bulk", "detect without pulling it away"],
     system: {
@@ -393,6 +401,237 @@ export const PRESENTATIONS: PresentationFamily[] = [
       coverResistance: "moderate",
       lineVisibilityPreference: "low",
       retieFrequency: "high",
+    },
+  },
+
+  // ---------------------------------------------------------------- saltwater
+  //
+  // Tide is the axis these are ranked on the way flow ranks the river families.
+  // Several freshwater families genuinely transfer to salt — vertical jigging a
+  // wreck is vertical jigging — and those are re-slotted rather than duplicated
+  // under new names.
+  {
+    id: "surf_bait_soak",
+    label: "Surf bait soak",
+    water: "surf",
+    job: "Hold a natural bait still on the bottom of a trough or cut and let moving water bring fish to it.",
+    mechanics: ["enough lead to hold", "read the trough", "let the rod load", "reset as the tide moves the bar"],
+    system: {
+      depthControl: "low",
+      sensitivity: "moderate",
+      castingDistance: "long",
+      lureWeightBand: "2–8 oz of lead",
+      coverResistance: "moderate",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "high",
+    },
+  },
+  {
+    id: "surf_metal_cast",
+    label: "Surf metal cast",
+    water: "surf",
+    job: "Cover water beyond the break with a dense casting lure and retrieve it back through bars and rips.",
+    mechanics: ["distance first", "keep it moving", "work the rip edge", "vary retrieve height"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "moderate",
+      castingDistance: "very_long",
+      lureWeightBand: "1–3 oz",
+      coverResistance: "moderate",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "surf_swim_retrieve",
+    label: "Surf swim retrieve",
+    water: "surf",
+    job: "Swim a soft-bodied bait at a chosen height through the trough where fish are already feeding.",
+    mechanics: ["slow enough to stay down", "quarter into the current", "pause on the drop-off", "feel the sand"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "high",
+      castingDistance: "long",
+      lureWeightBand: "1/2–2 oz",
+      coverResistance: "moderate",
+      lineVisibilityPreference: "moderate",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "flats_sight_cast",
+    label: "Flats sight cast",
+    water: "inshore",
+    job: "Present to a fish you have actually seen, leading it so the bait arrives without landing on it.",
+    mechanics: ["spot first, cast second", "lead the fish", "quiet entry", "strip or retrieve across its path"],
+    system: {
+      depthControl: "low",
+      sensitivity: "high",
+      castingDistance: "moderate",
+      lureWeightBand: "unweighted to 1/4 oz",
+      coverResistance: "low",
+      lineVisibilityPreference: "low",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "tidal_drift_bait",
+    label: "Tidal drift bait",
+    water: "inshore",
+    job: "Let a natural bait travel at the speed of the tide along an edge fish are feeding on.",
+    mechanics: ["match weight to the run", "stay in the seam", "let it swing at the end", "reset up-tide"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "high",
+      castingDistance: "short_to_moderate",
+      lureWeightBand: "1/8–1 oz",
+      coverResistance: "moderate",
+      lineVisibilityPreference: "low",
+      retieFrequency: "high",
+    },
+  },
+  {
+    id: "structure_pitch",
+    label: "Structure pitch",
+    water: "inshore",
+    job: "Put a bait tight against hard structure and get it out again before the tide sweeps it into the barnacles.",
+    mechanics: ["accurate short casts", "immediate contact", "lead them out", "expect abrasion"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "high",
+      castingDistance: "short",
+      lureWeightBand: "1/8–3/4 oz",
+      coverResistance: "high",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "very_high",
+    },
+  },
+  {
+    id: "dock_light_ambush",
+    label: "Light-edge ambush",
+    water: "inshore",
+    job: "Work the dark side of a lit water edge where predators wait for bait pushed through it.",
+    mechanics: ["fish the shadow line", "up-current presentation", "let it drift into the light", "no wake"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "high",
+      castingDistance: "short",
+      lureWeightBand: "1/16–1/2 oz",
+      coverResistance: "moderate",
+      lineVisibilityPreference: "low",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "structure_vertical",
+    label: "Structure vertical",
+    water: "nearshore",
+    job: "Hold a presentation in the water column directly over hard structure and stay there as the boat moves.",
+    mechanics: ["stay vertical", "hold the depth band", "short lifts", "reset when the line angles"],
+    system: {
+      depthControl: "high",
+      sensitivity: "high",
+      castingDistance: "none",
+      lureWeightBand: "2–16 oz",
+      coverResistance: "high",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "high",
+    },
+  },
+  {
+    id: "chum_established_drift",
+    label: "Chum-established drift",
+    water: "saltwater",
+    job: "Establish a scent trail and drift baits back through it at the speed the current is already moving.",
+    mechanics: ["consistent trail", "unweighted or lightly weighted drop-back", "match the sink to the drift", "do not outpace the trail"],
+    system: {
+      depthControl: "low",
+      sensitivity: "high",
+      castingDistance: "none",
+      lureWeightBand: "unweighted to 2 oz",
+      coverResistance: "low",
+      lineVisibilityPreference: "low",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "tide_line_drift",
+    label: "Tide-line drift",
+    water: "saltwater",
+    job: "Fish the visible seam where two bodies of water meet, letting the rip do the work.",
+    mechanics: ["find the colour change", "present up-current of the edge", "let it wash through", "re-run the line"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "moderate",
+      castingDistance: "moderate",
+      lureWeightBand: "1/4–3 oz",
+      coverResistance: "low",
+      lineVisibilityPreference: "moderate",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "trolling_spread",
+    label: "Trolling spread",
+    water: "offshore",
+    job: "Pull several baits at different distances and depths so one crosses a fish travelling through open water.",
+    mechanics: ["stagger the spread", "match speed to the bait", "work the edge, not the middle", "turn on marks"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "low",
+      castingDistance: "none",
+      lureWeightBand: "trolling weights and heads",
+      coverResistance: "low",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "low",
+    },
+  },
+  {
+    id: "deep_drop",
+    label: "Deep drop",
+    water: "offshore",
+    job: "Put bait on the bottom in water deep enough that the drop itself is most of the work.",
+    mechanics: ["heavy enough to go straight down", "know when you are down", "short lift to check", "wind steadily"],
+    system: {
+      depthControl: "high",
+      sensitivity: "low",
+      castingDistance: "none",
+      lureWeightBand: "8–48 oz",
+      coverResistance: "moderate",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "run_and_gun_cast",
+    label: "Run-and-gun cast",
+    water: "saltwater",
+    job: "Cast into visible surface activity without running the school over.",
+    mechanics: ["approach up-wind and off to the side", "cast to the edge of the bust", "fast retrieve", "leave before you scatter it"],
+    system: {
+      depthControl: "low",
+      sensitivity: "moderate",
+      castingDistance: "long",
+      lureWeightBand: "3/4–3 oz",
+      coverResistance: "low",
+      lineVisibilityPreference: "secondary",
+      retieFrequency: "moderate",
+    },
+  },
+  {
+    id: "live_bait_slow_troll",
+    label: "Live-bait slow troll",
+    water: "saltwater",
+    job: "Move live bait just fast enough to cover water while it still swims naturally.",
+    mechanics: ["barely-moving speed", "bait leads the boat", "let it swim", "drop back on a follow"],
+    system: {
+      depthControl: "moderate",
+      sensitivity: "high",
+      castingDistance: "none",
+      lureWeightBand: "unweighted to 4 oz",
+      coverResistance: "low",
+      lineVisibilityPreference: "low",
+      retieFrequency: "moderate",
     },
   },
 ];

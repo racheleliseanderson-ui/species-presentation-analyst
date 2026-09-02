@@ -7,6 +7,16 @@ import { interpret } from "./infer.ts";
 
 const brown = SPECIES_BY_ID.salmo_trutta;
 
+// Brown trout is one of the best-sourced records in the catalog; if its band
+// ever goes missing, that is a catalog regression and not something this test
+// should paper over.
+const brownThermal = brown.thermal;
+if (!brownThermal?.preferredF || !brownThermal.activeF) {
+  throw new Error("salmo_trutta must carry a full reviewed thermal band");
+}
+const brownPreferred = brownThermal.preferredF;
+const brownActive = brownThermal.activeF;
+
 function scenario(range: TemperatureRangeF): ScenarioInput {
   return {
     speciesId: "salmo_trutta",
@@ -30,7 +40,7 @@ function scenario(range: TemperatureRangeF): ScenarioInput {
 
 describe("temperature ranges and unknown season", () => {
   it("uses a range that stays wholly inside one thermal state without inventing a midpoint", () => {
-    const range: TemperatureRangeF = [...brown.thermal.preferredF];
+    const range: TemperatureRangeF = [...brownPreferred];
     const result = interpret(scenario(range));
     assert.ok(!("error" in result), "expected a reading");
     if ("error" in result) return;
@@ -49,8 +59,8 @@ describe("temperature ranges and unknown season", () => {
 
   it("withholds a single thermal bias when a range crosses thermal states", () => {
     const range: TemperatureRangeF = [
-      brown.thermal.activeF[0],
-      brown.thermal.preferredF[0],
+      brownActive[0],
+      brownPreferred[0],
     ];
     const result = interpret(scenario(range));
     assert.ok(!("error" in result), "expected a reading");
@@ -67,7 +77,7 @@ describe("temperature ranges and unknown season", () => {
   });
 
   it("round-trips a temperature range through the HTH packet without coordinates or midpoint synthesis", () => {
-    const range: TemperatureRangeF = [...brown.thermal.preferredF];
+    const range: TemperatureRangeF = [...brownPreferred];
     const input = scenario(range);
     const result = interpret(input);
     assert.ok(!("error" in result), "expected a reading");

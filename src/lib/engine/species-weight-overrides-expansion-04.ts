@@ -1,6 +1,9 @@
 import type { PresentationId, ScenarioInput, ThermalState } from "../protocol/types.ts";
 import type { ForageClass, Season, WaterType } from "../protocol/vocab.ts";
-import type { SpeciesWeightOverrideRule } from "./species-weight-overrides.ts";
+import {
+  matchesOverrideRule,
+  type SpeciesWeightOverrideRule,
+} from "./species-weight-overrides.ts";
 import type { SpeciesOverrideCoverageRecord } from "./species-weight-overrides-expansion.ts";
 
 export const SPECIES_OVERRIDE_EXPANSION_04_VERSION = "SPO-1.2" as const;
@@ -101,7 +104,7 @@ export const SPECIES_WEIGHT_OVERRIDES_EXPANSION_04: SpeciesWeightOverrideRule[] 
   rule(
     "arctic-char-piscivory-depth",
     "salvelinus_alpinus",
-    { forage: ["small_forage_fish", "larger_prey_fish"], holding: ["basin", "drop_off", "submerged_hump", "thermocline_edge"] },
+    { forage: ["small_forage_fish", "larger_prey_fish"], holding: ["basin", "drop_off", "thermocline_edge"] },
     { trolling: 10, horizontal_retrieve: 8, vertical_jig: 8, slow_drag: 4, surface_retrieve: -5 },
     "Large piscivorous Arctic char can become depth- and fish-prey oriented; lake polymorphism is preserved rather than averaged away.",
   ),
@@ -233,27 +236,11 @@ export const SPECIES_WEIGHT_OVERRIDES_EXPANSION_04: SpeciesWeightOverrideRule[] 
   ),
 ];
 
-function matchesRule(
-  rule: SpeciesWeightOverrideRule,
-  input: ScenarioInput,
-  thermalState: ThermalState,
-): boolean {
-  if (rule.speciesId !== input.speciesId) return false;
-  if (rule.when.seasons && !rule.when.seasons.includes(input.season)) return false;
-  if (rule.when.thermalStates && !rule.when.thermalStates.includes(thermalState)) return false;
-  if (rule.when.waterTypes && !rule.when.waterTypes.includes(input.waterType)) return false;
-  const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
-  if (rule.when.holding && (!holding || !rule.when.holding.includes(holding))) return false;
-  if (rule.when.light && !rule.when.light.includes(input.light)) return false;
-  if (rule.when.forage && (!input.forage || !rule.when.forage.includes(input.forage.class))) return false;
-  return true;
-}
-
 export function matchingSpeciesWeightOverrideExpansion04(
   input: ScenarioInput,
   thermalState: ThermalState,
 ): SpeciesWeightOverrideRule[] {
   return SPECIES_WEIGHT_OVERRIDES_EXPANSION_04.filter((entry) =>
-    matchesRule(entry, input, thermalState),
+    matchesOverrideRule(entry, input, thermalState),
   );
 }

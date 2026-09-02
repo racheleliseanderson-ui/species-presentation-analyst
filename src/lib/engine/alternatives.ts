@@ -12,6 +12,7 @@
  */
 
 import type { SpeciesOverlays } from "../knowledge/overlays.ts";
+import { declaredHolding, reviewedHoldingFor } from "./water.ts";
 import type { Interpretation, RankedPresentation, ScenarioInput } from "../protocol/types.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
@@ -70,11 +71,8 @@ export function alternatives(
 
   // 2. Right presentation, wrong water. Reviewed holding classes the angler has
   //    not declared — never a coordinate, always a class of structure.
-  const declared = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
-  const reviewed =
-    input.waterType === "flowing"
-      ? result.species.habitat.riverHolding
-      : result.species.habitat.stillHolding;
+  const declared = declaredHolding(input);
+  const reviewed = reviewedHoldingFor(result.species, input.waterType);
   const untried = reviewed.filter((item) => item !== declared).slice(0, 3);
   if (untried.length > 0) {
     out.push({

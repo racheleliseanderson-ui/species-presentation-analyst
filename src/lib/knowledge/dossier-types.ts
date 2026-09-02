@@ -115,8 +115,14 @@ export type SeasonalDietNote = {
 export type DietDossier = {
   speciesId: string;
   status: "reviewed" | "partial";
-  feedingStyle: FeedingStyle;
-  feedingZone: FeedingZone;
+  /**
+   * Optional because a reviewer must be able to say "no diet source exists for
+   * this fish". Requiring them forced at least one record to write a
+   * placeholder and then warn, in its own gaps, that the placeholder was not
+   * sourced — which is precisely the failure this schema is meant to prevent.
+   */
+  feedingStyle?: FeedingStyle;
+  feedingZone?: FeedingZone;
   primaryForage: ForageClass[];
   primaryNote: string;
   seasonalDiet?: SeasonalDietNote[];

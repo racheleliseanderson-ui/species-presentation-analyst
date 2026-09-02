@@ -1,4 +1,5 @@
 import { interpret } from "./infer.ts";
+import { declareHolding, declaredHolding } from "./water.ts";
 import { normalizeTemperatureRangeF } from "./temperature.ts";
 import { SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import type {
@@ -6,7 +7,8 @@ import type {
   RankedPresentation,
   ScenarioInput,
 } from "../protocol/types.ts";
-import type { RiverHolding, StillHolding } from "../protocol/vocab.ts";
+import { isMarine } from "../protocol/vocab.ts";
+import type { MarineHolding, RiverHolding, StillHolding } from "../protocol/vocab.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
 export type AdaptiveQuestionId =
@@ -14,7 +16,8 @@ export type AdaptiveQuestionId =
   | "time"
   | "holding"
   | "forage"
-  | "clarity";
+  | "clarity"
+  | "tide";
 
 export type AdaptiveQuestion = {
   id: AdaptiveQuestionId;
@@ -36,7 +39,7 @@ export type CoarseHoldingChoice = {
   id: string;
   label: string;
   detail: string;
-  holding: RiverHolding | StillHolding;
+  holding: RiverHolding | StillHolding | MarineHolding;
 };
 
 function interpretation(input: ScenarioInput): Interpretation | null {
@@ -60,13 +63,24 @@ function distinctTopIds(inputs: ScenarioInput[]): string[] {
 
 function temperatureCouldMatter(input: ScenarioInput): boolean {
   const species = SPECIES_BY_ID[input.speciesId];
-  if (!species) return false;
+  if (!species?.thermal) return false;
 
-  const preferredMid = Math.round(
-    (species.thermal.preferredF[0] + species.thermal.preferredF[1]) / 2,
-  );
-  const coldProbe = Math.max(32, Math.round(species.thermal.coldEdgeF - 2));
-  const warmProbe = Math.round(species.thermal.warmEdgeF + 2);
+  // Probe the reviewed band at three points and see whether the ranking moves.
+  // With no band there is nothing to probe: measuring the water would change
+  // nothing about this reading, so the app must not ask the angler to go and
+  // do it. Where only part of the band is reviewed, probe from what exists —
+  // an edge alone still tells us which temperatures are worth testing.
+  const thermal = species.thermal;
+  const inner = thermal.preferredF ?? thermal.activeF;
+  const cold = thermal.coldEdgeF ?? inner?.[0];
+  const warm = thermal.warmEdgeF ?? inner?.[1];
+  if (cold == null && warm == null) return false;
+
+  const preferredMid = inner
+    ? Math.round((inner[0] + inner[1]) / 2)
+    : Math.round(((cold ?? warm!) + (warm ?? cold!)) / 2);
+  const coldProbe = Math.max(32, Math.round((cold ?? preferredMid) - 2));
+  const warmProbe = Math.round((warm ?? preferredMid) + 2);
 
   return (
     distinctTopIds([
@@ -105,20 +119,22 @@ function forageCouldMatter(input: ScenarioInput): boolean {
 function holdingCouldMatter(input: ScenarioInput): boolean {
   const choices = coarseHoldingChoices(input);
   if (choices.length < 2) return false;
-  const variants = choices.map((choice): ScenarioInput =>
-    input.waterType === "flowing"
-      ? {
-          ...input,
-          holdingRiver: choice.holding as RiverHolding,
-          holdingStill: null,
-        }
-      : {
-          ...input,
-          holdingRiver: null,
-          holdingStill: choice.holding as StillHolding,
-        },
-  );
+  const variants = choices.map((choice): ScenarioInput => ({
+    ...input,
+    ...declareHolding(input.waterType, choice.holding),
+  }));
   return distinctTopIds([input, ...variants]).length > 1;
+}
+
+function tideCouldMatter(input: ScenarioInput): boolean {
+  if (!isMarine(input.waterType)) return false;
+  return (
+    distinctTopIds([
+      { ...input, tideMovement: "flooding" },
+      { ...input, tideMovement: "ebbing" },
+      { ...input, tideMovement: "slack_low" },
+    ]).length > 1
+  );
 }
 
 function clarityCouldMatter(input: ScenarioInput): boolean {
@@ -145,7 +161,23 @@ export function nextAdaptiveQuestion(
     };
   }
 
-  const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
+  // Asked before holding water on saltwater, because on the marine records the
+  // tide is what most often changes the answer — and because an angler knows
+  // what the tide is doing without having to classify anything.
+  if (
+    isMarine(input.waterType) &&
+    (!input.tideMovement || input.tideMovement === "unknown") &&
+    tideCouldMatter(input)
+  ) {
+    return {
+      id: "tide",
+      prompt: "What is the tide doing?",
+      reason:
+        "On saltwater the tide is the movement this reading is ranked on, the way flow is on a river. It changes the leading family for this species.",
+    };
+  }
+
+  const holding = declaredHolding(input);
   if (!holding && holdingCouldMatter(input)) {
     return {
       id: "holding",
@@ -271,40 +303,120 @@ export function coarseHoldingChoices(input: ScenarioInput): CoarseHoldingChoice[
     });
   }
 
-  const reviewed = species.habitat.stillHolding;
-  const groups: Array<{
+  if (input.waterType === "stillwater") {
+    const reviewed = species.habitat.stillHolding;
+    const groups: Array<{
+      id: string;
+      label: string;
+      detail: string;
+      candidates: StillHolding[];
+    }> = [
+      {
+        id: "cover",
+        label: "Vegetation / wood / shade",
+        detail: "Weed edge, wood, dock shade or similar cover",
+        candidates: ["weed_edge", "outside_weedline", "wood", "dock_shade"],
+      },
+      {
+        id: "hard-structure",
+        label: "Point / rock / break",
+        detail: "Point, breakline, drop-off, hump, riprap or rocky shoreline",
+        candidates: ["breakline", "point", "drop_off", "submerged_hump", "rocky_shoreline"],
+      },
+      {
+        id: "open-deep",
+        label: "Open / deeper water",
+        detail: "Suspended fish, basin or thermocline-related water",
+        candidates: ["suspended_open", "basin", "thermocline_edge"],
+      },
+      {
+        id: "shallow-edge",
+        label: "Shallow / shoreline edge",
+        detail: "Flat, inlet, outlet or shallow margin",
+        candidates: ["shallow_flat", "inlet", "outlet"],
+      },
+    ];
+
+    return groups.flatMap((group) => {
+      const holding = firstReviewed(reviewed, group.candidates);
+      return holding ? [{ ...group, holding }] : [];
+    });
+  }
+
+  // Saltwater. Quick Read exists for someone who does not yet know the
+  // vocabulary, so these are the shapes of water a person can actually see from
+  // where they are standing, each mapping onto a reviewed holding class.
+  const reviewed = species.habitat.marineHolding?.[input.waterType] ?? [];
+  const marineGroups: Array<{
     id: string;
     label: string;
     detail: string;
-    candidates: StillHolding[];
+    candidates: MarineHolding[];
   }> = [
     {
-      id: "cover",
-      label: "Vegetation / wood / shade",
-      detail: "Weed edge, wood, dock shade or similar cover",
-      candidates: ["weed_edge", "outside_weedline", "wood", "dock_shade"],
+      id: "shallow-feeding-ground",
+      label: "Shallow feeding ground",
+      detail: "Grass flat, sand hole or open shallow bottom",
+      candidates: ["grass_flat", "sand_hole", "shell_bank"],
+    },
+    {
+      id: "moving-water-edge",
+      label: "Where the water is moving",
+      detail: "Creek mouth, channel edge, rip, inlet or cut",
+      candidates: [
+        "creek_mouth",
+        "tidal_creek",
+        "channel_edge",
+        "rip_channel",
+        "beach_cut",
+        "inlet_mouth",
+        "current_rip",
+      ],
     },
     {
       id: "hard-structure",
-      label: "Point / rock / break",
-      detail: "Point, breakline, drop-off, hump, riprap or rocky shoreline",
-      candidates: ["breakline", "point", "drop_off", "submerged_hump", "rocky_shoreline"],
+      label: "Hard structure",
+      detail: "Reef, wreck, rock, jetty, piling or dock",
+      candidates: [
+        "nearshore_reef",
+        "artificial_reef",
+        "wreck",
+        "rock_pile",
+        "jetty_wash",
+        "bridge_piling",
+        "pier_structure",
+        "oyster_bar",
+        "deep_wreck",
+        "offshore_ledge",
+      ],
     },
     {
-      id: "open-deep",
-      label: "Open / deeper water",
-      detail: "Suspended fish, basin or thermocline-related water",
-      candidates: ["suspended_open", "basin", "thermocline_edge"],
+      id: "vegetated-edge",
+      label: "Vegetated or overhanging edge",
+      detail: "Marsh grass, mangrove, kelp or a weed line",
+      candidates: ["marsh_edge", "mangrove_edge", "kelp_edge", "weed_line"],
     },
     {
-      id: "shallow-edge",
-      label: "Shallow / shoreline edge",
-      detail: "Flat, inlet, outlet or shallow margin",
-      candidates: ["shallow_flat", "inlet", "outlet"],
+      id: "beach-bar",
+      label: "Bar or trough off the beach",
+      detail: "The trough at your feet, or the bar beyond it",
+      candidates: ["surf_trough", "inner_sandbar", "outer_sandbar", "surf_point"],
+    },
+    {
+      id: "open-water-sign",
+      label: "Open water with something showing",
+      detail: "Bait on the surface, a colour change or a rip line",
+      candidates: ["open_bait_school", "temperature_break", "nearshore_hump", "seamount", "canyon_edge"],
+    },
+    {
+      id: "light-edge",
+      label: "A light on the water after dark",
+      detail: "Dock or bridge light throwing a shadow line",
+      candidates: ["dock_light"],
     },
   ];
 
-  return groups.flatMap((group) => {
+  return marineGroups.flatMap((group) => {
     const holding = firstReviewed(reviewed, group.candidates);
     return holding ? [{ ...group, holding }] : [];
   });

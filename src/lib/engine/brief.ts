@@ -1,4 +1,5 @@
 import { alternatives } from "./alternatives.ts";
+import { declaredHolding } from "./water.ts";
 import { responseRead, seasonRead } from "./condition-read.ts";
 import { EMPTY_OVERLAYS, type SpeciesOverlays } from "../knowledge/overlays.ts";
 import type { Interpretation, ScenarioInput } from "../protocol/types.ts";
@@ -83,14 +84,8 @@ export function fieldBrief(
   overlays: SpeciesOverlays = EMPTY_OVERLAYS,
 ): string {
   const species = result.species;
-  const holding =
-    input.waterType === "flowing"
-      ? input.holdingRiver
-        ? labelOf(input.holdingRiver)
-        : "not chosen"
-      : input.holdingStill
-        ? labelOf(input.holdingStill)
-        : "not chosen";
+  const declared = declaredHolding(input);
+  const holding = declared ? labelOf(declared) : "not chosen";
   const temp =
     input.tempF == null ? "Temperature unknown" : `${input.tempF}°F · ${temperatureEvidenceLabel(input).replace("temperature unknown", "UNKNOWN")}`;
   const water = input.water.waterName || "No named public water added";
@@ -227,14 +222,8 @@ function alternativeLines(
 }
 
 export function packetSummary(input: ScenarioInput, result: Interpretation): { label: string; value: string }[] {
-  const holding =
-    input.waterType === "flowing"
-      ? input.holdingRiver
-        ? labelOf(input.holdingRiver)
-        : "not chosen"
-      : input.holdingStill
-        ? labelOf(input.holdingStill)
-        : "not chosen";
+  const declared = declaredHolding(input);
+  const holding = declared ? labelOf(declared) : "not chosen";
   return [
     { label: "Species", value: `${result.species.commonNames[0]} (${result.species.scientificName})` },
     { label: "Water", value: input.water.waterName || "No named public water added" },

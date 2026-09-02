@@ -17,6 +17,7 @@ import {
 import { applyPopulationContextWeighting } from "./population-context-weighting.ts";
 import {
   hasTemperatureQuantity,
+  hasThermalBand,
   resolveThermalState,
   temperatureEvidenceLabel,
   type ThermalResolution,
@@ -26,30 +27,79 @@ import type {
   RankedPresentation,
   ResolvedPopulationContext,
   ScenarioInput,
+  SpeciesRecord,
 } from "../protocol/types.ts";
 import type { Confidence, ForageClass } from "../protocol/vocab.ts";
-import { labelOf } from "../protocol/vocab.ts";
+import { isMarine, labelOf } from "../protocol/vocab.ts";
+import { declaredHolding, movementDeclared, reviewedHoldingFor } from "./water.ts";
+
+/**
+ * The reviewed band, in the shortest phrase that is still true.
+ *
+ * Returns null when the species has no published band at all, which is the
+ * case for roughly a third of the saltwater catalog. Callers must say that
+ * out loud rather than printing an empty range.
+ */
+function bandLabel(species: SpeciesRecord): string | null {
+  const thermal = species.thermal;
+  if (!thermal) return null;
+
+  const parts: string[] = [];
+  if (thermal.preferredF) parts.push(`${thermal.preferredF[0]}–${thermal.preferredF[1]}°F preferred`);
+  else if (thermal.activeF) parts.push(`${thermal.activeF[0]}–${thermal.activeF[1]}°F active`);
+  else if (thermal.coldEdgeF != null && thermal.warmEdgeF != null) {
+    parts.push(`${thermal.coldEdgeF}–${thermal.warmEdgeF}°F between the reviewed edges`);
+  } else if (thermal.coldEdgeF != null) parts.push(`cold edge ${thermal.coldEdgeF}°F`);
+  else if (thermal.warmEdgeF != null) parts.push(`warm edge ${thermal.warmEdgeF}°F`);
+
+  if (parts.length === 0) return null;
+
+  // An angler reads "prefers 72°F" and "is caught at 72°F" as the same
+  // sentence. They are not, and the sources conflate them constantly, so where
+  // the record knows the difference it is said.
+  if (thermal.basis === "distribution") parts.push("from where it is found, not a measured preference");
+  else if (thermal.basis === "mixed") parts.push("mixed preference and distribution data");
+
+  return parts.join("; ");
+}
 
 function thermalLabel(
   resolution: ThermalResolution,
-  species: NonNullable<typeof SPECIES_BY_ID[string]>,
+  species: SpeciesRecord,
 ): string {
-  const band = `${species.thermal.preferredF[0]}–${species.thermal.preferredF[1]}°F preferred`;
+  const band = bandLabel(species);
+  const suffix = band ? ` (${band})` : "";
+
+  // No reviewed band. The temperature the angler measured is real; what is
+  // missing is anything to compare it against, and saying so is the whole
+  // difference between an honest gap and a silent one.
+  if (!band) {
+    if (resolution.exactF != null) {
+      return `${resolution.exactF}°F measured, but no reviewed thermal band exists for this species, so temperature does not move this reading`;
+    }
+    if (resolution.rangeF) {
+      return `${resolution.rangeF[0]}–${resolution.rangeF[1]}°F, but no reviewed thermal band exists for this species, so temperature does not move this reading`;
+    }
+    return "Water temperature unknown, and no reviewed thermal band exists for this species";
+  }
 
   if (resolution.exactF != null) {
     const tempF = resolution.exactF;
     if (resolution.state === "preferred") {
-      return `${tempF}°F is inside the preferred band (${band})`;
+      return `${tempF}°F is inside the preferred band${suffix}`;
     }
     if (resolution.state === "active") {
-      return `${tempF}°F is metabolically active but outside the preferred core (${band})`;
+      return `${tempF}°F is metabolically active but outside the preferred core${suffix}`;
     }
     if (resolution.state === "cold_refuge") {
-      return `${tempF}°F is on the cold side of this species' usual feeding band`;
+      return `${tempF}°F is on the cold side of this species' usual feeding band${suffix}`;
     }
     if (resolution.state === "warm_stress") {
-      return `${tempF}°F is on the warm/stress side of this species' usual feeding band`;
+      return `${tempF}°F is on the warm/stress side of this species' usual feeding band${suffix}`;
     }
+    // A partial band that does not reach this reading — say which, rather than
+    // implying the temperature was never given.
+    return `${tempF}°F falls outside what the reviewed record describes${suffix}`;
   }
 
   if (resolution.rangeF) {
@@ -57,10 +107,10 @@ function thermalLabel(
     if (resolution.states.length === 1) {
       const state = resolution.states[0];
       if (state === "preferred") {
-        return `${low}–${high}°F stays inside the preferred band (${band})`;
+        return `${low}–${high}°F stays inside the preferred band${suffix}`;
       }
       if (state === "active") {
-        return `${low}–${high}°F stays inside the active band without crossing the preferred core (${band})`;
+        return `${low}–${high}°F stays inside the active band without crossing the preferred core${suffix}`;
       }
       if (state === "cold_refuge") {
         return `${low}–${high}°F stays on the cold side of this species' usual feeding band`;
@@ -73,7 +123,7 @@ function thermalLabel(
     const states = resolution.states
       .map((state) => state.replaceAll("_", " "))
       .join(" / ");
-    return `${low}–${high}°F spans ${states || "multiple"} thermal states; the model withholds a single thermal bias rather than inventing a midpoint (${band})`;
+    return `${low}–${high}°F spans ${states || "multiple"} thermal states; the model withholds a single thermal bias rather than inventing a midpoint${suffix}`;
   }
 
   return `Water temperature unknown · ${band}`;
@@ -93,8 +143,8 @@ function envCompleteness(input: ScenarioInput): Confidence {
     input.clarity === "unknown",
     input.light === "unknown",
     input.weather === "unknown",
-    input.waterType === "flowing" ? !input.flow || input.flow === "unknown" : !input.stillState || input.stillState === "unknown",
-    input.waterType === "flowing" ? !input.holdingRiver : !input.holdingStill,
+    !movementDeclared(input),
+    !declaredHolding(input),
   ];
   const n = missing.filter(Boolean).length;
   if (n <= 1) return "high";
@@ -155,10 +205,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   const thermalResolution = resolveThermalState(input, species);
   const tState = thermalResolution.state;
   const resolvedThermalLabel = thermalLabel(thermalResolution, species);
-  const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
+  const holding = declaredHolding(input);
   const holdingLabel = holding ? labelOf(holding) : "holding water undeclared";
 
-  const preferredHolds = input.waterType === "flowing" ? species.habitat.riverHolding : species.habitat.stillHolding;
+  const preferredHolds = reviewedHoldingFor(species, input.waterType);
   const holdMatch = holding ? preferredHolds.includes(holding as never) : false;
 
   const positioning: Interpretation["positioning"] = [];
@@ -198,6 +248,16 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       confidence: "moderate",
     });
   }
+  if (isMarine(input.waterType) && input.tideMovement && input.tideMovement !== "unknown") {
+    const moving = input.tideMovement === "flooding" || input.tideMovement === "ebbing";
+    positioning.unshift({
+      text: moving
+        ? `A ${labelOf(input.tideMovement).toLowerCase()} tide concentrates fish on the down-current side of structure and edges, where food is delivered to them.`
+        : `Slack water removes the delivery. Fish usually hold rather than feed, and what worked on the run often stops until it moves again.`,
+      confidence: "moderate",
+    });
+  }
+
   if (input.light === "low_light" || input.light === "night") {
     positioning.push({
       text: "Low light often allows shallower or less-covered positioning than the same water at midday.",
@@ -211,10 +271,10 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     whyParts.push("Season is undeclared, so season is not used to rank presentations.");
   }
   if (populationProfile) whyParts.push(populationProfile.note);
-  whyParts.push(species.habitat.currentPreference);
+  if (species.habitat.currentPreference) whyParts.push(species.habitat.currentPreference);
   // The species record already states the velocity/energy trade-off for some species.
   // Adding the generic sentence there restates the same idea in longer words, so skip it.
-  const speciesStatesVelocityTradeoff = /velocit|energy/i.test(species.habitat.currentPreference);
+  const speciesStatesVelocityTradeoff = /velocit|energy/i.test(species.habitat.currentPreference ?? "");
   if (
     input.waterType === "flowing" &&
     (input.flow === "moderate" || input.flow === "elevated") &&
@@ -230,18 +290,34 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (input.clarity === "stained" || input.clarity === "turbid") {
     whyParts.push("Reduced visibility often lets fish sit closer to the food lane and tolerate more presentation bulk.");
   }
-  whyParts.push(species.habitat.lightResponse);
+  if (species.habitat.lightResponse) whyParts.push(species.habitat.lightResponse);
+  else {
+    whyParts.push(
+      "No reviewed source describes how this species responds to light, so time of day is not part of this reading.",
+    );
+  }
+
+  const thermalBandReviewed = hasThermalBand(species);
 
   const invalidators = [
-    "rapid temperature movement",
+    ...(thermalBandReviewed ? ["rapid temperature movement"] : []),
     "substantial flow or level change",
-    species.spawning.note,
+    ...(species.spawning ? [species.spawning.note] : []),
     "heavy angling pressure",
     "unusually high turbidity",
     "forage concentrated somewhere else in the system",
     ...(populationProfile?.invalidators ?? []),
     ...species.exceptions,
   ];
+  if (!thermalBandReviewed) {
+    // Said as an invalidator rather than an unknown, because it is not
+    // something the angler can go and fix by wading out with a thermometer.
+    // It is a hole in what has been published about this fish, and the reading
+    // is weaker for it in a way the reader is entitled to know about.
+    invalidators.unshift(
+      "No agency or peer-reviewed thermal band has been found for this species, so this reading does not weigh water temperature at all. Temperature still moves these fish; this product simply has no sourced number to weigh it against.",
+    );
+  }
   if (targetStatus === "regulated_context") {
     invalidators.unshift(
       species.targetContext?.note ??
@@ -309,16 +385,31 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
       : null;
 
   const unknowns: string[] = [];
-  if (!hasTemperatureQuantity(input)) unknowns.push("water temperature");
-  else if (input.tempSource === "unknown") unknowns.push("water temperature provenance");
+  // Only ask for a temperature the reading can actually use. Prompting for a
+  // measurement that cannot move the ranking wastes the angler's time and
+  // implies the app knows something about this fish that it does not.
+  if (thermalBandReviewed) {
+    if (!hasTemperatureQuantity(input)) unknowns.push("water temperature");
+    else if (input.tempSource === "unknown") unknowns.push("water temperature provenance");
+  }
   if (input.season === "unknown") unknowns.push("season");
   if (input.clarity === "unknown") unknowns.push("clarity");
   if (input.light === "unknown") unknowns.push("light");
   if (input.weather === "unknown") unknowns.push("weather trend");
   if (!holding) unknowns.push("holding-water class");
   if (!input.forage) unknowns.push("observed forage");
-  if (input.waterType === "flowing" && (!input.flow || input.flow === "unknown")) unknowns.push("flow class");
-  if (input.waterType === "stillwater" && (!input.stillState || input.stillState === "unknown")) unknowns.push("stillwater state");
+  if (!movementDeclared(input)) {
+    unknowns.push(
+      input.waterType === "flowing"
+        ? "flow class"
+        : input.waterType === "stillwater"
+          ? "stillwater state"
+          : "tide movement",
+    );
+  }
+  if (isMarine(input.waterType) && (!input.tideStrength || input.tideStrength === "unknown")) {
+    unknowns.push("tide strength");
+  }
   if (species.targetContext?.verifyLocalRules && !input.water.jurisdiction) unknowns.push("current jurisdiction rules");
   if (populationProfilesForSpecies(species.id, input.waterType).length > 0 && !populationProfile) {
     unknowns.push("regional / population context");
@@ -341,7 +432,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
           ? "compressed, slower lies favored"
           : tState === "warm_stress"
             ? "refuge from heat / low oxygen favored"
-            : "thermal state unresolved";
+            : thermalBandReviewed
+              ? "thermal state unresolved"
+              : "no reviewed thermal band · temperature axis not applied";
   const trace = [
     species.commonNames[0],
     targetStatus === "regulated_context"
@@ -355,7 +448,11 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     temperatureEvidenceLabel(input),
     `season · ${labelOf(input.season)}`,
     labelOf(input.waterType),
-    input.waterType === "flowing" ? labelOf(input.flow ?? "unknown") : labelOf(input.stillState ?? "unknown"),
+    input.waterType === "flowing"
+      ? labelOf(input.flow ?? "unknown")
+      : input.waterType === "stillwater"
+        ? labelOf(input.stillState ?? "unknown")
+        : `tide ${labelOf(input.tideMovement ?? "unknown").toLowerCase()} · ${labelOf(input.tideStrength ?? "unknown").toLowerCase()}`,
     holdingLabel,
     input.forage ? `${labelOf(input.forage.class)} observed` : forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
     thermalTrace,

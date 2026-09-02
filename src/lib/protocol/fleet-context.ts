@@ -1,4 +1,4 @@
-import type { HthPacket } from "./types";
+import type { HthPacket } from "./types.ts";
 
 export const FLEET_CONTRACT = "HTH-FLEET-1.0" as const;
 const FLEET_SESSION_KEY = "hth-fleet-context-v1";

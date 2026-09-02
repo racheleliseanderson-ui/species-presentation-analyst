@@ -1,8 +1,8 @@
 /**
  * AFP seeding doctrine.
  *
- * Enrichment is a ranked queue of distinction groups, not a race to fill 75
- * encyclopedia pages. A wave lands only when every listed species has the
+ * Enrichment is a ranked queue of distinction groups, not a race to fill the
+ * catalog with encyclopedia pages. A wave lands only when every listed species has the
  * required overlays from agency or peer-reviewed sources. Missing research
  * stays missing. This file is the plan; live coverage is computed from the
  * dossier catalogs, never copied by hand.
@@ -157,7 +157,7 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "02g",
-    status: "next",
+    status: "landed",
     title: "Remaining salmonids and burbot",
     reason: "Whitefish, grayling, chars, sheefish, and burbot after the trout people actually open.",
     overlays: KNOWLEDGE_OVERLAYS,
@@ -172,16 +172,16 @@ export const SEED_WAVES: readonly SeedWave[] = [
   },
   {
     id: "03",
-    status: "queued",
-    title: "Recognition-only conservation records",
+    status: "landed",
+    title: "Recognition-first conservation records",
     reason:
-      "Bull trout and wild anadromous Atlantic salmon stay fail-closed. Identification helps people not confuse them. Behavior, diet, and seasonal calendars are not a how-to-target layer.",
-    overlays: ["identification"],
-    speciesIds: ["salvelinus_confluentus", "salmo_salar_anadromous"],
+      "Bull trout, wild anadromous Atlantic salmon and tarpon stay fail-closed. They carry the full four overlays as biological context — knowing what a fish is and what it does is not a targeting layer — but no presentation implication appears anywhere in them, and no weighting rule exists for them.",
+    overlays: KNOWLEDGE_OVERLAYS,
+    speciesIds: ["salvelinus_confluentus", "salmo_salar_anadromous", "megalops_atlanticus"],
   },
   {
     id: "04",
-    status: "queued",
+    status: "landed",
     title: "Remaining catalog",
     reason:
       "Drum, bowfin, smelt, eel, shad, sturgeons, paddlefish, and suckers after the fish people actually search.",
@@ -201,6 +201,81 @@ export const SEED_WAVES: readonly SeedWave[] = [
       "moxostoma_macrolepidotum",
     ],
   },
+  {
+    id: "05",
+    status: "landed",
+    title: "Saltwater inshore and surf",
+    reason:
+      "The fish a saltwater angler actually starts with: the ones reachable from a beach, a marsh edge, a bridge or a skiff on a flat. Written first because the four marine water types are only worth having if the inshore ones carry weight.",
+    overlays: KNOWLEDGE_OVERLAYS,
+    speciesIds: [
+      "sciaenops_ocellatus",
+      "cynoscion_nebulosus",
+      "centropomus_undecimalis",
+      "albula_vulpes",
+      "trachinotus_falcatus",
+      "archosargus_probatocephalus",
+      "pogonias_cromis",
+      "paralichthys_dentatus",
+      "cynoscion_regalis",
+      "pomatomus_saltatrix",
+      "scomberomorus_maculatus",
+    ],
+  },
+  {
+    id: "06",
+    status: "landed",
+    title: "Saltwater reef and bottom",
+    reason:
+      "Structure-oriented species where identification carries legal weight, because bag limits are species-specific and rockfish and grouper are routinely confused. Spawning appears as conservation context only: these are the aggregations that get fished out.",
+    overlays: KNOWLEDGE_OVERLAYS,
+    speciesIds: [
+      "tautoga_onitis",
+      "centropristis_striata",
+      "mycteroperca_microlepis",
+      "mycteroperca_phenax",
+      "lutjanus_campechanus",
+      "lutjanus_analis",
+      "ophiodon_elongatus",
+      "sebastes_miniatus",
+      "sebastes_maliger",
+      "sebastes_brevispinis",
+      "sebastes_variabilis",
+      "bodianus_pulcher",
+      "hippoglossus_stenolepis",
+    ],
+  },
+  {
+    id: "07",
+    status: "landed",
+    title: "Saltwater offshore and pelagic",
+    reason:
+      "Fish read on features rather than structure: temperature breaks, weed lines and current rips. Thermal sourcing is thinner here than anywhere else in the catalog and the records say so.",
+    overlays: KNOWLEDGE_OVERLAYS,
+    speciesIds: [
+      "seriola_dumerili",
+      "rachycentron_canadum",
+      "scomberomorus_cavalla",
+      "atractoscion_nobilis",
+      "kajikia_audax",
+      "coryphaena_hippurus",
+      "thunnus_albacares",
+    ],
+  },
+  {
+    id: "08",
+    status: "landed",
+    title: "Coastal sharks",
+    reason:
+      "Separated out because misidentifying a shark has legal consequences the rest of the catalog does not carry: several species are prohibited outright, blacktip and spinner are genuinely hard to tell apart, and state and federal rules disagree.",
+    overlays: KNOWLEDGE_OVERLAYS,
+    speciesIds: [
+      "carcharhinus_limbatus",
+      "carcharhinus_brevipinna",
+      "rhizoprionodon_terraenovae",
+      "sphyrna_tiburo",
+    ],
+  },
 ];
 
 export const FIELD_OPENER_IDS = [
@@ -209,6 +284,13 @@ export const FIELD_OPENER_IDS = [
   "micropterus_nigricans",
 ] as const;
 
+/**
+ * The wave being worked on now, or null when every wave has landed.
+ *
+ * Null is a real and currently correct answer: all 111 reviewed species carry
+ * all four overlays. Callers must render that as "the plan is complete", not
+ * as a missing value.
+ */
 export function nextSeedWave(): SeedWave | null {
   return SEED_WAVES.find((wave) => wave.status === "next") ?? null;
 }

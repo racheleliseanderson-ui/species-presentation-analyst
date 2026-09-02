@@ -15,9 +15,14 @@ import {
   SPECIES_OVERRIDE_EXPANSION_04_COVERAGE,
   SPECIES_WEIGHT_OVERRIDES_EXPANSION_04,
 } from "./species-weight-overrides-expansion-04.ts";
+import {
+  matchingSpeciesWeightOverrideMarine,
+  SPECIES_OVERRIDE_MARINE_COVERAGE,
+  SPECIES_WEIGHT_OVERRIDES_MARINE,
+} from "./species-weight-overrides-marine.ts";
 
-/** Composed species-specific model: SPO-1.0 legacy + SPO-1.1 + expansion 04. */
-export const SPECIES_OVERRIDE_MODEL_VERSION = "SPO-1.2" as const;
+/** Composed: SPO-1.0 legacy + SPO-1.1 + expansion 04 + SPO-1.3 saltwater. */
+export const SPECIES_OVERRIDE_MODEL_VERSION = "SPO-1.3" as const;
 
 const legacyCoverage: SpeciesOverrideCoverageRecord[] = Array.from(
   new Set(SPECIES_WEIGHT_OVERRIDES.map((entry) => entry.speciesId)),
@@ -32,12 +37,14 @@ export const SPECIES_OVERRIDE_COVERAGE: SpeciesOverrideCoverageRecord[] = [
   ...legacyCoverage,
   ...SPECIES_OVERRIDE_EXPANSION_COVERAGE,
   ...SPECIES_OVERRIDE_EXPANSION_04_COVERAGE,
+  ...SPECIES_OVERRIDE_MARINE_COVERAGE,
 ];
 
 export const SPECIES_WEIGHT_OVERRIDE_RULES: SpeciesWeightOverrideRule[] = [
   ...SPECIES_WEIGHT_OVERRIDES,
   ...SPECIES_WEIGHT_OVERRIDES_EXPANSION,
   ...SPECIES_WEIGHT_OVERRIDES_EXPANSION_04,
+  ...SPECIES_WEIGHT_OVERRIDES_MARINE,
 ];
 
 export function matchingSpeciesWeightOverrides(
@@ -48,6 +55,7 @@ export function matchingSpeciesWeightOverrides(
     ...matchingLegacySpeciesWeightOverrides(input, thermalState),
     ...matchingSpeciesWeightOverrideExpansion(input, thermalState),
     ...matchingSpeciesWeightOverrideExpansion04(input, thermalState),
+    ...matchingSpeciesWeightOverrideMarine(input, thermalState),
   ];
 }
 

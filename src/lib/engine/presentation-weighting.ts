@@ -10,8 +10,10 @@ import type {
 import type { ForageClass, Season } from "../protocol/vocab.ts";
 import { labelOf } from "../protocol/vocab.ts";
 import { matchingSpeciesWeightOverrides } from "./species-weight-overrides-catalog.ts";
+import { declaredHolding, familyFitsWater, reviewedPresentationsFor } from "./water.ts";
+import { isMarine, type TideMovement, type TideStrength } from "../protocol/vocab.ts";
 
-export const WEIGHTING_MODEL_VERSION = "SPW-1.1" as const;
+export const WEIGHTING_MODEL_VERSION = "SPW-2.0" as const;
 export const CORE_WEIGHT_AXES: WeightAxis[] = [
   "species",
   "season",
@@ -20,6 +22,67 @@ export const CORE_WEIGHT_AXES: WeightAxis[] = [
   "holding",
   "forage",
 ];
+
+/**
+ * Saltwater's movement axis. It sits alongside the six core axes rather than
+ * replacing one: on the coast, what the tide is doing decides where fish feed
+ * and therefore which family can reach them, the way flow does in a river.
+ */
+const TIDE_MOVEMENT_BIASES: Record<TideMovement, BiasTable> = {
+  flooding: {
+    tidal_drift_bait: 8,
+    structure_pitch: 6,
+    flats_sight_cast: 7,
+    surf_swim_retrieve: 5,
+    horizontal_retrieve: 4,
+    tide_line_drift: 5,
+  },
+  ebbing: {
+    tidal_drift_bait: 9,
+    tide_line_drift: 8,
+    structure_pitch: 5,
+    surf_bait_soak: 6,
+    chum_established_drift: 6,
+    dock_light_ambush: 5,
+  },
+  slack_high: {
+    flats_sight_cast: 6,
+    structure_vertical: 6,
+    deep_drop: 6,
+    surface_retrieve: 4,
+    // Moving-water families lose the water that makes them work.
+    tidal_drift_bait: -5,
+    tide_line_drift: -5,
+  },
+  slack_low: {
+    structure_vertical: 6,
+    deep_drop: 5,
+    dock_light_ambush: 4,
+    tidal_drift_bait: -5,
+    tide_line_drift: -5,
+    flats_sight_cast: -3,
+  },
+  unknown: {},
+};
+
+/** How hard the tide runs changes what can hold position in it. */
+const TIDE_STRENGTH_BIASES: Record<TideStrength, BiasTable> = {
+  spring_tide: {
+    tidal_drift_bait: 5,
+    tide_line_drift: 5,
+    surf_bait_soak: 4,
+    structure_vertical: -3,
+    flats_sight_cast: -3,
+  },
+  average_tide: {},
+  neap_tide: {
+    flats_sight_cast: 5,
+    structure_vertical: 4,
+    dock_light_ambush: 3,
+    tidal_drift_bait: -3,
+  },
+  unknown: {},
+};
 
 export type WeightedPresentationCandidate = {
   id: PresentationId;
@@ -181,6 +244,102 @@ const HOLDING_BIASES: HoldingBias[] = [
       horizontal_retrieve: 4,
     },
     note: "open-water / depth-band holding class",
+  },
+  // ------------------------------------------------------------- saltwater
+  {
+    holds: ["surf_trough", "beach_cut", "rip_channel", "inner_sandbar"],
+    bias: {
+      surf_bait_soak: 8,
+      surf_swim_retrieve: 7,
+      surf_metal_cast: 5,
+      horizontal_retrieve: 4,
+    },
+    note: "surf holding class — moving sand and a defined trough",
+  },
+  {
+    holds: ["outer_sandbar", "surf_point", "jetty_wash", "shell_bank"],
+    bias: {
+      surf_metal_cast: 8,
+      surf_swim_retrieve: 5,
+      run_and_gun_cast: 5,
+      surface_retrieve: 4,
+      surf_bait_soak: 3,
+    },
+    note: "outer surf structure — distance and current",
+  },
+  {
+    holds: ["grass_flat", "sand_hole", "marsh_edge"],
+    bias: {
+      flats_sight_cast: 9,
+      surface_retrieve: 6,
+      horizontal_retrieve: 5,
+      tidal_drift_bait: 4,
+    },
+    note: "shallow tidal flat — fish are visible and spooky",
+  },
+  {
+    holds: ["oyster_bar", "mangrove_edge", "bridge_piling", "dock_light"],
+    bias: {
+      structure_pitch: 9,
+      dock_light_ambush: 7,
+      live_natural_bait_suspension: 6,
+      stop_and_go: 4,
+    },
+    note: "inshore hard structure — accuracy and abrasion",
+  },
+  {
+    holds: ["tidal_creek", "creek_mouth", "channel_edge"],
+    bias: {
+      tidal_drift_bait: 9,
+      tide_line_drift: 6,
+      live_natural_bait_suspension: 5,
+      horizontal_retrieve: 4,
+    },
+    note: "tidal funnel — the water does the delivering",
+  },
+  {
+    holds: ["nearshore_reef", "artificial_reef", "wreck", "rock_pile", "nearshore_hump"],
+    bias: {
+      structure_vertical: 9,
+      bottom_contact: 7,
+      vertical_jig: 7,
+      drop_presentation: 6,
+      live_bait_slow_troll: 4,
+    },
+    note: "nearshore hard structure — vertical and unforgiving",
+  },
+  {
+    holds: ["kelp_edge", "pier_structure", "inlet_mouth"],
+    bias: {
+      live_natural_bait_suspension: 7,
+      structure_pitch: 6,
+      tide_line_drift: 5,
+      run_and_gun_cast: 4,
+      trolling: 3,
+    },
+    note: "nearshore edge — structure with water moving past it",
+  },
+  {
+    holds: ["temperature_break", "weed_line", "current_rip", "open_bait_school"],
+    bias: {
+      trolling_spread: 9,
+      tide_line_drift: 8,
+      run_and_gun_cast: 7,
+      live_bait_slow_troll: 6,
+      chum_established_drift: 5,
+    },
+    note: "offshore water structure — the edge is made of water",
+  },
+  {
+    holds: ["offshore_ledge", "deep_wreck", "seamount", "canyon_edge"],
+    bias: {
+      deep_drop: 9,
+      structure_vertical: 7,
+      vertical_jig: 6,
+      chum_established_drift: 5,
+      trolling_spread: 4,
+    },
+    note: "offshore bottom structure — depth is most of the work",
   },
   {
     holds: ["inlet", "outlet"],
@@ -363,11 +522,11 @@ export function rankPresentationFamilies(
   species: SpeciesRecord,
   thermalState: ThermalState,
 ): WeightedPresentationCandidate[] {
-  const baseIds = input.waterType === "flowing" ? species.flowingPresentations : species.stillPresentations;
+  const baseIds = reviewedPresentationsFor(species, input.waterType);
   const candidates: WeightedPresentationCandidate[] = baseIds
     .filter((id) => {
       const family = PRESENTATION_BY_ID[id];
-      return family && (family.water === "both" || family.water === input.waterType);
+      return family && familyFitsWater(family.water, input.waterType);
     })
     .map((id, baseIndex) => {
       const baseline = 40 - baseIndex * 4;
@@ -387,12 +546,15 @@ export function rankPresentationFamilies(
 
   for (const candidate of candidates) {
     const family = PRESENTATION_BY_ID[candidate.id];
-    const delta = family.water === input.waterType ? 2 : 1;
-    addReason(candidate, "water_type", delta, `${labelOf(input.waterType)} compatibility`);
+    // A family written for this exact water beats one that merely also works here.
+    const exact = Array.isArray(family.water)
+      ? family.water.includes(input.waterType)
+      : family.water === input.waterType;
+    addReason(candidate, "water_type", exact ? 2 : 1, `${labelOf(input.waterType)} compatibility`);
   }
 
   applyBias(candidates, "season", SEASON_BIASES[input.season], `${labelOf(input.season)} seasonal mechanics`);
-  if (input.season !== "unknown" && species.spawning.seasons.includes(input.season)) {
+  if (input.season !== "unknown" && species.spawning?.seasons.includes(input.season)) {
     for (const candidate of candidates) {
       addReason(
         candidate,
@@ -405,10 +567,17 @@ export function rankPresentationFamilies(
 
   applyBias(candidates, "thermal", thermalBias(thermalState), `${thermalState.replaceAll("_", " ")} thermal state`);
 
-  const holding = input.waterType === "flowing" ? input.holdingRiver : input.holdingStill;
+  const holding = declaredHolding(input);
   if (holding) {
     const rule = HOLDING_BIASES.find((entry) => entry.holds.includes(holding));
     applyBias(candidates, "holding", rule?.bias, rule ? `${labelOf(holding)} · ${rule.note}` : labelOf(holding));
+  }
+
+  if (isMarine(input.waterType)) {
+    const movement = input.tideMovement ?? "unknown";
+    const strength = input.tideStrength ?? "unknown";
+    applyBias(candidates, "tide", TIDE_MOVEMENT_BIASES[movement], `tide ${labelOf(movement).toLowerCase()}`);
+    applyBias(candidates, "tide", TIDE_STRENGTH_BIASES[strength], `${labelOf(strength).toLowerCase()} range`);
   }
 
   if (input.forage) {

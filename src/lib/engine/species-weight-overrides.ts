@@ -3,19 +3,34 @@ import type {
   ScenarioInput,
   ThermalState,
 } from "../protocol/types.ts";
-import type { ForageClass, Season, WaterType } from "../protocol/vocab.ts";
+import type {
+  ForageClass,
+  Season,
+  TideMovement,
+  TideStrength,
+  WaterType,
+} from "../protocol/vocab.ts";
+import { declaredHolding } from "./water.ts";
 
 export const SPECIES_OVERRIDE_MODEL_VERSION = "SPO-1.0" as const;
 
 type BiasTable = Partial<Record<PresentationId, number>>;
 
-type OverrideWhen = {
+export type OverrideWhen = {
   seasons?: Season[];
   thermalStates?: ThermalState[];
   waterTypes?: WaterType[];
   holding?: string[];
   forage?: ForageClass[];
   light?: ScenarioInput["light"][];
+  /**
+   * Saltwater conditions. Tide is to the marine types what flow is to a river:
+   * the same fish on the same oyster bar is doing something different on a
+   * falling tide than on a slack high, and a rule that cannot say so cannot
+   * express most of what is worth knowing about inshore fishing.
+   */
+  tideMovements?: TideMovement[];
+  tideStrengths?: TideStrength[];
 };
 
 export type SpeciesWeightOverrideRule = {
@@ -242,7 +257,7 @@ export const SPECIES_WEIGHT_OVERRIDES: SpeciesWeightOverrideRule[] = [
   {
     id: "pike-cool-shallow",
     speciesId: "esox_lucius",
-    when: { seasons: ["early_spring", "spring", "fall"], thermalStates: ["preferred", "active"], holding: ["weed_edge", "inside_weedline", "inlet", "shallow_flat", "side_channel", "eddy"] },
+    when: { seasons: ["early_spring", "spring", "fall"], thermalStates: ["preferred", "active"], holding: ["weed_edge", "inside_weedline", "inlet", "side_channel", "eddy"] },
     bias: { stop_and_go: 8, horizontal_retrieve: 7, subsurface_slow_roll: 7, cross_current_retrieve: 7, surface_retrieve: 3 },
     note: "In cool workable water, pike commonly occupy shallower ambush edges and can support more mobile interception mechanics.",
     reviewedAt: "2026-08-27",
@@ -266,7 +281,7 @@ export const SPECIES_WEIGHT_OVERRIDES: SpeciesWeightOverrideRule[] = [
   {
     id: "yellow-perch-cold-school",
     speciesId: "perca_flavescens",
-    when: { seasons: ["winter", "late_fall"], waterTypes: ["stillwater"], holding: ["basin", "drop_off", "submerged_hump"] },
+    when: { seasons: ["winter", "late_fall"], waterTypes: ["stillwater"], holding: ["basin", "drop_off"] },
     bias: { vertical_jig: 10, slow_drag: 7, live_natural_bait_suspension: 6, drop_presentation: 4 },
     note: "Cold-season yellow perch commonly school near bottom or structural depth changes; reinforce vertical and bottom-contact mechanics.",
     reviewedAt: "2026-08-27",
@@ -298,7 +313,7 @@ export const SPECIES_WEIGHT_OVERRIDES: SpeciesWeightOverrideRule[] = [
   {
     id: "striped-bass-pelagic",
     speciesId: "morone_saxatilis",
-    when: { waterTypes: ["stillwater"], holding: ["suspended_open", "thermocline_edge", "basin", "point"] },
+    when: { waterTypes: ["stillwater"], holding: ["suspended_open", "thermocline_edge", "point"] },
     bias: { trolling: 10, horizontal_retrieve: 9, vertical_jig: 7, stop_and_go: 5 },
     note: "Reservoir striped bass are highly mobile pelagic predators; reinforce depth-controlled pursuit families around open-water prey bands.",
     reviewedAt: "2026-08-27",
@@ -337,13 +352,19 @@ export const SPECIES_WEIGHT_OVERRIDES: SpeciesWeightOverrideRule[] = [
   },
 ];
 
-function currentHolding(input: ScenarioInput): string | undefined {
-  return input.waterType === "flowing"
-    ? input.holdingRiver ?? undefined
-    : input.holdingStill ?? undefined;
-}
-
-function matchesRule(
+/**
+ * Does this rule apply to this scenario?
+ *
+ * The single implementation. There were three byte-for-byte copies of this
+ * function — one per override module — which meant every new condition axis had
+ * to be added three times, and a rule library that silently ignored the axis if
+ * it was not. Tide would have been the fourth copy.
+ *
+ * An absent clause means "do not care". An unknown declaration never satisfies
+ * a clause that asks about it, so a rule keyed on the tide does not fire until
+ * the angler has actually said what the tide is doing.
+ */
+export function matchesOverrideRule(
   rule: SpeciesWeightOverrideRule,
   input: ScenarioInput,
   thermalState: ThermalState,
@@ -354,11 +375,23 @@ function matchesRule(
   if (rule.when.waterTypes && !rule.when.waterTypes.includes(input.waterType)) return false;
   if (rule.when.light && !rule.when.light.includes(input.light)) return false;
   if (rule.when.holding) {
-    const holding = currentHolding(input);
+    const holding = declaredHolding(input) ?? undefined;
     if (!holding || !rule.when.holding.includes(holding)) return false;
   }
   if (rule.when.forage) {
     if (!input.forage || !rule.when.forage.includes(input.forage.class)) return false;
+  }
+  if (rule.when.tideMovements) {
+    const movement = input.tideMovement;
+    if (!movement || movement === "unknown" || !rule.when.tideMovements.includes(movement)) {
+      return false;
+    }
+  }
+  if (rule.when.tideStrengths) {
+    const strength = input.tideStrength;
+    if (!strength || strength === "unknown" || !rule.when.tideStrengths.includes(strength)) {
+      return false;
+    }
   }
   return true;
 }
@@ -367,5 +400,5 @@ export function matchingSpeciesWeightOverrides(
   input: ScenarioInput,
   thermalState: ThermalState,
 ): SpeciesWeightOverrideRule[] {
-  return SPECIES_WEIGHT_OVERRIDES.filter((rule) => matchesRule(rule, input, thermalState));
+  return SPECIES_WEIGHT_OVERRIDES.filter((rule) => matchesOverrideRule(rule, input, thermalState));
 }

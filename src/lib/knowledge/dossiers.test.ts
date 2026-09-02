@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { SPECIES, SPECIES_BY_ID } from "./species-catalog.ts";
+import { authoredOverlays } from "./coverage.ts";
 import { SPECIES_EXPANSION_03 } from "./species-expansion-03.ts";
 import { BEHAVIOR_DOSSIERS } from "./behavior-dossiers.ts";
 import { DIET_DOSSIERS } from "./diet-dossiers.ts";
@@ -21,7 +22,7 @@ import {
   identificationDossierFor,
   seasonalCalendarDossierFor,
 } from "./dossier-catalog.ts";
-import { FORAGE_CLASSES, SEASONS } from "../protocol/vocab.ts";
+import { FORAGE_CLASSES, SEASONS, isMarine } from "../protocol/vocab.ts";
 import { searchSpecies, ALIASES } from "./aliases.ts";
 
 const FORBIDDEN = /best bite|hot bite|catch probability|secret spot|gps coordinate/i;
@@ -149,25 +150,24 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
   }
 });
 
-test("incomplete research remains explicitly incomplete for species without dossiers", () => {
+test("a species' four overlays land together or not at all", () => {
+  // Read through `authoredOverlays`, which sees both the JSON source of record
+  // and the older in-bundle TypeScript. Reading only the TypeScript made this
+  // test describe the migration's progress rather than the invariant it is
+  // actually about: a species is never half-researched in the shipped record.
   for (const species of SPECIES) {
-    const identification = identificationDossierFor(species.id);
-    const behavior = behaviorDossierFor(species.id);
-    const diet = dietDossierFor(species.id);
-    const calendar = seasonalCalendarDossierFor(species.id);
-    if (!identification) {
-      assert.equal(behavior, null, `${species.id} has behavior without identification`);
-      assert.equal(diet, null, `${species.id} has diet without identification`);
-      assert.equal(calendar, null, `${species.id} has calendar without identification`);
-    } else {
-      assert.ok(behavior, `${species.id} has identification without behavior`);
-      assert.ok(diet, `${species.id} has identification without diet`);
-      assert.ok(calendar, `${species.id} has identification without calendar`);
-    }
+    const overlays = authoredOverlays(species.id);
+    const present = [
+      overlays.identification,
+      overlays.behavior,
+      overlays.diet,
+      overlays.seasonalCalendar,
+    ].filter(Boolean).length;
+    assert.ok(
+      present === 0 || present === 4,
+      `${species.id} carries ${present} of four overlays`,
+    );
   }
-
-  const uncovered = SPECIES.filter((species) => !identificationDossierFor(species.id));
-  assert.equal(uncovered.length, 20);
 });
 
 test("named distinction groups have reciprocal similar-species keys", () => {
@@ -594,12 +594,21 @@ test("diet and seasonal overlays are not imported by the presentation engine", (
   }
 });
 
-test("all 75 species remain resolvable and spawning seasons stay inside the canonical vocabulary", () => {
-  assert.equal(SPECIES.length, 75);
-  assert.equal(new Set(SPECIES.map((species) => species.id)).size, 75);
+test("every species remains resolvable and spawning seasons stay inside the canonical vocabulary", () => {
+  // Counted rather than hard-coded so adding a species is a one-file change,
+  // but still asserted, because a silently shrinking catalog is a real failure.
+  assert.ok(SPECIES.length >= 111, `catalog has shrunk to ${SPECIES.length}`);
+  assert.equal(new Set(SPECIES.map((species) => species.id)).size, SPECIES.length, "duplicate species id");
+  assert.equal(
+    SPECIES.filter((species) => species.habitat.waterTypes.some(isMarine)).length,
+    36,
+    "the saltwater catalog should be 36 species",
+  );
   for (const species of SPECIES) {
     assert.ok(species.id);
-    for (const season of species.spawning.seasons) {
+    // `spawning` is optional: a handful of reef species have no spawning
+    // account that can be written without describing an aggregation.
+    for (const season of species.spawning?.seasons ?? []) {
       assert.ok(
         (SEASONS as readonly string[]).includes(season),
         `${species.id} has non-canonical season ${season}`,
@@ -611,8 +620,8 @@ test("all 75 species remain resolvable and spawning seasons stay inside the cano
 test("yellow bullhead source record uses canonical seasons without a catalog workaround", () => {
   const source = SPECIES_EXPANSION_03.find((species) => species.id === "ameiurus_natalis");
   assert.ok(source);
-  assert.deepEqual(source.spawning.seasons, ["spring", "early_summer"]);
-  assert.ok(!(source.spawning.seasons as string[]).includes("late_spring"));
+  assert.deepEqual(source.spawning?.seasons, ["spring", "early_summer"]);
+  assert.ok(!(source.spawning?.seasons as string[]).includes("late_spring"));
 
   const catalogSource = readFileSync(new URL("./species-catalog.ts", import.meta.url), "utf8");
   assert.doesNotMatch(catalogSource, /ameiurus_natalis/);
@@ -620,7 +629,7 @@ test("yellow bullhead source record uses canonical seasons without a catalog wor
 
   const yellow = SPECIES_BY_ID.ameiurus_natalis;
   assert.ok(yellow);
-  assert.deepEqual(yellow.spawning.seasons, ["spring", "early_summer"]);
+  assert.deepEqual(yellow.spawning?.seasons, ["spring", "early_summer"]);
 
   const calendar = seasonalCalendarDossierFor("ameiurus_natalis");
   assert.ok(calendar);

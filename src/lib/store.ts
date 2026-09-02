@@ -10,11 +10,14 @@ import type {
   Clarity,
   FlowClass,
   Light,
+  MarineHolding,
   RiverHolding,
   Season,
   StillHolding,
   StillState,
   TempSource,
+  TideMovement,
+  TideStrength,
   WaterType,
   WeatherTrend,
 } from "@/lib/protocol/vocab";
@@ -42,6 +45,9 @@ export type Session = {
   season: Season;
   holdingRiver: RiverHolding | null;
   holdingStill: StillHolding | null;
+  holdingMarine: MarineHolding | null;
+  tideMovement: TideMovement;
+  tideStrength: TideStrength;
   forage: ForagePacket | null;
 };
 
@@ -69,6 +75,9 @@ const defaults: Session = {
   season: "unknown",
   holdingRiver: null,
   holdingStill: null,
+  holdingMarine: null,
+  tideMovement: "unknown",
+  tideStrength: "unknown",
   forage: null,
 };
 
@@ -90,6 +99,9 @@ export function toInput(session: Session): ScenarioInput | null {
     season: session.season,
     holdingRiver: session.holdingRiver,
     holdingStill: session.holdingStill,
+    holdingMarine: session.holdingMarine,
+    tideMovement: session.tideMovement,
+    tideStrength: session.tideStrength,
     forage: session.forage,
   };
 }
@@ -112,6 +124,9 @@ function pick(session: Session): Session {
     season: session.season,
     holdingRiver: session.holdingRiver,
     holdingStill: session.holdingStill,
+    holdingMarine: session.holdingMarine,
+    tideMovement: session.tideMovement,
+    tideStrength: session.tideStrength,
     forage: session.forage,
   };
 }

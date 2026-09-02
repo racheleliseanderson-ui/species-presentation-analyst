@@ -28,15 +28,49 @@ export function normalizeTemperatureRangeF(value: unknown): TemperatureRangeF | 
   return [low, high];
 }
 
+/**
+ * Does this species have any reviewed temperature figure at all?
+ *
+ * Half the saltwater catalog does not. Callers use this to say "thermal band
+ * not reviewed" rather than quietly reading the temperature axis as unknown,
+ * which would look identical to the angler having failed to measure.
+ */
+export function hasThermalBand(species: SpeciesRecord): boolean {
+  const thermal = species.thermal;
+  if (!thermal) return false;
+  return Boolean(
+    thermal.preferredF || thermal.activeF || thermal.coldEdgeF != null || thermal.warmEdgeF != null,
+  );
+}
+
+/**
+ * Where a temperature sits in this species' reviewed band.
+ *
+ * Written to degrade one field at a time. A record with only a cold edge can
+ * still say "below the cold edge"; a record with only a preferred range can
+ * still place a reading inside or outside it. What it will not do is guess:
+ * with nothing sourced, or with a temperature that lands in a gap the record
+ * does not describe, the answer is "unknown" and the thermal axis drops out of
+ * the weighting rather than nudging the ranking on an invented number.
+ */
 export function pointThermalState(tempF: number, species: SpeciesRecord): ThermalState {
-  const [p0, p1] = species.thermal.preferredF;
-  const [a0, a1] = species.thermal.activeF;
-  if (tempF >= p0 && tempF <= p1) return "preferred";
-  if (tempF >= a0 && tempF <= a1) return "active";
-  if (tempF < species.thermal.coldEdgeF) return "cold_refuge";
-  if (tempF > species.thermal.warmEdgeF) return "warm_stress";
-  if (tempF < p0) return "cold_refuge";
-  return "warm_stress";
+  const thermal = species.thermal;
+  if (!thermal) return "unknown";
+
+  const preferred = thermal.preferredF;
+  const active = thermal.activeF;
+
+  if (preferred && tempF >= preferred[0] && tempF <= preferred[1]) return "preferred";
+  if (active && tempF >= active[0] && tempF <= active[1]) return "active";
+  if (thermal.coldEdgeF != null && tempF < thermal.coldEdgeF) return "cold_refuge";
+  if (thermal.warmEdgeF != null && tempF > thermal.warmEdgeF) return "warm_stress";
+
+  // Outside a known range but inside the edges, or with no edges recorded:
+  // the range itself still tells us which side of the fish's window we are on.
+  const inner = preferred ?? active;
+  if (inner) return tempF < inner[0] ? "cold_refuge" : "warm_stress";
+
+  return "unknown";
 }
 
 export function thermalStatesAcrossRange(
@@ -44,17 +78,16 @@ export function thermalStatesAcrossRange(
   species: SpeciesRecord,
 ): ThermalState[] {
   const [low, high] = rangeF;
+  const thermal = species.thermal;
   const boundaries = [
     low,
     high,
-    species.thermal.preferredF[0],
-    species.thermal.preferredF[1],
-    species.thermal.activeF[0],
-    species.thermal.activeF[1],
-    species.thermal.coldEdgeF,
-    species.thermal.warmEdgeF,
+    ...(thermal?.preferredF ?? []),
+    ...(thermal?.activeF ?? []),
+    thermal?.coldEdgeF,
+    thermal?.warmEdgeF,
   ]
-    .filter((value) => value >= low && value <= high)
+    .filter((value): value is number => value != null && value >= low && value <= high)
     .sort((a, b) => a - b)
     .filter((value, index, all) => index === 0 || value !== all[index - 1]);
 

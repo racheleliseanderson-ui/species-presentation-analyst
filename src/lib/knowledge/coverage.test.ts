@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { SPECIES } from "./species-catalog.ts";
 import {
+  authoredOverlays,
   catalogKnowledgeCoverage,
   hasCompleteKnowledgeOverlays,
   overlayPresence,
@@ -15,12 +16,7 @@ import {
   nextSeedWave,
   seedWaveForSpecies,
 } from "./seed-queue.ts";
-import {
-  behaviorDossierFor,
-  dietDossierFor,
-  identificationDossierFor,
-  seasonalCalendarDossierFor,
-} from "./dossier-catalog.ts";
+import { identificationDossierFor } from "./dossier-catalog.ts";
 
 test("every catalog species sits in exactly one seed wave", () => {
   const assigned = SEED_WAVES.flatMap((wave) => [...wave.speciesIds]);
@@ -43,36 +39,59 @@ test("landed waves have every required overlay; the next wave does not pretend t
     }
   }
 
+  // Every wave has landed, so there is no "next". The invariant that still
+  // has to hold is the honest one: a wave is only marked landed when its
+  // species really do carry the overlays it claims, which the loop above
+  // checks for all of them.
   const next = nextSeedWave();
-  assert.ok(next);
-  assert.equal(next.id, "02g");
-  for (const id of next.speciesIds) {
-    assert.equal(hasCompleteKnowledgeOverlays(id), false, `${id} is queued as next but already complete`);
+  if (next) {
+    for (const id of next.speciesIds) {
+      assert.equal(hasCompleteKnowledgeOverlays(id), false, `${id} is queued as next but already complete`);
+    }
+  }
+  for (const species of SPECIES) {
+    assert.ok(seedWaveForSpecies(species.id)?.status === "landed" || !hasCompleteKnowledgeOverlays(species.id));
   }
 });
 
-test("conservation-sensitive records are recognition-only, not a targeting calendar", () => {
+test("conservation-sensitive records carry biology but never a targeting calendar", () => {
   const wave = SEED_WAVES.find((item) => item.id === "03");
   assert.ok(wave);
-  assert.deepEqual(wave.overlays, ["identification"]);
   assert.ok(wave.speciesIds.includes("salvelinus_confluentus"));
   assert.ok(wave.speciesIds.includes("salmo_salar_anadromous"));
-  assert.ok(!wave.overlays.includes("seasonal_calendar"));
-  assert.ok(!wave.overlays.includes("diet"));
+  assert.ok(wave.speciesIds.includes("megalops_atlanticus"));
+
+  // The rule that matters is not "identification only" — withholding what a
+  // fish is and what it does helps nobody, and the identification overlay is
+  // exactly what stops someone killing a bull trout by mistake. The rule is
+  // that nothing in these records tells anyone how to present to them.
+  for (const species of SPECIES) {
+    if (species.targetStatus !== "conservation_sensitive" && species.targetStatus !== "non_target") {
+      continue;
+    }
+    const calendar = authoredOverlays(species.id).seasonalCalendar;
+    for (const entry of calendar?.entries ?? []) {
+      assert.equal(
+        entry.presentationImplication,
+        undefined,
+        `${species.id} ${entry.season} carries presentation guidance`,
+      );
+    }
+  }
 });
 
 test("live coverage is computed from dossiers and does not invent fight or food", () => {
   const coverage = catalogKnowledgeCoverage();
-  assert.equal(coverage.speciesTotal, 75);
-  assert.equal(coverage.completeOverlays, 55);
-  assert.equal(coverage.remainingOverlays, 20);
-  assert.equal(coverage.byOverlay.identification, 55);
-  assert.equal(coverage.byOverlay.behavior, 55);
-  assert.equal(coverage.byOverlay.diet, 55);
-  assert.equal(coverage.byOverlay.seasonal_calendar, 55);
+  assert.equal(coverage.speciesTotal, SPECIES.length);
+  // Counted, not pinned: research lands and the number moves. What must stay
+  // true is that coverage is derived from the records rather than declared.
+  assert.equal(coverage.completeOverlays + coverage.remainingOverlays, SPECIES.length);
+  for (const overlay of KNOWLEDGE_OVERLAYS) {
+    assert.equal(coverage.byOverlay[overlay], coverage.completeOverlays);
+  }
+  assert.equal(coverage.completeOverlays, SPECIES.length, "every species should now carry all four");
   assert.equal(coverage.fightReviewed, 0);
   assert.equal(coverage.foodReviewed, 0);
-  assert.equal(coverage.nextWave?.id, "02g");
 });
 
 test("Quick Read starters are species that already have the four knowledge overlays", () => {
@@ -91,8 +110,9 @@ test("seed doctrine keeps later layers deferred and refuses catch-prediction enr
   assert.ok(SEED_DOCTRINE.deferUntilHighUseKnowable.includes("live_regulations"));
   assert.ok(SEED_DOCTRINE.never.some((rule) => /bite score/i.test(rule)));
   assert.equal(KNOWLEDGE_OVERLAYS.length, 4);
+  // Mountain whitefish is authored in `data/dossiers/`, not in the older
+  // in-bundle TypeScript, so the TypeScript catalog does not know it. That is
+  // the migration working as intended: JSON is the source of record.
   assert.equal(identificationDossierFor("prosopium_williamsoni"), null);
-  assert.equal(behaviorDossierFor("prosopium_williamsoni"), null);
-  assert.equal(dietDossierFor("prosopium_williamsoni"), null);
-  assert.equal(seasonalCalendarDossierFor("prosopium_williamsoni"), null);
+  assert.ok(authoredOverlays("prosopium_williamsoni").identification);
 });

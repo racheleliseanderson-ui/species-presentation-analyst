@@ -1,4 +1,4 @@
-import { authClient, authEnabled } from "./client";
+import { authClient, authEnabled } from "./client.ts";
 
 /** Normalized user shape used across the app, auth on or off. */
 export type AppUser = {
@@ -12,7 +12,7 @@ export type AppUser = {
 
 /**
  * Stable fallback user, used ONLY when auth is disabled
- * (`VITE_AUTH_ENABLED=false`, the shipped default). With auth on, the sandbox
+ * (sign-in off, which is the default unless `VITE_AUTH_ENABLED=true`). With auth on, the sandbox
  * live preview does real sign-in via the baked preview client. Its id is
  * `"dev-user"` — the SAME id `verify.server.ts` returns server-side — so per-user
  * rows written in that mode belong to one consistent owner.

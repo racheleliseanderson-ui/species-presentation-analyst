@@ -1,17 +1,23 @@
-import { carryFleetContext } from "./fleet-context";
-import { normalizeTemperatureRangeF } from "../engine/temperature";
-import { matchesSpecies } from "../knowledge/aliases";
-import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog";
+import { carryFleetContext } from "./fleet-context.ts";
+import { declaredHolding } from "../engine/water.ts";
+import { normalizeTemperatureRangeF } from "../engine/temperature.ts";
+import { matchesSpecies } from "../knowledge/aliases.ts";
+import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import {
   FORAGE_CLASSES,
   INSTRUMENT_ID,
   PACKET_VERSION,
   TEMP_SOURCES,
+  TIDE_MOVEMENTS,
+  TIDE_STRENGTHS,
   WATER_TYPES,
+  isMarine,
   type ForageClass,
   type TempSource,
+  type TideMovement,
+  type TideStrength,
   type WaterType,
-} from "./vocab";
+} from "./vocab.ts";
 import type {
   ForagePacket,
   HthPacket,
@@ -20,11 +26,10 @@ import type {
   ScenarioInput,
   TemperatureRangeF,
   WaterPacket,
-} from "./types";
+} from "./types.ts";
 
 export function buildPacket(input: ScenarioInput, result: Interpretation): HthPacket {
-  const holding =
-    input.waterType === "flowing" ? input.holdingRiver ?? undefined : input.holdingStill ?? undefined;
+  const holding = declaredHolding(input) ?? undefined;
   const packet: HthPacket = {
     packetVersion: PACKET_VERSION,
     origin: "species-presentation",
@@ -46,6 +51,14 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       tempSource: input.tempSource,
       flow: input.flow,
       stillState: input.stillState,
+      // Only written when this water is actually read on the tide, so a
+      // freshwater packet does not carry an empty saltwater field.
+      ...(isMarine(input.waterType)
+        ? {
+            tideMovement: input.tideMovement ?? "unknown",
+            tideStrength: input.tideStrength ?? "unknown",
+          }
+        : {}),
       clarity: input.clarity,
       light: input.light,
       weather: input.weather,
@@ -134,42 +147,63 @@ export function encodePacketHash(packet: HthPacket): string {
   return "#packet=" + encodeURIComponent(JSON.stringify(packet));
 }
 
-/** Field Sense lake|reservoir|river and Hatch river|stream|lake-margin|spring → flowing|stillwater. Marine stays unknown. */
+/**
+ * Water-type names from the other Hook apps, mapped onto this app's vocabulary.
+ *
+ * The saltwater types are accepted by name, and a handful of coastal words the
+ * other apps use are folded onto the nearest reviewed type. Anything else
+ * returns undefined and the reading asks rather than assuming — a surf angler
+ * silently handed a stillwater reading is worse than one asked a question.
+ */
 export function coerceWaterType(value: unknown): WaterType | undefined {
   if (typeof value !== "string") return undefined;
   if ((WATER_TYPES as readonly string[]).includes(value)) return value as WaterType;
   if (value === "river" || value === "stream" || value === "spring") return "flowing";
   if (value === "lake" || value === "reservoir" || value === "lake-margin") return "stillwater";
+  if (value === "beach" || value === "surfzone" || value === "surf-zone") return "surf";
+  if (value === "estuary" || value === "flats" || value === "backcountry" || value === "bay") {
+    return "inshore";
+  }
+  if (value === "coastal" || value === "reef") return "nearshore";
+  if (value === "bluewater" || value === "blue-water" || value === "pelagic") return "offshore";
   return undefined;
 }
 
-/**
- * Sibling instruments spell temperature provenance their own way. Field Sense
- * sends `official-gauge` for a reading it pulled from a published station;
- * without an alias that arrived as `unknown`, so the number survived the trip
- * and the reason to trust it did not. Provenance is the claim this instrument
- * is built on — degrading it silently is worse than dropping the reading.
- *
- * Aliases only. Anything genuinely unrecognised still reads `unknown`.
- */
-const TEMP_SOURCE_ALIASES: Record<string, TempSource> = {
-  "official-gauge": "official_station",
-  official_gauge: "official_station",
-  "official-station": "official_station",
-  gauge: "official_station",
-  usgs: "official_station",
-  noaa: "official_station",
-  "user-measured": "user_measured",
-  measured: "user_measured",
-  observed: "user_measured",
-  estimate: "estimated",
-};
-
 function coerceTempSource(value: unknown): TempSource {
-  if (typeof value !== "string") return "unknown";
-  const raw = value.trim().toLowerCase();
-  if ((TEMP_SOURCES as readonly string[]).includes(raw)) return raw as TempSource;
-  return TEMP_SOURCE_ALIASES[raw] ?? "unknown";
+  if (typeof value === "string" && (TEMP_SOURCES as readonly string[]).includes(value)) {
+    return value as TempSource;
+  }
+  return "unknown";
+}
+
+/**
+ * Tide from an incoming packet.
+ *
+ * Anything unrecognised becomes "unknown" rather than a guess. The weighting
+ * engine treats "unknown" as "do not apply the tide axis", so a packet from an
+ * app that does not model tide costs the reading nothing.
+ */
+function coerceTideMovement(value: unknown): TideMovement {
+  if (typeof value === "string" && (TIDE_MOVEMENTS as readonly string[]).includes(value)) {
+    return value as TideMovement;
+  }
+  if (value === "rising" || value === "incoming" || value === "flood") return "flooding";
+  if (value === "falling" || value === "outgoing" || value === "ebb") return "ebbing";
+  if (value === "high_slack" || value === "high") return "slack_high";
+  if (value === "low_slack" || value === "low") return "slack_low";
+  return "unknown";
+}
+
+function coerceTideStrength(value: unknown): TideStrength {
+  if (typeof value === "string" && (TIDE_STRENGTHS as readonly string[]).includes(value)) {
+    return value as TideStrength;
+  }
+  // Other apps say "spring" and "neap" without the suffix this app uses to keep
+  // the spring tide distinct from the spring season in one shared label map.
+  if (value === "spring") return "spring_tide";
+  if (value === "neap") return "neap_tide";
+  if (value === "average" || value === "mean") return "average_tide";
+  return "unknown";
 }
 
 function coerceTempRange(value: unknown): TemperatureRangeF | null {
@@ -261,6 +295,12 @@ export function parseIncomingPacket(hash: string): Partial<ScenarioInput> | null
       tempF: exactTempF,
       tempRangeF,
       tempSource: coerceTempSource(conditions.tempSource),
+      ...(waterType && isMarine(waterType)
+        ? {
+            tideMovement: coerceTideMovement(conditions.tideMovement ?? data.tideMovement),
+            tideStrength: coerceTideStrength(conditions.tideStrength ?? data.tideStrength),
+          }
+        : {}),
       forage: coerceForage(observations.forage ?? data.forage),
     };
   } catch {

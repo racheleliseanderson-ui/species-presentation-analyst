@@ -20,6 +20,25 @@ function profileOf(species: SpeciesRecord) {
   return buildAnglerSpeciesProfile(species, authoredOverlays(species.id));
 }
 
+/**
+ * A species with nothing researched.
+ *
+ * These tests used mountain whitefish as the "not yet researched" example.
+ * Every species in the catalog now has all four overlays, so that exemplar
+ * quietly started testing the opposite of what it was written for. Passing the
+ * empty overlay set directly tests the behaviour that actually matters — the
+ * profile says "needs research" rather than filling the gap with model text —
+ * and cannot go stale as research lands.
+ */
+function unresearchedProfileOf(species: SpeciesRecord) {
+  return buildAnglerSpeciesProfile(species, {
+    identification: null,
+    behavior: null,
+    diet: null,
+    seasonalCalendar: null,
+  });
+}
+
 const EXPECTED_SECTIONS: AnglerProfileSectionId[] = [
   "identification",
   "habitat_location",
@@ -35,7 +54,7 @@ const EXPECTED_SECTIONS: AnglerProfileSectionId[] = [
 
 test("AFP-1.2 exposes the complete ten-question angler profile contract for every species", () => {
   assert.equal(ANGLER_PROFILE_MODEL_VERSION, "AFP-1.2");
-  assert.equal(SPECIES.length, 75);
+  assert.ok(SPECIES.length >= 111, `catalog has shrunk to ${SPECIES.length}`);
 
   for (const species of SPECIES) {
     const profile = profileOf(species);
@@ -79,35 +98,33 @@ test("AFP-1.2 keeps exact regulations outside the static species record", () => 
 
 test("AFP-1.2 uses identification dossiers when reviewed and leaves remaining species explicitly incomplete", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(rainbow && whitefish);
+  assert.ok(rainbow);
 
-  const rainbowProfile = profileOf(rainbow);
-  const whitefishProfile = profileOf(whitefish);
-  const rainbowId = rainbowProfile.sections.find((section) => section.id === "identification");
-  const whitefishId = whitefishProfile.sections.find((section) => section.id === "identification");
-
+  const rainbowId = profileOf(rainbow).sections.find((section) => section.id === "identification");
   assert.equal(identificationDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowId?.status, "reviewed");
   assert.ok(rainbowId?.facts.some((fact) => fact.kind === "comparison"));
-  assert.equal(whitefishId?.status, "partial");
-  assert.ok(whitefishId?.gaps.includes("similar-species comparison keys"));
+
+  // Without a dossier the section is "partial", not "not reviewed": the
+  // catalog still supplies authoritative naming and angler aliases, and the
+  // gap list says exactly what is missing beyond that.
+  const bare = unresearchedProfileOf(rainbow).sections.find((section) => section.id === "identification");
+  assert.equal(bare?.status, "partial");
+  assert.ok(bare?.gaps.includes("similar-species comparison keys"));
+  assert.ok(!bare?.facts.some((fact) => fact.kind === "comparison"));
 });
 
 test("AFP-1.2 uses behavior dossiers when reviewed without converting them into catch claims", () => {
   const whiteBass = SPECIES.find((species) => species.id === "morone_chrysops");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(whiteBass && whitefish);
+  assert.ok(whiteBass);
 
   const whiteProfile = profileOf(whiteBass);
-  const whitefishProfile = profileOf(whitefish);
   const whiteBehavior = whiteProfile.sections.find((section) => section.id === "behavior");
-  const whitefishBehavior = whitefishProfile.sections.find((section) => section.id === "behavior");
-
   assert.equal(whiteBehavior?.status, "reviewed");
   assert.ok(whiteBehavior?.facts.some((fact) => fact.label === "Social pattern"));
-  assert.equal(whitefishBehavior?.status, "partial");
-  assert.ok(whitefishBehavior?.gaps.includes("schooling versus solitary behavior"));
+
+  const bare = unresearchedProfileOf(whiteBass).sections.find((section) => section.id === "behavior");
+  assert.ok(bare?.gaps.includes("schooling versus solitary behavior"));
 
   const blob = JSON.stringify(whiteProfile);
   assert.doesNotMatch(blob, /best bite|hot bite|catch probability|they will bite/i);
@@ -115,39 +132,31 @@ test("AFP-1.2 uses behavior dossiers when reviewed without converting them into 
 
 test("AFP-1.2 uses diet dossiers when reviewed and does not infer a current hatch", () => {
   const rainbow = SPECIES.find((species) => species.id === "oncorhynchus_mykiss");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(rainbow && whitefish);
+  assert.ok(rainbow);
 
-  const rainbowProfile = profileOf(rainbow);
-  const whitefishProfile = profileOf(whitefish);
-  const rainbowDiet = rainbowProfile.sections.find((section) => section.id === "diet");
-  const whitefishDiet = whitefishProfile.sections.find((section) => section.id === "diet");
-
+  const rainbowDiet = profileOf(rainbow).sections.find((section) => section.id === "diet");
   assert.equal(dietDossierFor("oncorhynchus_mykiss")?.status, "reviewed");
   assert.equal(rainbowDiet?.status, "reviewed");
   assert.ok(rainbowDiet?.facts.some((fact) => fact.kind === "season"));
   assert.ok(rainbowDiet?.facts.some((fact) => fact.kind === "life_stage"));
   assert.ok(rainbowDiet?.facts.some((fact) => /not proof/i.test(fact.value)));
-  assert.equal(whitefishDiet?.status, "partial");
-  assert.ok(whitefishDiet?.gaps.includes("spring / summer / fall / winter diet shifts"));
+
+  const bare = unresearchedProfileOf(rainbow).sections.find((section) => section.id === "diet");
+  assert.ok(bare?.gaps.includes("spring / summer / fall / winter diet shifts"));
 });
 
 test("AFP-1.2 uses seasonal calendars when reviewed without turning spawn into a target map", () => {
   const kokanee = SPECIES.find((species) => species.id === "oncorhynchus_nerka_kokanee");
-  const whitefish = SPECIES.find((species) => species.id === "prosopium_williamsoni");
-  assert.ok(kokanee && whitefish);
+  assert.ok(kokanee);
 
-  const kokaneeProfile = profileOf(kokanee);
-  const whitefishProfile = profileOf(whitefish);
-  const kokaneeCal = kokaneeProfile.sections.find((section) => section.id === "seasonal_calendar");
-  const whitefishCal = whitefishProfile.sections.find((section) => section.id === "seasonal_calendar");
-
+  const kokaneeCal = profileOf(kokanee).sections.find((section) => section.id === "seasonal_calendar");
   assert.equal(seasonalCalendarDossierFor("oncorhynchus_nerka_kokanee")?.status, "reviewed");
   assert.equal(kokaneeCal?.status, "reviewed");
   assert.ok(kokaneeCal?.facts.some((fact) => fact.kind === "season"));
   assert.doesNotMatch(JSON.stringify(kokaneeCal), /exact spawning|staging location|migration bottleneck|hotspot/i);
-  assert.equal(whitefishCal?.status, "partial");
-  assert.ok(whitefishCal?.gaps.includes("month-by-month location changes"));
+
+  const bare = unresearchedProfileOf(kokanee).sections.find((section) => section.id === "seasonal_calendar");
+  assert.ok(bare?.gaps.includes("month-by-month location changes"));
 });
 
 test("AFP-1.2 wave 02a marks brown, brook, lake trout, and steelhead as reviewed without collapsing steelhead into rainbow", () => {

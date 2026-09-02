@@ -607,4 +607,8 @@ export const GROUPS: { id: SpeciesRecord["group"]; label: string }[] = [
   { id: "bass_panfish", label: "Bass / panfish" },
   { id: "predator", label: "Cool-water predators" },
   { id: "other", label: "Other" },
+  { id: "inshore_surf", label: "Inshore & surf" },
+  { id: "reef_bottom", label: "Reef & bottom" },
+  { id: "offshore_pelagic", label: "Offshore & pelagic" },
+  { id: "sharks", label: "Sharks" },
 ];

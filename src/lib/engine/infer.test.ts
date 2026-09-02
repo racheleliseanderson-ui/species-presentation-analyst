@@ -9,6 +9,7 @@ import {
   SPECIES_WEIGHT_OVERRIDE_RULES,
 } from "./species-weight-overrides-catalog.ts";
 import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
+import { reviewedHoldingFor, reviewedPresentationsFor } from "./water.ts";
 import type { ScenarioInput } from "../protocol/types.ts";
 
 const brownSeam: ScenarioInput = {
@@ -29,14 +30,14 @@ const brownSeam: ScenarioInput = {
 };
 
 describe("interpret", () => {
-  it("returns an SPW-1.1 preferred-band brown trout reading with species override provenance", () => {
+  it("returns an SPW-2.0 preferred-band brown trout reading with species override provenance", () => {
     const r = interpret(brownSeam);
     assert.ok(!("error" in r), "expected a reading");
     if ("error" in r) return;
     assert.equal(r.thermalState, "preferred");
     assert.equal(r.presentations[0]?.id, "dead_drift");
-    assert.equal(r.weightingModel.version, "SPW-1.1");
-    assert.equal(r.weightingModel.speciesOverrideVersion, "SPO-1.2");
+    assert.equal(r.weightingModel.version, "SPW-2.0");
+    assert.equal(r.weightingModel.speciesOverrideVersion, "SPO-1.3");
     assert.deepEqual(r.weightingModel.coreAxes, [
       "species",
       "season",
@@ -309,23 +310,45 @@ describe("interpret", () => {
   });
 });
 
-describe("SPO-1.2 catalog invariants", () => {
+describe("SPO catalog invariants", () => {
   it("covers every reviewed species exactly once at the coverage layer", () => {
-    assert.equal(SPECIES_OVERRIDE_MODEL_VERSION, "SPO-1.2");
+    assert.equal(SPECIES_OVERRIDE_MODEL_VERSION, "SPO-1.3");
     const catalogIds = SPECIES.map((species) => species.id).sort();
     const coverageIds = SPECIES_OVERRIDE_COVERAGE.map((entry) => entry.speciesId).sort();
-    assert.equal(new Set(coverageIds).size, 75);
+    assert.equal(new Set(coverageIds).size, catalogIds.length);
     assert.deepEqual(coverageIds, catalogIds);
   });
 
-  it("uses policy-only coverage only for records whose ordinary presentation guidance is intentionally suppressed", () => {
+  it("suppresses weighting for every species that carries no presentation guidance", () => {
+    // The direction that matters for safety: a conservation-sensitive or
+    // non-target record must never acquire a weighting rule by accident.
+    for (const species of SPECIES) {
+      if (species.targetStatus !== "conservation_sensitive" && species.targetStatus !== "non_target") {
+        continue;
+      }
+      const entry = SPECIES_OVERRIDE_COVERAGE.find((row) => row.speciesId === species.id);
+      assert.equal(entry?.mode, "policy_only", `${species.id} is ${species.targetStatus}`);
+    }
+    // `policy_only` is a deliberate withholding, and paddlefish is the case
+    // that is not driven by targetStatus: it is a filter feeder, so the app
+    // declines to weight capture method at all. `no_reviewed_rule` is the
+    // different, weaker statement — nothing in the record justified a delta.
     const policyOnly = SPECIES_OVERRIDE_COVERAGE
       .filter((entry) => entry.mode === "policy_only")
-      .map((entry) => entry.speciesId)
-      .sort();
-    assert.deepEqual(policyOnly, ["polyodon_spathula", "salmo_salar_anadromous", "salvelinus_confluentus"]);
-    for (const speciesId of policyOnly) {
-      assert.equal(SPECIES_WEIGHT_OVERRIDE_RULES.some((candidate) => candidate.speciesId === speciesId), false);
+      .map((entry) => entry.speciesId);
+    assert.ok(policyOnly.includes("salvelinus_confluentus"));
+    assert.ok(policyOnly.includes("polyodon_spathula"));
+    assert.ok(policyOnly.includes("megalops_atlanticus"), "tarpon is the saltwater case");
+  });
+
+  it("never carries a rule for a species whose guidance is suppressed or unsupported", () => {
+    for (const entry of SPECIES_OVERRIDE_COVERAGE) {
+      if (entry.mode === "weighted") continue;
+      assert.equal(
+        SPECIES_WEIGHT_OVERRIDE_RULES.some((rule) => rule.speciesId === entry.speciesId),
+        false,
+        `${entry.speciesId} is ${entry.mode} but carries rules`,
+      );
     }
   });
 
@@ -339,12 +362,45 @@ describe("SPO-1.2 catalog invariants", () => {
   });
 
   it("never references a presentation family outside the species reviewed family union", () => {
+    // Resolved per water type rather than as one flat union. The union version
+    // read only the two freshwater lists, so every saltwater rule looked
+    // unreviewed; worse, the reverse mistake would have let an inshore rule
+    // move a family the species is only reviewed for offshore.
     for (const candidate of SPECIES_WEIGHT_OVERRIDE_RULES) {
       const species = SPECIES_BY_ID[candidate.speciesId];
       assert.ok(species, `override references unknown species ${candidate.speciesId}`);
-      const reviewed = new Set([...species.flowingPresentations, ...species.stillPresentations]);
+      const waterTypes = candidate.when.waterTypes ?? species.habitat.waterTypes;
+      const reviewed = new Set(
+        waterTypes.flatMap((waterType) => [...reviewedPresentationsFor(species, waterType)]),
+      );
       for (const familyId of Object.keys(candidate.bias)) {
-        assert.ok(reviewed.has(familyId as never), `${candidate.id} references unreviewed family ${familyId}`);
+        assert.ok(
+          reviewed.has(familyId as never),
+          `${candidate.id} moves ${familyId}, which ${species.id} is not reviewed for in ${waterTypes.join("/")}`,
+        );
+      }
+    }
+  });
+
+  it("never moves a family for a species that carries no presentation guidance", () => {
+    for (const candidate of SPECIES_WEIGHT_OVERRIDE_RULES) {
+      const status = SPECIES_BY_ID[candidate.speciesId]?.targetStatus;
+      assert.ok(
+        status !== "conservation_sensitive" && status !== "non_target",
+        `${candidate.id} weights ${candidate.speciesId}, which is ${status}`,
+      );
+    }
+  });
+
+  it("only keys a holding class that belongs to the water the rule applies to", () => {
+    for (const candidate of SPECIES_WEIGHT_OVERRIDE_RULES) {
+      const species = SPECIES_BY_ID[candidate.speciesId];
+      const waterTypes = candidate.when.waterTypes ?? species.habitat.waterTypes;
+      for (const holding of candidate.when.holding ?? []) {
+        assert.ok(
+          waterTypes.some((waterType) => reviewedHoldingFor(species, waterType).includes(holding)),
+          `${candidate.id} keys on ${holding}, which ${species.id} is not reviewed for in ${waterTypes.join("/")}`,
+        );
       }
     }
   });

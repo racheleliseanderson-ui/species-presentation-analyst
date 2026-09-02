@@ -16,6 +16,7 @@ import {
 import { SPECIES_OVERRIDE_EXPANSION_04_COVERAGE } from "./species-weight-overrides-expansion-04.ts";
 import { POPULATION_CONTEXT_CANDIDATES_04 } from "./population-context-candidates-04.ts";
 import type { TargetStatus } from "../protocol/types.ts";
+import { isMarine } from "../protocol/vocab.ts";
 
 const expansionIds = new Set(SPECIES_EXPANSION_04.map((species) => species.id));
 
@@ -27,11 +28,12 @@ const statusRank: Record<TargetStatus, number> = {
 };
 
 describe("species expansion 04 catalog invariants", () => {
-  it("brings the reviewed catalog to exactly 75 unique species", () => {
+  it("brings the freshwater catalog to exactly 75 unique species", () => {
     assert.equal(SPECIES_EXPANSION_04.length, 15);
     assert.equal(new Set(SPECIES_EXPANSION_04.map((species) => species.id)).size, 15);
-    assert.equal(SPECIES.length, 75);
-    assert.equal(new Set(SPECIES.map((species) => species.id)).size, 75);
+    const freshwater = SPECIES.filter((species) => !species.habitat.waterTypes.some(isMarine));
+    assert.equal(freshwater.length, 75);
+    assert.equal(new Set(SPECIES.map((species) => species.id)).size, SPECIES.length);
     for (const species of SPECIES_EXPANSION_04) {
       const catalogRecord = SPECIES_BY_ID[species.id];
       assert.ok(catalogRecord, `catalog is missing ${species.id}`);
@@ -50,10 +52,13 @@ describe("species expansion 04 catalog invariants", () => {
   });
 });
 
-describe("SPO-1.2 expansion coverage", () => {
-  it("provides explicit coverage for every one of the 75 reviewed records", () => {
-    assert.equal(SPECIES_OVERRIDE_MODEL_VERSION, "SPO-1.2");
-    assert.equal(new Set(SPECIES_OVERRIDE_COVERAGE.map((entry) => entry.speciesId)).size, 75);
+describe("SPO expansion coverage", () => {
+  it("provides explicit coverage for every reviewed record", () => {
+    assert.equal(SPECIES_OVERRIDE_MODEL_VERSION, "SPO-1.3");
+    assert.equal(
+      new Set(SPECIES_OVERRIDE_COVERAGE.map((entry) => entry.speciesId)).size,
+      SPECIES.length,
+    );
     for (const species of SPECIES) {
       assert.ok(
         SPECIES_OVERRIDE_COVERAGE.some((entry) => entry.speciesId === species.id),
