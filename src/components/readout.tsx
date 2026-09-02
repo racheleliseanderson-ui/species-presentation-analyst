@@ -9,6 +9,7 @@ import { WhatIf } from "@/components/what-if";
 import { fieldBrief, freshness } from "@/lib/engine/brief";
 import { interpret } from "@/lib/engine/infer";
 import { drivingChanges } from "@/lib/engine/sensitivity";
+import { declaredHolding } from "@/lib/engine/water";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { useSpeciesOverlays, useWaterContext } from "@/lib/knowledge/use-species-overlays";
 import { WaterContextPanel } from "@/components/water-context";
@@ -191,7 +192,7 @@ export function Readout({
   function onSave() {
     const name =
       saveName.trim() ||
-      `${species.commonNames[0]} · ${tempLine} · ${session.waterType === "flowing" ? labelOf(session.holdingRiver ?? "unknown") : labelOf(session.holdingStill ?? "unknown")}`;
+      `${species.commonNames[0]} · ${tempLine} · ${labelOf(declaredHolding(session) ?? "unknown")}`;
     setSaved(saveScenario(name, session));
     setSaveName("");
   }

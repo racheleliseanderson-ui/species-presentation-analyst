@@ -12,6 +12,7 @@ import {
   nextAdaptiveQuestion,
   type AdaptiveQuestion,
 } from "@/lib/engine/adaptive-guidance";
+import { declareHolding } from "@/lib/engine/water";
 import { fieldBrief } from "@/lib/engine/brief";
 import { interpret } from "@/lib/engine/infer";
 import { normalizeTemperatureRangeF } from "@/lib/engine/temperature";
@@ -22,9 +23,37 @@ import { WaterContextPanel } from "@/components/water-context";
 import { SpeciesThumb } from "@/components/species-thumb";
 import { parseEnhancedIncomingPacket } from "@/lib/protocol/enhanced-packet";
 import type { ScenarioInput } from "@/lib/protocol/types";
-import { SEASONS, labelOf, type Light, type Season, type WaterType } from "@/lib/protocol/vocab";
+import {
+  SEASONS,
+  labelOf,
+  type Light,
+  type Season,
+  type TideMovement,
+  type WaterType,
+} from "@/lib/protocol/vocab";
 import { STARTERS, toInput, useSession } from "@/lib/store";
 import { cn } from "@/lib/utils";
+
+/**
+ * Quick Read names water the way someone standing on it would, not the way the
+ * vocabulary does. "Offshore" is a word an angler uses; `offshore` is an enum.
+ */
+const WATER_CHOICES: { id: WaterType; label: string; detail: string }[] = [
+  { id: "flowing", label: "River / stream", detail: "Moving fresh water" },
+  { id: "stillwater", label: "Lake / reservoir", detail: "Still fresh water" },
+  { id: "surf", label: "Surf / beach", detail: "Standing in or casting off the sand" },
+  { id: "inshore", label: "Inshore / flats", detail: "Bays, marsh, creeks and grass flats" },
+  { id: "nearshore", label: "Nearshore", detail: "Reefs, wrecks and structure in sight of land" },
+  { id: "offshore", label: "Offshore", detail: "Blue water, weed lines, temperature breaks" },
+];
+
+/** Tide in the words an angler uses standing on the water. */
+const TIDE_ANSWERS: { id: TideMovement; label: string }[] = [
+  { id: "flooding", label: "Coming in" },
+  { id: "ebbing", label: "Going out" },
+  { id: "slack_high", label: "High and slack" },
+  { id: "slack_low", label: "Low and slack" },
+];
 
 type QuickReadProps = {
   onOpenFull: () => void;
@@ -252,8 +281,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
       speciesId: incompatible ? null : session.speciesId,
       waterType,
       water: { ...session.water, waterType },
-      holdingRiver: null,
-      holdingStill: null,
+      ...declareHolding(waterType, null),
     });
     setShowResult(false);
   }
@@ -530,20 +558,16 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-dim">2 · Water</p>
           <h2 className="mt-1 font-display text-2xl">What kind of water are you on?</h2>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            <Choice
-              active={session.water.waterType === "flowing"}
-              onClick={() => setWaterType("flowing")}
-            >
-              <span className="block font-medium">River / stream</span>
-              <span className="mt-0.5 block text-xs opacity-75">Moving water</span>
-            </Choice>
-            <Choice
-              active={session.water.waterType === "stillwater"}
-              onClick={() => setWaterType("stillwater")}
-            >
-              <span className="block font-medium">Lake / reservoir</span>
-              <span className="mt-0.5 block text-xs opacity-75">Stillwater</span>
-            </Choice>
+            {WATER_CHOICES.map((choice) => (
+              <Choice
+                key={choice.id}
+                active={session.water.waterType === choice.id}
+                onClick={() => setWaterType(choice.id)}
+              >
+                <span className="block font-medium">{choice.label}</span>
+                <span className="mt-0.5 block text-xs opacity-75">{choice.detail}</span>
+              </Choice>
+            ))}
           </div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <label>
@@ -888,6 +912,27 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                       </div>
                     )}
 
+                    {adaptiveQuestion.id === "tide" && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {TIDE_ANSWERS.map((answer) => (
+                          <Button
+                            key={answer.id}
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => answerFollowUp({ tideMovement: answer.id })}
+                          >
+                            {answer.label}
+                          </Button>
+                        ))}
+                        <Button
+                          variant="quiet"
+                          onClick={() => setFollowUpsAnswered((count) => count + 1)}
+                        >
+                          I don't know
+                        </Button>
+                      </div>
+                    )}
+
                     {adaptiveQuestion.id === "holding" && (
                       <div className="mt-4 grid gap-2 sm:grid-cols-2">
                         {holdingChoices.map((choice) => (
@@ -895,17 +940,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                             key={choice.id}
                             type="button"
                             onClick={() => {
-                              answerFollowUp(
-                                input.waterType === "flowing"
-                                  ? {
-                                      holdingRiver: choice.holding as ScenarioInput["holdingRiver"],
-                                      holdingStill: null,
-                                    }
-                                  : {
-                                      holdingRiver: null,
-                                      holdingStill: choice.holding as ScenarioInput["holdingStill"],
-                                    },
-                              );
+                              answerFollowUp(declareHolding(input.waterType, choice.holding));
                             }}
                             className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3 text-left shadow-[var(--shadow-border)]"
                           >

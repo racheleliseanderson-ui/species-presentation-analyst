@@ -1,7 +1,7 @@
 import { genericOAuthClient } from "better-auth/client/plugins";
 import { createAuthClient } from "better-auth/react";
 import { runPreSignInSignOut, runSignOut } from "../../../scripts/sign-out-plan.mjs";
-import { GROK_PROVIDERS } from "./providers";
+import { GROK_PROVIDERS } from "./providers.ts";
 
 /**
  * Better Auth client for this React SPA (browser-side).
@@ -29,13 +29,21 @@ export const authClient = createAuthClient({
 });
 
 /**
- * True when sign-in UI should be shown — i.e. whenever `VITE_AUTH_ENABLED` is
- * not `"false"`. The shipped template sets it to `"false"`
- * (`.grok/app-env.json`), which selects the dev user (see `use-current-user`);
- * with the key removed, sign-in is real in preview (baked preview client) and
- * when deployed (injected per-app client).
+ * True when sign-in UI should be shown — which requires an explicit
+ * `VITE_AUTH_ENABLED=true`.
+ *
+ * This app has no sign-in. Nothing it does is per-user: the reading is
+ * computed from what the angler declares, and the reviewed knowledge is public
+ * by design. The flag defaults to off rather than on so that the repository
+ * itself, cloned anywhere and built by anyone, ships without sign-in — the
+ * previous default read the flag as on unless an untracked local file turned
+ * it off, which meant a fresh clone behaved differently from this workspace.
+ *
+ * The auth infrastructure is kept because it is working, tested code and a
+ * future feature (saved waters, a personal log) would need it. Turning it on
+ * is a deliberate act: set `VITE_AUTH_ENABLED=true` in the deploy environment.
  */
-export const authEnabled = import.meta.env.VITE_AUTH_ENABLED !== "false";
+export const authEnabled = import.meta.env.VITE_AUTH_ENABLED === "true";
 
 /** The upstream providers to render sign-in buttons for. */
 export { GROK_PROVIDERS };

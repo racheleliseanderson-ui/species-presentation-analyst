@@ -211,6 +211,7 @@ describe("gateIdentityFromHeaders", () => {
   it("verifies the header token end to end and fails closed without it", async () => {
     const key = await makeKey("k1");
     const { fetchImpl } = staticJwks([key.jwk]);
+    process.env.VITE_AUTH_ENABLED = "true";
     process.env.GROK_PROJECT_ID = "proj-123";
     process.env.GROK_GATE_ORIGIN = ISSUER;
     try {
@@ -230,6 +231,29 @@ describe("gateIdentityFromHeaders", () => {
       );
       assert.equal(withoutToken, null);
     } finally {
+      delete process.env.VITE_AUTH_ENABLED;
+      delete process.env.GROK_PROJECT_ID;
+      delete process.env.GROK_GATE_ORIGIN;
+    }
+  });
+
+  it("fails closed when sign-in has not been explicitly switched on", async () => {
+    // The default. This app ships without sign-in, so a gate token presented to
+    // a build that never opted in must not resolve an identity, even when the
+    // rest of the gate configuration is present.
+    const key = await makeKey("k-default-off");
+    const { fetchImpl } = staticJwks([key.jwk]);
+    delete process.env.VITE_AUTH_ENABLED;
+    process.env.GROK_PROJECT_ID = "proj-123";
+    process.env.GROK_GATE_ORIGIN = ISSUER;
+    try {
+      const token = await signToken(key, { sub: "user-1", email: "viewer@example.com" });
+      const identity = await gateIdentityFromHeaders(
+        new Headers({ "x-grok-identity": token }),
+        fetchImpl,
+      );
+      assert.equal(identity, null);
+    } finally {
       delete process.env.GROK_PROJECT_ID;
       delete process.env.GROK_GATE_ORIGIN;
     }
@@ -242,6 +266,7 @@ describe("gateIdentityFromHeaders", () => {
       fetchedFrom.push(url);
       return { keys: [key.jwk] };
     };
+    process.env.VITE_AUTH_ENABLED = "true";
     process.env.GROK_PROJECT_ID = "proj-123";
     delete process.env.GROK_GATE_ORIGIN;
     try {
@@ -262,6 +287,7 @@ describe("gateIdentityFromHeaders", () => {
         "https://gate.app-builder-testing.com/__gate/identity-key",
       );
     } finally {
+      delete process.env.VITE_AUTH_ENABLED;
       delete process.env.GROK_PROJECT_ID;
     }
   });

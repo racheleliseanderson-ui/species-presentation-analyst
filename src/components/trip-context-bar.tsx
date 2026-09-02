@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Fish, Thermometer, Waves, Wind } from "lucide-react";
+import { declaredHolding } from "@/lib/engine/water";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { labelOf } from "@/lib/protocol/vocab";
 import { loadScenarios, useSession } from "@/lib/store";
@@ -28,7 +29,7 @@ export function TripContextBar() {
 
   const species = session.speciesId ? SPECIES_BY_ID[session.speciesId] : null;
   const waterName = session.water.waterName?.trim();
-  const holding = session.waterType === "flowing" ? session.holdingRiver : session.holdingStill;
+  const holding = declaredHolding(session);
 
   const links: (LinkState & { icon: typeof Waves })[] = [
     {

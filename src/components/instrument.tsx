@@ -17,16 +17,23 @@ import {
   CLARITY,
   FLOW_CLASSES,
   FORAGE_CLASSES,
+  HOLDING_BY_WATER_TYPE,
   LIGHT,
-  RIVER_HOLDING,
   SEASONS,
-  STILL_HOLDING,
   STILL_STATES,
   TEMP_SOURCES,
+  TIDE_MOVEMENTS,
+  TIDE_STRENGTHS,
+  WATER_TYPES,
   WEATHER_TRENDS,
+  isMarine,
   labelOf,
   type ForageClass,
+  type MarineHolding,
+  type RiverHolding,
+  type StillHolding,
 } from "@/lib/protocol/vocab";
+import { movementAxisFor } from "@/lib/engine/water";
 import { STARTERS, useSession, type Step } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -61,6 +68,12 @@ function incomingRows(p: Partial<ScenarioInput>): { label: string; value: string
   }
   if (p.tempF != null) rows.push({ label: "Temperature", value: `${p.tempF}°F` });
   if (p.tempSource) rows.push({ label: "Temp source", value: labelOf(p.tempSource) });
+  if (p.tideMovement && p.tideMovement !== "unknown") {
+    rows.push({ label: "Tide", value: labelOf(p.tideMovement) });
+  }
+  if (p.tideStrength && p.tideStrength !== "unknown") {
+    rows.push({ label: "Tide range", value: labelOf(p.tideStrength) });
+  }
   if (p.forage) rows.push({ label: "Forage", value: labelOf(p.forage.class) });
   return rows;
 }
@@ -140,6 +153,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
   );
   const mismatch =
     species && !species.habitat.waterTypes.includes(session.waterType);
+  const movementAxis = movementAxisFor(session.waterType);
 
   const continueLabel: Partial<Record<Step, { next: Step; label: string }>> = {
     water: { next: "conditions", label: "Continue to conditions" },
@@ -183,6 +197,13 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
                     (declarationChanged ? null : cur.populationContext),
                   tempF: pending.tempF === undefined ? cur.tempF : pending.tempF,
                   tempSource: pending.tempSource ?? cur.tempSource,
+                  tideMovement: pending.tideMovement ?? cur.tideMovement,
+                  tideStrength: pending.tideStrength ?? cur.tideStrength,
+                  // Holding water belongs to the water it was declared on, and
+                  // an incoming packet can change the water type underneath it.
+                  holdingRiver: declarationChanged ? null : cur.holdingRiver,
+                  holdingStill: declarationChanged ? null : cur.holdingStill,
+                  holdingMarine: declarationChanged ? null : cur.holdingMarine,
                   forage: pending.forage ?? cur.forage,
                   step: pending.speciesId ? "water" : cur.step,
                 });
@@ -356,11 +377,20 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
           <ChipGroup
             legend="Water type"
             value={session.waterType}
-            onChange={(waterType) => session.patch({ waterType, water: { ...session.water, waterType } })}
-            options={[
-              { id: "flowing", label: "Flowing" },
-              { id: "stillwater", label: "Stillwater" },
-            ]}
+            onChange={(waterType) =>
+              session.patch({
+                waterType,
+                water: { ...session.water, waterType },
+                // Holding water belongs to the water it was declared on. Carrying
+                // a grass flat across to a river would quietly rank the reading
+                // on structure the angler is no longer standing in.
+                holdingRiver: waterType === "flowing" ? session.holdingRiver : null,
+                holdingStill: waterType === "stillwater" ? session.holdingStill : null,
+                holdingMarine: isMarine(waterType) ? session.holdingMarine : null,
+              })
+            }
+            options={WATER_TYPES.map((id) => ({ id, label: labelOf(id) }))}
+            columns={3}
           />
           {mismatch && (
             <p className="instrument-rule rounded-[var(--radius-md)] bg-elevated px-4 py-3 text-sm">
@@ -404,7 +434,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
               columns={2}
             />
           )}
-          {session.waterType === "flowing" ? (
+          {movementAxis === "flow" && (
             <ChipGroup
               legend="Flow"
               value={session.flow}
@@ -412,7 +442,8 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
               options={opts(FLOW_CLASSES)}
               columns={3}
             />
-          ) : (
+          )}
+          {movementAxis === "still_state" && (
             <ChipGroup
               legend="Stillwater state"
               value={session.stillState}
@@ -420,6 +451,24 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
               options={opts(STILL_STATES)}
               columns={3}
             />
+          )}
+          {movementAxis === "tide" && (
+            <>
+              <ChipGroup
+                legend="Tide"
+                value={session.tideMovement ?? "unknown"}
+                onChange={(tideMovement) => session.patch({ tideMovement })}
+                options={opts(TIDE_MOVEMENTS)}
+                columns={3}
+              />
+              <ChipGroup
+                legend="Tide range"
+                value={session.tideStrength ?? "unknown"}
+                onChange={(tideStrength) => session.patch({ tideStrength })}
+                options={opts(TIDE_STRENGTHS)}
+                columns={2}
+              />
+            </>
           )}
           <ChipGroup
             legend="Clarity"
@@ -502,26 +551,40 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
           <p className="max-w-2xl text-sm text-muted">
             Holding-water class is ecological structure, not a secret spot. Unknown is allowed.
           </p>
-          {session.waterType === "flowing" ? (
+          {session.waterType === "flowing" && (
             <ChipGroup
               legend="River / flowing classes"
               value={session.holdingRiver}
               onChange={(holdingRiver) => session.patch({ holdingRiver })}
-              options={opts(RIVER_HOLDING)}
+              options={opts(HOLDING_BY_WATER_TYPE.flowing as readonly RiverHolding[])}
               columns={3}
             />
-          ) : (
+          )}
+          {session.waterType === "stillwater" && (
             <ChipGroup
               legend="Lake / reservoir classes"
               value={session.holdingStill}
               onChange={(holdingStill) => session.patch({ holdingStill })}
-              options={opts(STILL_HOLDING)}
+              options={opts(HOLDING_BY_WATER_TYPE.stillwater as readonly StillHolding[])}
+              columns={3}
+            />
+          )}
+          {isMarine(session.waterType) && (
+            <ChipGroup
+              legend={`${labelOf(session.waterType)} classes`}
+              value={session.holdingMarine ?? null}
+              onChange={(holdingMarine) => session.patch({ holdingMarine })}
+              options={opts(
+                HOLDING_BY_WATER_TYPE[session.waterType] as readonly MarineHolding[],
+              )}
               columns={3}
             />
           )}
           <Button
             variant="quiet"
-            onClick={() => session.patch({ holdingRiver: null, holdingStill: null })}
+            onClick={() =>
+              session.patch({ holdingRiver: null, holdingStill: null, holdingMarine: null })
+            }
           >
             Leave undeclared
           </Button>

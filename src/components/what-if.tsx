@@ -1,6 +1,7 @@
 import { ChipGroup } from "@/components/chips";
 import { Button } from "@/components/ui/button";
 import { populationProfilesForSpecies } from "@/lib/engine/population-context";
+import { declareHolding, declaredHolding, reviewedHoldingFor } from "@/lib/engine/water";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   CLARITY,
@@ -8,6 +9,7 @@ import {
   LIGHT,
   labelOf,
   type ForageClass,
+  type AnyHolding,
 } from "@/lib/protocol/vocab";
 import type { Session } from "@/lib/store";
 
@@ -34,10 +36,10 @@ export function WhatIf({
   onPatch: (partial: Partial<Session>) => void;
 }) {
   const species = session.speciesId ? SPECIES_BY_ID[session.speciesId] : null;
-  const holdings =
-    session.waterType === "flowing"
-      ? (species?.habitat.riverHolding ?? [])
-      : (species?.habitat.stillHolding ?? []);
+  // The classes this species is reviewed for in the water actually being
+  // fished. Reading the two freshwater lists directly left a saltwater what-if
+  // with no holding-water control at all.
+  const holdings = species ? reviewedHoldingFor(species, session.waterType) : [];
   const populationProfiles = session.speciesId
     ? populationProfilesForSpecies(session.speciesId, session.waterType)
     : [];
@@ -154,12 +156,8 @@ export function WhatIf({
         {holdings.length > 0 && (
           <ChipGroup
             legend="Holding-water class"
-            value={session.waterType === "flowing" ? session.holdingRiver : session.holdingStill}
-            onChange={(id) =>
-              session.waterType === "flowing"
-                ? onPatch({ holdingRiver: id as Session["holdingRiver"] })
-                : onPatch({ holdingStill: id as Session["holdingStill"] })
-            }
+            value={declaredHolding(session)}
+            onChange={(id) => onPatch(declareHolding(session.waterType, id as AnyHolding))}
             options={holdings.map((id) => ({ id, label: labelOf(id) }))}
             columns={3}
           />
