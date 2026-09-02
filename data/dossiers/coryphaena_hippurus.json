@@ -1,0 +1,191 @@
+{
+  "identification": {
+    "speciesId": "coryphaena_hippurus",
+    "status": "reviewed",
+    "regionalNames": [
+      "dorado",
+      "dolphin"
+    ],
+    "bodyShape": "Elongated, laterally compressed body with a single long dorsal fin running from above the eye nearly to the tail, and a deeply forked tail.",
+    "identificationTraits": [
+      "Single dark dorsal fin extends from above the eye to near the tail.",
+      "Oval-shaped tooth patch on the tongue, versus a wide, square tooth patch in pompano dolphinfish.",
+      "55-66 dorsal fin rays, more than the pompano dolphinfish.",
+      "Bright coloration fades almost immediately after the fish is landed, so live/fresh color should not be relied on alone."
+    ],
+    "coloration": "Electric greenish-blue back, gold-to-silver lower body and belly, with scattered dark and light spots on the sides; pectoral fins iridescent blue.",
+    "adultAppearance": "A slim, brilliantly colored surface predator with a single long dorsal fin and a sharply forked tail; adult males develop a squared, protruding forehead while females keep a rounded head.",
+    "sexualDimorphism": "Mature males ('bulls') have a distinctive blunt, protruding forehead; females ('cows' or 'peanuts' when small) have a rounded head. This is a reliable adult field mark, not a size cue.",
+    "similarSpecies": [
+      {
+        "name": "Pompano dolphinfish (Coryphaena equiselis)",
+        "distinction": "Pompano dolphinfish are smaller-bodied, have fewer dorsal fin rays (fewer than the 55-66 of common dolphinfish), and have a wider, more square tooth patch on the tongue versus the oval patch of common dolphinfish."
+      }
+    ],
+    "averageAdultLength": "Typical landed fish run about 1 m (roughly 3.3 ft), commonly 15-29 lb.",
+    "commonAnglingSize": "Commonly 15-29 lb (7-13 kg) in the recreational fishery.",
+    "typicalWeight": "Commonly 15-29 lb; rarely exceeds about 33 lb (15 kg).",
+    "maximumDocumentedSize": "Up to nearly 7 ft and 88 lb by NOAA's figures; a Florida state record of 81 lb is also documented.",
+    "longevity": "Matures within its first year (as early as 4-5 months of age) and can spawn at lengths as small as about 7.9 in; commonly lives up to 5 years and seldom exceeds about 4.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Mahi Mahi species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi"
+      },
+      {
+        "label": "Florida FWC, Dolphinfish wildlife and habitat profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/dolphinfish/"
+      },
+      {
+        "label": "North Carolina DEQ, pompano dolphinfish vs. common dolphinfish identification note",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/blog/2022/06/22/how-differentiate-pompano-dolphinfish-common-dolphinfish"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A single continent-wide average adult length figure was not found; length/weight vary considerably by region and season."
+    ]
+  },
+  "behavior": {
+    "speciesId": "coryphaena_hippurus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Juveniles school together, commonly within rafts of floating Sargassum. Older fish are typically more solitary or in loose association with floating structure; larger males in particular favor open-ocean water away from any floating object.",
+      "note": "Social structure shifts with both age and with proximity to floating structure rather than being fixed across the species."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "A fast (documented speeds up to roughly 50 knots), top-of-the-food-chain predator that pursues flying fish, squid, juvenile tuna, small pelagic fish, and other forage species, and also opportunistically takes crabs and other invertebrates sheltering around floating structure. Diet capacity is not evidence of a current bait event."
+    },
+    "dielTendency": {
+      "class": "diurnal",
+      "note": "A daytime surface feeder. Peer-reviewed telemetry on fish associated with floating objects found deeper daytime diving (documented in one study region at roughly 26-53 m by day versus roughly 5-28 m at night), consistent with the fish making daytime foraging excursions beneath the structure and staying shallower after dark."
+    },
+    "currentFacing": "Concentrates along drifting weed lines and at current-driven fronts/rips, where moving water and floating structure combine to hold prey.",
+    "depthMovement": "Spends the large majority of time in the top 10 m of the water column when associated with a weed line or floating object; dives deeper (documented to roughly 20-50 m) when not associated with floating structure, most often during daylight.",
+    "coverUse": "One of the strongest floating-structure associations of any pelagic gamefish: uses Sargassum weed lines and other drifting material as both a foraging platform and likely as cover for smaller/younger fish, though the peer-reviewed study reviewed here did not find a direct temperature signature driving this behavioral split -- see gaps.",
+    "spawningBehavior": "A near-year-round, multiple-batch spawner: NOAA reports spawning November through July for fish associated with the Florida Current and June-July off North Carolina, occurring under patches of floating Sargassum. Fecundity rises sharply with size. Spawning water and any staging concentration are conservation context only and are not described as holding water.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Mahi Mahi species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi"
+      },
+      {
+        "label": "South Atlantic Fishery Management Council, Dolphin species page",
+        "class": "agency",
+        "url": "https://safmc.net/species/dolphin/"
+      },
+      {
+        "label": "Peer-reviewed telemetry study: vertical distributions of dolphinfish (Coryphaena hippurus), PLOS ONE",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0276873"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A sourced adult thermal preference or tolerance range (°F) was not found and is omitted from the catalog record; reviewed sources describe the species only qualitatively as tropical/subtropical. One agency source gives a single distributional figure for larvae (year-round presence at about 82°F/28°C, with greater numbers in spring and fall) -- explicitly a larval distribution figure, not an adult preference range, and not used as the species thermal band for that reason.",
+      "The reviewed peer-reviewed telemetry study explicitly found no clear temperature signature distinguishing associated from unassociated behavioral modes across the oceanographic conditions it examined; a temperature-driven explanation for the floating-structure association was not established.",
+      "Cold-front / barometric-pressure response with primary-source support.",
+      "Angling-pressure response with primary-source support."
+    ]
+  },
+  "diet": {
+    "speciesId": "coryphaena_hippurus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "surface",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "zooplankton"
+    ],
+    "primaryNote": "A fast surface predator taking flying fish, squid, juvenile tuna, small pelagic fish, billfish and jacks (per NOAA's diet list), plus crabs, shrimp, and other invertebrates associated with floating structure; larvae take zooplankton. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae feed on zooplankton; juveniles sheltering in Sargassum feed on the small fish and invertebrates associated with the weed.",
+      "adult": "Adults pursue flying fish, squid, juvenile tuna, small pelagic fish, and other forage fish, plus crabs and shrimp opportunistically."
+    },
+    "preySizeShifts": "Prey shifts from zooplankton at the larval stage to a broad mix of small pelagic fish, squid, and crustaceans as juveniles and adults; NOAA's prey list includes larger prey such as juvenile tuna and billfish for adults.",
+    "observedForageRule": "Diet capacity is not proof that a bait event is happening now; observed current forage still comes from a direct sighting, not from this dossier.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Mahi Mahi species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi"
+      },
+      {
+        "label": "South Atlantic Fishery Management Council, Dolphin species page",
+        "class": "agency",
+        "url": "https://safmc.net/species/dolphin/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Seasonal or regional diet-substitution detail beyond the general prey list was not found.",
+      "A quantified ontogenetic diet shift was not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "coryphaena_hippurus",
+    "status": "partial",
+    "overview": "Mahi-mahi is present across most of the warm season wherever floating Sargassum weed lines, current rips, and temperature breaks form in offshore water, with a near-year-round spawning season that is conservation context rather than a fishing cue. Reviewed sources establish strong structure/current association and a fast growth rate but do not give a sourced month-by-month arrival/departure calendar for the western Atlantic/Gulf population, so this dossier is marked partial.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Offshore weed lines, temperature breaks, and current rips.",
+        "feedingEmphasis": "Daytime surface pursuit of flying fish, small pelagic fish, and squid concentrated by drifting structure.",
+        "presentationImplication": "Run-and-gun cast to visible weed lines and current seams; trolling spread to locate structure in open water.",
+        "conservationNote": "Within the near-year-round spawning window (Florida Current-associated fish spawn November-July per NOAA); spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Assuming a fixed regional arrival date; a sourced calendar for this was not found."
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Offshore weed lines, temperature breaks, and current rips through the peak of the warm season.",
+        "presentationImplication": "Trolling spread and live-bait slow troll along drifting structure; chum-established drift once a school is located under a weed line.",
+        "conservationNote": "North Carolina-associated fish spawn June-July per NOAA; spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Treating a single sighting of surface activity as proof of sustained local abundance."
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Offshore weed lines and current features persist into fall in much of the range, though a sourced departure timeline was not found.",
+        "invalidators": [
+          "Assuming continued offshore availability through fall/winter without a supporting source for the specific region."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Mahi Mahi species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi"
+      },
+      {
+        "label": "South Atlantic Fishery Management Council, Dolphin species page",
+        "class": "agency",
+        "url": "https://safmc.net/species/dolphin/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A month-by-month seasonal-occurrence calendar for the US western Atlantic/Gulf population was not found; only spawning-window timing and general 'warm season' habitat use are sourced.",
+      "Winter habitat use/behavior was not specifically sourced."
+    ]
+  }
+}

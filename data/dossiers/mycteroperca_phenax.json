@@ -1,0 +1,183 @@
+{
+  "identification": {
+    "speciesId": "mycteroperca_phenax",
+    "status": "reviewed",
+    "regionalNames": [
+      "scamp"
+    ],
+    "bodyShape": "A slender-bodied grouper in the same genus as gag, with a more concave head profile than gag and pronounced elongation of the soft dorsal and anal fin rays in mature fish.",
+    "identificationTraits": [
+      "Pronounced anal and soft dorsal fin-ray extensions in mature specimens, producing elongated caudal-fin lobes.",
+      "Head profile is more concave than gag's.",
+      "Tan-to-grayish-brown body covered with sharply defined, well-separated dark or reddish-brown spots roughly 1/8 in across, sometimes grouped into rosettes.",
+      "Yellow coloration is limited to the corners of the mouth - the key field distinction from the closely related yellowmouth grouper, which shows yellow both inside and at the corners of the mouth."
+    ],
+    "coloration": "Tan to grayish-brown or light gray body with well-separated dark or reddish-brown spots, sometimes clustered into rosette patterns.",
+    "adultAppearance": "A slender, spotted grouper with a concave head profile and elongated soft dorsal/anal/caudal fin-ray tips in mature fish.",
+    "sexualDimorphism": "Protogynous hermaphrodite - individuals transition from female to male as they age. Sources describe the elongated fin-ray tips as a trait of 'mature specimens' generally, without confirming it is sex-linked rather than simply age/size-linked; recorded as a gap rather than asserted as a male-only trait.",
+    "similarSpecies": [
+      {
+        "name": "Yellowmouth grouper (Mycteroperca interstitialis)",
+        "distinction": "Yellowmouth grouper shows yellow coloration both inside and at the corners of the mouth; scamp shows yellow only at the mouth corners."
+      },
+      {
+        "speciesId": "mycteroperca_microlepis",
+        "name": "Gag grouper",
+        "distinction": "Scamp has a more concave head profile, pronounced elongated soft dorsal/anal fin rays, and a body covered in sharply defined dark spots - gag lacks the spotted pattern and has a less concave profile."
+      }
+    ],
+    "averageAdultLength": "FWC describes common catches around 12 in, well below the documented maximum size below - a wide gap between the 'commonly caught' figure and the maximum that this record reports rather than resolves.",
+    "commonAnglingSize": "Legal fish must meet the 20 in TL South Atlantic minimum size where that rule applies; FWC's commonly-caught figure (about 12 in) is below that minimum and likely reflects undersized/released fish or a different regional dataset.",
+    "typicalWeight": "Not clearly sourced as distinct from the maximum-size figures below.",
+    "maximumDocumentedSize": "Up to about 43 in and 36 lb (SAFMC); FWC gives a maximum near 42 in, with the Florida state record standing at 28 lb 6 oz.",
+    "longevity": "May live up to about 30 years; the oldest documented age recorded was 21 years (SAFMC).",
+    "sources": [
+      {
+        "label": "SAFMC - Grouper, Scamp species page",
+        "class": "agency"
+      },
+      {
+        "label": "FWC - Scamp species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Whether the elongated fin-ray extensions are sex-linked (i.e., specific to transitioned males) or simply age/size-linked was not resolved by any source found.",
+      "No thermal preference or tolerance data (°F) was found for this species in any agency or peer-reviewed source searched; omitted from the catalog record entirely rather than guessed.",
+      "FWC's 'commonly caught around 12 in' figure and the 20 in South Atlantic minimum size are in tension and were not reconciled by any source found."
+    ]
+  },
+  "behavior": {
+    "speciesId": "mycteroperca_phenax",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "note": "Described as a live-bottom resident that occasionally congregates over wrecks and rocky outcroppings rather than a schooling species; no source described adult social structure beyond that."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "SAFMC describes scamp as aggressive predators that swallow crabs, shrimp, and other fish whole; FWC describes the diet as small fishes and invertebrates generally."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No agency or peer-reviewed source made a specific day/night feeding claim for this species; recorded as mixed rather than assigned confidently."
+    },
+    "coverUse": "Low-profile live bottom with dense soft coral and sponge growth is the preferred structure; wrecks and rocky outcroppings are used occasionally. Scamp are reported co-occurring on this live-bottom habitat with red grouper, white grunt, and red porgy.",
+    "spawningBehavior": "Scamp are protogynous hermaphrodites, transitioning from female to male as they age. They spawn pelagic eggs offshore; SAFMC gives an April-May window, while FWC describes the timing more loosely as 'late spring.' As with other South Atlantic shallow-water grouper, harvest is closed during a defined spawning-season window as a conservation measure. This description is biological and regulatory context only - it does not identify, locate, or describe a spawning aggregation as a structure class to fish.",
+    "sources": [
+      {
+        "label": "SAFMC - Grouper, Scamp species page",
+        "class": "agency"
+      },
+      {
+        "label": "FWC - Scamp species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Spawning-window dates disagree between SAFMC (April-May) and FWC ('late spring'); recorded as a discrepancy rather than resolved.",
+      "No thermally-driven behavior, current-facing behavior, territoriality, cold-front response, or angling-pressure response was found in a usable source; all omitted rather than inferred.",
+      "No Gulf-specific behavioral detail was found separate from the South Atlantic-sourced material above."
+    ]
+  },
+  "diet": {
+    "speciesId": "mycteroperca_phenax",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans"
+    ],
+    "primaryNote": "SAFMC describes scamp as aggressive predators that will swallow crabs, shrimp, and other fish whole; FWC describes the diet more generally as small fishes and invertebrates. Diet capacity is not evidence of a current feeding event.",
+    "observedForageRule": "Diet capacity is not proof that a feeding event is happening now. Observed current forage still comes from a user observation or Hatch Match, never from this record alone.",
+    "sources": [
+      {
+        "label": "SAFMC - Grouper, Scamp species page",
+        "class": "agency"
+      },
+      {
+        "label": "FWC - Scamp species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No life-stage, seasonal, or ontogenetic diet detail was found beyond the general adult prey list above.",
+      "Whether squid/cephalopods (mollusks class) feature in scamp diet, as they do for the closely related gag, was not specifically sourced for scamp and is omitted rather than assumed."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "mycteroperca_phenax",
+    "status": "reviewed",
+    "overview": "Scamp behavior in the sources reviewed centers on year-round live-bottom residency at 75-300 ft, with a spring offshore spawning-aggregation period that the South Atlantic manages with a harvest closure. This record limits itself to the reviewed nearshore/offshore structure classes outside that closure.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Low-profile live-bottom habitat and adjacent nearshore/offshore reef, ledge, and wreck structure.",
+        "conservationNote": "Falls within the South Atlantic's January 1-April 30 shallow-water-grouper spawning-season closure. This is a regulatory/conservation fact, not a timing cue.",
+        "invalidators": [
+          "fishing without checking whether the current-year South Atlantic closure is in effect"
+        ]
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Low-profile live-bottom habitat and adjacent reef/ledge/wreck structure.",
+        "conservationNote": "Continued South Atlantic spawning-season closure period; SAFMC's reported spawning window (April-May) and FWC's ('late spring') both begin around or after this point.",
+        "invalidators": [
+          "targeting a spawning aggregation or treating aggregation structure as a class to fish"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Low-profile live-bottom habitat and adjacent reef/ledge/wreck structure.",
+        "conservationNote": "SAFMC's reported spawning window (April-May); South Atlantic closure runs through April 30 in the cited structure. This is conservation context only.",
+        "invalidators": [
+          "targeting a spawning aggregation or treating aggregation structure as a class to fish",
+          "assuming the season is open without checking the current-year rule"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Low-profile live-bottom habitat, occasional wrecks and rocky outcroppings, and nearshore/offshore reef and ledge structure.",
+        "presentationImplication": "Bottom contact, drop presentation, structure vertical, and deep drop over reviewed nearshore/offshore reef, ledge, and wreck classes, where the season is open.",
+        "invalidators": [
+          "fishing without a rigged descending device where required",
+          "assuming a Gulf or South Atlantic season is open without checking the current-year rule"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Low-profile live-bottom habitat and adjacent reef/ledge/wreck structure.",
+        "presentationImplication": "Bottom contact, drop presentation, structure vertical, and deep drop over reviewed structure classes, where the season is open.",
+        "invalidators": [
+          "assuming season status carries over from the prior year without checking current rules"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "SAFMC - Grouper, Scamp species page",
+        "class": "agency"
+      },
+      {
+        "label": "FWC - Scamp species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "This record deliberately omits any location, structure-naming, or timing detail about spawning aggregations beyond 'this is a management-closed period' - by design, not because the information doesn't exist.",
+      "No Gulf-specific seasonal calendar was found; entries above lean on South Atlantic-sourced regulatory structure and general live-bottom biology that likely also applies in the Gulf, but this is not confirmed Gulf-specific."
+    ]
+  }
+}

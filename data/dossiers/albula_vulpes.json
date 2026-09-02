@@ -1,0 +1,286 @@
+{
+  "identification": {
+    "speciesId": "albula_vulpes",
+    "status": "partial",
+    "regionalNames": [
+      "bone",
+      "grey ghost",
+      "macabi",
+      "banana fish"
+    ],
+    "bodyShape": "Elongate, fusiform, round in cross-section rather than compressed. Deeply forked tail on a narrow caudal peduncle. The head tapers to a conical snout that overhangs the mouth.",
+    "identificationTraits": [
+      "Snout is conical and overhangs an inferior, sub-terminal mouth; agency description has the snout projecting about a third of its length beyond the lower jaw.",
+      "Mouth is small and does not extend back under the eye.",
+      "Dorsal surface silvery bluish to greenish; sides and belly bright silver.",
+      "Dark streaks follow the scale rows along the sides in adults.",
+      "Teeth are granular and form crushing dental plates rather than cutting teeth - consistent with a hard-shelled benthic diet.",
+      "Juveniles carry a series of dark saddles or crossbands across the back; agency sources give seven to eight, a museum source gives nine. They fade with growth into the adult longitudinal striping."
+    ],
+    "coloration": "Bright silver flanks over a bluish to greenish back, with dark streaks along the scale rows. The mirror-silver flank is the reason for the 'grey ghost' name; it reads as a shadow rather than a fish over pale bottom.",
+    "juvenileAppearance": "Dark dorsal saddles or crossbands over a silver body, fading with age. Juvenile bonefish in Florida are not reliably A. vulpes: agency sources record juvenile bigeye bonefish (A. garcia) in the same waters.",
+    "adultAppearance": "A silver, round-bodied, fork-tailed fish with a conical overhanging snout and an inferior mouth, unbarred except for faint stripes along the scale rows.",
+    "similarSpecies": [
+      {
+        "name": "Albula goreensis",
+        "distinction": "Genetically distinct from A. vulpes but very similar in form. The Smithsonian shorefishes key states plainly that A. vulpes, A. goreensis and A. cf. vulpes are all genetically distinct and very similar in form. There is no reliable field character; assume field identifications are to the complex, not the species."
+      },
+      {
+        "name": "Albula sp. cf. vulpes",
+        "distinction": "An undescribed member of the A. vulpes complex whose range overlaps A. vulpes in the western Atlantic. Separated genetically, not visually."
+      },
+      {
+        "name": "Bigeye bonefish (Albula garcia)",
+        "distinction": "A second Albula recorded in Florida waters; FWC notes juveniles are present alongside A. vulpes. Not separable here on the sourcing available - flagged as a gap rather than resolved."
+      }
+    ],
+    "averageAdultLength": "Maturity is reached at about 17-18 in total length, at three to four years of age.",
+    "commonAnglingSize": "Not sourced as a length distribution. Museum sourcing describes typical western Atlantic fish as 4-6 lb, with fish over 8 lb considered notably large.",
+    "typicalWeight": "About 4-6 lb in the western Atlantic; over 8 lb is a large fish.",
+    "maximumDocumentedSize": "Sources differ. FWC gives a maximum recorded length of approximately 3 ft and a maximum weight around 15 lb; a museum source gives maxima near 31 in and 13-14 lb; the Smithsonian shorefishes database gives a maximum length of 77 cm.",
+    "longevity": "FWC states bonefish may live longer than 23 years; a museum source gives over 19 years.",
+    "sources": [
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bonefish",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/bonefish/"
+      },
+      {
+        "label": "Smithsonian STRI, Shorefishes of the Greater Caribbean - Albula vulpes",
+        "class": "agency",
+        "url": "https://biogeodb.stri.si.edu/caribbean/en/thefishes/species/2769"
+      },
+      {
+        "label": "Lingering taxonomic challenges hinder conservation and management of global bonefishes (Fisheries)",
+        "class": "peer_reviewed",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/fsh.10438"
+      },
+      {
+        "label": "Florida Museum of Natural History - Albula vulpes species profile",
+        "class": "synthesis",
+        "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/albula-vulpes/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No field-usable character separates A. vulpes from A. goreensis or A. sp. cf. vulpes; the complex was revised and sources acknowledge visual identification is unreliable. This is the central unresolved item in the record.",
+      "No sourced meristic key (fin ray, gill raker or scale counts) that separates the western Atlantic congeners",
+      "Maximum size figures disagree between FWC, the Smithsonian database and museum sourcing; no single reconciled maximum",
+      "No sourced length distribution for commonly caught fish - only a weight range",
+      "Sexual dimorphism not addressed by any source consulted",
+      "Spawning coloration and regional color variation not sourced"
+    ]
+  },
+  "behavior": {
+    "speciesId": "albula_vulpes",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "byLifeStage": "Not resolved by life stage in the sources consulted. Telemetry found no correlation between body size and activity space.",
+      "note": "Bonefish travel in schools whose movement tracks the tide, and disperse somewhat while actively feeding. Half of tagged fish in the Bahamian study showed high site fidelity, staying within about 1,500 m of where they were tagged; median distance travelled ranged from 118 to 10,691 m across individuals."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A rooting benthic feeder. The conical snout is used to dig through soft bottom and turn prey up, and granular dental plates crush what comes out. This is a bottom-directed animal, not a mid-column pursuit feeder."
+    },
+    "dielTendency": {
+      "class": "diurnal",
+      "note": "Shallow foraging creeks were used overwhelmingly by day in the Bahamian telemetry study - 10,040 daytime detections against 1,452 at night in the same receivers. The authors read this as feeding activity acting on top of the tidal constraint rather than instead of it."
+    },
+    "seasonalActivity": "Bahamian telemetry recorded a winter concentration at one end of the study creek from November into late January, corresponding to the proposed spawning season. Recorded as biology; that period and that behavior are excluded from targeting.",
+    "thermalDrivenBehavior": "Laboratory work put peak critical swimming speed at 28.0 C (82.4 F) and maximum scope for activity at 26.7 C (80.1 F), with critical thermal limits of 14.5 C (58.1 F) and 37.9 C (100.2 F). In the field, tagged fish exceeded their thermal optimum roughly 54% of the time and experienced diel swings up to 8 C and seasonal swings up to 14 C, but did not exceed the laboratory critical limits. Shallow tidal creeks are thermally extreme habitat this species tolerates rather than prefers.",
+    "currentFacing": "Not sourced. What is sourced is that tidal stage governs access rather than orientation.",
+    "depthMovement": "Movement into shallow backwater is depth-gated by tide. Detections in creek backwaters were near zero around low water, rose as depth increased after low tide, and peaked roughly four hours after low tide. On a falling tide the same water empties and the fish leave it.",
+    "waterLevelResponse": "This is the whole axis for the species. Tide height determines whether a given piece of shallow bottom is available at all. Bonefish are absent from shallow creek backwaters at low water and present on the flood, and the useful window for a given piece of shallow ground is set by how much water the tide puts over it, not by the clock.",
+    "predatorAvoidance": "Sharks are the operative predator. In a Bahamian catch-and-release study, about 39% of released bonefish were taken by lemon sharks within an hour at a site where sharks were abundant, while all 17 fish released at a low-shark-abundance site survived 30 minutes. Fish given long air exposure had trouble holding equilibrium and sat still on the bottom instead of swimming off - which is what the predation acts on.",
+    "coverUse": "Soft-bottom shallows, mangrove edges, estuarine lagoons and tidal creeks. Bonefish use depth and open escape routes rather than hard cover.",
+    "openWaterBehavior": "Bonefish are recorded to at least 84 m depth, well outside the shallow fishery. Movement corridors between shallow foraging habitat and deeper water are a documented part of the species' behavior but are not treated here as holding water.",
+    "spawningBehavior": "Conservation context only. FWC gives a November-May spawning period, probably in deep or offshore water. Peer-reviewed Bahamian work describes fish leaving normal shallow habitat to form very large schools near deep-water drop-offs during a 4-7 day window spanning full and new moons between October and May, making brief nocturnal offshore trips after sunset and returning before sunrise, with ventral nudging and porpoising observed as probable courtship. Pre-spawning aggregations are the most concentrated and most vulnerable state this species is ever in, and this catalog does not direct effort at them.",
+    "sources": [
+      {
+        "label": "Murchie et al. 2013, Movement patterns of bonefish (Albula vulpes) in tidal creeks and coastal waters of Eleuthera, The Bahamas. Fisheries Research 147:404-412",
+        "class": "peer_reviewed",
+        "url": "https://goldberglab.wisc.edu/pdf/P095.pdf"
+      },
+      {
+        "label": "Brownscombe et al. 2015, Swimming energetics and thermal ecology of adult bonefish (Albula vulpes). Environmental Biology of Fishes",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-015-0420-6"
+      },
+      {
+        "label": "Cooke & Philipp 2004, Behavior and mortality of caught-and-released bonefish (Albula spp.) in Bahamian waters. Biological Conservation 118:599-607",
+        "class": "peer_reviewed",
+        "url": "http://www.fecpl.ca/wp-content/uploads/2004/06/Bonefish-C-and-R-MS.pdf"
+      },
+      {
+        "label": "Danylchuk et al. 2011, Aggregations and offshore movements as indicators of spawning activity of bonefish (Albula vulpes) in The Bahamas. Marine Biology 158:1981-1999",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s00227-011-1707-6"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bonefish",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/bonefish/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "The full tidal detection curve in Murchie et al. could not be reconstructed reliably from the material fetched; only the low-water absence, the post-low-tide rise and the roughly four-hour-after-low peak are recorded here",
+      "No sourced cold-front or barometric response, despite a published cold-shock study that could not be retrieved",
+      "No sourced angling-pressure response",
+      "No sourced water-clarity response, despite clarity being central to how the species is fished",
+      "Territoriality and aggression not addressed by any source consulted",
+      "All tidal and diel behavior here comes from Bahamian tidal-creek systems; transferability to other bottom types and tidal ranges is not established",
+      "Studies published before the taxonomic revision may not have separated A. vulpes from congeners"
+    ]
+  },
+  "diet": {
+    "speciesId": "albula_vulpes",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "mollusks",
+      "worms_annelids",
+      "small_forage_fish"
+    ],
+    "primaryNote": "Crustaceans dominate. A published comparison of juvenile bonefish diets in the Bahamas and Florida found amphipods and carideans - both crustaceans - to be the most important prey items, with amphipods the only group in the top five prey categories in both regions. Museum sourcing adds mollusks, worms and small fish such as gulf toadfish for the species generally, all taken from the bottom by rooting with the snout and crushed on granular dental plates. Capacity is not a current bait event.",
+    "lifeStageDiet": {
+      "juvenile": "Amphipods and caridean shrimp dominate; amphipod abundance in the diet increased with bonefish size within the juvenile range studied.",
+      "adult": "Benthic invertebrates - crustaceans, mollusks and worms - with small fish taken opportunistically. Adult diet is less well sourced than juvenile diet."
+    },
+    "preySizeShifts": "Within juveniles, larger bonefish carried more amphipods. No sourced prey-size relationship for adults.",
+    "ontogeneticShift": "Not sourced as a described shift. The available diet study covers juveniles only, and adult diet comes from a museum synthesis rather than a stomach-content study.",
+    "forageSubstitutions": "Prey composition varied between coasts of a single island and between the Bahamas and Florida, tracking local prey availability rather than a fixed preference. Substitution is system-specific.",
+    "observedForageRule": "Diet capacity is not proof that a prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Griffin, Haak, Brownscombe et al. 2019, A comparison of juvenile bonefish diets in Eleuthera, The Bahamas, and Florida, U.S. Environmental Biology of Fishes 102:147-157",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-018-0822-3"
+      },
+      {
+        "label": "Florida Museum of Natural History - Albula vulpes species profile (dental plates, rooting, prey groups)",
+        "class": "synthesis",
+        "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/albula-vulpes/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No adult stomach-content study located; the quantitative diet data here are from juveniles only",
+      "No seasonal diet breakdown - seasonalDiet omitted rather than invented",
+      "Relative importance of mollusks versus crustaceans in adults is unquantified; both are listed but the ranking is not sourced",
+      "The Florida samples in the diet study were reported as Albula spp., so Florida diet cannot be attributed cleanly to A. vulpes"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "albula_vulpes",
+    "status": "partial",
+    "overview": "For bonefish the season is a weak axis and the tide is the strong one. Shallow foraging habitat is available or not depending on how much water is over it, and the species enters it on the flood and leaves it as the water drains - that pattern holds across seasons. The one sourced seasonal signal is reproductive: an October-to-May window in which aggregation and offshore movement occur, which this catalog treats as conservation context and excludes from targeting. Thermal sourcing is laboratory-derived, so seasonal thermal entries below are marked as such.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Soft-bottom shallows, mangrove edges and tidal creeks, availability set by tide height.",
+        "depthTendency": "Depth-gated by tide as in every season; absent from shallow backwater at low water.",
+        "thermalContext": "Laboratory critical thermal minimum is 14.5 C (58.1 F). Shallow tidal water is the part of the range that reaches thermal extremes fastest in either direction.",
+        "currentUse": "Enters shallow foraging ground as depth rises after low tide; detections peaked roughly four hours after low tide.",
+        "lightSensitivity": "Day-biased use of shallow creeks.",
+        "presentationImplication": "Flats sight cast is the reviewed family. Tidal drift bait covers the same edges when the water is moving.",
+        "invalidators": [
+          "treating a piece of shallow ground as available regardless of tide height",
+          "reading the winter aggregation period as a targeting window"
+        ],
+        "conservationNote": "Falls inside the sourced spawning window (November-May per FWC; October-May per Bahamian telemetry). Aggregation behavior is excluded from targeting."
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Soft-bottom shallows, mangrove edges, tidal creeks and creek mouths.",
+        "currentUse": "Same tidal gate: shallow backwater fills on the flood and empties on the ebb.",
+        "presentationImplication": "Flats sight cast; tidal drift bait along edges the tide is already moving water over.",
+        "invalidators": [
+          "assuming a seasonal change in tidal behavior that no source supports"
+        ],
+        "conservationNote": "Still inside the sourced spawning window."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Soft-bottom shallows, grass flats, sand holes, mangrove edges and tidal creeks.",
+        "thermalContext": "Laboratory optima are 26.7 C (80.1 F) for aerobic scope and 28.0 C (82.4 F) for critical swimming speed; field fish exceeded optimum about 54% of the time.",
+        "currentUse": "Tide-gated access to shallow foraging bottom.",
+        "presentationImplication": "Flats sight cast; live or natural bait suspension where a single-hook natural presentation is legal.",
+        "invalidators": [
+          "using diet capacity as evidence of a current prey event"
+        ],
+        "conservationNote": "The sourced spawning window runs to May."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Soft-bottom shallows and tidal creeks; the same structure classes, at the top of the thermal range.",
+        "thermalContext": "Laboratory critical thermal maximum is 37.9 C (100.2 F). Field fish spent roughly half their time above their thermal optimum, and authors warned that even a 1 C rise in tidal creeks increases exceedance of optimum and critical temperatures or reduces access to foraging habitat.",
+        "currentUse": "Tide-gated as in every season.",
+        "lightSensitivity": "Day-biased shallow use is the sourced pattern, in a season when shallow water is also warmest.",
+        "presentationImplication": "Flats sight cast remains the reviewed family.",
+        "invalidators": [
+          "assuming the warmest shallow water is the most usable water"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Soft-bottom shallows, mangrove edges, tidal creeks and creek mouths.",
+        "currentUse": "Tide-gated access as in every season.",
+        "presentationImplication": "Flats sight cast; tidal drift bait.",
+        "invalidators": [
+          "treating the onset of the aggregation period as a targeting cue"
+        ],
+        "conservationNote": "The Bahamian telemetry spawning window opens in October. Aggregation behavior is conservation context, not holding water."
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Soft-bottom shallows and tidal creeks.",
+        "movementTendency": "A winter concentration at one end of the study creek system began in November, corresponding to the proposed spawning season.",
+        "presentationImplication": "Flats sight cast.",
+        "invalidators": [
+          "converting a documented seasonal concentration into a place to fish"
+        ],
+        "conservationNote": "Inside the sourced spawning window under both agency and peer-reviewed sources."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Murchie et al. 2013, Movement patterns of bonefish (Albula vulpes) in tidal creeks and coastal waters of Eleuthera, The Bahamas. Fisheries Research 147:404-412",
+        "class": "peer_reviewed",
+        "url": "https://goldberglab.wisc.edu/pdf/P095.pdf"
+      },
+      {
+        "label": "Brownscombe et al. 2015, Swimming energetics and thermal ecology of adult bonefish (Albula vulpes). Environmental Biology of Fishes",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-015-0420-6"
+      },
+      {
+        "label": "Danylchuk et al. 2011, Aggregations and offshore movements as indicators of spawning activity of bonefish (Albula vulpes) in The Bahamas. Marine Biology 158:1981-1999",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s00227-011-1707-6"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bonefish",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/bonefish/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_summer and late_summer entries omitted - no source distinguishes them from summer for this species",
+      "No sourced seasonal diet emphasis, so forageEmphasis is absent from every entry",
+      "Seasonal habitat shifts other than the reproductive movement are not documented in the sources consulted",
+      "All seasonal behavior derives from Bahamian systems; Florida seasonality is asserted by no source consulted beyond the spawning window"
+    ]
+  }
+}

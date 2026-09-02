@@ -1,0 +1,377 @@
+{
+  "identification": {
+    "speciesId": "paralichthys_dentatus",
+    "status": "reviewed",
+    "regionalNames": [
+      "Fluke",
+      "Northern fluke",
+      "Flounder"
+    ],
+    "bodyShape": "Dorsoventrally flattened, left-eyed flatfish; more elongated than the nearly-round windowpane flounder and thinner/more elongate than the oval, thick-bodied winter flounder.",
+    "identificationTraits": [
+      "Left-eyed: both eyes on the left side of the body when the dorsal fin faces up (the right eye migrates across the head during larval development).",
+      "At least five prominent ocellated (eye-like, ringed) spots on the posterior body, classically described as forming the five-side-of-a-die pattern.",
+      "13 or more long, thin gill rakers - the trait that separates it from the very similar southern flounder (8-11 short, stubby rakers) and gulf flounder (9-12 short, stubby rakers), both also left-eyed.",
+      "Dorsal fin origin near the front of the eye.",
+      "Upper-side coloration is variable brown, gray or drab and changes to match the substrate."
+    ],
+    "coloration": "Brown, gray or drab above with a white underside; the pigmented side changes shade and pattern to match the bottom it is resting on. Ocellated spots persist through most color changes.",
+    "adultAppearance": "A left-eyed flatfish lying on sand, mud or shell-hash bottom, camouflaged except for its raised eyes and the ocellated spot pattern on its exposed side.",
+    "similarSpecies": [
+      {
+        "name": "Southern flounder (Paralichthys lethostigma)",
+        "distinction": "Also left-eyed and easily confused. Southern flounder has 8-11 short, stubby gill rakers and non-ocellated (plain) spots, versus summer flounder's 13+ long, thin gill rakers and ringed ocellated spots."
+      },
+      {
+        "name": "Gulf flounder (Paralichthys albigutta)",
+        "distinction": "Left-eyed with 9-12 short, stubby gill rakers and three prominent eye-spots in a triangle, versus summer flounder's five-spot ocellated pattern and long thin gill rakers."
+      },
+      {
+        "name": "Winter flounder (Pseudopleuronectes americanus)",
+        "distinction": "Right-eyed, with an oval, thick body and coloration ranging from muddy brown to olive to nearly black; lacks the ocellated spot pattern."
+      },
+      {
+        "name": "Windowpane flounder (Scophthalmus aquosus)",
+        "distinction": "Also left-eyed but has a nearly circular, thin, almost translucent body, and the tips of the first 10-12 dorsal rays are free of membrane, giving a fringed look; summer flounder's body is more elongated with fully webbed fins."
+      }
+    ],
+    "averageAdultLength": "Commonly cited around 14-15 in for the average recreational catch; males rarely exceed 2 ft, females reach up to 3 ft.",
+    "commonAnglingSize": "Roughly 14-18 in for most recreational catches, further constrained by state minimum-size rules.",
+    "typicalWeight": "About 1.5 lb at the average recreational catch length.",
+    "maximumDocumentedSize": "Females to about 3 ft. A South Carolina state-record fish weighed 3 lb 8 oz - modest next to the larger individuals reported further north, where a single continent-wide maximum was not found in the sources reviewed.",
+    "longevity": "To about 12-14 years theoretically; realized maximum age in the heavily fished South Atlantic is much lower (3-4 years) than the theoretical female maximum (12-20 years).",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/summer-flounder"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/summer-flounder/"
+      },
+      {
+        "label": "NOAA Technical Memorandum NMFS-NE-151, Essential Fish Habitat Source Document: Summer Flounder",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3149/noaa_3149_DS1.pdf"
+      },
+      {
+        "label": "Mid-Atlantic Fishery Management Council, Summer Flounder Essential Fish Habitat profile",
+        "class": "agency",
+        "url": "https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/65411c85ab333f64056d4cc5/1698765958269/SummerFlounder_EFHProfile.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Summer Flounder species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/summerflounder.html"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Summer Flounder",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/data-and-tools/NE-CVA/pdf/Summer_Flounder.pdf"
+      },
+      {
+        "label": "Buzzards Bay Coalition summer flounder fact sheet (synthesis of primary literature)",
+        "class": "synthesis",
+        "url": "https://buzzardsbay.org/wp-content/uploads/2017/03/summer-flounder.pdf"
+      },
+      {
+        "label": "NOAA Fisheries - Windowpane Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/windowpane-flounder"
+      },
+      {
+        "label": "NOAA Fisheries - Winter Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/winter-flounder"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Flounder identification brochure (gill raker counts)",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/marine-fisheries/species-information/flounder-identification-brochure/open"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A single continent-wide maximum weight/length figure was not found in the agency sources reviewed.",
+      "Sexual dimorphism beyond size-at-age (females grow larger and older) was not sourced.",
+      "Juvenile appearance and spawning coloration were not specifically sourced beyond general adult coloration."
+    ]
+  },
+  "behavior": {
+    "speciesId": "paralichthys_dentatus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "note": "Sourced as an individual ambush predator lying on the bottom; no schooling behavior was reported. Not resolved by life stage beyond the general adult/juvenile habitat separation described under habitat."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Primary mode is bottom ambush: the flounder lies partly buried and coloration-matched to the substrate and takes prey passing close by. One source also describes flounder pursuing schools of small baitfish to the surface, occasionally breaking it - recorded here as a documented but secondary pursuit behavior, not the default feeding mode."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "One source reports increased feeding activity near sunrise; another describes general daylight foraging. No sourced night-feeding pattern beyond the single flood-tide, nighttime creek-entry study noted under habitat."
+    },
+    "seasonalActivity": "Adults move inshore in late spring/early summer and offshore to the outer continental shelf in fall as part of a spawning migration; fall spawning itself is conservation context, not a targeting cue.",
+    "currentFacing": "Not sourced as a general current-facing behavior for adults. The one tide-specific finding available is young-of-year moving into marsh creeks at night on a flooding tide and out on the ebb - a single regional study, not generalized here to adults.",
+    "depthMovement": "Seasonal rather than diel: shallow estuarine and coastal water in warm months, progressively deeper water on the shelf (to roughly 500 ft) in winter. Juveniles move from very shallow nursery habitat to deeper water as they grow.",
+    "predatorAvoidance": "Camouflage against the substrate is the primary sourced predator-avoidance behavior; the species changes color and pattern to match the bottom.",
+    "coverUse": "Not associated with hard structure in the sources reviewed. It uses soft substrate (sand, mud, shell hash) and vegetated bottom (eelgrass, marsh grass) rather than reef, wreck or rock cover.",
+    "spawningBehavior": "A fall/winter serial (batch) spawner during the offshore migration to wintering grounds, peaking October-November per NOAA within a broader September-March window. Females are highly fecund (460,000 to over 4 million eggs). Any spawning concentration or migration corridor is excluded from targeting in this catalog.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/summer-flounder"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/summer-flounder/"
+      },
+      {
+        "label": "NOAA Technical Memorandum NMFS-NE-151, Essential Fish Habitat Source Document: Summer Flounder",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3149/noaa_3149_DS1.pdf"
+      },
+      {
+        "label": "Mid-Atlantic Fishery Management Council, Summer Flounder Essential Fish Habitat profile",
+        "class": "agency",
+        "url": "https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/65411c85ab333f64056d4cc5/1698765958269/SummerFlounder_EFHProfile.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Summer Flounder species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/summerflounder.html"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Summer Flounder",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/data-and-tools/NE-CVA/pdf/Summer_Flounder.pdf"
+      },
+      {
+        "label": "Buzzards Bay Coalition summer flounder fact sheet (synthesis of primary literature)",
+        "class": "synthesis",
+        "url": "https://buzzardsbay.org/wp-content/uploads/2017/03/summer-flounder.pdf"
+      },
+      {
+        "label": "NOAA Fisheries - Windowpane Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/windowpane-flounder"
+      },
+      {
+        "label": "NOAA Fisheries - Winter Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/winter-flounder"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Flounder identification brochure (gill raker counts)",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/marine-fisheries/species-information/flounder-identification-brochure/open"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Territoriality/aggression, cold-front response, water-level response, flow-change response, clarity response and angling-pressure response were not sourced.",
+      "Diel tendency is thinly sourced (two general daylight/dawn mentions) and may not hold across the full range."
+    ]
+  },
+  "diet": {
+    "speciesId": "paralichthys_dentatus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "worms_annelids",
+      "zooplankton"
+    ],
+    "primaryNote": "Fish make up the majority of the adult diet by weight (over 61% in one diet study, with sand lance especially important at 26 cm and longer); shrimp, crabs and other crustaceans dominate for smaller fish (under 21 cm, 43.3% of diet). Adults also take squid, bivalve mollusks and worms. This is diet capacity across sizes, not a current bait event.",
+    "seasonalDiet": [
+      {
+        "season": "summer",
+        "emphasis": "Peak inshore residency; opportunistic feeding on available crustaceans and small fish in estuarine and coastal habitat."
+      },
+      {
+        "season": "fall",
+        "emphasis": "Offshore migration begins; fall is conservation context (spawning), not a documented diet shift."
+      }
+    ],
+    "lifeStageDiet": {
+      "juvenile": "Crustacean-dominated (mysids and decapods, 43.3% of diet by weight in fish under 21 cm).",
+      "adult": "Fish-dominated (over 61% by weight overall; sand lance important at 26 cm+), with squid, crabs, shrimp, bivalve mollusks and worms also documented."
+    },
+    "preySizeShifts": "Diet shifts from crustacean-dominated (small fish) to fish-dominated (large fish) around a 21-26 cm size threshold in the sources reviewed; cephalopods (squid) become important around 31 cm.",
+    "ontogeneticShift": "Larvae feed on copepods and copepodites (zooplankton); juveniles shift to crustaceans; adults shift toward a majority-fish diet.",
+    "observedForageRule": "Diet capacity documented here is not proof of a current bait event. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/summer-flounder"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/summer-flounder/"
+      },
+      {
+        "label": "NOAA Technical Memorandum NMFS-NE-151, Essential Fish Habitat Source Document: Summer Flounder",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3149/noaa_3149_DS1.pdf"
+      },
+      {
+        "label": "Mid-Atlantic Fishery Management Council, Summer Flounder Essential Fish Habitat profile",
+        "class": "agency",
+        "url": "https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/65411c85ab333f64056d4cc5/1698765958269/SummerFlounder_EFHProfile.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Summer Flounder species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/summerflounder.html"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Summer Flounder",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/data-and-tools/NE-CVA/pdf/Summer_Flounder.pdf"
+      },
+      {
+        "label": "Buzzards Bay Coalition summer flounder fact sheet (synthesis of primary literature)",
+        "class": "synthesis",
+        "url": "https://buzzardsbay.org/wp-content/uploads/2017/03/summer-flounder.pdf"
+      },
+      {
+        "label": "NOAA Fisheries - Windowpane Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/windowpane-flounder"
+      },
+      {
+        "label": "NOAA Fisheries - Winter Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/winter-flounder"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Flounder identification brochure (gill raker counts)",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/marine-fisheries/species-information/flounder-identification-brochure/open"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A clean season-by-season diet breakdown (rather than a size-class breakdown) was not found.",
+      "Forage substitution across regions was not sourced."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "paralichthys_dentatus",
+    "status": "reviewed",
+    "overview": "Summer flounder is a seasonal migrant between offshore wintering water and inshore/estuarine summer feeding habitat, not a bottom resident of one water type year-round. It is a bottom ambush predator on soft substrate, not a structure fish. Fall spawning during the offshore migration is conservation context only.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Estuarine and coastal waters as adults move inshore from offshore wintering grounds.",
+        "depthTendency": "Shoaling from continental-shelf depth into estuaries and shallow coastal water.",
+        "movementTendency": "Inshore migration.",
+        "presentationImplication": "Structure pitch and tidal drift bait become viable as fish reoccupy estuarine feeding grounds.",
+        "invalidators": [
+          "treating spring as a fixed calendar date rather than a migration in progress"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallow estuarine bays, marsh creeks, seagrass beds, mudflats and lower-to-middle estuary reaches over sand, mud or shell-hash bottom.",
+        "depthTendency": "Shallow; juveniles progressively move to deeper water as they grow.",
+        "feedingEmphasis": "Bottom ambush on crustaceans and small fish.",
+        "presentationImplication": "Live/natural bait suspension and tidal drift bait presented near bottom over open sand/mud edges.",
+        "invalidators": [
+          "fishing it like a structure species - it is a soft-bottom ambush predator, not a reef fish"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Departing estuarine and coastal water for the outer continental shelf.",
+        "movementTendency": "Offshore spawning migration.",
+        "thermalContext": "Migration and spawning occur as water cools; NOAA reports a fall spawning peak in October-November.",
+        "conservationNote": "Fall is the spawning migration. Spawning concentrations and the migration corridor are excluded from targeting in this catalog.",
+        "presentationImplication": "Inshore presentations lose fish as the population thins toward the coast; this record does not extend guidance to the offshore wintering water type.",
+        "invalidators": [
+          "treating a thinning fall bite as a location problem rather than the stock leaving the water type this record covers"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Outer continental shelf (to roughly 500 ft), outside the water type reviewed in this record.",
+        "conservationNote": "An overwintering and spawning population; not covered by this record's inshore-only presentation guidance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/summer-flounder"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Summer Flounder species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/summer-flounder/"
+      },
+      {
+        "label": "NOAA Technical Memorandum NMFS-NE-151, Essential Fish Habitat Source Document: Summer Flounder",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3149/noaa_3149_DS1.pdf"
+      },
+      {
+        "label": "Mid-Atlantic Fishery Management Council, Summer Flounder Essential Fish Habitat profile",
+        "class": "agency",
+        "url": "https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/65411c85ab333f64056d4cc5/1698765958269/SummerFlounder_EFHProfile.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Summer Flounder species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/summerflounder.html"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Summer Flounder",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/data-and-tools/NE-CVA/pdf/Summer_Flounder.pdf"
+      },
+      {
+        "label": "Buzzards Bay Coalition summer flounder fact sheet (synthesis of primary literature)",
+        "class": "synthesis",
+        "url": "https://buzzardsbay.org/wp-content/uploads/2017/03/summer-flounder.pdf"
+      },
+      {
+        "label": "NOAA Fisheries - Windowpane Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/windowpane-flounder"
+      },
+      {
+        "label": "NOAA Fisheries - Winter Flounder species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/winter-flounder"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Flounder identification brochure (gill raker counts)",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/marine-fisheries/species-information/flounder-identification-brochure/open"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_spring, early_summer, late_summer and late_fall were not separately distinguishable in the sources reviewed and were folded into the adjacent season."
+    ]
+  }
+}

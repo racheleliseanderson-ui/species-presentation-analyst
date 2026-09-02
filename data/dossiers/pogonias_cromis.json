@@ -1,0 +1,312 @@
+{
+  "identification": {
+    "speciesId": "pogonias_cromis",
+    "status": "reviewed",
+    "regionalNames": [
+      "drum",
+      "bull drum",
+      "puppy drum (small fish, a name also used for red drum)",
+      "oyster cracker"
+    ],
+    "bodyShape": "Heavy-bodied and deep, with a large head, a high-arched back and a subinferior (down-turned, underslung) mouth. The largest sciaenid.",
+    "identificationTraits": [
+      "Chin barbels - 10 to 13 pairs of small barbels along the lower jaw, plus five chin pores. These are the definitive character and they are acquired early, at about 15 mm total length.",
+      "Subinferior mouth set well back under the snout, consistent with bottom rooting.",
+      "Heavily paved pharyngeal teeth in the throat for crushing shell. Not visible externally but definitive on a dead fish.",
+      "Juveniles carry four to six black vertical bars that fade with age; large adults are effectively unbarred.",
+      "Fin counts reported as 11 dorsal spines with 19-22 dorsal soft rays, and 2 anal spines with 5-7 anal soft rays.",
+      "No spot at the base of the tail - the character that separates it from red drum.",
+      "Produces audible drumming; both sexes have drumming muscles, with females drumming in a softer tone than males."
+    ],
+    "coloration": "Silvery with a brassy lustre in life, darkening toward grey after death. Larger fish are often dark grey to nearly black. Juveniles are silvery-grey to dark with bold black vertical bars.",
+    "juvenileAppearance": "Silvery-grey to dark with four to six black vertical bars, which is why small black drum are routinely mistaken for sheepshead. The barbels are present from about 15 mm and settle the question.",
+    "adultAppearance": "A heavy, deep-bodied, high-backed silvery-to-dark fish with a down-turned mouth and a fringe of small barbels under the jaw. Bars are gone in large adults.",
+    "similarSpecies": [
+      {
+        "speciesId": "archosargus_probatocephalus",
+        "name": "Sheepshead",
+        "distinction": "Sheepshead carry five or six vertical bars like a juvenile black drum, but have no chin barbels, have prominent incisor teeth at the front of the jaw, and reach far smaller sizes. Check under the jaw: barbels means black drum."
+      },
+      {
+        "speciesId": "sciaenops_ocellatus",
+        "name": "Red drum",
+        "distinction": "Red drum have no chin barbels and carry at least one black ocellated spot at the base of the tail. Black drum have barbels and no caudal spot. Small individuals of both are found on the same bottom."
+      }
+    ],
+    "averageAdultLength": "Maturity is reported at ages 2-4 for males and 4-6 for females, with a Gulf extension source giving 24-26 in at 4-5 years, and a state account noting all fish older than six years were sexually mature. Ages 1 and 2 dominate estuarine samples.",
+    "commonAnglingSize": "Not sourced as a catch-size distribution. Florida's 14-24 in slot and South Carolina's 36-69 cm slot indicate the size band most harvested fish fall in, but that is a regulation, not a measured catch distribution.",
+    "typicalWeight": "Not sourced as a distribution. Growth data give roughly 223 mm by age 1, 406 mm by age 2, about 415 mm standard length by age 3, and roughly 50 mm per year thereafter.",
+    "maximumDocumentedSize": "Sources agree on the scale and differ on the number: ASMFC gives over 46 in and 120 lb, a state account gives up to 66 kg (145 lb), and a technical synopsis gives a largest recorded specimen of 66.28 kg.",
+    "longevity": "Exceptional. ASMFC gives up to 60 years; a state account gives 59 years in Virginia against 43 years in the northern Gulf and a South Carolina range of 0-46 years; a technical synopsis gives over 35 years and an extension source over 40. Growth is rapid until about age 15 and slow after that, so a large fish is an old fish.",
+    "sources": [
+      {
+        "label": "South Carolina Department of Natural Resources 2015, Black Drum Pogonias cromis",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/blackdrum2015.pdf"
+      },
+      {
+        "label": "Silverman 1979, Biological and fisheries data on black drum, Pogonias cromis (Linnaeus). NMFS Sandy Hook Laboratory Technical Series Report 22",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/33306/noaa_33306_DS1.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Black Drum",
+        "class": "agency",
+        "url": "https://asmfc.org/species/black-drum/"
+      },
+      {
+        "label": "Sutter, Waller & McIlwain 1986, USFWS Biological Report 82(11.51) - black drum",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML1409/ML14091A045.pdf"
+      },
+      {
+        "label": "Louisiana Sea Grant / LSU AgCenter fisheries - Black drum",
+        "class": "synthesis",
+        "url": "https://www.seagrantfish.lsu.edu/biological/drum/blackdrum.htm"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced catch-size or weight distribution; typicalWeight and commonAnglingSize are expressed through growth data and slot limits rather than measured catch data",
+      "Maximum size and maximum age figures differ across sources and are recorded unreconciled",
+      "Sexual dimorphism not addressed beyond age at maturity and the softer female drumming tone",
+      "No sourced spawning coloration or regional color variation",
+      "The 'oyster cracker' and 'bull drum' regional names are in common use but were not confirmed against an agency source"
+    ]
+  },
+  "behavior": {
+    "speciesId": "pogonias_cromis",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Juveniles recruit to shallow, muddy tidal creeks and move progressively deeper with growth; ages 1 and 2 dominate estuarine samples. Adults occupy lower estuaries and nearshore shelf water and undertake seasonal movements as groups.",
+      "note": "Weakly sourced. The sources consulted describe migrating groups audible by their drumming and cohort structure in estuarine samples, but none characterises schooling quantitatively. Recorded as loose aggregation on that basis and flagged as a gap."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A bottom rooter and shell crusher. The subinferior mouth and the fringe of chin barbels work as a tactile system for locating buried prey, and heavily paved pharyngeal teeth in the throat crush the shell once it is taken. A technical synopsis describes fish adopting a near-vertical, head-down feeding posture in shallow water, sometimes with the tail breaking the surface. Consumption capacity is substantial - one figure of two or more oysters per kg of body weight per day, another of about one oyster per pound per day."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not sourced. No diel pattern was reported by any source consulted; 'mixed' marks absence of evidence rather than a finding."
+    },
+    "seasonalActivity": "Adults move north and inshore in spring and south and offshore in autumn, with adults described as moving offshore in late fall and with potential for long-range migration along the southeastern Atlantic coast. Juveniles work in the opposite direction across their first years, recruiting to shallow muddy tidal creeks and moving into deeper water as they grow.",
+    "thermalDrivenBehavior": "The 12-33 C (54-91 F) band recorded in the catalog comes from a 1986 USFWS species profile describing where the species is commonly found - an occurrence range, not a measured preference or an activity threshold, and no preference range was located. Separately, a technical synopsis states black drum cannot survive prolonged exposure below about 3 C (37 F) and that large cold kills have been reported from Texas; that is a survival limit and is deliberately not recorded as the catalog's cold edge.",
+    "currentFacing": "Not sourced.",
+    "depthMovement": "Ontogenetic and seasonal. Juveniles under 40 mm occur in lower-salinity upper and middle estuary water and move to tidal and marsh habitat, with some reaching ocean habitat by their first fall; mature fish move to deeper channels and ledges and to nearshore shelf water.",
+    "waterLevelResponse": "Not sourced as a tide-stage relationship. The vertical head-down feeding posture reported in shallow water implies a depth constraint on where that posture is possible, but no source consulted tied black drum behavior to tide stage.",
+    "clarityResponse": "Not sourced. The species locates prey by touch with its barbels rather than by sight, which is a mechanism worth noting, but no source consulted tested a clarity response.",
+    "predatorAvoidance": "Young black drum face significant predation in estuaries from species including spotted seatrout and crevalle jack. No predator-avoidance behavior for adults was sourced; adults reach a size that removes most of the problem.",
+    "coverUse": "Estuarine habitat with vertical complexity: oyster bars, salt marsh grass, natural rock outcroppings and reefs, and piling structures. Also open sand and mud bottoms where oysters and clams are abundant, which is a food association rather than cover.",
+    "openWaterBehavior": "Adults occupy nearshore continental shelf water as well as estuaries, and the autumn movement is offshore and southward.",
+    "spawningBehavior": "Conservation context only. Black drum are batch spawners that spawn every year from maturity until death, which combined with maximum ages approaching 60 years makes old fish a disproportionate share of reproductive output. Timing is latitudinal - November-April in Florida peaking February-March, January-May in the Gulf and northeast Florida, April-June in Chesapeake Bay, with a May peak reported for Delaware - and one source gives a spawning temperature near a bay mouth of 17.5 +/- 2.7 C. Fecundity estimates run from about 32 million eggs a year for a 13.4 lb female up to 60 million over a season. Recruitment is sporadic and dominated by infrequent large year classes. Drumming sounds are audible from boats as fish move toward spawning areas; that is recorded here as biology, and this catalog does not name, describe or direct effort at any spawning concentration.",
+    "sources": [
+      {
+        "label": "Sutter, Waller & McIlwain 1986, Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Gulf of Mexico) - black drum. USFWS Biological Report 82(11.51)",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML1409/ML14091A045.pdf"
+      },
+      {
+        "label": "Silverman 1979, Biological and fisheries data on black drum, Pogonias cromis (Linnaeus). NMFS Sandy Hook Laboratory Technical Series Report 22",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/33306/noaa_33306_DS1.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources 2015, Black Drum Pogonias cromis",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/blackdrum2015.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Black Drum species page and habitat fact sheet",
+        "class": "agency",
+        "url": "https://archive.asmfc.org/files/Habitat/SpeciesFactsheets/BlackDrum.pdf"
+      },
+      {
+        "label": "Louisiana Sea Grant / LSU AgCenter fisheries - Black drum",
+        "class": "synthesis",
+        "url": "https://www.seagrantfish.lsu.edu/biological/drum/blackdrum.htm"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No preferred temperature range located - only an occurrence range from a 1986 profile and a lethal cold limit. preferredF, coldEdgeF and warmEdgeF are all omitted from the catalog thermal block for that reason.",
+      "No sourced diel pattern",
+      "No sourced tide-stage relationship, despite the species being fished on tidal marsh and oyster habitat",
+      "No sourced water-clarity, cold-front or angling-pressure response",
+      "Schooling behavior is not quantitatively characterised in any source consulted",
+      "Territoriality and aggression not addressed",
+      "Much of the mechanistic detail comes from a 1979 NMFS synopsis and a 1986 USFWS profile; both are agency documents but neither is recent"
+    ]
+  },
+  "diet": {
+    "speciesId": "pogonias_cromis",
+    "status": "reviewed",
+    "feedingStyle": "specialized",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "mollusks",
+      "crustaceans",
+      "worms_annelids",
+      "small_forage_fish"
+    ],
+    "primaryNote": "Adult black drum are shell crushers and the first two classes carry the weight. A NMFS synopsis states adults confine the diet largely to mollusks and crabs; ASMFC gives adults as benthic crustaceans and mollusks, rooting for clams, oysters and crabs with the chin barbels; a USFWS profile gives adults as primarily mollusks and crustaceans. Worms and small fish are real but juvenile-weighted: annelids and polychaetes are a documented juvenile prey group, and marine worms and small fish are given as the diet of drum under about 8 in. One state account lists fish, mollusks and crustaceans together for the species generally. Consumption capacity on shellfish is high - figures of two or more oysters per kg of body weight per day and about one oyster per pound per day appear in the sources. Capacity is not a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae feed on zooplankton. Small juveniles take copepods, annelids, polychaetes, small pelecypods and amphipods.",
+      "juvenile": "Marine worms and small fish in fish under about 8 in; above about 20 cm the diet shifts to small mollusks, crabs and shrimp.",
+      "adult": "Largely mollusks and crabs - clams, oysters and mussels rooted from soft bottom and oyster habitat, plus benthic crustaceans."
+    },
+    "preySizeShifts": "Documented as a compositional threshold rather than a continuous size relationship: a NMFS synopsis puts the change at about 20 cm, above which small mollusks, crabs and shrimp replace the copepod-annelid-amphipod diet of smaller fish. An extension source puts a similar break at about 8 in.",
+    "ontogeneticShift": "Zooplankton, then small soft-bodied invertebrates and worms with some small fish, then hard-shelled mollusks and crustaceans as the pharyngeal crushing apparatus and gape allow. The shift is the reason worms and small fish appear in this record at all.",
+    "forageSubstitutions": "Prey composition tracks local benthic availability and water quality. Published work on a hypersaline estuary framed black drum diet as reflecting water quality and prey availability rather than a fixed preference. Substitution is system-specific.",
+    "observedForageRule": "Diet capacity is not proof that a prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Silverman 1979, Biological and fisheries data on black drum, Pogonias cromis (Linnaeus). NMFS Sandy Hook Laboratory Technical Series Report 22",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/33306/noaa_33306_DS1.pdf"
+      },
+      {
+        "label": "Sutter, Waller & McIlwain 1986, USFWS Biological Report 82(11.51) - black drum",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML1409/ML14091A045.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Black Drum habitat fact sheet and species page",
+        "class": "agency",
+        "url": "https://archive.asmfc.org/files/Habitat/SpeciesFactsheets/BlackDrum.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources 2015, Black Drum Pogonias cromis",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/blackdrum2015.pdf"
+      },
+      {
+        "label": "Louisiana Sea Grant / LSU AgCenter fisheries - Black drum (consumption rate, juvenile diet break)",
+        "class": "synthesis",
+        "url": "https://www.seagrantfish.lsu.edu/biological/drum/blackdrum.htm"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No seasonal diet breakdown located, so seasonalDiet is omitted rather than invented",
+      "The hypersaline-estuary diet study could not be retrieved in full; its finding is cited only at the level of its title claim that diet reflects water quality and prey availability",
+      "No quantitative ranking of mollusks against crustaceans in adults; both are described as dominant without percentages in the sources consulted",
+      "The two size thresholds for the juvenile-to-adult diet shift (about 8 in and about 20 cm) come from different sources and are not reconciled",
+      "Most quantitative diet detail dates from a 1979 synopsis and a 1986 profile"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "pogonias_cromis",
+    "status": "partial",
+    "overview": "Black drum seasonality is a latitudinal migration laid over a fixed benthic feeding habit. Adults move north and inshore in spring and south and offshore in autumn, with the offshore movement described as beginning in late fall. Spawning timing shifts with latitude - November through April in Florida, January through May in the Gulf, April through June in the Chesapeake - so a single national calendar does not exist and the entries below carry both. Diet does not change seasonally in any source consulted, so forage emphasis is absent throughout. Thermal context rests on a 12-33 C occurrence range rather than a preference range.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Lower estuary over sand and soft bottom, oyster bars, marsh edge and deeper channels; nearshore shelf water for fish that moved out in autumn.",
+        "depthTendency": "Mature fish in deeper channels and ledges; juveniles in shallow, muddy tidal creek habitat.",
+        "thermalContext": "The species is commonly recorded between 12 and 33 C (54-91 F). Prolonged exposure below about 3 C (37 F) is lethal and large cold kills have been reported from Texas - a survival limit, not an activity threshold.",
+        "presentationImplication": "Live or natural bait suspension on the bottom over shell and soft bottom; bottom contact where the water is nearshore rather than inshore.",
+        "invalidators": [
+          "reading the 12-33 C occurrence range as a preference or activity band",
+          "applying a southern spawning calendar to a northern water body or the reverse"
+        ],
+        "conservationNote": "Inside the southern spawning window (November-April in Florida, peaking February-March; January-May in the Gulf). Spawning concentrations are excluded from targeting."
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Lower estuary, oyster bars, marsh edge, tidal creeks and channel edges.",
+        "movementTendency": "Adults move north and inshore in spring.",
+        "presentationImplication": "Live or natural bait suspension on the bottom; tidal drift bait along edges when water is moving; structure pitch to oyster and piling structure.",
+        "invalidators": [
+          "treating an inshore movement as a bite prediction"
+        ],
+        "conservationNote": "Peak of the Florida spawning window (February-March) and inside the Gulf window."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Estuarine habitat with vertical complexity - oyster bars, salt marsh grass, rock outcrops and piling structures - plus open sand and mud bottom where shellfish are abundant.",
+        "movementTendency": "The inshore and northward movement continues.",
+        "feedingEmphasis": "Benthic rooting and shell crushing; capacity on shellfish is high but capacity is not a current bait event.",
+        "presentationImplication": "Live or natural bait suspension; structure pitch to oyster bars and pilings.",
+        "invalidators": [
+          "using consumption-capacity figures as evidence of a shellfish event"
+        ],
+        "conservationNote": "Northern spawning windows open here (April-June in Chesapeake Bay, May peak reported for Delaware)."
+      },
+      {
+        "season": "early_summer",
+        "habitatClass": "Lower estuary and nearshore shelf; oyster habitat, marsh edge and channel edges.",
+        "presentationImplication": "Live or natural bait suspension; bottom contact nearshore.",
+        "invalidators": [
+          "assuming spawning is over everywhere - the northern window runs into June"
+        ],
+        "conservationNote": "End of the northern spawning window."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Lower estuary over shell and soft bottom, marsh edge, tidal creeks; nearshore reef and rock.",
+        "thermalContext": "The upper end of the sourced occurrence range is 33 C (91 F). No warm-edge behavior was sourced.",
+        "presentationImplication": "Live or natural bait suspension on the bottom; bottom contact over nearshore hard bottom.",
+        "invalidators": [
+          "inferring a thermal refuge behavior that no source supports"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Lower estuary and channel edges, moving toward nearshore shelf water.",
+        "movementTendency": "Adults move south and offshore in autumn. Juveniles that recruited to tidal creeks earlier in the year may reach ocean habitat by their first fall.",
+        "presentationImplication": "Live or natural bait suspension; bottom contact as fish shift nearshore.",
+        "invalidators": [
+          "treating a directional seasonal movement as a place"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Deeper channels, ledges and nearshore shelf water; remaining estuarine shell and piling structure.",
+        "movementTendency": "Adults are described as moving offshore in late fall, with potential for long-range migration along the southeastern Atlantic coast.",
+        "presentationImplication": "Bottom contact over nearshore bottom; live or natural bait suspension on remaining inshore structure.",
+        "invalidators": [
+          "converting a documented migration into a bottleneck or a named place"
+        ],
+        "conservationNote": "The southern spawning window opens in November. Migration routes and any concentration associated with them are excluded from this catalog."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Black Drum species page and habitat fact sheet",
+        "class": "agency",
+        "url": "https://archive.asmfc.org/files/Habitat/SpeciesFactsheets/BlackDrum.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources 2015, Black Drum Pogonias cromis",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/blackdrum2015.pdf"
+      },
+      {
+        "label": "Sutter, Waller & McIlwain 1986, USFWS Biological Report 82(11.51) - black drum",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML1409/ML14091A045.pdf"
+      },
+      {
+        "label": "Silverman 1979, Biological and fisheries data on black drum, Pogonias cromis (Linnaeus). NMFS Sandy Hook Laboratory Technical Series Report 22",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/33306/noaa_33306_DS1.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "late_summer entry omitted - no source distinguishes it from summer for this species",
+      "No seasonal forage emphasis in any entry; no source consulted reports a seasonal diet shift",
+      "No tide-stage or light-sensitivity content in any entry, because no source consulted supplied it",
+      "Thermal context is an occurrence range from a 1986 profile plus a lethal cold limit; no seasonal thermal behavior is sourced",
+      "The seasonal movement description is coarse - 'north and inshore in spring, south and offshore in autumn' is the resolution the agency sources give, and no finer seasonal habitat sequence was located"
+    ]
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "identification": {
+    "speciesId": "centropomus_undecimalis",
+    "status": "reviewed",
+    "regionalNames": [
+      "snook",
+      "linesider",
+      "robalo"
+    ],
+    "bodyShape": "Elongate, laterally compressed body with a distinctly sloping forehead, a large mouth and a protruding lower jaw. The dorsal fin is high and divided into two clearly separated portions.",
+    "identificationTraits": [
+      "A prominent black lateral line running the length of the body and continuing onto the tail. This is the trait that names the fish and it is shared across the genus.",
+      "Large mouth with a protruding lower jaw and a sloping forehead.",
+      "Pelvic fin yellow in colour (FWC).",
+      "High, divided dorsal fin.",
+      "Six anal fin rays. Tarpon snook, the one congener with seven, is separated on this count."
+    ],
+    "coloration": "Silvery sides with a darker back, and a black lateral line that stands out sharply against the silver. FWC records the yellow pelvic fin as a profile trait.",
+    "juvenileAppearance": "Young snook carry the same black lateral line and protruding lower jaw at small size, and hold in mangrove-lined swamps and bayous, freshwater rivers and creeks with overhanging vegetation, staying there until roughly 10-14 in.",
+    "adultAppearance": "A large silver estuarine predator with a black lateral line onto the tail, a sloping forehead, a protruding lower jaw and yellow pelvic fins. The largest of the five Florida snook species.",
+    "sexualDimorphism": "Protandric, so sex is a function of size and age rather than an external trait. FWC gives 50 percent of males mature at about 18 in and two years, and 50 percent of females mature at about 30 in and five years; males reverse sex to female in the autumn following the spawning season, typically between ages one and seven. Females reach about 48 in and live about 21 years; males top out near 39 in and about 15 years. A large snook is very likely a female, but that is a probability from the life history, not an in-hand key.",
+    "similarSpecies": [
+      {
+        "name": "Fat snook (Centropomus parallelus)",
+        "distinction": "Fat snook have a distinctly deeper body than common snook and a mouth extending below the centre of the eye, top out around 28 in against 48 in, and occur in freshwater more than the other snook. Both carry the black lateral line onto the tail, so body depth and size are the working separators."
+      },
+      {
+        "name": "Tarpon snook (Centropomus pectinatus)",
+        "distinction": "Tarpon snook have seven anal fin rays where the others have six, an upward-curving lower jaw, pelvic fin tips reaching past the anus, and a compressed body. They are small, around 15 in and occasionally to 22 in. The fin-ray count is definitive."
+      },
+      {
+        "name": "Swordspine snook (Centropomus ensiferus)",
+        "distinction": "A small congener separated within the genus on fin and spine characters; this catalog does not hold a reviewed record for it and no agency key was captured for this entry. Treat any small snook as unidentified until the anal fin rays and body depth have been checked."
+      }
+    ],
+    "averageAdultLength": "FWC gives females reaching about 48 in and males about 39 in as maxima; typical adult length is not given as a single agency figure. Legal Florida fish sit at 28-33 in total length, and FWC notes females reach legal minimum size in about four years and males in five to six.",
+    "commonAnglingSize": "Florida slot limits place retained fish at 28-33 in total length in six regions and 28-32 in in three.",
+    "typicalWeight": "FWC gives up to 38 lb in Florida waters in one account and up to 50 lb in the profile; the Florida state record is 45 lb 12 oz. A slot fish is well under those figures.",
+    "maximumDocumentedSize": "FWC gives 48 in and 38 lb in the research sketch and up to 48 in and 50 lb in the species profile, with a state record of 45 lb 12 oz.",
+    "longevity": "FWC gives about 21 years for females and about 15 years for males.",
+    "sources": [
+      {
+        "label": "FWC common snook species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/snook/"
+      },
+      {
+        "label": "FWC, A Sketch of the Common Snook in Florida",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/snook/sketch-common-snook/"
+      },
+      {
+        "label": "FWC fat snook species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/fat-snook/"
+      },
+      {
+        "label": "FWC tarpon snook species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/tarpon-snook/"
+      },
+      {
+        "label": "FWC snook recreational regulations",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/snook/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "swordspine snook separation: no agency key was captured, so the similar-species entry states the uncertainty rather than a distinction",
+      "a single typical adult length; FWC publishes maxima and maturity sizes rather than a mean",
+      "regional colour variation and spawning coloration: no agency source located, fields omitted",
+      "the two FWC pages give different maximum weights (38 lb and 50 lb); both are recorded rather than reconciled"
+    ]
+  },
+  "behavior": {
+    "speciesId": "centropomus_undecimalis",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Young-of-year hold in quiet mangrove-lined swamps and bayous, freshwater rivers and creeks with overhanging vegetation, remaining there until about 10-14 in, at which point they begin to mature and move toward the higher-salinity parts of the lower estuary (FWC). Adults form spawning schools in the warm months.",
+      "note": "Outside the spawning period the agency description is of a structure-associated ambush predator rather than an obligate schooler."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "FWC describes snook as conservative ambush predators and records that they orient to face moving water while hunting. Prey listed by FWC includes sardines, thread herring, tilapia, mojarras, killifishes, grunts and small blue crabs. The ambush is set against current, not run down in open water."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No agency or peer-reviewed source located for this record establishes a general diel feeding preference. FWC records gamete release in the late afternoon and early evening, which is reproductive timing, not a feeding window, and it is not carried over."
+    },
+    "seasonalActivity": "A strong seasonal cycle organised around temperature and reproduction. FWC describes mature fish wintering in the low-salinity portions of the upper estuary and moving toward spawning water in late spring and early summer, with Atlantic-coast fish migrating further than Gulf-coast fish. Getz et al. 2025 recorded seasonal movement in a channelised estuary with fish moving coastward from April, peaking in August, and reversing in autumn and winter, individuals averaging 56.6 km travelled while retaining year-round site fidelity to the system.",
+    "thermalDrivenBehavior": "This is the defining constraint on the species and it is unusually well quantified. FWC states snook become lethargic below 65 degrees F and historically placed the northern limit at the 50 degrees F water isotherm. Hall-Scharf et al. 2025 (Marine and Coastal Fisheries) measured a graded response under realistic cooling: feeding ceased at 11.6 degrees C in small juveniles and 16.0 degrees C in large juveniles, and death followed at 8.6 and 9.2 degrees C respectively, with salinity modulating the threshold non-linearly (death at 9.2 degrees C at 3 and 30 practical salinity units but 10.1 degrees C at 15). Hall-Scharf et al. 2025 (Estuaries and Coasts) found northern-range fish ceasing feeding at 14.4 degrees C and dying at 8.6 degrees C, with individual chronic lethal minima spanning 7.9-10.5 degrees C, and noted that fish lost equilibrium almost 2 degrees C warmer under rapid than under chronic cooling. Purtlebaugh et al. 2020 gives a working lethal threshold of about 12 degrees C. The consequence is documented at population scale: the winter of 2009-2010 produced an extreme cold kill of snook reaching as far south as the Everglades, substantially altering abundance and angler catch, with recovery taking up to four years depending on location, and Blewett and Stevens 2014 recorded dead common snook at 43 sites after the January 2010 cold event. TPWD listed snook among the species killed in the February 2021 Texas freeze.",
+    "currentFacing": "FWC: snook orient to face moving water while hunting. In an estuary that makes tide the axis the fish sets itself against.",
+    "depthMovement": "Shallow and edge-bound for most of the year, deep in winter for thermal reasons. Getz et al. 2025 recorded highest residency of the year in a deep channelised reach during the coldest months. Purtlebaugh et al. 2020 note that persistence at the northern range edge may depend on access to groundwater springs providing warm-water refuge in winter, and that snook shelter in rivers and tidal creeks seasonally.",
+    "coldFrontResponse": "Documented and severe. The response sequence under cooling is cessation of feeding, then loss of equilibrium, then death, and the temperature span between the first and last step is only a few degrees (Hall-Scharf et al. 2025). Fish move to thermally stable water, deep channels, upper-estuary reaches and spring-influenced water, ahead of and during cold events. Florida closes the fishery from December through February in six of its nine regions, and FWC states plainly that the seasonal closures protect snook during cold periods as well as during spawning.",
+    "coverUse": "Mangrove shorelines, seagrass beds and hard structure (FWC). Juvenile habitat is specifically described as carrying overhanging vegetation for shade and structural cover.",
+    "openWaterBehavior": "FWC lists beaches among adult habitat, but that use overlaps the spawning period and the Florida closed season, so it is carried here as biological context only and generates no holding classes or presentations in this record.",
+    "predatorAvoidance": "Not sourced beyond the juvenile cover description; no agency or peer-reviewed statement located, field otherwise left unpopulated.",
+    "spawningBehavior": "FWC gives a spawning season from April or May through September or October, with gamete release in the late afternoon and early evening, individual females spawning as often as every two days and releasing roughly 1.25 million eggs per episode. Snook form spawning schools. The species is protandric: males reverse sex to female in the autumn following the spawning season, sometimes within about 90 days, typically between ages one and seven. Recorded here as conservation context. This record does not describe where spawning schools form; the May-to-August and May-to-September closures exist to protect that concentration and this catalog will not undercut them.",
+    "sources": [
+      {
+        "label": "FWC, A Sketch of the Common Snook in Florida",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/snook/sketch-common-snook/"
+      },
+      {
+        "label": "FWC common snook species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/snook/"
+      },
+      {
+        "label": "Hall-Scharf, Tuckett, Stevens, Trotter, Patterson and Hill 2025, Marine and Coastal Fisheries 17(4):vtaf023",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Hall-Scharf, Tuckett, Stevens and Hill 2025, Estuaries and Coasts 48:43",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Purtlebaugh, Martin and Allen 2020, PLOS ONE 15(6):e0234083",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Blewett and Stevens 2014, Gulf of Mexico Science 32(1)",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Getz, Rodriquez and Kline 2025, Marine and Coastal Fisheries 17(5):vtaf027",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel tendency: no source located, so no feeding-light window is asserted",
+      "tide stage: FWC establishes that snook face moving water while hunting, but no source located specifies flooding versus ebbing tide, so no tide-stage preference is recorded",
+      "water clarity response with primary-source support",
+      "angling pressure response with primary-source support",
+      "territoriality and aggression: no source located, fields omitted",
+      "a warm-edge temperature; the thermal literature for this species is almost entirely about the cold edge"
+    ]
+  },
+  "diet": {
+    "speciesId": "centropomus_undecimalis",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans"
+    ],
+    "primaryNote": "FWC lists natural prey as sardines, thread herring, tilapia, mojarras, killifishes, grunts and small blue crabs, and the species profile summarises it as fish and large crustaceans. The taking of that prey is an ambush against moving water, not a pursuit. Capacity for any of this is not evidence that a bait event is happening now.",
+    "lifeStageDiet": {
+      "adult": "FWC: sardines, thread herring, tilapia, mojarras, killifishes, grunts and small blue crabs."
+    },
+    "forageSubstitutions": "The FWC prey list spans clupeids, cichlids, mojarras, killifishes and grunts, which is a list of whatever small fish the local estuary holds rather than a specialisation. Substitution is therefore system-specific, but no regional table was sourced.",
+    "observedForageRule": "Diet capacity is not proof that a bait event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "FWC, A Sketch of the Common Snook in Florida",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/snook/sketch-common-snook/"
+      },
+      {
+        "label": "FWC common snook species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/snook/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no quantitative stomach-content study was located for this record, so this dossier rests on agency prey lists alone and is marked partial",
+      "young-of-year and juvenile diet: not described in the sources used, fields omitted",
+      "ontogenetic shift and prey-size shifts: no source located, fields omitted",
+      "seasonal diet: no source located, field omitted",
+      "whether larger_prey_fish belongs in primaryForage; FWC's profile says large crustaceans and fish but the itemised prey list is small-fish scale, so the class is withheld"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "centropomus_undecimalis",
+    "status": "reviewed",
+    "overview": "The snook year has two hard edges and both are legal as well as biological. Winter is a cold-refuge season for a tropical fish living at its thermal limit, with a documented sequence from stopped feeding to loss of equilibrium to death across only a few degrees, and Florida closes most of its regions through it. Summer is the spawning period, and Florida closes it too. What is left is a current-facing ambush predator working mangrove, structure and creek edges in spring and autumn.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Thermal refuge: deep channels, the low-salinity upper estuary, and spring-influenced river and creek water.",
+        "depthTendency": "Deepest of the year. Getz et al. 2025 recorded the highest residency times of the year in a deep channelised reach during the coldest months.",
+        "movementTendency": "FWC describes mature fish wintering in the low-salinity portions of the upper estuary. Purtlebaugh et al. 2020 note reliance on groundwater-spring refuge at the northern range edge.",
+        "thermalContext": "The dangerous season. Lethargy below 65 degrees F (FWC); feeding ceases somewhere in the 11.6-16.0 degrees C band depending on fish size; death follows at 8.6-9.2 degrees C. The 2009-2010 cold event killed snook as far south as the Everglades and took up to four years to recover from.",
+        "conservationNote": "Six Florida regions are closed 1 December to the end of February and three are closed 15 December to 31 January. FWC states the closures protect snook during cold periods as well as during spawning. Handling a cold-stressed fish adds to a mortality event that is already underway.",
+        "presentationImplication": "None is offered for this season. The fishery is closed to harvest across Florida during most of it, the fish are thermally compromised, and this record declines to point at refuge water.",
+        "invalidators": [
+          "treating a winter refuge concentration as an opportunity",
+          "assuming the season is open because the previous region's dates said so"
+        ]
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Mangrove edge, tidal creek, creek mouth and channel edge as fish leave winter refuge water.",
+        "movementTendency": "Getz et al. 2025 recorded coastward movement beginning in April.",
+        "thermalContext": "Rising back above the 65 degrees F lethargy threshold FWC describes.",
+        "currentUse": "The ambush resumes: FWC describes snook orienting to face moving water while hunting, so the working feature is a current-worked edge rather than still water.",
+        "presentationImplication": "Structure pitch at mangrove and hard structure; live or natural bait suspension and tidal drift bait on edges the tide is already working.",
+        "invalidators": [
+          "fishing slack water on the assumption that the fish will come to a static bait"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Mangrove edge, grass flat, tidal creek and creek mouth; hard structure through the estuary.",
+        "movementTendency": "FWC describes mature fish moving toward spawning water in late spring and early summer, Atlantic-coast fish further than Gulf-coast fish.",
+        "conservationNote": "The spawning season opens in this window, April or May by the FWC account, and the Florida closures follow it from 1 May or 1 June depending on region. This record describes no spawning concentration.",
+        "presentationImplication": "Structure pitch, live or natural bait suspension and tidal drift bait against moving water; horizontal retrieve along mangrove and structure edges.",
+        "invalidators": [
+          "reading the pre-spawning movement as a targeting cue",
+          "assuming the harvest season runs through May"
+        ]
+      },
+      {
+        "season": "early_summer",
+        "habitatClass": "Mangrove edge, grass flat and hard structure for non-spawning fish.",
+        "conservationNote": "Closed to harvest across all nine Florida regions for part or all of this window: 1 May onward in six regions, 1 June onward in three. Spawning is at or near its height.",
+        "presentationImplication": "Unchanged from spring for fish outside the spawning concentration. The spawning period generates no new approach in this record.",
+        "invalidators": [
+          "converting the spawning period into a presentation change",
+          "keeping a fish during a closed period"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Mangrove edge, grass flat, tidal creek and hard structure. FWC also lists beaches for adults; that use is carried as biological context only in this record because it coincides with the spawning period and the closure.",
+        "movementTendency": "Getz et al. 2025 recorded coastward movement peaking in August.",
+        "conservationNote": "Closed to harvest in every Florida region for all or nearly all of this window. Spawning continues.",
+        "presentationImplication": "Structure pitch and live or natural bait suspension on current-worked edges, as in spring. Nothing new is derived from the spawning period.",
+        "invalidators": [
+          "treating a warm-month concentration as a target",
+          "extending an inshore approach onto open beach on the strength of this record"
+        ]
+      },
+      {
+        "season": "late_summer",
+        "habitatClass": "Mangrove edge, grass flat, tidal creek and hard structure.",
+        "conservationNote": "Spawning runs through September or October in the FWC account. Two Florida regions remain closed through 30 September; the remainder reopen from 1 September.",
+        "presentationImplication": "Structure pitch, live or natural bait suspension, tidal drift bait, horizontal retrieve.",
+        "invalidators": [
+          "assuming a region reopened on 1 September when two of the nine did not"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Mangrove edge, tidal creek, creek mouth and channel edge as fish begin the movement back toward upper-estuary and channel water.",
+        "movementTendency": "Getz et al. 2025 recorded the direction reversing in autumn and winter. FWC describes the sex change from male to female occurring in the autumn following the spawning season.",
+        "thermalContext": "Still comfortably above the cold thresholds, but the season in which the winter refuge pattern begins to set up.",
+        "currentUse": "Current-facing ambush on tide-worked edges continues.",
+        "presentationImplication": "Structure pitch, tidal drift bait and live or natural bait suspension against moving water; stop-and-go where a slower presentation suits the edge.",
+        "invalidators": [
+          "assuming autumn conditions persist through the first cold front"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Transition toward the winter position: channel edge, tidal creek and the low-salinity upper estuary.",
+        "thermalContext": "The first fronts of the season take water toward the 65 degrees F lethargy threshold. The gap from lethargy to lethal is only a few degrees for this species.",
+        "conservationNote": "Closures begin again on 1 December in six regions and 15 December in three.",
+        "presentationImplication": "Structure pitch and live or natural bait suspension on the edges still holding fish. Do not follow fish into refuge water.",
+        "invalidators": [
+          "following a cold front into thermal refuge water",
+          "assuming the season is still open in December"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "FWC, A Sketch of the Common Snook in Florida",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/snook/sketch-common-snook/"
+      },
+      {
+        "label": "FWC snook recreational regulations",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/snook/"
+      },
+      {
+        "label": "FWC common snook species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/snook/"
+      },
+      {
+        "label": "Getz, Rodriquez and Kline 2025, Marine and Coastal Fisheries 17(5):vtaf027",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Hall-Scharf, Tuckett, Stevens, Trotter, Patterson and Hill 2025, Marine and Coastal Fisheries 17(4):vtaf023",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Purtlebaugh, Martin and Allen 2020, PLOS ONE 15(6):e0234083",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Blewett and Stevens 2014, Gulf of Mexico Science 32(1)",
+        "class": "peer_reviewed"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "tide stage by season: FWC establishes current-facing ambush but no source located resolves it to flooding or ebbing tide, so no seasonal entry names a tide stage",
+      "seasonal forage emphasis: no source located breaks snook diet down by season",
+      "surf and beach seasonality: FWC lists beaches as adult habitat but the use overlaps the spawning closure, so no surf entry is written",
+      "closed-season dates are as published by FWC at review and change by rulemaking; they are context, not a substitute for checking"
+    ]
+  }
+}

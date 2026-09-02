@@ -1,0 +1,170 @@
+{
+  "identification": {
+    "speciesId": "carcharhinus_brevipinna",
+    "status": "reviewed",
+    "regionalNames": [
+      "spinner shark"
+    ],
+    "bodyShape": "Slender fusiform requiem-shark body; no interdorsal ridge (NOAA tagging-program ID guide).",
+    "identificationTraits": [
+      "Snout is pointed, as long as or longer than the width of the mouth — more sharply pointed than blacktip's rounded snout (NOAA tagging-program ID guide).",
+      "First dorsal fin is fairly small with a rounded apex, originating over or just behind the free rear tips of the pectoral fins — set further back than blacktip's taller, forward-set, pointed dorsal fin.",
+      "In animals larger than about 2.6 ft, the anal fin, first and second dorsal fins, pectoral fins, and lower caudal fin are all black-tipped — described in the NOAA guide as looking 'dipped in jet black paint.' The BLACK-TIPPED ANAL FIN is the key mark separating spinner from blacktip, whose anal fin is white.",
+      "Pectoral fins show black markings on both surfaces (top and bottom); blacktip shows black mainly on the underside (NOAA fin ID guide).",
+      "No interdorsal ridge.",
+      "A light wedge- or Z-shaped band runs along the flank, widening toward the pelvic fins and merging with the white belly."
+    ],
+    "coloration": "Gray to bronze above, white below, with a light flank band and — on fish over about 2.6 ft — black tips on the anal, both dorsal, pectoral, and lower caudal fins.",
+    "juvenileAppearance": "Black fin-tip markings become obvious once animals exceed roughly 2.6 ft (NOAA tagging-program ID guide); smaller juveniles may show fainter markings, which increases confusion risk with blacktip and other small requiem sharks at the size classes anglers most often catch inshore.",
+    "adultAppearance": "A gray-bronze requiem shark with a pointed snout, a small rounded first dorsal fin set back near the pectoral fins, and black tips on the anal, both dorsal, pectoral, and lower caudal fins.",
+    "similarSpecies": [
+      {
+        "speciesId": "carcharhinus_limbatus",
+        "name": "Blacktip shark",
+        "distinction": "NOAA's tagging-program guide calls this pair the most difficult to distinguish. Blacktip's anal fin is white (spinner's is black-tipped); blacktip's first dorsal fin is taller, more pointed, and set further forward (over the pectoral fin insertion) versus spinner's smaller, rounded dorsal set further back (over/behind the pectoral free rear tips); and blacktip's snout is rounder and less sharply pointed. Do not rely on fin-tip color alone — it fades with age in both species."
+      },
+      {
+        "name": "Sandbar shark (Carcharhinus plumbeus)",
+        "distinction": "Federally and Florida-state PROHIBITED. Has a pronounced interdorsal ridge (absent in spinner) and a very tall, forward-set first dorsal fin."
+      },
+      {
+        "name": "Dusky shark (Carcharhinus obscurus)",
+        "distinction": "Federally and Florida-state PROHIBITED. Has an interdorsal ridge (spinner lacks one) and a heavier body with generally unmarked fins."
+      },
+      {
+        "name": "Bull shark (Carcharhinus leucas)",
+        "distinction": "Open under the same federal 54 in group as spinner, so not a legal-status risk, but distinguished by a stockier body, short blunt snout, small eyes, and a rearward-sloping, typically unmarked dorsal fin."
+      }
+    ],
+    "averageAdultLength": "Not resolved to a western Atlantic/Gulf-specific average from an agency source; FishBase gives a maximum of 300 cm total length (about 9.8 ft) and 89.7 kg (about 198 lb) without separating this from other stocks.",
+    "commonAnglingSize": "Federal and Florida state-waters minimum is 54 in fork length in both jurisdictions (see targetContext).",
+    "typicalWeight": "Not resolved to a typical (as opposed to maximum) figure from a source reviewed this session.",
+    "maximumDocumentedSize": "FishBase: 300 cm total length, 89.7 kg maximum published weight. An Australian stock assessment separately gives a maximum age of about 31 years for that population; neither figure is confirmed as western Atlantic/Gulf-specific.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (S-W species)",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/shark-identification-cooperative-shark-0"
+      },
+      {
+        "label": "NOAA Fisheries, Shark Fin Identification Guide (NOAA Technical Memorandum)",
+        "class": "agency",
+        "url": "https://media.fisheries.noaa.gov/dam-migration/sharkfinid_guide.pdf"
+      },
+      {
+        "label": "FishBase, Carcharhinus brevipinna species summary",
+        "class": "synthesis",
+        "url": "https://fishbase.org/summary/865"
+      },
+      {
+        "label": "FRDC Shark Report Card, Carcharhinus brevipinna (Australian stock; size/age context only)",
+        "class": "synthesis",
+        "url": "https://www.fish.gov.au/docs/SharkReport/2023_FRDC_Carcharhinus_brevipinna_final.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No western Atlantic/Gulf-specific average length, typical weight, longevity, or age-at-maturity figures were found; all size/age figures available this session come from an Australian stock assessment or a global FishBase maximum and are flagged as such rather than presented as U.S.-stock figures.",
+      "Sexual dimorphism not resolved."
+    ]
+  },
+  "behavior": {
+    "speciesId": "carcharhinus_brevipinna",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Described in sources reviewed as using nearshore bays as nursery habitat and offshore pelagic water otherwise; a specific U.S.-stock social/schooling account was not found. The species' well-known spinning leaps typically occur while driving through and feeding on baitfish schools, which implies at least loose aggregation around concentrated prey."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "FishBase describes the diet as mainly pelagic bony fishes plus small sharks, cuttlefish, squid, and octopus — a pursuit-feeding pattern on schooling and mobile prey, consistent with the spinning-leap feeding behavior the species is named for."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved from a sourced account this session; recorded as a gap."
+    },
+    "spawningBehavior": "An Australian stock assessment (different population) gives age at maturity of about 9 years for males and 10 years for females; a western Atlantic/Gulf-specific mating season, gestation length, or litter size was not found in an agency source this session. Recorded as conservation context and a gap, not as location guidance.",
+    "sources": [
+      {
+        "label": "FishBase, Carcharhinus brevipinna species summary",
+        "class": "synthesis",
+        "url": "https://fishbase.org/summary/865"
+      },
+      {
+        "label": "FRDC Shark Report Card, Carcharhinus brevipinna",
+        "class": "synthesis",
+        "url": "https://www.fish.gov.au/docs/SharkReport/2023_FRDC_Carcharhinus_brevipinna_final.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No NOAA/agency species-overview page for spinner shark was found this session (only the ID guide, fin guide, FishBase, and the Australian FRDC report), so this dossier is thinner than blacktip's and is marked partial.",
+      "Diel tendency, current-facing, depth movement, and thermal-driven behavior are all unsourced for this species.",
+      "Western Atlantic/Gulf-specific reproduction timing (mating season, gestation, litter size) not found."
+    ]
+  },
+  "diet": {
+    "speciesId": "carcharhinus_brevipinna",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "small_forage_fish",
+      "mollusks"
+    ],
+    "primaryNote": "FishBase describes the diet as mainly pelagic bony fishes, with small sharks, cuttlefish, squid, and octopus (mollusks) also taken. This is a global/synthesis source rather than a U.S.-stock-specific agency account; no crustacean component was found in the source reviewed, though it would not be surprising for a coastal requiem shark of this size. Diet capacity is not evidence of a current bait event.",
+    "observedForageRule": "Diet capacity described here is not proof that a bait event is occurring on any given day. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "FishBase, Carcharhinus brevipinna species summary",
+        "class": "synthesis",
+        "url": "https://fishbase.org/summary/865"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No agency (NOAA/state) diet account was found for this species this session; the only diet source is a synthesis database (FishBase), which is why this dossier is marked partial rather than reviewed.",
+      "Seasonal and life-stage diet detail not sourced.",
+      "Whether crustaceans form a meaningful part of the diet (as they do for blacktip and Atlantic sharpnose) was not confirmed."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "carcharhinus_brevipinna",
+    "status": "partial",
+    "overview": "A coastal-shelf and pelagic requiem shark that uses beaches, bays, and river mouths as well as open pelagic water; sourcing for this species was noticeably thinner than for blacktip, and no U.S.-stock-specific seasonal migration account was found this session.",
+    "entries": [
+      {
+        "season": "summer",
+        "habitatClass": "Coastal habitats including beaches, bays, and river mouths, per the sources reviewed.",
+        "feedingEmphasis": "Pursuit of pelagic baitfish schools, consistent with the species' spinning-leap feeding behavior.",
+        "presentationImplication": "Run-and-gun cast to visible surface activity in the surf/nearshore zone, plus chum-established drift and live-bait slow troll, are the reviewed families that fit a pelagic, schooling-bait pursuit predator.",
+        "invalidators": [
+          "predicting a specific bite window from season alone"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "FishBase, Carcharhinus brevipinna species summary",
+        "class": "synthesis",
+        "url": "https://fishbase.org/summary/865"
+      },
+      {
+        "label": "FRDC Shark Report Card, Carcharhinus brevipinna",
+        "class": "synthesis",
+        "url": "https://www.fish.gov.au/docs/SharkReport/2023_FRDC_Carcharhinus_brevipinna_final.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A full seasonal calendar (winter/spring/fall entries, thermal thresholds, inshore-offshore movement timing) was not sourced for this species this session; only a thin summer entry is supportable. This is the weakest of the four sharks in this batch and should be prioritized for follow-up research before being treated as complete."
+    ]
+  }
+}

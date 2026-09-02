@@ -1,0 +1,186 @@
+{
+  "identification": {
+    "speciesId": "rhizoprionodon_terraenovae",
+    "status": "reviewed",
+    "regionalNames": [
+      "Atlantic sharpnose shark",
+      "sharpnose"
+    ],
+    "bodyShape": "Small, streamlined requiem-shark body.",
+    "identificationTraits": [
+      "Long, pointed snout — the basis for the common name, and generally longer/more slender than the snouts of small Carcharhinus species such as blacknose or finetooth shark.",
+      "Adults show white spots scattered on the back and sides, plus pale edges on the pectoral fins — a mark NOAA's tagging-program guide specifically uses to separate Atlantic sharpnose from finetooth shark, which lacks the white spotting.",
+      "Second dorsal fin originates over or behind the middle of the anal fin (NOAA tagging-program ID guide, given in the finetooth-shark comparison).",
+      "Juveniles show black edging on the dorsal and caudal fin margins, which is not present, or much reduced, in adults.",
+      "24-25 rows of small triangular teeth in each jaw (NOAA species overview) — a lab/hand-examination feature, not a field mark for a fish still in the water."
+    ],
+    "coloration": "Gray to gray-brown above in several shades, white below; adults have white spots on the sides and pale pectoral-fin margins; juveniles have black-edged dorsal and caudal fins.",
+    "juvenileAppearance": "Black-edged dorsal and caudal fins, which fade toward the adult white-spotted pattern with growth (NOAA species overview).",
+    "adultAppearance": "A small gray shark with a long pointed snout, scattered white spots on the back and sides, and pale-edged pectoral fins.",
+    "similarSpecies": [
+      {
+        "name": "Finetooth shark (Carcharhinus isodon)",
+        "distinction": "NOAA's tagging-program guide draws this comparison directly: Atlantic sharpnose has white spots on the back and sides and a second dorsal fin over or behind the middle of the anal fin; finetooth lacks the white spotting."
+      },
+      {
+        "name": "Blacknose shark (Carcharhinus acronotus)",
+        "distinction": "Both are small, open-for-harvest requiem sharks placed in FWC's no-minimum Group 1, so the regulatory stakes of confusing them are low, but they are frequently caught together inshore. A dedicated field-mark comparison was not found in the sources reviewed this session; recorded as a gap rather than invented."
+      },
+      {
+        "name": "Caribbean sharpnose shark (Rhizoprionodon porrosus)",
+        "distinction": "A close congener with a similar long-snouted body plan; the two are best separated in southern Gulf/Caribbean waters where ranges overlap. A specific field-mark comparison was not found in the sources reviewed this session; recorded as a gap."
+      },
+      {
+        "name": "Juvenile blacktip or spinner shark",
+        "distinction": "Small juvenile blacktip/spinner can be superficially similar in size and general shape to an adult sharpnose; the long, sharply pointed sharpnose snout and its white side-spotting are the clearest quick separators from the rounder-snouted, black-fin-tipped blacktip/spinner juveniles."
+      }
+    ],
+    "averageAdultLength": "NOAA's species page gives two figures for maximum size that do not agree with each other: the page's running text states 'up to 32 inches,' while its quick-facts summary states 'up to 4 feet' (48 in). This internal disagreement is recorded here rather than resolved by picking one.",
+    "commonAnglingSize": "Females mature around 24 in (Atlantic stock, ~age 2) or 25 in (Gulf stock, ~age 1.3 years) per NOAA; most inshore recreational catches are mature or near-mature fish in this size range.",
+    "typicalWeight": "Not found in an agency source reviewed this session; recorded as a gap.",
+    "maximumDocumentedSize": "See averageAdultLength — NOAA's own page gives conflicting maximum-length figures (32 in vs. 4 ft) that this record does not resolve.",
+    "longevity": "NOAA: up to 18 years.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Sharpnose Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-sharpnose-shark"
+      },
+      {
+        "label": "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (C-P species)",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/shark-identification-cooperative-shark-2"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "NOAA's own species page gives two different maximum-length figures (32 in in running text vs. 4 ft in its quick-facts box); this record states the disagreement rather than picking one.",
+      "Typical weight not found.",
+      "Direct field-mark comparison to blacknose shark and Caribbean sharpnose shark not found; both are noted as lookalikes without a sourced distinguishing feature."
+    ]
+  },
+  "behavior": {
+    "speciesId": "rhizoprionodon_terraenovae",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Described in NOAA sources as common and abundant inshore, consistent with loose aggregation rather than solitary habits, though a dedicated schooling-behavior account was not found."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic",
+        "benthic_feeding"
+      ],
+      "note": "NOAA describes a diet of small fish (menhaden, eels, silversides, wrasses) taken by pursuit, plus invertebrates (worms, shrimp, crabs, mollusks) that imply some benthic foraging as well."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved to a specific diel pattern from a sourced account this session; recorded as a gap."
+    },
+    "seasonalActivity": "NOAA describes a seasonal inshore/offshore migration: this species moves to deeper offshore water in winter and returns to inshore water in spring to mate and give birth.",
+    "currentFacing": "Not resolved from a sourced account; recorded as a gap.",
+    "spawningBehavior": "Annual mating mid-May through mid-July in inshore waters; 10-11 month gestation; about four pups per litter delivered in nearshore areas each June. Recorded as conservation context only.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Sharpnose Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-sharpnose-shark"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel tendency, current-facing, depth movement, and thermal-driven behavior not sourced.",
+      "No water-temperature figures were found tying the inshore/offshore seasonal migration to a specific thermal threshold."
+    ]
+  },
+  "diet": {
+    "speciesId": "rhizoprionodon_terraenovae",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans",
+      "mollusks",
+      "worms_annelids"
+    ],
+    "primaryNote": "NOAA describes the diet as small fish including menhaden, eels, silversides, and wrasses, plus invertebrates: worms, shrimp and crabs (crustaceans), and mollusks. Diet capacity is not evidence of a current bait event.",
+    "observedForageRule": "Diet capacity described here is not proof that a bait event is occurring on any given day. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Sharpnose Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-sharpnose-shark"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Seasonal and life-stage diet emphasis not sourced beyond the general prey list."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "rhizoprionodon_terraenovae",
+    "status": "reviewed",
+    "overview": "A small, abundant inshore/nearshore requiem shark that NOAA describes as moving offshore into deeper water in winter and returning inshore in spring to mate and pup in bays, estuaries, and surf-zone habitat over mud and sand.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deeper offshore water, per NOAA's described seasonal migration.",
+        "movementTendency": "Moves out of inshore bays/estuaries/surf zones into deeper water offshore.",
+        "presentationImplication": "Nearshore bottom-contact fishing is the reviewed family that best fits a winter offshore posture within the water types this catalog covers; no offshore-specific presentation is claimed here.",
+        "invalidators": [
+          "fishing inshore flats/creeks for this species in winter on the assumption it behaves the same as in spring/summer"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Returns to inshore bays, estuaries, and surf-zone habitat over mud and sand to mate.",
+        "presentationImplication": "Tidal drift bait and live/natural bait suspension in bays and creek mouths, plus surf bait soak in the surf zone, are the reviewed families that fit a small bottom/mid-water opportunistic feeder returning inshore.",
+        "conservationNote": "Spring mating is biology, not a targeting cue.",
+        "invalidators": [
+          "treating the spring return as a predictable bite window"
+        ]
+      },
+      {
+        "season": "early_summer",
+        "habitatClass": "Inshore bays, estuaries, and nearshore water; mating continues into mid-July and pups are delivered nearshore in June.",
+        "conservationNote": "June pupping is conservation context; no pupping location is identified.",
+        "presentationImplication": "Same reviewed inshore/surf families as spring.",
+        "invalidators": [
+          "treating June pupping activity as a bait or bite signal"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Inshore bays, estuaries, harbors, and surf zones over mud and sand, per NOAA's habitat description.",
+        "presentationImplication": "Same reviewed inshore/surf families as spring/early summer.",
+        "invalidators": []
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Transitional; NOAA's account implies a shift back toward deeper offshore water begins as winter approaches, though a specific fall-only account was not found.",
+        "presentationImplication": "Same reviewed inshore/nearshore families, shifting toward nearshore bottom contact as the season progresses.",
+        "invalidators": [
+          "assuming a hard, dated cutover from inshore to offshore behavior"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Sharpnose Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-sharpnose-shark"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No water-temperature thresholds tie the inshore/offshore seasonal movement to a specific figure.",
+      "Fall-specific behavior is inferred as transitional rather than directly sourced."
+    ]
+  }
+}

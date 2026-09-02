@@ -1,0 +1,307 @@
+{
+  "identification": {
+    "speciesId": "cynoscion_nebulosus",
+    "status": "reviewed",
+    "regionalNames": [
+      "speckled trout",
+      "speck",
+      "spotted weakfish"
+    ],
+    "bodyShape": "Elongate, laterally compressed drum body, slimmer through the shoulder than red drum of the same length. Terminal mouth, not the inferior mouth of a bottom-feeding drum.",
+    "identificationTraits": [
+      "Numerous round black spots scattered irregularly over the back and sides, continuing onto the soft dorsal fin and the caudal fin. The spots are many, small and disorganised, not one discrete ocellus.",
+      "A pair of large canine teeth at the tip of the upper jaw (FWC). This is a reliable in-hand trait.",
+      "No barbels on the lower jaw, which separates the fish from the bottom-feeding drums.",
+      "Dark grey or green above with bluish reflections, shading to silvery white below."
+    ],
+    "coloration": "Dark grey to green over the back with bluish reflections, silvery white beneath. The spotting is black and stands out clearly against the ground colour on both the body and the fins.",
+    "juvenileAppearance": "Juveniles carry the same scattered black spotting and canine teeth at small size and use shallow tidal creeks, salt marsh and seagrass as nursery habitat.",
+    "adultAppearance": "A slim silver-and-green estuarine drum covered in scattered black spots that run onto the dorsal and tail, with a pair of prominent upper-jaw canines.",
+    "similarSpecies": [
+      {
+        "name": "Weakfish (Cynoscion regalis)",
+        "distinction": "Weakfish lack the discrete round black spots running onto the dorsal and caudal fins that define spotted seatrout; their markings are smaller, more diffuse and body-confined. FWC uses the spotting pattern extending onto the dorsal fins and tail as the separator."
+      },
+      {
+        "speciesId": "sciaenops_ocellatus",
+        "name": "Red drum",
+        "distinction": "Red drum have one or more black ocellated spots confined to the tail region, a copper cast, and an inferior horizontal mouth with no prominent canines. Spotted seatrout have many scattered spots over the whole back and fins and a terminal mouth with large upper-jaw canines."
+      },
+      {
+        "name": "Sand seatrout and silver seatrout (Cynoscion arenarius, C. nothus)",
+        "distinction": "These congeners lack the heavy scattered black spotting of spotted seatrout. Spot pattern is the working field key within the genus; this catalog does not hold reviewed records for them."
+      }
+    ],
+    "averageAdultLength": "SCDNR gives an average of about 14 in and 1.3 lb in South Carolina. FWC gives a typical size of about 14 in. TPWD reports growth to about 21 in for males and about 28 in for females by age 10, with females growing faster.",
+    "commonAnglingSize": "State slot limits concentrate retained fish tightly; Florida's slot is 15-19 in total length. Fish at the agency-reported average of about 14 in sit just below that.",
+    "typicalWeight": "About 1-2 lb at the agency-reported average length; slot-sized fish commonly 1-3 lb.",
+    "maximumDocumentedSize": "FWC gives a maximum recorded length of about 39 in at 17 lb, with a Florida state record of 17 lb 7 oz. The Texas rod-and-reel record is 37.25 in and 15.6 lb (TPWD). The South Carolina record is 11 lb 13 oz (SCDNR).",
+    "longevity": "SCDNR gives a maximum of roughly 8-10 years. TPWD gives 9-10 years. Maturity is reached at about one year in South Carolina and about two years in Texas.",
+    "sexualDimorphism": "TPWD reports females growing faster and reaching larger size than males, roughly 28 in against 21 in by age 10. That is a population-level growth difference, not an in-hand field key.",
+    "sources": [
+      {
+        "label": "FWC spotted seatrout species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/drums/spotted-seatrout/"
+      },
+      {
+        "label": "SCDNR marine species account: spotted seatrout",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spottedseatrout.html"
+      },
+      {
+        "label": "TPWD, Spotted Seatrout in Texas",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_v3400_044_seatrout.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional colour variation: not described in the agency accounts used here, field omitted",
+      "spawning coloration: no agency source located, field omitted",
+      "a formal in-hand key separating spotted seatrout from sand and silver seatrout beyond spotting pattern"
+    ]
+  },
+  "behavior": {
+    "speciesId": "cynoscion_nebulosus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Juveniles use shallow tidal creeks, salt marsh, seagrass and oyster beds as nursery habitat (SCDNR, ASMFC). Adults concentrate over grass beds, marsh edges, creek mouths and oyster reefs, and aggregate for spawning.",
+      "note": "SCDNR describes adults congregating at specific habitat types rather than holding as isolated individuals. This is habitat-driven aggregation, not obligate schooling."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "A predator that becomes progressively piscivorous with size. TPWD: small trout feed primarily on small crustaceans, medium trout on shrimp and small fish, large fish almost exclusively on other fishes. SCDNR gives adults on menhaden, spot, mullet, croaker and mud minnows. The terminal mouth and paired upper-jaw canines are a fish-grabbing apparatus, not a bottom-grubbing one."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Documented diel habitat switching rather than a simple feeding window. Moulton et al. 2017 recorded fish over seagrass 98 percent of the time in daylight and over bare substrate 80 percent of the time at night, with movement rate rising from about 0.95 m/min by day to about 3.4 m/min at night. Night activity is higher; that is a movement and habitat finding, not a catch claim."
+    },
+    "seasonalActivity": "Distribution shifts with temperature and reproduction. TPWD describes the species as relatively non-migratory but moving in response to water temperature and spawning, into deeper bay waters such as dredged harbours and channels as water cools. ASMFC describes fish moving into deeper channels and holes and occasionally offshore to avoid cold stress. Moulton et al. 2017 recorded directed bay-scale movement peaking December through March below 15 degrees C.",
+    "thermalDrivenBehavior": "ASMFC gives a preferred range of 15-27 degrees C (59-81 degrees F). The cold edge is sharp and well quantified: Anweiler et al. 2014, working with fish acclimated to 14 degrees C and cooled at an environmentally realistic 1 degree C per day, recorded loss of equilibrium at 3.57 degrees C and mortality at 3.08 degrees C, and in static exposure found 91 percent mortality at 4.25 degrees C against only 4 percent at 5.25 degrees C. That one-degree gap is the mechanism behind documented freeze kills: SCDNR notes excessive cold can cause mass mortalities, and TPWD reported that spotted seatrout suffered higher freeze-related mortality than other game species in the February 2021 Texas event.",
+    "depthMovement": "Consistently deeper than red drum in shared water: a mean of about 144 cm against about 51 cm in the Moulton et al. array, with open bay used 96.3 percent of the time. Deeper still in winter, into channels, holes and dredged harbours.",
+    "clarityResponse": "Not sourced. ASMFC and PLOS-indexed work associate occurrence with freshwater inflow and salinity, but no agency or peer-reviewed source located here ties spotted seatrout behaviour to water clarity, and none is asserted.",
+    "coverUse": "Structural association is documented but weaker than in red drum: Moulton et al. 2017 found red drum showing strong affinity for habitat edges while spotted seatrout preferred bare substrate and deeper open bay. SCDNR nevertheless places adults at marsh edges, grass beds, creek mouths and oyster reefs. The reconciliation is the diel switch, grass by day and bare bottom by night.",
+    "openWaterBehavior": "Predominantly an open-bay fish within the estuary, using the deeper unvegetated portions, particularly at night.",
+    "spawningBehavior": "Protracted warm-season spawner. SCDNR gives April through September in moderate salinity in deeper portions of estuaries; TPWD gives late spring to early autumn over seagrass inside the bays, with two-, three- and four-year-old fish making up the bulk of the spawning population; FWC gives inshore spawning March through November. Males generate sound by contracting muscles that vibrate the swim bladder, and that sound draws females to aggregations. Recorded here as conservation context. This record does not describe where those aggregations form, and any such concentration is excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Anweiler, Arnott and Denson 2014, Transactions of the American Fisheries Society 143:999-1010",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Moulton et al. 2017, Estuaries and Coasts 40:905-916",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "ASMFC, Cynoscion nebulosus Spotted Seatrout: Life History and Habitat Needs",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/SpottedSeatrout.pdf"
+      },
+      {
+        "label": "SCDNR marine species account: spotted seatrout",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spottedseatrout.html"
+      },
+      {
+        "label": "TPWD, Spotted Seatrout in Texas",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_v3400_044_seatrout.pdf"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "tide-stage response: no agency or peer-reviewed source located that ties spotted seatrout movement to flooding or ebbing tide, despite the species being an estuarine resident. This is the largest hole in the record.",
+      "cold-front and barometric response with primary-source support",
+      "angling pressure response with primary-source support",
+      "territoriality and aggression: no source located, fields omitted",
+      "water clarity response with primary-source support"
+    ]
+  },
+  "diet": {
+    "speciesId": "cynoscion_nebulosus",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "crustaceans",
+      "small_forage_fish",
+      "larger_prey_fish",
+      "zooplankton"
+    ],
+    "primaryNote": "A generalist that becomes a specialist with size. TPWD states it plainly: small trout feed primarily on small crustaceans, medium-sized trout on shrimp and small fish, and large fish almost exclusively on other fishes. SCDNR gives adults on menhaden, spot, mullet, croaker and mud minnows, with larger individuals eating progressively more fish. Capacity for any of this is not evidence of a current bait event.",
+    "seasonalDiet": [],
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae take zooplankton, primarily copepods (SCDNR, ASMFC). Hall-Scharf et al. 2016 found copepods only in the smallest size class (15-30 mm SL), along with mysids.",
+      "juvenile": "Hall-Scharf et al. 2016 describe a progressive shift: at 30-75 mm SL toward larger benthic invertebrates, especially hippolytid and palaemonid shrimps and amphipods, with rising proportions of fish; by 75-120 mm SL predominantly piscivorous, with fish and palaemonid shrimps forming the bulk of stomach contents.",
+      "adult": "SCDNR gives menhaden, spot, mullet, croaker and mud minnows. TPWD gives large fish feeding almost exclusively on other fishes."
+    },
+    "preySizeShifts": "Prey size tracks gape closely and the transition is early: Hall-Scharf et al. 2016 place the shift to fish between roughly 30 and 120 mm SL, so a fish is largely piscivorous well before it is legal anywhere.",
+    "ontogeneticShift": "Copepods and mysids, to benthic shrimps and amphipods, to fish. The catalog larger_prey_fish class belongs to the adult stage.",
+    "forageSubstitutions": "Forage identity is system-specific: the agency lists differ between South Carolina (menhaden, spot, mullet, croaker, mud minnows) and the Gulf. A complete regional substitution table was not sourced.",
+    "observedForageRule": "Diet capacity is not proof that a bait event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Hall-Scharf, Switzer and Stallings 2016, Transactions of the American Fisheries Society 145:502-520",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "SCDNR marine species account: spotted seatrout",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spottedseatrout.html"
+      },
+      {
+        "label": "TPWD, Spotted Seatrout in Texas",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_v3400_044_seatrout.pdf"
+      },
+      {
+        "label": "ASMFC, Cynoscion nebulosus Spotted Seatrout: Life History and Habitat Needs",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/SpottedSeatrout.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "seasonal diet: no agency or peer-reviewed source located that breaks spotted seatrout diet down by season, so seasonalDiet is left empty rather than invented",
+      "month-by-month diet inside a season, which is system-specific",
+      "complete regional forage-substitution table"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "cynoscion_nebulosus",
+    "status": "partial",
+    "overview": "Spotted seatrout are estuarine residents with a small home range in the southeast, so the seasonal story is depth and temperature rather than migration. Two axes are well sourced: a cold-season retreat into deeper channels, holes and dredged harbours, with a sharply defined lethal cold edge that produces documented freeze kills; and a protracted warm-season spawning period carried here as conservation context. The strongest day-scale pattern in the species is not seasonal at all but diel, the documented switch from seagrass by day to bare bottom at night.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deeper channels, holes and dredged harbours inside the bay system; channel edges adjacent to the grass and marsh used the rest of the year.",
+        "depthTendency": "Deepest of the year. ASMFC and TPWD both describe movement into deeper water to avoid cold stress.",
+        "movementTendency": "Moulton et al. 2017 recorded directed bay-scale movement peaking December through March, coinciding with water temperatures below 15 degrees C.",
+        "thermalContext": "Below the 15 degrees C floor of the ASMFC preferred band. The lethal edge is close: Anweiler et al. 2014 recorded loss of equilibrium at 3.57 degrees C and death at 3.08 degrees C, with 91 percent mortality at 4.25 degrees C against 4 percent at 5.25 degrees C.",
+        "presentationImplication": "Horizontal retrieve through the deeper column and live or natural bait suspension in the same water. Surface retrieve has no basis here.",
+        "invalidators": [
+          "looking for winter fish on the shallow grass they used in summer",
+          "treating a freeze event as a temporary inconvenience rather than a mortality event"
+        ],
+        "conservationNote": "Hard freezes cause mass mortality in this species specifically. SCDNR notes excessive cold can cause mass mortalities and TPWD reported spotted seatrout suffering higher freeze mortality than other game species in February 2021. Local abundance after such an event is not what it was."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Grass flats, marsh edges, creek mouths and oyster reefs as water warms and fish move back out of the deep water.",
+        "movementTendency": "Directed bay-scale movement continues into spring in the Moulton et al. array.",
+        "thermalContext": "Entering the ASMFC preferred band of 15-27 degrees C.",
+        "conservationNote": "Spawning begins in this window; SCDNR gives April through September and FWC gives March through November inshore. Spawning aggregations are excluded from this record and from target guidance.",
+        "presentationImplication": "Horizontal retrieve and live or natural bait suspension over grass; tidal drift bait at creek mouths and channel edges.",
+        "invalidators": [
+          "using the onset of the spawning period as a targeting cue"
+        ]
+      },
+      {
+        "season": "early_summer",
+        "habitatClass": "Grass flats and adjacent open bay bottom; marsh edge and oyster reef.",
+        "lightSensitivity": "The diel habitat switch is the defining pattern: seagrass in daylight, bare substrate at night, with night movement rates roughly three and a half times daytime rates (Moulton et al. 2017).",
+        "conservationNote": "Inside the spawning period across all three state accounts used here.",
+        "presentationImplication": "Horizontal retrieve at the depth band the fish are using, surface retrieve over shallow grass in low light, stop-and-go for a piscivore that is already hunting fish.",
+        "invalidators": [
+          "assuming a night fish and a day fish are using the same bottom type"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Deeper open bay by day and night, grass flats and sand holes within it. Moulton et al. recorded open bay use 96.3 percent of the time and a mean depth of about 144 cm.",
+        "depthTendency": "Deeper than red drum sharing the same estuary by roughly a metre.",
+        "thermalContext": "At or above the 27 degrees C ceiling of the ASMFC preferred band in the southern part of the range. No warm-edge threshold was sourced for this record.",
+        "lightSensitivity": "Diel habitat switch continues; night movement rates remain the higher of the two.",
+        "presentationImplication": "Horizontal retrieve through the column, live or natural bait suspension, surface retrieve restricted to low light over shallow grass.",
+        "invalidators": [
+          "carrying a shallow-grass approach into midday deep open bay"
+        ]
+      },
+      {
+        "season": "late_summer",
+        "habitatClass": "Unchanged from summer: deeper open bay with grass and sand holes, marsh edge and oyster reef.",
+        "conservationNote": "The spawning period runs to September in the SCDNR account and to November in the FWC account. Concentrations of spawning fish are excluded from target guidance.",
+        "presentationImplication": "Unchanged from summer. The spawning period generates no new approach in this record.",
+        "invalidators": [
+          "converting the spawning period into a presentation change"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Grass and open bay giving way to deeper bay water, channels and dredged harbours as temperature falls.",
+        "movementTendency": "TPWD describes fish moving to deeper waters during autumn cooling.",
+        "thermalContext": "Falling back through the ASMFC preferred band toward the winter position.",
+        "presentationImplication": "Horizontal retrieve and live or natural bait suspension, worked progressively deeper as the fish drop.",
+        "invalidators": [
+          "assuming the summer depth band still holds fish after a significant cooling"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Deeper channels, holes and dredged harbours; the winter position established.",
+        "thermalContext": "Approaching and dropping below the 15 degrees C floor of the preferred band.",
+        "presentationImplication": "Horizontal retrieve and live or natural bait suspension in the deeper water; stop-and-go where a slower presentation is needed.",
+        "invalidators": [
+          "treating late autumn as an extension of the summer grass pattern"
+        ],
+        "conservationNote": "The Indian River Lagoon region of Florida is closed to spotted seatrout harvest from 1 November to 31 December, and the Panhandle region is closed for February. Closures in this fishery are region-specific."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Moulton et al. 2017, Estuaries and Coasts 40:905-916",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Anweiler, Arnott and Denson 2014, Transactions of the American Fisheries Society 143:999-1010",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "ASMFC, Cynoscion nebulosus Spotted Seatrout: Life History and Habitat Needs",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/SpottedSeatrout.pdf"
+      },
+      {
+        "label": "SCDNR marine species account: spotted seatrout",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spottedseatrout.html"
+      },
+      {
+        "label": "TPWD, Spotted Seatrout in Texas",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_v3400_044_seatrout.pdf"
+      },
+      {
+        "label": "FWC spotted seatrout recreational regulations and species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/spotted-seatrout/"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "tide stage by season: no sourced statement links spotted seatrout seasonal behaviour to flooding or ebbing tide, so no seasonal currentUse field is populated. For a species this estuarine, that is a real hole.",
+      "early_spring entry: nothing in the sources separates it from spring, so it is omitted rather than interpolated",
+      "warm-edge behaviour; the ASMFC preferred band gives a 27 degrees C ceiling but no source located describes what fish do above it",
+      "seasonal forage emphasis, which is not broken out by season in any source used here"
+    ]
+  }
+}

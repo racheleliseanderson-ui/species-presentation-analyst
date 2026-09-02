@@ -1,0 +1,214 @@
+{
+  "identification": {
+    "speciesId": "carcharhinus_limbatus",
+    "status": "reviewed",
+    "regionalNames": [
+      "Atlantic blacktip shark",
+      "blacktip"
+    ],
+    "bodyShape": "Slender, fusiform requiem-shark body typical of Carcharhinidae; no interdorsal ridge between the first and second dorsal fins (NOAA Cooperative Shark Tagging Program ID guide).",
+    "identificationTraits": [
+      "First dorsal fin is tall and narrows to a pointed apex, originating over or just behind the insertion of the pectoral fins, with a moderately long free rear tip (NOAA fin ID guide and NOAA tagging-program ID guide).",
+      "No interdorsal ridge — a flat back between the two dorsal fins. This rules out sandbar, bignose, and silky shark, which all have a raised interdorsal ridge.",
+      "Black tips mark the first and second dorsal fins, the pectoral fins, and the lower caudal lobe, but the ANAL FIN IS WHITE / UNMARKED. This is the single most reliable field mark separating blacktip from spinner shark, whose anal fin is black-tipped.",
+      "A light wedge- or Z-shaped band runs along the flank, widening toward the rear, above a white belly.",
+      "Snout is rounded and moderately long, in contrast to the more sharply pointed snout of spinner shark.",
+      "Fin-tip black coloration fades or can be nearly absent on large, older adults — do not rely on tip color alone at any size; check the anal fin and dorsal-fin shape together."
+    ],
+    "coloration": "Dark gray, bluish-gray, or dusky bronze above, white below, with a pale flank band and black-marked dorsal, pectoral, and lower caudal fins (anal fin white).",
+    "regionalColorVariation": "Not resolved from an agency or peer-reviewed source in this review.",
+    "juvenileAppearance": "Fin-tip black markings are typically most distinct and highest-contrast in juveniles and young adults, per the general pattern noted in NOAA's fin identification guide; a dedicated juvenile-appearance account was not found.",
+    "adultAppearance": "A slender gray-bronze requiem shark with a light flank band, black-tipped dorsal/pectoral/lower-caudal fins that may fade with age, a white anal fin, and no interdorsal ridge.",
+    "similarSpecies": [
+      {
+        "speciesId": "carcharhinus_brevipinna",
+        "name": "Spinner shark",
+        "distinction": "NOAA's own tagging-program guide calls this the most difficult pair to separate. Spinner shark has a BLACK-TIPPED anal fin (blacktip's is white); a shorter, more rounded first-dorsal apex with a shorter free rear tip set further back, roughly over or just behind the pectoral fins' free rear tips (blacktip's taller, more pointed dorsal sits further forward, over the pectoral insertion); a more sharply pointed snout at least as long as the mouth is wide; and pectoral fins marked with black on both surfaces (blacktip shows black mainly on the underside). Fin-tip color fades on large fish in both species, so lead with the anal fin and dorsal-fin shape/position, not tip color."
+      },
+      {
+        "name": "Sandbar shark (Carcharhinus plumbeus)",
+        "distinction": "Federally and Florida-state PROHIBITED — must be released without removing from the water. Distinguished by a pronounced interdorsal ridge (absent in blacktip) and a very tall, forward-set first dorsal fin. If an interdorsal ridge is present, treat the fish as a possible sandbar shark and release it."
+      },
+      {
+        "name": "Dusky shark (Carcharhinus obscurus)",
+        "distinction": "Federally and Florida-state PROHIBITED. Has an interdorsal ridge (blacktip lacks one) and a heavier, more robust body with generally unmarked fins."
+      },
+      {
+        "name": "Bull shark (Carcharhinus leucas)",
+        "distinction": "Open under the same federal 54 in / 1-per-vessel grouping as blacktip, so not a legal-status risk, but worth separating: bull shark has a much stockier body, a short blunt rounded snout, small eyes, and a dorsal fin that slopes rearward with fins that are typically unmarked (NOAA tagging-program ID guide)."
+      },
+      {
+        "name": "Finetooth shark (Carcharhinus isodon)",
+        "distinction": "A smaller requiem shark, open under Florida's Group 1 (no minimum size), with unmarked fins — the absence of any black fin-tip marking separates it from blacktip at any size."
+      }
+    ],
+    "averageAdultLength": "NOAA gives a typical adult length up to about 6-6.5 ft; an Australian stock assessment (a different regional population, cited for context only) records a maximum of 265 cm (about 8.7 ft), which should not be read onto the western Atlantic/Gulf stock.",
+    "commonAnglingSize": "Federal keeper size in the open, HMS-managed fishery is 54 in fork length; Florida state-waters harvest currently carries no state minimum size (see targetContext for the resulting jurisdictional conflict).",
+    "typicalWeight": "Not found in an agency source reviewed this session; recorded as a gap rather than estimated.",
+    "maximumDocumentedSize": "NOAA states up to about 6.5 ft for the western Atlantic/Gulf population; do not apply the Australian 265 cm figure to this stock.",
+    "longevity": "NOAA's oldest documented individual was 15.5 years old; males mature at 4-5 years, females at 6-7 years.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (A-B species)",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/shark-identification-cooperative-shark"
+      },
+      {
+        "label": "NOAA Fisheries, Shark Fin Identification Guide (NOAA Technical Memorandum)",
+        "class": "agency",
+        "url": "https://media.fisheries.noaa.gov/dam-migration/sharkfinid_guide.pdf"
+      },
+      {
+        "label": "NOAA Fisheries, Atlantic Blacktip Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-blacktip-shark"
+      },
+      {
+        "label": "FRDC Shark Report Card, Carcharhinus limbatus (Australian stock; cited only for maximum size / age-at-maturity comparison, not as a western Atlantic figure)",
+        "class": "synthesis",
+        "url": "https://www.fish.gov.au/docs/SharkReport/2023_FRDC_Carcharhinus_limbatus_Final.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Typical/maximum weight for the western Atlantic/Gulf stock not found in an agency source.",
+      "Regional color variation and a dedicated juvenile-appearance account not found.",
+      "A cleaner, non-Australian source for maximum documented length would remove the need to caveat the FRDC figure."
+    ]
+  },
+  "behavior": {
+    "speciesId": "carcharhinus_limbatus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Forms large, dense seasonal aggregations of hundreds to thousands of individuals in winter along the southeast Florida coast (Kajiura and Tellman 2016); otherwise generally described as occurring in loose groups rather than tight permanent schools.",
+      "note": "The southeast Florida winter aggregation is a documented, quantified phenomenon (tracked by aerial survey), recorded here as a conservation and identification context — not a location, timing prediction, or bite cue."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "NOAA describes a diet of bony fishes, smaller sharks, squid, stingrays, shrimp, and crabs, and notes blacktips regularly follow fishing vessels to take discards — an opportunistic, pursuit-feeding pattern on schooling and discrete prey rather than ambush ambush from cover."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved to a specific diel pattern from an agency or peer-reviewed source in this review; recorded as a gap."
+    },
+    "seasonalActivity": "Present year-round in the Gulf of America; along the southeast Atlantic coast, large numbers concentrate nearshore in winter, with Kajiura and Tellman (2016) finding peak aggregation density when water temperature was below about 25°C (77°F), and departure from southeast Florida occurring around the vernal equinox as water warms. This is a distribution finding from one regional aerial-survey study, not a species-wide thermal tolerance range.",
+    "thermalDrivenBehavior": "See seasonalActivity — the only sourced temperature figure found this session is the sub-25°C (77°F) association with the southeast Florida winter aggregation. No preferred or active thermal band across the species' full range was found; recorded as a catalog-level gap.",
+    "currentFacing": "Not resolved from a sourced account; recorded as a gap.",
+    "predatorAvoidance": "Not resolved from a sourced account; recorded as a gap.",
+    "spawningBehavior": "Mating occurs March-June; gestation is 11-12 months; pups (3 per litter Atlantic stock, 4-5 Gulf stock) are born the following year in shallow nursery bays and estuaries. Recorded as conservation/life-history context only — no nursery, pupping, or staging location is identified.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Blacktip Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-blacktip-shark"
+      },
+      {
+        "label": "Kajiura, S.M. and Tellman, S.L. 2016. Quantification of Massive Seasonal Aggregations of Blacktip Sharks (Carcharhinus limbatus) in Southeast Florida. PLOS ONE 11(3):e0150911",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150911"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel feeding tendency not sourced.",
+      "Current-facing / depth-movement / cold-front / angling-pressure response not sourced.",
+      "A full preferred or active thermal band (beyond the single winter-aggregation data point) not sourced."
+    ]
+  },
+  "diet": {
+    "speciesId": "carcharhinus_limbatus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks"
+    ],
+    "primaryNote": "NOAA Fisheries describes the diet as bony fishes, smaller sharks, squid (mollusks), stingrays, shrimp and crabs (crustaceans), with blacktips also known to follow fishing vessels to take discarded catch. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "adult": "Bony fish, smaller sharks, cephalopods, stingrays, and crustaceans, per NOAA's species overview.",
+      "juvenile": "Not resolved from a sourced account this session; recorded as a gap."
+    },
+    "observedForageRule": "Diet capacity described here is not proof that a bait event is occurring on any given day. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Blacktip Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-blacktip-shark"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Seasonal diet emphasis and juvenile/young-of-year diet not sourced.",
+      "Prey-size shift with growth (ontogenetic diet shift) not sourced beyond the general adult prey list."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "carcharhinus_limbatus",
+    "status": "partial",
+    "overview": "A year-round Gulf of America resident that becomes strongly seasonal on the southeast Atlantic coast, where a large, well-documented winter aggregation forms nearshore and disperses around the spring equinox. Spring mating and a shallow-nursery pupping season the following year are conservation context, not location guidance.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Nearshore continental-shelf water off the southeast Atlantic coast, where large seasonal aggregations have been quantified by aerial survey.",
+        "thermalContext": "Aggregation density was highest when water was below about 25°C (77°F) in the one study reviewed (Kajiura and Tellman 2016); this is a regional distribution finding, not a species-wide cold edge.",
+        "presentationImplication": "Chum-established drift and live-bait slow troll are the reviewed nearshore/inshore families that fit working a moving, loosely aggregated shark population from a boat.",
+        "conservationNote": "The southeast Florida winter aggregation is documented at the population level; this record does not name or describe it as a place to go.",
+        "invalidators": [
+          "treating the aggregation as a fixed spot rather than a seasonal, regionally distributed phenomenon"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Dispersal from the winter aggregation begins around the vernal equinox as water warms; mating occurs March-June.",
+        "presentationImplication": "Same reviewed families as winter; no new family is introduced.",
+        "conservationNote": "Spring mating is biology, not a targeting cue.",
+        "invalidators": [
+          "inventing a mating-related bite window"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Gulf of America presence is year-round; Atlantic-coast presence continues along the shelf, bays, and beaches described in the species overview.",
+        "feedingEmphasis": "Opportunistic pursuit of schooling bait fish and discards, per the diet dossier.",
+        "presentationImplication": "Run-and-gun cast to visible surface activity in the surf/nearshore zone, plus chum-established drift and live-bait slow troll, are the reviewed families that fit this feeding pattern.",
+        "invalidators": [
+          "predicting a specific bite window from season alone"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "General shelf, bay, and beach habitat as in summer; specific fall behavior not resolved from a sourced account.",
+        "presentationImplication": "Same reviewed families as summer.",
+        "invalidators": []
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Blacktip Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-blacktip-shark"
+      },
+      {
+        "label": "Kajiura, S.M. and Tellman, S.L. 2016. Quantification of Massive Seasonal Aggregations of Blacktip Sharks (Carcharhinus limbatus) in Southeast Florida. PLOS ONE 11(3):e0150911",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150911"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Month-by-month habitat use outside the southeast Florida winter aggregation and its dispersal is not resolved.",
+      "Late-fall and early-spring entries are thin; only the one aerial-survey study anchors the winter/spring transition."
+    ]
+  }
+}

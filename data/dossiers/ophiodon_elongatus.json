@@ -1,0 +1,216 @@
+{
+  "identification": {
+    "speciesId": "ophiodon_elongatus",
+    "status": "reviewed",
+    "regionalNames": [],
+    "bodyShape": "Elongate, cylindrical greenling body with one long, continuous dorsal fin running most of the body length, a large head, and a large mouth extending past the eye.",
+    "identificationTraits": [
+      "A big mouth armed with about 18 large, sharp, canine-like teeth (ADFG, NOAA Fisheries).",
+      "A single long dorsal fin, rather than the separated spiny/soft dorsal fins typical of true cods (DFO, ADFG).",
+      "Scales cover the body but not the head (DFO).",
+      "Despite the common name, lingcod is a greenling (family Hexagrammidae), not a true cod (Gadidae) — no chin barbel and a different fin arrangement from cod (ADFG, DFO)."
+    ],
+    "coloration": "Highly variable base color — gray, brown, green, or bluish dorsally — overlaid with dark brown or copper blotches and mottling in clusters, with a paler underside. Young fish show a more distinctly blotched pattern (ADFG, NOAA Fisheries, DFO).",
+    "juvenileAppearance": "Juveniles carry a blotched pattern and settle onto shallow nearshore sand, eelgrass, or kelp-bed bottom before moving onto rocky reef structure as they grow (NOAA Fisheries, ADFG).",
+    "adultAppearance": "A large, elongate greenling with a big toothy mouth, a single long dorsal fin, and mottled gray/brown/green/blue coloration over copper blotching. Females grow substantially larger than males.",
+    "sexualDimorphism": "Females grow faster past about age 2 and reach a much larger maximum size than males. CDFW gives maximum lengths of about 59 in for females versus 39 in for males; DFO similarly reports males rarely exceeding about 90 cm (living roughly 14 years) while females reach about 120 cm (living roughly 20 years).",
+    "similarSpecies": [
+      {
+        "name": "Other greenlings (family Hexagrammidae, e.g. kelp greenling)",
+        "distinction": "Lingcod is by far the largest hexagrammid, with a single long dorsal fin and a much larger mouth and teeth than the smaller greenlings it is related to. Agencies specifically flag that the common name invites confusion with true cod (Gadidae) even though lingcod is a greenling (ADFG, DFO)."
+      }
+    ],
+    "averageAdultLength": "Commonly landed at roughly 24-40 in; maximum reported lengths are about 59-60 in for females (CDFW gives 59 in; NOAA Fisheries gives up to 5 ft/60 in) and about 39 in for males (CDFW).",
+    "commonAnglingSize": "Legal minimum sizes and bag limits are set annually by state and change with in-season action; see targetContext. Historically the recreational fishery has centered on fish in the roughly 22-30 in range.",
+    "typicalWeight": "Commonly a few pounds up to 20-30 lb in the fishery; fish exceeding 80 lb are documented by both ADFG and NOAA Fisheries.",
+    "maximumDocumentedSize": "Up to about 5 ft (60 in) and 80-85 lb (ADFG, NOAA Fisheries). California's oldest aged specimen on record was a 19-year-old, 45-in female (CDFW).",
+    "longevity": "Maximum documented age is about 25 years (ADFG, CDFW).",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries — Lingcod species page",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Lingcod life history summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No regional nickname list confirmed against an acceptable source — left empty rather than guessed.",
+      "No sourced degF thermal preference or tolerance range found for lingcod; only depth-associated habitat is documented."
+    ]
+  },
+  "behavior": {
+    "speciesId": "ophiodon_elongatus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Nesting males become strongly territorial for 5-11 weeks, guarding an egg mass in a rock crevice. Outside that window, lingcod are not documented schooling and show strong individual site fidelity to a home reef.",
+      "note": "Tagging studies cited by CDFW and DFO show the large majority of mature lingcod recaptured within a few miles of their original tagging location — a sedentary, reef-holding species rather than a roaming or schooling one."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "Described by every agency source reviewed as a voracious, aggressive predator that ambushes prey from bottom structure and takes almost anything it can fit in its mouth, including smaller lingcod (NOAA Fisheries, DFO)."
+    },
+    "territoriality": "Territorial specifically around the nest: males claim and aggressively defend a crevice nest site for roughly 8-11 weeks (ADFG, DFO, NOAA Fisheries). Outside spawning, the species shows site fidelity rather than active territorial defense of a feeding station.",
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Diel (day/night) feeding activity is not clearly documented in the agency sources reviewed for this record; see gaps."
+    },
+    "seasonalActivity": "Fall migration onto nearshore rocky spawning habitat, followed by winter/early-spring nest-guarding by males, is the dominant seasonal signal. This is conservation context, not a targeting cue (ADFG, DFO, NOAA Fisheries).",
+    "depthMovement": "Adults range from the intertidal to about 1,300 ft, concentrated in the 30-330 ft band; juveniles settle shallower over sand/eelgrass/kelp bottom before moving onto deeper rocky reef structure as they grow (ADFG, NOAA Fisheries, CDFW).",
+    "predatorAvoidance": "Adult lingcod have few natural predators beyond marine mammals such as sea lions and harbor seals (DFO).",
+    "coverUse": "Holds tight to rocky reef structure, and to kelp and eelgrass beds as juveniles (ADFG, NOAA Fisheries, DFO).",
+    "openWaterBehavior": "Lacks a swim bladder and is consistently described as bottom-associated; open-water/pelagic use is not documented in the sources reviewed.",
+    "spawningBehavior": "Migrates onto nearshore rocky spawning habitat beginning in fall; peak spawning runs early December through mid-March. Males establish and guard nest sites in rock crevices for 5-11 weeks until eggs hatch (hatching March-June); females deposit up to roughly 490,000 eggs and leave the nest site after spawning. This is conservation context only — nest sites and any pre-spawn staging habitat are excluded from target guidance (ADFG, DFO, NOAA Fisheries).",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries — Lingcod species page",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Lingcod life history summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel activity pattern not documented in the sources reviewed.",
+      "Current-facing and flow-response behavior not documented.",
+      "Cold-front / pressure response not documented — omitted per the brief's primary-source requirement."
+    ]
+  },
+  "diet": {
+    "speciesId": "ophiodon_elongatus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "larger_prey_fish",
+      "small_forage_fish",
+      "mollusks",
+      "crustaceans",
+      "zooplankton"
+    ],
+    "primaryNote": "Adults are aggressive, opportunistic predators. CDFW reports that fish make up about 80% (by volume) of stomach contents in larger individuals, with squid, octopus and crab filling out the diet; juvenile rockfish are an important prey item in California waters, and cannibalism on smaller lingcod is documented (NOAA Fisheries, CDFW, DFO). Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Pelagic larvae (roughly 3 months, early March to early June) feed on copepods and other zooplankton (NOAA Fisheries, ADFG).",
+      "juvenile": "Shifts to small fish, including herring, as juveniles settle onto nearshore bottom (ADFG, NOAA Fisheries).",
+      "adult": "Largely piscivorous — bottom-dwelling fish (about 80% of stomach volume by CDFW's estimate for larger fish), squid, octopus, crab, juvenile rockfish, and other lingcod (NOAA Fisheries, CDFW, DFO)."
+    },
+    "preySizeShifts": "Prey size and type track gape as fish grow, from copepods (larvae) to small fish (juveniles) to larger fish, cephalopods and crustaceans (adults) (NOAA Fisheries, ADFG).",
+    "ontogeneticShift": "Zooplanktivorous larvae, to juvenile piscivore on small fish, to adult generalist predator on fish, cephalopods and crustaceans — including cannibalism (NOAA Fisheries, ADFG, CDFW, DFO).",
+    "observedForageRule": "Diet capacity is not proof that a particular prey event is occurring at a given time. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries — Lingcod species page",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Lingcod life history summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Month-by-month or seasonal diet emphasis not documented in the sources reviewed.",
+      "Regional forage-substitution differences (e.g. Alaska vs. California) not documented."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "ophiodon_elongatus",
+    "status": "reviewed",
+    "overview": "Lingcod hold tight to rocky reef, kelp and eelgrass structure year-round with strong site fidelity. The clearest seasonal signal is the fall migration onto nearshore spawning habitat and the winter-into-early-spring nest-guarding period by males, which is conservation context only. Depth-based closures, minimum size and bag limits are reset at least annually and vary by state — verify current rules before fishing.",
+    "entries": [
+      {
+        "season": "fall",
+        "habitatClass": "Nearshore rocky reef, as fish begin migrating onto spawning habitat.",
+        "conservationNote": "Pre-spawn migration onto nearshore rocky habitat begins in fall; this is conservation context, not a location cue (ADFG, DFO).",
+        "presentationImplication": "Bottom-contact and structure-vertical presentations worked tight to reef structure remain the reviewed nearshore families.",
+        "invalidators": [
+          "treating fall staging behavior as a location to target"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Nearshore rocky reef and crevice structure, where males guard nests.",
+        "conservationNote": "Peak spawning runs early December through mid-March; males guard nests in crevices for 5-11 weeks. Some management areas add winter closures specifically to protect nest-guarding males (DFO, ADFG).",
+        "presentationImplication": "Where a season is open, bottom-contact and vertical-jig presentations on rocky structure remain the reviewed families; check season and depth closures first.",
+        "invalidators": [
+          "fishing over an active nest site",
+          "assuming a winter season is open without checking current closures"
+        ]
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Nearshore rocky reef as the nest-guarding period ends and eggs finish hatching.",
+        "conservationNote": "Hatching continues into early spring (through roughly June); larvae go pelagic. This is conservation context, not a targeting cue (ADFG, NOAA Fisheries).",
+        "presentationImplication": "Bottom-contact, structure-vertical and vertical-jig on nearshore reef.",
+        "invalidators": [
+          "treating late-hatching nest sites as holding water for adults"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "General reef-holding on nearshore rocky structure and kelp/eelgrass edges, plus deeper shelf structure offshore.",
+        "depthTendency": "Adults spread across the core 30-330 ft band, with individuals documented from the intertidal to over 1,000 ft (ADFG, CDFW).",
+        "presentationImplication": "Bottom-contact, structure-vertical and vertical-jig nearshore; vertical-jig and deep-drop offshore."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Lingcod species profile",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries — Lingcod species page",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Lingcod life history summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Late-summer and late-fall entries omitted — no distinct seasonal signal documented for those windows beyond the general summer/fall pattern already captured.",
+      "Population- or region-specific calendar variation (e.g. Alaska vs. California timing) not documented at this level of detail."
+    ]
+  }
+}

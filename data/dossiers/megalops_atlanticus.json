@@ -1,0 +1,263 @@
+{
+  "identification": {
+    "speciesId": "megalops_atlanticus",
+    "status": "reviewed",
+    "regionalNames": [
+      "silver king",
+      "atlantic tarpon",
+      "poon"
+    ],
+    "bodyShape": "Deep-bodied and laterally compressed with very large eyes and a strongly upturned, superior mouth. The lower jaw projects forward of the rest of the head. The tail is deeply forked.",
+    "identificationTraits": [
+      "Very large scales; SCDNR gives 40-48 along the lateral line. The scale size is unmistakable in hand.",
+      "The last ray of the single dorsal fin is drawn out into a long filament or thread.",
+      "Lower jaw projects forward of the head; the mouth points upward.",
+      "Eyes are conspicuously large.",
+      "Deeply forked caudal fin.",
+      "Bright silver sides under a dark blue-green to greenish-black back."
+    ],
+    "coloration": "Dark blue-green or greenish-black over the back, grading to bright silver on the sides. FWC records the same; SCDNR describes the fish simply as silvery with large scales and large eyes.",
+    "juvenileAppearance": "FWC records the larval stage as transparent with a ribbon-like body and prominent fang-like teeth, under an inch long. Post-larval juveniles take on the adult silver-and-large-scale appearance at small size and use salt marsh, estuarine backwater and freshwater. FWC notes juveniles can be confused with ladyfish.",
+    "adultAppearance": "A very large, deep-bodied silver fish with oversized scales, a big eye, an upturned protruding lower jaw and a trailing dorsal filament.",
+    "similarSpecies": [
+      {
+        "name": "Ladyfish (Elops saurus)",
+        "distinction": "FWC states directly that juvenile tarpon can be confused with ladyfish. Ladyfish are slimmer, lack the very large scales and lack the elongated trailing dorsal filament of tarpon."
+      },
+      {
+        "name": "Pacific tarpon / oxeye herring (Megalops cyprinoides)",
+        "distinction": "Not present in the western Atlantic; no field separation is required in this catalog's range. Recorded so that a congener name is not mistaken for a local lookalike."
+      }
+    ],
+    "averageAdultLength": "SCDNR gives typical South Carolina fish at 40-60 in and 40-60 lb.",
+    "commonAnglingSize": "Not applicable as a harvest figure: tarpon are catch-and-release only in Florida and are tag-and-minimum-size elsewhere. SCDNR's typical 40-60 in range is the size class most commonly encountered.",
+    "typicalWeight": "SCDNR gives 40-60 lb for typical South Carolina fish.",
+    "maximumDocumentedSize": "FWC gives up to 8 ft and up to 280 lb in one account and about 300 lb in the species profile. SCDNR gives adults to 250 cm and 161 kg, with a South Carolina record of 154 lb 10 oz (1987).",
+    "longevity": "FWC gives lifespans in excess of 50 years, with the oldest captive tarpon reaching 63. SCDNR gives roughly 50 years and potentially 70, with females reaching at least 55 and living longer than males.",
+    "sexualDimorphism": "SCDNR reports females growing faster and living longer than males, and maturing larger: about 49 in for females against about 35 in for males. That is a life-history difference, not an in-hand field key.",
+    "sources": [
+      {
+        "label": "FWC tarpon species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/tarpon/tarpon/"
+      },
+      {
+        "label": "FWC Fish and Wildlife Research Institute, Tarpon Facts",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/tarpon/information/facts/"
+      },
+      {
+        "label": "SCDNR marine species account: tarpon",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/tarpon.html"
+      },
+      {
+        "label": "SCDNR State Wildlife Action Plan supplemental account: Tarpon (2015)",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/tarpon2015.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional colour variation and spawning coloration: no agency source located, fields omitted",
+      "the two FWC pages give different maximum weights (280 lb and about 300 lb); both are recorded rather than reconciled",
+      "a formal ladyfish-versus-juvenile-tarpon key beyond scale size and dorsal filament"
+    ]
+  },
+  "behavior": {
+    "speciesId": "megalops_atlanticus",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Juveniles occupy salt marsh, estuarine backwater, brackish impoundments and freshwater, entering during spring flooding as leptocephalus larvae (SCDNR). Adults are migratory and use coastal water, bays, sounds, estuaries and rivers.",
+      "note": "SCDNR's account refers to inshore aggregations preceding the offshore spawning movement. Those aggregations are conservation context and this record does not describe where or when they form. Outside them, no agency source located characterises adult tarpon as obligate schoolers."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "SCDNR gives mature fish taking mullet, silversides, catfish and menhaden plus blue crab and penaeid shrimp, with juveniles on smaller crustaceans, small fish and zooplankton. FWC summarises adult diet as fish and large crustaceans. The upturned superior mouth is set to take prey at or above the fish rather than off the bottom."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved. No agency or peer-reviewed source located for this record establishes a diel activity or feeding pattern for Atlantic tarpon, and none is asserted here."
+    },
+    "seasonalActivity": "Strongly seasonal at the northern end of the range. SCDNR records tarpon appearing in South Carolina from April, peaking in July and August, and departing in late October through early November, presumably in response to declining water temperature, with fish believed to overwinter in Florida. FWC describes tarpon throughout Florida in summer and concentrating in the southern part of the state in winter as coastal water temperature falls across much of the state. A tagged fish moved from South Carolina in August 1996 to Florida by June 1997.",
+    "thermalDrivenBehavior": "Cold-limited. SCDNR states tarpon may be cold stunned and die in water below 50 degrees F, and attributes the autumn departure from South Carolina to declining temperature. TPWD listed tarpon among the recreationally important species killed in the February 2021 Texas freeze. At the northern edge, thermal refuge matters: Mace et al. 2020 documented juveniles surviving one and in two cases two winters in a shallow tidally restricted upland pond in coastal South Carolina, the northernmost documented overwintering of juvenile tarpon, and noted that a nearby tidal creek ran colder than the pond, which appeared to act as refuge.",
+    "currentFacing": "Tide-driven at daily scale. SCDNR describes a tidal excursion in which fish move seaward on the ebb, by as much as three miles, and inland on the flood, by as much as seven to ten miles. Position in the estuary is therefore a function of tide stage.",
+    "depthMovement": "Adults use shallow coastal water, bays, sounds and estuaries and also enter rivers and open marine water; FWC adds coral reefs and some freshwater lakes and rivers across the wider range. Juveniles use shallow marsh and backwater.",
+    "predatorAvoidance": "Not sourced; field left unpopulated.",
+    "openWaterBehavior": "FWC records tarpon in open marine water as well as shallow coastal water and estuaries. The species is an apex predator in the SCDNR account and is treated there as an indicator of estuarine ecosystem health.",
+    "spawningBehavior": "FWC gives spawning between May and September, offshore, with females depositing more than 12 million eggs and maturity reached at 7-13 years. SCDNR gives April to July in Florida and May to August in South Carolina, notes spawning has not been confirmed in South Carolina waters, and describes spawning as most likely occurring offshore following movement out from inshore. Development runs through a transparent leptocephalus larval stage, and larvae enter estuarine and brackish nurseries during spring flooding. This is recorded as conservation context. The record deliberately withholds any description of where fish concentrate before or during spawning.",
+    "sources": [
+      {
+        "label": "SCDNR marine species account: tarpon",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/tarpon.html"
+      },
+      {
+        "label": "SCDNR State Wildlife Action Plan supplemental account: Tarpon (2015)",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/tarpon2015.pdf"
+      },
+      {
+        "label": "FWC tarpon species profile and Tarpon Facts",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/tarpon/information/facts/"
+      },
+      {
+        "label": "Mace, Kimball, Elmo and Crane 2020, Environmental Biology of Fishes 103(8):965-972",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "air breathing: FWC and SCDNR both record that tarpon gulp air at the surface using a modified swim bladder in low-oxygen water, but no source used here quantifies the dissolved-oxygen threshold or the frequency, so the behaviour is recorded in the diet and habitat context rather than as a behavioural rule",
+      "diel tendency: no source located, so no activity window is asserted",
+      "cold-front, barometric, clarity and angling-pressure responses: no primary-source support located, fields omitted",
+      "territoriality and aggression: no source located, fields omitted",
+      "catch-and-release survival: SCDNR cites Edwards 1998 finding high survival but also lists catch-and-release mortality among the species' threats; the two were not reconciled in the sources used, so no survival figure is recorded"
+    ]
+  },
+  "diet": {
+    "speciesId": "megalops_atlanticus",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans",
+      "zooplankton"
+    ],
+    "primaryNote": "SCDNR gives mature tarpon feeding on mullet, silversides, catfish and menhaden, plus blue crab and penaeid shrimp; juveniles take smaller crustaceans, small fish and zooplankton. FWC summarises adult diet as fish and large crustaceans. Recorded as biological context: this species is classified conservation_sensitive in this catalog and no presentation guidance is derived from its diet.",
+    "lifeStageDiet": {
+      "juvenile": "SCDNR: smaller crustaceans, small fish and zooplankton.",
+      "adult": "SCDNR: mullet, silversides, catfish and menhaden, plus blue crab and penaeid shrimp. FWC: fish and large crustaceans."
+    },
+    "ontogeneticShift": "Zooplankton and small crustaceans in the estuarine and freshwater nursery, through small fish, to a mixed fish-and-large-crustacean adult diet.",
+    "observedForageRule": "Diet capacity is not proof that a bait event is occurring. Observed current forage still comes from a user observation or Hatch Match. For this species the point is stronger than usual: nothing in this dossier is presentation guidance.",
+    "sources": [
+      {
+        "label": "SCDNR marine species account: tarpon",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/tarpon.html"
+      },
+      {
+        "label": "FWC tarpon species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/tarpon/tarpon/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no quantitative stomach-content study for adult Atlantic tarpon was located for this record; this dossier rests on agency prey lists and is marked partial",
+      "seasonal diet: no source located, field omitted",
+      "prey-size shifts and forage substitutions: no source located, fields omitted",
+      "young-of-year diet: the SCDNR juvenile description was not resolved to the youngest stage"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "megalops_atlanticus",
+    "status": "partial",
+    "overview": "Tarpon are a warm-season fish over most of the United States range and a resident one only in the far south. The sourced seasonal structure is arrival with warming water, a warm-season presence overlapping the spawning period, and departure or southward retreat as water cools toward the 50 degrees F cold-stun threshold. This species is classified conservation_sensitive in this catalog, so no entry below carries a presentationImplication and none should be added.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Southern-range coastal water, bays and estuaries. FWC describes tarpon concentrating in south Florida in winter as coastal water temperature falls across much of the state. Juveniles at the northern range edge overwinter in shallow, tidally restricted backwater that runs warmer than the adjacent tidal creek (Mace et al. 2020).",
+        "thermalContext": "SCDNR gives cold stunning and death below 50 degrees F. TPWD recorded tarpon among species killed in the February 2021 Texas freeze.",
+        "conservationNote": "Cold-stunned fish are compromised fish. Catch-and-release status does not make handling them harmless."
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Estuarine and coastal water in the southern range; leptocephalus larvae entering estuarine and brackish nurseries during spring flooding (SCDNR).",
+        "movementTendency": "SCDNR records arrival in South Carolina as early as April.",
+        "thermalContext": "Rising back above the cold-stun threshold at the northern end of the range."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Coastal water, bays, sounds, estuaries and rivers.",
+        "movementTendency": "Northward seasonal movement into the Carolinas continues.",
+        "currentUse": "The daily tidal excursion SCDNR describes applies through the inshore season: seaward on the ebb, inland on the flood.",
+        "conservationNote": "The spawning season opens in this window, April to July in the SCDNR account for Florida and May to September in the FWC account. Spawning and pre-spawning concentrations are excluded from this record."
+      },
+      {
+        "season": "early_summer",
+        "habitatClass": "Coastal water, bays, sounds, estuaries and rivers throughout the warm-season range.",
+        "currentUse": "Tide stage governs position at daily scale.",
+        "conservationNote": "Inside the spawning period on all agency accounts used here."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Coastal water, bays, sounds, estuaries and rivers; FWC describes tarpon throughout Florida in summer.",
+        "movementTendency": "SCDNR gives peak South Carolina abundance in July and August.",
+        "currentUse": "Tide stage governs position at daily scale.",
+        "conservationNote": "Spawning continues. Florida's catch-and-release-only rule and the 40-inch in-water handling requirement apply year-round, not seasonally."
+      },
+      {
+        "season": "late_summer",
+        "habitatClass": "Unchanged: coastal water, bays, sounds, estuaries and rivers.",
+        "conservationNote": "Spawning runs to August in the SCDNR South Carolina account and to September in the FWC account."
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Coastal and estuarine water at the northern end of the range, thinning as temperature falls; southern-range water filling.",
+        "movementTendency": "SCDNR records departure from South Carolina in late October through early November, presumably in response to declining water temperature, with fish believed to overwinter in Florida.",
+        "thermalContext": "Approaching the 50 degrees F cold-stun threshold at the northern end of the range."
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Southern-range coastal water and estuaries; the northern range largely vacated.",
+        "thermalContext": "Below the seasonal threshold that drives the northern departure.",
+        "conservationNote": "A late-season fish at the northern edge of the range is a fish near its thermal limit."
+      }
+    ],
+    "sources": [
+      {
+        "label": "SCDNR marine species account: tarpon",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/tarpon.html"
+      },
+      {
+        "label": "SCDNR State Wildlife Action Plan supplemental account: Tarpon (2015)",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/tarpon2015.pdf"
+      },
+      {
+        "label": "FWC tarpon species profile and Tarpon Facts",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/tarpon/information/facts/"
+      },
+      {
+        "label": "FWC tarpon recreational regulations",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/tarpon/"
+      },
+      {
+        "label": "Mace, Kimball, Elmo and Crane 2020, Environmental Biology of Fishes 103(8):965-972",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no presentationImplication is written for any season: this species is conservation_sensitive in this catalog and receives no presentation guidance",
+      "seasonal timing above is drawn largely from the South Carolina and Florida accounts; Gulf and Texas seasonality was not sourced",
+      "depth, forage emphasis and light sensitivity by season: not resolved in any source used here",
+      "the tidal excursion figures are from a single state account and were not corroborated elsewhere"
+    ]
+  }
+}

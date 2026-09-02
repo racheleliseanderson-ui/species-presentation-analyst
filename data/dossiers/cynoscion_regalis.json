@@ -1,0 +1,297 @@
+{
+  "identification": {
+    "speciesId": "cynoscion_regalis",
+    "status": "reviewed",
+    "regionalNames": [],
+    "bodyShape": "Elongate, moderately compressed drum/croaker-shaped body with a large, oblique mouth.",
+    "identificationTraits": [
+      "A pair of large canine-like teeth at the tip of the upper jaw.",
+      "Wavy diagonal lines of small, irregular dark spots along the upper sides, notably absent from the tail and second dorsal fin - the trait that separates it from spotted seatrout, whose spots extend onto the tail and second dorsal.",
+      "Black-tipped tongue.",
+      "No barbels on the lower jaw.",
+      "Pelvic and anal fins yellowish; other fins pale."
+    ],
+    "coloration": "Dark olive to blue-green back fading to silvery sides and belly, with an iridescent sheen described variously as purple, lavender, green, blue, gold or copper along the back and sides.",
+    "adultAppearance": "A silvery, olive-backed schooling drum with a large oblique mouth, prominent upper canine teeth, and diagonal dark speckled lines that stop short of the tail and second dorsal fin.",
+    "similarSpecies": [
+      {
+        "speciesId": "cynoscion_nebulosus",
+        "name": "Spotted seatrout",
+        "distinction": "Has prominent, well-defined round spots that extend onto the tail and second dorsal fin; weakfish's spotting is finer, wavier, and absent from those fins."
+      },
+      {
+        "name": "Sand seatrout (Cynoscion arenarius)",
+        "distinction": "Lacks dark spots entirely, unlike weakfish's diagonal spotted lines."
+      },
+      {
+        "name": "Silver seatrout (Cynoscion nothus)",
+        "distinction": "The bottom half of the tail fin is longer than the top half; weakfish has a more symmetrical tail."
+      }
+    ],
+    "averageAdultLength": "Commonly around 12-20 in; age-1 fish are typically 10-11 in.",
+    "commonAnglingSize": "Roughly 12-16 in for most recreational catches.",
+    "typicalWeight": "About 1 lb at typical recreational catch size, per one state agency source.",
+    "maximumDocumentedSize": "Up to about 36 in and, per one Florida agency source, 6-18 lb; a South Carolina state-record fish weighed 11 lb 13 oz (1981). The typical-weight and maximum-weight figures found this session were not fully reconciled between sources.",
+    "longevity": "To about 11-17 years depending on source.",
+    "sources": [
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Weakfish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/weakfish/"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Weakfish species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/weakfish"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Weakfish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Weakfish.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Weakfish species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/weakfish.html"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service, Species Profiles: Life Histories and Environmental Requirements - Weakfish (biological report)",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML0720/ML072060564.pdf"
+      },
+      {
+        "label": "Chesapeake Bay Program - Weakfish field guide entry",
+        "class": "agency",
+        "url": "https://www.chesapeakebay.net/discover/field-guide/entry/weakfish"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Weakfish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/drums/weakfish/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No regional/colloquial common name (e.g. names historically used for this species along parts of the coast) was confirmed via an agency source this session.",
+      "Sexual dimorphism, juvenile appearance and spawning coloration were not sourced.",
+      "Weight-at-length figures conflict somewhat between agency sources (about 1 lb typical vs. up to 18 lb maximum) and were not fully reconciled beyond labeling one as typical and one as maximum."
+    ]
+  },
+  "behavior": {
+    "speciesId": "cynoscion_regalis",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "note": "Explicitly described as schooling in multiple agency sources; tighter, more frequent schooling was documented as water temperature rose toward about 29C/84F in one study, suggesting a thermal-stress schooling response."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "A visual predator that approaches prey slowly, then lunges with an open mouth; the oblique mouth and canine teeth are described as adaptations for taking mobile, schooling prey. Juveniles take mysid shrimp and small fish on the bottom; adults take clupeids (menhaden, herring) and anchovies, with documented cannibalism."
+    },
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "A federal biological report states weakfish feed primarily between dusk and dawn, foraging along the periphery of eelgrass beds during that low-light window."
+    },
+    "seasonalActivity": "Present in Mid-Atlantic and northeastern estuaries spring through fall, moving south and offshore in fall/winter to shelf wintering grounds; juveniles depart estuaries by winter.",
+    "thermalDrivenBehavior": "Decreasing fall water temperature is described as the trigger that initiates the move of most weakfish out of estuaries to deeper water. In laboratory study, feeding stopped around 7.9C/46F and mortality was observed at 3.3C/38F.",
+    "depthMovement": "Juveniles favor deeper secondary-nursery reaches of estuaries (moderate depth, sand/sand-grass bottom) over the shallowest tributaries; adults and larger juveniles move to progressively deeper channels, coastal water, and eventually the continental shelf (documented juvenile depths of 9-26 m in late summer/fall; winter grounds 18-55 m).",
+    "coverUse": "Associates with the periphery of eelgrass beds for low-light foraging rather than occupying dense structure or the interior of a bed.",
+    "spawningBehavior": "Spawns in estuarine and nearshore coastal waters; males form spawning groups and attract females by vibrating the swim bladder (drumming). South Carolina DNR gives a March-October window peaking April-June; a NOAA climate-vulnerability source gives May-August - this disagreement is recorded as a gap. Spawning location and any staging concentration are excluded from targeting in this catalog.",
+    "sources": [
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Weakfish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/weakfish/"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Weakfish species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/weakfish"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Weakfish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Weakfish.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Weakfish species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/weakfish.html"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service, Species Profiles: Life Histories and Environmental Requirements - Weakfish (biological report)",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML0720/ML072060564.pdf"
+      },
+      {
+        "label": "Chesapeake Bay Program - Weakfish field guide entry",
+        "class": "agency",
+        "url": "https://www.chesapeakebay.net/discover/field-guide/entry/weakfish"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Weakfish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/drums/weakfish/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Territoriality/aggression outside of spawning-group formation, cold-front response beyond the general fall migration trigger, water-level response, flow-change response, and angling-pressure response were not sourced.",
+      "The spawning-window disagreement between SCDNR (Mar-Oct, peak Apr-Jun) and a NOAA climate-vulnerability source (May-Aug) was not resolved."
+    ]
+  },
+  "diet": {
+    "speciesId": "cynoscion_regalis",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "zooplankton"
+    ],
+    "primaryNote": "Juveniles take shrimp, crabs and small clams on the bottom, plus mysid shrimp and small fish generally; adults shift to schooling forage fish - menhaden, herring, anchovies, and in some accounts croaker and spot - plus penaeid shrimp and crabs, with documented cannibalism on smaller weakfish. This is diet capacity, not a current bait event.",
+    "lifeStageDiet": {
+      "juvenile": "Mysid shrimp, small clams, crabs and shrimp on the bottom.",
+      "adult": "Primarily schooling forage fish (menhaden, herring, anchovies; croaker and spot in some accounts), plus shrimp and crabs; documented cannibalism on smaller weakfish."
+    },
+    "preySizeShifts": "Not resolved beyond the juvenile (invertebrate/small-fish) to adult (larger schooling-fish) shift described above.",
+    "ontogeneticShift": "Larvae take zooplankton; juveniles shift to benthic invertebrates and small fish; adults become predominantly piscivorous on schooling baitfish.",
+    "observedForageRule": "Diet capacity is not proof of a current bait event. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Weakfish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/weakfish/"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Weakfish species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/weakfish"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Weakfish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Weakfish.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Weakfish species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/weakfish.html"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service, Species Profiles: Life Histories and Environmental Requirements - Weakfish (biological report)",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML0720/ML072060564.pdf"
+      },
+      {
+        "label": "Chesapeake Bay Program - Weakfish field guide entry",
+        "class": "agency",
+        "url": "https://www.chesapeakebay.net/discover/field-guide/entry/weakfish"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Weakfish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/drums/weakfish/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A season-by-season diet breakdown was not found.",
+      "Forage substitution across regions was not sourced."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "cynoscion_regalis",
+    "status": "reviewed",
+    "overview": "Weakfish is a schooling, estuarine-to-coastal migrant that moves north and inshore in warm months and south and offshore to the continental shelf in winter. It feeds mainly from dusk to dawn along the edges of grass beds and open sand/sand-grass bottom rather than around hard structure. The stock has been depleted since 2003 with elevated, poorly explained natural mortality; conservation caution applies throughout the calendar, not just at spawning.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Inshore estuarine and nearshore coastal water as adults return from the continental shelf.",
+        "movementTendency": "Northward, inshore migration.",
+        "conservationNote": "Spawning begins in this window in nearshore/estuarine water; conservation context only.",
+        "presentationImplication": "Tidal drift bait and live/natural bait suspension become viable as fish reoccupy estuarine feeding grounds.",
+        "invalidators": [
+          "treating spring as a fixed date rather than the sourced temperature-linked migration"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Estuaries, bays, sounds and nearshore coastal water over sand and sand-grass bottom, foraging along eelgrass-bed edges.",
+        "lightSensitivity": "Feeds primarily dusk to dawn per a federal biological report; daytime presentations are not supported by the sourced behavior.",
+        "feedingEmphasis": "Pursuit predation on schooling baitfish; juveniles remain more bottom/invertebrate oriented.",
+        "presentationImplication": "Live/natural bait suspension and tidal drift bait fished through the low-light window along grass-edge and open sand/sand-grass water.",
+        "invalidators": [
+          "fishing this species as a structure/reef species - the sourced habitat is open sand and grass-bed edges, not hard cover"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Departing estuaries for deeper coastal and continental-shelf water.",
+        "movementTendency": "Falling temperature is described as the direct trigger for the move out of estuaries.",
+        "thermalContext": "Feeding is reported to stop near 46F in laboratory study, well below normal fall estuarine temperature - a cold-tolerance floor, not a fall behavior change.",
+        "presentationImplication": "Inshore presentations lose fish progressively through the season as the population thins toward the coast.",
+        "invalidators": [
+          "reading a thinning fall bite as a location problem rather than the stock leaving the water type this record covers"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Continental shelf wintering grounds, outside the water type reviewed in this record.",
+        "conservationNote": "Not covered by this record's inshore-only presentation guidance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Weakfish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/weakfish/"
+      },
+      {
+        "label": "North Carolina DEQ Division of Marine Fisheries - Weakfish species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/weakfish"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Weakfish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Weakfish.pdf"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Weakfish species account",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/weakfish.html"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service, Species Profiles: Life Histories and Environmental Requirements - Weakfish (biological report)",
+        "class": "agency",
+        "url": "https://www.nrc.gov/docs/ML0720/ML072060564.pdf"
+      },
+      {
+        "label": "Chesapeake Bay Program - Weakfish field guide entry",
+        "class": "agency",
+        "url": "https://www.chesapeakebay.net/discover/field-guide/entry/weakfish"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Weakfish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/drums/weakfish/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_spring, early_summer, late_summer and late_fall were not separately resolved and were folded into the adjacent season.",
+      "The spawning-window disagreement noted in the catalog record and behavior dossier also affects exactly when the spring entry's conservation note should begin."
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "identification": {
+    "speciesId": "centropristis_striata",
+    "status": "reviewed",
+    "regionalNames": [
+      "blackfish",
+      "sea bass",
+      "black bass"
+    ],
+    "bodyShape": "Oblong, laterally compressed body with a large mouth reaching below the middle of the eye; a stout, robust reef bass rather than a slender one.",
+    "identificationTraits": [
+      "Caudal fin has three lobes formed by long, pointed upper, middle, and lower rays - a trilobed tail rather than a simple fork or square edge.",
+      "Dorsal fin has 10 spines (front spines longest) and 11 soft rays, with membranes between the spines deeply notched.",
+      "Gill cover bears three flat spines.",
+      "Anal fin has 3 spines and 7 soft rays.",
+      "Pale blue-to-white spot in the center of each scale forms faint longitudinal stripe rows along the sides.",
+      "White spots and bands mark the dorsal fin."
+    ],
+    "coloration": "Smoky gray, dusky brown, or blue-black on the back and sides fading paler toward the belly, with rows of pale scale-center spots and a white-marked dorsal fin.",
+    "spawningColoration": "Dominant, spawning-capable males develop a bright blue-to-green nuchal hump and coloring around the eyes and nape. This is a physiological marker of sex and social status, not a targeting cue.",
+    "adultAppearance": "A stout, dark, structure-associated bass with a trilobed tail, deeply notched dorsal fin, and rows of pale scale spots; large dominant males show a blue head hump.",
+    "sexualDimorphism": "Protogynous hermaphrodite. Females typically mature around 7.5 in, males around 9 in; dominant males are larger and develop the blue nuchal hump, while subordinate males lack it. Size, not a fixed external marker, is the main field cue to likely sex.",
+    "similarSpecies": [],
+    "averageAdultLength": "Commonly encountered fish run smaller than the species maximum; typical length in most sources is well under 20 in.",
+    "commonAnglingSize": "Legal-size fish are commonly in the 12-16 in range where minimum sizes require roughly 11-13 in, varying by state and stock.",
+    "typicalWeight": "Most landed fish are well under the documented maximum of about 6 lb.",
+    "maximumDocumentedSize": "Up to about 24 in and 6 lb per ASMFC life-history summary; NOAA Fisheries cites growth to about 2 ft and 9 lb.",
+    "longevity": "Females to about 8 years, males to about 12 years (NOAA Fisheries); ASMFC gives a species maximum near 20 years with fish over 9 years uncommon. Sources do not fully agree on the upper bound.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Black Sea Bass species page",
+        "class": "agency"
+      },
+      {
+        "label": "ASMFC - Black Sea Bass species page and life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Sea Bass, Black species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No agency or peer-reviewed source was found contrasting black sea bass against similar-looking Centropristis or serranid species (e.g. bank sea bass); similarSpecies left empty rather than guessed.",
+      "Longevity figures disagree between NOAA Fisheries (8/12 yr by sex) and ASMFC (~20 yr max) - recorded rather than resolved.",
+      "No single continent-wide average adult length figure was found; only maximum-size figures are well sourced."
+    ]
+  },
+  "behavior": {
+    "speciesId": "centropristis_striata",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Adults associate loosely around shared structure (reefs, wrecks, oyster bottom) rather than schooling in open water; social structure includes size-based dominance among males.",
+      "note": "Fish concentrate on productive hard bottom and structure, which reads as loose aggregation rather than either strict schooling or solitary behavior."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "Opportunistic, visually-oriented predator that takes crabs, shrimp, worms, small fish, and clams as available from structure and adjacent soft bottom."
+    },
+    "territoriality": "Dominant males defend a home range and a group of females rather than holding a fixed ambush point the way a solitary predator does; reported male home ranges are on the order of a fraction of a square kilometer to several square kilometers.",
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Sources describe daytime association with structure and foraging that extends onto surrounding open/soft bottom; no agency or peer-reviewed source made a strong nocturnal-vs-diurnal claim for this species, so it is recorded as mixed rather than assigned confidently."
+    },
+    "seasonalActivity": "Activity tracks the seasonal inshore/offshore migration below. Fish are most catchable on shallow nearshore structure during the warm season; cold-season fish are offshore and deep.",
+    "thermalDrivenBehavior": "Migration is temperature-triggered: fish move off the nearshore shelf as bottom temperatures decline in fall (roughly the 10-12°C / low-40s-to-50s°F range in one source, or a 7°C threshold in another) and return inshore as temperatures climb in spring. Near 6°C (about 43°F), sources describe adults becoming inactive and sheltering in holes and crevices rather than actively feeding.",
+    "depthMovement": "Ontogenetic and seasonal: young-of-year settle in shallow nearshore/estuarine habitat; older juveniles and adults occupy progressively deeper water offshore in winter (240-540 ft reported for the Mid-Atlantic stock) and shallower nearshore structure (commonly under 120 ft) in the warm season.",
+    "predatorAvoidance": "Uses hard structure - reefs, wrecks, rock, oyster bottom - as primary cover; no source describes an additional predator-avoidance behavior beyond structure use.",
+    "coverUse": "Irregular hard bottom, reefs, wrecks, rock piles, jetties, pilings, and oyster bottom are the consistently cited holding structures across sources.",
+    "spawningBehavior": "Protogynous hermaphrodite: most individuals begin life as females, and a portion transition to male as they grow, generally between about 2 and 5 years of age - a size/age-driven process, not a seasonal event in itself. Reported spawning windows differ by stock and source (South Atlantic stock February-May per SAFMC; Mid-Atlantic stock May-July extending into fall per ASMFC, or June-October per NOAA Fisheries), with spawning habitat generally described only in general terms as inner continental shelf depths. This is biological and conservation context only; it does not describe a place or a time to fish.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Black Sea Bass species page",
+        "class": "agency"
+      },
+      {
+        "label": "ASMFC - Black Sea Bass species page and life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Sea Bass, Black species page",
+        "class": "agency"
+      },
+      {
+        "label": "MAFMC/ASMFC Black Sea Bass essential-habitat / species profile source document",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No source gave a clear day-vs-night feeding claim strong enough to classify diel tendency beyond 'mixed'.",
+      "Cold-front, water-clarity, and angling-pressure response were not addressed in any agency or peer-reviewed source found and are omitted rather than inferred.",
+      "Exact migration trigger temperature disagrees slightly between sources (approx. 7°C in one, 10-12°C in another) and is reported as a range rather than resolved to one figure."
+    ]
+  },
+  "diet": {
+    "speciesId": "centropristis_striata",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+      "worms_annelids"
+    ],
+    "primaryNote": "Generalist bottom-and-structure feeder. Sources consistently list crabs, shrimp, small fish, worms (polychaetes), and clams/mussels/razor clams; one peer-reviewed diet study found arthropods (crabs and other decapods) as the largest single prey category. Diet capacity is not evidence of a current feeding event.",
+    "lifeStageDiet": {
+      "juvenile": "Smaller fish (under about 20 cm per the cited diet study) feed almost exclusively on crustaceans - amphipods, sand shrimp, and small rock crabs.",
+      "adult": "Larger fish add more fish prey (e.g. sand lance) to a diet still dominated by crabs and other decapod crustaceans, plus worms and mollusks."
+    },
+    "ontogeneticShift": "Diet shifts from an almost purely crustacean diet in smaller/younger fish toward a mixed crustacean-and-fish diet as fish grow larger and gape increases.",
+    "observedForageRule": "Diet capacity (what the species is documented to eat) is not proof that a feeding event is happening now. Observed current forage still comes from a user observation or Hatch Match, never from this record alone.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Black Sea Bass species page",
+        "class": "agency"
+      },
+      {
+        "label": "ASMFC - Black Sea Bass species page and life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "MAFMC/ASMFC Black Sea Bass essential-habitat / species profile source document",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No season-by-season diet breakdown (winter vs. summer emphasis) was found in an agency or peer-reviewed source specific to this species; seasonalDiet omitted rather than inferred from the general forage list.",
+      "No young-of-year-specific diet distinct from 'juvenile' was found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "centropristis_striata",
+    "status": "reviewed",
+    "overview": "Black sea bass behavior is dominated by a temperature-driven inshore/offshore migration rather than a spawning-timed pattern: warm-season fish hold shallow nearshore structure, cold-season fish move to deep outer-shelf water. Spawning and sex change are biological/conservation context and are not treated as a seasonal target window.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deep outer continental shelf, well offshore of the nearshore reefs and wrecks used the rest of the year.",
+        "depthTendency": "Reported as deep as 240-540 ft for the Mid-Atlantic stock in winter.",
+        "thermalContext": "Fish move here as bottom temperatures fall; near 6°C (about 43°F) sources describe adults becoming inactive and sheltering rather than feeding.",
+        "invalidators": [
+          "treating shallow nearshore wrecks as productive winter water for this species in the Mid-Atlantic stock"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Return migration onto nearshore hard structure - reefs, wrecks, rock, jetties, pilings, oyster bottom - as bottom water warms.",
+        "movementTendency": "Spring return migration is described as faster and more directed than the fall offshore movement.",
+        "conservationNote": "South Atlantic stock spawning window (February-May, per SAFMC) overlaps this season. Included as biology only - not a location or timing target.",
+        "presentationImplication": "Bottom contact and drop presentations over reviewed nearshore structure classes as fish reoccupy shallow reefs and wrecks.",
+        "invalidators": [
+          "reading spawning-season timing as a bite window"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallow nearshore structure, commonly under 120 ft in the Mid-Atlantic stock.",
+        "depthTendency": "Shallowest seasonal depths of the year.",
+        "conservationNote": "Mid-Atlantic stock spawning window (May-October depending on source) overlaps this season. Included as biology only.",
+        "presentationImplication": "Bottom contact, drop presentation, and structure-vertical over nearshore reef, wreck, and rock-pile classes.",
+        "invalidators": [
+          "assuming a spawning-season closure applies without checking the current state/stock rule"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Fish begin leaving shallow nearshore structure for the outer shelf as bottom temperatures decline.",
+        "movementTendency": "Offshore migration begins as bottom temperature approaches roughly 10-12°C (about 50-54°F) in one source, or a 7°C threshold in another.",
+        "invalidators": [
+          "treating fall as a fixed calendar date rather than a temperature-triggered movement"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Black Sea Bass species page",
+        "class": "agency"
+      },
+      {
+        "label": "ASMFC - Black Sea Bass species page and life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Sea Bass, Black species page",
+        "class": "agency"
+      },
+      {
+        "label": "MAFMC/ASMFC Black Sea Bass essential-habitat / species profile source document",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "South Atlantic stock's seasonal offshore/inshore movement is reported as smaller in magnitude than the Mid-Atlantic stock's, but no source gave depth or timing specifics for that stock alone.",
+      "late_spring/late_summer/early_fall-scale detail inside each broad season is waterbody- and stock-specific and was not found at that resolution."
+    ]
+  }
+}

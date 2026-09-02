@@ -1,0 +1,167 @@
+{
+  "identification": {
+    "speciesId": "rachycentron_canadum",
+    "status": "partial",
+    "regionalNames": [],
+    "bodyShape": "Long, torpedo-shaped body with a flattened, shark-like head profile, a protruding lower jaw, and a single long-based dorsal fin.",
+    "identificationTraits": [
+      "Broad, flattened head with a shark-like silhouette that leads to frequent misidentification as a shark from a distance.",
+      "Single long-based dorsal fin, unlike the sucker-disc dorsal fin of its closest living relative, the remora.",
+      "Lower jaw protrudes slightly beyond the upper jaw.",
+      "Forked tail.",
+      "Juveniles show alternating black-and-white horizontal stripes with patches of bronze, orange, and green; this patterning is lost in adults, which become uniformly dark brown to silver-brown."
+    ],
+    "coloration": "Dark brown to silver-brown overall as adults, with a paler belly and no strong body pattern once mature.",
+    "juvenileAppearance": "Boldly patterned with alternating black-and-white horizontal stripes and patches of bronze, orange, and green.",
+    "adultAppearance": "Uniform dark brown to silver-brown, torpedo-shaped, with the diagnostic flattened head and single long dorsal fin; juvenile banding is gone.",
+    "similarSpecies": [
+      {
+        "name": "Remora / sharksucker (family Echeneidae)",
+        "distinction": "Cobia's closest living relative; remoras have a modified sucker disc on top of the head where cobia instead has a normal long-based dorsal fin, and remoras stay much smaller."
+      },
+      {
+        "name": "Small coastal sharks (various)",
+        "distinction": "Cobia's flattened head and dark, uniform coloration cause frequent confusion with sharks at a distance, but cobia have a single long dorsal fin set well back on the body and lack visible gill slits along the side."
+      }
+    ],
+    "averageAdultLength": "A sourced population-average length was not found; legal minimum sizes (roughly 33–40 in depending on jurisdiction and sector) mark the lower end of typically retained fish.",
+    "commonAnglingSize": "Legal fish start around 33–40 in depending on jurisdiction and sector; many landed fish are well under the documented maximum size.",
+    "typicalWeight": "A sourced population-average weight was not found; fish over about 50 lb are generally considered large.",
+    "maximumDocumentedSize": "Up to about 6–6.5 ft (roughly 2 m) and up to about 100 lb.",
+    "longevity": "Documented to roughly 12 years in one NOAA source; this record does not attempt to resolve other longevity estimates in the wider literature.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Cobia species profile",
+        "class": "agency"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species — Cobia fact sheet",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced population-average length or weight — only maximum size and legal minimum sizes were found, hence status: partial.",
+      "Regional common names (e.g. ling, lemonfish) were not confirmed against an acceptable source and are omitted rather than guessed.",
+      "Detailed fin-spine count and other meristic identification traits were not found in an acceptable source."
+    ]
+  },
+  "behavior": {
+    "speciesId": "rachycentron_canadum",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Adults travel alone or in small groups rather than large schools.",
+      "note": "Frequently associates with large free-swimming animals — sharks, sea turtles, and rays — as well as with fixed structure, rather than schooling with conspecifics."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Strong, aggressive predator; feeds mainly on crustaceans (notably crabs) but also takes fish and squid."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not clearly sourced by time of day; classified as mixed pending a source-backed determination rather than left blank, since the field is required."
+    },
+    "depthMovement": "Ranges from shallow bays and inlets to the edge of the continental shelf depending on season and life stage, tracking bait and temperature rather than holding a fixed depth.",
+    "coverUse": "Strongly structure- and object-oriented — buoys, floating debris, wrecks, artificial reefs, and large free-swimming animals (sharks, turtles, rays) all draw cobia.",
+    "openWaterBehavior": "During migration, cruises along the beachfront and over nearshore/inner-shelf water, often near the surface, rather than holding to a single piece of structure.",
+    "seasonalActivity": "Strong seasonal migrator: moves south and offshore into warmer water in late fall and winter, then back north and inshore as water warms in spring, producing the well-known spring nearshore migration on the Atlantic coast that is commonly sight-fished from small boats along open beaches.",
+    "spawningBehavior": "Multiple-batch spawner over an extended spring-through-summer window on inner-to-mid continental shelf water; this record excludes specific spawning and staging locations as conservation context only.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Cobia species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf States Marine Fisheries Commission — Cobia life history and habitat summary table",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel activity pattern not sourced.",
+      "Cold-front and water-clarity response not sourced.",
+      "Current-facing behavior at a specific piece of structure not sourced beyond general structure-orientation."
+    ]
+  },
+  "diet": {
+    "speciesId": "rachycentron_canadum",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks"
+    ],
+    "primaryNote": "Strong, aggressive predator feeding mainly on crustaceans, especially crabs, with fish and squid also taken. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "adult": "Crabs and other crustaceans predominate, with fish and squid also taken."
+    },
+    "observedForageRule": "Diet capacity described here is not proof of a current feeding event; what cobia are actually eating on a given day still has to come from direct observation.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Cobia species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Juvenile and young-of-year diet not found in an acceptable source, hence status: partial.",
+      "Seasonal diet emphasis not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "rachycentron_canadum",
+    "status": "partial",
+    "overview": "Cobia's calendar is dominated by a strong temperature-driven migration: north and inshore along the Atlantic coast as water warms in spring, offshore and south again as it cools in fall. This produces the well-known spring nearshore sight-fishing period on the Atlantic coast. Regulatory season length is separate from this biological pattern and changes yearly with quota status.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Nearshore and inshore water along the coast, cruising near the surface as it moves north and inshore with warming water; structure use includes buoys, channel edges, and bridges.",
+        "movementTendency": "Peak of the northward and inshore migration on the Atlantic coast.",
+        "thermalContext": "Movement tracks warming water; field-observed adult range runs roughly 19.6–28.0°C depending on region and season.",
+        "presentationImplication": "Flats sight cast and run-and-gun cast to sighted cruising fish inshore and nearshore; structure pitch at bridges and channel edges.",
+        "conservationNote": "Spawning begins in this window on the inner-to-mid shelf in at least part of the range; specific sites and timing are excluded from this record."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Nearshore and offshore shelf water; continues holding near structure and cruising near the surface.",
+        "presentationImplication": "Live-bait slow troll and tide-line drift along weed lines and current rips offshore; run-and-gun cast to sighted fish nearshore.",
+        "conservationNote": "Documented spawning continues into this season, particularly for Gulf populations."
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Begins moving south and offshore toward warmer water.",
+        "movementTendency": "Southward and offshore migration begins.",
+        "presentationImplication": "Tide-line drift and live-bait slow troll along nearshore and offshore structure and current edges."
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Concentrated in warmer southern/offshore water for the Atlantic stock; Gulf fish shift toward south Florida from the northeastern Gulf."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Cobia species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf States Marine Fisheries Commission — Cobia life history and habitat summary table",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Winter habitat-use detail beyond a general southward/offshore shift was not found in an acceptable source, and no presentation family for that period was confidently sourced, hence status: partial.",
+      "Depth-by-season figures beyond the general 1–70 m range were not found."
+    ]
+  }
+}

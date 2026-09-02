@@ -1,0 +1,315 @@
+{
+  "identification": {
+    "speciesId": "pomatomus_saltatrix",
+    "status": "reviewed",
+    "regionalNames": [
+      "Tailor",
+      "Snapper",
+      "Baby blues",
+      "Choppers",
+      "Elfs"
+    ],
+    "bodyShape": "Fusiform, moderately compressed schooling predator with a large mouth and a prominent, protruding jaw.",
+    "identificationTraits": [
+      "Prominent jaw with sharp, compressed, shearing teeth.",
+      "Small scales and an almost straight lateral line.",
+      "A single black blotch at the base of each pectoral fin, with no matching spot on the gill cover.",
+      "Dorsal and anal fins nearly equal in size and shape."
+    ],
+    "coloration": "Blue-green to bluish-gray on the back, silvery on the sides and belly.",
+    "adultAppearance": "A silvery, blue-backed schooling fish with a large toothy jaw, a nearly straight lateral line, and a single dark blotch at the pectoral-fin base.",
+    "similarSpecies": [
+      {
+        "name": "Crevalle jack (Caranx hippos)",
+        "distinction": "Deep-bodied with a steep head profile, a prominent black spot on the gill cover in addition to one at the pectoral-fin base, and no obviously visible teeth at typical viewing distance - bluefish is more fusiform, carries only the pectoral-base spot, and has conspicuous sharp teeth."
+      },
+      {
+        "name": "Spanish mackerel (Scomberomorus maculatus)",
+        "distinction": "Slender and elongate with yellow-to-olive oval spots scattered over the body and a lateral line that drops abruptly below the second dorsal fin - bluefish lacks body spotting and has a deeper-bodied, less streamlined profile."
+      }
+    ],
+    "averageAdultLength": "Not given as a single figure separate from maximum size in the sources reviewed; matures at age 2, roughly 15-20 in.",
+    "commonAnglingSize": "Informally cited in the 3-5 lb range by one state agency source; not otherwise resolved to a length figure.",
+    "typicalWeight": "See commonAnglingSize; a typical-weight figure distinct from that was not sourced.",
+    "maximumDocumentedSize": "Up to about 39 in and 31 lb per NOAA Fisheries; a Florida state-record fish weighed 22 lb 2 oz.",
+    "longevity": "To about 12 years.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Bluefish species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Bluefish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/bluefish/"
+      },
+      {
+        "label": "NOAA Fisheries - Bluefish management page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish/management"
+      },
+      {
+        "label": "North Carolina DEQ - Bluefish FMP Update review (2020)",
+        "class": "agency",
+        "url": "https://files.nc.gov/ncdeq/Marine-Fisheries/fisheries-management/stock-overview/2020stockoverview/speciesreviews/Bluefish-FMP-UPDATE-2020-FINAL.pdf"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Bluefish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Bluefish.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bluefish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/bluefish/"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Crevalle Jack profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/jacks/crevalle-jack/"
+      },
+      {
+        "label": "NOAA Fisheries - Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A clean average-adult-length figure distinct from maximum size was not found.",
+      "Juvenile appearance, sexual dimorphism, and spawning coloration were not sourced."
+    ]
+  },
+  "behavior": {
+    "speciesId": "pomatomus_saltatrix",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "note": "Explicitly schooling, typically among similarly sized individuals, with schools described as covering vast areas of open water."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "A voracious pursuit predator; the well-documented 'blitz' is large schools attacking baitfish at the surface, churning the water. Sharp shearing teeth allow it to take large prey items; diet centers on locally abundant schooling fish (menhaden, silversides) and squid, with documented cannibalism on smaller bluefish."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved to a specific diel pattern in the sources reviewed."
+    },
+    "seasonalActivity": "Strongly migratory: north and inshore as water warms in spring/summer, concentrating Maine to Cape Hatteras in summer, then south and offshore in fall/winter toward the South Atlantic Bight, with a marked winter concentration off Florida's Atlantic coast.",
+    "thermalDrivenBehavior": "Juveniles are reported to move into estuaries once water temperature rises above about 13-15C/55-59F. Agency sources describe bluefish generally as a warm-temperate species with a preference for warmer conditions, without a further numeric adult preference range found.",
+    "depthMovement": "Pelagic throughout life: larvae in roughly the upper 15 m, concentrated just below the surface; pelagic juveniles remain surface-associated; adults range through open water and inshore/nearshore habitat rather than holding a fixed depth.",
+    "coverUse": "Not associated with hard structure in the sources reviewed; juveniles use soft estuarine substrate and occasionally grass, algae or oyster beds, but the species is fundamentally a pelagic, bait-following predator rather than a structure fish.",
+    "predatorAvoidance": "Not sourced beyond noting that bluefish are themselves prey for sharks (including shortfin mako), tunas, billfish, and seabirds (on juveniles).",
+    "spawningBehavior": "Multiple spawning events in spring and summer in open ocean water, producing distinct spring-, summer- and fall-spawned cohorts; eggs are pelagic, hatching in about 2 days at 18-22C/64-72F. Spawning location and any staging concentration are excluded from targeting in this catalog.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Bluefish species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Bluefish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/bluefish/"
+      },
+      {
+        "label": "NOAA Fisheries - Bluefish management page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish/management"
+      },
+      {
+        "label": "North Carolina DEQ - Bluefish FMP Update review (2020)",
+        "class": "agency",
+        "url": "https://files.nc.gov/ncdeq/Marine-Fisheries/fisheries-management/stock-overview/2020stockoverview/speciesreviews/Bluefish-FMP-UPDATE-2020-FINAL.pdf"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Bluefish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Bluefish.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bluefish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/bluefish/"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Crevalle Jack profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/jacks/crevalle-jack/"
+      },
+      {
+        "label": "NOAA Fisheries - Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel tendency, territoriality/aggression, cold-front response, water-level response, flow-change response, clarity response and angling-pressure response were not sourced.",
+      "A general adult preferred/active temperature range, beyond the juvenile estuarine-ingress threshold, was not found in the agency sources reviewed this session."
+    ]
+  },
+  "diet": {
+    "speciesId": "pomatomus_saltatrix",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "mollusks",
+      "zooplankton"
+    ],
+    "primaryNote": "A voracious, sharp-toothed pursuit predator on schooling baitfish - principally menhaden and silversides - and squid, with documented cannibalism on smaller bluefish. This is diet capacity, not a current bait event; the well-known surface 'blitz' is feeding behavior, and this record does not predict its timing or location.",
+    "lifeStageDiet": {
+      "youngOfYear": "Copepods for the first 2-4 weeks post-hatch, shifting to piscivory by about 40 mm body length.",
+      "adult": "Locally abundant schooling fish and benthic invertebrates, with menhaden and silversides specifically documented, plus squid."
+    },
+    "preySizeShifts": "Shift from copepod prey to piscivory occurs by about 40 mm body length; further size-class detail into adulthood was not sourced.",
+    "ontogeneticShift": "Zooplanktivory as very early juveniles, shifting rapidly to piscivory.",
+    "observedForageRule": "Diet capacity is not proof of a current bait event, including the surface blitz, which this record does not predict.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Bluefish species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Bluefish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/bluefish/"
+      },
+      {
+        "label": "NOAA Fisheries - Bluefish management page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish/management"
+      },
+      {
+        "label": "North Carolina DEQ - Bluefish FMP Update review (2020)",
+        "class": "agency",
+        "url": "https://files.nc.gov/ncdeq/Marine-Fisheries/fisheries-management/stock-overview/2020stockoverview/speciesreviews/Bluefish-FMP-UPDATE-2020-FINAL.pdf"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Bluefish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Bluefish.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bluefish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/bluefish/"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Crevalle Jack profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/jacks/crevalle-jack/"
+      },
+      {
+        "label": "NOAA Fisheries - Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A season-by-season adult diet breakdown was not found.",
+      "Juvenile (post-YOY, pre-adult) diet stage was not separately sourced."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "pomatomus_saltatrix",
+    "status": "reviewed",
+    "overview": "Bluefish is a pelagic, schooling migrant whose year is organized around latitude and temperature rather than a fixed structure. Juveniles use estuarine nursery water; adults are open-water pursuit predators on schooling baitfish, most visibly in the surface 'blitz'. This record covers inshore estuarine water only - open-ocean nearshore and surf-zone use is well known in general angling literature but was not sourced to agency material with enough holding-class specificity to include here this session.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Inshore estuarine and coastal water as the population moves north.",
+        "movementTendency": "Northward migration as water warms; juveniles enter estuaries once temperature rises above about 55-59F.",
+        "conservationNote": "One of several spring/summer spawning events occurs in open ocean water during this window; conservation context only.",
+        "presentationImplication": "Run-and-gun cast and horizontal retrieve become viable as schools move into inshore water.",
+        "invalidators": [
+          "treating spring as a fixed date rather than the sourced temperature threshold"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Estuarine and coastal water, concentrating Maine to Cape Hatteras.",
+        "feedingEmphasis": "Pursuit predation on schooling baitfish, including the surface blitz.",
+        "presentationImplication": "Run-and-gun cast into visible surface activity without running the school over; horizontal retrieve through the water column when fish are not surfaced.",
+        "invalidators": [
+          "treating a surface blitz as a location to return to - this record gives no coordinates and none should be inferred",
+          "predicting when or where a blitz will occur"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Departing inshore water for the continental shelf and points south.",
+        "movementTendency": "Southward, offshore migration toward the South Atlantic Bight.",
+        "presentationImplication": "Inshore presentations lose fish progressively as the population moves offshore and south; this record does not extend guidance to the water types that migration passes through.",
+        "invalidators": [
+          "reading a thinning fall bite as a location problem rather than the stock leaving the water type this record covers"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "South Atlantic Bight and Florida's Atlantic coast, outside the water type reviewed in this record.",
+        "conservationNote": "Not covered by this record's inshore-only presentation guidance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Bluefish species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Bluefish species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/bluefish/"
+      },
+      {
+        "label": "NOAA Fisheries - Bluefish management page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bluefish/management"
+      },
+      {
+        "label": "North Carolina DEQ - Bluefish FMP Update review (2020)",
+        "class": "agency",
+        "url": "https://files.nc.gov/ncdeq/Marine-Fisheries/fisheries-management/stock-overview/2020stockoverview/speciesreviews/Bluefish-FMP-UPDATE-2020-FINAL.pdf"
+      },
+      {
+        "label": "NOAA NEFSC Northeast Climate Vulnerability Assessment - Bluefish",
+        "class": "agency",
+        "url": "https://www.st.nmfs.noaa.gov/Assets/ecosystems/climate/images/species-results/pdfs/Bluefish.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Bluefish profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/bluefish/"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Crevalle Jack profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/jacks/crevalle-jack/"
+      },
+      {
+        "label": "NOAA Fisheries - Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_spring, early_summer, late_summer and late_fall were not separately resolved and were folded into the adjacent season.",
+      "Surf and nearshore water-type use was not sourced to agency material with holding-class specificity this session and is omitted here, though it is common general angling knowledge; a reviewer with search budget remaining should check this."
+    ]
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "identification": {
+    "speciesId": "lutjanus_campechanus",
+    "status": "reviewed",
+    "regionalNames": [
+      "red snapper"
+    ],
+    "bodyShape": "Robust, moderately deep-bodied snapper with a long, triangular snout and a sloping upper head profile; jaws about equal, the lower sometimes slightly projecting.",
+    "identificationTraits": [
+      "Long triangular snout and sloping upper profile of the head.",
+      "Enlarged canine teeth, the trait behind the common name.",
+      "Anal fin is sharply pointed.",
+      "No dark lateral spot on the body - a trait SAFMC's own field description calls out, and one that distinguishes red snapper from similar-looking snappers that do show a lateral spot (see similarSpecies).",
+      "Red eye."
+    ],
+    "coloration": "Pinkish red over the entire body, whitish below. Color intensity tracks capture depth rather than a fixed pattern: fish from deeper water are documented as redder than fish caught shallower.",
+    "adultAppearance": "A robust, pinkish-red snapper with a long triangular snout, red eye, sharply pointed anal fin, and no dark lateral spot.",
+    "similarSpecies": [
+      {
+        "speciesId": "lutjanus_analis",
+        "name": "Mutton snapper",
+        "distinction": "Mutton snapper shows a dark spot below the dorsal fin; red snapper does not."
+      },
+      {
+        "name": "Lane snapper (Lutjanus synagris)",
+        "distinction": "Lane snapper also shows a dark lateral spot that red snapper lacks, and runs smaller-bodied overall."
+      }
+    ],
+    "averageAdultLength": "No single average-adult-length figure was found. Fish reach full reproductive maturity around age 2 at roughly 14-15 in fork length (SEDAR), well below the maximum sizes below.",
+    "commonAnglingSize": "Not clearly sourced as a distinct figure; legal minimum sizes vary by jurisdiction and are not stated here as fact.",
+    "typicalWeight": "Not clearly sourced as distinct from the maximum-size figures below.",
+    "maximumDocumentedSize": "Up to about 40 in and 50 lb per NOAA Fisheries; SAFMC's field description gives 35+ lb. Sources broadly agree on the general scale but not on one precise maximum.",
+    "longevity": "Exceptionally long-lived for a snapper: NOAA Fisheries reports fish as old as 57 years in the Gulf of Mexico and 51 years in the South Atlantic.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Red Snapper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Snapper, Red species page",
+        "class": "agency"
+      },
+      {
+        "label": "SEDAR - Species Profiles, Life Histories and Environmental Requirements: Gulf of Mexico Red Snapper",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No source directly contrasting red snapper against vermilion snapper - a species it is frequently caught alongside - was found; omitted rather than guessed.",
+      "No region-specific (as opposed to depth-specific) color variation was documented.",
+      "Thermal fields in the catalog record are a lab-tested distribution/tolerance range (documented occurrence 13-32°C, mortality near 12.5°C, upper tolerance about 33.5°C per a SEDAR life-history compilation), not a distinct preference curve - no separate preference band was found."
+    ]
+  },
+  "behavior": {
+    "speciesId": "lutjanus_campechanus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Adults congregate around shared hard structure - reefs, artificial reefs, rock outcrops, ledges, and platforms - rather than schooling in open water away from structure.",
+      "note": "Structure-oriented aggregation around a shared resource (hard bottom/relief), not a description of any specific concentration point."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic",
+        "benthic_feeding"
+      ],
+      "note": "Carnivorous at all life stages; juveniles start on small zooplankton and shift toward larger prey (notably shrimp) as they grow, while adults take fish, shrimp, crab, worms, squid/octopus, and some plankton."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No agency or peer-reviewed source made a specific day/night feeding claim for this species; recorded as mixed rather than assigned confidently."
+    },
+    "depthMovement": "Juveniles occupy shallower shelf water over sand/mud than adults, which hold deeper on hard, moderate-to-high-relief structure; see depthTendency in the catalog record for the documented ranges and the disagreement between sources on the outer bounds.",
+    "coverUse": "Hard structure with moderate to high relief - natural reefs, rock outcrops, ledges, caves, and artificial structure such as reefs and platforms.",
+    "spawningBehavior": "Red snapper are gonochoristic (separate sexes; not a sex-changing species). Sources give a protracted spawning season with slightly different bounds - May through October depending on location (NOAA Fisheries) or June through October (SAFMC) - and individual fish are reported to spawn multiple times within a season. This description is biological and conservation context only. It deliberately omits the substrate and depth detail some sources give for spawning habitat, because that detail would function as targeting guidance rather than biology.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Red Snapper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Snapper, Red species page",
+        "class": "agency"
+      },
+      {
+        "label": "SEDAR - Species Profiles, Life Histories and Environmental Requirements: Gulf of Mexico Red Snapper",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Spawning-window dates disagree between NOAA Fisheries (May-October) and SAFMC (June-October); recorded as a discrepancy rather than resolved.",
+      "No thermally-driven behavior, current-facing behavior, territoriality, cold-front response, or angling-pressure response was found in a usable source; all omitted rather than inferred."
+    ]
+  },
+  "diet": {
+    "speciesId": "lutjanus_campechanus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+      "worms_annelids",
+      "zooplankton"
+    ],
+    "primaryNote": "Carnivorous throughout life. Adults take fish, shrimp, crab, worms, cephalopods (squid/octopus), and some plankton (NOAA Fisheries). Diet capacity is not evidence of a current feeding event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Small zooplankton initially.",
+      "juvenile": "Shifts toward larger prey items around 100 mm fork length; shrimp is reported as the most frequent stomach content across the year at this stage (SEDAR).",
+      "adult": "Fish, shrimp, crab, worms, squid/octopus, and some plankton."
+    },
+    "preySizeShifts": "Prey size tracks fish size/gape, with a documented shift toward larger prey items around 100 mm fork length in juveniles.",
+    "ontogeneticShift": "Zooplankton-dominated feeding in the youngest fish gives way to a mixed crustacean-fish-mollusk diet as fish grow, with shrimp remaining an important prey item across the juvenile stage.",
+    "observedForageRule": "Diet capacity is not proof that a feeding event is happening now. Observed current forage still comes from a user observation or Hatch Match, never from this record alone.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Red Snapper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SEDAR - Species Profiles, Life Histories and Environmental Requirements: Gulf of Mexico Red Snapper",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No season-by-season adult diet breakdown was found beyond the general prey list above.",
+      "No forage-substitution detail (Gulf vs. South Atlantic, or by depth) was found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "lutjanus_campechanus",
+    "status": "reviewed",
+    "overview": "Red snapper behavior in the sources reviewed is dominated by structure residency on hard bottom year-round and by a long, protracted spawning season across summer into fall, which this record treats as conservation context only. Regulatory status is currently the more consequential seasonal fact for this species and differs sharply between the Gulf (open with an annually-set, generally short federal season plus independently-scheduled state seasons) and the South Atlantic (fully closed to harvest as of this review) - see targetContext in the catalog record.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Hard, moderate-to-high-relief structure - reefs, rock outcrops, ledges, artificial reefs, and platforms.",
+        "invalidators": [
+          "assuming a Gulf or South Atlantic season is open without checking the current-year/current-status rule"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Hard, moderate-to-high-relief structure - reefs, rock outcrops, ledges, artificial reefs, and platforms.",
+        "conservationNote": "Falls within the reported spawning window (May/June onward per NOAA Fisheries/SAFMC). This is biological/conservation context only; it is not a location or a bite-window claim.",
+        "presentationImplication": "Where legally open, bottom contact, drop presentation, structure vertical, and deep drop over reviewed nearshore/offshore reef, ledge, and wreck classes.",
+        "invalidators": [
+          "targeting a spawning aggregation or treating aggregation structure as a class to fish",
+          "fishing without a rigged descending device where required"
+        ]
+      },
+      {
+        "season": "late_summer",
+        "habitatClass": "Hard, moderate-to-high-relief structure - reefs, rock outcrops, ledges, artificial reefs, and platforms.",
+        "conservationNote": "Continued spawning window per both cited sources. Conservation context only.",
+        "presentationImplication": "Where legally open, bottom contact, drop presentation, structure vertical, and deep drop over reviewed structure classes.",
+        "invalidators": [
+          "targeting a spawning aggregation or treating aggregation structure as a class to fish"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Hard, moderate-to-high-relief structure - reefs, rock outcrops, ledges, artificial reefs, and platforms.",
+        "conservationNote": "Spawning window extends into October per both cited sources.",
+        "presentationImplication": "Where legally open, bottom contact, drop presentation, structure vertical, and deep drop over reviewed structure classes.",
+        "invalidators": [
+          "assuming season status carries over from the prior year without checking current rules"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Hard, moderate-to-high-relief structure - reefs, rock outcrops, ledges, artificial reefs, and platforms.",
+        "invalidators": [
+          "assuming season status carries over from the prior year without checking current rules"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Red Snapper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Snapper, Red species page",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf of Mexico Fishery Management Council - Snapper, Red species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "This record deliberately omits the substrate/depth detail some sources give for spawning habitat, because it would function as targeting guidance rather than biology - by design, not because the information doesn't exist.",
+      "No month-by-month or waterbody-specific movement pattern beyond general structure residency was found.",
+      "South Atlantic harvest status is currently a full coastwide closure (as of this review); this record deliberately does not commit to when that will change and flags it as something to reverify rather than a fixed seasonal structure."
+    ]
+  }
+}

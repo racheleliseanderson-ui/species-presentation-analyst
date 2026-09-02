@@ -1,0 +1,189 @@
+{
+  "identification": {
+    "speciesId": "kajikia_audax",
+    "status": "reviewed",
+    "regionalNames": [
+      "stripey"
+    ],
+    "bodyShape": "Long, rounded bill; slender, laterally compressed oceanic billfish body that tapers sharply toward the tail, with a tall, pointed first dorsal fin.",
+    "identificationTraits": [
+      "First dorsal fin is markedly taller relative to body depth than blue marlin's, with a pointed front lobe.",
+      "Cobalt-blue vertical body stripes are well-defined and evenly spaced, and -- unlike blue marlin's stripes -- remain visible after death.",
+      "Pectoral fins are pointed rather than the rounded, fully body-depressible pectoral fin of blue marlin.",
+      "Body is more laterally compressed ('leaner,' more severely tapered) than a blue marlin of comparable length."
+    ],
+    "coloration": "Dark blue-black back fading to silvery-white below, with rows of cobalt-blue vertical stripes made up of small round dots or narrow bands along the sides.",
+    "adultAppearance": "A slender, sharply tapered billfish with a tall, pointed dorsal fin and persistent cobalt stripes.",
+    "similarSpecies": [
+      {
+        "name": "Blue marlin (Makaira nigricans)",
+        "distinction": "Blue marlin have a proportionally shorter, more rounded dorsal fin, a bulkier and rounder body, rounded pectoral fins that fold flat against the body, and body stripes that fade quickly after death."
+      },
+      {
+        "speciesId": "kajikia_albida",
+        "name": "White marlin (Kajikia albida)",
+        "distinction": "White marlin are much smaller-bodied with rounded (not pointed) pectoral and dorsal fin tips, and are an Atlantic species not normally encountered in the Pacific/Indian Ocean range of striped marlin."
+      }
+    ],
+    "averageAdultLength": "Average length around 9.5 ft (2.9 m).",
+    "commonAnglingSize": "One institutional species account describes roughly 11.5 ft (350 cm) and about 220 lb (100 kg) as more typical of landed fish than the documented maximum.",
+    "typicalWeight": "Roughly 220 lb (100 kg) is described as more typical than the documented maximum size.",
+    "maximumDocumentedSize": "NOAA cites up to about 14 ft and 250-450 lb; another account cites a maximum length of 13.8 ft (4.2 m) and up to about 490 lb (220 kg). Treated as approximate given the spread between sources.",
+    "longevity": "Estimates conflict between sources: one account cites a maximum age of about 10 years, NOAA cites a maximum documented lifespan of about 20 years. Not reconciled here.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Striped Marlin species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/striped-marlin"
+      },
+      {
+        "label": "Fishes of Australia (Museums Victoria), Kajikia audax species account",
+        "class": "synthesis",
+        "url": "https://fishesofaustralia.net.au/home/species/715"
+      },
+      {
+        "label": "Billfish species-identification guide (dorsal fin, stripe persistence, pectoral-fin traits)",
+        "class": "synthesis",
+        "url": "https://billfish.org/education/species-identification/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Longevity estimates conflict between sources (about 10 years vs. about 20 years) and were not reconciled.",
+      "IUCN Red List category is unresolved: one institutional species account (Fishes of Australia) states Near Threatened, while a sportfishing-industry synthesis article states Least Concern; the IUCN Red List's own page could not be loaded directly during this review (persistent server error). Recorded as a disagreement rather than picked."
+    ]
+  },
+  "behavior": {
+    "speciesId": "kajikia_audax",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "One reference account notes that striped marlin form groups or schools during their reproductive season; outside that period the documented pattern is individually-tracked, wide-ranging movement rather than schooling.",
+      "note": "Reviewed peer-reviewed telemetry tracked individuals independently with no mention of coordinated group movement, consistent with a broadly solitary pelagic hunter."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "A visual, pursuit-hunting predator; one source notes striped marlin have the thinnest bill of any billfish and slash at prey rather than impaling it as some other billfish do. Diet is opportunistic on whatever epipelagic baitfish and squid are locally concentrated. Diet capacity is not evidence of a current bait event."
+    },
+    "dielTendency": {
+      "class": "diurnal",
+      "note": "Described as diurnal (day-active) in a university reference database; an independent peer-reviewed telemetry study found tagged fish covered less horizontal distance at night than during the day, consistent with reduced nocturnal activity."
+    },
+    "thermalDrivenBehavior": "NOAA describes a preferred temperature range of about 68-77°F (20-25°C). A regional peer-reviewed telemetry study (western Indian Ocean) found tagged fish spending the large majority of surface time in notably warmer water (roughly 79-88°F / 26-31°C); this is recorded as a regional finding rather than merged into the catalog thermal band, given the disagreement with NOAA's broader figure -- see gaps.",
+    "currentFacing": "Concentrates at frontal zones where cooler and warmer water masses meet, since these fronts concentrate the prey it hunts visually.",
+    "depthMovement": "Spends the large majority of time in the surface mixed layer above the thermocline; deeper excursions are brief.",
+    "spawningBehavior": "Batch spawner; NOAA describes spawning occurring in the central Pacific and off central Mexico (broad ocean-basin regions, not a named site), with juveniles subsequently moving eastward toward the Baja California region in high abundance. Spawning water and any staging concentration are conservation context only and are not described as holding water.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Striped Marlin species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/striped-marlin"
+      },
+      {
+        "label": "Animal Diversity Web (University of Michigan), Tetrapturus audax account",
+        "class": "synthesis",
+        "url": "https://animaldiversity.org/accounts/Tetrapturus_audax/"
+      },
+      {
+        "label": "Peer-reviewed telemetry study: movement and habitat use of striped marlin Kajikia audax (Journal of Fish Biology), via IOTC document repository",
+        "class": "peer_reviewed",
+        "url": "https://iotc.org/sites/default/files/documents/2021/08/IOTC-2021-WPB19-INF03.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Thermal preference figures disagree between a global agency source (68-77°F) and a regional peer-reviewed telemetry study (roughly 79-88°F); not reconciled, and it is unclear how much of the difference is regional versus methodological.",
+      "Cold-edge and warm-edge tolerance limits (as distinct from preference) were not found in reviewed sources.",
+      "A US West Coast seasonal-occurrence calendar tied to warm-water events was not found in reviewed sources; see seasonal_calendar gaps."
+    ]
+  },
+  "diet": {
+    "speciesId": "kajikia_audax",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "mollusks"
+    ],
+    "primaryNote": "Preys on schooling epipelagic fish (mackerel, sardines, anchovies, small tuna) and cephalopods (especially squid); off southern California it has been described feeding at the surface on small coastal fish and squid. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Planktonic larvae feed on zooplankton.",
+      "adult": "Adults prey on schooling baitfish (mackerel, sardines, anchovies, small tuna) and squid."
+    },
+    "preySizeShifts": "Diet shifts from zooplankton at the larval stage to schooling baitfish and squid as juveniles and adults.",
+    "observedForageRule": "Diet capacity is not proof that a bait event is happening now; observed current forage still comes from a direct sighting, not from this dossier.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Striped Marlin species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/striped-marlin"
+      },
+      {
+        "label": "Animal Diversity Web (University of Michigan), Tetrapturus audax account",
+        "class": "synthesis",
+        "url": "https://animaldiversity.org/accounts/Tetrapturus_audax/"
+      },
+      {
+        "label": "Fishes of Australia (Museums Victoria), Kajikia audax species account",
+        "class": "synthesis",
+        "url": "https://fishesofaustralia.net.au/home/species/715"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Seasonal diet shifts specific to the eastern Pacific/US fishery were not found.",
+      "A quantified ontogenetic diet shift (beyond larval zooplankton to adult fish/squid) was not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "kajikia_audax",
+    "status": "partial",
+    "overview": "Striped marlin presence is best explained by thermal preference and prey concentration at frontal zones rather than a fixed month-by-month calendar. Reviewed sources establish year-round tropical/subtropical Pacific residency, a preferred band near 68-77°F, and juvenile eastward movement toward the Baja California region following spring/summer spawning, but do not give a sourced month-by-month US West Coast occurrence calendar. Spring/summer spawning is conservation context.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Frontal zones and eddy margins in offshore water where cooler and warmer water masses meet, concentrating epipelagic baitfish and squid.",
+        "thermalContext": "Within or approaching the roughly 68-77°F preferred band.",
+        "conservationNote": "Spawning season (spring/summer, broad ocean-basin scale per NOAA); spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Assuming a fixed regional arrival date; a sourced calendar for this was not found."
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Offshore frontal zones, eddy margins, and seamount-associated water within the preferred thermal band.",
+        "presentationImplication": "Trolling spread and live-bait slow troll along visible current seams and temperature breaks; chum-established drift where a scent trail can be maintained in open water.",
+        "conservationNote": "Spawning season continues; spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Treating a single warm-water event as proof of increased local abundance without a supporting source."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Striped Marlin species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/striped-marlin"
+      },
+      {
+        "label": "Peer-reviewed telemetry study: movement and habitat use of striped marlin Kajikia audax (Journal of Fish Biology), via IOTC document repository",
+        "class": "peer_reviewed",
+        "url": "https://iotc.org/sites/default/files/documents/2021/08/IOTC-2021-WPB19-INF03.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A month-by-month US West Coast seasonal-occurrence calendar (e.g. tied to warm-water intrusions) was not found in the agency and peer-reviewed sources reviewed; the Pacific Fishery Management Council's HMS background page confirms federal management status but gives no seasonal timing.",
+      "Winter behavior/habitat use was not specifically sourced; only warm-season habitat use is documented above."
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "identification": {
+    "speciesId": "bodianus_pulcher",
+    "status": "reviewed",
+    "regionalNames": [
+      "sheephead",
+      "California sheephead"
+    ],
+    "bodyShape": "Deep-bodied, laterally compressed wrasse. Females have a gently sloping forehead and a slight chin; males develop a pronounced nuchal (head) hump.",
+    "identificationTraits": [
+      "Protruding, canine-like teeth and crushing pharyngeal plates used to break hard-shelled prey.",
+      "Strongly sexually dichromatic: adult females are a fairly uniform pink; adult (terminal-phase) males show a black head and tail with a broad red-orange midbody band.",
+      "Recent phylogenetic work reclassifies the species into the genus Bodianus (Bodianus pulcher); California state agency documents still commonly use the historical name Semicossyphus pulcher for the same fish -- treat the two names as synonymous."
+    ],
+    "coloration": "Females: fairly uniform pink/rose. Males: black head and tail bracketing a broad red-orange midbody band, with a white chin patch.",
+    "adultAppearance": "A large, deep-bodied wrasse with protruding canine teeth; adult coloration differs sharply by sex (uniform pink females vs. black/red/black banded males with a nuchal hump).",
+    "sexualDimorphism": "Strong: coloration and head shape differ sharply between the female phase and the terminal male phase, consistent with the species' protogynous hermaphroditism.",
+    "similarSpecies": [],
+    "averageAdultLength": "Not found as a distinct figure in sourced material; northern (California) populations reportedly reach larger maximum size than southern populations.",
+    "commonAnglingSize": "Recreational legal minimum is 12 in TL; sourced material does not give a typical/average size actually retained.",
+    "typicalWeight": "Not found in sourced material beyond the documented maximum.",
+    "maximumDocumentedSize": "Up to about 36.5 lb (16.6 kg) and 3 ft in length (CDFW status report).",
+    "longevity": "Not found in sourced material.",
+    "sources": [
+      {
+        "label": "CDFW California sheephead status report / assessment summary",
+        "class": "agency"
+      },
+      {
+        "label": "California Ocean Protection Council Draft Marine Species Report: Sheephead",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced look-alike species -- California sheephead's coloration appears distinctive enough that agency sources reviewed don't document a confusion species.",
+      "No sourced longevity/maximum age figure.",
+      "No sourced average adult length or typical angling size distinct from the legal minimum and the documented maximum."
+    ]
+  },
+  "behavior": {
+    "speciesId": "bodianus_pulcher",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Terminal-phase (male) sheephead defend individual reef territories -- roughly 20 m of reef in some populations -- while both sexes show high site fidelity and small home ranges (around 600 sq m) that widen somewhat in warmer water and, for some males, during the spawning season.",
+      "note": "Tagging studies cited by the California Ocean Protection Council report small home ranges and high site fidelity to a home reef rather than open-water schooling behavior."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "Generalist benthic predator. Diet shifts ontogenetically from small, often sessile or filter-feeding invertebrate prey toward larger, harder-shelled mobile invertebrates -- most notably sea urchins -- crushed with pharyngeal plates."
+    },
+    "territoriality": "Terminal-phase males defend reef territories of roughly 20 m along the reef in some populations; both sexes have small home ranges and high site fidelity.",
+    "dielTendency": {
+      "class": "diurnal",
+      "note": "Active on the reef by day; returns to rock crevices at sunset and shelters there until daylight (California Ocean Protection Council marine species report)."
+    },
+    "thermalDrivenBehavior": "Home range and movement increase during warmer water periods. The species' historically limited range north of Monterey Bay is attributed by sourced material to thermal constraints on larval dispersal, and that boundary is noted as a candidate to shift north with ocean warming. No quantified preferred-temperature band was found, so no thermal figures are recorded in the catalog entry.",
+    "predatorAvoidance": "Shelters in rock crevices and under ledges from sunset until daylight.",
+    "coverUse": "Rocky reef and kelp forest structure, especially reef/kelp ecotone edges where different habitat types meet.",
+    "spawningBehavior": "Protogynous hermaphrodite: all individuals begin life as female, and some later change to male, a shift believed to be triggered by social cues -- specifically the loss or absence of a dominant male -- rather than purely by age or size. Spawning occurs nearly every day through the summer months. Fecundity increases sharply with body length (reported as roughly the 5.5 power of length), making large females disproportionately important to reproduction. Fishing pressure has been associated with earlier sex-change timing in exploited populations. No spawning site or aggregation location is named.",
+    "sources": [
+      {
+        "label": "California Ocean Protection Council Draft Marine Species Report: Sheephead",
+        "class": "agency"
+      },
+      {
+        "label": "CDFW California sheephead status report / assessment summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No quantified thermal preference or tolerance band -- only a qualitative warm-water affinity and a Monterey Bay northern range limit are documented.",
+      "No sourced current/tide-specific behavior.",
+      "No sourced cold-front or angling-pressure response."
+    ]
+  },
+  "diet": {
+    "speciesId": "bodianus_pulcher",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "mollusks",
+      "crustaceans",
+      "worms_annelids"
+    ],
+    "primaryNote": "Generalist, ontogenetically shifting benthic-invertebrate diet. Juveniles (roughly under 8 in) take small, often sessile or filter-feeding invertebrates such as tube-dwelling polychaete worms and bryozoans; as fish grow they add larger, mobile, hard-shelled prey, most importantly sea urchins, which can exceed a third of stomach contents by some measures in large adults versus under 3% in small fish. Sea urchins (and bryozoans/brittle stars) are the single most-cited prey items in sourced material but have no matching class in this catalog's forage-class vocabulary, so that dependency is described here rather than encoded in primaryForage above -- see gaps. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "juvenile": "Small invertebrates including tube-dwelling polychaete worms, bryozoans, and brittle stars; fish under about 8 in do not successfully take sea urchins.",
+      "adult": "Adds larger, mobile, hard-shelled invertebrates, especially sea urchins, crushed with pharyngeal plates; fish over about 18 in successfully take large urchins more than half the time in feeding trials."
+    },
+    "preySizeShifts": "Larger sheephead take larger sea urchins, measured by spine length as a size proxy (Hamilton & Caselle 2015).",
+    "ontogeneticShift": "Shift from small, often sessile/filter-feeding invertebrate prey to larger, harder-shelled mobile invertebrates as the fish grows. This shift underlies the species' documented ecological role in suppressing sea urchin densities and, where large sheephead remain abundant, supporting kelp forest health.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "CDFW California sheephead status report / assessment summary",
+        "class": "agency"
+      },
+      {
+        "label": "Hamilton & Caselle (2015), Proceedings of the Royal Society B",
+        "class": "peer_reviewed"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Sea urchins, a documented major adult prey item and the species' key ecological role, have no matching class in this catalog's forage-class vocabulary; recorded only in the text notes above.",
+      "No sourced seasonal diet breakdown.",
+      "Adult diet beyond sea urchins (proportions of fish, crabs, other mollusks) not quantified in sourced material."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "bodianus_pulcher",
+    "status": "partial",
+    "overview": "Sheephead show a clear diel pattern (day-active on the reef, sheltered at night) and a summer spawning season, with home range and movement increasing in warmer water. Season-by-season habitat-class shifts beyond that are not well documented in sourced material.",
+    "entries": [
+      {
+        "season": "summer",
+        "habitatClass": "Rocky reef and kelp forest structure -- the same general habitat used the rest of the year.",
+        "movementTendency": "Home range and daily movement increase in warmer water.",
+        "conservationNote": "Spawns nearly every day through summer. No spawning site or aggregation is named.",
+        "presentationImplication": "Drop and bottom-contact presentations against reef/kelp structure remain the reviewed approach; no seasonal shift in presentation family is documented.",
+        "invalidators": [
+          "assuming a spawning-triggered bite window; none is documented"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Same rocky reef / kelp structure; no documented winter habitat shift in sourced material.",
+        "conservationNote": "California's boat-based recreational fishery for sheephead is closed each year in January and February south of Point Conception (shore-based angling and diving/spearfishing remain open) -- this is a regulatory closure, not a described biological spawning season."
+      }
+    ],
+    "sources": [
+      {
+        "label": "California Ocean Protection Council Draft Marine Species Report: Sheephead",
+        "class": "agency"
+      },
+      {
+        "label": "CDFW California sheephead status report / assessment summary",
+        "class": "agency"
+      },
+      {
+        "label": "Cal. Code Regs. Tit. 14, section 28.26",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Fall and spring habitat or activity notes not found in sourced material.",
+      "No sourced seasonal diet shift."
+    ]
+  }
+}

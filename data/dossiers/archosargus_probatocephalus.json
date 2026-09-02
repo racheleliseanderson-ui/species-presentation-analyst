@@ -1,0 +1,313 @@
+{
+  "identification": {
+    "speciesId": "archosargus_probatocephalus",
+    "status": "reviewed",
+    "regionalNames": [
+      "convict fish",
+      "sheephead",
+      "bay snapper"
+    ],
+    "bodyShape": "Deep, oval and laterally compressed, with a blunt snout and a small, nearly horizontal mouth. Steep forehead profile. Stout, sharp dorsal spines and notably sharp gill covers.",
+    "identificationTraits": [
+      "Five or six dark vertical crossbars on the side over a silvery to greenish-yellow or grayish ground. Gulf populations west of Alligator Harbor, Florida have been reported with only five bars on one or both sides.",
+      "No barbels on the lower jaw - this is the character that separates sheepshead from a barred juvenile black drum.",
+      "Four broad incisor-like teeth on each side of the front of the jaw, backed by rows of molar-like grinders. The teeth are visible from outside the mouth and are the single most distinctive character.",
+      "Blunt snout with a small, nearly horizontal mouth.",
+      "Dorsal and anal spines are stout and sharp; the gill covers are sharp enough that agency sourcing warns about them at cleaning."
+    ],
+    "coloration": "Greenish-yellow to grayish or silvery, with dark vertical crossbars that are strongest in smaller fish and fade somewhat with size.",
+    "regionalColorVariation": "Bar count varies geographically. Gulf sourcing records six crossbars generally, and only five bars on one or both sides in populations west of Alligator Harbor, Florida. Treat bar count as a soft character, not a key.",
+    "juvenileAppearance": "Shining black crossbars separated by silvery spaces - higher contrast than adults. Juveniles settle into grassbeds before moving onto hard substrate at about 35-50 mm.",
+    "adultAppearance": "A deep-bodied, blunt-snouted, vertically barred fish with exposed incisor teeth and no chin barbels.",
+    "similarSpecies": [
+      {
+        "speciesId": "pogonias_cromis",
+        "name": "Black drum (juvenile)",
+        "distinction": "Juvenile black drum carry four to six dark vertical bars and are routinely mistaken for sheepshead. Black drum have chin barbels on the lower jaw and sheepshead have none; black drum have a subinferior mouth and no incisor teeth; and black drum reach far larger sizes. Barbels are the reliable check."
+      },
+      {
+        "name": "Atlantic spadefish (Chaetodipterus faber)",
+        "distinction": "Also deep-bodied and barred, but with a much shorter snout, a rounder body outline and greatly enlarged dorsal and anal fins. It lacks the sheepshead's incisor dentition."
+      },
+      {
+        "name": "Pinfish (Lagodon rhomboides)",
+        "distinction": "Another sparid on the same structure, but far smaller, with faint vertical bars, a yellow-and-blue cast and a dark shoulder spot rather than bold black crossbars. Not resolved in detail by the sources consulted - treated as a partial entry."
+      }
+    ],
+    "averageAdultLength": "Maturity is reached quickly - age 2 in the northeastern Gulf, with other sourcing giving a 2-5 year range. Typical fish are around 13-14 in.",
+    "commonAnglingSize": "Agency sourcing describes catches typically around 13 in; a state agency account gives typical specimens at about 14 in and 3 lb, and a museum source gives 14-18 in and 1-8 lb.",
+    "typicalWeight": "About 1-8 lb, commonly around 3 lb.",
+    "maximumDocumentedSize": "Sources differ. The all-tackle world record is given as 9.63-9.66 kg (about 21 lb 4 oz) at 657 mm fork length from Louisiana. Maximum observed sizes in regional studies ranged from 522 mm FL in northwest Florida to 580 mm FL in Georgia, and a northeastern Gulf study gave 507 mm FL. FWC states the species reaches up to 36 in; a museum source gives almost 30 in and 22 lb. The Florida state record is 15 lb 2 oz and the South Carolina record 16 lb 6 oz.",
+    "longevity": "Reported maximum age varies strongly by region: 15 years in northwest Florida, 18 years in the northeastern Gulf, and 26 years in South Carolina, with a state agency account giving about 25 years. Growth is rapid for the first three to four years, reaching roughly 80% of theoretical maximum size by age 5, then slowing sharply.",
+    "sources": [
+      {
+        "label": "Gulf States Marine Fisheries Commission 2006, Sheepshead Fisheries Profile (GSMFC No. 143)",
+        "class": "agency",
+        "url": "https://www.gsmfc.org/publications/GSMFC%20Number%20143.PDF"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Sheepshead species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/sheepshead/"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Sheepshead species account",
+        "class": "agency",
+        "url": "https://dnr.sc.gov/marine/species/sheepshead.html"
+      },
+      {
+        "label": "Heil 2017, Life history, diet, and reproductive dynamics of the sheepshead in the northeastern Gulf of Mexico. MS thesis, Florida State University",
+        "class": "peer_reviewed",
+        "url": "https://www.researchgate.net/publication/359399654_Life_History_Diet_and_Reproductive_Dynamics_of_the_Sheepshead_Archosargus_Probatocephalus_in_the_Northeastern_Gulf_of_Mexico"
+      },
+      {
+        "label": "Florida Museum of Natural History - Archosargus probatocephalus species profile (similar species)",
+        "class": "synthesis",
+        "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/sheepshead"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Maximum size figures conflict across agency and museum sources (36 in versus ~30 in versus a 657 mm FL world record); no reconciled maximum",
+      "The pinfish comparison is not sourced in detail; it is included because the confusion is real but the distinction here is thin",
+      "Sexual dimorphism not addressed by any source consulted",
+      "No sourced spawning coloration",
+      "Meristic counts (fin rays, gill rakers, lateral line scales) not captured"
+    ]
+  },
+  "behavior": {
+    "speciesId": "archosargus_probatocephalus",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Juveniles settle into grassbeds and move onto hard substrate at about 35-50 mm. Adults congregate around reef structure after moving offshore in late fall.",
+      "note": "Sourced language is 'congregate around reefs' rather than schooling in open water. The aggregation is a consequence of the food being attached to structure, not a pelagic schooling behavior."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A grazer and crusher on fouled hard structure. Incisor teeth at the front of the jaw take attached prey off the substrate and molar-like grinders behind crush it. The quantitative offshore diet study found sessile invertebrates to be the most important prey - which is a fundamentally different feeding problem from chasing something that swims."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not sourced. No diel pattern was reported in any source consulted; 'mixed' records absence of evidence rather than a finding."
+    },
+    "seasonalActivity": "The clearest sourced behavioral pattern in the species. Gulf agency sourcing describes fish moving from inshore areas offshore in late fall to congregate around reefs, remaining offshore until spawning ends in late spring, when some portion of the adult population returns inshore - with evidence that some adults remain offshore year round. A state agency account describes year-round residents that move offshore during winter cold periods and concentrate in shallow water in spring and late fall. FWC describes fish moving closer to shore during late winter and spring spawning. The three accounts are not fully consistent and the record keeps all three rather than picking one.",
+    "thermalDrivenBehavior": "Qualitative only. Adults remain in inshore waters during warmer months and move out of estuaries during periods of low temperature. No thermal tolerance limits or preference range were located, so the catalog thermal block is omitted rather than guessed.",
+    "currentFacing": "Not sourced.",
+    "depthMovement": "Inshore over structure in warm months; offshore hard bottom to about 37 m in the cold part of the year, with an incomplete return inshore around the spawning period.",
+    "waterLevelResponse": "Not sourced as a tide-stage relationship. Sheepshead hold on structure whose food supply is attached to it, so the tidal argument that governs a flats species does not transfer, and no source consulted substitutes one.",
+    "clarityResponse": "Not sourced.",
+    "predatorAvoidance": "Not sourced. Structure association is the obvious mechanism but no source consulted addressed predation on adults.",
+    "coverUse": "Fouled hard structure of every kind the sources name: oyster reefs, seawalls, bridge and dock pilings, jetties, oil and gas platforms, wrecks, artificial reefs and natural hard bottom. Grassbeds function as a juvenile nursery before the shift to hard substrate.",
+    "openWaterBehavior": "Not a species of open water. Even the offshore phase is structure-associated hard bottom.",
+    "spawningBehavior": "Conservation context only. Sheepshead are fractional (batch) spawners maturing quickly, at age 2 in the northeastern Gulf and between ages 2 and 5 by other accounts. The season runs from roughly January through May with a March-April peak in the Gulf, and January-April peak in one northeastern Gulf study. Sources conflict on location: Gulf and Georgia sourcing puts nearly all spawning fish on or near offshore reef habitat, a northeastern Gulf study puts spawning primarily on offshore artificial reefs with some activity in nearshore channels, and FWC describes inshore spawning. Spawning concentrations of any kind are excluded from targeting in this catalog.",
+    "sources": [
+      {
+        "label": "Gulf States Marine Fisheries Commission 2006, Sheepshead Fisheries Profile (GSMFC No. 143)",
+        "class": "agency",
+        "url": "https://www.gsmfc.org/publications/GSMFC%20Number%20143.PDF"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Sheepshead species account",
+        "class": "agency",
+        "url": "https://dnr.sc.gov/marine/species/sheepshead.html"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Sheepshead species profile",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/sheepshead/"
+      },
+      {
+        "label": "Sedberry 1987, Feeding habits of sheepshead in offshore reef habitats of the southeastern continental shelf. Northeast Gulf Science 9(1):29-37",
+        "class": "peer_reviewed",
+        "url": "https://aquila.usm.edu/goms/vol9/iss1/3/"
+      },
+      {
+        "label": "Heil 2017, Life history, diet, and reproductive dynamics of the sheepshead in the northeastern Gulf of Mexico. MS thesis, Florida State University",
+        "class": "peer_reviewed",
+        "url": "https://www.researchgate.net/publication/359399654_Life_History_Diet_and_Reproductive_Dynamics_of_the_Sheepshead_Archosargus_Probatocephalus_in_the_Northeastern_Gulf_of_Mexico"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No thermal tolerance or preference numbers located; only the qualitative statement that adults leave estuaries during periods of low temperature. The catalog thermal block is omitted for that reason.",
+      "No sourced diel pattern",
+      "No sourced tide-stage relationship",
+      "No sourced water-clarity, cold-front or angling-pressure response",
+      "No sourced predator list or predator-avoidance behavior for adults",
+      "Territoriality and aggression not addressed by any source consulted",
+      "Three agency accounts of seasonal inshore-offshore movement are not fully consistent and no source reconciles them"
+    ]
+  },
+  "diet": {
+    "speciesId": "archosargus_probatocephalus",
+    "status": "reviewed",
+    "feedingStyle": "specialized",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "mollusks",
+      "crustaceans"
+    ],
+    "primaryNote": "A crushing benthic feeder on attached and hard-shelled prey, which is why both mollusks and crustaceans belong here and neither alone is sufficient. In the one quantitative offshore study, pelecypod (bivalve) mollusks occurred in 74.2% of stomachs at 10.4% of volume and barnacles in 71.0% at 3.0% of volume, with amphipods in 64.3% at 0.4% - so mollusks lead crustaceans by volume while barnacles lead by frequency, and the two classes are close and habitat-dependent. Northeastern Gulf sampling during reproductive periods found crustaceans, mollusks and plant material dominant, with barnacles, stone crabs and oysters the leading identified prey. Important caveat: the two largest prey groups by volume in that offshore study were bryozoans (80.6% frequency, 37.5% volume) and ascidians (61.3% frequency, 30.2% volume), and neither has a class in the closed forage vocabulary - so this field structurally understates the diet. Seagrass, algae and detritus are also eaten and are likewise unrepresentable. Capacity is not a current bait event.",
+    "seasonalDiet": [
+      {
+        "season": "spring",
+        "emphasis": "Gulf sourcing records that fishes were also commonly preyed on in spring, alongside the usual attached invertebrates. This is capacity, not a declared bait event."
+      },
+      {
+        "season": "summer",
+        "emphasis": "Plants and detritus were fed on most commonly in summer per Gulf sourcing - a genuine omnivorous shift, and one the closed forage vocabulary cannot express."
+      }
+    ],
+    "lifeStageDiet": {
+      "juvenile": "Zooplankton and larvae early, then bivalves, crabs and algae taken off hard surfaces once settled. Juveniles settle into grassbeds before shifting to hard substrate at about 35-50 mm.",
+      "adult": "Attached and hard-shelled benthic prey: bryozoans, ascidians, echinoderms, young oysters, clams and other bivalves, blue crabs, barnacles and other crustaceans, with small fish taken as well."
+    },
+    "preySizeShifts": "Documented as a compositional rather than a size shift. In the offshore study, fish under 350 mm took bryozoans at 76.2% of volume, while fish at or above 350 mm took more attached pelecypods and showed greater diet diversity in echinoderms and ascidians.",
+    "ontogeneticShift": "Planktivory as larvae and small juveniles, then a shift onto attached and hard-shelled prey that coincides with the physical move from grassbeds to hard substrate at about 35-50 mm.",
+    "forageSubstitutions": "Strongly habitat-driven. The offshore study explicitly noted that algae availability differs significantly between inshore and offshore reef environments, and emphasised habitat-driven diet differences over seasonal ones. An inshore oyster-reef diet and an offshore hard-bottom diet are not the same diet.",
+    "observedForageRule": "Diet capacity is not proof that a prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Sedberry 1987, Feeding habits of sheepshead, Archosargus probatocephalus, in offshore reef habitats of the southeastern continental shelf. Northeast Gulf Science 9(1):29-37",
+        "class": "peer_reviewed",
+        "url": "https://aquila.usm.edu/goms/vol9/iss1/3/"
+      },
+      {
+        "label": "Heil 2017, Life history, diet, and reproductive dynamics of the sheepshead in the northeastern Gulf of Mexico. MS thesis, Florida State University",
+        "class": "peer_reviewed",
+        "url": "https://www.researchgate.net/publication/359399654_Life_History_Diet_and_Reproductive_Dynamics_of_the_Sheepshead_Archosargus_Probatocephalus_in_the_Northeastern_Gulf_of_Mexico"
+      },
+      {
+        "label": "Gulf States Marine Fisheries Commission 2006, Sheepshead Fisheries Profile (GSMFC No. 143)",
+        "class": "agency",
+        "url": "https://www.gsmfc.org/publications/GSMFC%20Number%20143.PDF"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Sheepshead species account",
+        "class": "agency",
+        "url": "https://dnr.sc.gov/marine/species/sheepshead.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Bryozoans, ascidians, echinoderms, seagrass, algae and detritus are all sourced prey with no class in the closed forage vocabulary; primaryForage necessarily understates the diet",
+      "The quantitative diet data come from offshore reef habitat on the southeastern shelf; no comparably quantitative inshore oyster-reef diet study was located, and the same study says habitat drives the difference",
+      "No seasonal diet data for winter or fall",
+      "Relative importance of mollusks against crustaceans is close and habitat-dependent; the ordering here should not be treated as settled"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "archosargus_probatocephalus",
+    "status": "partial",
+    "overview": "Sheepshead seasonality is an inshore-offshore structure problem, not a depth or thermal-band problem. The sourced pattern is a late-fall movement out of estuaries to congregate on offshore reefs, a January-to-May spawning period peaking March-April, and a partial return inshore as spawning ends - with agency accounts disagreeing about how much of that movement is inshore versus offshore, and with some adults reported to stay offshore year round. Diet is habitat-driven rather than season-driven according to the one quantitative study, so seasonal forage entries are thin and deliberately so.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Offshore hard bottom, artificial reefs, wrecks and platforms for the offshore portion of the population; jetties, bridge and dock pilings and oyster reefs for fish still inshore.",
+        "depthTendency": "Offshore hard-bottom formations to about 37 m for fish that have moved out.",
+        "movementTendency": "Adults are described as moving out of estuaries during periods of low temperature and congregating around reefs after moving offshore in late fall.",
+        "thermalContext": "Qualitative only - no thermal numbers were sourced for this species. The movement is described against 'low temperature' without a threshold.",
+        "coverUse": "Fouled hard structure.",
+        "presentationImplication": "Bottom contact and structure vertical over nearshore hard structure; structure pitch and live or natural bait suspension where fish remain on inshore structure.",
+        "invalidators": [
+          "assuming the whole population has left inshore structure - sources report some adults remain offshore year round and others remain inshore"
+        ],
+        "conservationNote": "The sourced spawning period begins as early as January in the northeastern Gulf."
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Offshore and nearshore reef structure through the spawning peak; inshore oyster reefs, pilings and jetties as fish return.",
+        "movementTendency": "FWC describes sheepshead moving closer to shore during late winter and spring spawning; Gulf sourcing has fish remaining offshore until spawning ends in late spring. The accounts conflict.",
+        "presentationImplication": "Structure pitch and live or natural bait suspension inshore; bottom contact and drop presentation over nearshore hard structure.",
+        "invalidators": [
+          "picking one of the two conflicting agency accounts of spring movement and treating it as settled"
+        ],
+        "conservationNote": "Peak spawning is March-April in the Gulf, with a Georgia study finding 98% of spawning fish on or near offshore reef habitat. Spawning concentrations are excluded from targeting. Florida's 50-fish vessel limit applies specifically during March and April, which is an explicit management response to concentration in this period."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Inshore oyster reefs, pilings, seawalls, tidal creeks and jetties as the return inshore progresses; offshore hard bottom for fish still out.",
+        "forageEmphasis": "Gulf sourcing records that fishes were also commonly preyed on in spring, in addition to the attached invertebrates that dominate the diet year round.",
+        "movementTendency": "Gulf sourcing has some portion of the adult population returning inshore when spawning is over in late spring. A state agency account describes concentration in shallow water in spring.",
+        "presentationImplication": "Structure pitch and live or natural bait suspension on inshore structure; tidal drift bait along structure edges when water is moving.",
+        "invalidators": [
+          "treating a return inshore as a bite prediction",
+          "using diet capacity as evidence of a current baitfish event"
+        ],
+        "conservationNote": "The sourced spawning season runs through May."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Inshore oyster reefs, pilings, seawalls, mangrove edges and tidal creeks; jetty structure in the surf zone.",
+        "forageEmphasis": "Plants and detritus were fed on most commonly in summer per Gulf sourcing - a group the closed forage vocabulary cannot express.",
+        "movementTendency": "Adults remain in inshore waters during the warmer months.",
+        "presentationImplication": "Structure pitch and live or natural bait suspension on inshore structure; surf bait soak at jetty structure.",
+        "invalidators": [
+          "assuming an inshore fish is a shallow-water fish in the flats sense - the constraint is structure, not depth"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Inshore structure, with a shift toward nearshore and offshore hard structure beginning.",
+        "movementTendency": "A state agency account describes concentration in shallow water in late fall; Gulf sourcing describes the move offshore beginning in late fall. Both are recorded.",
+        "presentationImplication": "Structure pitch inshore; bottom contact and structure vertical as fish shift to nearshore hard structure.",
+        "invalidators": [
+          "reading the two conflicting fall accounts as a single movement direction"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Nearshore and offshore reef structure, wrecks and platforms; remaining inshore hard structure.",
+        "movementTendency": "The sourced offshore movement and reef congregation happens in late fall.",
+        "presentationImplication": "Bottom contact, structure vertical and drop presentation over nearshore hard structure.",
+        "invalidators": [
+          "converting 'congregate around reefs' into a named place"
+        ],
+        "conservationNote": "Movement toward the reef structure on which most spawning is reported begins here. Concentration is recorded as biology, never as holding water."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Gulf States Marine Fisheries Commission 2006, Sheepshead Fisheries Profile (GSMFC No. 143)",
+        "class": "agency",
+        "url": "https://www.gsmfc.org/publications/GSMFC%20Number%20143.PDF"
+      },
+      {
+        "label": "South Carolina Department of Natural Resources - Sheepshead species account",
+        "class": "agency",
+        "url": "https://dnr.sc.gov/marine/species/sheepshead.html"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Sheepshead species profile and regulations",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/sheepshead/"
+      },
+      {
+        "label": "Sedberry 1987, Feeding habits of sheepshead in offshore reef habitats of the southeastern continental shelf. Northeast Gulf Science 9(1):29-37",
+        "class": "peer_reviewed",
+        "url": "https://aquila.usm.edu/goms/vol9/iss1/3/"
+      },
+      {
+        "label": "Heil 2017, Life history, diet, and reproductive dynamics of the sheepshead in the northeastern Gulf of Mexico. MS thesis, Florida State University",
+        "class": "peer_reviewed",
+        "url": "https://www.researchgate.net/publication/359399654_Life_History_Diet_and_Reproductive_Dynamics_of_the_Sheepshead_Archosargus_Probatocephalus_in_the_Northeastern_Gulf_of_Mexico"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_summer and late_summer entries omitted - no source distinguishes them from summer for this species",
+      "No thermal numbers for any season; thermalContext is qualitative in the one entry that has it at all",
+      "Agency accounts of the seasonal inshore-offshore movement conflict and are recorded unresolved rather than reconciled",
+      "No tide-stage or light-sensitivity content in any entry, because no source consulted supplied it",
+      "Seasonality is drawn from Gulf and South Atlantic sourcing; northern-range (Mid-Atlantic to Nova Scotia) seasonality is not sourced here"
+    ]
+  }
+}

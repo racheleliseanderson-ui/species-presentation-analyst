@@ -1,0 +1,204 @@
+{
+  "identification": {
+    "speciesId": "mycteroperca_microlepis",
+    "status": "reviewed",
+    "regionalNames": [
+      "gag"
+    ],
+    "bodyShape": "Long, compressed grouper body typical of the genus Mycteroperca, with a gill cover margin that is deeply notched - the species epithet microlepis means 'small scales,' referencing its fine scalation compared to related groupers.",
+    "identificationTraits": [
+      "Gill cover margin is deeply notched, distinguishing gag from the more smoothly rounded gill margin of black grouper (Mycteroperca bonaci).",
+      "Elevated dorsal and anal fin ray counts relative to many reef fish, per NOAA Fisheries' species description.",
+      "Larger adults are dark brownish-gray above with a paler underside and faint dark wavy markings on the sides.",
+      "Smaller individuals are markedly lighter overall with distinct dark brown or charcoal blotch ('kiss') markings on the flanks."
+    ],
+    "coloration": "Adults: dark brownish-gray back and sides, pale belly, faint wavy dark markings. Juveniles/small adults: notably paler ground color with bold dark brown/charcoal blotches on the sides.",
+    "juvenileAppearance": "Lighter-bodied with dark brown or charcoal 'kiss-like' blotch markings on the flanks; found in estuarine seagrass beds, oyster reefs, and around structure such as shipwrecks rather than offshore hard bottom.",
+    "adultAppearance": "A large, elongated, dark brownish-gray grouper with a pale belly, faint wavy side markings, and a deeply notched gill cover margin.",
+    "sexualDimorphism": "Protogynous hermaphrodite - most individuals mature first as females; a portion transition to male later. Sources disagree on the age of transition (about age 8 per one NOAA Fisheries source, ages 10-11 per NC DEQ); there is no reliable external field marker of current sex.",
+    "similarSpecies": [
+      {
+        "name": "Black grouper (Mycteroperca bonaci)",
+        "distinction": "Gag has a deeply notched gill cover margin; black grouper's gill margin is more evenly rounded. Both are large, dark Mycteroperca groupers and are commonly confused."
+      },
+      {
+        "speciesId": "mycteroperca_phenax",
+        "name": "Scamp",
+        "distinction": "Scamp shows pronounced elongated soft dorsal and anal fin-ray extensions and a more concave head profile, plus a tan-to-grayish body with sharply defined, well-separated dark spots - a spotted pattern gag lacks."
+      }
+    ],
+    "averageAdultLength": "No single continent-wide average length figure was found; commonly landed legal fish cluster near the applicable minimum size (e.g. 24 in TL in the current Gulf recreational rule).",
+    "commonAnglingSize": "Legal recreational fish are commonly encountered near the minimum size limit in force for the council/state in question.",
+    "typicalWeight": "Not clearly sourced as a distinct 'typical' figure separate from the maximum-size figures below.",
+    "maximumDocumentedSize": "Sources disagree: NOAA Fisheries states variously up to about 3 ft / 50 lb and, in a more detailed pull from the same species page, up to 58 in / 81 lb; NC Division of Marine Fisheries gives 51 in / 55 lb. Recorded as a range with the disagreement flagged rather than resolved to one number.",
+    "longevity": "Sources disagree: NOAA Fisheries states up to 30 years in one summary and 26 years in a more detailed pull from the same page; NC DEQ gives 15 years. Recorded as a range with the disagreement flagged.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Gag Grouper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Grouper, Gag species page",
+        "class": "agency"
+      },
+      {
+        "label": "NC Division of Marine Fisheries - Gag Grouper species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Maximum size and longevity figures disagree between and even within NOAA Fisheries source material and NC DEQ; not resolved to a single number.",
+      "No additional regional common names beyond 'gag' were found in agency sources.",
+      "No thermal preference or tolerance data (°F) was found for this species in any agency or peer-reviewed source searched; omitted from the catalog record entirely rather than guessed."
+    ]
+  },
+  "behavior": {
+    "speciesId": "mycteroperca_microlepis",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Juveniles in estuarine nursery habitat are reported swimming in small groups around rocky ledges; adults on offshore hard bottom are generally solitary or loosely associated with structure outside the spawning period.",
+      "note": "Life-stage habitat and social pattern differ sharply: nursery-stage fish are inshore and grouped near structure, while adult reef fish are more independent structure-holders."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Predatory grouper that ambushes from structure and pursues schooling baitfish and other reef fish; diet spans small forage fish, other reef fish, crustaceans, and squid."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No agency or peer-reviewed source made a specific day/night feeding claim for this species; recorded as mixed rather than assigned confidently."
+    },
+    "coverUse": "Hard-bottom reef, wrecks, rocky ledges, and depressions offshore; seagrass, oyster reef, and shipwreck structure inshore during the juvenile/nursery stage.",
+    "spawningBehavior": "Gag are protogynous hermaphrodites: individuals mature first as females, and some transition to male later (age at transition is not consistently reported across sources). They form spawning aggregations offshore along the continental shelf, with reported windows of mid-January through early May in the South Atlantic and late January through mid-April in the Gulf of Mexico. Both councils close shallow-water grouper harvest during all or part of this window as a conservation measure. This description is biological and regulatory context only - it does not identify, locate, or describe an aggregation as a structure class to fish, and the seasonal closure exists specifically to keep anglers away from that behavior, not to flag a bite window.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Gag Grouper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Grouper, Gag species page",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf of Mexico Fishery Management Council - Grouper, Gag species page",
+        "class": "agency"
+      },
+      {
+        "label": "NC Division of Marine Fisheries - Gag Grouper species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No thermally-driven behavior, current-facing behavior, cold-front response, or angling-pressure response was found in a usable source; all omitted rather than inferred.",
+      "Territoriality/aggression outside the spawning-aggregation context (which this record deliberately does not detail) was not clearly sourced."
+    ]
+  },
+  "diet": {
+    "speciesId": "mycteroperca_microlepis",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans",
+      "mollusks",
+      "larger_prey_fish"
+    ],
+    "primaryNote": "NOAA Fisheries lists round scad, sardines, porgies, snappers, grunts, crabs, shrimp, and squid as prey - a mix of small forage fish, other reef fish (larger_prey_fish class), crustaceans, and squid (mollusks class). Diet capacity is not evidence of a current feeding event.",
+    "lifeStageDiet": {
+      "adult": "Fish, crabs, shrimp, and squid, including other reef species such as porgies, snappers, and grunts; both adult gag and larger conspecifics are also reported to prey on juvenile gag."
+    },
+    "ontogeneticShift": "Juveniles occupy estuarine nursery habitat before moving to offshore hard bottom as adults; specific juvenile diet composition was not found in the sources reviewed.",
+    "observedForageRule": "Diet capacity is not proof that a feeding event is happening now. Observed current forage still comes from a user observation or Hatch Match, never from this record alone.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Gag Grouper species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No juvenile-specific or season-by-season diet breakdown was found in the sources reviewed.",
+      "No prey-size-shift or forage-substitution detail was found beyond the general adult prey list."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "mycteroperca_microlepis",
+    "status": "reviewed",
+    "overview": "Gag behavior in the sources reviewed is organized mainly around a juvenile-inshore-to-adult-offshore life history and around the winter/early-spring spawning-aggregation period, which is management-closed in both the Gulf and South Atlantic. Outside that closure, this record limits itself to structure classes already reviewed for nearshore and offshore hard bottom.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Offshore hard bottom, reefs, ledges, and wrecks.",
+        "conservationNote": "Falls within the reported gag spawning-aggregation window (mid-January onward in the South Atlantic; late January onward in the Gulf). Both councils apply harvest closures covering some or all of this period. This is conservation/regulatory context only.",
+        "invalidators": [
+          "targeting a spawning aggregation or treating aggregation structure as a class to fish",
+          "fishing without checking the current-year closure dates for the applicable council"
+        ]
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Offshore hard bottom, reefs, ledges, and wrecks.",
+        "conservationNote": "Continued spawning-aggregation window and continued harvest closure in both regions through April in most cited closure structures.",
+        "invalidators": [
+          "targeting a spawning aggregation or treating aggregation structure as a class to fish"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Offshore hard bottom, reefs, ledges, and wrecks as the spawning-aggregation period ends.",
+        "conservationNote": "South Atlantic spawning window is reported extending into early May; closures typically run through end of April.",
+        "presentationImplication": "Once a jurisdiction's season is open, bottom contact and drop presentation over reviewed nearshore/offshore reef, ledge, and wreck classes apply.",
+        "invalidators": [
+          "assuming a season is open without checking the current-year council/state rule"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Offshore and nearshore hard bottom, reefs, ledges, and wrecks; adults hold structure outside the spawning-aggregation period.",
+        "presentationImplication": "Bottom contact, drop presentation, structure vertical, and deep drop over reviewed nearshore/offshore reef, ledge, and wreck classes, where the season is open.",
+        "invalidators": [
+          "fishing without a rigged descending device or venting tool where required",
+          "assuming a Gulf or South Atlantic season is open without checking the current-year rule"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Offshore and nearshore hard bottom, reefs, ledges, and wrecks.",
+        "presentationImplication": "Bottom contact, drop presentation, structure vertical, and deep drop over reviewed structure classes, where the season is open.",
+        "invalidators": [
+          "assuming season status carries over from the prior year without checking current rules"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries - Gag Grouper species page",
+        "class": "agency"
+      },
+      {
+        "label": "SAFMC - Grouper, Gag species page",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf of Mexico Fishery Management Council - Grouper, Gag species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "This record deliberately omits any location, structure-naming, or timing detail about spawning aggregations beyond 'this is a management-closed period' - by design, not because the information doesn't exist.",
+      "Gulf recreational season status changes year to year and, in the current cycle, has been closed for the large majority of the year under separate stock-rebuilding rules rather than a simple fixed calendar window; this record describes the structure of that rule rather than committing to specific current-year open dates."
+    ]
+  }
+}

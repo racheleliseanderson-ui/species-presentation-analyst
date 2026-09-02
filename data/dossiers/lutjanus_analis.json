@@ -1,0 +1,186 @@
+{
+  "identification": {
+    "speciesId": "lutjanus_analis",
+    "status": "reviewed",
+    "regionalNames": [
+      "mutton",
+      "mutton fish"
+    ],
+    "bodyShape": "Deep-bodied, laterally compressed snapper with a steep, straight head profile and notably long pectoral fins that reach past the anus.",
+    "identificationTraits": [
+      "A pair of pale blue stripes runs from the snout back along the lower edge of the eye and operculum.",
+      "Rows of bluish dots near the eye separate it from the similar mahogany snapper, which lacks this marking.",
+      "Anal fin is pointed rather than rounded — a trait shared with only the silk snapper among similar Western Atlantic snappers.",
+      "Chevron-shaped vomerine (roof-of-mouth) tooth patch without a posterior extension, unlike the silk snapper's tooth patch.",
+      "13–14 dorsal soft rays, a meristic trait that helps separate it from close relatives."
+    ],
+    "coloration": "Olive-green back and upper sides fading to lighter sides, with a reddish tinge on the fins below the lateral line and on the belly.",
+    "juvenileAppearance": "Juveniles show about eight yellow bars on the body, which fade with age and likely aid camouflage over seagrass.",
+    "adultAppearance": "Adults are olive-green above with a reddish cast to the lower fins and belly, a deep laterally compressed body, and the diagnostic pale blue head stripes; juvenile yellow barring is gone.",
+    "similarSpecies": [
+      {
+        "name": "Silk snapper (Lutjanus vivanus)",
+        "distinction": "Silk snapper shares mutton snapper's pointed anal-fin lobes but has a vomerine tooth patch with a posterior extension, which mutton snapper lacks."
+      },
+      {
+        "name": "Mahogany snapper (Lutjanus mahogoni)",
+        "distinction": "Mahogany snapper lacks the rows of bluish dots near the eye that mark mutton snapper."
+      }
+    ],
+    "averageAdultLength": "About 50 cm (19.7 in) in typical adults.",
+    "commonAnglingSize": "Roughly 18–24 in TL for legal-size recreational fish.",
+    "typicalWeight": "Commonly a few pounds up to roughly 10–15 lb; larger individuals documented to about 25 lb.",
+    "maximumDocumentedSize": "Sources vary: about 82.4 cm / 25 lb in one synthesis, up to 94 cm in another. This record uses 94 cm (about 37 in) as the outer documented length and 25 lb as the outer documented weight rather than resolving the discrepancy.",
+    "longevity": "Estimates vary by source from about 15–20 years to as much as 29 years; this record does not resolve the discrepancy.",
+    "sources": [
+      {
+        "label": "University of the West Indies (OGATT) — Lutjanus analis species fact sheet",
+        "class": "synthesis"
+      },
+      {
+        "label": "Southern Regional Aquaculture Center (Mississippi State University Extension) — Mutton snapper species profile",
+        "class": "synthesis"
+      },
+      {
+        "label": "South Atlantic Fishery Management Council — Mutton Snapper species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Sources disagree on maximum length (82.4 cm vs 94 cm) and longevity (15–20 years vs 29 years); both figures are reported here rather than resolved.",
+      "No sourced thermal preference or distribution temperature range — only depth (to about 95 m) and a general spring/early-summer spawning temperature-and-photoperiod trigger were found.",
+      "Field distinctions from lane snapper (Lutjanus synagris), a common regional look-alike, were not confirmed against an acceptable source in this pass.",
+      "Sexual dimorphism was not addressed in sourced material."
+    ]
+  },
+  "behavior": {
+    "speciesId": "lutjanus_analis",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "note": "Adults are largely solitary with strong site fidelity to a home reef area once settled, aside from aggregating specifically to spawn."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "Feeds primarily by picking prey from the substrate; diet centers on small grunts and other fishes plus nocturnally active crustaceans and mollusks. Documented feeding both day and night."
+    },
+    "territoriality": "Shows strong home-range fidelity once established on a given patch of structure rather than ranging widely.",
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Documented feeding both day and night, with an emphasis on nocturnally active crustacean prey."
+    },
+    "coverUse": "Juveniles use seagrass, mangrove-creek, and canal cover; adults use reef and hardbottom structure.",
+    "spawningBehavior": "Broadcast spawner that forms large aggregations tied to lunar periodicity on reef structure — a pattern documented as a significant regional conservation vulnerability, since these aggregations can be located and fished out quickly. This record excludes aggregation sites, aggregation timing detail, and migration routes; spawning here is biological and conservation context only, not a targeting cue.",
+    "sources": [
+      {
+        "label": "University of the West Indies (OGATT) — Lutjanus analis species fact sheet",
+        "class": "synthesis"
+      },
+      {
+        "label": "Southern Regional Aquaculture Center (Mississippi State University Extension) — Mutton snapper species profile",
+        "class": "synthesis"
+      },
+      {
+        "label": "SEDAR 15A — Life history of Lutjanus analis inhabiting Florida waters",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Cold-front, angling-pressure, and water-clarity behavioral response not found in an acceptable source.",
+      "Tide-specific behavior not directly sourced; currentPreference in the catalog record is inferred from site-fidelity and structure-use language rather than a tide-specific study."
+    ]
+  },
+  "diet": {
+    "speciesId": "lutjanus_analis",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans",
+      "mollusks"
+    ],
+    "primaryNote": "Carnivorous, picking prey primarily from the substrate; diet centers on small grunts and other fishes, nocturnally active crustaceans, and mollusks/snails. Diet capacity is not evidence of a current bait event on the water.",
+    "lifeStageDiet": {
+      "juvenile": "Juveniles in seagrass and mangrove-creek habitat take small crustaceans and other invertebrates.",
+      "adult": "Adults add larger fish prey (small grunts prominent) alongside crustaceans and mollusks."
+    },
+    "observedForageRule": "Diet capacity described here is not proof of a current feeding event; what mutton snapper are actually eating on a given day still has to come from direct observation.",
+    "sources": [
+      {
+        "label": "University of the West Indies (OGATT) — Lutjanus analis species fact sheet",
+        "class": "synthesis"
+      },
+      {
+        "label": "Southern Regional Aquaculture Center (Mississippi State University Extension) — Mutton snapper species profile",
+        "class": "synthesis"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Seasonal diet emphasis by SEASONS-vocab season not found in an acceptable source.",
+      "Ontogenetic shift and prey-size-by-gape data not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "lutjanus_analis",
+    "status": "partial",
+    "overview": "Mutton snapper habitat use shifts from very shallow inshore vegetated and mangrove water as juveniles to nearshore reef and hardbottom as adults. Spawning runs from spring through summer and is tied to lunar periodicity; it is conservation context only — aggregation sites and precise timing are intentionally excluded from this calendar.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Nearshore reef and hardbottom for adults; grass flats and mangrove edges for juveniles and small adults.",
+        "feedingEmphasis": "Benthic picking of small fish, crustaceans, and mollusks.",
+        "presentationImplication": "Structure pitch and live/natural bait suspension around inshore mangrove and grass edges; bottom contact and structure vertical on nearshore reef and rock.",
+        "conservationNote": "Spawning activity begins in this window in at least part of the range; aggregation sites and exact timing are excluded from this record."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Same structure classes as spring; at least one source places peak spawning activity in this season for south Florida populations specifically.",
+        "presentationImplication": "Bottom contact and structure vertical on reef, rock, and wreck nearshore; structure pitch inshore.",
+        "conservationNote": "Peak of the documented spawning window per at least one source; treat spawning strictly as an aggregation-vulnerability concern, not a targeting cue.",
+        "invalidators": [
+          "using this seasonal note to time or locate a spawning aggregation"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Nearshore reef and hardbottom, and inshore structure, in the post-spawn period.",
+        "presentationImplication": "Bottom contact and drop presentation on nearshore structure; structure pitch and tidal drift bait inshore."
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Nearshore reef and hardbottom; inshore habitat for juveniles.",
+        "presentationImplication": "Bottom contact and structure vertical on nearshore structure."
+      }
+    ],
+    "sources": [
+      {
+        "label": "South Atlantic Fishery Management Council — Mutton Snapper species page and Snapper Grouper FMP regulatory amendments",
+        "class": "agency"
+      },
+      {
+        "label": "Southern Regional Aquaculture Center (Mississippi State University Extension) — Mutton snapper species profile",
+        "class": "synthesis"
+      },
+      {
+        "label": "SEDAR 15A — Life history of Lutjanus analis inhabiting Florida waters",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Fall and winter habitat/behavior detail is thin — extrapolated from the general year-round reef-residency pattern rather than season-specific sourcing, hence status: partial.",
+      "Sources disagree on the exact spawning season window (an April–June commercial protection period per a federal regulatory source vs a July–August peak per a life-history study); both are noted rather than resolved."
+    ]
+  }
+}

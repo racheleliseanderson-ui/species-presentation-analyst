@@ -1,0 +1,174 @@
+{
+  "identification": {
+    "speciesId": "atractoscion_nobilis",
+    "status": "reviewed",
+    "regionalNames": [
+      "white seabass"
+    ],
+    "bodyShape": "Elongate, somewhat compressed croaker (family Sciaenidae) body with a pointed head and a large, terminal mouth; small teeth line the roof of the mouth and there are no chin barbels.",
+    "identificationTraits": [
+      "A ridge running along the belly is the key trait separating white seabass from other California croakers (CDFW identification guidance).",
+      "Adults lack large canine teeth in the upper jaw, unlike queenfish -- the species juvenile white seabass are most often confused with.",
+      "Terminal (not sucker-shaped) mouth, with no barbels on the chin."
+    ],
+    "coloration": "Bluish-gray to gray above with dark speckling, becoming silvery below.",
+    "juvenileAppearance": "3 to 6 dark vertical bars on the sides that fade with age; juveniles are frequently mistaken for queenfish near piers and bait docks.",
+    "adultAppearance": "A large, elongate croaker -- despite the common name, not a true bass -- bluish-gray above and silvery below, with a belly ridge and, in adults, no large canine teeth.",
+    "similarSpecies": [
+      {
+        "name": "Queenfish",
+        "distinction": "Queenfish have sharp teeth and are commonly found around the same piers and bait docks as juvenile white seabass, but lack white seabass's belly ridge, and adult white seabass lack queenfish's large canine teeth. CDFW's own anti-poaching identification guidance is built around this specific confusion pair."
+      }
+    ],
+    "averageAdultLength": "Not found as a distinct 'average' figure; at the 28 in legal minimum size fish are roughly 3 years old by more recent otolith-based aging (versus roughly 5 years old in older scale-based studies -- see gaps).",
+    "commonAnglingSize": "At the 28 in legal minimum, fish weigh about 7 lb 6 oz; by 15 years fish reach about 49 in and roughly 38 lb.",
+    "typicalWeight": "About 7 lb 6 oz at the 28 in legal minimum size, up to roughly 38 lb by age 15 (CDFW/OREHP life-history data).",
+    "maximumDocumentedSize": "Largest recorded specimen exceeded 5 ft and weighed about 93 lb; the oldest aged specimen was 27 years old at 54 in (1,365 mm) total length.",
+    "longevity": "Sources disagree: the oldest aged specimen in CDFW/OREHP life-history data was 27 years (54 in TL), while a UC San Diego California Sea Grant summary states the species can live up to 20 years. Both figures are recorded here rather than resolved.",
+    "sources": [
+      {
+        "label": "CDFW white seabass identification guidance (anti-poaching field materials)",
+        "class": "agency"
+      },
+      {
+        "label": "CDFW / OREHP White Seabass Enhancement Plan and life-history research",
+        "class": "agency"
+      },
+      {
+        "label": "UC San Diego California Sea Grant white seabass seafood profile",
+        "class": "synthesis"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Sources disagree on maximum documented age (27 years per CDFW/OREHP life-history data vs. up to 20 years per UC San Diego California Sea Grant); recorded rather than resolved.",
+      "No sourced sexual dimorphism.",
+      "Aging methods disagree on the age at which fish reach the 28 in legal minimum size (about 3 years by newer otolith-based aging vs. about 5 years by older scale-based studies), which affects whether legal-size fish are reliably sexually mature -- flagged for a human to check further."
+    ]
+  },
+  "behavior": {
+    "speciesId": "atractoscion_nobilis",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "note": "Adults typically travel in schools, per CDFW identification and life-history materials, though some general descriptions note fish can also occur solitary."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Piscivorous pursuit predator on schooling baitfish, especially anchovy and sardine, plus squid and pelagic red crabs; large adults are noted to sometimes feed almost exclusively on Pacific mackerel for a period."
+    },
+    "dielTendency": {
+      "class": "crepuscular",
+      "note": "Spawning activity is concentrated in the roughly two hours following sunset (CDFW/OREHP life-history research; UC San Diego California Sea Grant also describes spawning as occurring at night). This is documented specifically for spawning; no comprehensive diel feeding-activity pattern outside spawning was found in sourced material."
+    },
+    "depthMovement": "Seasonal vertical shift: deeper in the water column (mean maximum depth about 31 m) October-March, shallower and more surface-oriented (mean maximum depth about 10.5 m, more time in the top 5 m) May-September, peaking in July; 95% of recorded depths were under 50 m (Aalbers et al. telemetry).",
+    "seasonalActivity": "Northward coastal migration as water warms through spring and summer, with a southward/return migration as it cools; fish occur off Baja California in winter and progress north along the California coast through spring and summer (Aalbers et al.).",
+    "thermalDrivenBehavior": "Telemetry shows tagged fish spend the majority of their time (52%) between 13-16 degC, centered near 14 degC, with monthly means ranging from about 13.0 degC in December to 16.0 degC in June -- described in the source as fish actively occupying a thermal niche, i.e. a preference, not simply a distribution record (Aalbers et al., peer-reviewed telemetry study). Spawning specifically occurs in somewhat warmer water, around 15-18 degC, per separate CDFW/OREHP life-history research.",
+    "coverUse": "Moves in and out of kelp beds and over rocky reef and offshore banks; not documented as a heavy structure-holder compared to true reef-resident fish.",
+    "spawningBehavior": "Broadcast spawner; releases eggs at night, concentrated in the roughly two hours following sunset, mostly in water around 15-18 degC, over rocky habitat and near kelp beds. Eggs are unusually large for a croaker (about 1.3 mm diameter). Sourced timing spans roughly March through September, peaking in late spring to early summer. No spawning site or aggregation location is named.",
+    "sources": [
+      {
+        "label": "Aalbers, S.A. et al., \"Seasonal movement patterns and temperature profiles of white seabass off California\", NOAA/Fishery Bulletin (SPO)",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "CDFW / OREHP White Seabass Enhancement Plan and life-history research",
+        "class": "agency"
+      },
+      {
+        "label": "UC San Diego California Sea Grant white seabass seafood profile",
+        "class": "synthesis"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced territoriality or aggression.",
+      "No sourced cold-front or angling-pressure response.",
+      "General (non-spawning) diel feeding pattern not documented."
+    ]
+  },
+  "diet": {
+    "speciesId": "atractoscion_nobilis",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "mollusks",
+      "crustaceans"
+    ],
+    "primaryNote": "Piscivorous; diet is dominated by schooling forage fish -- especially anchovy, sardine, and herring -- plus market squid and pelagic red crabs. Large adults are documented to sometimes feed almost exclusively on Pacific mackerel for a period. Diet capacity is not evidence of a current bait event.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "CDFW / OREHP White Seabass Enhancement Plan and life-history research",
+        "class": "agency"
+      },
+      {
+        "label": "UC San Diego California Sea Grant white seabass seafood profile",
+        "class": "synthesis"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced life-stage-specific diet breakdown (juvenile vs. adult prey composition), only life-stage habitat.",
+      "No sourced seasonal diet breakdown.",
+      "No clear ontogenetic diet shift documented beyond the general note that large adults can key in heavily on Pacific mackerel."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "atractoscion_nobilis",
+    "status": "reviewed",
+    "overview": "White seabass show a well-documented seasonal pattern: a north-south coastal migration tracking water temperature, a spring-through-summer spawning season concentrated after sunset, and a seasonal vertical shift toward the surface in the warmer months.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deeper in the water column (mean maximum depth about 31 m); population weighted toward the southern part of the range, including off Baja California.",
+        "depthTendency": "Deepest and least surface-oriented seasonal position.",
+        "thermalContext": "Coolest part of the documented thermal niche, with a December monthly mean around 13.0 degC.",
+        "presentationImplication": "Deep-drop and vertical presentations that reach the deeper winter depth band are the reviewed match; this is a depth note, not a bite-window claim."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Rocky reef, kelp-edge, and nearshore structure as fish move north along the coast and water warms.",
+        "movementTendency": "Northward coastal migration as water temperature rises.",
+        "conservationNote": "Spawning window begins (sourced timing runs roughly March onward); no spawning site is named.",
+        "presentationImplication": "Live-bait suspension and structure-vertical presentations near kelp/reef edges remain the reviewed approach."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallower, more surface-oriented water column (mean maximum depth about 10.5 m in August; most time in the top 5 m by July) over kelp beds, rocky reef, and offshore banks.",
+        "depthTendency": "Shallowest and most surface-oriented seasonal position, peaking in July.",
+        "thermalContext": "Warmest part of the documented thermal niche, with a June monthly mean around 16.0 degC; spawning specifically occurs in slightly warmer water, about 15-18 degC.",
+        "conservationNote": "Peak spawning activity (late spring into early summer), concentrated in the two hours after sunset; no spawning site or aggregation is named.",
+        "presentationImplication": "Live-bait slow troll and structure-vertical presentations near kelp edges and reef structure remain the reviewed approach for this shallow, surface-oriented period.",
+        "invalidators": [
+          "treating the spawning window as a bite-timing or location cue"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Aalbers, S.A. et al., \"Seasonal movement patterns and temperature profiles of white seabass off California\", NOAA/Fishery Bulletin (SPO)",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "CDFW / OREHP White Seabass Enhancement Plan and life-history research",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced fall-specific entry beyond the general cooling/southward-migration trend implied by the winter-to-summer contrast.",
+      "No sourced tide interaction with the seasonal or diel pattern."
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "identification": {
+    "speciesId": "hippoglossus_stenolepis",
+    "status": "reviewed",
+    "regionalNames": [
+      "halibut"
+    ],
+    "bodyShape": "Large right-eyed flatfish with an elongated, diamond-shaped body -- more elongated than most flatfish. Lateral line strongly arched over the pectoral fin. Tail broad and symmetrical, lacking a distinct fork.",
+    "identificationTraits": [
+      "Nearly always right-eyed, with both eyes on the upper, dark side of the body; left-eyed individuals are exceptionally rare (ADF&G).",
+      "Lateral line strongly arched above the pectoral fin (ADF&G).",
+      "Tail broad, symmetrical, and lacking a distinct fork -- unlike many other North Pacific flatfish (ADF&G).",
+      "Small, embedded scales give the body a smooth appearance (NOAA Fisheries)."
+    ],
+    "coloration": "Upper (eyed) side gray to brown, or nearly black, with mottling and numerous spots providing camouflage against sand or mud bottoms; underside (blind side) white.",
+    "adultAppearance": "A very large flatfish, mottled gray-brown to nearly black above and white below, with a strongly arched lateral line over the pectoral fin and a broad, unforked, symmetrical tail. Adults reach up to about 8-9 ft and over 500 lb.",
+    "sexualDimorphism": "Females grow faster and reach a larger maximum size than males; females also mature later (about age 12) than males (about age 8).",
+    "similarSpecies": [
+      {
+        "name": "Other large North Pacific flatfish encountered incidentally (e.g., arrowtooth flounder)",
+        "distinction": "Sourced material did not provide a direct side-by-side comparative identification key against other flatfish. The features agencies use to identify halibut itself -- a strongly arched lateral line over the pectoral fin and a broad, symmetrical, unforked tail -- are recorded above as the practical distinguishing traits."
+      }
+    ],
+    "averageAdultLength": "Not found as a distinct 'average' figure in sourced material; maximum documented length is about 8-9 ft (2.4-2.7 m).",
+    "commonAnglingSize": "Not found in sourced material.",
+    "typicalWeight": "Not found in sourced material beyond the maximum weight and the note that males remain smaller than females.",
+    "maximumDocumentedSize": "Documented to about 8-9 ft (2.4-2.7 m) and over 500 lb (230 kg); ADF&G, IPHC, and NOAA Fisheries figures agree closely on these maxima.",
+    "longevity": "Up to 55 years for both sexes -- the oldest documented age (ADF&G; IPHC).",
+    "sources": [
+      {
+        "label": "ADF&G Pacific Halibut species profile",
+        "class": "agency"
+      },
+      {
+        "label": "IPHC Pacific Halibut (Hippoglossus stenolepis): Stock Status and Biology",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries Pacific Halibut species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced average adult length or typical angling weight distinct from the documented maximum.",
+      "No sourced side-by-side identification comparison against other North Pacific flatfish (e.g., arrowtooth flounder); only halibut's own diagnostic traits were found."
+    ]
+  },
+  "behavior": {
+    "speciesId": "hippoglossus_stenolepis",
+    "status": "partial",
+    "social": {
+      "pattern": "solitary",
+      "note": "No sourced schooling behavior; halibut are typically encountered as individual bottom-oriented fish, though they aggregate seasonally on spawning grounds (conservation context, not a targeting note) and to some degree on productive feeding banks."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Primarily a benthic ambush predator on other groundfish, flatfish, and invertebrates, but will actively leave the bottom to pursue pelagic prey such as herring and sand lance (ADF&G; NOAA Fisheries)."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No species-specific diel activity data (day vs. night feeding timing) were found in sourced material. \"Mixed\" is recorded here as an honest placeholder, not a sourced finding -- see gaps."
+    },
+    "thermalDrivenBehavior": "ADF&G and IPHC materials describe halibut as preferring water temperatures of about 37-46 degF (3-8 degC) -- stated in sourced material as a preference, not merely a distribution record. A separate laboratory study (Seitz et al., referenced in search results) reports that temperature affects Pacific halibut activity and feeding motivation, but the specific experimental values could not be retrieved from an accessible source during this research pass.",
+    "depthMovement": "Adults migrate seasonally: deeper (continental slope, roughly 600-1,600+ ft) in winter for spawning, and shallower summer feeding grounds the rest of the year. Juveniles migrate progressively further offshore with age, reaching coastwide distribution by about age five or six.",
+    "coverUse": "Relies on cryptic mottled coloration against sand/mud bottom rather than hard structure; not documented as a structure-oriented species in sourced material.",
+    "spawningBehavior": "Spawns in deep water along the continental slope, roughly November through March, at depths of about 600-1,600+ ft. Females release 500,000 to 4 million eggs per season, in batches over several days; eggs hatch in 12-20 days depending on temperature. No spawning site or aggregation location is named.",
+    "sources": [
+      {
+        "label": "ADF&G Pacific Halibut species profile",
+        "class": "agency"
+      },
+      {
+        "label": "IPHC Pacific Halibut (Hippoglossus stenolepis): Stock Status and Biology",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries Pacific Halibut species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced diel activity pattern; \"mixed\" above is a placeholder, not a documented finding.",
+      "The specific temperature-vs-activity relationship from laboratory research (Seitz et al.) could not be retrieved from an accessible source during this research pass.",
+      "No sourced current-facing or tide-specific behavior.",
+      "No sourced predator-avoidance or angling-pressure response."
+    ]
+  },
+  "diet": {
+    "speciesId": "hippoglossus_stenolepis",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "mollusks",
+      "crustaceans"
+    ],
+    "primaryNote": "Diet shifts strongly with life stage: larvae take zooplankton; juveniles (about ages 1-3) take small crustaceans and small fish; adults are generalist groundfish predators taking cod, sablefish, pollock, rockfish, other flatfish, and occasionally smaller halibut, plus octopus, crabs, and clams, and will leave the bottom to take pelagic sand lance and herring. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae consume zooplankton.",
+      "juvenile": "Small crustaceans and small fish (roughly ages 1-3).",
+      "adult": "Groundfish (cod, sablefish, pollock, rockfish, other flatfish, occasionally smaller halibut), octopus, crabs, and clams; also pelagic sand lance and herring taken off-bottom."
+    },
+    "ontogeneticShift": "Zooplanktivorous larvae, to small-crustacean/small-fish juveniles, to large piscivorous/invertebrate-eating adults.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "ADF&G Pacific Halibut species profile",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries Pacific Halibut species page",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced seasonal diet breakdown.",
+      "No sourced preferred prey size relative to halibut body size."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "hippoglossus_stenolepis",
+    "status": "reviewed",
+    "overview": "Pacific halibut show a clear, well-documented seasonal depth migration tied to winter spawning on the continental slope and summer feeding on the shelf. Recreational management structure (regulatory area, size-limit shape, bag limit, and open days) is also set on an annual cycle by the IPHC in coordination with national and state fishery managers -- the structure is stable, but the specific numbers and dates reset every year.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deep continental slope, roughly 600-1,600+ ft.",
+        "depthTendency": "Deepest seasonal position of the year.",
+        "conservationNote": "Primary spawning season, roughly November through March; no spawning site is named.",
+        "presentationImplication": "Deep-drop presentations are the reviewed match for this depth band, where any fishery remains open at all -- most sport fisheries are closed in this depth range and season.",
+        "invalidators": [
+          "treating winter deep-water aggregation as a location to target -- spawning concentrations are conservation context only"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Transitional: migrating from deep winter spawning grounds back toward shallower shelf feeding grounds.",
+        "movementTendency": "Return migration toward summer feeding areas.",
+        "invalidators": [
+          "assuming a fixed calendar date for the transition; timing is not finely dated in sourced material"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallower shelf/bank feeding grounds, roughly 20-1,000 ft typical depth.",
+        "depthTendency": "Shallowest seasonal position; most sport and commercial harvest activity occurs now.",
+        "feedingEmphasis": "Groundfish and invertebrate prey taken on or near the bottom, plus pelagic sand lance and herring taken off-bottom.",
+        "presentationImplication": "Bottom-contact and drop presentations match the benthic ambush mode in nearshore/bank water; deep-drop for deeper offshore structure."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ADF&G Pacific Halibut species profile",
+        "class": "agency"
+      },
+      {
+        "label": "IPHC Pacific Halibut (Hippoglossus stenolepis): Stock Status and Biology",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries, \"Halibut Sport Fishing in Alaska\" / 2026 Charter Halibut regulation FAQ",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Month-specific migration timing not found beyond the general winter-spawning/summer-feeding pattern.",
+      "No sourced current/tide interaction with the seasonal migration."
+    ]
+  }
+}
