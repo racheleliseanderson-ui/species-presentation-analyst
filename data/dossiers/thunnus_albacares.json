@@ -1,0 +1,188 @@
+{
+  "identification": {
+    "speciesId": "thunnus_albacares",
+    "status": "reviewed",
+    "regionalNames": [
+      "ahi"
+    ],
+    "bodyShape": "Elongated, narrow-bodied tuna with a straight (not rounded) tail outline; more slender-bodied than bluefin tuna.",
+    "identificationTraits": [
+      "Long, bright yellow second dorsal fin and anal fin, with a yellow stripe running down the side.",
+      "Finlets are bright yellow with no black edging (versus bigeye tuna's yellowish finlets edged with a fine black line).",
+      "Pectoral fins are short, thick, stiff, and blade-like, reaching only to about the base of the second dorsal fin (versus bigeye's longer, thinner, flexible pectoral fin that extends past that point).",
+      "Body outline is elongated and narrow with a straight tail, versus bigeye tuna's deeper, thicker, rounded body outline.",
+      "Fresh coloration shows a bright yellow mid-lateral band with a thin blue separation from the dark back; color fades quickly after death and should not be the only field mark relied on."
+    ],
+    "coloration": "Metallic dark blue on the back and upper sides, changing to yellow and then silver on the belly, with a bright yellow mid-lateral stripe.",
+    "adultAppearance": "A slender, straight-tailed tuna with a long, bright yellow dorsal and anal fin and unmarked yellow finlets.",
+    "similarSpecies": [
+      {
+        "name": "Bigeye tuna (Thunnus obesus)",
+        "distinction": "Bigeye tuna have finlets edged with a fine black line (yellowfin's are unmarked yellow), longer and more flexible pectoral fins extending past the second dorsal fin base, and a deeper, more rounded body outline than yellowfin's straight-tailed, elongated shape."
+      }
+    ],
+    "averageAdultLength": "Not resolved to a single figure in reviewed sources; see gaps.",
+    "commonAnglingSize": "Recreational minimum retention size is 27 in curved fork length under Atlantic HMS rules; landed sizes above that vary widely by region and season.",
+    "typicalWeight": "Not resolved to a single typical-weight figure in reviewed sources; see gaps.",
+    "maximumDocumentedSize": "Grows to up to about 400 lb.",
+    "longevity": "A comparatively short-lived tuna, with a lifespan of about 7 years.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Yellowfin Tuna species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-yellowfin-tuna"
+      },
+      {
+        "label": "ISSF handbook for identification of yellowfin and bigeye tuna",
+        "class": "synthesis",
+        "url": "https://www.issfguidebooks.org/wp-content/uploads/sites/5/2025/12/3_BE-YFIDLessIdeal_ENGLISH_v6_logo.pdf"
+      },
+      {
+        "label": "NOAA Fisheries, Atlantic Bigeye, Albacore, Yellowfin and Skipjack Tuna Recreational regulations",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/atlantic-bigeye-albacore-yellowfin-and"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A single average-adult-length or typical-weight figure was not found in the acceptable sources reviewed; only the maximum size (about 400 lb) and minimum legal size (27 in CFL) are sourced.",
+      "Distinguishing traits from blackfin tuna, a smaller Western Atlantic lookalike commonly encountered alongside yellowfin, were not sourced in this review and are omitted rather than guessed."
+    ]
+  },
+  "behavior": {
+    "speciesId": "thunnus_albacares",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "byLifeStage": "Young yellowfin travel in mixed schools with skipjack tuna and juvenile bigeye tuna.",
+      "note": "A schooling pelagic species throughout its life history, not a solitary hunter."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "An apex-level predator feeding on fish, squid, and crustaceans; peer-reviewed tagging found feeding patterns tracking the vertical migration of the deep scattering layer (roughly 40-100 m) both day and night. Diet capacity is not evidence of a current bait event."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Active both day and night, with a documented diel depth shift: mean daytime depth around 74 m versus a somewhat deeper mean nighttime depth around 94 m in one tagged population, following the deep scattering layer's migration rather than resting at night."
+    },
+    "thermalDrivenBehavior": "Peer-reviewed tracking found the majority (about 71%) of horizontal movement occurring between 79-82°F (26-28°C), with a broader optimal/preferred range cited as roughly 68-84°F (20-29°C). Vertical movement becomes almost completely inhibited once water temperature drops below about 46°F (8°C), and tagged fish have dived into water as cold as about 39-41°F (4-5°C) on brief excursions -- a tolerance limit, not a preference.",
+    "currentFacing": "Higher habitat suitability is associated with mesoscale current fronts and eddies, especially warm-core (anticyclonic) eddy margins, where convergence concentrates prey; one study also found seasonal use of cooler, nutrient-rich cyclonic-eddy water in summer, consistent with following productivity rather than temperature alone.",
+    "depthMovement": "Spends the large majority of time (97.6% in one tagged population) above 200 m, within the surface mixed layer; briefly dives much deeper (in excess of 1,000 m in one recorded case) into water below 46°F, where vertical movement is sharply reduced.",
+    "spawningBehavior": "Batch spawner (roughly once every 3 days through the season) once mature at age 2-3, releasing 1-4 million eggs per event. Western Atlantic spawning timing differs by region: May-August in the Gulf of Mexico, July-November in the southeastern Caribbean (broad ocean-basin regions, not named sites). Spawning water and any staging concentration are conservation context only and are not described as holding water.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Yellowfin Tuna species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-yellowfin-tuna"
+      },
+      {
+        "label": "Habitat and behaviour of adult yellowfin tuna (Thunnus albacares), Aquatic Living Resources",
+        "class": "peer_reviewed",
+        "url": "https://www.alr-journal.org/articles/alr/full_html/2017/01/alr170057/alr170057.html"
+      },
+      {
+        "label": "Mesoscale activity drives the habitat suitability of yellowfin tuna, Scientific Reports",
+        "class": "peer_reviewed",
+        "url": "https://www.nature.com/articles/s41598-024-58613-7"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "The tagging study's diel-depth and thermal-preference figures come from one specific tagged population; a broader cross-population synthesis was not found.",
+      "Cold-front / barometric-pressure response with primary-source support.",
+      "Angling-pressure response with primary-source support."
+    ]
+  },
+  "diet": {
+    "speciesId": "thunnus_albacares",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks"
+    ],
+    "primaryNote": "An apex-level pelagic predator feeding on fish, squid, and crustaceans near the top of the food chain; peer-reviewed tagging found feeding activity consistent with tracking the deep scattering layer's vertical migration both day and night. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Juveniles school with skipjack and juvenile bigeye tuna, consistent with feeding on similarly small pelagic prey.",
+      "adult": "Adults feed on fish, squid, and crustaceans, with feeding activity tracking vertically migrating prey layers."
+    },
+    "observedForageRule": "Diet capacity is not proof that a bait event is happening now; observed current forage still comes from a direct sighting, not from this dossier.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Yellowfin Tuna species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-yellowfin-tuna"
+      },
+      {
+        "label": "Habitat and behaviour of adult yellowfin tuna (Thunnus albacares), Aquatic Living Resources",
+        "class": "peer_reviewed",
+        "url": "https://www.alr-journal.org/articles/alr/full_html/2017/01/alr170057/alr170057.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A quantified prey-species breakdown (e.g. specific baitfish or squid species) for the western Atlantic population was not found.",
+      "Seasonal or ontogenetic diet-shift detail beyond the juvenile mixed-schooling note was not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "thunnus_albacares",
+    "status": "partial",
+    "overview": "Yellowfin tuna presence in the western Atlantic is driven by thermal preference (roughly 79-82°F for the bulk of horizontal movement) and by mesoscale current features -- eddy margins and fronts -- that concentrate prey, more than by a fixed regional calendar. Reviewed sources establish spawning-season timing (which differs between the Gulf of Mexico and southeastern Caribbean) but do not give a sourced month-by-month presence/absence calendar for the US recreational fishery, so this dossier is marked partial.",
+    "entries": [
+      {
+        "season": "early_summer",
+        "habitatClass": "Offshore water at mesoscale current fronts and warm-core eddy margins within the preferred thermal band.",
+        "thermalContext": "Within or approaching the roughly 79-82°F band associated with the majority of horizontal movement in reviewed tracking data.",
+        "conservationNote": "Gulf of Mexico spawning season (May-August per NOAA) is underway; spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Assuming a fixed regional arrival date; a sourced calendar for this was not found."
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Offshore water at current fronts and eddy margins; one peer-reviewed study found seasonal use of cooler, nutrient-rich cyclonic-eddy water in summer alongside the warm-core eddy association.",
+        "presentationImplication": "Chum-established drift and live-bait slow troll at a located current seam or temperature break; trolling spread to search open water between features.",
+        "conservationNote": "Gulf of Mexico spawning season continues (through August per NOAA); southeastern Caribbean spawning begins in July. Spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Treating a single day's surface activity as proof of sustained local abundance."
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Offshore water at current fronts and eddy margins within the active thermal band.",
+        "conservationNote": "Southeastern Caribbean spawning continues into November per NOAA; spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Assuming continued Gulf of Mexico spawning-related aggregation after the May-August window without a supporting source."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Atlantic Yellowfin Tuna species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-yellowfin-tuna"
+      },
+      {
+        "label": "Mesoscale activity drives the habitat suitability of yellowfin tuna, Scientific Reports",
+        "class": "peer_reviewed",
+        "url": "https://www.nature.com/articles/s41598-024-58613-7"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A month-by-month US Atlantic/Gulf recreational-fishery presence calendar was not found; only spawning-window timing and thermal/current-feature preference are sourced.",
+      "Winter habitat use/behavior was not specifically sourced for the western Atlantic population."
+    ]
+  }
+}

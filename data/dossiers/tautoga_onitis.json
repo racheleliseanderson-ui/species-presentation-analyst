@@ -1,0 +1,246 @@
+{
+  "identification": {
+    "speciesId": "tautoga_onitis",
+    "status": "reviewed",
+    "regionalNames": [
+      "Blackfish"
+    ],
+    "bodyShape": "Stout-bodied wrasse with an arched head profile, thick rubbery lips, a broad tail, and no scales on the gill covers.",
+    "identificationTraits": [
+      "Heavy, blunt head with thick lips built for crushing shellfish.",
+      "No scales on the gill cover, unlike most inshore sport fish of similar size.",
+      "Dark, mottled coloration overall - the source of the regional name 'blackfish'.",
+      "Juveniles and females tend toward a mottled, brown-toned pattern; males tend toward plainer gray."
+    ],
+    "coloration": "Dark, mottled brown-to-black-to-olive overall, blending against rock and mussel-bed cover; juveniles and females run more mottled/brown-toned, males more uniformly gray.",
+    "sexualDimorphism": "Juveniles and females show a mottled, brown-toned appearance; males are typically more uniformly grayish. This color tendency is the only sourced dimorphism and is not a reliable single-fish sexing method.",
+    "adultAppearance": "A stout, arch-headed, thick-lipped fish in dark mottled-to-gray coloration, found tight to whatever hard or shellfish cover is available.",
+    "similarSpecies": [
+      {
+        "name": "Cunner (Tautogolabrus adspersus)",
+        "distinction": "A smaller, closely related wrasse sharing the same structure habitat; noted here as a common field confusion, but a sourced list of distinguishing traits was not found this session."
+      }
+    ],
+    "averageAdultLength": "Size at maturity runs 7-12 in depending on region; documented adult lengths in tagging studies reached up to about 27 in (685 mm) in Rhode Island and about 20 in (516 mm) in Virginia.",
+    "commonAnglingSize": "Regional recreational minimum sizes run about 15-16 in, which brackets the common keeper range.",
+    "typicalWeight": "Not sourced as a figure distinct from length in the material reviewed.",
+    "maximumDocumentedSize": "Up to about 27 in (685 mm) in a Rhode Island tagging study; the same body of work found a smaller regional maximum in Virginia (about 20 in / 516 mm), indicating real geographic variation rather than one species-wide figure.",
+    "longevity": "Not sourced with a specific maximum-age figure. Sexual maturity is reached at age 3-4 (some fish at age 2).",
+    "sources": [
+      {
+        "label": "NOAA Technical Memorandum (NEFSC), Tautog (Tautoga onitis) Life History and Habitat Requirements",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3075/noaa_3075_DS1.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Tautog species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/tautog/"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Approved Tautog FMP Review for FY2022",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2025/01/Approved_TautogFMPReviewFY2022.pdf"
+      },
+      {
+        "label": "New York State DEC, Species Status Assessment: Tautog (SWAP 2025)",
+        "class": "agency",
+        "url": "https://extapps.dec.ny.gov/fs/programs/dfw/SWAP2025/Marine%20Fish/Tautog.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A single continent-wide maximum weight was not found.",
+      "Typical weight-at-length was not sourced separately from length.",
+      "A reliable field trait list distinguishing tautog from cunner was not sourced in enough detail to include."
+    ]
+  },
+  "behavior": {
+    "speciesId": "tautoga_onitis",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Juveniles establish individual homesites within shared nursery structure; adults also show homesite affinity, though less strongly than juveniles, and will leave a site if conditions turn unfavorable.",
+      "note": "Not a schooling species; several fish sharing one piece of structure are using the same cover, not travelling together. Some adult mixing across populations is reported at spawning."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A durophagous (shell-crushing) sight feeder: pharyngeal teeth crush shellfish and anterior teeth tear prey from the substrate. Feeds by 'scan-and-pick' through the day, chiefly on blue mussels and other hard-shelled prey year-round."
+    },
+    "territoriality": "Homesite-based rather than broadly territorial: individuals, especially juveniles, use a small home shelter, ranging out to feed (up to roughly 500 m from the homesite in one study) and returning to it, including nightly, rather than roaming widely or holding a large exclusive territory.",
+    "dielTendency": {
+      "class": "diurnal",
+      "note": "Strongly diurnal: highest activity in the first hour of daylight, tapering by mid-morning, feeding by sight from soon after sunrise to evening twilight, and a true rest/low-responsiveness state in shelter overnight (fish have been described as touchable by divers at night)."
+    },
+    "seasonalActivity": "Feeding slows sharply in cold water and stops in torpor below about 6C/43F; tautog can reportedly go without food for up to six months in winter, living on stored liver reserves.",
+    "thermalDrivenBehavior": "Temperature directly triggers the season's structure use: the fall offshore migration begins as bottom temperature drops below about 10C/50F, spring inshore movement begins around 11C/52F or above, and optimal feeding is reported near 19-21C/66-70F, declining above roughly 28.7-33.0C/84-91F, with torpor below about 6C/43F.",
+    "depthMovement": "Seasonal rather than diel: shallow structured water in the warm months, deeper rugged offshore bottom in winter once the fall temperature trigger is crossed; juveniles stay in shallow water essentially year-round.",
+    "predatorAvoidance": "Reliance on crevice/cover shelter, both for the nightly rest state and, in juveniles, for daytime refuge; the species is described as extremely local, with position relative to cover mattering at a scale of a few feet.",
+    "coverUse": "The single most important habitat factor sourced for this species: submerged vegetation, shellfish beds, rock, and natural or artificial reef and structure (pilings, jetties, groins, wrecks) at a scale matched to the fish's size - juveniles need small crevices, adults use larger structure.",
+    "spawningBehavior": "A prolonged batch spawner, April-July and peaking around June-July, beginning once bottom water reaches about 9C/48F and peaking near 11-12C/52-54F. Spawns in heterosexual pairs or small groups near estuarine mouths and inshore/nearshore waters, with some documented offshore spawning on hard bottom in deeper water off Maryland/Virginia. This is conservation context only; no spawning site or concentration is targeted in this catalog.",
+    "sources": [
+      {
+        "label": "NOAA Technical Memorandum (NEFSC), Tautog (Tautoga onitis) Life History and Habitat Requirements",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3075/noaa_3075_DS1.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Tautog species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/tautog/"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Approved Tautog FMP Review for FY2022",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2025/01/Approved_TautogFMPReviewFY2022.pdf"
+      },
+      {
+        "label": "New York State DEC, Species Status Assessment: Tautog (SWAP 2025)",
+        "class": "agency",
+        "url": "https://extapps.dec.ny.gov/fs/programs/dfw/SWAP2025/Marine%20Fish/Tautog.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Aggression/dominance behavior is only described in the context of spawning-group formation, not general feeding competition.",
+      "Cold-front (short-term barometric) response beyond the seasonal torpor threshold was not sourced.",
+      "Water-level, flow-change and clarity response were not sourced."
+    ]
+  },
+  "diet": {
+    "speciesId": "tautoga_onitis",
+    "status": "reviewed",
+    "feedingStyle": "specialized",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "mollusks",
+      "crustaceans",
+      "zooplankton"
+    ],
+    "primaryNote": "Adults are durophagous, feeding chiefly on blue mussels and other shellfish year-round, plus barnacles, crabs, hermit crabs, sand dollars, scallops and gastropods; pharyngeal teeth crush the shell and anterior teeth tear prey free. This is diet capacity, not a current bait event.",
+    "seasonalDiet": [
+      {
+        "season": "winter",
+        "emphasis": "Feeding slows sharply and stops below about 43F (torpor); the species can reportedly go without food for months, living on stored liver reserves."
+      },
+      {
+        "season": "summer",
+        "emphasis": "Optimal feeding temperature (about 66-70F) falls in this window; the year-round mussel/shellfish diet is at its most active."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Planktonic copepods and amphipods dominate (amphipods found in 98% of early juveniles by frequency of occurrence).",
+      "juvenile": "Gradual shift from planktonic prey to benthic prey, moving onto small mussels by around 120 mm length.",
+      "adult": "Durophagous - chiefly blue mussels and other shellfish, plus barnacles, crabs and other hard-shelled invertebrates."
+    },
+    "preySizeShifts": "Prey shifts from small planktonic crustaceans in early juveniles to small mussels around 120 mm length and larger hard-shelled prey as adults.",
+    "ontogeneticShift": "Planktivory (copepods, amphipods) as young-of-year, shifting to benthic durophagy (mussels and other shellfish) by adulthood.",
+    "observedForageRule": "Diet capacity is not proof of a current feeding event. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "NOAA Technical Memorandum (NEFSC), Tautog (Tautoga onitis) Life History and Habitat Requirements",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3075/noaa_3075_DS1.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Tautog species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/tautog/"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Approved Tautog FMP Review for FY2022",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2025/01/Approved_TautogFMPReviewFY2022.pdf"
+      },
+      {
+        "label": "New York State DEC, Species Status Assessment: Tautog (SWAP 2025)",
+        "class": "agency",
+        "url": "https://extapps.dec.ny.gov/fs/programs/dfw/SWAP2025/Marine%20Fish/Tautog.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Larval diet is described in the source as likely small copepods but unconfirmed.",
+      "A season-by-season adult diet shift beyond the general year-round shellfish pattern was not sourced."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "tautoga_onitis",
+    "status": "reviewed",
+    "overview": "Tautog is a structure-bound wrasse whose year is organized around one temperature-triggered move: inshore, shallow structure in the warm months and deeper, more rugged offshore structure once fall temperatures drop. It is strongly diurnal, feeding through the day and resting motionless in shelter at night, and it is durophagous - a shellfish-crushing sight feeder, not a chase predator.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Inshore structure as adults return from deeper winter grounds once bottom water reaches about 11C/52F.",
+        "movementTendency": "Inshore migration triggered by temperature, not calendar date.",
+        "conservationNote": "Spawning begins in this window (from about 9C/48F) and continues into summer; conservation context only.",
+        "presentationImplication": "Structure pitch and bottom contact become viable as fish reoccupy shallow structure.",
+        "invalidators": [
+          "treating a fixed spring date as the trigger instead of the sourced temperature threshold"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallow inshore and nearshore structure - reefs, rock, shellfish beds, pilings, wrecks - shared by adults and juveniles.",
+        "depthTendency": "Shallow, structure-bound.",
+        "thermalContext": "Optimal feeding reported near 19-21C/66-70F; feeding declines above roughly 84-91F.",
+        "lightSensitivity": "Strongly diurnal - active from soon after sunrise, resting motionless in shelter at night.",
+        "coverUse": "The dominant habitat driver: crevice- and structure-scale cover for both juveniles and adults.",
+        "presentationImplication": "Structure pitch, bottom contact, and drop presentation into structure.",
+        "invalidators": [
+          "fishing this species away from hard or shellfish structure - open sand/mud is not sourced holding water for it",
+          "reading homesite fidelity as a way to relocate a specific concentration of fish"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Transition from shallow inshore structure to deeper, more rugged offshore structure.",
+        "movementTendency": "Offshore migration begins once bottom temperature drops below about 10C/50F; some fish, especially in northern areas, overwinter inshore instead.",
+        "presentationImplication": "Bottom contact and structure vertical as fish concentrate on deeper structure.",
+        "invalidators": [
+          "assuming every fish makes the offshore move - some inshore overwintering is documented"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Deeper, rugged offshore structure (roughly 80-150 ft) for the offshore contingent; shallow inshore structure for fish that overwinter there.",
+        "thermalContext": "Torpor below about 6C/43F; feeding effectively stops.",
+        "conservationNote": "A resting, non-feeding population for much of this window - not a fishing target regardless of local rules."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Technical Memorandum (NEFSC), Tautog (Tautoga onitis) Life History and Habitat Requirements",
+        "class": "agency",
+        "url": "https://repository.library.noaa.gov/view/noaa/3075/noaa_3075_DS1.pdf"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Tautog species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/tautog/"
+      },
+      {
+        "label": "Atlantic States Marine Fisheries Commission - Approved Tautog FMP Review for FY2022",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2025/01/Approved_TautogFMPReviewFY2022.pdf"
+      },
+      {
+        "label": "New York State DEC, Species Status Assessment: Tautog (SWAP 2025)",
+        "class": "agency",
+        "url": "https://extapps.dec.ny.gov/fs/programs/dfw/SWAP2025/Marine%20Fish/Tautog.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_spring, early_summer, late_summer and late_fall were not separately resolved in the sources reviewed and were folded into the adjacent season.",
+      "Regional variation in the fall/spring temperature triggers (e.g., a report of southern Virginia fish active down to about 7C/45F) was noted but not fully reconciled into the calendar."
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 node_modules
 .tanstack
 .vercel
-.grok
+.app
 .output
 dist
 artifacts

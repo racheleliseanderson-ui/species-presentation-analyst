@@ -1,0 +1,300 @@
+{
+  "identification": {
+    "speciesId": "trachinotus_falcatus",
+    "status": "reviewed",
+    "regionalNames": [
+      "permit",
+      "great pompano",
+      "round pompano"
+    ],
+    "bodyShape": "Deep-bodied and strongly laterally compressed - round in outline as a juvenile, becoming oblong with age. Head slopes into a blunt snout. Deeply forked tail on a narrow peduncle, with elongate, sickle-shaped anterior lobes on the dorsal and anal fins that give the species its name (falcatus, 'armed with scythes').",
+    "identificationTraits": [
+      "Anterior dorsal and anal lobes are elongate and sickle-shaped; the dorsal lobe is longer than in Florida pompano.",
+      "Body depth is more pronounced than in Florida pompano or palometa of comparable length.",
+      "Silver sides with a bluish-green to brown back; fins dark grey to black; belly sometimes yellow, and dark patches occur on some fish.",
+      "Granular teeth are present on the tongue, with pharyngeal bony plates behind - crushing dentition, not cutting dentition.",
+      "Reported fin counts of 17-21 soft dorsal rays and 16-19 soft anal rays.",
+      "Grows far larger than Florida pompano; size alone separates large adults."
+    ],
+    "coloration": "Bright silver flanks under a bluish-green or brownish back, with dark grey to black fins. Some fish carry a yellow wash on the belly or dark blotches on the side.",
+    "juvenileAppearance": "Round-bodied and deep, with orange patches on the chin, fins or belly. Newly settled juveniles are under 1 in standard length and use surf-swept sandy beach nurseries within about 15-20 days of hatching.",
+    "adultAppearance": "A large, deep, mirror-silver, laterally compressed jack with black sickle-shaped dorsal and anal lobes and a deeply forked tail.",
+    "similarSpecies": [
+      {
+        "name": "Florida pompano (Trachinotus carolinus)",
+        "distinction": "Smaller at maturity and at maximum size, with a shallower body and a shorter anterior dorsal lobe. Juvenile pompano carry yellow on the chin, fins and belly where juvenile permit carry orange."
+      },
+      {
+        "name": "Palometa (Trachinotus goodei)",
+        "distinction": "Much smaller, with far more extreme, thread-like elongate dorsal and anal lobes and dark vertical bars on the side. Body depth is less pronounced than permit."
+      }
+    ],
+    "averageAdultLength": "Maturity at about 19.1 in fork length for males and 21.5 in for females; 50% maturity has been estimated at 486 mm FL (2.3 years) for males and 547 mm FL (3.1 years) for females. Predicted lengths from Florida age data are about 12.6 in FL at age 1 and 25.4 in FL at age 5.",
+    "commonAnglingSize": "Not sourced as a catch-size distribution. Agency sourcing describes adults commonly exceeding 3 ft and 15-20 lb.",
+    "typicalWeight": "Adults commonly 15-20 lb per agency sourcing; not resolved as a distribution.",
+    "maximumDocumentedSize": "Sources differ. A museum source gives maxima of 48 in and 79 lb; another compiled source gives 122 cm and 36 kg. The oldest aged fish in the Florida study was a 23-year-old male at 781 mm.",
+    "longevity": "At least 23 years - the oldest fish aged in the Florida study - with the authors noting larger individuals exist in the wild so longevity may exceed that.",
+    "sources": [
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Permit life history",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/permit/life-history/"
+      },
+      {
+        "label": "Crabtree, Hood & Snodgrass 2002, Age, growth, and reproduction of permit (Trachinotus falcatus) in Florida waters. Fishery Bulletin 100:26-34",
+        "class": "peer_reviewed",
+        "url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/2002/1001/cra.pdf"
+      },
+      {
+        "label": "Florida Museum of Natural History - Trachinotus falcatus species profile",
+        "class": "synthesis",
+        "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/trachinotus-falcatus/"
+      },
+      {
+        "label": "Jagassar 2015, UWI Online Guide to the Animals of Trinidad and Tobago - Trachinotus falcatus",
+        "class": "synthesis",
+        "url": "https://sta.uwi.edu/fst/lifesciences/sites/default/files/lifesciences/documents/ogatt/Trachinotus_falcatus%20-%20Permit.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Maximum size figures disagree substantially between sources (48 in / 79 lb versus 122 cm / 36 kg); no reconciled maximum",
+      "No sourced catch-size distribution for the recreational fishery",
+      "Sexual dimorphism not addressed beyond size at maturity; the Florida growth study found no statistically significant difference between male and female growth models (p = 0.059)",
+      "Regional color variation and spawning coloration not sourced"
+    ]
+  },
+  "behavior": {
+    "speciesId": "trachinotus_falcatus",
+    "status": "partial",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Juveniles and young adults school, in groups of roughly ten. Fish at the top of the size range are described as solitary, travelling and feeding alone or in pairs.",
+      "note": "The social pattern changes with size, so a record written around schooling behavior will misdescribe the largest fish. Aggregation at nearshore reef structure during the reproductive period is a separate, reproductive phenomenon and is treated as conservation context."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "Adults are benthic crushers: granular teeth on the tongue backed by pharyngeal bony plates, used on hard-shelled prey rooted out of the substrate. Juveniles begin as planktivores and shift to benthic prey with size."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not sourced. No diel pattern was reported in the telemetry studies consulted, and 'mixed' here records the absence of evidence rather than a finding. Treat as a gap."
+    },
+    "seasonalActivity": "Flats and reef occupancy peaked March through September, with the highest numbers of individuals in April and May, and a marked decline in residency in late fall. One study's autumn decline coincided with a major hurricane, so the autumn signal is partly confounded.",
+    "thermalDrivenBehavior": "Weakly sourced. Residency was generally consistent across water temperatures overall, though residency-temperature relationships varied between sites. No thermal tolerance limits or preference range were located, so the catalog thermal block is omitted rather than guessed.",
+    "currentFacing": "Not sourced.",
+    "depthMovement": "Permit move repeatedly between shallow foraging ground and deeper hard structure: 75% of telemetered individuals were detected in both nearshore flats and reef habitat. Foraging is predominantly in water under about 5 m; adults are recorded to about 30 m.",
+    "waterLevelResponse": "Not sourced, and this is the most important hole in the record. Permit foraging is depth-limited to shallow seagrass, which necessarily makes tide height a constraint on access, but no source consulted measured permit behavior against tide stage. The acoustic-telemetry work that modelled environmental drivers of residency examined temperature, season and lunar phase, not tide.",
+    "predatorAvoidance": "Bull, lemon and hammerhead sharks and great barracuda are the identified predators. Published work reports that angling-related depredation by sharks at offshore aggregation sites can be high.",
+    "coverUse": "Shallow seagrass and sand flats for foraging; nearshore and offshore hard structure - natural reef, artificial reef, wrecks and platforms - for the rest of the pattern. Residency was significantly higher at artificial reefs than at seagrass flats or natural reefs.",
+    "openWaterBehavior": "Movements between flats and reef habitat are frequent and repeated rather than a one-way seasonal migration.",
+    "spawningBehavior": "Conservation context only. Permit are multiple-batch spawners. Florida sampling documented spawning at least during May-July, with agency sourcing giving spring or summer and noting possible year-round spawning in south Florida. Reproduction occurs offshore over reef structure in roughly 33-100 ft. Residency at natural reef sites increased leading up to the full moon, and monthly gonad indices correlated with reef residency but not with flats residency, which is the evidence that the reef trips are reproductive. Compiled sourcing describes aggregations of 250-500 fish. Florida closes harvest inside a defined Special Permit Zone across part of this period. Aggregation sites are excluded from this catalog entirely.",
+    "sources": [
+      {
+        "label": "Brownscombe et al. 2020, Seasonal occupancy and connectivity amongst nearshore flats and reef habitats by permit Trachinotus falcatus. Journal of Fish Biology 96:469-479",
+        "class": "peer_reviewed",
+        "url": "https://static1.squarespace.com/static/56e83fa03c44d8db592ca684/t/600c7dcc09ec2d32374ee6d4/1611431375396/135+Brownscombe+et+al+2020+Seasonal+occupancy+Permit.pdf"
+      },
+      {
+        "label": "Brownscombe et al. 2023, Spatial-temporal patterns of Permit (Trachinotus falcatus) habitat residency in the Florida Keys, USA. Environmental Biology of Fishes 106:419-431",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-022-01332-7"
+      },
+      {
+        "label": "Piczak et al. 2023, Permit (Trachinotus falcatus) fishing quality and conservation threats in the Florida Keys. Gulf and Caribbean Research 34(1):1-12",
+        "class": "peer_reviewed",
+        "url": "https://www.fecpl.ca/wp-content/uploads/2023/01/Permit-Conservation-in-the-Florida-Keys.pdf"
+      },
+      {
+        "label": "Crabtree, Hood & Snodgrass 2002, Age, growth, and reproduction of permit (Trachinotus falcatus) in Florida waters. Fishery Bulletin 100:26-34",
+        "class": "peer_reviewed",
+        "url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/2002/1001/cra.pdf"
+      },
+      {
+        "label": "Florida Museum of Natural History - Trachinotus falcatus species profile (predators, schooling, dentition)",
+        "class": "synthesis",
+        "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/trachinotus-falcatus/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced relationship between permit behavior and tide stage on flats. This is the single largest gap in the record and it matters most for exactly the fishery this species is reviewed for.",
+      "No diel pattern reported by any source consulted; dielTendency is recorded as 'mixed' to mark absence of evidence, not a finding",
+      "No thermal tolerance or preference range located; the catalog thermal block is omitted",
+      "No sourced water-clarity, cold-front or angling-pressure response",
+      "Territoriality and aggression not addressed by any source consulted",
+      "Telemetry findings derive from one south Florida study system and one broad-scale connectivity study; transferability elsewhere in the range is not established"
+    ]
+  },
+  "diet": {
+    "speciesId": "trachinotus_falcatus",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "mollusks"
+    ],
+    "primaryNote": "Adult permit are hard-shelled benthic feeders. Agency sourcing states permit feed primarily on crabs and mollusks; museum sourcing describes larger adults taking gastropods, sea urchins, bivalves and crabs, rooting through substrate to extract them and crushing with granular tongue teeth backed by pharyngeal bony plates. Both crustaceans and mollusks belong in the closed vocabulary here and both are supported. Sea urchins are echinoderms and have no class in the closed vocabulary, so that part of the diet is unrepresentable in this field and is recorded here in text only. Capacity is not a current bait event.",
+    "lifeStageDiet": {
+      "juvenile": "Planktivorous at first - copepods, mysids, larval shrimp and amphipods - then shifting to small benthic prey such as mole crabs and clams.",
+      "adult": "Benthic crustaceans and mollusks: crabs, bivalves and gastropods, with sea urchins taken by larger adults."
+    },
+    "preySizeShifts": "Not sourced as a quantified relationship. The described progression from planktonic prey to mole crabs and clams to gastropods, urchins, bivalves and crabs implies prey size tracks growth, but no source consulted measured it.",
+    "ontogeneticShift": "Planktivory to benthic hard-shell feeding. This is the clearest sourced diet statement for the species and it is qualitative rather than quantitative.",
+    "forageSubstitutions": "Not sourced. No regional or habitat-specific forage comparison was located.",
+    "observedForageRule": "Diet capacity is not proof that a prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Permit life history and Permit status and trends",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/permit/life-history/"
+      },
+      {
+        "label": "Florida Museum of Natural History - Trachinotus falcatus species profile",
+        "class": "synthesis",
+        "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/trachinotus-falcatus/"
+      },
+      {
+        "label": "Jagassar 2015, UWI Online Guide to the Animals of Trinidad and Tobago - Trachinotus falcatus (pharyngeal plates, juvenile prey)",
+        "class": "synthesis",
+        "url": "https://sta.uwi.edu/fst/lifesciences/sites/default/files/lifesciences/documents/ogatt/Trachinotus_falcatus%20-%20Permit.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No stomach-content or stable-isotope diet study for adult permit was located; the diet here rests on agency and museum synthesis, not primary diet data. Status is partial for that reason.",
+      "No quantified ranking of crustaceans against mollusks",
+      "No seasonal diet data, so seasonalDiet is omitted",
+      "Echinoderms (sea urchins) are a sourced adult prey group with no class in the closed forage vocabulary"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "trachinotus_falcatus",
+    "status": "partial",
+    "overview": "Permit occupancy of the shallow-and-structure system is seasonal in a way that is well documented, and tide-linked in a way that is not documented at all. Telemetry puts peak occupancy of both flats and reef habitat from March through September, highest in April and May, with a marked decline in late fall. That spring-summer peak overlaps the reproductive period, which is why Florida's harvest closure sits inside it and why this record treats reef aggregation as conservation context rather than as holding water. Because no source consulted measured permit against tide stage, no entry below asserts one.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Shallow seagrass and sand flats, inshore channels and holes; nearshore and offshore hard structure.",
+        "movementTendency": "Outside the documented March-September occupancy peak. Agency sourcing records permit in south Florida year-round but in northern and central Florida only during warm months.",
+        "presentationImplication": "Flats sight cast on shallow foraging ground; structure vertical over nearshore hard structure.",
+        "invalidators": [
+          "assuming a tide-stage rule this record does not have a source for",
+          "reading a low-occupancy period as an absence"
+        ]
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Shallow seagrass and sand flats; nearshore hard structure.",
+        "movementTendency": "Start of the documented occupancy peak - March is the first month of the March-September window.",
+        "presentationImplication": "Flats sight cast; live or natural bait suspension.",
+        "invalidators": [
+          "treating rising occupancy as a bite prediction"
+        ],
+        "conservationNote": "Approaching the reproductive period. Florida's Special Permit Zone harvest closure begins in this part of the year, and agency pages disagree on whether it starts in April or May - verify current rule text."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Shallow seagrass and sand flats for foraging; nearshore and offshore reef structure through the reproductive period.",
+        "movementTendency": "Highest number of individuals recorded on both flats and reef in April and May.",
+        "feedingEmphasis": "Benthic crushing of crustaceans and mollusks on shallow foraging ground.",
+        "presentationImplication": "Flats sight cast on foraging ground; tidal drift bait along the same edges when water is moving.",
+        "invalidators": [
+          "using reef occupancy during the reproductive period as a reason to fish structure"
+        ],
+        "conservationNote": "Peer-reviewed sampling documents spawning at least from May, reef residency rises toward the full moon, and Florida closes Special Permit Zone harvest across part of this period. Aggregation sites are excluded from this catalog."
+      },
+      {
+        "season": "early_summer",
+        "habitatClass": "Shallow seagrass and sand flats; nearshore reef structure.",
+        "movementTendency": "Inside the March-September occupancy peak.",
+        "presentationImplication": "Flats sight cast.",
+        "invalidators": [
+          "converting documented reproductive-period reef residency into holding water"
+        ],
+        "conservationNote": "Inside the documented May-July spawning period and inside the Florida Special Permit Zone harvest closure. Shark depredation of hooked permit at offshore aggregation sites is reported as high during this period."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallow seagrass and sand flats; nearshore hard structure.",
+        "movementTendency": "Occupancy peak continues through September.",
+        "presentationImplication": "Flats sight cast; live or natural bait suspension on shallow foraging ground.",
+        "invalidators": [
+          "assuming diet capacity indicates a current crab or shellfish event"
+        ],
+        "conservationNote": "Spawning documented at least through July; agency sourcing raises the possibility of year-round spawning in south Florida."
+      },
+      {
+        "season": "late_summer",
+        "habitatClass": "Shallow seagrass and sand flats; nearshore hard structure.",
+        "movementTendency": "End of the documented occupancy peak.",
+        "presentationImplication": "Flats sight cast; structure vertical over nearshore hard structure.",
+        "invalidators": [
+          "reading the end of the occupancy peak as a movement to a named place"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Shallow seagrass and sand flats; nearshore hard structure.",
+        "movementTendency": "A distinct decline in flats occupancy was recorded in autumn, but in that study year it coincided with a major hurricane, so the autumn signal is partly confounded and should not be read as a clean seasonal rule.",
+        "presentationImplication": "Flats sight cast; structure vertical.",
+        "invalidators": [
+          "treating the confounded autumn decline as an established seasonal pattern"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Shallow seagrass and sand flats; nearshore hard structure.",
+        "movementTendency": "Marked decline in residency in late fall across the multi-site study.",
+        "presentationImplication": "Structure vertical over nearshore hard structure; flats sight cast where fish are still present.",
+        "invalidators": [
+          "assuming the species has left the system rather than reduced residency"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Brownscombe et al. 2020, Seasonal occupancy and connectivity amongst nearshore flats and reef habitats by permit Trachinotus falcatus. Journal of Fish Biology 96:469-479",
+        "class": "peer_reviewed",
+        "url": "https://static1.squarespace.com/static/56e83fa03c44d8db592ca684/t/600c7dcc09ec2d32374ee6d4/1611431375396/135+Brownscombe+et+al+2020+Seasonal+occupancy+Permit.pdf"
+      },
+      {
+        "label": "Brownscombe et al. 2023, Spatial-temporal patterns of Permit (Trachinotus falcatus) habitat residency in the Florida Keys, USA. Environmental Biology of Fishes 106:419-431",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-022-01332-7"
+      },
+      {
+        "label": "Crabtree, Hood & Snodgrass 2002, Age, growth, and reproduction of permit (Trachinotus falcatus) in Florida waters. Fishery Bulletin 100:26-34",
+        "class": "peer_reviewed",
+        "url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/2002/1001/cra.pdf"
+      },
+      {
+        "label": "Piczak et al. 2023, Permit (Trachinotus falcatus) fishing quality and conservation threats in the Florida Keys. Gulf and Caribbean Research 34(1):1-12",
+        "class": "peer_reviewed",
+        "url": "https://www.fecpl.ca/wp-content/uploads/2023/01/Permit-Conservation-in-the-Florida-Keys.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission - Permit life history, permit fishery review and permit recreational regulations",
+        "class": "agency",
+        "url": "https://myfwc.com/research/saltwater/fish/permit/fishery/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No tide-stage relationship in any entry, because no source consulted measured one. For a flats sight-cast species this is a material gap.",
+      "No sourced thermal context for any season",
+      "No sourced seasonal diet or forage emphasis; forageEmphasis is absent throughout",
+      "No sourced light sensitivity or diel pattern for any season",
+      "Seasonal occupancy data come from a single south Florida study system; northern-range seasonality rests only on FWC's warm-months statement",
+      "The autumn occupancy decline is confounded by a hurricane in the study year"
+    ]
+  }
+}

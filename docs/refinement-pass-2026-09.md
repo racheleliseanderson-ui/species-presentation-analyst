@@ -407,3 +407,169 @@ that the full analysis offers all three temperature answers.
 
 Client JavaScript: **1,253 KB → 774 KB**, still a 38% cut after adding this
 pass's features.
+
+---
+
+# Saltwater expansion — the catalog goes to 111
+
+## What the app can now do that it could not
+
+It reads saltwater. Six water types instead of two — `flowing`, `stillwater`,
+`surf`, `inshore`, `nearshore`, `offshore` — each with its own holding-water
+vocabulary, its own presentation families, and tide as its movement axis in
+place of river flow.
+
+Thirty-six reviewed saltwater species join the seventy-five freshwater ones.
+Every one of the 111 now carries all four AFP overlays; there is no species left
+in the catalog with nothing researched behind it.
+
+## The bug that would not have shown up until someone used it
+
+Adding four water types produced **zero TypeScript errors**. Every call site in
+the app asked `waterType === "flowing" ? … : …` and treated the else as
+stillwater, so a surf reading would have silently been given lake mechanics —
+compiling cleanly, rendering confidently, and being wrong.
+
+`src/lib/engine/water.ts` now holds that question in one place:
+`declaredHolding`, `declareHolding`, `reviewedHoldingFor`,
+`reviewedPresentationsFor`, `familyFitsWater`, `movementAxisFor`. Twenty-six
+call sites route through it, and `water.test.ts` asserts the properties that
+matter — including that the four marine holding vocabularies never overlap, so
+a surf angler is never offered an offshore canyon edge.
+
+Adding a seventh water type is now a compile error rather than a wrong answer.
+
+## Temperature can be honestly absent
+
+Twelve of the thirty-six saltwater species have **no published thermal band**
+that a review would accept. Grouper, scamp, several rockfish, permit, amberjack.
+The schema previously required one, which meant the only way to add these
+species was to invent a number.
+
+`thermal` is now optional, every field within it is optional, and it carries a
+`basis` of `preference`, `distribution` or `mixed` — because sources conflate
+"what the fish prefers" with "where the fish is caught" constantly, and anglers
+read those two sentences very differently.
+
+When a species has no band the reading says so, in the invalidators rather than
+the unknowns:
+
+> No agency or peer-reviewed thermal band has been found for this species, so
+> this reading does not weigh water temperature at all. Temperature still moves
+> these fish; this product simply has no sourced number to weigh it against.
+
+It is stated as an invalidator deliberately. A missing band is not something the
+angler can fix by wading out with a thermometer, so the app no longer asks them
+to — prompting for a measurement that cannot change the ranking wastes their
+time and implies knowledge the record does not have.
+
+The same principle now applies to `spawning`, `habitat.currentPreference`,
+`habitat.lightResponse`, and a diet dossier's `feedingStyle`/`feedingZone`. One
+record had been forced to write placeholder values and then warn, in its own
+gaps, that the placeholders were not sourced. That is precisely the failure this
+schema exists to prevent.
+
+## Weighting that responds to conditions
+
+SPO-1.3 adds 55 species-specific rules across 24 of the 36 saltwater species,
+every one derived from that species' own reviewed record rather than from
+angling lore, and every one carrying the quoted sentence that justifies it.
+
+Tide is now a condition axis a rule can key on, so red drum on a marsh edge read
+differently on a falling tide than on a slack low — which is the whole point of
+the four marine types.
+
+Twelve species have **no** rule. They are recorded as `no_reviewed_rule`, a new
+coverage mode distinct from `policy_only`. The two used to share a name, which
+made a dozen thin records look as though the app was deliberately withholding
+advice about them. `policy_only` is a statement about conservation status;
+`no_reviewed_rule` means there was nothing to say.
+
+## Consolidation, as asked
+
+Three byte-for-byte copies of `matchesRule` existed, one per override module.
+Tide would have been the fourth. There is now one `matchesOverrideRule`.
+
+Three call sites hand-wrote `waterType === "flowing" ? {holdingRiver} :
+{holdingStill}`, which meant every saltwater holding declaration was silently
+filed as a lake. There is now one `declareHolding`.
+
+The dossier validator's list of presentation-family names was hand-maintained
+and had gone stale the moment saltwater added fourteen families — it warned on
+every correct marine record. It is now derived from the presentation catalog.
+
+## Things that were quietly broken
+
+- **`npm test` ran a hand-maintained list of test files.** One test file had
+  never been included, and had been failing since it was written: two
+  extensionless imports that Vite resolves and Node does not. The script now
+  globs, the imports are fixed, and the suite is 151 tests instead of 143.
+- **Sign-in defaulted to on.** The flag `VITE_AUTH_ENABLED` was read as
+  "enabled unless explicitly `false`", and the file that turned it off is
+  gitignored. A fresh clone of this repository would have built with sign-in on.
+  You asked for no sign-in; the default is now off unless something explicitly
+  says `true`, so the repository ships that way wherever it is built. The auth
+  infrastructure is kept intact for a future feature that needs it.
+- **A rule keyed on a holding class the species is not reviewed for** never
+  fires. Three existed — pike on a shallow flat, yellow perch on a submerged
+  hump, striped bass in a basin. A new test now makes that a failure.
+- **The remaining `.grok/` directory convention** is renamed to `.app/`, and
+  `scripts/write-atomic.mjs` — which existed only to serve a generator skill
+  that no longer exists — is deleted along with its test.
+
+## Verification
+
+`tsc --noEmit`, `eslint .` and `vite build` clean. 151 TypeScript tests and 108
+script tests, 0 failures. Dossier validation: **224 records, 0 errors**, 23
+warnings, every one of which is a record declaring an honest gap.
+
+The 444 database rows were verified by reproducing PostgreSQL's `jsonb::text`
+serialization in JavaScript and comparing MD5 digests on both sides. All four
+match exactly:
+
+| overlay | rows | digest |
+|---|---|---|
+| identification | 111 | `999ea9d856f9f86209ebdd71856b1529` |
+| behavior | 111 | `48041b04fc53a3874da1aba00bd757fb` |
+| diet | 111 | `2adc0377f5d78efa1d17d610a53c4da6` |
+| seasonal_calendar | 111 | `927bd5fcd7c1eff487d473e3bb59b07b` |
+
+`scripts/salt-smoke.mjs` drives a real browser through a saltwater reading —
+red drum, inshore, falling spring tide, marsh edge — and asserts the leading
+family is a saltwater one, that no freshwater family is offered, that the tide
+actually moves the ranking, and that nothing on the page reads as a bite
+prediction or a location. Zero console errors.
+
+Client JavaScript: 774 KB → **994 KB**. That is the one number that went the
+wrong way, and the cause is the 36 saltwater catalog records now shipping in the
+bundle. See the open questions below.
+
+## Open questions for you
+
+1. **Bonefish `targetStatus`.** Harvest is prohibited statewide in Florida and
+   IUCN lists it Near Threatened, but it is a healthy, actively targeted
+   catch-and-release fishery. `conservation_sensitive` would strip its
+   presentation guidance entirely, which for a species people specifically
+   travel to sight-fish may be the wrong call. Currently `regulated_context`.
+2. **Bonnethead.** Reassessed by IUCN as globally Endangered in 2024 and added
+   to CITES Appendix II, while NOAA's domestic stock status is "unknown" and the
+   fishery stays open. The same tension, with a shark's legal consequences.
+3. **The forage vocabulary has no class for bryozoans, ascidians or
+   echinoderms.** Sheepshead diet is 37.5% bryozoans and 30.2% ascidians by
+   volume; permit eat sea urchins; California sheephead are urchin specialists.
+   All three records currently understate their dominant prey, and one of them
+   lost a weighting rule because of it.
+4. **Blacktip shark: federal and Florida rules disagree** on the minimum size.
+   A boat crossing from state to federal water can turn a legal fish illegal.
+   The record states both; you may want the app to be louder about it.
+5. **Bundle size.** The catalog records ship whole to the browser, but most of
+   what makes them large — `nativeContext`, `currentPreference`, `depthTendency`,
+   `lightResponse`, source lists — is display prose the ranking never touches.
+   Splitting each record into an engine core and a prose part fetched like the
+   dossiers would take the bundle well below where it started. It is a real
+   refactor and I have not started it.
+6. **The auth and connector infrastructure** under `src/lib/auth/` and
+   `src/lib/app-data/` is Grok gate and connector plumbing for a product that
+   deliberately has no sign-in. It is now off by default and tested, but it is
+   several hundred KB of code serving nothing. Removing it is a decision about
+   whether you ever want per-user features.

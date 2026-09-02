@@ -29,7 +29,9 @@ function appEnvFetch(env) {
 test("the flag predicate matches src/lib/auth", () => {
   assert.equal(authEnabledFromEnvValue("false"), false);
   assert.equal(authEnabledFromEnvValue("true"), true);
-  assert.equal(authEnabledFromEnvValue(undefined), true);
+  // Absent flag means sign-in off. This app has none, and the default has to
+  // hold for a fresh clone that carries no untracked local env file.
+  assert.equal(authEnabledFromEnvValue(undefined), false);
 });
 
 test("reads the value a live dev server resolved", async () => {
@@ -39,8 +41,8 @@ test("reads the value a live dev server resolved", async () => {
   );
 });
 
-test("a server started without the flag reads as sign-in on", async () => {
-  assert.equal(await probeDevAuthEnabled("http://127.0.0.1:8080", appEnvFetch({})), true);
+test("a server started without the flag reads as sign-in off", async () => {
+  assert.equal(await probeDevAuthEnabled("http://127.0.0.1:8080", appEnvFetch({})), false);
 });
 
 test("agreement passes", () => {
