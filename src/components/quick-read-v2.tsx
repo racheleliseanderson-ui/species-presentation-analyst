@@ -409,7 +409,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-mark">
             Context arrived from another Hook tool
           </p>
-          <h2 className="mt-2 font-display text-2xl">Use what we already know?</h2>
+          <h2 className="mt-2 font-display text-2xl">Use what the last app sent over?</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted">
             One confirmation carries the useful fields forward. Nothing is applied until you approve
             it, and geography still cannot silently choose a population profile.
@@ -446,7 +446,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted">
             Water sets the situation. Species behavior explains it. Presentation follows from that
-            relationship—not from a product ranking.
+            relationship. It isn't a product ranking.
           </p>
         </div>
         <div className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)]">
@@ -751,7 +751,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
         </Button>
         {!canRead && (
           <p className="text-sm text-muted">
-            Pick a species and river/stream or lake/reservoir to start.
+            Pick a species and the kind of water you're on to start.
           </p>
         )}
         <button

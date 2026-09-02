@@ -12,6 +12,14 @@ const BLOCKED_KEYS = new Set([
   "lng",
   "lon",
   "gps",
+  "coords",
+  "point",
+  "position",
+  "location",
+  "geo",
+  "geojson",
+  "bbox",
+  "centroid",
   "geometry",
 ]);
 

@@ -15,7 +15,7 @@ const buttonVariants = cva(
       },
       size: {
         md: "rounded-[var(--radius-sm)] px-4 text-sm",
-        sm: "rounded-[var(--radius-xs)] px-3 text-xs min-h-9",
+        sm: "rounded-[var(--radius-xs)] px-3 text-xs min-h-11",
         lg: "rounded-[var(--radius-md)] px-5 text-sm min-h-12",
       },
     },

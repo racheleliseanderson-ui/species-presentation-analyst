@@ -230,7 +230,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
         <section className="stagger-in mb-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">
-              Biology before bravado
+              Start with the fish
             </p>
             <h1 className="mt-4 max-w-xl font-display text-5xl text-fg sm:text-6xl">
               What is this species plausibly doing here?

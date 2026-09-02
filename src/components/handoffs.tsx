@@ -34,7 +34,7 @@ const SPECS: HandoffSpec[] = [
   {
     id: "waterways",
     fleetName: "Field Sense",
-    label: "Waterways",
+    label: "Field Sense Navigator",
     purpose: "Where does water like this exist, and what is it doing right now?",
     chainStep: "Back one step · water",
   },
@@ -176,7 +176,7 @@ export function Handoffs({
               Send this reading to {active.label}?
             </h4>
             <p className="mt-2 text-sm text-muted">{active.purpose}</p>
-            <p className="mt-3 text-sm text-fg">Only these fields travel:</p>
+            <p className="mt-3 text-sm text-fg">Here's the summary. The link also carries whatever the app you came from sent along:</p>
             <dl className="mt-3 space-y-2 text-sm">
               {summary.map((row) => (
                 <div key={row.label} className="flex justify-between gap-4">

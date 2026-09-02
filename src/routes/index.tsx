@@ -122,8 +122,8 @@ function Home() {
             })}
           </div>
           <p className="mt-3 text-sm text-muted">
-            Your pathway changes how much is shown, not the biology. No pathway unlocks a bite
-            score, hotspot, or product ranking.
+            Your pathway changes how much is shown, not the biology. None of them adds a bite
+            score or a hotspot. This app doesn't have those.
           </p>
         </section>
       </div>
