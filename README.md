@@ -2,7 +2,7 @@
 
 **Hook the Horizon · Field Intelligence** · `HTH-SP-001` · app `0.8.0`
 
-TanStack Start + Nitro. **Live now:** [species-presentation-analyst.vercel.app](https://species-presentation-analyst.vercel.app/). Canonical host `species.hookthehorizon.blog` is not attached to the Vercel project yet — Launch from Ops uses the Vercel URL until it is.
+TanStack Start + Nitro. **Live now:** [species.hookthehorizon.blog](https://species.hookthehorizon.blog/). The canonical host is attached and serving; Launch from Ops points at it.
 
 Field PWA: `vite-plugin-pwa` emits `sw.js` (NetworkFirst pages, CacheFirst images). Grok still owns `/__grok/manifest.webmanifest` and `?install=1`.
 
