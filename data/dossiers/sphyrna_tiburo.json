@@ -1,0 +1,163 @@
+{
+  "identification": {
+    "speciesId": "sphyrna_tiburo",
+    "status": "reviewed",
+    "regionalNames": [
+      "bonnethead",
+      "shovelhead shark",
+      "bonnet shark"
+    ],
+    "bodyShape": "Smallest hammerhead species; streamlined body typical of coastal Sphyrnidae, with the genus's laterally expanded head (cephalofoil).",
+    "identificationTraits": [
+      "Head is broad, smooth, and shovel- or spade-shaped rather than the strongly T-shaped, laterally scalloped head of scalloped hammerhead or the broad, flat, near-straight-edged head of great hammerhead — the single clearest mark separating bonnethead from the two federally/state-prohibited hammerheads it could otherwise be mistaken for.",
+      "Sexually dimorphic head shape unique among sharks: adult females have an evenly rounded head margin, while adult males develop a distinct forward bulge in the center of the head once they reach maturity (NOAA).",
+      "Scattered small dark markings on the dorsal surface and flanks over an otherwise gray, tan, or greenish back and paler belly."
+    ],
+    "coloration": "Gray, tan, or greenish above with scattered small dark markings, paler below.",
+    "sexualDimorphism": "Unique among sharks: mature males show a distinct central bulge on the head; mature females have an evenly rounded head margin (NOAA).",
+    "adultAppearance": "A small, gray-to-greenish shark with a smooth, spade-shaped head, distinguishable from both larger hammerhead species by head shape alone.",
+    "similarSpecies": [
+      {
+        "name": "Great hammerhead (Sphyrna mokarran)",
+        "distinction": "Federally and Florida-state PROHIBITED. Has a much broader, flatter, nearly straight-edged head and grows far larger; NOAA's own comparison note describes bonnethead's shovel-shaped head and roughly 5 ft maximum size specifically to distinguish it from great hammerhead."
+      },
+      {
+        "name": "Scalloped hammerhead (Sphyrna lewini)",
+        "distinction": "Federally and Florida-state PROHIBITED. Has a distinctly scalloped (wavy-edged) hammer with a central notch, unlike bonnethead's smooth spade-shaped head."
+      },
+      {
+        "name": "Smooth hammerhead (Sphyrna zygaena)",
+        "distinction": "Florida-state PROHIBITED (per FWC's prohibited list). Has a smooth-edged but much broader, more rectangular head and grows considerably larger than bonnethead."
+      }
+    ],
+    "averageAdultLength": "NOAA: average 3-4 ft.",
+    "commonAnglingSize": "Most inshore recreational catches fall in the 2-4 ft range typical of the species; no minimum size currently applies in either federal or Florida state waters (see targetContext).",
+    "typicalWeight": "Not resolved to a typical figure; NOAA gives a maximum documented weight only (see maximumDocumentedSize).",
+    "maximumDocumentedSize": "NOAA: maximum length about 5 ft, maximum documented weight 24 lb.",
+    "longevity": "NOAA: estimated maximum age 18 years (females), 16 years (males).",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Bonnethead Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bonnethead-shark"
+      },
+      {
+        "label": "NOAA Fisheries, Bonnethead Shark: Science",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bonnethead-shark/science"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Typical (as opposed to maximum) weight not found.",
+      "Juvenile-specific appearance not resolved beyond the adult/general description."
+    ]
+  },
+  "behavior": {
+    "speciesId": "sphyrna_tiburo",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Widely described in the sources reviewed as common in bays, estuaries, and grass flats, consistent with loose group association typical of small coastal Sphyrnidae; a formal schooling-structure study was not reviewed this session."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "NOAA and the peer-reviewed literature describe an omnivorous diet: benthic invertebrate prey (crabs, shrimp, snails) taken by grubbing/benthic feeding, alongside fish and — unusually for a shark — genuine digestion and assimilation of seagrass, not just incidental ingestion."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved to a specific diel pattern from a sourced account this session; recorded as a gap."
+    },
+    "spawningBehavior": "Roughly 5-month gestation; 4-14 live pups born in late summer or early fall, about 12 in at birth. Recorded as conservation context only; no pupping location is identified.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Bonnethead Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bonnethead-shark"
+      },
+      {
+        "label": "NOAA Fisheries, Bonnethead Shark: Science",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bonnethead-shark/science"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel tendency, current-facing, depth movement, and thermal-driven behavior not sourced.",
+      "No water-temperature figures were found for this species."
+    ]
+  },
+  "diet": {
+    "speciesId": "sphyrna_tiburo",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "mollusks",
+      "small_forage_fish"
+    ],
+    "primaryNote": "NOAA describes an omnivorous diet of fish, crabs, snails, and shrimp 'in addition to grazing on seagrass — making them unique among sharks for this herbivorous behavior.' This is corroborated by peer-reviewed work (Leigh, Papastamatiou and German 2018, Proceedings of the Royal Society B) showing bonnethead sharks genuinely digest and assimilate seagrass rather than merely ingesting it incidentally while hunting benthic prey among grass blades — a rare, real, sourceable case of partial herbivory/omnivory in an elasmobranch. Diet capacity is not evidence of a current bait event, and seagrass consumption specifically should not be read as a targetable forage behavior — it is digestive/nutritional biology, not a bait cue.",
+    "lifeStageDiet": {
+      "adult": "Crustaceans (crabs, shrimp), mollusks (snails), small fish, and digested seagrass, per NOAA and the peer-reviewed seagrass-digestion study."
+    },
+    "observedForageRule": "Diet capacity described here is not proof that a bait event is occurring on any given day. Observed current forage still comes from a user observation or Hatch Match. Seagrass digestion capacity in particular is a biological/nutritional finding, not a presentation cue.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Bonnethead Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bonnethead-shark"
+      },
+      {
+        "label": "Leigh, S.C., Papastamatiou, Y.P. and German, D.P. 2018. Seagrass digestion by a notorious 'carnivore'. Proceedings of the Royal Society B 285:20181583",
+        "class": "peer_reviewed",
+        "url": "https://royalsocietypublishing.org/rspb/article/285/1886/20181583/79039/Seagrass-digestion-by-a-notorious-carnivore"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "This session could not directly load the Leigh et al. 2018 paper (403 error on the publisher page); its seagrass-digestion finding is included because it is independently corroborated by NOAA's own species page and by a 2024 Frontiers in Marine Science review, but a direct read of the primary paper's quantitative results (e.g., percent seagrass in diet, digestibility figures) is still owed and is recorded here as a gap.",
+      "Seasonal diet emphasis not sourced."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "sphyrna_tiburo",
+    "status": "partial",
+    "overview": "A small, shallow-water hammerhead common on grass flats and in bays and estuaries year-round across its warm-temperate to tropical range, with late-summer/early-fall pupping. Month-by-month habitat shifts were not resolved from a sourced account this session.",
+    "entries": [
+      {
+        "season": "late_summer",
+        "habitatClass": "Shallow grass flats, sand holes, and bay/estuary edges.",
+        "conservationNote": "Pupping season (late summer into early fall); no pupping location is identified.",
+        "presentationImplication": "Flats sight-cast and live/natural bait suspension are the reviewed inshore families that fit a shallow-water sight-fishing target on grass flats.",
+        "invalidators": [
+          "treating pupping timing as a bite cue"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Continues in shallow grass-flat and bay/estuary habitat; pupping continues into early fall.",
+        "presentationImplication": "Same reviewed inshore families as late summer.",
+        "invalidators": []
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Bonnethead Shark species overview",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/bonnethead-shark"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Winter, spring, and summer entries are not supported by a sourced seasonal-movement account for this species; only the late-summer/early-fall pupping period is well documented. A genuine month-by-month or thermally-anchored seasonal calendar was not found this session."
+    ]
+  }
+}

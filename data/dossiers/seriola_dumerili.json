@@ -1,0 +1,177 @@
+{
+  "identification": {
+    "speciesId": "seriola_dumerili",
+    "status": "reviewed",
+    "regionalNames": [
+      "amberjack"
+    ],
+    "bodyShape": "Robust, elongated jack body, deeper and more compressed than the closely related banded rudderfish, with a forked tail.",
+    "identificationTraits": [
+      "Dark amber-brown stripe runs from the nose through the eye to the front of the first dorsal fin, becoming more pronounced when the fish is excited or feeding.",
+      "First dorsal fin has 7 spines, versus 8 in banded rudderfish.",
+      "Upper jaw bone curves upward toward the eye.",
+      "An amber horizontal stripe runs along the mid-body in some fish, giving the species its common name.",
+      "Juveniles show 5–6 dark vertical bars on a yellowish body."
+    ],
+    "coloration": "Brownish or bluish-gray back with a silvery-white belly, plus the diagnostic dark eye stripe and, in some fish, an amber body stripe.",
+    "juvenileAppearance": "Yellow body with five or six dark vertical bars; schools pelagically around drifting Sargassum mats before settling to demersal habitat at roughly 5–6 months of age.",
+    "adultAppearance": "Brownish-gray to bluish-gray above and silvery-white below, with the dark eye stripe running from snout through the eye to the first dorsal fin, most vivid when the fish is excited or feeding.",
+    "similarSpecies": [
+      {
+        "name": "Banded rudderfish (Seriola zonata)",
+        "distinction": "Banded rudderfish lacks greater amberjack's dark eye stripe, shows a bluish sheen with a white-tipped tail and first dorsal fin, and has 8 first-dorsal spines versus amberjack's 7."
+      },
+      {
+        "name": "Almaco jack (Seriola rivoliana)",
+        "distinction": "Almaco jack shares the dark eye stripe but has a notably rounder body and elongated soft dorsal rays more than double the length of the rest of that fin; greater amberjack's dorsal fin is more uniform in height."
+      }
+    ],
+    "averageAdultLength": "Not separately sourced from typical angling weight; see commonAnglingSize.",
+    "commonAnglingSize": "Most commonly landed around 40 lb.",
+    "typicalWeight": "Most commonly up to about 40 lb.",
+    "maximumDocumentedSize": "Up to about 6 ft and occasionally over 200 lb; females reach larger sizes and greater longevity than males.",
+    "longevity": "Documented to about 17 years; matures at 3–4 years of age.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Greater Amberjack species overview",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf of Mexico Fishery Management Council — jack species identification guide",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced thermal preference or distribution temperature range for greater amberjack in the wild — only depth range and a subtropical/warm-temperate latitude band were found; aquaculture growth-temperature studies exist but are not a wild preference or distribution figure.",
+      "No sourced population-average length — only typical angling weight and maximum size were found.",
+      "Lesser amberjack (Seriola fasciata) field distinction not confirmed against an acceptable source.",
+      "Sexual dimorphism beyond size-at-age (females larger and longer-lived) not detailed further."
+    ]
+  },
+  "behavior": {
+    "speciesId": "seriola_dumerili",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Juveniles school strongly around pelagic Sargassum mats; schooling behavior decreases as the fish matures, and adults are comparatively solitary, congregating around specific structure rather than schooling in open water.",
+      "note": "Adult aggregation around a wreck or reef is a structure response, not a schooling behavior in the open-water sense."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "opportunistic",
+        "pursuit"
+      ],
+      "note": "Adults take crabs, squid, and other reef-associated fishes around structure; juveniles feed on zooplankton, including crustacean larvae, in the pelagic Sargassum community."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Diel activity pattern was not directly sourced for wild fish; classified as mixed pending a source-backed determination rather than left blank, since the field is required."
+    },
+    "territoriality": "Adults hold on specific reef, rock, or wreck structure rather than ranging widely in open water; not documented as aggressively territorial in sourced material.",
+    "coverUse": "Structure-oriented as adults — reefs, rocky outcrops, and shipwrecks; juveniles use pelagic Sargassum as cover in open water.",
+    "openWaterBehavior": "Juveniles are pelagic, schooling around drifting Sargassum mats before transitioning to demersal, structure-oriented habitat around 5–6 months of age.",
+    "spawningBehavior": "Broadcast spawner; adults congregate on reef and wreck structure to spawn, with a spawning peak in spring reported for Gulf and South Atlantic populations, and a single female releasing tens of millions of eggs across a season. This record excludes aggregation sites and precise timing; spawning is conservation context, related to why Gulf harvest is currently restricted under a rebuilding plan, and is not a targeting cue.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Greater Amberjack species overview",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf of Mexico Fishery Management Council — Greater amberjack season length and closure announcements",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel activity pattern (crepuscular/diurnal/nocturnal) not found in an acceptable source; classified here as mixed by default rather than sourced.",
+      "Cold-front, angling-pressure, and water-clarity response not found.",
+      "Current-facing and tide-specific behavior not sourced."
+    ]
+  },
+  "diet": {
+    "speciesId": "seriola_dumerili",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "zooplankton"
+    ],
+    "primaryNote": "Adults are opportunistic structure-associated predators taking crabs, squid, and other fishes around reefs and wrecks; juveniles feed on zooplankton, including crustacean larvae, while pelagic around Sargassum. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Zooplankton, crustacean larvae, and other small invertebrates in the pelagic Sargassum community.",
+      "adult": "Crabs, squid, and reef-associated fishes."
+    },
+    "observedForageRule": "Diet capacity described here is not proof of a current feeding event; what greater amberjack are actually eating on a given day still has to come from direct observation.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Greater Amberjack species overview",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Seasonal diet emphasis and a full ontogenetic prey-size shift beyond the juvenile/adult split were not found in an acceptable source."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "seriola_dumerili",
+    "status": "partial",
+    "overview": "Greater amberjack shift from pelagic, Sargassum-associated juveniles to structure-holding nearshore/offshore adults. Spring is the reported spawning peak and is conservation context only. Current harvest availability depends heavily on in-season quota status, especially in the Gulf, and is not itself a behavior signal — this calendar describes habitat and structure use, not a fishing season.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Nearshore and offshore reef, rock, and wreck structure for adults.",
+        "conservationNote": "Reported spawning peak (March–June per NOAA); aggregation sites and precise timing are excluded from this record. This window also overlaps with scheduled regulatory closures in both management areas — a regulatory fact, not a fishing recommendation.",
+        "presentationImplication": "Structure vertical and bottom contact on nearshore structure; deep drop and vertical jig on deeper offshore structure.",
+        "invalidators": [
+          "using the spawning window as a location or timing cue"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Same nearshore/offshore structure classes.",
+        "presentationImplication": "Structure vertical and vertical jig on nearshore structure; deep drop and trolling on offshore structure.",
+        "invalidators": [
+          "assuming a fixed calendar season without checking the current year's quota-driven closures"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Nearshore and offshore reef, rock, and wreck structure.",
+        "presentationImplication": "Structure vertical and bottom contact nearshore; vertical jig and deep drop offshore."
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Nearshore and offshore structure, likely deeper as water cools; not directly sourced by season.",
+        "presentationImplication": "Deep drop and vertical jig on offshore structure."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries — Greater Amberjack species overview and stock status",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf of Mexico Fishery Management Council — Greater amberjack season length and closure announcements",
+        "class": "agency"
+      },
+      {
+        "label": "South Atlantic Fishery Management Council — Snapper Grouper Amendment 49",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Season-by-season depth and behavior shift beyond the general depth range was not found in an acceptable source; entries largely repeat the year-round structure-use pattern, hence status: partial.",
+      "Because harvest status (open/closed, bag limit) changes yearly and by stock based on quota accounting, this calendar cannot and does not encode a current fishing season — verify separately with NOAA Fisheries and the relevant council."
+    ]
+  }
+}

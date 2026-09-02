@@ -1,0 +1,331 @@
+{
+  "identification": {
+    "speciesId": "sciaenops_ocellatus",
+    "status": "reviewed",
+    "regionalNames": [
+      "redfish",
+      "channel bass",
+      "puppy drum",
+      "bull red"
+    ],
+    "bodyShape": "Elongate drum body with a slightly arched back, sloping head and blunt snout. The mouth is inferior and roughly horizontal, set for feeding down onto the bottom.",
+    "identificationTraits": [
+      "One or more black ocellated spots on the upper side, from below the soft dorsal back to the base of the tail. One spot is typical; multiple spots are common and are not a different fish.",
+      "No barbels on the chin. This is the single cleanest separation from black drum, which carries chin barbels.",
+      "Inferior, horizontal mouth with banded teeth: a bottom-oriented feeding apparatus.",
+      "Iridescent silver-grey ground colour with a copper cast, darker along the back, paler to near-white below.",
+      "Caudal fin is squared to very shallowly emarginate, not deeply forked."
+    ],
+    "coloration": "Iridescent silvery-grey overall with a coppery cast, darkening on the back. SCDNR and NC DMF both describe the same ground colour; the copper intensity varies between individuals and waters, from deep dark copper through to an almost silvery sheen.",
+    "regionalColorVariation": "Copper intensity varies with water and with individual fish rather than tracking a described subspecies boundary. This catalog does not treat colour as a stock or regional key.",
+    "juvenileAppearance": "Estuarine juveniles carry the same ocellated tail spot and copper-cast silver body at much smaller size. The spot is present early and is the reliable trait.",
+    "adultAppearance": "A copper-cast silver drum with an inferior mouth, no chin barbels, and one or more black spots at the tail base. Large fish are heavy-shouldered and darker over the back.",
+    "similarSpecies": [
+      {
+        "name": "Black drum (Pogonias cromis)",
+        "distinction": "Black drum carry barbels on the chin; red drum have none. Black drum also lack the ocellated tail spot. NC DMF uses the barbel as the primary separation."
+      },
+      {
+        "name": "Other sciaenids with dark markings (for example juvenile drums and croakers)",
+        "distinction": "The discrete round black ocellus at the caudal base, combined with an absence of chin barbels and an inferior horizontal mouth, separates red drum. Scattered irregular spotting over the back and dorsal fin belongs to spotted seatrout, not red drum."
+      },
+      {
+        "speciesId": "cynoscion_nebulosus",
+        "name": "Spotted seatrout",
+        "distinction": "Spotted seatrout are grey-green with many small irregular black spots scattered over the back, dorsal fin and tail, and carry a pair of large canine teeth at the tip of the upper jaw. Red drum have one to several ocellated spots confined to the tail region and no prominent canines."
+      }
+    ],
+    "averageAdultLength": "SCDNR reports an average sampled fish of about 18 in and 2.6 lb in South Carolina. NC DMF gives a species maximum of about 5 ft.",
+    "commonAnglingSize": "State slot limits concentrate retained fish in a narrow band; Florida's statewide slot is 18-27 in total length, and other jurisdictions sit near that range. Fish above the slot are common and are released.",
+    "typicalWeight": "About 2-3 lb at the average sampled size reported by SCDNR; slot-sized fish commonly run a few pounds to roughly 8 lb.",
+    "maximumDocumentedSize": "ASMFC gives up to about 60 in and in excess of 90 lb. NC DMF gives up to 5 ft and 100 lb. The South Carolina state record is 75 lb (1965).",
+    "longevity": "ASMFC reports ages up to about 60 years. SCDNR gives a maximum of about 38 years for South Carolina fish, noting older individuals elsewhere. Louisiana's FMP describes fish reaching about age 30 with some exceeding age 40.",
+    "sources": [
+      {
+        "label": "SCDNR marine species account: red drum",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/reddrum.html"
+      },
+      {
+        "label": "NC DMF red drum species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/red-drum"
+      },
+      {
+        "label": "ASMFC red drum species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/red-drum/"
+      },
+      {
+        "label": "Louisiana Department of Wildlife and Fisheries, 2024 Red Drum Fishery Management Plan",
+        "class": "agency",
+        "url": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Marine_Fishery_Management_Plans/2024-Red-Drum-FMP.pdf"
+      },
+      {
+        "label": "FWC red drum recreational regulations",
+        "class": "agency",
+        "url": "https://myfwc.com/fishing/saltwater/recreational/red-drum/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "sexual dimorphism: no agency source found describing an external field key, so the field is omitted rather than guessed",
+      "a single continent-wide mean length or weight; the numbers above are state-specific sampling summaries",
+      "regional common-name coverage beyond redfish, channel bass, puppy drum and bull red is not agency-verified"
+    ]
+  },
+  "behavior": {
+    "speciesId": "sciaenops_ocellatus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Juveniles and subadults are estuarine residents with restricted spatial use: telemetry found a significant negative relationship between detections and distance from the release point, and 91 percent of all detections at three receivers around a single structured site (Dresser and Kneib 2007). Adults form large schools, particularly in the autumn spawning period (LDWF).",
+      "note": "The species is not a uniformly schooling pelagic. Small estuarine fish behave as resident individuals or small groups tied to structure and marsh; large adults are the schooling life stage."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic",
+        "pursuit"
+      ],
+      "note": "NC DMF describes red drum as bottom feeders taking small crabs and shrimp that will also feed in the water column on small fish, and notes visible tailing in shallow grass beds. LDWF describes larger juveniles and adults as dietary generalists feeding on whatever is locally abundant. The inferior, horizontal mouth is a down-facing apparatus; column feeding is a capacity, not the default."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No agency source gives a clean diel preference. Daylight shallow feeding is documented, including tailing over shallow grass. Telemetry shows light modifying the tidal response rather than driving movement on its own: subadults that dispersed on a daytime flood tide remained stationary when the flood began after sunset (Dresser and Kneib 2007)."
+    },
+    "seasonalActivity": "Movement rises in the cold half of the year. Moulton et al. 2017 recorded directed bay-scale movements in winter and spring, peaking December through March and coinciding with water temperatures below 15 degrees C, with some individuals moving up to 70 km although mean final displacement stayed under 5 km. SCDNR describes juveniles moving from marsh into deeper overwintering water and larger adults returning to nearshore areas in spring.",
+    "thermalDrivenBehavior": "LDWF gives a tolerance range of 2-35 degrees C (36-95 degrees F). Ward et al. 1993 measured critical thermal minima of about 1.6 degrees C for juveniles acclimated to 12 degrees C, and critical thermal maxima of about 29.5 degrees C at 12 degrees C acclimation rising to about 34.8 degrees C at 20 degrees C acclimation, with roughly 0.4 degrees C of cold tolerance gained per 1 degree C drop in acclimation temperature. That is a wide, acclimation-dependent envelope: red drum are one of the more thermally forgiving inshore species in this batch. TPWD nevertheless listed red drum among recreationally important species killed in the February 2021 Texas freeze.",
+    "currentFacing": "Uses tide as a delivery and access mechanism. Fish hold at structured low-tide sites and disperse with the flood, some travelling through intertidal channels or across the flooded marsh surface (Dresser and Kneib 2007).",
+    "depthMovement": "Shallow-biased. Mean depth of about 51 cm in a Texas lagoon array, with the shallow inner lagoon used 82.6 percent of the time (Moulton et al. 2017). Juveniles drop into deeper river channels and holes over winter; adults leave for nearshore hard bottom and artificial reef at roughly age 4-5.",
+    "coverUse": "Strong affinity for habitat edges rather than open bottom (Moulton et al. 2017): marsh edge interfaces in Spartina, seagrass beds, oyster reef, and structured sites carrying overhead structure. LDWF notes that structural complexity influences juvenile predator avoidance.",
+    "openWaterBehavior": "Adults that have emigrated from the estuary use nearshore coastal water, hard and live bottom, and artificial reef. LDWF documents movements exceeding 778 km over two-year periods, so an adult is not a fixture of any one system.",
+    "spawningBehavior": "Autumn spawner. Agency accounts give late August through November with a peak in late September and early October, and spawning at dusk and at night. Females are highly fecund, producing up to roughly two million eggs in a season, and males generate drumming sounds by vibrating the swim bladder. Recorded here as conservation context. This record does not describe where spawning fish concentrate, and any such concentration is excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Dresser and Kneib 2007, Fisheries Management and Ecology 14:183-190",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Moulton et al. 2017, Estuaries and Coasts 40:905-916",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Ward, Blandon, King and Beitinger 1993, Northeast Gulf Science 13(1)",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Louisiana Department of Wildlife and Fisheries, 2024 Red Drum Fishery Management Plan",
+        "class": "agency",
+        "url": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Marine_Fishery_Management_Plans/2024-Red-Drum-FMP.pdf"
+      },
+      {
+        "label": "SCDNR marine species account: red drum",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/reddrum.html"
+      },
+      {
+        "label": "NC DMF red drum species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/red-drum"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "cold-front and barometric response with primary-source support",
+      "water clarity response with primary-source support",
+      "angling pressure response with primary-source support",
+      "a resolved diel preference independent of tide stage",
+      "territoriality and intraspecific aggression: no agency or peer-reviewed source located, fields omitted"
+    ]
+  },
+  "diet": {
+    "speciesId": "sciaenops_ocellatus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "small_forage_fish",
+      "zooplankton"
+    ],
+    "primaryNote": "A bottom-oriented generalist. NC DMF describes red drum as bottom feeders on small crabs and shrimp that will also take small fish in the column. SCDNR gives adults feeding primarily on menhaden, spot, anchovies, blue crab and speckled crab, and juveniles on opossum shrimp, grass shrimp, juvenile spot, mud minnows, mud crabs and fiddler crabs. LDWF describes larger juveniles and adults as dietary generalists taking whatever is locally abundant. Capacity for any of these is not evidence that a bait event is happening now.",
+    "seasonalDiet": [
+      {
+        "season": "winter",
+        "emphasis": "LDWF reports fish dominating winter and spring diets in Louisiana. Treat that as a documented seasonal pattern in one system, not a coastwide rule."
+      },
+      {
+        "season": "spring",
+        "emphasis": "Fish continue to dominate in the LDWF seasonal pattern."
+      },
+      {
+        "season": "summer",
+        "emphasis": "LDWF reports crustaceans, particularly blue crabs, dominating summer and autumn diets."
+      },
+      {
+        "season": "fall",
+        "emphasis": "Crustacean-dominated in the LDWF pattern, blue crab in particular."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "LDWF gives early juveniles taking copepods and mysid shrimp at roughly 30 percent of stomach contents, plus amphipods at roughly 9 percent. ASMFC gives juveniles on zooplankton and small crabs and shrimp.",
+      "juvenile": "SCDNR gives opossum shrimp, grass shrimp, juvenile spot, mud minnows, mud crabs and fiddler crabs. ASMFC describes juveniles typically preying on grass shrimp, small crabs and fish.",
+      "adult": "SCDNR gives menhaden, spot, anchovies, blue crab and speckled crab. Adults expand into fish and larger invertebrates with size."
+    },
+    "preySizeShifts": "Prey size tracks gape and life stage: zooplankton and mysids in the first months, then shrimp and small crabs, then blue crab and clupeid-scale fish in adults.",
+    "ontogeneticShift": "Zooplankton to benthic crustaceans to a mixed crustacean and fish diet. The species does not become obligately piscivorous; crustaceans stay central through adulthood.",
+    "forageSubstitutions": "LDWF treats larger juveniles and adults as generalists feeding on locally abundant resources, so forage composition is a property of the system rather than of the species. A complete regional substitution table was not sourced.",
+    "observedForageRule": "Diet capacity is not proof that a bait or crustacean event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "SCDNR marine species account: red drum",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/reddrum.html"
+      },
+      {
+        "label": "NC DMF red drum species profile",
+        "class": "agency",
+        "url": "https://www.deq.nc.gov/about/divisions/marine-fisheries/public-information-and-education/species-profiles/red-drum"
+      },
+      {
+        "label": "Louisiana Department of Wildlife and Fisheries, 2024 Red Drum Fishery Management Plan",
+        "class": "agency",
+        "url": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Marine_Fishery_Management_Plans/2024-Red-Drum-FMP.pdf"
+      },
+      {
+        "label": "ASMFC red drum species page and life-history and habitat-needs document",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/RedDrum.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "mollusk and annelid contribution: mentioned loosely in secondary literature, not confirmed in the agency accounts used here, so those forage classes are omitted",
+      "month-by-month diet inside a season, which is system-specific",
+      "a coastwide seasonal diet pattern; the seasonal entries above rest on the Louisiana FMP alone"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "sciaenops_ocellatus",
+    "status": "partial",
+    "overview": "Red drum are a tide-driven, edge-oriented estuarine fish for most of their lives and a nearshore fish as large adults. The dominant seasonal axes that agencies actually document are the winter shift into deeper channels and holes, elevated directed movement in winter and spring below about 15 degrees C, and autumn spawning as conservation context. Tide stage, not season, is the strongest movement driver at day scale.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deeper river channels and holes inside the estuary; channel edges adjacent to the marsh and creek systems used the rest of the year.",
+        "depthTendency": "Deeper than the rest of the year. SCDNR describes juveniles moving from marsh into deeper overwintering water.",
+        "movementTendency": "Moulton et al. 2017 recorded directed bay-scale movement peaking December through March at water temperatures below 15 degrees C.",
+        "thermalContext": "Well inside the 2-35 degrees C tolerance range LDWF reports, but TPWD listed red drum among species killed in the February 2021 Texas freeze, so extreme cold events remain a real mortality source.",
+        "currentUse": "Tide continues to govern access to shallow feeding ground; the flooded marsh is available less often at lower winter water levels.",
+        "presentationImplication": "Bottom contact and live or natural bait suspension in the deeper channel water; tidal drift bait along channel edges.",
+        "invalidators": [
+          "treating a winter fish as a shallow flooded-marsh fish",
+          "assuming a cold snap has no consequence because the tolerance range is wide"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Marsh edge, oyster bar, grass flat and tidal creek as fish return to shallow estuarine water; nearshore reef and artificial reef for adults returning inshore from the coast.",
+        "movementTendency": "SCDNR describes larger adults returning to nearshore areas in spring. Directed bay-scale movement continues into spring in the Moulton et al. array.",
+        "feedingEmphasis": "LDWF gives fish dominating spring diets in Louisiana.",
+        "currentUse": "Flood-tide dispersal onto the flooded marsh surface and through intertidal channels resumes as water warms (Dresser and Kneib 2007).",
+        "presentationImplication": "Tidal drift bait and live or natural bait suspension along edges the tide is already working; structure pitch at oyster bar.",
+        "invalidators": [
+          "reading returning adults as a spawning event; spawning is autumn"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallow estuarine edges: grass flat, marsh edge, oyster bar, tidal creek and creek mouth. Surf trough and inner sandbar along open beach.",
+        "depthTendency": "Shallow. Moulton et al. recorded a mean depth of about 51 cm with the shallow inner lagoon used 82.6 percent of the time.",
+        "forageEmphasis": "LDWF gives crustaceans, blue crab in particular, dominating summer diets.",
+        "currentUse": "The clearest tidal signal of the year: site fidelity to structured water at low tide, dispersal onto the flooded marsh and through intertidal channels on the flood (Dresser and Kneib 2007).",
+        "coverUse": "Habitat edges over open bottom. Marsh edge interfaces, seagrass, oyster reef and overhead structure.",
+        "lightSensitivity": "Daylight shallow feeding including visible tailing over grass. A flood tide beginning after sunset did not produce the usual dispersal in the telemetry study, so light modifies the tidal response.",
+        "presentationImplication": "Flats sight cast where fish are actually visible; tidal drift bait and live or natural bait suspension on the edge the tide is running along; structure pitch at oyster; surf bait soak in the trough on open beach.",
+        "invalidators": [
+          "sight-casting to water where no fish has been seen",
+          "treating diet capacity for blue crab as a declared crab event"
+        ]
+      },
+      {
+        "season": "late_summer",
+        "habitatClass": "Estuarine edges continue; adults increasingly nearshore.",
+        "conservationNote": "Spawning begins in this window. Agency accounts give late August through November. Spawning concentrations are excluded from this record and from target guidance.",
+        "presentationImplication": "Unchanged from summer for estuarine-resident fish. Do not convert the onset of the spawning period into a new approach.",
+        "invalidators": [
+          "using the spawning period as a targeting window"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Nearshore hard and live bottom and artificial reef for adults; estuarine edges and channels for juveniles and subadults.",
+        "forageEmphasis": "LDWF gives crustaceans, blue crab in particular, dominating autumn diets.",
+        "thermalContext": "Spawning has been associated with water temperature easing from about 29 degrees C down toward about 23 degrees C.",
+        "conservationNote": "Peak spawning is late September into early October. This is the most conservation-sensitive window in the red drum year and the reason the federal EEZ closure and state slot caps exist. Spawning and staging concentrations are excluded from target guidance.",
+        "presentationImplication": "Bottom contact and structure vertical over nearshore reef; tidal drift bait inside the estuary. No presentation change is derived from the spawning period itself.",
+        "invalidators": [
+          "treating an autumn concentration of large fish as a target",
+          "carrying a state slot limit across the federal boundary"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Spawning period tails off through November; estuarine fish begin the shift toward deeper channels and holes.",
+        "movementTendency": "The transition into the December-March directed movement period documented by Moulton et al. 2017.",
+        "conservationNote": "Spawning overlap continues into November in agency accounts.",
+        "presentationImplication": "Tidal drift bait and bottom contact along channel edges as fish leave the shallowest water.",
+        "invalidators": [
+          "assuming shallow marsh access persists at the same tide stages as summer"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Dresser and Kneib 2007, Fisheries Management and Ecology 14:183-190",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Moulton et al. 2017, Estuaries and Coasts 40:905-916",
+        "class": "peer_reviewed"
+      },
+      {
+        "label": "Louisiana Department of Wildlife and Fisheries, 2024 Red Drum Fishery Management Plan",
+        "class": "agency",
+        "url": "https://www.wlf.louisiana.gov/assets/Resources/Publications/Marine_Fishery_Management_Plans/2024-Red-Drum-FMP.pdf"
+      },
+      {
+        "label": "SCDNR marine species account: red drum",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/reddrum.html"
+      },
+      {
+        "label": "ASMFC, Sciaenops ocellatus Red Drum: Life History and Habitat Needs",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/RedDrum.pdf"
+      },
+      {
+        "label": "TPWD news release, 23 February 2021, winter weather fish kills on the Texas coast",
+        "class": "agency",
+        "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_spring and early_summer entries: no agency or peer-reviewed source separated these from the adjacent seasons, so they are omitted rather than interpolated",
+      "surf-zone seasonality: agency accounts confirm beach and surf-zone use but do not resolve it by season, so surf holding classes carry no seasonal timing here",
+      "seasonal diet outside Louisiana; the forage emphases above rest on a single state FMP",
+      "population-archetype calendars below species level"
+    ]
+  }
+}

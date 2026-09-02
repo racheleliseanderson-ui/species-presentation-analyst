@@ -1,0 +1,161 @@
+{
+  "identification": {
+    "speciesId": "sebastes_variabilis",
+    "status": "reviewed",
+    "regionalNames": [
+      "dusky rockfish",
+      "light dusky rockfish"
+    ],
+    "bodyShape": "Standard Sebastes fusiform, moderately compressed rockfish body. Interorbital space (between the eyes) is convex, and head spines are typically absent.",
+    "identificationTraits": [
+      "Three pores on each side of the lower jaw and two dark bars on each cheek (ADF&G field key).",
+      "Convex space between the eyes; head spines typically absent (NOAA/AFSC rockfish field guide).",
+      "Fin ray counts: dorsal XIII,13-16; anal 7-9; pectoral 17-19; gill rakers 32-36 (NOAA/AFSC rockfish field guide).",
+      "Peritoneum (body-cavity lining) light to dark, versus dark rockfish's uniformly dark peritoneum."
+    ],
+    "coloration": "Gray to greenish-brown on the back and sides, with darker blotches beneath the soft dorsal fin. Ventral side and the pectoral and pelvic fins are tinged pink; sides show orange-red-brown flecks; belly pale pink to whitish.",
+    "adultAppearance": "A brownish-gray to greenish-brown rockfish with pink-tinged fins and belly, orange-red flecking on the sides, and the diagnostic jaw pores and cheek bars. Reaches roughly 21-23 in (53-59 cm).",
+    "similarSpecies": [
+      {
+        "name": "Dark rockfish (Sebastes ciliatus)",
+        "distinction": "Dark rockfish is uniformly black to dark blue on the back and sides with a uniformly dark peritoneum, versus dusky rockfish's brownish-gray to greenish-brown cast, pink-tinged fins and belly, and light-to-dark peritoneum. The two were treated as a single species until Orr & Blackburn (2004) resurrected S. variabilis as distinct from a redescribed S. ciliatus; they remain easy to confuse in the field."
+      },
+      {
+        "name": "Widow rockfish / yellowtail rockfish / black rockfish (other Alaska pelagic-shelf rockfish)",
+        "distinction": "ADF&G's rockfish identification guide separates dusky from these look-alikes using the jaw pores and cheek bars (absent or different on the others) together with dusky's pink/orange fin and belly tint, versus widow rockfish's more uniform brown/brass cast and yellowtail rockfish's distinctly yellowish fins."
+      }
+    ],
+    "averageAdultLength": "Not found as a distinct 'average' figure in sourced material; see maximumDocumentedSize.",
+    "commonAnglingSize": "Not found in sourced material.",
+    "typicalWeight": "Not found in sourced material.",
+    "maximumDocumentedSize": "Reported maximum length varies slightly by source: the NOAA/AFSC rockfish field guide gives 21 in (56 cm), while ADF&G/stock-assessment materials give up to 23.2 in (59 cm). Both are recorded here rather than picking one.",
+    "longevity": "Long-lived: oldest recorded fishery sample was 76 years old (NPFMC/AFSC Gulf of Alaska stock assessment); age at 50% maturity is about 10.3 years, at roughly 40.6 cm.",
+    "sources": [
+      {
+        "label": "ADF&G rockfish species identification guide",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries / AFSC Field Guide to the Rockfishes (Scorpaenidae) of Alaska",
+        "class": "agency"
+      },
+      {
+        "label": "NPFMC/AFSC Stock Assessment and Fishery Evaluation: Dusky Rockfish, Gulf of Alaska",
+        "class": "agency"
+      },
+      {
+        "label": "Orr & Blackburn (2004), resurrection of Sebastes variabilis, NOAA Fishery Bulletin",
+        "class": "peer_reviewed"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced average adult length, common angling size, or typical weight distinct from maximum documented size.",
+      "Small discrepancy in reported maximum length between the NOAA/AFSC field guide (56 cm) and ADF&G/stock-assessment materials (59 cm); both recorded rather than resolved.",
+      "Very young juvenile appearance and habitat not described in sourced material."
+    ]
+  },
+  "behavior": {
+    "speciesId": "sebastes_variabilis",
+    "status": "partial",
+    "social": {
+      "pattern": "schooling",
+      "note": "ADF&G's own regulatory identification guidance classifies dusky rockfish as a \"pelagic rockfish\" -- an open-water species found mid-water in schools near rocky structure, rather than a solitary bottom-hugger."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "opportunistic"
+      ],
+      "note": "Adult diet is dominated by euphausiids (krill) and Pacific sand lance, together accounting for about 99% of stomach contents in recent Gulf of Alaska sampling -- consistent with mid-water plankton/small-fish feeding rather than benthic feeding (NPFMC/AFSC stock assessment)."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "No species-specific diel activity data (day vs. night feeding timing) were found in sourced material. \"Mixed\" is recorded here as an honest placeholder, not a sourced finding -- see gaps."
+    },
+    "depthMovement": "Adults hold at roughly 100-200 m on offshore banks and shelf gullies; older juveniles occupy shallower, more inshore water than adults, per the Gulf of Alaska stock assessment. No finer-grained seasonal depth shift is documented.",
+    "predatorAvoidance": "Not documented in sourced material.",
+    "coverUse": "Associates with rocky substrate, sponge beds, and coral on offshore banks and shelf gullies (NPFMC/AFSC stock assessment).",
+    "spawningBehavior": "Ovoviviparous (live-bearing); parturition of larvae is believed to occur in spring, based on ripe females sampled on an April Gulf of Alaska research cruise. As in other Sebastes, mating and fertilization occur separately from the spring release of larvae; the timing of mating is not documented in sourced material. No spawning location or aggregation is named.",
+    "sources": [
+      {
+        "label": "ADF&G rockfish species identification guide (\"pelagic rockfish\" schooling classification)",
+        "class": "agency"
+      },
+      {
+        "label": "NPFMC/AFSC Stock Assessment and Fishery Evaluation: Dusky Rockfish, Gulf of Alaska",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced diel activity pattern; \"mixed\" above is a placeholder, not a documented finding.",
+      "No sourced territoriality, aggression, current-facing behavior, cold-front response, or angling-pressure response.",
+      "No sourced thermal-driven behavior for this species specifically."
+    ]
+  },
+  "diet": {
+    "speciesId": "sebastes_variabilis",
+    "status": "reviewed",
+    "feedingStyle": "specialized",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "zooplankton",
+      "small_forage_fish"
+    ],
+    "primaryNote": "Adult diet is dominated by euphausiids (krill) and Pacific sand lance, together comprising about 99% of stomach contents sampled in recent Gulf of Alaska surveys (NPFMC/AFSC stock assessment). Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "adult": "Euphausiids and Pacific sand lance dominate; other prey items make up the small remainder in sourced surveys."
+    },
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "NPFMC/AFSC Stock Assessment and Fishery Evaluation: Dusky Rockfish, Gulf of Alaska",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Juvenile and young-of-year diet not described in sourced material.",
+      "No seasonal or geographic breakdown of diet composition beyond the general adult figures."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "sebastes_variabilis",
+    "status": "partial",
+    "overview": "Dusky rockfish biology is best documented around its spring parturition timing and its year-round association with offshore banks and shelf gullies at 100-200 m. Sourced material does not describe a season-by-season habitat shift beyond that, so most seasons are represented here only by the general habitat description with an explicit note that no distinct seasonal shift is documented.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Offshore banks and outer continental shelf gullies at roughly 100-200 m over rocky substrate, sponge beds, and coral -- the general adult habitat.",
+        "conservationNote": "Live-bearing rockfish; larval release (parturition) is believed to occur in spring based on ripe females sampled on an April Gulf of Alaska research cruise. No spawning concentration or location is described or implied.",
+        "presentationImplication": "Deep-drop and vertical-jig presentations that reach the 100-200 m band remain the reviewed approach for this depth; this is a habitat/depth note, not a seasonal bite claim.",
+        "invalidators": [
+          "treating spring parturition timing as a feeding or catch cue"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Same offshore bank/gully structure at roughly 100-200 m described for the species generally; sourced material does not document a distinct summer habitat shift.",
+        "presentationImplication": "Deep-drop, vertical-jig, and suspended-stationary presentations in the 100-200 m depth band remain the reviewed approach.",
+        "invalidators": [
+          "assuming a documented summer-specific habitat shift or bite window; none is described in sourced material"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NPFMC/AFSC Stock Assessment and Fishery Evaluation: Dusky Rockfish, Gulf of Alaska",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Fall and winter habitat or depth shifts not documented in sourced material.",
+      "No sourced season-by-season diet or activity shift beyond spring parturition timing."
+    ]
+  }
+}

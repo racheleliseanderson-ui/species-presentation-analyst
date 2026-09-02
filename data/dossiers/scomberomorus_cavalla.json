@@ -1,0 +1,178 @@
+{
+  "identification": {
+    "speciesId": "scomberomorus_cavalla",
+    "status": "reviewed",
+    "regionalNames": [
+      "kingfish",
+      "king"
+    ],
+    "bodyShape": "Elongated, laterally compressed mackerel body, fully scaled except for the pectoral fins.",
+    "identificationTraits": [
+      "Lateral line dips sharply downward below the second dorsal fin, then runs wavy toward the tail — the clearest field mark separating it from Spanish mackerel, whose lateral line curves gently.",
+      "First (spiny) dorsal fin is gray/colorless with no black blotch, unlike the black-tipped first dorsal fin of Spanish mackerel.",
+      "No prominent golden-yellow spots on the sides as adults, unlike Spanish mackerel's golden spotting.",
+      "Two dorsal fins separated by a gap; the first retracts into a groove in the body.",
+      "7–10 finlets follow the second dorsal and anal fins.",
+      "Large mouth with roughly 30 large, closely spaced, triangular, uniform teeth per jaw side."
+    ],
+    "coloration": "Iron-gray to olive back fading gradually to silvery sides and belly with an iridescent sheen; juveniles show faint yellow markings that disappear with maturity.",
+    "juvenileAppearance": "Young fish show lateral yellow markings that fade as the fish matures.",
+    "adultAppearance": "Iron-gray back and silvery sides, no black blotch on the first dorsal fin, and no bold golden spotting; the sharply dipping lateral line is the most reliable field mark against Spanish mackerel.",
+    "similarSpecies": [
+      {
+        "speciesId": "scomberomorus_maculatus",
+        "name": "Spanish mackerel",
+        "distinction": "Spanish mackerel is smaller, shows a gently curved lateral line (versus king mackerel's sharp dip), a black blotch on the front of the first dorsal fin, and prominent golden-yellow spots along the sides — all absent in king mackerel."
+      }
+    ],
+    "averageAdultLength": "A sourced population-average length was not found; see commonAnglingSize and maximumDocumentedSize.",
+    "commonAnglingSize": "Legal recreational fish start around 24 in fork length in South Atlantic states; many landed fish run well under the maximum size.",
+    "typicalWeight": "A sourced population-average weight was not found; fish over about 30 lb are commonly regarded as large ('smoker' kings).",
+    "maximumDocumentedSize": "Up to about 5.5 ft and 100 lb.",
+    "longevity": "Documented to more than 20 years; sexual maturity reached around age 2.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — King Mackerel species profile",
+        "class": "agency"
+      },
+      {
+        "label": "University of the West Indies (OGATT) — Scomberomorus cavalla species fact sheet",
+        "class": "synthesis"
+      },
+      {
+        "label": "North Carolina Department of Environmental Quality — Spanish mackerel species profile (king vs. Spanish mackerel identification)",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No sourced population-average length or weight for typically caught fish — only maximum size and legal minimum size were found.",
+      "No sourced thermal preference figure distinct from the roughly 20°C / 68°F distribution/movement threshold reported by two agency-adjacent sources.",
+      "Cero mackerel (Scomberomorus regalis) field distinction was not confirmed against an acceptable source."
+    ]
+  },
+  "behavior": {
+    "speciesId": "scomberomorus_cavalla",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "note": "Adults typically travel and feed in schools."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Voracious pursuit predator on schooling baitfish (menhaden, jacks, cutlassfish, and similar), plus crustaceans and, rarely, mollusks; documented leaping clear of the water in pursuit of prey. Adults favor prey roughly 10–15 cm long."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not clearly sourced by time of day; classified as mixed pending a source-backed determination rather than left blank, since the field is required."
+    },
+    "depthMovement": "Ranges to the edge of the continental shelf (about 200 m) but is most common under about 80 m; moves onto the inner shelf and closer inshore in summer and around higher tides.",
+    "thermalDrivenBehavior": "Migration is strongly temperature-driven: fish winter in a mixing zone off south Florida and move north (Atlantic group) or toward the northern Gulf and Mexico (Gulf group) in spring and summer as water warms, reversing in fall. Field-reported range runs roughly 20–31°C for larvae, with a roughly 20°C (about 68°F) threshold below which adults are seldom found, reported independently by two agency-adjacent sources.",
+    "coverUse": "Not strongly structure-dependent; associates more with bait concentrations, temperature breaks, and current edges than with hard structure, though it uses nearshore reefs and wrecks where bait holds.",
+    "openWaterBehavior": "A coastal pelagic species that ranges widely in open water tracking bait schools and temperature structure rather than holding to one location.",
+    "seasonalActivity": "Strong seasonal migrator, moving north and inshore in spring–summer and south and offshore in fall–winter, converging in a shared winter zone off south Florida.",
+    "spawningBehavior": "Batch spawner over an extended spring-through-fall window on the outer continental shelf; this record excludes specific spawning locations as conservation context only.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — King Mackerel species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf States Marine Fisheries Commission — King mackerel life history and habitat summary table",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel activity pattern not sourced.",
+      "Cold-front and water-clarity response not sourced.",
+      "Current-facing behavior at a specific piece of structure not sourced beyond general bait/temperature association."
+    ]
+  },
+  "diet": {
+    "speciesId": "scomberomorus_cavalla",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans",
+      "mollusks"
+    ],
+    "primaryNote": "Voracious pursuit predator on schooling baitfish (menhaden, jacks, cutlassfish, and similar), with crustaceans and, rarely, mollusks also taken; adults favor prey around 10–15 cm. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "adult": "Schooling baitfish predominate, with crustaceans and occasional mollusks also taken."
+    },
+    "preySizeShifts": "Adults favor prey fish roughly 10–15 cm long; a full ontogenetic prey-size progression from juvenile to adult was not found in an acceptable source.",
+    "observedForageRule": "Diet capacity described here is not proof of a current feeding event; what king mackerel are actually eating on a given day still has to come from direct observation.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries — King Mackerel species profile",
+        "class": "agency"
+      },
+      {
+        "label": "University of the West Indies (OGATT) — Scomberomorus cavalla species fact sheet",
+        "class": "synthesis"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Juvenile and young-of-year diet was not separately sourced from adult diet.",
+      "Seasonal diet emphasis by SEASONS-vocab season was not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "scomberomorus_cavalla",
+    "status": "reviewed",
+    "overview": "King mackerel is a strongly migratory coastal pelagic that follows temperature and bait: moving inshore and north or west as water warms in spring and summer, then concentrating south toward a shared winter zone off south Florida as it cools. Presentation classes here reflect its bait-school and current-structure association, not a location or timing recommendation.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Nearshore and offshore water, moving onto the inner shelf and closer inshore as water warms and on higher tides.",
+        "movementTendency": "Beginning of the northward and inshore seasonal migration.",
+        "thermalContext": "Movement tracks the roughly 20°C / 68°F threshold reported for the species.",
+        "presentationImplication": "Live-bait slow troll and trolling near bait concentrations nearshore; tide-line drift along temperature breaks and current rips offshore.",
+        "conservationNote": "Spawning begins in this window on the outer shelf in part of the range; specific locations are excluded from this record."
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Continues an inshore/nearshore presence associated with bait schools and temperature breaks; the migratory group's northern range extent reaches its seasonal peak.",
+        "presentationImplication": "Live-bait slow troll and tide-line drift nearshore; trolling spread along offshore temperature breaks and weed lines.",
+        "conservationNote": "Spawning continues through this season per sourced material."
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Begins moving south and offshore as water cools.",
+        "movementTendency": "Southward migration toward the shared winter zone.",
+        "presentationImplication": "Trolling spread and tide-line drift along temperature breaks and current edges offshore; live-bait slow troll nearshore."
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Concentrated in the shared winter mixing zone off south Florida for much of the migratory population.",
+        "presentationImplication": "Live-bait slow troll and other structure-associated nearshore techniques where bait holds; a distinct offshore presentation family was not separately sourced for this period."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries — King Mackerel species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Gulf States Marine Fisheries Commission — King mackerel life history and habitat summary table",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Depth-by-season figures beyond the general <80 m most-common / to 200 m maximum range were not found.",
+      "Tide-specific behavior beyond 'moves inshore ... on higher tides' was not further detailed in sourcing."
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "identification": {
+    "speciesId": "scomberomorus_maculatus",
+    "status": "reviewed",
+    "regionalNames": [
+      "Spanish",
+      "bay mackerel"
+    ],
+    "bodyShape": "Elongated, laterally compressed mackerel body with a deeply forked tail and a lateral line that slopes gradually from the gill cover to the tail rather than dipping sharply.",
+    "identificationTraits": [
+      "Sides carry numerous irregular golden-yellow to bronze spots with no connecting streaks or lines.",
+      "Front of the first dorsal fin is marked with a bluish-black blotch — the clearest single field mark separating it from king mackerel, which lacks this blotch.",
+      "Lateral line slopes gradually to the tail, unlike king mackerel's abrupt downward dip under the second dorsal fin.",
+      "First dorsal fin has 17-19 spines."
+    ],
+    "coloration": "Bluish-green to olive back, silvery sides and belly, sides marked with scattered gold-to-bronze spots.",
+    "adultAppearance": "A slim, silver-sided mackerel with a black-blotched front dorsal fin and scattered gold spotting, lacking the horizontal yellow streaks of cero mackerel.",
+    "similarSpecies": [
+      {
+        "name": "King mackerel (Scomberomorus cavalla)",
+        "distinction": "King mackerel lack the black dorsal-fin blotch and gold spotting typical of adult Spanish mackerel, run considerably larger, and show an abrupt downward dip in the lateral line under the second dorsal fin."
+      },
+      {
+        "name": "Cero mackerel (Scomberomorus regalis)",
+        "distinction": "Cero mackerel show a horizontal row of yellow-orange streaks along the midline mixed with spots above and below, rather than the spots-only, no-streaks pattern of Spanish mackerel."
+      }
+    ],
+    "averageAdultLength": "Commonly around 15 in as landed; adults reach at least about 28 in (70 cm) fork length.",
+    "commonAnglingSize": "Roughly 14-20 in and 1-3 lb in the recreational fishery.",
+    "typicalWeight": "Often under 3 lb; Florida's rod-and-reel record is about 12 lb.",
+    "maximumDocumentedSize": "Up to about 36 in and 13 lb; South Carolina's state record is 11.0 lb (1983).",
+    "longevity": "Males live to about 6 years; females to about 11 years.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      },
+      {
+        "label": "South Carolina DNR, State Wildlife Action Plan supplemental species report: Spanish mackerel",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/spanishmackerel2015.pdf"
+      },
+      {
+        "label": "South Carolina DNR, Spanish mackerel marine species page",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spanishmackerel.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A single continent-wide average adult length figure; regional/latitudinal variation was not fully resolved.",
+      "External sexual dimorphism beyond differing growth rates and maximum age was not found in reviewed sources."
+    ]
+  },
+  "behavior": {
+    "speciesId": "scomberomorus_maculatus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "note": "Forms schools that move and feed together, cooperatively packing small baitfish into tight bundles before striking; not a lie-holding solitary predator."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Coordinated schooling attack that bunches small schooling fish (anchovies, menhaden, herring, small jacks) before striking; opportunistic on shrimp and squid when present. Diet capacity is not evidence of a current bait event."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Reviewed agency sources document a strong temperature-driven seasonal presence pattern but do not establish a sourced day/night feeding preference; recorded as a gap rather than assumed."
+    },
+    "thermalDrivenBehavior": "Presence tracks water temperature closely. Historical accounts place a preferred band near 70-80°F, while fishery-independent survey data from 1990-2013 show regular occurrence up to about 86°F and a marked drop-off in occurrence below about 65°F. Fish largely leave an area once nearshore/bottom temperature falls under roughly 70°F heading into fall.",
+    "currentFacing": "Concentrates where tide-driven current compresses baitfish against a beach cut, jetty, inlet mouth, or reef edge rather than holding a current break as a resting lie.",
+    "depthMovement": "Stays high in the water column; occurs over reefs and grass beds as well as open water with no bottom structure at all.",
+    "coverUse": "Uses reefs, jetties, and artificial reefs opportunistically as places bait concentrates, not as cover in the way a structure-oriented ambush predator would.",
+    "spawningBehavior": "Multiple-batch spawner on the open coastal shelf from April into late September, timing shifting with latitude. A single large female can release 500,000 to 1.5 million eggs over a season. Spawning water and any staging concentration are conservation context only and are not described as holding water.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      },
+      {
+        "label": "South Carolina DNR, State Wildlife Action Plan supplemental species report: Spanish mackerel",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/spanishmackerel2015.pdf"
+      },
+      {
+        "label": "Florida FWC, Spanish mackerel wildlife and habitat profile",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/saltwater/mackerel/spanish-mackerel/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel (day/night) feeding pattern with primary-source support.",
+      "Cold-front / barometric-pressure response with primary-source support.",
+      "Angling-pressure response with primary-source support."
+    ]
+  },
+  "diet": {
+    "speciesId": "scomberomorus_maculatus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "small_forage_fish",
+      "crustaceans",
+      "mollusks"
+    ],
+    "primaryNote": "A piscivorous coastal pelagic; primary prey is small schooling baitfish (anchovies, menhaden, herring, shad, small jacks, pompano, mullet, needlefish), supplemented by penaeid shrimp and squid. Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae feed on the larvae of other open-water schooling fishes.",
+      "juvenile": "Smaller individuals feed heavily on anchovies.",
+      "adult": "Larger fish remain fish-dominated in diet but take proportionally fewer anchovies and more of other baitfish species, plus shrimp and squid."
+    },
+    "preySizeShifts": "Prey composition shifts from anchovy-dominated toward a broader mix of baitfish species and crustaceans/squid as fish grow.",
+    "observedForageRule": "Diet capacity is not proof that a bait event is happening now; observed current forage still comes from a direct sighting, not from this dossier.",
+    "sources": [
+      {
+        "label": "South Carolina DNR, State Wildlife Action Plan supplemental species report: Spanish mackerel",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/spanishmackerel2015.pdf"
+      },
+      {
+        "label": "South Carolina DNR, Spanish mackerel marine species page",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spanishmackerel.html"
+      },
+      {
+        "label": "NOAA Fisheries, Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Month-by-month or regional forage substitution was not resolved.",
+      "A quantified (not just directional) ontogenetic diet shift was not found."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "scomberomorus_maculatus",
+    "status": "reviewed",
+    "overview": "Spanish mackerel presence is driven almost entirely by water temperature: winter concentration off Florida and in the western Gulf, a spring push north along the Atlantic coast and into surf, pier, and nearshore water, summer occupation of surf/inshore/nearshore water through much of the range, and a fall retreat south as water cools below roughly 70°F. Spring-through-late-summer spawning is conservation context, not a fishing cue.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Concentrated in Florida and western Gulf nearshore/coastal waters as more northern waters fall out of the active thermal band.",
+        "thermalContext": "Largely absent from water under about 65°F.",
+        "invalidators": [
+          "Expecting Spanish mackerel presence in cold, off-season water north of Florida or the western Gulf overwintering grounds."
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Moves onto beaches, piers, jetties, and nearshore reefs as coastal water warms through the 70-80°F preferred band; reaches North Carolina by around April.",
+        "forageEmphasis": "Schools of small_forage_fish pushed onto beaches, jetties, and nearshore structure.",
+        "presentationImplication": "Run-and-gun cast and surf metal cast / surf swim retrieve to visible schools working bait in the surf and along structure.",
+        "conservationNote": "Spawning begins in April; spawning water is conservation context only.",
+        "invalidators": [
+          "Fishing far offshore for a species that is running the beach and nearshore structure this season."
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Occupies surf, inshore grass-flat/channel-edge water, and nearshore reefs and piers through peak thermal season (mid-Atlantic occurrence by June).",
+        "thermalContext": "Within or above the 70-80°F preferred band; survey data show continued occurrence up to about 86°F.",
+        "presentationImplication": "Live-bait slow troll and horizontal retrieve over nearshore structure; run-and-gun casting to visible surface schools inshore and in the surf.",
+        "conservationNote": "Peak spawning season; spawning water is excluded from holding-water guidance.",
+        "invalidators": [
+          "Treating a single hot spell as a bite-timing signal rather than a seasonal presence pattern."
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Southward coastal retreat toward Florida and the western Gulf as water cools; still available along piers, jetties, and nearshore structure ahead of the full seasonal withdrawal.",
+        "presentationImplication": "Surf metal cast and run-and-gun cast remain effective as schools move through on the retreat.",
+        "invalidators": [
+          "Expecting the same nearshore/surf availability once bottom temperature drops under roughly 70°F."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NOAA Fisheries, Spanish Mackerel species page",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/spanish-mackerel"
+      },
+      {
+        "label": "South Carolina DNR, State Wildlife Action Plan supplemental species report: Spanish mackerel",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/swap/supplemental/marine/spanishmackerel2015.pdf"
+      },
+      {
+        "label": "South Carolina DNR, Spanish mackerel marine species page",
+        "class": "agency",
+        "url": "https://www.dnr.sc.gov/marine/species/spanishmackerel.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Fine-grained (sub-season) timing of the spring northward push and fall retreat by specific latitude."
+    ]
+  }
+}

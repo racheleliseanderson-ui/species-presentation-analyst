@@ -1,0 +1,178 @@
+{
+  "identification": {
+    "speciesId": "sebastes_miniatus",
+    "status": "reviewed",
+    "regionalNames": [],
+    "bodyShape": "Moderately deep, laterally compressed rockfish body with a curved head and a projecting lower jaw; anal fin has a vertically truncated (squared-off) trailing edge (WDFW).",
+    "identificationTraits": [
+      "Scales are present on the lower jaw — a trait that separates vermilion from the similar canary and yelloweye rockfish (WDFW).",
+      "Upper jaw extends to or beyond the eye, versus canary rockfish, whose jaw does not reach past the eye (CDFW).",
+      "Dark spots on the dorsal and tail fins (CDFW).",
+      "Juveniles under about 12 in show more obvious mottling with black-edged fins (WDFW).",
+      "A genetically distinct, visually similar sister species — sunset rockfish — co-occurs in the Southern California Bight; the two are difficult to separate on sight (see similarSpecies)."
+    ],
+    "coloration": "Brown through yellow, red, orange, to black-red, often with prominent white markings along the lateral line (WDFW). CDFW notes the species is frequently market-misidentified or lumped with other red and orange rockfishes.",
+    "juvenileAppearance": "Under about 12 in, juveniles show more obvious mottling and black-edged fins than adults (WDFW). Pelagic juveniles feed mainly on crustaceans before settling to reef structure (CDFW).",
+    "adultAppearance": "A deep-bodied red-to-orange rockfish with dark mottling, dark-spotted dorsal and tail fins, and white lateral-line markings; the upper jaw projects to or past the eye.",
+    "similarSpecies": [
+      {
+        "name": "Canary rockfish (Sebastes pinniger)",
+        "distinction": "Canary rockfish has an upper jaw that does not extend past the eye and shows a red lateral line, versus vermilion's jaw reaching to or beyond the eye and dark (not red) spotting on the dorsal and tail fins (CDFW)."
+      },
+      {
+        "name": "Sunset rockfish (undescribed cryptic sister species)",
+        "distinction": "A 2015-era peer-reviewed genetic study found significant differences in depth, latitude, and size distribution between vermilion and sunset rockfish in the Southern California Bight, but also found that 20-30% of fish carrying a vermilion mitochondrial haplotype are classified as sunset rockfish by nuclear genotype — meaning even genetic assignment is not always clean, and the two are not reliably told apart by eye. Treat any 'vermilion' catch in the Southern California Bight as potentially including sunset rockfish."
+      },
+      {
+        "name": "Yelloweye rockfish (Sebastes ruberrimus)",
+        "distinction": "Yelloweye is identified primarily by its yellow eye with a rasp-like area above it and black fin membranes, unlike vermilion's plain eye and dark-spotted (not black-membraned) fins (CDFW)."
+      }
+    ],
+    "averageAdultLength": "CDFW reports 50% of the population mature by about 14 in (age 8); adults commonly range well above that toward the maximum size.",
+    "commonAnglingSize": "Frequently landed in the roughly 14-24 in range; current-year minimum sizes and sub-bag limits vary by state and management area — see targetContext.",
+    "typicalWeight": "A 20 in fish aged 25 years old weighed about 5.4 lb (CDFW); larger fish approach the maximum below.",
+    "maximumDocumentedSize": "Up to about 30 in and 15 lb (WDFW).",
+    "longevity": "Maximum documented age is at least 60 years (WDFW); CDFW separately notes the species is extremely long-lived and slow-growing, which it flags as a driver of high susceptibility to overfishing.",
+    "sources": [
+      {
+        "label": "Washington Department of Fish and Wildlife — Vermilion rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Vermilion rockfish life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Shelf Rockfish of California identification guide",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA repository — peer-reviewed study on vermilion/sunset rockfish spatial and genetic differentiation, Southern California Bight",
+        "class": "peer_reviewed"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No agency source reviewed gives a clean external (non-genetic) morphological key separating vermilion from sunset rockfish — the peer-reviewed source describes distributional and size differences, not a field ID rule.",
+      "Regional nickname list not confirmed against an acceptable source — left empty rather than guessed."
+    ]
+  },
+  "behavior": {
+    "speciesId": "sebastes_miniatus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Pelagic larvae and juveniles disperse in the water column for roughly 3-4 months before settling; once settled, individuals generally remain associated with the same reef system for life (CDFW).",
+      "note": "CDFW describes vermilion rockfish as sedentary reef residents rather than a schooling species, which combined with a lengthy juvenile period is cited as a specific driver of vulnerability to localized overfishing."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "Adults take octopus, squid, small fish (e.g. anchovies, blue lanternfish) and macroplanktonic organisms; pelagic juveniles feed mainly on crustaceans (CDFW)."
+    },
+    "territoriality": "Not documented as actively territorial; site fidelity to a home reef is the dominant pattern reported (CDFW).",
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Diel feeding pattern is not documented in the sources reviewed for this record; see gaps."
+    },
+    "depthMovement": "Peak adult abundance is 165-495 ft, within an overall documented range of about 20-1,440 ft (WDFW); CDFW gives shallow subtidal to about 1,400 ft.",
+    "coverUse": "Rocky reef structure; individuals settle onto and generally remain associated with a single reef system (CDFW).",
+    "spawningBehavior": "Internal fertilization followed by parturition (live birth) rather than egg-laying. CDFW reports peak parturition in September in central/northern California and November in southern California, with fecundity ranging from about 63,000 eggs in a 12.5 in fish to 1.6 million in a 21.5 in fish. Larvae are pelagic for roughly 3-4 months before settling. This is conservation context only — holding water around a parturition-stage aggregation is excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Washington Department of Fish and Wildlife — Vermilion rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Vermilion rockfish life history summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel activity pattern not documented in the sources reviewed.",
+      "Current-facing, flow-response, and cold-front response not documented."
+    ]
+  },
+  "diet": {
+    "speciesId": "sebastes_miniatus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "mollusks",
+      "small_forage_fish",
+      "zooplankton",
+      "crustaceans"
+    ],
+    "primaryNote": "Adults take octopus, squid, small fishes (anchovies, blue lanternfish among named examples), and macroplanktonic organisms; pelagic juveniles feed mainly on crustaceans (CDFW). Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "juvenile": "Pelagic juveniles feed primarily on crustaceans while dispersing in the water column for roughly 3-4 months before settling (CDFW).",
+      "adult": "Octopus, squid, small forage fish, and macroplanktonic organisms (CDFW)."
+    },
+    "observedForageRule": "Diet capacity is not proof that a particular prey event is occurring at a given time. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Vermilion rockfish life history summary",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No seasonal diet breakdown documented in the sources reviewed.",
+      "No young-of-year (pre-pelagic-juvenile) diet data found distinct from the general juvenile description."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "sebastes_miniatus",
+    "status": "reviewed",
+    "overview": "Vermilion rockfish are sedentary reef residents with the clearest seasonal signal being a latitude-shifted parturition window in late summer through late fall, which is conservation context only. Sub-bag limits (often combined with sunset rockfish) and depth-based closures are reset at least annually — verify current rules before fishing.",
+    "entries": [
+      {
+        "season": "late_summer",
+        "habitatClass": "Rocky reef structure, nearshore and on the shelf, as parturition begins in the northern part of the range.",
+        "conservationNote": "Peak parturition begins around September in central and northern California. This is conservation context, not a location cue (CDFW).",
+        "presentationImplication": "Vertical-jig and drop-presentation on nearshore reef structure; vertical-jig and deep-drop offshore.",
+        "invalidators": [
+          "treating a parturition-stage aggregation as a location to target"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Rocky reef structure across the range as parturition continues.",
+        "conservationNote": "Parturition timing shifts later moving south, peaking around November in southern California (CDFW).",
+        "presentationImplication": "Vertical-jig and drop-presentation nearshore; vertical-jig and deep-drop offshore.",
+        "invalidators": [
+          "assuming a single fixed spawning date across the whole range"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Rocky reef structure, southern part of the range, as the parturition window closes.",
+        "conservationNote": "Southern California parturition can extend into this window (CDFW).",
+        "presentationImplication": "Vertical-jig and drop-presentation nearshore; vertical-jig and deep-drop offshore."
+      }
+    ],
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Vermilion rockfish life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — Vermilion rockfish species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Winter, spring, and summer entries omitted — no distinct seasonal habitat or behavior shift documented for those windows beyond the general sedentary reef-holding pattern.",
+      "No sourced thermal band to tie to the seasonal calendar."
+    ]
+  }
+}

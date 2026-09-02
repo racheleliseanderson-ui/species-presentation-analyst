@@ -1,0 +1,178 @@
+{
+  "identification": {
+    "speciesId": "sebastes_maliger",
+    "status": "reviewed",
+    "regionalNames": [],
+    "bodyShape": "Relatively small, stout-bodied rockfish with a high dorsal fin carrying particularly long spines and deeply notched forward dorsal fin membranes (CDFW, WDFW).",
+    "identificationTraits": [
+      "Long, prominent dorsal spines with membranes notched more deeply than the similar copper rockfish (CDFW, ADFG).",
+      "Pale yellow or orange markings between the eyes and pectoral fins, plus speckling on the dorsal surface (CDFW).",
+      "Dorsal fin spines are white or light yellow, sometimes with dark brown or black saddle markings; some individuals show brown or orange freckling on the head, though this is less common in Puget Sound fish (WDFW).",
+      "Distinguished from brown rockfish by the lack of a gill-cover spot, and from copper rockfish by the lack of lateral-line bands and eye radiations (WDFW)."
+    ],
+    "coloration": "Orange-brown to black body, described by ADFG as brown mottled with orange and yellow, with the pale head/pectoral markings and dorsal speckling noted above (CDFW, ADFG, WDFW).",
+    "adultAppearance": "A stout, dark orange-brown to black rockfish with a tall, long-spined, deeply notched dorsal fin and pale head and dorsal markings.",
+    "similarSpecies": [
+      {
+        "name": "Copper rockfish (Sebastes caurinus)",
+        "distinction": "Copper rockfish shares some dorsal-fin notching but quillback's is more pronounced; copper rockfish also shows lateral-line bands and eye radiations that quillback lacks (CDFW, WDFW). Because bag limits in this fishery are species-specific, this is the most consequential confusion pair for anglers."
+      },
+      {
+        "name": "Brown rockfish (Sebastes auriculatus)",
+        "distinction": "Brown rockfish carries a dark spot on the gill cover that quillback lacks (WDFW)."
+      }
+    ],
+    "averageAdultLength": "California specimens run smaller than the northern part of the range — at age 12, California quillback average about 7.1 in (CDFW). Males mature at about 8.7 in (age 4) and females at about 10.2 in (age 6) in California (CDFW); COSEWIC gives 50% maturity in British Columbia at roughly age 11.",
+    "commonAnglingSize": "Legal minimum sizes and sub-bag limits vary sharply by state and are unusually likely to have changed recently for this species — see targetContext before advising an angler.",
+    "typicalWeight": "WDFW gives a maximum of about 3.3 kg (7.2 lb) at maximum length; typical landed fish are considerably smaller.",
+    "maximumDocumentedSize": "About 24 in maximum length in California (CDFW); WDFW gives a maximum length of 63.6 cm (25 in).",
+    "longevity": "California fish have been aged to 15 years; Canadian populations reach at least 76-95 years, with females outliving males (about 80 years maximum for males) (CDFW, COSEWIC, WDFW).",
+    "sources": [
+      {
+        "label": "Washington Department of Fish and Wildlife — Quillback rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Quillback rockfish life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "COSEWIC (Government of Canada) — Quillback rockfish status report",
+        "class": "agency"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Rockfish identification guide",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Regional nickname list not confirmed against an acceptable source — left empty rather than guessed.",
+      "No single continent-wide average adult length found; California and British Columbia figures differ enough that they are reported separately above rather than averaged."
+    ]
+  },
+  "behavior": {
+    "speciesId": "sebastes_maliger",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Juveniles occupy shallower nearshore rocky habitat of varying complexity; adults move into deeper water and become largely solitary reef-dwellers, perched on rocks or sheltering in crevices and holes (CDFW).",
+      "note": "COSEWIC and CDFW both describe a limited home range (on the order of 10 m^2 in one cited study) with strong site fidelity — displaced fish have been documented returning to their home reef."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "Adults take crustaceans (especially shrimp), small fish, clams, marine worms, and fish eggs; larvae and juveniles feed on planktonic organisms and eggs (CDFW, COSEWIC)."
+    },
+    "territoriality": "Not documented as actively territorial toward other fish; the dominant pattern reported is a small, defended-by-site-fidelity home range on a single reef (COSEWIC).",
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Diel feeding pattern is not documented in the sources reviewed for this record; see gaps."
+    },
+    "depthMovement": "Juveniles settle in shallower nearshore rocky habitat than adults, which range from the surface to about 900 ft, with most commercial catch concentrated at 46-470 ft (CDFW, COSEWIC).",
+    "coverUse": "Hard, complex substrate with vertical relief — broken rock, reefs, ridges and crevices — is specifically identified as a habitat requirement, not just a preference (COSEWIC).",
+    "spawningBehavior": "Internal fertilization with mating in December; females can store sperm for weeks before fertilization, and parturition (live birth) occurs April-May in British Columbia (COSEWIC) or April-July in California (CDFW). This is conservation context only — holding water around a parturition-stage aggregation is excluded from target guidance.",
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Quillback rockfish life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "COSEWIC (Government of Canada) — Quillback rockfish status report",
+        "class": "agency"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — Quillback rockfish species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Diel activity pattern not documented in the sources reviewed.",
+      "Current-facing, flow-response, and cold-front response not documented."
+    ]
+  },
+  "diet": {
+    "speciesId": "sebastes_maliger",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+      "worms_annelids",
+      "eggs",
+      "zooplankton"
+    ],
+    "primaryNote": "Adults feed on a variety of prey — CDFW specifically names crustaceans (especially shrimp), small fish, clams, marine worms, and fish eggs; COSEWIC broadly describes adult diet as fishes plus benthic and pelagic invertebrates, especially shrimp. Larvae and juveniles take planktonic organisms and eggs (CDFW). Diet capacity is not evidence of a current bait event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Planktonic organisms and eggs (CDFW).",
+      "juvenile": "Planktonic organisms and eggs, shifting toward benthic prey as fish settle onto nearshore rocky habitat (CDFW).",
+      "adult": "Crustaceans (especially shrimp), small fish, clams, marine worms, and fish eggs (CDFW, COSEWIC)."
+    },
+    "observedForageRule": "Diet capacity is not proof that a particular prey event is occurring at a given time. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Quillback rockfish life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "COSEWIC (Government of Canada) — Quillback rockfish status report",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No seasonal diet breakdown documented in the sources reviewed.",
+      "No prey-size-shift or ontogenetic-shift detail found beyond the broad life-stage pattern above."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "sebastes_maliger",
+    "status": "reviewed",
+    "overview": "Quillback rockfish are sedentary, crevice-holding reef residents on hard, high-relief substrate. The clearest seasonal signal is a winter mating-to-spring parturition window, which is conservation context only. Regulatory status for this species has changed repeatedly in the past three years — verify current sub-bag limits and any depth closure before fishing (see targetContext).",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Solitary positions in rock crevices and holes on hard, high-relief reef structure.",
+        "conservationNote": "Mating occurs in December, with females able to store sperm for weeks before fertilization (COSEWIC). This is conservation context, not a location cue.",
+        "presentationImplication": "Drop-presentation and bottom-contact worked into crevice structure remain the reviewed nearshore families; check current-year closures and sub-bag limits first.",
+        "invalidators": [
+          "assuming a specific reef holds a mating aggregation",
+          "assuming the same season/bag rules apply as last year given recent regulatory changes"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Hard, high-relief reef structure as parturition occurs.",
+        "conservationNote": "Parturition (live birth) runs April-May in British Columbia and April-July in California. This is conservation context only (COSEWIC, CDFW).",
+        "presentationImplication": "Drop-presentation and bottom-contact nearshore; vertical-jig and deep-drop offshore.",
+        "invalidators": [
+          "treating a parturition-stage aggregation as a location to target"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Quillback rockfish life history summary",
+        "class": "agency"
+      },
+      {
+        "label": "COSEWIC (Government of Canada) — Quillback rockfish status report",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Summer, fall, and late-season entries omitted — no distinct seasonal habitat or behavior shift documented for those windows beyond the general sedentary, crevice-holding pattern.",
+      "No sourced thermal band to tie to the seasonal calendar."
+    ]
+  }
+}

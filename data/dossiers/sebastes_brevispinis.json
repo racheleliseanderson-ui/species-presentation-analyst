@@ -1,0 +1,167 @@
+{
+  "identification": {
+    "speciesId": "sebastes_brevispinis",
+    "status": "reviewed",
+    "regionalNames": [
+      "rock salmon",
+      "silverbelly",
+      "greenie",
+      "longjaw",
+      "grouper"
+    ],
+    "bodyShape": "A slim, short, heavy-set rockfish with reduced head spines, a sloping head, and a large, gaping mouth. The lower jaw is long and protrudes well beyond the upper jaw, ending in a prominent symphyseal knob (WDFW, DFO).",
+    "identificationTraits": [
+      "Long lower jaw protruding well beyond the upper jaw, with a prominent bony knob at the tip of the lower jaw (symphyseal knob) (WDFW, ADFG).",
+      "A long second anal-fin spine, which ODFW specifically calls out as the trait separating it from bocaccio, whose second anal-fin spine is shorter.",
+      "Reduced/weak head spination compared to many other Sebastes (WDFW)."
+    ],
+    "coloration": "Greenish to dark gray or brown dorsally, silver-gray to tan on the sides, and white, pink or cream ventrally. The anal, pelvic and pectoral fins — including their bases — and the underside of the head are tinged orange or pink (WDFW, DFO, ODFW). CDFW separately describes the body as 'gunmetal gray' with a pink lateral line.",
+    "juvenileAppearance": "Younger fish have been documented in shallower kelp beds (around 56 ft) than the adult shelf/slope habitat (ODFW).",
+    "adultAppearance": "A slender, silver-gray to greenish rockfish with a long protruding lower jaw and symphyseal knob, pink- or orange-tinged lower fins, and a white to pink-tinged belly.",
+    "similarSpecies": [
+      {
+        "name": "Bocaccio (Sebastes paucispinis)",
+        "distinction": "Bocaccio tends to be red, pink, or brown, often with small dark spots, lacks a strong symphyseal knob, and has a larger mouth than silvergray. ODFW additionally notes bocaccio's second anal-fin spine is shorter than silvergray's (WDFW, ODFW). Because bag limits in this fishery are species-specific, distinguishing these two matters at the rail."
+      }
+    ],
+    "averageAdultLength": "In the Gulf of Alaska, males average about 48.8 cm (23-69 cm range) and females about 50.5 cm (25-74 cm range) (NOAA AFSC 2023 assessment).",
+    "commonAnglingSize": "Not documented at the level of a typical landed size in the sources reviewed; see gaps.",
+    "typicalWeight": "Not documented in the sources reviewed; see gaps.",
+    "maximumDocumentedSize": "Sources differ slightly: WDFW gives a maximum of 73 cm (29.2 in) and 4.7 kg (10.4 lb); the NOAA AFSC 2023 Gulf of Alaska assessment gives a maximum observed length of 77 cm. Both are agency sources and are reported here rather than reconciled.",
+    "longevity": "Sources differ: WDFW and DFO both give a maximum documented age of about 80-84 years, while NOAA's 2023 Gulf of Alaska assessment gives a revised maximum of 81 years, corroborated by multiple age readers.",
+    "sources": [
+      {
+        "label": "Washington Department of Fish and Wildlife — Silvergray rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Silvergrey rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Silvergray rockfish fishing page",
+        "class": "agency"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Rockfish identification guide",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries Alaska Fisheries Science Center — 2023 Gulf of Alaska Other Rockfish complex stock assessment",
+        "class": "agency"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Shelf Rockfish of California identification guide",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Typical angling size and typical weight not documented in the sources reviewed.",
+      "Maximum length and maximum age figures differ slightly between WDFW/DFO and NOAA's 2023 Alaska assessment; both are reported rather than reconciled into one number."
+    ]
+  },
+  "behavior": {
+    "speciesId": "sebastes_brevispinis",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Sources disagree on water-column position: ADFG classifies silvergray among 'pelagic' rockfish, described in that guide as schooling mid-water near rocky structure, and ODFW's fishing page references fishing 'schools' of this species; DFO instead describes adults congregating in groups near the ocean bottom and notes it is unclear whether the species migrates in groups or holds in home areas like other rockfish. Both agree on some form of grouping behavior; neither confirms a single clear water-column position."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "opportunistic"
+      ],
+      "note": "No species-specific feeding-mode source was found; this value is a placeholder pending species-specific data and should not be treated as a sourced diet claim — see gaps and the diet dossier."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not documented in any source reviewed for this record."
+    },
+    "depthMovement": "Adults are most common at 330-990 ft (100-300 m) on shelf/slope structure and in troughs; younger fish occur shallower, in kelp beds around 56 ft (ADFG, DFO, ODFW, WDFW).",
+    "coverUse": "Hard-bottomed, high-relief rocky areas and underwater troughs near the continental shelf (DFO); juveniles use shallower kelp-bed cover (ODFW).",
+    "spawningBehavior": "Not documented in the sources reviewed — NOAA's 2023 Gulf of Alaska assessment leaves the spawning-timing field blank for this species. Like other Sebastes, the species is presumed viviparous with internal fertilization, based on the genus-level pattern documented for other rockfish in this catalog (e.g. quillback rockfish), not on a silvergray-specific source.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Rockfish identification guide",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Silvergrey rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Silvergray rockfish fishing page",
+        "class": "agency"
+      },
+      {
+        "label": "NOAA Fisheries Alaska Fisheries Science Center — 2023 Gulf of Alaska Other Rockfish complex stock assessment",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No species-specific feeding-mode or feeding-strategy source found; the value given is an unconfirmed placeholder.",
+      "Water-column position (pelagic mid-water schooler vs. bottom-aggregating) is contradicted between ADFG/ODFW and DFO and was not resolved.",
+      "Spawning/parturition timing not documented anywhere in the sources reviewed.",
+      "Diel activity, territoriality, current-facing, and predator-avoidance behavior not documented."
+    ]
+  },
+  "diet": {
+    "speciesId": "sebastes_brevispinis",
+    "status": "partial",
+    "primaryForage": [],
+    "primaryNote": "No species-specific diet source was located for silvergray rockfish in any agency or peer-reviewed document reviewed for this record, including NOAA's own 2023 Gulf of Alaska stock assessment for the complex it belongs to. The feedingStyle and feedingZone values above are not diet claims — they are placeholders reflecting only the species' documented depth/structure association (see the behavior dossier) and should be treated as unverified pending a species-specific source. primaryForage is left empty rather than inferred from related Sebastes species.",
+    "observedForageRule": "Diet capacity is not proof that a particular prey event is occurring at a given time. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "No species-specific diet data found in any source reviewed — this dossier is effectively empty by design rather than padded with genus-level inference.",
+      "No sourced feeding style or feeding zone; both are omitted rather than inferred from the genus."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "sebastes_brevispinis",
+    "status": "partial",
+    "overview": "Silvergray rockfish is the thinnest-sourced of the four species reviewed in this batch. What is documented is a depth pattern — adults on shelf/upper-slope structure at roughly 330-990 ft, juveniles shallower in kelp beds — and some form of grouping behavior that sources describe inconsistently. No seasonal shift in habitat, depth, or behavior was found in any source reviewed, and spawning timing is undocumented even in NOAA's own stock assessment for the species.",
+    "entries": [
+      {
+        "season": "summer",
+        "habitatClass": "Hard-bottomed, high-relief shelf and upper-slope structure, roughly 330-990 ft; juveniles in shallower kelp-bed structure.",
+        "depthTendency": "Adults most common at 100-300 m (330-990 ft); juveniles recorded around 56 ft in kelp beds (ADFG, DFO, ODFW, WDFW).",
+        "presentationImplication": "Vertical-jig on nearshore structure; vertical-jig and trolling offshore over shelf/slope structure.",
+        "invalidators": [
+          "assuming a summer-specific behavior shift — none is documented"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Rockfish identification guide",
+        "class": "agency"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Silvergrey rockfish species profile",
+        "class": "agency"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Silvergray rockfish fishing page",
+        "class": "agency"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — Silvergray rockfish species profile",
+        "class": "agency"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Only one entry is populated because no source reviewed documents a seasonal change in habitat, depth, or behavior for this species — the single entry reflects the general, apparently year-round pattern, not a summer-specific one.",
+      "Spawning season is entirely undocumented (see catalog record) so no conservation-timing entries could be written.",
+      "No sourced thermal band to tie to the calendar."
+    ]
+  }
+}
