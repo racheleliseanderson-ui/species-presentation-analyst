@@ -143,11 +143,33 @@ export function coerceWaterType(value: unknown): WaterType | undefined {
   return undefined;
 }
 
+/**
+ * Sibling instruments spell temperature provenance their own way. Field Sense
+ * sends `official-gauge` for a reading it pulled from a published station;
+ * without an alias that arrived as `unknown`, so the number survived the trip
+ * and the reason to trust it did not. Provenance is the claim this instrument
+ * is built on — degrading it silently is worse than dropping the reading.
+ *
+ * Aliases only. Anything genuinely unrecognised still reads `unknown`.
+ */
+const TEMP_SOURCE_ALIASES: Record<string, TempSource> = {
+  "official-gauge": "official_station",
+  official_gauge: "official_station",
+  "official-station": "official_station",
+  gauge: "official_station",
+  usgs: "official_station",
+  noaa: "official_station",
+  "user-measured": "user_measured",
+  measured: "user_measured",
+  observed: "user_measured",
+  estimate: "estimated",
+};
+
 function coerceTempSource(value: unknown): TempSource {
-  if (typeof value === "string" && (TEMP_SOURCES as readonly string[]).includes(value)) {
-    return value as TempSource;
-  }
-  return "unknown";
+  if (typeof value !== "string") return "unknown";
+  const raw = value.trim().toLowerCase();
+  if ((TEMP_SOURCES as readonly string[]).includes(raw)) return raw as TempSource;
+  return TEMP_SOURCE_ALIASES[raw] ?? "unknown";
 }
 
 function coerceTempRange(value: unknown): TemperatureRangeF | null {
