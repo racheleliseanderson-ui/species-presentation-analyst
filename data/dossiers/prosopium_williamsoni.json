@@ -1,0 +1,311 @@
+{
+  "identification": {
+    "speciesId": "prosopium_williamsoni",
+    "status": "reviewed",
+    "regionalNames": [
+      "whitefish",
+      "Rocky Mountain whitefish"
+    ],
+    "bodyShape": "Salmonid, but cylindrical and nearly round in cross-section rather than the laterally compressed form of a trout. Small head relative to body, blunt pointed snout, deeply forked caudal fin, adipose fin present.",
+    "identificationTraits": [
+      "The mouth is small, toothless or weakly toothed, and set underneath the snout — the snout overhangs the mouth. A trout's mouth is terminal and carries obvious teeth.",
+      "Scales are large and individually countable — 74–90 along the lateral line — where a trout's are fine and hard to count.",
+      "The body carries no spots at all, and the adipose fin is unspotted. Any spotting on the fish means it is not a mountain whitefish.",
+      "Dorsal fin is short, with 12–13 rays; anal fin 11–13 rays; pelvic fins 10–12 rays with an axillary process.",
+      "Gill rakers are short, 19–26 in number.",
+      "Juveniles carry a single row of roughly 7–11 large, discrete, dark oval parr marks along the side.",
+      "Breeding males develop tubercles on the head and body and a pronounced snout; females carry smaller tubercles."
+    ],
+    "coloration": "Silvery sides over an olive-green, dusky, or dark-bronze back, with a white belly. Scales on the dorsal surface are typically outlined in dark pigment, giving a fine cross-hatched look along the back. No spotting.",
+    "juvenileAppearance": "Pencil-thin and silvery, with 7–11 dark oval parr marks. Young fish under about 55 mm hold in very shallow shore water — two to six inches deep — in pockets formed by rubble and boulders, then move to deeper main-channel water by autumn.",
+    "adultAppearance": "A silvery, large-scaled, small-headed, unspotted salmonid with an adipose fin, a short dorsal, a forked tail, and a small mouth set under the snout.",
+    "sexualDimorphism": "Breeding males show a more pronounced snout and prominent body tubercles; females show smaller tubercles. Outside the breeding condition, sex is not a field key.",
+    "similarSpecies": [
+      {
+        "name": "Trout (rainbow, cutthroat, brown, brook)",
+        "distinction": "All have terminal mouths with obvious teeth, fine scales, and spotted bodies. Mountain whitefish has a subterminal mouth overhung by the snout, large countable scales, and no spots anywhere."
+      },
+      {
+        "speciesId": "thymallus_arcticus",
+        "name": "Arctic grayling",
+        "distinction": "Grayling carries an outsized sail-like dorsal fin marked with iridescent coloured spots and has a terminal mouth. Mountain whitefish has a short 12–13 ray dorsal, no dorsal-fin markings, and a mouth under the snout."
+      },
+      {
+        "speciesId": "catostomus_catostomus",
+        "name": "Longnose sucker and other suckers",
+        "distinction": "Suckers are also bottom-oriented with a ventral mouth, but they have thick fleshy sucking lips and no adipose fin. Mountain whitefish has a small firm mouth and a distinct adipose fin."
+      },
+      {
+        "name": "Round whitefish (Prosopium cylindraceum)",
+        "distinction": "The other Prosopium shares the cigar-shaped body, tiny pointed snout, and single nasal flap. Separating the two is a matter of meristics and range, not field colour; do not force one record onto the other on appearance alone."
+      }
+    ],
+    "averageAdultLength": "Commonly 9–16 in. Alpine-lake fish reach about 11 cm in the first year and roughly 20 cm by year five; fish of 25–50 cm are typically 5–10 years old.",
+    "commonAnglingSize": "10–16 in in most stream fisheries.",
+    "typicalWeight": "About 6–11 oz for a 9–12 in fish; larger river and lake fish run well above that.",
+    "maximumDocumentedSize": "Documented maxima are fishery-specific. One documented specimen reached 51 cm and 2.9 kg; other records report fish to 22–28 in and roughly 5–6.4 lb.",
+    "longevity": "Reported maxima disagree: one literature review gives a maximum of 18 years with most populations rarely exceeding 9, while an Idaho management plan reports individuals to 29 years. Maturity is generally reached at age 2–4.",
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Mountain Whitefish Prosopium williamsoni (Girard) species account",
+        "class": "agency",
+        "url": "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=104341"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Mountain Whitefish",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/detail_AFCHA03060.aspx"
+      },
+      {
+        "label": "University of Idaho, 'The Mountain Whitefish' — literature review of Prosopium williamsoni biology",
+        "class": "synthesis",
+        "url": "https://objects.lib.uidaho.edu/fwres/fwres105.pdf"
+      },
+      {
+        "label": "Oregon Sea Grant / Oregon State University Watershed Restoration Field Guide — Mountain Whitefish",
+        "class": "agency",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/salmon-and-trout/mountain-whitefish"
+      },
+      {
+        "label": "Colorado Parks and Wildlife — Mountain Whitefish species page",
+        "class": "agency",
+        "url": "https://cpw.state.co.us/species/mountain-whitefish"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Whitefish Species (Wildlife Notebook Series), on Prosopium snout and nasal-flap characters",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/whitefish_species.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional colour variation is not described in the agency sources reached, so the field is omitted",
+      "longevity is contradictory across sources (18 vs 29 years maximum) and needs a human decision",
+      "no sourced meristic key separating mountain from round whitefish was captured; the lookalike entry is deliberately non-committal",
+      "the informal regional-name list was not audited against a naming authority"
+    ]
+  },
+  "behavior": {
+    "speciesId": "prosopium_williamsoni",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "byLifeStage": "Fry hold individually in very shallow shore pockets among rubble and boulders; by about 55 mm they abandon shore water for deeper main-channel pools. Adults are the schooling life stage.",
+      "note": "Adults are gregarious rather than territorial. Night surface feeding has been observed in schools of 50 to 75 fish. This is a group-occupancy species, not a single-lie holder like an adult brown trout."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "drift_feeding",
+        "opportunistic"
+      ],
+      "note": "The bottom-feeding habit is the primary mode and persists from the first year through adulthood — first-year fish feed almost entirely on the bottom. Drift and surface feeding are real but secondary: fish take drifting invertebrates including terrestrials during daylight and come to the surface at night. The small ventral mouth is the constraint that shapes the whole strategy."
+    },
+    "dielTendency": {
+      "class": "crepuscular",
+      "note": "Feeding is concentrated at dusk and after dark; multiple accounts describe feeding primarily at night or twilight, with surface feeding specifically a night behavior. Daylight feeding on drift still occurs. Spawning itself takes place just after dark."
+    },
+    "seasonalActivity": "Feeding continues through winter — from January to March the diet is aquatic insect larvae almost exclusively — which sets this species apart from salmonids that largely stand down in cold water. Winter occupancy shifts to deeper pools; summer occupancy spreads across shallow riffles, moderate runs, and deep pools.",
+    "thermalDrivenBehavior": "Preferred band reported at roughly 48–51°F, with tolerance up to about 70°F. Persistence requires summer temperatures below about 70°F, and high summer temperature is the factor that confines the species to higher-elevation reaches at the southern edge of its range. Northern populations are reported occupying roughly 50–64°F depending on season.",
+    "currentFacing": "Bottom-oriented in moderate current rather than suspended in the fastest water. Adults occupy large pools and deep runs; streams that lack depth do not hold them.",
+    "depthMovement": "In flowing water, adults prefer depths greater than about three feet, with deep pools of roughly 36–48 in repeatedly reported as adult habitat, and shift deeper in winter. Lake depth use is contradictory in the sources reached and is recorded as a gap.",
+    "coverUse": "Depth and velocity, not structural cover. Pools, deep runs, and the substrate itself are the holding elements; there is no sourced account of undercut or wood dependence in adults.",
+    "openWaterBehavior": "Lake and reservoir populations occur but the species remains primarily a stream fish. Lake diets shift toward dipteran larvae, cladocerans, and benthic crustaceans, which implies continued bottom orientation rather than pelagic roaming.",
+    "spawningBehavior": "Fall spawner, October through December, triggered by falling temperature — one agency account records no spawning until water dropped to about 42°F. Fish broadcast adhesive eggs over gravel and rubble with no redd construction and little apparent selection of bottom material; spawning takes place just after dark, in small groups of 2 to 5 fish, with no rapid or violent body movement. Some lake populations run into tributaries while many stream populations move very little. Eggs incubate through winter and hatch in roughly 6–10 weeks. All of this is conservation context: spawning gravel and any associated concentration is excluded from target guidance.",
+    "sources": [
+      {
+        "label": "California Department of Fish and Wildlife — Mountain Whitefish Prosopium williamsoni (Girard) species account",
+        "class": "agency",
+        "url": "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=104341"
+      },
+      {
+        "label": "University of Idaho, 'The Mountain Whitefish' — literature review of Prosopium williamsoni biology",
+        "class": "synthesis",
+        "url": "https://objects.lib.uidaho.edu/fwres/fwres105.pdf"
+      },
+      {
+        "label": "Idaho Department of Fish and Game — Mountain Whitefish Conservation and Management Plan",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/old-web/docs/fish/planBigLostRiverWhitefish.pdf"
+      },
+      {
+        "label": "Oregon Sea Grant / Oregon State University Watershed Restoration Field Guide — Mountain Whitefish",
+        "class": "agency",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/salmon-and-trout/mountain-whitefish"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Mountain Whitefish",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/detail_AFCHA03060.aspx"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "lake depth use is contradictory — one review reports greatest summer gill-net catches at 0–3 m while also stating lake fish remain deep until the spawning season, and another source gives lake habitat as at least 30 ft",
+      "no primary source found for cold-front / barometric response",
+      "no primary source found for turbidity or clarity response",
+      "no primary source found for water-level or flow-change response",
+      "no primary source found for angling-pressure response",
+      "territoriality and aggression are not described in the sources reached; fields omitted rather than assumed from the schooling habit"
+    ]
+  },
+  "diet": {
+    "speciesId": "prosopium_williamsoni",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "eggs"
+    ],
+    "primaryNote": "A substrate forager first. Adults take mayfly, caddisfly, stonefly, and dipteran larvae off the bottom; cased caddis and chironomids are repeatedly named. Drifting invertebrates, terrestrials that fall in, and fish eggs are all documented but sit on top of a benthic base. The small ventral mouth caps prey size — this is not a piscivore at any size. Capacity is not a current hatch.",
+    "seasonalDiet": [
+      {
+        "season": "winter",
+        "emphasis": "Feeding continues. From January to March the diet is aquatic insect larvae almost exclusively. Egg consumption is documented in winter where eggs of other species are available; that is opportunistic capacity, not a declared egg event."
+      },
+      {
+        "season": "spring",
+        "emphasis": "Benthic aquatic insect larvae remain the base as water warms. Emergences are capacity, not a declared hatch."
+      },
+      {
+        "season": "summer",
+        "emphasis": "The most variable season in the diet record: aquatic insects remain frequent, but terrestrials, cladocerans, and other seasonal forms also appear."
+      },
+      {
+        "season": "fall",
+        "emphasis": "Benthic insect larvae continue. Fall is the spawning season and is conservation context; it is not an egg-forage prescription for this species."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Feed almost entirely on the bottom on small chironomid, blackfly, and mayfly larvae, only occasionally taking swimming or floating organisms.",
+      "juvenile": "Bottom-feeding habit persists; mayfly, stonefly, and caddisfly immatures.",
+      "adult": "Mayfly, caddisfly, stonefly, and dipteran larvae taken off the substrate, supplemented by drift, terrestrials, and eggs."
+    },
+    "preySizeShifts": "Prey size is capped by a small, weak, ventral mouth rather than by gape growth in the way a predatory salmonid's is. There is no sourced shift to fish prey at any size.",
+    "forageSubstitutions": "Lake and reservoir populations substitute dipteran larvae, cladocerans, and benthic crustaceans such as snails, amphipods, and crayfish; zooplankton is reported as important in reservoirs. Stream populations substitute mayfly, stonefly, and caddisfly immatures with occasional heavy use of terrestrials. Substitution is system-specific.",
+    "observedForageRule": "Diet capacity is not proof that a hatch, emergence, or egg event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "University of Idaho, 'The Mountain Whitefish' — literature review of Prosopium williamsoni biology",
+        "class": "synthesis",
+        "url": "https://objects.lib.uidaho.edu/fwres/fwres105.pdf"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Mountain Whitefish Prosopium williamsoni (Girard) species account",
+        "class": "agency",
+        "url": "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=104341"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Mountain Whitefish",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/detail_AFCHA03060.aspx"
+      },
+      {
+        "label": "Idaho Department of Fish and Game — Mountain Whitefish Conservation and Management Plan",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/old-web/docs/fish/planBigLostRiverWhitefish.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the catalog forage list omits the crustacean and zooplankton classes that lake and reservoir diet studies report; recorded here in prose rather than silently added to primaryForage",
+      "no quantitative proportion-by-season diet table was located for a defined region",
+      "ontogenetic shift is weakly characterised — the sources describe persistence of bottom feeding rather than a stage transition, so the field is omitted"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "prosopium_williamsoni",
+    "status": "reviewed",
+    "overview": "A cold-water, substrate-oriented, schooling salmonid that feeds year-round including through winter. Depth and moderate current matter more than structural cover. The whole calendar is shaped by a small ventral mouth: prey stays small, and the fish stays near the bottom except at night. Fall spawning is conservation context only.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deeper pools; deep runs. Occupancy contracts to the deepest available holding water.",
+        "depthTendency": "Deeper than in summer.",
+        "feedingEmphasis": "Feeding continues rather than shutting down.",
+        "forageEmphasis": "Aquatic insect larvae almost exclusively from January through March.",
+        "thermalContext": "Sits well below the reported 48–51°F preferred band without ceasing to feed.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift match a fish taking small larvae off the substrate; in still water, bottom contact and slow drag.",
+        "invalidators": [
+          "assuming a cold-water feeding shutdown",
+          "treating winter as a surface problem"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Deep runs and pools, spreading toward riffle-to-run water as temperature rises.",
+        "feedingEmphasis": "Benthic larvae remain the base.",
+        "currentUse": "Moderate current with bottom contact rather than the fastest core.",
+        "presentationImplication": "Bottom-contact drift and dead drift. Suspended drift only where drift feeding is actually observed.",
+        "invalidators": [
+          "inventing a hatch from diet capacity"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Shallow riffles, moderate runs, deep pools, and pool tails — the widest habitat spread of the year. Lake fish over drop-offs, rocky shoreline, and basin.",
+        "depthTendency": "Adults still favour water deeper than about three feet; deep pools of roughly 36–48 in are repeatedly reported.",
+        "feedingEmphasis": "The most variable diet of the year — benthic insects plus terrestrials and seasonal forms.",
+        "thermalContext": "Preferred roughly 48–51°F; persistence requires summer temperature below about 70°F, which is what pushes the species upslope at the southern edge of its range.",
+        "lightSensitivity": "Feeding concentrates at dusk and after dark, and surface feeding is specifically a night behavior; daylight drift feeding still occurs.",
+        "presentationImplication": "Bottom-contact drift and dead drift as the base; surface drift only when surface feeding is actually observed, not assumed from the calendar.",
+        "invalidators": [
+          "reading a night surface school as a daytime dry-fly situation",
+          "forcing water above about 70°F"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Runs and pools while feeding continues; gravel is used for spawning as temperature falls.",
+        "thermalContext": "Spawning is initiated as water drops through roughly 35–45°F.",
+        "conservationNote": "Fall spawner, October through December. Spawning gravel and any spawning-associated concentration are excluded from target guidance. Some lake populations undertake tributary movements; those movements are conservation context, not a targeting cue.",
+        "presentationImplication": "Bottom-contact drift and dead drift in remaining feeding water.",
+        "invalidators": [
+          "using spawning substrate as holding water",
+          "assuming an egg event from the calendar alone"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Spawning overlap continues, then a shift toward deeper wintering pools.",
+        "conservationNote": "Spawning overlap remains caution through the late-fall window.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift in feeding water away from spawning substrate."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Idaho Department of Fish and Game — Mountain Whitefish Conservation and Management Plan",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/old-web/docs/fish/planBigLostRiverWhitefish.pdf"
+      },
+      {
+        "label": "University of Idaho, 'The Mountain Whitefish' — literature review of Prosopium williamsoni biology",
+        "class": "synthesis",
+        "url": "https://objects.lib.uidaho.edu/fwres/fwres105.pdf"
+      },
+      {
+        "label": "California Department of Fish and Wildlife — Mountain Whitefish Prosopium williamsoni (Girard) species account",
+        "class": "agency",
+        "url": "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=104341"
+      },
+      {
+        "label": "Oregon Sea Grant / Oregon State University Watershed Restoration Field Guide — Mountain Whitefish",
+        "class": "agency",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/salmon-and-trout/mountain-whitefish"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no sourced early_spring, early_summer, or late_summer material was found, so those seasons are not written",
+      "stillwater seasonal habitat is thinly sourced compared with flowing water; lake entries lean on general depth statements",
+      "no sourced light-sensitivity material for seasons other than summer"
+    ]
+  }
+}

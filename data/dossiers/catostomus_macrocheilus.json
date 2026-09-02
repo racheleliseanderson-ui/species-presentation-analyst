@@ -1,0 +1,295 @@
+{
+  "identification": {
+    "speciesId": "catostomus_macrocheilus",
+    "status": "reviewed",
+    "regionalNames": [
+      "large-scale sucker"
+    ],
+    "bodyShape": "Elongate, round-bodied catostomid with a ventral (sub-terminal) sucking mouth, large well-defined scales, a long-based dorsal fin, and a large caudal fin set on a narrow caudal peduncle. The Peace River key gives the peduncle depth as at most half the length of the dorsal fin base — the reverse of white sucker, where the two are about equal.",
+    "identificationTraits": [
+      "Large, distinct scales that are obvious even on juveniles; 62–80 medium-to-large scales along the lateral line (Montana).",
+      "Dorsal fin of 13–15 rays on an elongated base — the longest dorsal base of the three Catostomus in this catalog (Montana).",
+      "Short, rounded snout that barely overhangs the mouth (Peace River key).",
+      "Cleft between the lower lips forms a broad inverted 'V'; the lips themselves are large and fleshy, which is what the species name macrocheilus refers to.",
+      "Back and sides dark olive-grey changing abruptly to white or yellowish on the underside — the change is described as abrupt rather than graded (Montana).",
+      "Narrow caudal peduncle carrying a large caudal fin (Oregon Sea Grant)."
+    ],
+    "coloration": "Dark olive-grey to brownish or dark green over the back and sides, changing abruptly to a white or yellowish underside.",
+    "spawningColoration": "Oregon Sea Grant reports spawning fish developing an orange hue over the brown body colour. This is biology, not a targeting cue.",
+    "adultAppearance": "A large-scaled, olive-grey benthic sucker with a short rounded snout, big fleshy lips split by a broad shallow cleft, a long-based dorsal fin, and a big tail on a narrow peduncle.",
+    "similarSpecies": [
+      {
+        "speciesId": "catostomus_catostomus",
+        "name": "Longnose sucker",
+        "distinction": "Scale size separates them at any age: largescale's scales are large and distinct even on juveniles (62–80 in the lateral line), longnose's are small and barely visible on young fish and number more than 85. Largescale's snout is short and rounded and barely overhangs the mouth; longnose's is long and pointed and noticeably does. The lower-lip cleft is a broad inverted 'V' in largescale and deep in longnose. The dorsal fin confirms it: 13–15 rays on a long base in largescale, 9–12 on a short base in longnose. British Columbia reports the two may hybridize and that morphological characters overlap in some specimens, so an intermediate fish should be recorded as unresolved rather than forced into either record."
+      },
+      {
+        "speciesId": "catostomus_commersonii",
+        "name": "White sucker",
+        "distinction": "These two genuinely cannot be separated on scale count — largescale runs 62–80 in the lateral line and white sucker 60–75 (Montana) or 55–85 (Iowa DNR), so the counts overlap across most of their span. Use the dorsal fin: 13–15 rays on an elongated base in largescale against 11–13 on a short base in white sucker. The lower-lip cleft is a second check, broad in largescale and a narrow inverted 'V' in white sucker, and the caudal peduncle is a third — shallow relative to the dorsal base in largescale, about equal to it in white sucker. Range usually settles it before any of that: largescale is a Pacific-drainage fish, white sucker is native to Atlantic, Arctic, Great Lakes and Mississippi basins and USGS does not record it as established in the Columbia basin. In Montana the two occupy opposite sides of the state — largescale in the western drainages, white sucker in the eastern and northern ones."
+      },
+      {
+        "name": "Bridgelip sucker (Catostomus columbianus)",
+        "distinction": "A Columbia-basin congener that overlaps largescale sucker through much of its range. No agency or peer-reviewed source reached in this review supplies a field character separating the two, so none is invented here — use the jurisdiction's own key, and treat an unresolved Columbia-basin sucker as unresolved."
+      },
+      {
+        "name": "Mountain sucker (Catostomus platyrhynchus)",
+        "distinction": "A size and marking cut in the sources reached: mountain sucker averages only 127–152 mm total length with a largest recorded specimen of 232 mm, and carries a dark green-to-black lateral band and/or five dorsal blotches of fine black pigment. Largescale sucker reaches roughly four times that length and adults are unmarked."
+      },
+      {
+        "speciesId": "moxostoma_macrolepidotum",
+        "name": "Shorthead redhorse",
+        "distinction": "Both are large-scaled, so scale size will not separate them. Redhorse has plicate (folded) lower lips rather than the large papillose lips of largescale sucker, a very short head, a short dorsal fin of 12–13 rays with a strongly concave margin, and a red caudal fin. Largescale sucker has a long-based dorsal of 13–15 rays and no red tail."
+      }
+    ],
+    "averageAdultLength": "Adults commonly reach about 24 in / 61 cm (Oregon Sea Grant), with juveniles over 4 in.",
+    "commonAnglingSize": "Not reported as a single figure in the sources reviewed. Adult size runs up to roughly 24 in, and state-record fish sit near 9 lb, which brackets the upper end rather than describing a typical fish.",
+    "typicalWeight": "About 3 lb / 1.3 kg for adults (Oregon Sea Grant). Montana states maximum size in the state is usually under 5 lb.",
+    "maximumDocumentedSize": "State records bracket it: Idaho's certified record is 9.04 lb (Lake Cascade, 2017) and Washington's is 8.96 lb (Columbia River, March 2026). Montana gives its own maximum as usually less than 5 lb.",
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Largescale Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02280"
+      },
+      {
+        "label": "Oregon Sea Grant (Oregon State University), Willamette River Field Guide — Largescale Sucker",
+        "class": "synthesis",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/suckers/largescale-sucker"
+      },
+      {
+        "label": "Peace River Fish Identification Key (BC Hydro Site C project, draft 2022) — Catostomus couplets on snout, lip cleft, scale size and caudal peduncle",
+        "class": "synthesis",
+        "url": "https://www.sitecproject.com/sites/default/files/Peace-River-Fish-Identification-Key.pdf"
+      },
+      {
+        "label": "British Columbia Ministry of Environment ACAT report library — species summary appendix: longnose sucker and largescale sucker (Okanagan Lake)",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Suckers_1188325290693_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — largescale sucker (Catostomus macrocheilus) species page and state record",
+        "class": "agency",
+        "url": "https://wdfw.wa.gov/species-habitats/species/catostomus-macrocheilus"
+      },
+      {
+        "label": "Idaho Department of Fish and Game — Lake Cascade produces new state-record largescale sucker (distribution and feeding notes)",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/blog/2017/12/lake-cascade-produces-new-state-record-largescale-sucker"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species database — White Sucker (Catostomus commersonii) species profile: native range and introductions",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=346"
+      },
+      {
+        "label": "Environment and Climate Change Canada, Species at Risk Public Registry — Mountain Sucker (Catostomus platyrhynchus) Milk River populations consultation workbook (comparative size and markings)",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/consultation-documents/mountain-sucker-milk-river-populations-workbook.html"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02060"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional / vernacular names — no agency source reached supplied a list",
+      "juvenile appearance beyond the statement that the scales are already large and distinct",
+      "sexual dimorphism and breeding tubercles — not described in the sources reviewed",
+      "longevity and age at which maximum size is reached — no source reached gives it, so the field is omitted",
+      "regional colour variation",
+      "a sourced field character separating largescale sucker from bridgelip sucker, which is the most likely real-world confusion through the Columbia basin"
+    ]
+  },
+  "behavior": {
+    "speciesId": "catostomus_macrocheilus",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Recorded conservatively. The British Columbia summary found largescale sucker at every sampled site in every sampling period and as the third most prevalent species in one large lake at 10–12% of the fish community, which describes ubiquity rather than shoaling. No source reviewed resolves whether non-spawning fish shoal or disperse. Spawning aggregation is conservation context only and is not located here."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "An omnivorous bottom forager. Montana summarises the diet as almost any available organism found on the substrate; Idaho Fish and Game describes the fleshy sucker lips as adapted to pick up a wide variety of food off the bottom. Prey is worked off and out of the substrate, not intercepted in the drift."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "The one sourced diel statement is a movement, not an activity rate: the British Columbia summary reports largescale sucker undergoing diel migration within the water column, typically moving from deeper water during the day to shallower shoreline areas in the evening. Whether feeding intensity itself follows that shift is not established in any source reviewed, so 'mixed' is entered rather than a nocturnal or crepuscular claim."
+    },
+    "seasonalActivity": "Migratory within river systems, likely for spawning (Oregon Sea Grant); spawning runs April to May in Montana and late March to early June in the British Columbia account. Young rear in quiet backwaters or lakes (Montana). Autumn and winter activity is not resolved by the sources reviewed.",
+    "thermalDrivenBehavior": "Only reproductive temperatures were reached: spawning begins when streams reach 7–10 °C (British Columbia). Montana documents a real thermal response at the population scale — largescale sucker declined below Libby Dam because colder released water delays spawning. The catalog's 55–70 °F preferred band is not corroborated by any adult thermal-preference or avoidance study in the sources reached and should be treated as unverified.",
+    "currentFacing": "Idaho Fish and Game places largescale suckers in the deeper, slow-moving currents of rivers near the bottom. Strong current appears in the sources only in the spawning context — gravel riffles with strong current, or lake margins.",
+    "depthMovement": "Oregon Sea Grant places the species along the river bottom, often in shallow water but occurring to 80 ft (24 m). The British Columbia summary adds the day-deep, evening-shallow vertical and shoreward shift.",
+    "coverUse": "The British Columbia summary reports a tendency to occur in shallow areas with aquatic macrophytes. That is the only cover statement any source reviewed provides.",
+    "openWaterBehavior": "A bottom-oriented fish of river mainstems, backwaters, floodplains, tributaries, lakes and reservoirs; Oregon Sea Grant records use of mainstem, backwater, floodplain and tributary habitat in the same system.",
+    "spawningBehavior": "Spring spawner. Montana gives April to May, spawning in gravel riffles with strong current or along lake margins, with adhesive eggs that hatch within about two weeks and no parental care; British Columbia gives late March to early June, initiation at 7–10 °C, and riffle-and-pool spawning at 0.6–2.0 m over sand-to-cobble substrate. Oregon Sea Grant gives spawning on small gravel bars or sandy submerged beaches with up to 20,000 eggs per female. Maturity is at 4–5 years, some males at 3. Spawning substrate and any spawning-period concentration are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Largescale Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02280"
+      },
+      {
+        "label": "Oregon Sea Grant (Oregon State University), Willamette River Field Guide — Largescale Sucker",
+        "class": "synthesis",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/suckers/largescale-sucker"
+      },
+      {
+        "label": "British Columbia Ministry of Environment ACAT report library — species summary appendix: longnose sucker and largescale sucker (Okanagan Lake)",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Suckers_1188325290693_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "Idaho Department of Fish and Game — Lake Cascade produces new state-record largescale sucker (distribution and feeding notes)",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/blog/2017/12/lake-cascade-produces-new-state-record-largescale-sucker"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "an adult thermal preference or avoidance study; the temperature numbers reached are entirely reproductive, which is the main reason this record is partial",
+      "whether the documented day-deep / evening-shallow movement corresponds to a feeding-activity rhythm",
+      "winter habitat and overwintering behaviour",
+      "non-spawning social structure (shoal vs. dispersed)",
+      "cold-front / barometric response",
+      "water-level and flow-change response",
+      "angling-pressure response",
+      "predator avoidance and territoriality — not described in any source reached"
+    ]
+  },
+  "diet": {
+    "speciesId": "catostomus_macrocheilus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "aquatic_insects",
+      "crustaceans",
+      "worms_annelids",
+      "mollusks"
+    ],
+    "primaryNote": "An omnivorous benthic forager. Montana summarises the diet as almost any available organism found on the substrate; Oregon Sea Grant names snails, worms and other macroinvertebrates alongside algae, diatoms and other benthic plant material; the British Columbia summary names insects, crustaceans and molluscs, the same prey classes it gives for longnose sucker; Idaho Fish and Game names algae and insects through to clams and snails. Capacity is not a current hatch.",
+    "lifeStageDiet": {
+      "youngOfYear": "The British Columbia summary reports young-of-year taking smaller prey including plankton and algae; Montana notes young rear in quiet backwaters or lakes.",
+      "adult": "Benthic omnivore: insect immatures, amphipods and other crustaceans, snails and small clams, and worms taken off and within the substrate, with a substantial algal and diatom fraction."
+    },
+    "ontogeneticShift": "From plankton- and algae-scale prey in the first year to bottom-worked invertebrates plus benthic plant material as adults.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Largescale Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02280"
+      },
+      {
+        "label": "Oregon Sea Grant (Oregon State University), Willamette River Field Guide — Largescale Sucker",
+        "class": "synthesis",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/suckers/largescale-sucker"
+      },
+      {
+        "label": "British Columbia Ministry of Environment ACAT report library — species summary appendix: longnose sucker and largescale sucker (Okanagan Lake)",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Suckers_1188325290693_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "Idaho Department of Fish and Game — Lake Cascade produces new state-record largescale sucker (distribution and feeding notes)",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/blog/2017/12/lake-cascade-produces-new-state-record-largescale-sucker"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the sources also document algae, diatoms and benthic plant material as a substantial dietary fraction, which the catalog does not carry as a forage class; the catalog classes have been kept and the discrepancy recorded rather than resolved",
+      "a quantified gut-content study for this species; every diet statement reached is a qualitative list",
+      "season-by-season diet shifts — not described in the sources reviewed",
+      "prey-size shifts with growth"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "catostomus_macrocheilus",
+    "status": "partial",
+    "overview": "The Pacific-drainage member of this genus in the catalog: a large-scaled, omnivorous bottom forager of river mainstems, backwaters and lakes, found from shallow shoreline out to about 80 ft. The two structural facts worth carrying are that it holds in the deeper, slower current of rivers near the bottom, and that it makes a documented daily move from deeper water in daylight to shallower shoreline in the evening. Spring spawning is conservation context. Autumn and winter habitat use is not resolved and no winter entry is written; the catalog's thermal band is also uncorroborated, which is why this record is partial.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Riffle-to-run and run over gravel in the flowing water adults move into, plus lake margins; pool tails and current breaks adjacent to that water.",
+        "movementTendency": "Migration within river systems associated with spawning, April to May in Montana and late March to early June farther north.",
+        "thermalContext": "Spawning initiates at 7–10 °C in streams. Montana documents colder released water below a dam delaying spawning and depressing the population, so the cold edge matters here in a way it does not for the other suckers in this catalog.",
+        "feedingEmphasis": "Bottom-worked invertebrates and benthic plant material; feeding is a substrate activity throughout.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift keep an offering on the substrate where this species feeds, and stationary bait is the other reviewed flowing family that matches a downward-facing benthic omnivore. In stillwater, bottom contact and slow drag. Surface and mid-column families do not match the mouth.",
+        "conservationNote": "Spring spawner. Spawning substrate and any spawning-period concentration are excluded from target guidance.",
+        "invalidators": [
+          "treating the spawning migration as a location cue",
+          "reading a spawning aggregation as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Deep pool, run and current-break water in the deeper, slower current of rivers near the bottom; rocky shoreline, drop-off, shallow flats and basin in lakes and reservoirs, including shallow areas with aquatic macrophytes.",
+        "depthTendency": "Along the bottom, often shallow, but occurring to about 80 ft. A daily vertical and shoreward shift is documented — deeper water in daylight, shallower shoreline in the evening.",
+        "currentUse": "Deeper, slower current near the bottom rather than fast water; strong current appears in the sources only in the spawning context.",
+        "coverUse": "Shallow areas with aquatic macrophytes are the one cover association documented.",
+        "lightSensitivity": "Deeper by day, shallower along the shoreline in the evening. This is a documented movement, not a feeding-rate claim.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift in flowing water, stationary bait where the substrate allows; bottom contact and slow drag in stillwater. The mechanics follow the mouth, not the season.",
+        "invalidators": [
+          "fishing it as a mid-column or surface feeder",
+          "treating the catalog's 55–70 °F band as a sourced thermal preference — no adult thermal study was reached",
+          "assuming the evening shallow movement implies anything about feeding rate"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "The same deeper, slower near-bottom river water and lake basins as summer; no autumn habitat shift is documented in the sources reviewed.",
+        "feedingEmphasis": "Benthic omnivory continues; no seasonal prey switch is described in the sources reviewed.",
+        "presentationImplication": "Bottom-contact drift, tight-line drift and stationary bait in flowing water; bottom contact and slow drag in stillwater.",
+        "invalidators": [
+          "importing a fall-spawning pattern from salmonids — this is a spring spawner",
+          "assuming an autumn habitat shift the sources do not describe"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Largescale Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02280"
+      },
+      {
+        "label": "Oregon Sea Grant (Oregon State University), Willamette River Field Guide — Largescale Sucker",
+        "class": "synthesis",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/suckers/largescale-sucker"
+      },
+      {
+        "label": "British Columbia Ministry of Environment ACAT report library — species summary appendix: longnose sucker and largescale sucker (Okanagan Lake)",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Suckers_1188325290693_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "Idaho Department of Fish and Game — Lake Cascade produces new state-record largescale sucker (distribution and feeding notes)",
+        "class": "agency",
+        "url": "https://idfg.idaho.gov/blog/2017/12/lake-cascade-produces-new-state-record-largescale-sucker"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — largescale sucker (Catostomus macrocheilus) species page and state record",
+        "class": "agency",
+        "url": "https://wdfw.wa.gov/species-habitats/species/catostomus-macrocheilus"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "winter entry omitted — no sourced description of overwintering habitat or activity",
+      "an adult thermal preference or avoidance study; the catalog's 55–70 °F band is carried but is not corroborated by anything reached",
+      "depth tendency by season, as distinct from the daily vertical shift",
+      "riprap and point structure are not documented for this species in any source reached; the catalog's still-water classes are only partly supported"
+    ]
+  }
+}

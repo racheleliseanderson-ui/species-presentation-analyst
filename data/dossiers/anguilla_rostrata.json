@@ -1,0 +1,271 @@
+{
+  "identification": {
+    "speciesId": "anguilla_rostrata",
+    "status": "reviewed",
+    "regionalNames": [
+      "freshwater eel",
+      "common eel",
+      "glass eel",
+      "elver",
+      "yellow eel",
+      "silver eel"
+    ],
+    "bodyShape": "Elongate and snake-like, nearly cylindrical forward and laterally compressed toward the tail. The dorsal, caudal and anal fins are fused into one continuous fin running around the rear of the body. Pectoral fins are present just behind the gill opening; there are no pelvic fins.",
+    "identificationTraits": [
+      "One continuous dorsal–caudal–anal fin around the rear of the body, with small pectoral fins and no pelvic fins (Maryland DNR).",
+      "Lower jaw projects beyond the upper jaw; lips are thick (Maryland DNR).",
+      "Head is elongated with small eyes set well forward in the yellow-eel stage; silver eels have markedly enlarged eyes and nostrils (Maryland DNR, USFWS).",
+      "Rayed fins, covered gill slits and jaws with many small teeth — the separation from lampreys, which have a jawless sucking disc, open gill holes and no fin rays (CRITFC)."
+    ],
+    "coloration": "Variable. Yellow eels are yellow to olive-green or brownish above and white to light yellow below (Maryland DNR).",
+    "juvenileAppearance": "Leptocephalus larvae are transparent, leaf-shaped and unpigmented, filled with gelatinous energy-storage material. Glass eels are small, transparent and elongate with a full adult complement of fins. Elvers are the first pigmented stage (USFWS).",
+    "adultAppearance": "Yellow eels are pigmented, drab and bottom-oriented. Maturing silver eels turn metallic silver over a dark back, develop markedly enlarged eyes and nostrils, shift retinal pigments toward deep-water vision, and shift muscle composition toward red muscle for sustained swimming (USFWS).",
+    "spawningColoration": "Silvering is the maturation change described above. It marks a fish leaving continental water and is conservation context, not a targeting cue.",
+    "sexualDimorphism": "Females reach much larger sizes than males (Maryland DNR). Sex is not fixed genetically — USFWS describes it as density-dependent, with high local density producing predominantly male silver eels and low density predominantly females. Males follow a time-minimising strategy, maturing early and small; females a size-maximising one, delaying maturation to increase fecundity.",
+    "similarSpecies": [
+      {
+        "name": "Sea lamprey and other lampreys (Petromyzontidae)",
+        "distinction": "Lampreys are jawless, with a round sucking oral disc, a series of open gill holes along the side of the head, no paired fins and no fin rays. American eel has true jaws with small teeth, a single covered gill slit, pectoral fins and rayed fins (CRITFC)."
+      }
+    ],
+    "averageAdultLength": "Highly variable by sex and latitude. USFWS: males typically mature near 350–400 mm (14–16 in); females range from 450–600 mm in the southeastern US to over a metre in northern Canadian waters.",
+    "commonAnglingSize": "Maryland DNR gives a size span from about 2 in for glass eels to over 3 ft for large females. Yellow eels encountered in fresh water are generally well under a metre, with sex- and latitude-driven variation dominating.",
+    "typicalWeight": "Not given as a standard figure in the agency sources reached. American eel accounts report length and age rather than weight, and no typical weight is asserted here.",
+    "maximumDocumentedSize": "USFWS documents St. Lawrence River females at 957 mm (about 38 in) at 20–21 years of age.",
+    "longevity": "USFWS: yellow eels grow for 2 to more than 30 years before maturing. New York's species status assessment gives 20–30 years typically spent in fresh water and maturation between 7 and 30+ years.",
+    "sources": [
+      {
+        "label": "USFWS American Eel Biological Species Report (2015 status review)",
+        "class": "agency",
+        "url": "https://downloads.regulations.gov/FWS-HQ-ES-2015-0143-0010/content.pdf"
+      },
+      {
+        "label": "Maryland DNR Fish Facts, American eel",
+        "class": "agency",
+        "url": "https://dnr.maryland.gov/fisheries/Pages/fish-facts.aspx?fishname=American+Eel"
+      },
+      {
+        "label": "ASMFC American eel life history and habitat needs factsheet",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/AmericanEel-2.pdf"
+      },
+      {
+        "label": "New York State DEC Species Status Assessment, American eel (SWAP 2025)",
+        "class": "agency",
+        "url": "https://extapps.dec.ny.gov/fs/programs/dfw/SWAP2025/Freshwater%20Fish/americaneel.pdf"
+      },
+      {
+        "label": "Columbia River Inter-Tribal Fish Commission: differences between a lamprey and an eel",
+        "class": "agency",
+        "url": "https://critfc.org/fish-and-watersheds/columbia-river-fish-species/lamprey/differences-between-a-lamprey-and-an-eel/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A sourced typical weight or length–weight relationship.",
+      "Regional colour variation across the range as a structured field.",
+      "A sourced in-hand character separating yellow from early-silvering eels beyond eye size and body colour."
+    ]
+  },
+  "behavior": {
+    "speciesId": "anguilla_rostrata",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Glass eels and elvers move as cohorts on flood tides and in temperature-triggered waves; yellow eels in continental water are individually distributed and substrate-oriented (ASMFC, USFWS).",
+      "note": "Yellow eels are bottom-oriented and largely solitary. ASMFC describes them as substrate-oriented with minimal movement during daylight. Local density matters biologically — it determines the sex ratio of the eels that eventually mature there — but it is not a social structure."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "USFWS describes yellow eels as opportunistic carnivores with, in its words, enormous dietary breadth, taking whatever is available at a size they can handle. ASMFC adds plant material and carrion, and documents cannibalism on smaller eels. Feeding is bottom-referenced rather than water-column."
+    },
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "ASMFC: yellow eels are primarily nocturnal with peak feeding activity at nightfall, though some daytime movement occurs, and lunar phase influences activity — movement is reduced around the full moon, interpreted as an anti-predation response. USFWS: upstream movement occurs from dusk to dawn, and estuary outmigration is primarily at night."
+    },
+    "seasonalActivity": "Strongly temperature-gated. ASMFC: activity decreases below 10°C, and at about 5°C feeding ceases and dormancy can persist for months. USFWS records yellow eels overwintering in mud bottoms in both freshwater and estuary habitats.",
+    "thermalDrivenBehavior": "ASMFC gives movement onset around 14–20°C with activity peaking above 20°C, decreasing activity below 10°C, and feeding ceasing near 5°C. The catalog band of 58–68°F (about 14–20°C) sits inside the active range. USFWS gives a 10–12°C (50–54°F) minimum for elver upstream movement and a roughly 18°C threshold for yellow-eel upstream movement in Maine.",
+    "depthMovement": "Yellow eels are benthic and hold on or in the bottom. In the marine phase, silver eels perform diel vertical migration — swimming within 100 m of the surface at night and descending toward 400 m in daylight (USFWS, from tagged European silver eels).",
+    "flowChangeResponse": "USFWS notes that discharge influences elver upstream movement rates, and describes the seaward silver-eel migration as occurring in spurts, with long periods of no movement punctuated by peaks of intensive movement.",
+    "predatorAvoidance": "ASMFC: eels burrow into sediment and shelter within aquatic macrophytes to avoid predators. Reduced movement around the full moon is read the same way. USFWS notes elvers may burrow during the day between upstream movements.",
+    "coverUse": "USFWS: primarily benthic, using substrate — rock, sand, mud — plus large wood and submerged vegetation for cover. Cover use is size-specific: smaller eels associate with cobble and gravel, larger eels with larger cobbles, boulders and sand. ASMFC adds weedy bottoms, detritus and shell substrate, and notes riparian vegetation and complex substrate as important cover in impounded systems.",
+    "openWaterBehavior": "USFWS calls American eel the fish occupying the broadest array of habitats in the world — open ocean, coastal shelf, estuary, river, small stream, lake and pond — and describes yellow eels in fresh water as habitat generalists with little consistent preference for habitat type. Growth is roughly twofold higher in brackish water than in fresh water.",
+    "spawningBehavior": "Catadromous and believed semelparous. Spawning occurs in the Sargasso Sea in winter and spring, and adults are believed to spawn once and die (ASMFC, USFWS). Maturing silver eels leave continental waters and move seaward; that migration, and any structure that constricts it, is conservation context and is excluded from target guidance. Larval leptocephali drift back on ocean currents, transform to glass eels at the coast, and enter continental waters as elvers.",
+    "sources": [
+      {
+        "label": "USFWS American Eel Biological Species Report (2015 status review)",
+        "class": "agency",
+        "url": "https://downloads.regulations.gov/FWS-HQ-ES-2015-0143-0010/content.pdf"
+      },
+      {
+        "label": "ASMFC Amendment habitat source document, Chapter 7: American eel (habitat, diet, diel activity, thermal thresholds)",
+        "class": "agency",
+        "url": "https://archive.asmfc.org/uploads/file/Chp7_American_Eel_Final.pdf"
+      },
+      {
+        "label": "ASMFC American eel life history and habitat needs factsheet",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/12/AmericanEel-2.pdf"
+      },
+      {
+        "label": "Maryland DNR Fish Facts, American eel",
+        "class": "agency",
+        "url": "https://dnr.maryland.gov/fisheries/Pages/fish-facts.aspx?fishname=American+Eel"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Cold-front or barometric response with primary-source support.",
+      "Water-clarity response with primary-source support.",
+      "Angling-pressure response with primary-source support.",
+      "Home-range size and site fidelity for resident yellow eels.",
+      "Whether the diel vertical migration documented for tagged European silver eels holds for Anguilla rostrata — USFWS presents it as presumed rather than measured."
+    ]
+  },
+  "diet": {
+    "speciesId": "anguilla_rostrata",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "aquatic_insects",
+      "worms_annelids",
+      "small_forage_fish",
+      "mollusks",
+      "amphibians"
+    ],
+    "primaryNote": "ASMFC's habitat chapter reports a freshwater study in which 43% of stomachs contained insects, 26% fish and crayfish, and 20% gastropods, with mayflies, stoneflies and caddisflies dominating the invertebrate fraction. In brackish water the diet shifts to blue crabs, bivalves and alewife. USFWS gives benthic invertebrates for smaller eels and mussels, fish and other eels for larger ones, plus plant material and carrion. This is dietary capacity, not evidence of a current forage event.",
+    "seasonalDiet": [
+      {
+        "season": "winter",
+        "emphasis": "ASMFC: below 10°C activity decreases; at about 5°C feeding ceases and dormancy can persist for months. USFWS records overwintering in mud bottoms. Treat winter as reduced or absent feeding rather than as a diet shift."
+      },
+      {
+        "season": "summer",
+        "emphasis": "ASMFC places peak activity above 20°C. The broad benthic diet — insects, crayfish and other crustaceans, gastropods, worms and small fish — applies here. No specific summer prey pulse is claimed."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Leptocephalus larvae feed on marine snow — organic detrital particles such as discarded larvacean houses and zooplankton faecal pellets (USFWS).",
+      "juvenile": "Smaller yellow eels favour aquatic insect larvae and small benthic invertebrates; ASMFC notes cobble and gravel association at this size.",
+      "adult": "Larger yellow eels take fish, crayfish and other crustaceans, bivalves and gastropods, plus carrion. Cannibalism on smaller eels is documented (ASMFC, USFWS)."
+    },
+    "preySizeShifts": "ASMFC states diet composition shifts with eel size — smaller individuals favour aquatic insect larvae, larger eels consume fish and crustaceans. Prey size tracks gape.",
+    "ontogeneticShift": "Marine detrital feeding as a larva, then benthic invertebrate feeding as a small yellow eel, then a widening carnivorous diet including fish and molluscs with size.",
+    "forageSubstitutions": "Habitat drives substitution: freshwater eels lean on aquatic insects, crayfish and gastropods; brackish-water eels on crabs, bivalves and clupeids. USFWS reports roughly twofold higher growth in brackish water, which is the practical consequence of that substitution.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "ASMFC Amendment habitat source document, Chapter 7: American eel",
+        "class": "agency",
+        "url": "https://archive.asmfc.org/uploads/file/Chp7_American_Eel_Final.pdf"
+      },
+      {
+        "label": "USFWS American Eel Biological Species Report (2015 status review)",
+        "class": "agency",
+        "url": "https://downloads.regulations.gov/FWS-HQ-ES-2015-0143-0010/content.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Amphibian prey is carried in the catalog forage list for this species but was not confirmed in any agency or peer-reviewed source reached. It is retained for catalog consistency and flagged here as unverified.",
+      "Spring and fall seasonal diet emphases; the sourced material describes winter dormancy and warm-season activity but nothing specific to the shoulder seasons.",
+      "Quantitative diet studies from more than the single freshwater study ASMFC summarises."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "anguilla_rostrata",
+    "status": "partial",
+    "overview": "American eel is catadromous: it grows for years or decades in continental water as a yellow eel and returns to the sea once to spawn. Its calendar is driven almost entirely by temperature and darkness — activity falls off below 10°C and feeding stops near 5°C, activity peaks above 20°C, and feeding is night-referenced year-round. Conservation status is live: the ASMFC 2023 benchmark assessment concluded the US stock is depleted; COSEWIC assessed the species as Threatened in Canada in 2012, though the Governor in Council declined in 2025 to add it to Schedule 1 of the Species at Risk Act, keeping it under Fisheries Act management; IUCN lists it as Endangered; and New York treats it as a high-priority species of greatest conservation need. All migration phases are conservation context only.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Soft-bottom and sediment-associated cover — mud bottoms in fresh water and estuaries, plus wood and submerged vegetation.",
+        "depthTendency": "Benthic and largely stationary.",
+        "movementTendency": "ASMFC describes dormancy that can persist for months once temperature falls to about 5°C.",
+        "feedingEmphasis": "ASMFC: feeding ceases near 5°C. Activity has already decreased below 10°C.",
+        "thermalContext": "Below 10°C activity decreases; near 5°C feeding stops (ASMFC).",
+        "invalidators": [
+          "treating winter as a presentation problem when the sourced biology says feeding has stopped"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Benthic cover in rivers and lakes — submerged wood, undercut banks, deep pools, current breaks and side channels in flow; wood, basin and weed edge in still water.",
+        "movementTendency": "Upstream movement of elvers and small yellow eels resumes as water warms, in waves, mostly between dusk and dawn.",
+        "thermalContext": "USFWS gives 10–12°C (50–54°F) as the minimum for elver upstream movement and about 18°C for yellow-eel upstream movement in Maine. ASMFC gives movement onset at 14–20°C.",
+        "conservationNote": "Upstream migration period for young eels. That migration, the routes it uses and any structure that constricts it are excluded from target guidance. Glass eel and elver harvest is closed or tightly licensed in most jurisdictions — check the local rule.",
+        "invalidators": [
+          "treating migration timing as a location cue",
+          "ignoring closed seasons and life-stage-specific harvest prohibitions"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Benthic cover across a very wide habitat range. Flowing water: deep pool, submerged wood, undercut bank, current break, side channel. Still water: wood, basin, drop-off, weed edge, inlet. Substrate itself is cover — rock, cobble, sand and mud.",
+        "depthTendency": "Bottom-referenced. Yellow eels show minimal movement in daylight and forage at night.",
+        "feedingEmphasis": "Broad benthic carnivory — insects, crayfish and other crustaceans, gastropods, worms and small fish.",
+        "thermalContext": "ASMFC places activity peaking above 20°C. The catalog band of 58–68°F sits inside the active range.",
+        "coverUse": "Substrate, large wood and submerged vegetation, with a size gradient from cobble and gravel for small eels to larger cobble, boulders and sand for large ones.",
+        "lightSensitivity": "Strong. Peak feeding at nightfall; reduced movement around the full moon (ASMFC).",
+        "presentationImplication": "Stationary bait held on the bottom is the reviewed flowing-water family that matches a nocturnal benthic feeder; bottom contact and slow drag are the still-water equivalents. Live/natural bait suspension is not the fit here — the sourced feeding position is on the bottom, not in the column.",
+        "invalidators": [
+          "working the water column for a species the sources place on the bottom",
+          "expecting daylight activity against the sourced nocturnal pattern"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Benthic cover as in summer for resident yellow eels, with activity declining as temperature falls.",
+        "movementTendency": "Maturing silver eels leave continental waters and move seaward. USFWS describes that migration as occurring in spurts, with long still periods and peaks of intensive movement, and primarily at night.",
+        "thermalContext": "Activity decreases as water passes below 10°C (ASMFC).",
+        "conservationNote": "Seaward silver-eel migration. American eel spawns once and dies, so every emigrating silver eel is a fish that has not yet reproduced. The migration, its routes and any structure that constricts it are excluded from target guidance. The ASMFC 2023 benchmark assessment found the US stock depleted and recommended decreasing coastwide yellow eel catch.",
+        "invalidators": [
+          "treating the seaward migration as a targeting window",
+          "ignoring state and provincial size limits, closed seasons and possession rules"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "ASMFC Amendment habitat source document, Chapter 7: American eel",
+        "class": "agency",
+        "url": "https://archive.asmfc.org/uploads/file/Chp7_American_Eel_Final.pdf"
+      },
+      {
+        "label": "USFWS American Eel Biological Species Report (2015 status review)",
+        "class": "agency",
+        "url": "https://downloads.regulations.gov/FWS-HQ-ES-2015-0143-0010/content.pdf"
+      },
+      {
+        "label": "ASMFC American Eel Benchmark Stock Assessment and Peer Review Report, August 2023 (stock determined depleted)",
+        "class": "agency",
+        "url": "https://asmfc.org/wp-content/uploads/2024/11/AmEelBenchmarkStockAssessment_PeerReviewReport_Aug2023.pdf"
+      },
+      {
+        "label": "Canada Gazette Part II (2025): Order declining to add American eel to Schedule 1 of the Species at Risk Act, following COSEWIC's 2012 Threatened assessment",
+        "class": "agency",
+        "url": "https://gazette.gc.ca/rp-pr/p2/2025/2025-12-17/html/si-tr110-eng.html"
+      },
+      {
+        "label": "New York State DEC Species Status Assessment, American eel (SWAP 2025)",
+        "class": "agency",
+        "url": "https://extapps.dec.ny.gov/fs/programs/dfw/SWAP2025/Freshwater%20Fish/americaneel.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Season-specific habitat shifts for resident yellow eels beyond the temperature-driven activity curve; the sourced material is organised around life stage and temperature, not around season.",
+      "Whether the catalog band of 58–68°F represents a preference or simply the middle of a very broad tolerance — the sources reached give activity thresholds, not a preferred band.",
+      "Jurisdiction-by-jurisdiction regulatory status, which changes frequently and must be checked locally rather than read from this record."
+    ]
+  }
+}

@@ -10,7 +10,8 @@ import { fieldBrief, freshness } from "@/lib/engine/brief";
 import { interpret } from "@/lib/engine/infer";
 import { drivingChanges } from "@/lib/engine/sensitivity";
 import { SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
-import { useSpeciesOverlays } from "@/lib/knowledge/use-species-overlays";
+import { useSpeciesOverlays, useWaterContext } from "@/lib/knowledge/use-species-overlays";
+import { WaterContextPanel } from "@/components/water-context";
 import { buildPacket } from "@/lib/protocol/packet";
 import { labelOf } from "@/lib/protocol/vocab";
 import {
@@ -119,6 +120,7 @@ export function Readout({
 }) {
   const input = toInput(session);
   const overlays = useSpeciesOverlays(session.speciesId);
+  const waterContext = useWaterContext(session.speciesId, session.water.jurisdiction);
   const [copied, setCopied] = useState<"packet" | "brief" | "correction" | null>(null);
   const [saved, setSaved] = useState<NamedScenario[]>([]);
   const [saveName, setSaveName] = useState("");
@@ -156,7 +158,7 @@ export function Readout({
 
   const packet = buildPacket(input, result);
   const json = JSON.stringify(packet, null, 2);
-  const brief = fieldBrief(input, result);
+  const brief = fieldBrief(input, result, overlays.overlays);
   const drivers = drivingChanges(input);
   const species = SPECIES_BY_ID[session.speciesId!];
   const fresh = freshness(species.reviewedAt, species.nextReviewAt);
@@ -201,7 +203,10 @@ What seems wrong:
 (This stays on your device until you paste it somewhere. Nothing is sent automatically.)`;
 
   return (
-    <div className="stagger-in space-y-6">
+    <>
+      {/* On paper the field brief below is the whole deliverable, so the styled
+          reading is hidden rather than printed and then repeated verbatim. */}
+      <div className="stagger-in space-y-6 no-print">
       <section className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 sm:p-8">
         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
           The reading · not a bite prediction
@@ -300,6 +305,12 @@ What seems wrong:
       </section>
 
       <TackleRequirements result={result} />
+
+      <WaterContextPanel
+        state={waterContext}
+        speciesName={species.commonNames[0]}
+        jurisdictionDeclared={Boolean(session.water.jurisdiction?.trim())}
+      />
 
       <AlternativesPanel input={input} result={result} overlays={overlays} />
 
@@ -482,8 +493,11 @@ What seems wrong:
           {result.species.reviewedAt}
         </p>
       </section>
+      </div>
 
-      <pre className="hidden whitespace-pre-wrap font-mono text-xs print:block">{brief}</pre>
-    </div>
+      <pre className="print-only hidden whitespace-pre-wrap font-mono text-xs leading-relaxed">
+        {brief}
+      </pre>
+    </>
   );
 }

@@ -1,0 +1,311 @@
+{
+  "identification": {
+    "speciesId": "amia_calva",
+    "status": "partial",
+    "regionalNames": [
+      "grinnell",
+      "cypress trout",
+      "dogfish",
+      "mudfish",
+      "mud pike",
+      "choupique",
+      "ruddy bowfin"
+    ],
+    "bodyShape": "Stout, heavy-bodied and nearly cylindrical, with a broad rounded head and a rounded caudal fin. A single long, low dorsal fin runs over half the length of the back. The vertebral column turns upward into the base of the tail.",
+    "identificationTraits": [
+      "One long, low dorsal fin with more than 45 rays running over half the back — not two separate dorsal fins.",
+      "Anal fin is short, less than about a quarter the length of the dorsal fin. This is the standard agency separation from northern snakehead, whose anal fin runs roughly two-thirds the dorsal length.",
+      "Pelvic fins sit well back, under the dorsal fin, rather than beneath the pectorals as in snakehead.",
+      "Head is broad, rounded and scaleless; body scales are smooth-edged.",
+      "A pair of short barbels near the nostrils, and strong sharp teeth in the jaws.",
+      "A dark spot at the upper base of the tail. In males it carries a bright orange or yellow halo; in females the halo is faint or absent.",
+      "No chin barbel and only one dorsal fin, which separates it from burbot — burbot has a conspicuous chin barbel, two dorsal fins, and pelvic fins set ahead of the pectorals."
+    ],
+    "coloration": "Mottled olive-green above, grading to pale green on the sides and yellowish or cream on the belly. Dorsal and caudal fins are dark green with darker bands, bars or mottling. Vertical barring and dark patterning occur on the body.",
+    "regionalColorVariation": "Missouri Department of Conservation describes the western form (Mississippi and Ohio basin populations, now assigned to Amia ocellicauda) as mottled olive-green, and eastern Amia calva as more reddish-brown with a less pronounced tail-base eyespot. Because most published accounts predate the 2022 split, colour descriptions in the literature may apply to either taxon.",
+    "spawningColoration": "Missouri Department of Conservation reports breeding male fin colour ranging from dull green to bright emerald green. That change is biology, not a targeting cue.",
+    "juvenileAppearance": "Young carry a black spot near the tail base; the mark can persist into adulthood, most often in males. Fry are guarded by the male and school with him until roughly 4 inches, then disperse.",
+    "adultAppearance": "A heavy, cylindrical, olive-mottled fish with a long undulating dorsal fin, a rounded tail, a broad scaleless head, and a tail-base eyespot that is orange-haloed in males.",
+    "sexualDimorphism": "Males carry a black caudal-base spot with a bright orange or yellow halo; it is absent or inconspicuous in females (Florida FWC, NC Wildlife Resources Commission). Females average larger than males.",
+    "similarSpecies": [
+      {
+        "name": "Northern snakehead (Channa argus)",
+        "distinction": "Snakehead has a long anal fin (about two-thirds the dorsal fin length), pelvic fins set beneath the pectorals, and a long, pointed, flattened head. Bowfin has a short anal fin (under a quarter the dorsal length), pelvic fins set back under the dorsal, and a broad rounded head. Wisconsin DNR publishes this three-way key."
+      },
+      {
+        "speciesId": "lota_lota",
+        "name": "Burbot",
+        "distinction": "Burbot has two distinct dorsal fins, a conspicuous barbel under the chin, and pelvic fins ahead of the pectorals. Bowfin has one continuous long dorsal fin, no chin barbel, and rearward pelvic fins."
+      },
+      {
+        "name": "Eyespot / emerald bowfin (Amia ocellicauda)",
+        "distinction": "Recognised as a separate species in 2022. Mississippi and Ohio basin and Great Lakes populations are Amia ocellicauda; Atlantic-slope populations remain Amia calva. Missouri Department of Conservation separates them on colour (mottled olive-green vs. reddish-brown) and eyespot prominence. Do not assume an account written before 2022 describes the taxon in front of you."
+      }
+    ],
+    "averageAdultLength": "Most adults 15–27 in (Missouri Department of Conservation, Indiana DNR). Arkansas account gives an average near 20 in (50 cm).",
+    "commonAnglingSize": "Agency accounts put the great majority of adults in the 15–27 in band at 1–5 lb; fish above that occur but are not typical.",
+    "typicalWeight": "1–5 lb for most adults (Missouri Department of Conservation, Indiana DNR).",
+    "maximumDocumentedSize": "USGS gives a maximum of 109 cm (about 43 in). Angling records include 21 lb 8 oz (South Carolina, 1980), 19.0 lb (Florida state record) and 17 lb 15 oz (North Carolina state record).",
+    "longevity": "Contested. State accounts commonly give roughly 10–12 years in the wild, but a 2022 otolith-ageing study concluded that free-living bowfin exceed 30 years. Treat published maximum ages as unsettled.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation field guide, bowfin / emerald bowfin species account",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/emerald-bowfin"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission freshwater species profile, bowfin",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/freshwater/bowfin/"
+      },
+      {
+        "label": "North Carolina Wildlife Resources Commission species account, bowfin",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/species/bowfin"
+      },
+      {
+        "label": "Indiana DNR Division of Fish and Wildlife, bowfin (Amia calva) fact sheet",
+        "class": "agency",
+        "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fw-bowfin.pdf"
+      },
+      {
+        "label": "Pennsylvania Natural Heritage Program factsheet, bowfin (Amia calva), freshwater fish species of concern",
+        "class": "agency",
+        "url": "https://www.naturalheritage.state.pa.us/factsheets/11269.pdf"
+      },
+      {
+        "label": "Wisconsin DNR identification sheet: snakehead, bowfin or burbot — know the difference",
+        "class": "agency",
+        "url": "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/Species_catchsnakehead.pdf"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species species profile, Amia calva (maximum size, feeding)",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=305"
+      },
+      {
+        "label": "Journal of Fish Biology (2022): otoliths suggest lifespans more than 30 years for free-living bowfin Amia calva",
+        "class": "peer_reviewed",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36053840/"
+      },
+      {
+        "label": "Encyclopedia of Arkansas (CALS) bowfin entry — vernacular names, size records, Arkansas life history",
+        "class": "synthesis",
+        "url": "https://encyclopediaofarkansas.net/entries/bowfin-13845/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Which taxon a given account describes. Bowfin was split in 2022 into Amia calva (Atlantic slope) and Amia ocellicauda (Mississippi and Ohio basins, Great Lakes), and most sourced agency accounts predate or straddle that split. This record is written species-level and may mix the two.",
+      "A sourced continent-wide mean length and weight rather than state-by-state figures.",
+      "Reconciliation of the 10–12 year figure in state accounts with the >30 year otolith result.",
+      "A sourced field key separating Amia calva from Amia ocellicauda on characters an angler can use in hand, beyond general colour and eyespot prominence."
+    ]
+  },
+  "behavior": {
+    "speciesId": "amia_calva",
+    "status": "partial",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Fry form a tight guarded school with the male until roughly 4 in, then disperse and live independently (Missouri Department of Conservation).",
+      "note": "Adults are not a schooling species. Agency accounts describe individually held ambush positions in cover rather than aggregations."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "Indiana DNR describes bowfin as ambush predators that hunt mostly at night. USGS describes them as voracious piscivores that will consume virtually any animal small enough to eat. Pennsylvania Natural Heritage describes opportunistic feeding across many small animal groups."
+    },
+    "territoriality": "Nest-guarding males defend the nest and then the fry school (Missouri Department of Conservation, Florida FWC, Indiana DNR). Defended feeding territories outside the nesting period are not described in the sources reached.",
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "Missouri Department of Conservation: bowfin hide in deeper water during daylight and feed in shallow water at night. Indiana DNR gives ambush feeding typically at night. The Arkansas account also gives nocturnal adult feeding. Spawning itself occurs at night (Florida FWC)."
+    },
+    "seasonalActivity": "Spawning occurs in spring across the sourced range — April into early June (Missouri Department of Conservation), early April into May or early June (Indiana DNR), April–June (Arkansas). Season-by-season activity outside the spawning period is not covered by the agency sources reached.",
+    "thermalDrivenBehavior": "Agency accounts consistently place bowfin in warm, often poorly oxygenated lowland water: swamps, sloughs, oxbows, ditches, backwaters and heavily vegetated lakes (Florida FWC, NC Wildlife Resources Commission, Missouri Department of Conservation, Indiana DNR, Pennsylvania Natural Heritage). Bowfin gulp air at the surface using a vascularised, lung-like gas bladder, which lets them hold in stagnant, low-oxygen water that excludes most other predators; peer-reviewed work on Amia calva documents this bimodal gas exchange and its control under hypoxia. No sourced numeric preferred-temperature band was found, so none is asserted here.",
+    "waterLevelResponse": "NC Wildlife Resources Commission notes bowfin can burrow into mud to survive drought. That is a survival response to water loss, not a feeding response.",
+    "predatorAvoidance": "Indiana DNR interprets the dark spot at the tail base as a false eye that confuses predators.",
+    "coverUse": "Dense aquatic vegetation, weedy shallows, sloughs, oxbows, backwaters, ditches and submerged wood (Missouri Department of Conservation, NC Wildlife Resources Commission, Indiana DNR, Arkansas). Missouri adds a daylight/dark split: deeper water by day, shallow vegetated water to feed at night.",
+    "depthMovement": "Missouri Department of Conservation: deeper water in daylight, shallow water to feed at night.",
+    "openWaterBehavior": "Missouri Department of Conservation places bowfin in backwaters and oxbows along large rivers rather than in main channels. Indiana DNR gives marshes, lakes and vegetated backwaters of large rivers.",
+    "spawningBehavior": "Spring spawner. Males clear and guard a nest depression in shallow, heavily vegetated water from about April into early June, spawn at night, then guard the eggs and afterwards the fry school until the young reach roughly 4 in (Missouri Department of Conservation, Florida FWC, Indiana DNR, Pennsylvania Natural Heritage). Larvae anchor themselves with an adhesive organ. Nesting cover, nests and guarding males are conservation context and are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation field guide, bowfin / emerald bowfin species account",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/emerald-bowfin"
+      },
+      {
+        "label": "Indiana DNR Division of Fish and Wildlife, bowfin (Amia calva) fact sheet",
+        "class": "agency",
+        "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fw-bowfin.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission freshwater species profile, bowfin",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/freshwater/bowfin/"
+      },
+      {
+        "label": "North Carolina Wildlife Resources Commission species account, bowfin",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/species/bowfin"
+      },
+      {
+        "label": "Pennsylvania Natural Heritage Program factsheet, bowfin (Amia calva)",
+        "class": "agency",
+        "url": "https://www.naturalheritage.state.pa.us/factsheets/11269.pdf"
+      },
+      {
+        "label": "Journal of Experimental Biology: control of gill ventilation and air-breathing in the bowfin Amia calva",
+        "class": "peer_reviewed",
+        "url": "https://journals.biologists.com/jeb/article/202/1/87/7940/Control-of-gill-ventilation-and-air-breathing-in"
+      },
+      {
+        "label": "Encyclopedia of Arkansas (CALS) bowfin entry",
+        "class": "synthesis",
+        "url": "https://encyclopediaofarkansas.net/entries/bowfin-13845/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A sourced numeric preferred-temperature band. The catalog carries 68–80°F; no agency or peer-reviewed source reached supported a specific band, so it is not restated as fact here.",
+      "Cold-front or barometric response with primary-source support.",
+      "Water clarity response with primary-source support.",
+      "Angling-pressure response with primary-source support.",
+      "Non-nesting territoriality and home-range size.",
+      "Autumn and winter behaviour — the agency accounts reached are almost entirely spring and summer."
+    ]
+  },
+  "diet": {
+    "speciesId": "amia_calva",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "amphibians",
+      "aquatic_insects"
+    ],
+    "primaryNote": "Adults take fish, crayfish, frogs, worms, mollusks and aquatic insects (Pennsylvania Natural Heritage, Missouri Department of Conservation, Indiana DNR). Missouri ranks gizzard shad first where present, then golden shiners, bullheads and sunfish. NC Wildlife Resources Commission adds snakes, small rodents, turtles and leeches. USGS describes bowfin as voracious piscivores that will consume virtually any animal small enough to eat. This is dietary capacity, not evidence of a current forage event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Microcrustaceans and small zooplankton; the Arkansas account gives a shift onto aquatic insects at about 40 mm.",
+      "juvenile": "Aquatic insects until roughly 4 in, then increasingly fish (Indiana DNR).",
+      "adult": "Predominantly fish, plus crayfish, frogs, mollusks and aquatic insects (Indiana DNR, Missouri Department of Conservation)."
+    },
+    "preySizeShifts": "Prey size tracks gape. The catalog larger_prey_fish class belongs to large adults, not to young fish still on insects.",
+    "ontogeneticShift": "Microcrustacean and insect feeding gives way to predominantly piscivorous feeding at roughly 4 in (Indiana DNR, Missouri Department of Conservation, Arkansas).",
+    "forageSubstitutions": "Missouri Department of Conservation gives gizzard shad as the preferred prey where present, with golden shiners, bullheads and sunfish substituting. Substitution is system-specific and depends on what the water holds.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation field guide, bowfin / emerald bowfin species account",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/emerald-bowfin"
+      },
+      {
+        "label": "Indiana DNR Division of Fish and Wildlife, bowfin (Amia calva) fact sheet",
+        "class": "agency",
+        "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fw-bowfin.pdf"
+      },
+      {
+        "label": "Pennsylvania Natural Heritage Program factsheet, bowfin (Amia calva)",
+        "class": "agency",
+        "url": "https://www.naturalheritage.state.pa.us/factsheets/11269.pdf"
+      },
+      {
+        "label": "North Carolina Wildlife Resources Commission species account, bowfin",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/species/bowfin"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species species profile, Amia calva",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=305"
+      },
+      {
+        "label": "Encyclopedia of Arkansas (CALS) bowfin entry",
+        "class": "synthesis",
+        "url": "https://encyclopediaofarkansas.net/entries/bowfin-13845/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Season-by-season diet composition from a primary source. No sourced seasonal diet breakdown was found, so seasonalDiet is omitted rather than invented.",
+      "Quantitative stomach-content studies attributable to Atlantic-slope Amia calva as distinct from Mississippi-basin Amia ocellicauda.",
+      "Whether mollusk feeding (given by Indiana DNR) is incidental or a real dietary component; the catalog forage list does not carry mollusks for this species."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "amia_calva",
+    "status": "partial",
+    "overview": "The sourced accounts organise bowfin biology around three things: warm, vegetated, often low-oxygen lowland water; a night-shifted feeding pattern with a day/night depth split; and a spring nest-guarding period that is conservation context only. Autumn and winter habitat use is not covered by the agency sources reached, so this calendar is deliberately short rather than filled out with assumption.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Shallow vegetated backwater, sloughs, oxbows, ditches and weedy margins as water warms; weed edges, inside weedlines and wood in still water.",
+        "movementTendency": "Adults move into shallow vegetated water. Nesting runs from about April into early June across the sourced range.",
+        "coverUse": "Dense aquatic vegetation and wood.",
+        "conservationNote": "Spring nest-guarding period. Nests, guarding males and the guarded fry school are excluded from target guidance.",
+        "presentationImplication": "The reviewed still-water families that match a cover-oriented ambush predator over and along vegetation are horizontal retrieve, stop-and-go, and live/natural bait suspension. Nest guarding is not converted into a targeting cue.",
+        "invalidators": [
+          "treating nest-guarding behaviour as a targeting cue",
+          "using nesting cover as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Vegetated lakes, swamps, oxbows and river backwaters. Still water: weed edge, inside weedline, wood, basin and inlet. Flowing water: eddy, side channel, submerged wood, deep pool and undercut bank.",
+        "depthTendency": "Missouri Department of Conservation: deeper water in daylight, shallow water to feed at night.",
+        "feedingEmphasis": "Ambush feeding on fish, with crayfish, frogs and insects taken opportunistically.",
+        "thermalContext": "Warm, often poorly oxygenated water is tolerated because the gas bladder functions as a lung. Surface air-gulping is expected in stagnant conditions and is a respiratory act.",
+        "coverUse": "Dense vegetation, weedy shallows and submerged wood.",
+        "lightSensitivity": "Nocturnal feeding is the pattern the agency accounts describe; daylight is spent deeper and in cover.",
+        "presentationImplication": "Still water: bottom contact, slow drag and stop-and-go worked along weed edges, inside weedlines and wood. Flowing water: cross-current retrieve and stationary bait around eddies, side channels and submerged wood.",
+        "invalidators": [
+          "reading surface air-gulping as a surface feeding event",
+          "assuming daylight shallow-water occupancy against the sourced day/night depth split"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation field guide, bowfin / emerald bowfin species account",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/emerald-bowfin"
+      },
+      {
+        "label": "Indiana DNR Division of Fish and Wildlife, bowfin (Amia calva) fact sheet",
+        "class": "agency",
+        "url": "https://www.in.gov/dnr/fish-and-wildlife/files/fw-bowfin.pdf"
+      },
+      {
+        "label": "Florida Fish and Wildlife Conservation Commission freshwater species profile, bowfin",
+        "class": "agency",
+        "url": "https://myfwc.com/wildlifehabitats/profiles/freshwater/bowfin/"
+      },
+      {
+        "label": "North Carolina Wildlife Resources Commission species account, bowfin",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/species/bowfin"
+      },
+      {
+        "label": "Journal of Experimental Biology: control of gill ventilation and air-breathing in the bowfin Amia calva",
+        "class": "peer_reviewed",
+        "url": "https://journals.biologists.com/jeb/article/202/1/87/7940/Control-of-gill-ventilation-and-air-breathing-in"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Fall and winter entries. No agency or peer-reviewed source reached described bowfin habitat, depth or activity outside the spring nesting period and the general warm-water summer pattern, so those seasons are omitted rather than extrapolated.",
+      "A sourced thermal band to anchor thermalContext numerically.",
+      "Whether the day/night depth split reported by Missouri Department of Conservation holds across the range or is specific to its lowland swamp populations."
+    ]
+  }
+}

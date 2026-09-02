@@ -90,6 +90,25 @@ async function session(width, height, label) {
     note("the condition response section is missing");
   }
 
+  // The waterway / agency bridge answers a question rather than carrying a packet.
+  if ((await page.getByRole("heading", { name: /Where it is documented/ }).count()) === 0) {
+    note("the water-context panel is missing");
+  }
+
+  // The field brief is what goes on the water, so it must carry the layers the
+  // screen gained — not just the seven sections it shipped with.
+  const briefText = await page.evaluate(() => document.querySelector("pre.print-only")?.textContent ?? "");
+  for (const section of [
+    "WHERE IT SHOULD BE",
+    "WHAT IT IS RESPONDING TO",
+    "WHAT THE TACKLE HAS TO DO",
+    "IF IT ISN'T WORKING",
+    "PRESENTATION FAMILIES",
+  ]) {
+    if (!briefText.includes(section)) note(`the field brief is missing "${section}"`);
+  }
+  if (briefText && briefText.length < 1500) note(`the field brief looks truncated (${briefText.length} chars)`);
+
   await page.screenshot({ path: `${OUT}/desktop-quickread.png`, fullPage: true });
 
   // Handoffs reach every app in the chain, including Waterways.
@@ -116,9 +135,20 @@ async function session(width, height, label) {
   await page.screenshot({ path: `${OUT}/desktop-handoff-dialog.png` });
   await page.keyboard.press("Escape");
 
-  // Full analysis path.
+  // Full analysis path. It must not be weaker than Quick Read on temperature.
   await page.getByRole("radio", { name: /Advanced/ }).click();
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(600);
+  await page.getByRole("button", { name: /^03 Conditions/ }).click().catch(() => {});
+  await page.waitForTimeout(300);
+  const tempModes = page.getByRole("radio", { name: /I don.t know|I measured it|I know roughly/ });
+  if ((await tempModes.count()) < 3) {
+    note(`full analysis offers ${await tempModes.count()} temperature answers, expected 3`);
+  }
+  await page.getByRole("radio", { name: /I know roughly/ }).click().catch(() => {});
+  await page.waitForTimeout(200);
+  if ((await page.getByLabel(/Approximate low water temperature/).count()) === 0) {
+    note("full analysis has no temperature range input");
+  }
   await page.screenshot({ path: `${OUT}/desktop-advanced.png`, fullPage: true });
 
   if (consoleErrors.length) note(`desktop console errors: ${consoleErrors.slice(0, 3).join(" | ")}`);

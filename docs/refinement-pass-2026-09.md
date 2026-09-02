@@ -270,3 +270,140 @@ database is the source of truth, deleting them is a follow-up.
   Supabase REST endpoint serving the same rows: both API routes, the cache
   headers, the 404 for an unknown species, and both reading modes rendering the
   reviewed content.
+
+---
+
+# Third pass — the seven open items
+
+## 1. The 20 species with no reviewed overlays — closed
+
+All 75 species now carry the full overlay set. Four researchers drafted 80
+records (identification, behavior, diet, seasonal calendar) for the 20 that had
+none, from agency and peer-reviewed sources, in the existing schema.
+
+**Coverage: 55 of 75 → 75 of 75.**
+
+The records live in `data/dossiers/` as reviewable JSON rather than TypeScript —
+they are content, not code; nothing imports them; they diff cleanly. See that
+directory's README for the editing rules.
+
+`npm run validate:dossiers` (now part of `npm test`) enforces what `tsc` cannot,
+because these records arrive as JSON at runtime: required fields, closed
+vocabularies, no repeated season, `presentationImplication` naming only families
+the engine actually ranks, and — most importantly — **no presentation guidance
+at all on a species whose `targetStatus` is `conservation_sensitive` or
+`non_target`**. 80 records, 0 errors, 0 warnings.
+
+Seeded and verified the same way as before: the digests the seed script computes
+from the repo match the database exactly.
+
+| Overlay | Rows | Digest |
+| --- | --- | --- |
+| identification | 75 | `d567a17245ce887367e8610c423a7952` |
+| behavior | 75 | `0e304fe4e6d98534bd9763d65dee6f92` |
+| diet | 75 | `bd9dda27e7199c7bdf37a4c1fe5ab1b3` |
+| seasonal_calendar | 75 | `b11534f09069dd3fb4aa40fa2bb1e184` |
+
+### What the research turned up that you should look at
+
+The drafts are honest about their limits — `status` is `partial` wherever the
+sourcing was thin, and every hole is named in `gaps`. Several findings are
+yours to rule on, not mine:
+
+- **American eel and American shad are tagged `standard` in the catalog.** Eel
+  is IUCN Endangered, COSEWIC Threatened and ASMFC-depleted; shad is depleted
+  coastwide with state moratoria. Both currently receive presentation guidance.
+  If either should be `conservation_sensitive`, the validator will then require
+  the presentation fields to come out, and it will fail until they do.
+- **Shad's catalog holding classes include `tailwater` and `tributary_mouth`** —
+  which for an anadromous species are migration bottlenecks. Left undeveloped
+  deliberately and flagged.
+- **Paddlefish carries no presentation implication at all**, because ND Game &
+  Fish states paddlefish do not take bait and harvest is by snagging. Writing
+  one would have been false.
+- **Burbot's catalog thermal band (42–52°F) sits below the published laboratory
+  preferendum (11.4–14.2°C).** Recorded as a gap rather than silently changed.
+- Bowfin was split into two species in 2022 (*Amia calva* / *A. ocellicauda*);
+  agency accounts may describe either. May warrant two catalog records.
+- Several catalog forage classes and holding classes could not be corroborated
+  for the suckers, redhorse and sheefish. All flagged in `gaps`, none removed —
+  changing the catalog is your call.
+
+## 2. The field brief — fixed
+
+`fieldBrief()` now carries **Where it should be**, **What it is responding to**,
+**What the tackle has to do** and **If it isn't working** alongside the original
+seven sections, wrapped to 78 columns.
+
+Printing prints once. Every on-screen section is `no-print` and the brief is
+`print-only`, so the page yields the field brief rather than the whole UI
+followed by a verbatim copy of itself. Quick Read gained a **Print brief** button
+and the same brief — beginners are the likeliest to want paper.
+
+## 3. Waters and agencies — bridged
+
+`GET /api/water-context/:speciesId?jurisdiction=…` joins the two apps on
+scientific name, normalising the catalog's life-history qualifiers
+(`Salmo salar (anadromous)` → `salmo salar`) and handling the case where one
+name maps to two Waterways records (rainbow trout and steelhead are both
+*Oncorhynchus mykiss*).
+
+The reading now says how many reviewed public waters document the species and
+names a sample of them, and links the regulating agency's current rules when a
+jurisdiction is declared. Free text resolves through `src/lib/knowledge/
+jurisdictions.ts` — "Montana", "MT" or the agency's name all work, and anything
+unrecognised resolves to **nothing rather than a guess**, because a wrong
+regulations page is worse than no link.
+
+That retires the species profile's claim that regulations "remain external
+verification tasks until a live jurisdiction source is integrated".
+
+Waterways covers 25 species to this catalog's 75, so this lights up the popular
+third. A species it does not carry says exactly that, rather than implying the
+fish is undocumented.
+
+## 4. `src/lib/multiplayer/` — deleted
+
+579 lines of unused WebRTC, plus the `VITE_STUN_URLS` env var that existed only
+to serve it. Nothing imported it.
+
+## 5. Temperature in the full analysis — fixed
+
+`src/components/temperature-input.tsx` is now shared by both modes: measured,
+roughly known, or unknown. The full analysis previously accepted only an exact
+number, which left the advanced path with the weaker input. A range stays a
+range through the engine, so the reading still tells you when one straddles a
+presentation decision.
+
+## 6. The observations loop — needs your decision
+
+Not built. `public.observations` is designed for it and is deliberately
+location-free (broad region only), so it would not violate anything the limits
+page refuses. Two things block it, and both are yours:
+
+1. Its INSERT policy is `authenticated`-only, which collides with having no
+   sign-in. Making it anon-insertable is a security decision about a production
+   table — I am not making that unilaterally.
+2. The limits page currently refuses "anonymous crowdsourced locations" and
+   "cross-app silent tracking". An observations loop is neither, but it is close
+   enough that the page should say plainly what is collected before anything is.
+
+Tell me which way and I will build it.
+
+## 7. Images — still open
+
+19 of 75 species. You mentioned media on hookthehorizon.blog; I have not touched
+it. Worth noting the existing test now requires any stock asset to carry
+`identificationBasis: "visual_review"` and a recorded licence, so anything added
+has to declare where the identification came from.
+
+## Verification
+
+`tsc --noEmit`, `eslint .`, `vite build` clean. TypeScript suite 135 tests, 0
+failures. Dossier validation 80 records, 0 errors. Contrast audit 0 failing
+nodes in all three themes. `scripts/qa-smoke.mjs` green, now also checking the
+water-context panel, that the field brief carries all four new sections, and
+that the full analysis offers all three temperature answers.
+
+Client JavaScript: **1,253 KB → 774 KB**, still a 38% cut after adding this
+pass's features.

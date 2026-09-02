@@ -20,8 +20,26 @@
  * without `--write` is also the fastest way to check the two are still in step.
  */
 import { createHash } from "node:crypto";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { dirname, join } from "node:path";
 import process from "node:process";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+/** Authored records that live as reviewable JSON (see data/dossiers/README.md). */
+const JSON_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "data", "dossiers");
+
+function jsonDossiers() {
+  if (!existsSync(JSON_DIR)) return {};
+  const byKind = { identification: {}, behavior: {}, diet: {}, seasonal_calendar: {} };
+  for (const file of readdirSync(JSON_DIR).filter((f) => f.endsWith(".json")).sort()) {
+    const bundle = JSON.parse(readFileSync(join(JSON_DIR, file), "utf8"));
+    for (const kind of Object.keys(byKind)) {
+      const record = bundle[kind];
+      if (record) byKind[kind][record.speciesId] = record;
+    }
+  }
+  return byKind;
+}
 
 // Writing is opt-in: the default run only prints what it would send, so an
 // accidental invocation cannot rewrite the live reference data.
@@ -55,11 +73,25 @@ export function digestOf(records) {
 
 async function main() {
   const catalog = await import("../src/lib/knowledge/dossier-catalog.ts");
+  // Two homes, one set of records: the legacy TypeScript modules and the JSON
+  // directory that replaces them. A species in both would be a mistake, so the
+  // JSON wins and the collision is reported rather than silently resolved.
+  const json = jsonDossiers();
+  const merge = (fromTs, kind) => {
+    const merged = { ...fromTs };
+    for (const [speciesId, record] of Object.entries(json[kind] ?? {})) {
+      if (merged[speciesId]) {
+        console.warn(`  note: ${speciesId}/${kind} exists in both TypeScript and JSON — using the JSON record`);
+      }
+      merged[speciesId] = record;
+    }
+    return merged;
+  };
   const kinds = [
-    ["identification", catalog.IDENTIFICATION_BY_SPECIES, catalog.IDENTIFICATION_DOSSIER_VERSION],
-    ["behavior", catalog.BEHAVIOR_BY_SPECIES, catalog.BEHAVIOR_DOSSIER_VERSION],
-    ["diet", catalog.DIET_BY_SPECIES, catalog.DIET_DOSSIER_VERSION],
-    ["seasonal_calendar", catalog.SEASONAL_CALENDAR_BY_SPECIES, catalog.SEASONAL_CALENDAR_VERSION],
+    ["identification", merge(catalog.IDENTIFICATION_BY_SPECIES, "identification"), catalog.IDENTIFICATION_DOSSIER_VERSION],
+    ["behavior", merge(catalog.BEHAVIOR_BY_SPECIES, "behavior"), catalog.BEHAVIOR_DOSSIER_VERSION],
+    ["diet", merge(catalog.DIET_BY_SPECIES, "diet"), catalog.DIET_DOSSIER_VERSION],
+    ["seasonal_calendar", merge(catalog.SEASONAL_CALENDAR_BY_SPECIES, "seasonal_calendar"), catalog.SEASONAL_CALENDAR_VERSION],
   ];
 
   const plan = kinds.map(([kind, byId, version]) => {

@@ -1,0 +1,321 @@
+{
+  "identification": {
+    "speciesId": "aplodinotus_grunniens",
+    "status": "reviewed",
+    "regionalNames": [
+      "sheephead",
+      "gaspergoo",
+      "gou",
+      "thunder pumper",
+      "croaker"
+    ],
+    "bodyShape": "Deep-bodied and laterally compressed, with a humped back and a long forehead sloping down to a blunt snout. The hump becomes more pronounced with size. Mouth is subterminal — underslung, set beneath the snout. Caudal fin is rounded to bluntly triangular rather than forked.",
+    "identificationTraits": [
+      "The lateral line runs all the way onto and through the rounded caudal fin — unusual among North American freshwater fishes and the single best confirming character.",
+      "One long dorsal fin with a deep notch dividing it into a spiny forward portion (about ten spines) and a long soft-rayed rear portion (about 26–32 rays).",
+      "Blunt, underslung, subterminal mouth built for taking food off the bottom.",
+      "Heavy molar-like pharyngeal teeth in the throat, used to crush shelled prey. Not visible externally but definitive on examination.",
+      "Milky-white lips; pelvic fins often tinged orange.",
+      "Very large otoliths — the ear bones long collected as 'lucky stones'.",
+      "Produces a drumming, grunting, or croaking sound by vibrating muscles against the swim bladder; one account attributes the sound to mature males."
+    ],
+    "coloration": "Silvery to pearl grey overall with bronze, blue, and purple iridescence — purple sheen on the cheeks and gill plates is often noticeable. Sides are lighter and more silvery, the belly milky white. Fish from turbid water run more coppery brown; fish from clear water run bright silver.",
+    "regionalColorVariation": "Colour tracks water condition rather than region: bright silver in clear water, coppery brown in turbid water.",
+    "adultAppearance": "A deep, humpbacked, silvery fish with a sloping forehead, an underslung mouth, a notched two-part dorsal fin, and the lateral line continuing onto a rounded tail.",
+    "similarSpecies": [
+      {
+        "name": "Red drum",
+        "distinction": "The saltwater relative is closely similar in form. Red drum carries a dark caudal spot; freshwater drum has none, and differs in coloration."
+      },
+      {
+        "name": "Bigmouth buffalo and carps",
+        "distinction": "Buffalo and carp lack a notched, spine-bearing dorsal fin and do not carry the lateral line onto the caudal fin. Drum has ten dorsal spines ahead of the notch and the lateral line running into the tail."
+      },
+      {
+        "name": "White bass",
+        "distinction": "White bass has fully separated spiny and soft dorsal fins, a slimmer body, and horizontal stripes. Drum has a single notched dorsal, a humped back, an underslung mouth, and the caudal lateral line."
+      }
+    ],
+    "averageAdultLength": "Commonly 12–20 in; one agency account gives 10–14 in as typical and another gives a common length near 45 cm (18 in).",
+    "commonAnglingSize": "12–20 in in most river and reservoir fisheries.",
+    "typicalWeight": "12 oz to 5 lb over the common length range. One state encyclopedia gives an average of 5–15 lb, which is well above the state-agency figures and is treated here as large-river specific.",
+    "maximumDocumentedSize": "Documented to about 95 cm (37 in). Record weights reported by agencies and encyclopedias range from roughly 28 lb through 45 lb to a world record near 50 lb.",
+    "longevity": "Sources disagree sharply. One federal profile gives a maximum of 13 years with an average of 6–8; a federal agency story and a state encyclopedia both report individuals living past 50 years, with 'into a seventh decade' cited. Sexual maturity at 4–6 years, around 20 cm.",
+    "sources": [
+      {
+        "label": "USGS Nonindigenous Aquatic Species — Freshwater Drum (Aplodinotus grunniens) species profile",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=946"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Freshwater Drum",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/freshwater-drum"
+      },
+      {
+        "label": "West Virginia Division of Natural Resources — Freshwater Drum species page",
+        "class": "agency",
+        "url": "https://wvdnr.gov/plants-animals/sportfish/freshwater-drum/"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service — 'Freshwater Drum: The Great Grunting Gaspergoo'",
+        "class": "agency",
+        "url": "https://www.fws.gov/story/freshwater-drum-great-grunting-gaspergoo"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — Freshwater Drum / Sheepshead",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/freshwater-drum-sheepshead-aplodinotus-grunniens.htm"
+      },
+      {
+        "label": "Encyclopedia of Arkansas (Central Arkansas Library System) — Freshwater Drum",
+        "class": "synthesis",
+        "url": "https://encyclopediaofarkansas.net/entries/freshwater-drum-13848/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "longevity is badly unresolved — 13 years versus 50-plus years across agency sources — and needs a human decision",
+      "typical weight ranges disagree by an order of magnitude between state agency and encyclopedia accounts",
+      "no sourced description of juvenile appearance or spawning coloration was found; those fields are omitted",
+      "sexual dimorphism is only indirectly indicated (sound production attributed to mature males in one source) and is not written as a field key",
+      "one state source describes small barbels beside the mouth, which no other source supports; that character is deliberately excluded",
+      "no sourced seasonal clarity/turbidity response; turbidity tolerance is recorded in the behavior record only"
+    ]
+  },
+  "behavior": {
+    "speciesId": "aplodinotus_grunniens",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Adults are described as schooling around the spawning period, and acoustic telemetry shows highly mobile individuals rather than fixed-lie holders. Outside the spawning period the sources reached do not characterise group structure, so treat this as a loosely grouped bottom fish rather than a tight school."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A true bottom forager. The underslung mouth is used to root through substrate, and the fish is repeatedly described as flipping stones and moving bottom material with its blunt snout and forehead to dislodge prey. Behind the mouth sit heavy molar-like pharyngeal teeth that crush shelled prey — a capability that develops with size and reshapes the diet."
+    },
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "Agency and state-encyclopedia accounts describe drum as feeding through the night, with one calling the species strongly nocturnal. Daytime bottom feeding also occurs — one state agency notes fish visible feeding in shallow areas. No telemetry-grade diel activity study for this species was reached, so read the nocturnal label as an emphasis rather than an exclusive pattern."
+    },
+    "seasonalActivity": "Remarkably mobile. Acoustic telemetry in a large lake–river system recorded mean monthly movement rates among the highest on record for any freshwater fish — roughly 27–45 km per month in winter, rising through spring, and reaching about 87–219 km per month in summer and fall, with some individuals covering over 620 km in four months. Fish enter rivers in spring ahead of spawning, then move into lake habitat and range laterally. Site fidelity to the natal river across successive years is nearly complete.",
+    "thermalDrivenBehavior": "Stress appears when water exceeds about 25.6°C (78°F), particularly when it coincides with prolonged low dissolved oxygen. This is a warm-tolerant species relative to the rest of this dossier set, consistent with the catalog's 65–75°F preferred band.",
+    "currentFacing": "Associated with slow to moderate current over sand or mud, and with deep pools and backwaters of sluggish current in rivers. Not a fast-water fish.",
+    "depthMovement": "Occupies the bottom of medium to large rivers and lakes to roughly 40–60 ft; one state agency records fish frequently at about 30 ft in large river pools and reservoirs.",
+    "clarityResponse": "Tolerates turbid and murky water well and is often more abundant in turbid systems than clear ones, though it occurs across both. Body colour shifts with water condition.",
+    "coverUse": "Substrate rather than structure. Sand, mud, and mixed mud-and-sand bottoms are the repeatedly named associations; the fish works the bottom material itself rather than holding to cover objects.",
+    "openWaterBehavior": "In lake habitat, telemetered fish made extensive lateral movements rather than settling into a home area, which is unusual for a benthic species and is the most striking behavioral finding in the record.",
+    "spawningBehavior": "Late spring to early summer broadcast spawner — accounts range from April–May through June–July depending on latitude — at water temperatures around 18–26°C (roughly 65–79°F). No nest and no parental care. Uniquely among most freshwater fishes, the eggs and newly hatched larvae are buoyant and drift at the surface, sometimes for miles, before the fry emerge. Sound production intensifies during the spawning period. All of this is conservation context; spawning water and spawning aggregations are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "USGS Nonindigenous Aquatic Species — Freshwater Drum (Aplodinotus grunniens) species profile",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=946"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Freshwater Drum",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/freshwater-drum"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — Freshwater Drum / Sheepshead",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/freshwater-drum-sheepshead-aplodinotus-grunniens.htm"
+      },
+      {
+        "label": "Environmental Biology of Fishes — 'Exploring the extensive movements and home range of one of North America's most mobile freshwater fishes' (freshwater drum acoustic telemetry)",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-024-01635-x"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service — 'Freshwater Drum: The Great Grunting Gaspergoo'",
+        "class": "agency",
+        "url": "https://www.fws.gov/story/freshwater-drum-great-grunting-gaspergoo"
+      },
+      {
+        "label": "West Virginia Division of Natural Resources — Freshwater Drum species page",
+        "class": "agency",
+        "url": "https://wvdnr.gov/plants-animals/sportfish/freshwater-drum/"
+      },
+      {
+        "label": "Encyclopedia of Arkansas (Central Arkansas Library System) — Freshwater Drum",
+        "class": "synthesis",
+        "url": "https://encyclopediaofarkansas.net/entries/freshwater-drum-13848/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no telemetry- or gut-content-based diel activity study was reached; the nocturnal class rests on agency narrative and one state encyclopedia",
+      "no primary source found for cold-front / barometric response",
+      "no primary source found for water-level or flow-change response",
+      "no primary source found for angling-pressure response",
+      "territoriality, aggression, and predator avoidance are not described in the sources reached; fields omitted",
+      "social structure outside the spawning period is not characterised"
+    ]
+  },
+  "diet": {
+    "speciesId": "aplodinotus_grunniens",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "mollusks",
+      "crustaceans",
+      "aquatic_insects",
+      "small_forage_fish",
+      "zooplankton"
+    ],
+    "primaryNote": "A benthic generalist whose diet is strongly system-dependent, and the sources disagree in an instructive way. A federal profile gives adults immature insects, crayfish, minnows, amphipods, and mollusks. A state agency explicitly pushes back on the assumption that drum are primarily mollusk eaters, reporting fish, crayfish, and immature aquatic insects as the mainstay in its waters. In dreissenid-invaded systems the picture flips: large drum can become overwhelmingly molluscivorous. Do not assume mollusk dominance from the pharyngeal teeth alone. Capacity is not a current prey event.",
+    "seasonalDiet": [
+      {
+        "season": "fall",
+        "emphasis": "Young-of-year gizzard shad are reported to make up over half the diet during autumn where that forage exists — the clearest seasonal signal in the record."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae and small fish take microcrustaceans, zooplankton, copepods, chironomids, and fish fry — soft-bodied prey.",
+      "juvenile": "The transition stage. A dietary shift from small soft prey toward larger, harder-bodied prey occurs above roughly 7 cm standard length, alongside allometric changes in mouth position, gape, and head depth.",
+      "adult": "Immature insects, crayfish, amphipods, minnows and other small fish, and mollusks — with the balance set by what the system offers."
+    },
+    "preySizeShifts": "Gape and mouth position change with growth: larger fish have a more anteriorly positioned mouth, a more expansive gape, and greater body depth, all of which enlarge the prey they can take.",
+    "ontogeneticShift": "One of the better-documented ontogenetic shifts in this catalog, and it is a shift in processing hardware as much as in prey. Pharyngeal teeth change with size: the smallest fish have only cardiform and villiform teeth; the first molariform teeth appear around 17 cm total length, and by about 25 cm molariform teeth make up roughly 85% of pharyngeal tooth surface area, which is where shell crushing begins. In one Great Lakes study no shell fragments appeared in fish under 25 cm, while dreissenid mussels rose from about 6% of the diet in the 25–29 cm size class to about 88% in the 38–50 cm class.",
+    "forageSubstitutions": "In dreissenid-invaded systems, large drum substitute mussels for much of the diet. Where gizzard shad are produced, young shad carry the autumn diet. In systems without either, the diet reverts to crayfish, immature insects, and small fish. Substitution is system-specific and size-gated: a fish under about 25 cm cannot make the mussel substitution at all.",
+    "observedForageRule": "Diet capacity is not proof that a mussel, crayfish, or baitfish event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "USGS Nonindigenous Aquatic Species — Freshwater Drum (Aplodinotus grunniens) species profile",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=946"
+      },
+      {
+        "label": "National Biological Service Research Information Bulletin 94-45 — 'Molariform Teeth Essential for Freshwater Drum to Crush Zebra Mussels'",
+        "class": "agency",
+        "url": "https://npshistory.com/publications/wildlife/nbs-rib/94-45.pdf"
+      },
+      {
+        "label": "Transactions of the Illinois State Academy of Science — 'Ontogeny of Body Shape and Diet in Freshwater Drum (Aplodinotus grunniens)'",
+        "class": "peer_reviewed",
+        "url": "https://myisas.org/wp-content/uploads/2015/01/107-06MS1402Final.pdf"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Freshwater Drum",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/freshwater-drum"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service — 'Freshwater Drum: The Great Grunting Gaspergoo'",
+        "class": "agency",
+        "url": "https://www.fws.gov/story/freshwater-drum-great-grunting-gaspergoo"
+      },
+      {
+        "label": "West Virginia Division of Natural Resources — Freshwater Drum species page",
+        "class": "agency",
+        "url": "https://wvdnr.gov/plants-animals/sportfish/freshwater-drum/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "only the fall seasonal diet entry is sourced; no winter, spring, or summer diet composition was reached",
+      "the mollusk-dominance question is genuinely contested between a Great Lakes dreissenid record and a mid-continent state agency account; both are recorded rather than reconciled",
+      "no quantitative diet study for riverine (as opposed to Great Lakes) populations was reached"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "aplodinotus_grunniens",
+    "status": "partial",
+    "overview": "A warm-tolerant, bottom-rooting fish that works soft and mixed substrate in slow to moderate current, tolerates turbidity well, and moves far more than a benthic fish is normally expected to. What it can eat is gated by size — shell crushing only becomes available around 25 cm — so the diet of a small drum and a large drum in the same water are different problems. Late spring to early summer spawning is conservation context. Seasonal habitat detail is thin outside the movement record, so this record is marked partial.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Bottom-associated water: deep pools and runs in rivers, basins and drop-offs in lakes.",
+        "movementTendency": "The lowest movement rates of the year in the telemetry record — roughly 27–45 km per month, against 87–219 km in summer and fall — and the smallest home ranges.",
+        "feedingEmphasis": "No sourced winter diet composition; treat forage as unresolved for this season.",
+        "presentationImplication": "Bottom contact and slow drag in still water; bottom-contact drift and stationary bait in flow.",
+        "invalidators": [
+          "reading reduced winter movement as a change in feeding zone — the fish is still benthic"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "River habitat — deep pools, runs, and current breaks — as fish enter rivers ahead of spawning.",
+        "movementTendency": "Movement rises sharply from winter levels; fish enter rivers, then move into lake habitat a few weeks later. Site fidelity to the same river across successive years is near-complete.",
+        "thermalContext": "Spawning begins as water reaches roughly 18–26°C (65–79°F), which is at and above the catalog's 65–75°F preferred band.",
+        "conservationNote": "Spawning season begins in the late-spring window in southern waters. Spawning water and spawning aggregations are excluded from target guidance.",
+        "invalidators": [
+          "using spawning-period movement as a targeting cue"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Bottom of medium-to-large rivers and lakes over sand, mud, and mixed substrate; basins, drop-offs, points, and riprap in still water; deep pools and current breaks in flow.",
+        "depthTendency": "Bottom to roughly 40–60 ft, with about 30 ft frequently reported in large river pools and reservoirs.",
+        "movementTendency": "The most mobile season, with extensive lateral movement through lake habitat rather than settled occupancy.",
+        "feedingEmphasis": "Benthic rooting — flipping stones and working substrate to dislodge prey.",
+        "thermalContext": "Preferred band 65–75°F; stress appears above about 78°F, and worsens where prolonged low dissolved oxygen coincides.",
+        "currentUse": "Slow to moderate current over sand or mud; deep pools and backwaters of sluggish current.",
+        "lightSensitivity": "Feeding is described as running through the night, though daytime bottom feeding also occurs.",
+        "presentationImplication": "Bottom contact, slow drag, and drop presentation match a fish rooting through substrate in still water; vertical jig over deep basin and drop-off. In flowing water, bottom-contact drift, tight-line drift, and stationary bait.",
+        "invalidators": [
+          "working the mid-column for a fish that feeds on the bottom",
+          "assuming mollusk forage in a system with no mollusk record, or for fish under about 25 cm"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Bottom-associated river and lake habitat; movement remains high.",
+        "movementTendency": "Movement rates stay at or near the summer peak.",
+        "forageEmphasis": "Young-of-year gizzard shad are reported to make up over half the diet in autumn where that forage exists. That is a sourced seasonal emphasis, not a declared current event.",
+        "presentationImplication": "Bottom contact and slow drag remain the reviewed stillwater families; bottom-contact drift and tight-line drift in flow. Subsurface slow roll only where a baitfish emphasis is actually observed.",
+        "invalidators": [
+          "assuming a shad-forage pattern in a system that does not produce shad"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Environmental Biology of Fishes — 'Exploring the extensive movements and home range of one of North America's most mobile freshwater fishes' (freshwater drum acoustic telemetry)",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-024-01635-x"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species — Freshwater Drum (Aplodinotus grunniens) species profile",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=946"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Freshwater Drum",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/freshwater-drum"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — Freshwater Drum / Sheepshead",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/freshwater-drum-sheepshead-aplodinotus-grunniens.htm"
+      },
+      {
+        "label": "U.S. Fish and Wildlife Service — 'Freshwater Drum: The Great Grunting Gaspergoo'",
+        "class": "agency",
+        "url": "https://www.fws.gov/story/freshwater-drum-great-grunting-gaspergoo"
+      },
+      {
+        "label": "National Biological Service Research Information Bulletin 94-45 — 'Molariform Teeth Essential for Freshwater Drum to Crush Zebra Mussels'",
+        "class": "agency",
+        "url": "https://npshistory.com/publications/wildlife/nbs-rib/94-45.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "seasonal habitat class is largely inferred from year-round habitat statements plus the movement record; only the movement and thermal contexts are directly seasonal in the sources",
+      "no sourced winter or spring diet composition",
+      "no sourced late_fall material, and no early_spring / early_summer / late_summer material",
+      "the movement figures come from a single large lake–river system and may not generalise to reservoir or small-river populations"
+    ]
+  }
+}

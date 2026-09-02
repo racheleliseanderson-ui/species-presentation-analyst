@@ -69,7 +69,7 @@ export function TripContextBar() {
   const declared = links.filter((link) => link.declared).length;
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-5 sm:px-6" aria-label="Active trip context">
+    <section className="no-print mx-auto max-w-6xl px-4 pt-5 sm:px-6" aria-label="Active trip context">
       <div className="rounded-[var(--radius-sm)] bg-elevated shadow-[var(--shadow-border)]">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-3">
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-fg">

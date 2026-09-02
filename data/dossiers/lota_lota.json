@@ -1,0 +1,323 @@
+{
+  "identification": {
+    "speciesId": "lota_lota",
+    "status": "reviewed",
+    "regionalNames": [
+      "cusk",
+      "freshwater cusk",
+      "eelpout",
+      "ling",
+      "lawyer"
+    ],
+    "bodyShape": "Elongate and eel-like: rounded through the forward body, compressed toward the rear, with a flattened head. Two dorsal fins — a short first dorsal followed by a very long second dorsal — and a long anal fin, both running back to a rounded caudal fin. Pelvic fins sit forward, ahead of the pectorals.",
+    "identificationTraits": [
+      "A single conspicuous barbel hangs under the chin. Nothing else in the North American freshwater fauna combines that barbel with an eel-like body and a rounded tail.",
+      "The only freshwater member of the cod family (Gadidae) in North America.",
+      "Two distinct dorsal fins, the second very long, with a long anal fin beneath; both run to a rounded caudal.",
+      "Pelvic fins are set forward of the pectoral fins — an unusual arrangement worth checking on any eel-like fish.",
+      "Skin looks and feels scaleless and slimy; scales are present but microscopically small and embedded.",
+      "Nostrils are tubular.",
+      "Large mouth with bands of many small inward-slanting teeth."
+    ],
+    "coloration": "Yellow-brown, brown, grey, olive, or nearly black, overlaid with dark marbling or mottling, over a cream to pale belly. The mottled pattern is camouflage against substrate.",
+    "adultAppearance": "A mottled, slimy, eel-shaped fish with a flattened head, a single chin barbel, forward-set pelvic fins, and long second dorsal and anal fins meeting a rounded tail.",
+    "similarSpecies": [
+      {
+        "speciesId": "amia_calva",
+        "name": "Bowfin",
+        "distinction": "Bowfin has a short anal fin — less than a quarter of the dorsal's length — pelvic fins set back under the dorsal, a rounded broad head with no chin barbel, and often an eye-spot near the tail. Burbot has a long anal fin, pelvic fins forward of the pectorals, a flattened head, and the chin barbel."
+      },
+      {
+        "name": "Northern snakehead",
+        "distinction": "Snakehead has a long pointed flattened head with no chin barbel and pelvic fins directly beneath the pectorals. Burbot has the chin barbel, two distinct dorsal fins, and pelvic fins ahead of the pectorals."
+      },
+      {
+        "speciesId": "anguilla_rostrata",
+        "name": "American eel",
+        "distinction": "Distinguish on the burbot characters that were sourced: burbot has a chin barbel, paired pelvic fins set forward under the throat, and a rounded caudal fin separate from the long dorsal and anal fins. A fish lacking a chin barbel and lacking pelvic fins is not a burbot."
+      }
+    ],
+    "averageAdultLength": "Most adults run 300–600 mm (roughly 12–24 in). Reaching 18 in typically takes five to seven years. River-dwelling populations stay much smaller than lake populations — one state account reports fish in flowing systems rarely exceeding 12 in.",
+    "commonAnglingSize": "3–5 lb is given as typical in Alaska, with over 8 lb treated as a trophy; one state account puts most fish under 8 lb and under 28 in.",
+    "typicalWeight": "1–3 kg (roughly 2–7 lb) for adults at 300–600 mm.",
+    "maximumDocumentedSize": "State records include 34.5 in / 12.22 lb and 19 lb 3 oz. Maxima are strongly fishery-specific and lake fish far exceed river fish.",
+    "longevity": "Reported to 15 years in one state account; fish older than 20 years are described as not uncommon in Alaska, and northern populations show maxima of 20–22 years. Southern populations are generally younger. Maturity at 2–8 years, with males maturing about a year before females; southern populations mature at 3–4, northern at 4–7.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Burbot (Lota lota) species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=burbot.main"
+      },
+      {
+        "label": "Minnesota Department of Natural Resources — Species Profile: Burbot",
+        "class": "agency",
+        "url": "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html"
+      },
+      {
+        "label": "New Hampshire Fish and Game Department — Burbot / Freshwater Cusk species page",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/burbotfreshwater-cusk"
+      },
+      {
+        "label": "Wisconsin Department of Natural Resources — 'Snakehead, Bowfin, or Burbot: Know the difference' identification guide",
+        "class": "agency",
+        "url": "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/Species_catchsnakehead.pdf"
+      },
+      {
+        "label": "British Columbia Ministry of Environment — Burbot (Lota lota) Ecology and Life History species summary",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Burbot_1188324646146_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "British Columbia Ministry of Water, Land and Air Protection — Kootenay River / Kootenay Lake Burbot Conservation Strategy",
+        "class": "agency",
+        "url": "https://www2.gov.bc.ca/assets/gov/environment/plants-animals-and-ecosystems/fish-fish-habitat/fishery-resources/region-4-kootenay-boundary/finalburbotcs-3-2-05.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no sourced description of juvenile appearance or regional colour variation was found; those fields are omitted",
+      "no sourced sexual dimorphism outside maturation timing; field omitted",
+      "the American eel lookalike entry is written from burbot-side characters only, because no eel-side agency key was retrieved",
+      "longevity varies widely by latitude and the sources disagree on a maximum"
+    ]
+  },
+  "behavior": {
+    "speciesId": "lota_lota",
+    "status": "reviewed",
+    "social": {
+      "pattern": "solitary",
+      "byLifeStage": "Larvae are pelagic and shoaling; at roughly 15–40 mm they become negatively phototactic, drop to the benthos, and adopt the solitary nocturnal habit that persists for life. Juveniles shelter in cobble and boulder in shallow water of about 0.5–1.5 m; adults occupy deep water.",
+      "note": "An adult burbot is a solitary bottom animal that hides by day and hunts alone at night. The one documented departure from that is the winter spawning aggregation, which is conservation context and excluded from target guidance."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "ambush",
+        "opportunistic"
+      ],
+      "note": "Hunts on and just above the bottom. Despite a sluggish look, adults are described as voracious predators equipped with a large mouth, strong jaw, and many inward-slanting teeth. Fish make up more than 80% of the adult diet, but crayfish, insects, and eggs are taken where available."
+    },
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "Genuinely nocturnal, and it starts early in life: age-0 fish become negatively phototactic at about 40 mm and shift to a nocturnal, solitary, benthic existence. Adults feed mostly at night, and one state account specifically ties peak activity to low-light winter conditions. Daytime is spent under cover."
+    },
+    "seasonalActivity": "Inverted relative to most freshwater predators. Burbot are inactive through the warm months and come alive in winter, when they are described as most active. Spawning migrations occur in late fall / early winter and again in late winter / early spring, at documented travel rates of 1.5–2.0 km per day and up to 8–11 km per day in some river populations.",
+    "thermalDrivenBehavior": "A cold-water specialist. Summer preference is reported around 10–12°C (50–54°F), and burbot are rarely found where water exceeds 70°F. Laboratory final thermal preferendum was measured at 11.4°C for 10–20 cm fish and 14.2°C for 20–30 cm fish, with the same work concluding that spring warming is what triggers juveniles to leave the littoral and avoid a summer thermal trap. Spawning occurs at 0.6–1.7°C and embryos fail above about 6°C.",
+    "depthMovement": "In lakes, adults are associated with water deeper than about 20 m and are restricted below the thermocline through summer; juveniles use shallow cobble and boulder at 0.5–1.5 m. In rivers, recorded use spans about 1–30 m with a preference for depths beyond about 6 m in some systems. The seasonal direction is deep-and-cold in summer, shallower and more active in winter.",
+    "coverUse": "Strongly substrate-associated. Shelters under stones, woody debris, and cut banks; interstitial spaces within coarse substrate are important cover for young fish. This is a fish that occupies the gaps in the bottom rather than the water column.",
+    "openWaterBehavior": "In deep lakes, adults hold below the thermocline in summer rather than roaming open water. Lake fish also grow substantially larger than river fish.",
+    "spawningBehavior": "Winter spawner, and in much of the range the only fish that spawns under ice. Timing runs November through May depending on region, compressed into a highly synchronised two-to-three-week window at 0.6–1.7°C. Fish gather and spawn in a writhing mass, broadcasting eggs into the water column well above the substrate with no nest and no substrate preparation; the eggs settle into interstices. Fecundity is very high — a large female can carry over a million eggs. Spawning water, spawning aggregations, and pre-spawn movement are all excluded from target guidance.",
+    "sources": [
+      {
+        "label": "British Columbia Ministry of Water, Land and Air Protection — Kootenay River / Kootenay Lake Burbot Conservation Strategy",
+        "class": "agency",
+        "url": "https://www2.gov.bc.ca/assets/gov/environment/plants-animals-and-ecosystems/fish-fish-habitat/fishery-resources/region-4-kootenay-boundary/finalburbotcs-3-2-05.pdf"
+      },
+      {
+        "label": "British Columbia Ministry of Environment — Burbot (Lota lota) Ecology and Life History species summary",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Burbot_1188324646146_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Burbot (Lota lota) species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=burbot.main"
+      },
+      {
+        "label": "Minnesota Department of Natural Resources — Species Profile: Burbot",
+        "class": "agency",
+        "url": "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html"
+      },
+      {
+        "label": "New Hampshire Fish and Game Department — Burbot / Freshwater Cusk species page",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/burbotfreshwater-cusk"
+      },
+      {
+        "label": "Hofmann & Fischer, Temperature Preferences and Critical Thermal Limits of Burbot: Implications for Habitat Selection and Ontogenetic Habitat Shift, Transactions of the American Fisheries Society 131(6)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/131/6/1164/7891016"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the laboratory thermal preferendum (11.4–14.2°C) sits above the catalog's 42–52°F band and above the 10–12°C field summer preference; a human should reconcile lab preferendum against field-occupied temperatures",
+      "no primary source found for cold-front / barometric response",
+      "no primary source found for turbidity or clarity response",
+      "no primary source found for water-level or flow-change response",
+      "no primary source found for angling-pressure response",
+      "territoriality, aggression, and predator avoidance are not described in the sources reached; fields omitted",
+      "the winter shallow-water shift is described qualitatively by a state account rather than with sourced depth figures"
+    ]
+  },
+  "diet": {
+    "speciesId": "lota_lota",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "aquatic_insects"
+    ],
+    "primaryNote": "Adults are close to specialists — fish make up more than 80% of the adult diet, and one agency account describes adults as foraging almost exclusively on fish, including whitefish, sculpins, lampreys, and other burbot. Juveniles are broad invertebrate feeders. The whole diet is taken on or near the bottom at night. Crayfish are named as an important food where available, and fish eggs, clams, and mayfly larvae also appear. Capacity is not a current prey event.",
+    "seasonalDiet": [
+      {
+        "season": "winter",
+        "emphasis": "The active feeding season. Fish prey dominates; eggs of other species are also taken. Activity peaks under low-light winter conditions."
+      },
+      {
+        "season": "summer",
+        "emphasis": "Warm months are the inactive period. Adults are confined below the thermocline or to deep cold water, and feeding is correspondingly constrained. No season-specific prey composition was sourced."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Larvae take rotifers, then copepods and cladocerans, selecting the largest items they can engulf; age-0 fish move on to amphipods, insects, and young fish.",
+      "juvenile": "Amphipods, insects, and mysid shrimp where present; the proportion of fish rises steadily with size.",
+      "adult": "Fish make up more than 80% of the diet — whitefish, sculpins, lampreys, and other burbot are named — with crayfish and macroinvertebrates still taken."
+    },
+    "preySizeShifts": "A large mouth, strong jaw, and bands of inward-slanting teeth let adults take prey that juveniles cannot, which is what carries the catalog's larger_prey_fish class. That class belongs to adults, not to juveniles.",
+    "ontogeneticShift": "A clear and progressive shift: rotifers and microcrustaceans as larvae, then amphipods and insects, then mysids and small fish, then a predominantly piscivorous adult diet. The shift tracks growth continuously rather than switching at one threshold.",
+    "forageSubstitutions": "Where mysid shrimp are present they carry the juvenile stage; where crayfish are available they become an important adult food. Elsewhere the adult diet reverts to whatever benthic and near-benthic fish are abundant. Substitution is system-specific.",
+    "observedForageRule": "Diet capacity is not proof that a baitfish, crayfish, or egg event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "British Columbia Ministry of Water, Land and Air Protection — Kootenay River / Kootenay Lake Burbot Conservation Strategy",
+        "class": "agency",
+        "url": "https://www2.gov.bc.ca/assets/gov/environment/plants-animals-and-ecosystems/fish-fish-habitat/fishery-resources/region-4-kootenay-boundary/finalburbotcs-3-2-05.pdf"
+      },
+      {
+        "label": "British Columbia Ministry of Environment — Burbot (Lota lota) Ecology and Life History species summary",
+        "class": "agency",
+        "url": "https://a100.gov.bc.ca/pub/acat/documents/r10789/8840209-App.A-Speciessummary-Burbot_1188324646146_f6d9ed881f674be38a50ea8d31322657.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Burbot (Lota lota) species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=burbot.main"
+      },
+      {
+        "label": "Minnesota Department of Natural Resources — Species Profile: Burbot",
+        "class": "agency",
+        "url": "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html"
+      },
+      {
+        "label": "New Hampshire Fish and Game Department — Burbot / Freshwater Cusk species page",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/burbotfreshwater-cusk"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no sourced spring or fall diet composition; only winter and summer entries are written",
+      "no quantitative diet-by-region study was reached beyond the >80% fish figure for adults",
+      "mollusk use (clams) is reported by one state account but is not in the catalog forage list and has not been carried into primaryForage"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "lota_lota",
+    "status": "reviewed",
+    "overview": "A cold-water, nocturnal, bottom-dwelling predator whose calendar runs opposite to most freshwater fish: inactive and thermally squeezed into deep cold water through summer, then active through the coldest, darkest part of the year. Everything about this species points down and toward darkness — it hunts on the substrate at night and shelters in gaps in the bottom by day. Winter spawning is conservation context.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "The season of greatest activity. Bottom-associated water across the system: basins, rocky shoreline, drop-offs, and submerged humps in lakes; deep pools, current breaks, pool tails, and submerged wood in rivers.",
+        "depthTendency": "Less confined by the summer thermal squeeze; fish are no longer restricted below a thermocline and use a wider depth band including shallower bottom.",
+        "feedingEmphasis": "Active predation on fish, with eggs and invertebrates also taken.",
+        "thermalContext": "The coldest water of the year is not a constraint for this species — 0.6–1.7°C is spawning temperature, and 10–12°C is a summer preference, not a floor.",
+        "lightSensitivity": "Activity peaks under low-light winter conditions; feeding is at night.",
+        "coverUse": "Stones, woody debris, undercut banks, and interstitial substrate by day.",
+        "presentationImplication": "Vertical jig, bottom contact, and drop presentation match a fish hunting on the substrate in still water; live/natural bait suspension held near bottom fits the same posture. In flowing water, bottom-contact drift, stationary bait, and pulse jig.",
+        "invalidators": [
+          "carrying a mid-column or suspended search over from a warm-water predator",
+          "assuming a daylight feeding posture"
+        ],
+        "conservationNote": "Winter is also the spawning season across much of the range, compressed into a synchronised two-to-three-week window. Spawning water and spawning aggregations are excluded from target guidance."
+      },
+      {
+        "season": "early_spring",
+        "habitatClass": "Bottom-associated water while temperatures remain cold; late-winter / early-spring spawning movement occurs in some populations.",
+        "movementTendency": "Documented spawning migrations occur in the late winter / early spring window at 1.5–2.0 km per day, and faster in some river populations.",
+        "thermalContext": "Still within the cold band the species tolerates well; spring warming is what eventually triggers juveniles to leave the littoral.",
+        "presentationImplication": "Bottom contact and vertical jig in still water; bottom-contact drift and stationary bait in flow.",
+        "conservationNote": "Spawning overlap continues in some populations. Spawning water and any associated movement are excluded from target guidance."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Transitional. Juveniles begin leaving shallow littoral cobble and boulder as water warms; adults move toward the deep cold water they will hold through summer.",
+        "movementTendency": "Downward and offshore as warming proceeds.",
+        "thermalContext": "Rising temperature — not absolute summer heat — is identified as the trigger for the juvenile shift out of the littoral.",
+        "invalidators": [
+          "expecting the shallow littoral juvenile pattern to persist as water warms"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Deep cold water only: basin, thermocline edge and below, deep pools. In lakes, adults are restricted below the thermocline.",
+        "depthTendency": "Deepest of the year — associated with water beyond about 20 m in lakes, and beyond about 6 m in some rivers.",
+        "feedingEmphasis": "Reduced. This is the inactive season for the species.",
+        "thermalContext": "Summer preference around 10–12°C (50–54°F); rarely found where water exceeds 70°F.",
+        "invalidators": [
+          "treating summer occupancy as equivalent to summer activity",
+          "searching water above about 70°F"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Bottom-associated water expanding upward and shoreward as the water column cools and the thermocline breaks down.",
+        "movementTendency": "Activity increases as temperature falls; late-fall / early-winter spawning migrations begin in some populations.",
+        "thermalContext": "Cooling releases the summer thermal restriction that confined adults below the thermocline.",
+        "presentationImplication": "Bottom contact and slow drag in still water; bottom-contact drift and stationary bait in flow.",
+        "invalidators": [
+          "assuming the summer deep-water pattern holds after turnover"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Bottom-associated water with increasing movement; the transition into the winter active season.",
+        "conservationNote": "Late-fall / early-winter spawning migration occurs in some populations. Pre-spawn movement and any concentration associated with it are excluded from target guidance.",
+        "presentationImplication": "Vertical jig, bottom contact, and drop presentation in still water; bottom-contact drift and pulse jig in flow."
+      }
+    ],
+    "sources": [
+      {
+        "label": "British Columbia Ministry of Water, Land and Air Protection — Kootenay River / Kootenay Lake Burbot Conservation Strategy",
+        "class": "agency",
+        "url": "https://www2.gov.bc.ca/assets/gov/environment/plants-animals-and-ecosystems/fish-fish-habitat/fishery-resources/region-4-kootenay-boundary/finalburbotcs-3-2-05.pdf"
+      },
+      {
+        "label": "Minnesota Department of Natural Resources — Species Profile: Burbot",
+        "class": "agency",
+        "url": "https://www.dnr.state.mn.us/minnaqua/speciesprofile/burbot.html"
+      },
+      {
+        "label": "New Hampshire Fish and Game Department — Burbot / Freshwater Cusk species page",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/burbotfreshwater-cusk"
+      },
+      {
+        "label": "Hofmann & Fischer, Temperature Preferences and Critical Thermal Limits of Burbot: Implications for Habitat Selection and Ontogenetic Habitat Shift, Transactions of the American Fisheries Society 131(6)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/131/6/1164/7891016"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Burbot (Lota lota) species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=burbot.main"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the winter depth band is described qualitatively; no sourced winter depth figures were located to sit alongside the summer >20 m figure",
+      "spring and fall entries rest on the thermal and migration record rather than on direct seasonal habitat studies",
+      "no sourced forage emphasis by season beyond winter fish predation",
+      "no light-sensitivity material specific to seasons other than winter, though the nocturnal habit is documented year-round"
+    ]
+  }
+}

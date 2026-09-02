@@ -1,0 +1,298 @@
+{
+  "identification": {
+    "speciesId": "salmo_salar_anadromous",
+    "status": "reviewed",
+    "regionalNames": [
+      "grilse (an adult returning after one winter at sea; DFO uses a 63 cm break)",
+      "kelt (a post-spawning adult)"
+    ],
+    "bodyShape": "Spindle-like — rounded, broad through the middle, tapered at each end. The caudal peduncle is thin and the tail is forked, in contrast to the thick peduncle and near-square tail of a brown trout.",
+    "identificationTraits": [
+      "Tail is forked; a brown trout's tail is square with almost no fork.",
+      "Caudal peduncle is thin, and the fish is easily 'tailed' by hand — a brown trout's peduncle is thick.",
+      "Vomerine teeth (roof of the mouth) form a single row of small teeth on the shaft with little to none on the vomerine head. Brown trout show a prominent zig-zag row on the shaft plus well-developed teeth on the vomerine head.",
+      "Adipose fin is dark, and any spots on it are hard to see. A brown trout's adipose fin is larger, often orange-tinted, and often obviously spotted.",
+      "Maxillary typically does not extend much past the eye; the jaw reaches the middle or rear edge of the eye rather than beyond it. A brown trout's maxillary usually extends past the eye.",
+      "Spots are smaller, less defined and fewer than a brown trout's, with fewer reddish spots. Strongly golden or orange fish are brown trout."
+    ],
+    "coloration": "Adults returning from the sea are bright silver with a nearly black back, and darken to bronze before spawning. Fish in fresh water darken through the upstream migration.",
+    "juvenileAppearance": "Fry carry camouflage spotting. Parr are around 2 in with dark vertical bars (parr marks) and red and black spots along the sides. Smolts turn silver with dark fins as they prepare to go to sea, at two to three years (NOAA) or three to four years (DFO) depending on the system.",
+    "adultAppearance": "A bright silver, small-spotted, forked-tailed salmonid with a thin caudal peduncle and a dark adipose fin, darkening to bronze as spawning approaches.",
+    "sexualDimorphism": "Spawning males develop large kypes (jaw hooks).",
+    "similarSpecies": [
+      {
+        "speciesId": "salmo_trutta",
+        "name": "Brown trout",
+        "distinction": "The reliable set is the tail and peduncle (forked and thin on salmon; square and thick on brown trout), the vomerine teeth (single small row on salmon; zig-zag row with a developed head on brown trout), the adipose fin (dark and faintly marked on salmon; larger, orange-tinted and spotted on brown trout), and the maxillary (not much past the eye on salmon; past the eye on brown trout)."
+      },
+      {
+        "speciesId": "salmo_salar_landlocked",
+        "name": "Landlocked Atlantic salmon",
+        "distinction": "The same species and the same identification characters; this record covers the anadromous form. The two are separate catalog records because life history, run timing and freshwater feeding differ — landlocked fish feed in fresh water throughout life, while returning anadromous adults cease feeding on entering the river."
+      }
+    ],
+    "averageAdultLength": "Up to about 30 in (NOAA). DFO splits returns into grilse (one winter at sea, under 63 cm) and multi-sea-winter fish (over 63 cm).",
+    "commonAnglingSize": "Not a target species in this catalog. NOAA Fisheries states that commercial and recreational fishing for Atlantic salmon in the United States is prohibited, and the Gulf of Maine DPS has been federally listed as endangered since 2000. Maine statute (12 M.R.S. §6140-A) additionally makes any Atlantic salmon fishing catch-and-release with an unweighted artificial fly only, closed 16 October to 30 April. Where regulated fisheries exist in other jurisdictions, encountered sizes follow the local grilse / multi-sea-winter split.",
+    "typicalWeight": "Typically 8 to 12 lb (NOAA).",
+    "maximumDocumentedSize": "The agency sources reached give a typical upper size of about 30 in and 12 lb rather than a documented record; no maximum documented size was found.",
+    "longevity": "Typical lifespan 4 to 6 years (NOAA): two to four years as parr in fresh water, one to three years at sea, then return. Repeat spawners occur.",
+    "sources": [
+      {
+        "label": "NOAA Fisheries species page: Atlantic Salmon",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-salmon"
+      },
+      {
+        "label": "NOAA Fisheries: Atlantic Salmon (Protected) — ESA conservation and management",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-salmon/protected"
+      },
+      {
+        "label": "Fisheries and Oceans Canada: Atlantic salmon — a remarkable life cycle",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/publications/salmon-saumon/lifecycle-cyclevital/index-eng.html"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — tips for identifying landlocked salmon vs. brown trout",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/blogs/mdifw-blog/landlocked-salmon-and-brown-trout-tips-identifying-your-catch"
+      },
+      {
+        "label": "Michigan Sea Grant / New York Sea Grant, Salmon and Trout of the Great Lakes: A Visual Identification Guide",
+        "class": "agency",
+        "url": "https://www.michiganseagrant.org/wp-content/uploads/2020/02/Salmon-and-Trout-of-the-Great-Lakes-printer.pdf"
+      },
+      {
+        "label": "Maine Revised Statutes Title 12 §6140-A, Atlantic salmon; method of fishing; season",
+        "class": "agency",
+        "url": "https://legislature.maine.gov/statutes/12/title12sec6140-A.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional color variation between river systems",
+      "a documented maximum length or weight from an agency or peer-reviewed source",
+      "a field key separating anadromous from landlocked fish on appearance alone (the sources reached give the same characters for both)"
+    ]
+  },
+  "behavior": {
+    "speciesId": "salmo_salar_anadromous",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Parr are highly territorial, hold individual positions in riffle habitat and spend much of their time on the streambed. Returning adults are described as holding in pools rather than as a schooling form.",
+      "note": "Biological context only. Atlantic salmon are a conservation-sensitive record in this catalog and this dossier carries no targeting guidance."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "drift_feeding",
+        "opportunistic"
+      ],
+      "note": "This applies to the freshwater juvenile stage. Parr take invertebrates and some small fish from moderate-to-fast riffle water. The returning adult does not feed: USFWS states that once in fresh water, adult salmon cease to feed during their upriver migration and darken in colour, and Maine DMR describes adults ceasing to feed on entering rivers and seeking shaded, cool pools and springs. Any adult behaviour in the river is therefore migration, thermal refuge and spawning behaviour, not foraging."
+    },
+    "territoriality": "Parr are highly territorial in riffle habitat with gravel and rubble cover up to 20 cm, water depth of 10–60 cm and moderate-to-fast flow of 30–90 cm/sec.",
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "For juveniles, and temperature-dependent. Fraser, Metcalfe and Thorpe (1995) report that low summer temperatures cause juvenile Atlantic salmon to become nocturnal — the switch between diurnal and nocturnal foraging in this species is temperature-dependent rather than fixed. Diel behaviour of returning adults in fresh water was not established in the sources reached; adults are non-feeding, so a foraging diel pattern does not apply to them."
+    },
+    "seasonalActivity": "Smolts run to sea in mid-April to early June (Maine DMR, with peak movement around 50°F) or May–June (DFO). Adults return to Maine rivers from May through October, with 60–70% of the run entering fresh water before August and the peak in June. Early-returning fish spend nearly five months in the river before spawning in late October and November. Eggs incubate through the winter and hatch in spring.",
+    "thermalDrivenBehavior": "The Gulf of Maine recovery plan puts the growing-season range at roughly 7–25°C, with sustained temperatures above 24°C impairing growth and overwinter survival and temperatures above 28°C harmful to juveniles. Upstream migration is inhibited above 22.8°C or below 5 ppm dissolved oxygen. Spawning requires 7–10°C. The catalog preferred band of 45–57°F sits inside the sourced growing-season range and does not contradict it. In summer, adults seek shaded, cool pools and springs and wait for water temperatures to drop.",
+    "depthMovement": "Parr occupy riffle water 10–60 cm deep. Adults holding through the summer occupy deeper pools, with low late-summer flows in Maine rivers constraining movement between them.",
+    "waterLevelResponse": "Adults may hold for extended periods and undertake their final upstream movements after fall rains; upstream migration is driven by flow, temperature and olfactory cues, and low late-summer flows constrain movement.",
+    "coverUse": "Parr use gravel and rubble up to 20 cm in riffles. In winter, juveniles use rock and root-wad complexes and the quiet water formed by boulders, woody debris and stream edges. Adults in summer use shade, cool pools and spring inflow.",
+    "predatorAvoidance": "Parr spend much of their time on the streambed among gravel and rubble; the winter shift into rock and root-wad complexes and boulder-formed quiet water is a shelter behaviour.",
+    "spawningBehavior": "Fall spawner. Spawning occurs mid-October through mid-November at 7–10°C (Gulf of Maine recovery plan) or late October through November (USFWS), with Maine DMR putting redd construction at temperatures falling below 50°F. Females excavate redds in coarse gravel or rubble in moving water — the recovery plan describes 22–76 cm of water flowing at 27–83 cm/sec over the redd — and deposit roughly 7,500 eggs, which incubate through winter. Post-spawning adults are kelts and may return to the sea. Spawning substrate, redds and any pre-spawn holding water are conservation context and are excluded from this record's habitat guidance; no spawning area, staging concentration or migration bottleneck is described here.",
+    "sources": [
+      {
+        "label": "NMFS & USFWS, Final Recovery Plan for the Gulf of Maine Distinct Population Segment of Atlantic Salmon",
+        "class": "agency",
+        "url": "https://www.biologicaldiversity.org/species/fish/Atlantic_salmon/pdfs/salmon_atlantic_recovery_plan.pdf"
+      },
+      {
+        "label": "USFWS National Conservation Training Center — Atlantic salmon life history (adults cease to feed during upriver migration)",
+        "class": "agency",
+        "url": "https://trainingcenter.fws.gov/resources/knowledge-resources/salmon/asalmon3.html"
+      },
+      {
+        "label": "Maine Department of Marine Resources — Atlantic salmon sea-run species page",
+        "class": "agency",
+        "url": "https://www.maine.gov/dmr/fisheries/sea-run-fisheries/sea-run-species/atlantic-salmon"
+      },
+      {
+        "label": "Fisheries and Oceans Canada: Atlantic salmon — a remarkable life cycle",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/publications/salmon-saumon/lifecycle-cyclevital/index-eng.html"
+      },
+      {
+        "label": "Fraser, Metcalfe & Thorpe 1995, Low summer temperatures cause juvenile Atlantic salmon to become nocturnal, Canadian Journal of Zoology 73",
+        "class": "peer_reviewed",
+        "url": "https://cdnsciencepub.com/doi/10.1139/z95-051"
+      },
+      {
+        "label": "NOAA Fisheries species page: Atlantic Salmon",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-salmon"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel behaviour of returning adults in fresh water",
+      "clarity response",
+      "cold-front or barometric response with primary-source support",
+      "angling-pressure response with primary-source support",
+      "the Fraser et al. 1995 temperature threshold could not be read directly — the paywalled abstract was not reachable, so only the finding named in the paper's title is asserted here"
+    ]
+  },
+  "diet": {
+    "speciesId": "salmo_salar_anadromous",
+    "status": "partial",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "aquatic_insects",
+      "small_forage_fish"
+    ],
+    "primaryNote": "Biological context only; this catalog withholds presentation guidance for Atlantic salmon. The load-bearing fact for this species is that the freshwater diet belongs to the juvenile stage alone. Emergent fry take plankton and small invertebrates; parr take invertebrates and some small fish; DFO gives aquatic insect larvae for juveniles. The returning adult does not feed in fresh water — USFWS states adults cease to feed once in fresh water during their upriver migration, and Maine DMR states the same. The adult marine diet (herring, alewife, rainbow smelt, capelin, sand lance and mackerel per NOAA; zooplankton, fish larvae and small fishes per DFO) is life-history context and has no freshwater application. Capacity is not a current hatch.",
+    "lifeStageDiet": {
+      "youngOfYear": "Emergent fry feed on plankton and small invertebrates.",
+      "juvenile": "Parr feed on invertebrates and some small fish, taken in riffle habitat.",
+      "adult": "Does not feed in fresh water. At sea, feeds on plankton and on small fishes including herring, alewife, rainbow smelt, capelin, sand lance and mackerel."
+    },
+    "ontogeneticShift": "Plankton and small invertebrates as fry, to invertebrates plus some small fish as parr, to a piscivorous marine diet as a post-smolt and adult, then to non-feeding on the return to fresh water.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match. For this species the rule carries an extra edge: the freshwater forage record here describes parr, not returning adults, and no forage record in this dossier is a targeting cue for a conservation-sensitive fish.",
+    "sources": [
+      {
+        "label": "NMFS & USFWS, Final Recovery Plan for the Gulf of Maine Distinct Population Segment of Atlantic Salmon",
+        "class": "agency",
+        "url": "https://www.biologicaldiversity.org/species/fish/Atlantic_salmon/pdfs/salmon_atlantic_recovery_plan.pdf"
+      },
+      {
+        "label": "USFWS National Conservation Training Center — Atlantic salmon life history (adults cease to feed during upriver migration)",
+        "class": "agency",
+        "url": "https://trainingcenter.fws.gov/resources/knowledge-resources/salmon/asalmon3.html"
+      },
+      {
+        "label": "NOAA Fisheries species page: Atlantic Salmon",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-salmon"
+      },
+      {
+        "label": "Fisheries and Oceans Canada: Atlantic salmon — a remarkable life cycle",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/publications/salmon-saumon/lifecycle-cyclevital/index-eng.html"
+      },
+      {
+        "label": "Maine Department of Marine Resources — Atlantic salmon sea-run species page",
+        "class": "agency",
+        "url": "https://www.maine.gov/dmr/fisheries/sea-run-fisheries/sea-run-species/atlantic-salmon"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "emerging_insects and terrestrial_insects — the catalog forage list carries both, but the agency sources reached say only 'invertebrates' and 'aquatic insect larvae' for parr and name neither emergence nor terrestrial drift, so both are omitted from primaryForage rather than asserted. This is the main reason this record is partial.",
+      "crustaceans — the catalog list carries this class; the sources reached give 'plankton' at sea without resolving it to a crustacean record, so it is omitted",
+      "season-by-season diet emphasis for parr",
+      "quantitative freshwater diet composition"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "salmo_salar_anadromous",
+    "status": "reviewed",
+    "overview": "The anadromous Atlantic salmon calendar has two separate biologies running in the same river. Parr hold riffle habitat year-round and shift to structural shelter in winter. Returning adults enter fresh water from May through October, do not feed, hold in cool deep pools and springs through the warm months, and spawn in mid-October to mid-November at 7–10°C. The Gulf of Maine DPS is ESA-listed as endangered and this is a conservation-sensitive record: the calendar is biological context only and carries no presentation implication in any season.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "For juveniles: rock and root-wad complexes, and the quiet water formed by boulders, woody debris and stream edges. Eggs incubate in gravel through the winter.",
+        "movementTendency": "Low. The recovery plan flags high mortality for large pre-smolt parr during the winter before outmigration, making winter shelter availability a recruitment constraint.",
+        "coverUse": "Structural shelter rather than the open riffle positions used in the growing season.",
+        "conservationNote": "Conservation-sensitive record; presentation guidance is withheld in every season. Incubating eggs are in the gravel throughout this period.",
+        "invalidators": [
+          "treating winter parr shelter as target water"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Riffle habitat for parr — gravel and rubble cover up to 20 cm, 10–60 cm deep, 30–90 cm/sec flow. Smolts move downstream through the mainstem.",
+        "movementTendency": "Smolt outmigration mid-April to early June, with peak movement around 50°F (Maine DMR) or May–June (DFO). Adult river entry begins in May.",
+        "thermalContext": "Growing-season range roughly 7–25°C.",
+        "conservationNote": "Smolt outmigration is a population bottleneck in its own right; no migration route, staging area or concentration is described in this record. Presentation guidance is withheld.",
+        "invalidators": [
+          "treating the smolt run as a fishable event"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Parr in riffle habitat. Non-feeding adults in shaded, cool, deeper pools and at spring inflow, waiting for water temperatures to drop.",
+        "depthTendency": "Adults deeper as the season warms; low late-summer flows in Maine rivers constrain movement between pools.",
+        "thermalContext": "Sustained temperatures above 24°C impair juvenile growth and overwinter survival; above 28°C is harmful. Upstream migration is inhibited above 22.8°C or below 5 ppm dissolved oxygen.",
+        "coverUse": "Shade, depth and spring inflow for adults; gravel and rubble in riffles for parr.",
+        "lightSensitivity": "Juveniles switch between diurnal and nocturnal foraging with temperature; low summer temperatures push juveniles toward nocturnal activity (Fraser et al. 1995).",
+        "conservationNote": "Summer thermal refuge holds non-feeding, energetically committed adults. Disturbance here is a conservation issue, not an opportunity. Presentation guidance is withheld.",
+        "invalidators": [
+          "reading adult presence in a summer pool as feeding behaviour — returning adults do not feed in fresh water"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Adults move upstream after fall rains; spawning begins mid-October. Spawning substrate is conservation context and is excluded from this record's habitat description.",
+        "movementTendency": "Final upstream movement is cued by flow, temperature and olfaction, often after fall rains.",
+        "thermalContext": "Spawning at 7–10°C; Maine DMR gives redd construction as temperatures fall below 50°F.",
+        "conservationNote": "Fall spawner. Redds, spawning gravel and pre-spawn holding water are excluded from target guidance, and no spawning area or aggregation is named. Presentation guidance is withheld.",
+        "invalidators": [
+          "using spawning substrate as holding water",
+          "reading the run as an activity window"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Spawning continues into mid-November; post-spawning kelts drop back downstream and may return to sea. Eggs are in the gravel.",
+        "conservationNote": "Late-fall spawning overlap remains conservation caution, and kelts are in poor condition. Presentation guidance is withheld.",
+        "invalidators": [
+          "assuming spawning has finished because the calendar has turned"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "NMFS & USFWS, Final Recovery Plan for the Gulf of Maine Distinct Population Segment of Atlantic Salmon",
+        "class": "agency",
+        "url": "https://www.biologicaldiversity.org/species/fish/Atlantic_salmon/pdfs/salmon_atlantic_recovery_plan.pdf"
+      },
+      {
+        "label": "USFWS National Conservation Training Center — Atlantic salmon life history",
+        "class": "agency",
+        "url": "https://trainingcenter.fws.gov/resources/knowledge-resources/salmon/asalmon3.html"
+      },
+      {
+        "label": "Maine Department of Marine Resources — Atlantic salmon sea-run species page",
+        "class": "agency",
+        "url": "https://www.maine.gov/dmr/fisheries/sea-run-fisheries/sea-run-species/atlantic-salmon"
+      },
+      {
+        "label": "Fisheries and Oceans Canada: Atlantic salmon — a remarkable life cycle",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/publications/salmon-saumon/lifecycle-cyclevital/index-eng.html"
+      },
+      {
+        "label": "NOAA Fisheries: Atlantic Salmon (Protected) — ESA conservation and management",
+        "class": "agency",
+        "url": "https://www.fisheries.noaa.gov/species/atlantic-salmon/protected"
+      },
+      {
+        "label": "Fraser, Metcalfe & Thorpe 1995, Low summer temperatures cause juvenile Atlantic salmon to become nocturnal, Canadian Journal of Zoology 73",
+        "class": "peer_reviewed",
+        "url": "https://cdnsciencepub.com/doi/10.1139/z95-051"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "run timing outside the Gulf of Maine — Canadian and European river timings are not covered here",
+      "winter habitat use by adults that overwinter in fresh water, where that occurs",
+      "kelt behaviour and survival between spawning and seaward drop-back"
+    ]
+  }
+}

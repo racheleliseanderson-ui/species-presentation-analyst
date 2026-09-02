@@ -1,0 +1,280 @@
+{
+  "identification": {
+    "speciesId": "osmerus_mordax",
+    "status": "reviewed",
+    "regionalNames": [
+      "smelt",
+      "American smelt"
+    ],
+    "bodyShape": "Long, slim and laterally compressed, close to cylindrical in cross-section, with a large terminal mouth, a slightly protruding lower jaw, and an eye that is disproportionately large for the head.",
+    "identificationTraits": [
+      "A small fleshy adipose fin sits between the dorsal fin and the tail. Minnows and shiners have no adipose fin (Ontario).",
+      "Well-developed canine-like teeth on the tongue and on the roof of the mouth. Lake whitefish and cisco also carry an adipose fin but are deeper-bodied and lack teeth on the tongue and palate (Ontario, Alaska Department of Fish and Game).",
+      "Large terminal mouth with the lower jaw projecting slightly beyond the upper (Alaska Department of Fish and Game).",
+      "Fewer than 75 scales along the lateral line; scales are small and shed very easily when handled (Maine IFW, Ontario).",
+      "The single dorsal fin is set near the middle of the back (Ontario)."
+    ],
+    "coloration": "Olive-green back over silvery-white sides and belly, with purple, blue and pink iridescence along the flanks. Marine fish carry fine black speckling on the head, chin and upper body (Alaska Department of Fish and Game, New Hampshire Fish and Game, Ontario, Maine IFW).",
+    "adultAppearance": "A small, slim, bright silver, iridescent pelagic fish with a large eye, an adipose fin, obvious canine teeth, and scales that come off in the hand.",
+    "sexualDimorphism": "Females grow faster, reach larger size and live longer than males (USFWS Ecological Risk Screening Summary, Michigan DNR). No sourced external field mark separates the sexes outside spawning condition.",
+    "similarSpecies": [
+      {
+        "name": "Cisco and lake whitefish (Coregonus spp.)",
+        "distinction": "Coregonines share the adipose fin but are deeper-bodied and have no teeth on the tongue or the roof of the mouth. Smelt is slim, big-eyed, and obviously toothed (Ontario)."
+      },
+      {
+        "name": "Minnows and shiners (Cyprinidae)",
+        "distinction": "Minnow-family fish have no adipose fin and no prominent teeth. Smelt has both (Ontario)."
+      }
+    ],
+    "averageAdultLength": "USFWS gives adults at 100–350 mm (about 4–14 in). Michigan DNR gives 3–6 in in the Great Lakes. Maine IFW gives 3–5 in in most waters and 6–8 in in northern Maine lakes. Ontario gives an average near 19 cm.",
+    "commonAnglingSize": "State accounts put most fish handled well under 10 in — New Hampshire Fish and Game states they rarely exceed 10 in (250 mm), and Maine reports 3–8 in as typical depending on the water.",
+    "typicalWeight": "Not established in the agency sources reached. State and federal smelt accounts report length and age rather than weight, and no sourced typical weight is asserted here.",
+    "maximumDocumentedSize": "USFWS gives up to 35.6 cm (about 14 in) in large lakes under optimal conditions. Maine IFW reports occasional fish to 14 in.",
+    "longevity": "USFWS gives 7+ years in large lakes under optimal conditions, with shorter lifespans in smaller systems. New Hampshire Fish and Game describes smelt as short-lived and maturing in their second year; Michigan DNR reports most Great Lakes fish mature by the end of two growing seasons.",
+    "sources": [
+      {
+        "label": "USFWS Ecological Risk Screening Summary, rainbow smelt (Osmerus mordax), 2025",
+        "class": "agency",
+        "url": "https://www.fws.gov/sites/default/files/documents/2026-01/ecological-risk-screening-summary-rainbow-smelt-aug-2025.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game rainbow smelt species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=rainbowsmelt.main"
+      },
+      {
+        "label": "New Hampshire Fish and Game rainbow smelt species account",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/rainbow-smelt"
+      },
+      {
+        "label": "Government of Ontario rainbow smelt invasive species profile (identification and lookalikes)",
+        "class": "agency",
+        "url": "https://www.ontario.ca/page/rainbow-smelt-0"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife rainbow smelt species information",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/rainbow-smelt.html"
+      },
+      {
+        "label": "Michigan DNR Michigan species, smelt",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/smelt"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A sourced typical weight; agency accounts report length only.",
+      "Spawning coloration or breeding tubercles as a field character.",
+      "Regional colour variation between anadromous and landlocked forms as a structured field.",
+      "Vernacular names beyond 'smelt' from an agency source."
+    ]
+  },
+  "behavior": {
+    "speciesId": "osmerus_mordax",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "byLifeStage": "USFWS: young-of-year occupy warmer nearshore water at roughly 2–6 m, while yearlings shift into cooler pelagic water.",
+      "note": "New Hampshire Fish and Game describes smelt travelling in schools in the mid-water column. Michigan DNR describes offshore schools that move shallower on a seasonal cycle. This is a pelagic schooling forage species, not a structure-holding solitary fish."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Opportunistic zooplanktivores that add larger prey as they grow — amphipods, ostracods, mysids and aquatic insect larvae, then small fish including smaller smelt (USFWS, Michigan DNR). A Canadian Field-Naturalist study of an introduced population found smelt feeding primarily on calanoid copepods, the same prey as the native planktivores."
+    },
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "Michigan DNR describes nocturnal movement, and notes that winter fisheries use lights at night to draw smelt up from the bottom — direct evidence of upward movement in the water column after dark. Peer-reviewed hydroacoustic work on Osmerus mordax attributes this vertical movement to light rather than to temperature."
+    },
+    "seasonalActivity": "Spawning occurs in spring shortly after ice-out (New Hampshire Fish and Game, Michigan DNR). USFWS gives onset near 4.4°C with peak activity near 10°C; Michigan DNR gives an April period lasting about three weeks. Outside that period the sourced accounts place smelt in deeper, cooler, offshore water.",
+    "thermalDrivenBehavior": "USFWS gives a tolerance range of about −1.8°C to 20°C with an optimum of 6–18°C (roughly 43–64°F). The catalog band of 42–55°F sits inside that optimum. Agency accounts consistently describe smelt as a cool, clear-water species; Michigan DNR describes cool, dark water.",
+    "depthMovement": "USFWS records smelt from the surface to about 425 m, though usually shallower than 150 m; New Hampshire Fish and Game records marine fish as far as 60 km offshore in depths to 77 m. Michigan DNR: deeper offshore water outside the spawning period, ascending seasonally. Vertical position within a stratified lake is lake-specific — a Canadian Field-Naturalist study found the largest numbers in a 6.1–11.3 m stratum in epilimnetic water at 18–21°C above an 11–13 m thermocline, so a general 'always below the thermocline' rule is not supported by the sources reached.",
+    "openWaterBehavior": "Pelagic and mid-water rather than structure-associated. In lakes smelt function as a principal forage species for lake trout, walleye and other predators (Ontario, Michigan DNR), which is why their distribution is usually described in terms of the open water column rather than cover.",
+    "spawningBehavior": "Spring spawner shortly after ice-out. Spawning takes place at night and lasts several days (New Hampshire Fish and Game). Adhesive, negatively buoyant eggs stick to substrate and hatch in about two to three weeks (USFWS). Spawning movements out of the lake, the waters used for them, and any structure that constricts them are conservation and regulatory context and are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "USFWS Ecological Risk Screening Summary, rainbow smelt (Osmerus mordax), 2025",
+        "class": "agency",
+        "url": "https://www.fws.gov/sites/default/files/documents/2026-01/ecological-risk-screening-summary-rainbow-smelt-aug-2025.pdf"
+      },
+      {
+        "label": "Michigan DNR Michigan species, smelt",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/smelt"
+      },
+      {
+        "label": "New Hampshire Fish and Game rainbow smelt species account",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/rainbow-smelt"
+      },
+      {
+        "label": "Government of Ontario rainbow smelt invasive species profile",
+        "class": "agency",
+        "url": "https://www.ontario.ca/page/rainbow-smelt-0"
+      },
+      {
+        "label": "Canadian Journal of Fisheries and Aquatic Sciences: evaluation of light-mediated vertical migration of fish based on hydroacoustic analysis of diel vertical movements of rainbow smelt",
+        "class": "peer_reviewed",
+        "url": "https://cdnsciencepub.com/doi/10.1139/f95-051"
+      },
+      {
+        "label": "Canadian Field-Naturalist: rainbow smelt depth distribution and diet in an introduced lake population",
+        "class": "peer_reviewed",
+        "url": "https://www.canadianfieldnaturalist.ca/index.php/cfn/article/download/1929/1853/7594"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A generalisable rule for smelt position relative to the thermocline. The one lake study reached found them above it, in warm epilimnetic water, which contradicts the common assumption; the catalog's thermocline_edge holding class should be treated as lake-specific.",
+      "Cold-front, barometric and water-clarity responses with primary-source support.",
+      "Angling-pressure response with primary-source support.",
+      "Whether anadromous and landlocked forms differ behaviourally beyond the spawning migration.",
+      "Autumn behaviour and any pre-winter depth shift."
+    ]
+  },
+  "diet": {
+    "speciesId": "osmerus_mordax",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "zooplankton",
+      "crustaceans",
+      "aquatic_insects",
+      "small_forage_fish"
+    ],
+    "primaryNote": "Smelt are opportunistic zooplanktivores that broaden with size. USFWS lists amphipods, ostracods, aquatic insect larvae, copepods, mysids and small fishes. Michigan DNR gives aquatic invertebrates and other fish including smaller rainbow smelt, sculpins, burbot and whitefish, and names shrimp-like crustaceans as a principal Great Lakes food. Ontario notes they compete for plankton and consume young native fish. This is dietary capacity, not evidence of a current forage event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Copepods and cladocerans, plus rotifers, eggs and algae (Alaska Department of Fish and Game).",
+      "juvenile": "Zooplankton, with amphipods, ostracods and aquatic insect larvae added as size allows (USFWS).",
+      "adult": "Mysids and other shrimp-like crustaceans, copepods, amphipods, worms and small fish, including smaller smelt (Alaska Department of Fish and Game, USFWS, Michigan DNR)."
+    },
+    "preySizeShifts": "Prey size tracks fish size. The catalog small_forage_fish class belongs to larger adults; young-of-year smelt are on zooplankton.",
+    "ontogeneticShift": "Zooplanktivory through the first year, then a widening diet that adds macro-crustaceans and small fish. Cannibalism on smaller smelt is reported by Michigan DNR.",
+    "forageSubstitutions": "Mysids and other shrimp-like crustaceans substitute for copepods and cladocerans in the Great Lakes (Michigan DNR); the Canadian Field-Naturalist study found calanoid copepods dominating in an inland lake. Substitution is system-specific.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "USFWS Ecological Risk Screening Summary, rainbow smelt (Osmerus mordax), 2025",
+        "class": "agency",
+        "url": "https://www.fws.gov/sites/default/files/documents/2026-01/ecological-risk-screening-summary-rainbow-smelt-aug-2025.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game rainbow smelt species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=rainbowsmelt.main"
+      },
+      {
+        "label": "Michigan DNR Michigan species, smelt",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/smelt"
+      },
+      {
+        "label": "Government of Ontario rainbow smelt invasive species profile",
+        "class": "agency",
+        "url": "https://www.ontario.ca/page/rainbow-smelt-0"
+      },
+      {
+        "label": "Canadian Field-Naturalist: rainbow smelt depth distribution and diet in an introduced lake population",
+        "class": "peer_reviewed",
+        "url": "https://www.canadianfieldnaturalist.ca/index.php/cfn/article/download/1929/1853/7594"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Season-by-season diet composition from a primary source; no sourced seasonal breakdown was found, so seasonalDiet is omitted.",
+      "Whether the fish-eating fraction of the adult diet is a general pattern or specific to large Great Lakes populations."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "osmerus_mordax",
+    "status": "partial",
+    "overview": "Smelt are a pelagic, schooling, cool-water forage species. The sourced material supports three things clearly: a strong nocturnal vertical movement in the water column, a cool thermal optimum of roughly 6–18°C, and a spring spawning movement after ice-out that is conservation and regulatory context only. Depth position relative to the thermocline is lake-specific and is not generalised here. Fall is omitted because the sources reached do not describe it.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Open basin and suspended-open water in the main body of the lake; drop-offs and basin edges where the water column is deep enough to hold cool water.",
+        "depthTendency": "Michigan DNR places smelt deep and offshore outside the spawning period; the same source notes they rise off the bottom after dark.",
+        "movementTendency": "Vertical rather than lateral — smelt move up in the column at night and back down toward the bottom in daylight.",
+        "lightSensitivity": "Strong. Michigan DNR records winter fisheries using lights at night specifically to draw smelt up from the bottom, and peer-reviewed hydroacoustic work attributes the vertical movement to light.",
+        "thermalContext": "USFWS tolerance extends to −1.8°C; cold water is not a constraint on this species.",
+        "presentationImplication": "Vertical jig and drop presentation are the reviewed still-water families that match a fish holding near bottom by day; suspended stationary matches a fish that has risen off the bottom after dark.",
+        "invalidators": [
+          "searching horizontally for a fish whose sourced movement is vertical",
+          "assuming a fixed depth — the sourced depth range is very wide and lake-specific"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Upper and mid water column of the open basin as the lake warms from ice-out.",
+        "movementTendency": "Spawning movement occurs shortly after ice-out. That movement is conservation context and is not described here as target water.",
+        "thermalContext": "USFWS gives spawning onset near 4.4°C with peak activity near 10°C; Michigan DNR gives an April period of about three weeks.",
+        "conservationNote": "Spring spawning period. The spawning movement, the waters used for it, and any structure that concentrates spawning fish are excluded from target guidance. Smelt are also a regulated and, in many inland waters, an invasive species with transport and possession restrictions — check the local rule before handling.",
+        "invalidators": [
+          "treating spawning timing as a location cue",
+          "moving smelt between waters"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Suspended open water and basin, with drop-offs and thermocline edges as the boundary of usable water in stratified lakes.",
+        "depthTendency": "USFWS places young-of-year in warmer nearshore water at roughly 2–6 m and yearlings in cooler pelagic water. Adult depth within a stratified lake is lake-specific; one study found the bulk of fish in a 6.1–11.3 m stratum above the thermocline.",
+        "forageEmphasis": "Zooplankton, with mysids and other shrimp-like crustaceans where present.",
+        "thermalContext": "Optimum 6–18°C (about 43–64°F), tolerance to about 20°C (USFWS). The catalog band of 42–55°F sits inside that optimum.",
+        "lightSensitivity": "Nocturnal ascent in the column continues to structure where fish are found at a given hour.",
+        "presentationImplication": "Trolling and suspended stationary are the reviewed still-water families that match a pelagic open-basin distribution; vertical jig and drop presentation apply where fish are located over a drop-off or a thermocline edge.",
+        "invalidators": [
+          "assuming smelt sit below the thermocline as a rule — the one sourced lake study found them above it",
+          "treating a single depth as transferable between lakes"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "USFWS Ecological Risk Screening Summary, rainbow smelt (Osmerus mordax), 2025",
+        "class": "agency",
+        "url": "https://www.fws.gov/sites/default/files/documents/2026-01/ecological-risk-screening-summary-rainbow-smelt-aug-2025.pdf"
+      },
+      {
+        "label": "Michigan DNR Michigan species, smelt",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/smelt"
+      },
+      {
+        "label": "New Hampshire Fish and Game rainbow smelt species account",
+        "class": "agency",
+        "url": "https://www.wildlife.nh.gov/fishing-new-hampshire/fish-species-nh/rainbow-smelt"
+      },
+      {
+        "label": "Government of Ontario rainbow smelt invasive species profile",
+        "class": "agency",
+        "url": "https://www.ontario.ca/page/rainbow-smelt-0"
+      },
+      {
+        "label": "Canadian Journal of Fisheries and Aquatic Sciences: light-mediated vertical migration of rainbow smelt",
+        "class": "peer_reviewed",
+        "url": "https://cdnsciencepub.com/doi/10.1139/f95-051"
+      },
+      {
+        "label": "Canadian Field-Naturalist: rainbow smelt depth distribution and diet in an introduced lake population",
+        "class": "peer_reviewed",
+        "url": "https://www.canadianfieldnaturalist.ca/index.php/cfn/article/download/1929/1853/7594"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "A fall entry. The agency sources reached describe winter, ice-out spring and stratified summer, but not autumn distribution or a pre-winter depth shift.",
+      "A defensible general rule for depth relative to the thermocline; the evidence reached is contradictory and lake-specific.",
+      "The catalog holding class 'inlet' is not connected to a season here, because the only sourced context for inlet-adjacent water is spawning movement, which is excluded from target guidance."
+    ]
+  }
+}

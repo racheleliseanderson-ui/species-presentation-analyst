@@ -1,0 +1,291 @@
+{
+  "identification": {
+    "speciesId": "acipenser_fulvescens",
+    "status": "reviewed",
+    "regionalNames": [
+      "sturgeon",
+      "rock sturgeon"
+    ],
+    "bodyShape": "Torpedo-shaped body tapering to an upturned, heterocercal (shark-like) tail whose upper lobe is longer than the lower. There are no true vertebrae — the axial support is a continuous, flexible, cartilage-encased notochord. The snout is long and tapering in young fish and becomes shorter and blunter with age.",
+    "identificationTraits": [
+      "Five rows of bony, shell-shaped plates (scutes) — two on each side and one along the back — each with a sharp-pointed spur. The plates smooth out with age and are barely visible on old, large individuals.",
+      "Four barbels hang in a row on the underside of the snout just ahead of the mouth and are used to locate food.",
+      "Mouth is toothless, ventral and protrusible for suction feeding.",
+      "Two spiracles (vents) sit on top of the head forward of the gills.",
+      "Body is scaleless apart from the scute rows.",
+      "Heterocercal tail with the upper lobe longer than the lower — a shark-like profile no other fish in its range shares except the other sturgeons and the paddlefish."
+    ],
+    "coloration": "Generally slate-grey, olive-brown or black over the body with a milky or yellow-white underside (Wisconsin DNR); USFWS gives olive-brown to grey with a white belly.",
+    "juvenileAppearance": "Juveniles are lighter than adults and carry dark blotches. Their snouts are longer and more tapered, and their scutes are sharper and more prominent, than an old fish's.",
+    "adultAppearance": "A very large, scaleless, slate-grey to olive-brown benthic fish with five rows of bony scutes, four ventral barbels, a toothless protrusible mouth, and a shark-like upturned tail. Old, large fish have blunt snouts and worn, barely visible scutes.",
+    "similarSpecies": [
+      {
+        "speciesId": "acipenser_transmontanus",
+        "name": "White sturgeon",
+        "distinction": "A separate catalog record and a separate range — white sturgeon are a Pacific-drainage species and lake sturgeon a Great Lakes, Mississippi and St. Lawrence species. Where a fish must be assigned, use the jurisdiction's own key rather than this record; the sources reached do not supply a shared field key."
+      },
+      {
+        "name": "Shovelnose sturgeon",
+        "distinction": "Named by Missouri Department of Conservation as the look-alike for the paddlefish and lake sturgeon group in large-river systems. It is a much smaller sturgeon; the sources reached do not give a scute or barbel character separating it from lake sturgeon, so use the jurisdiction's key."
+      },
+      {
+        "name": "Paddlefish",
+        "distinction": "The paddlefish has a long paddle-shaped rostrum roughly one third of its total length, no scutes, and a huge toothless mouth set far back under the head. Lake sturgeon have a conical snout, five rows of bony scutes and four barbels."
+      }
+    ],
+    "averageAdultLength": "USFWS gives typical adults at 4–6 ft; Wisconsin DNR notes females mature at about 55 in and males at about 45 in.",
+    "commonAnglingSize": "Jurisdiction-dependent and set by regulation, not by biology. Michigan DNR allows one fish per angler per year, registered within 24 hours, in designated waters only; Wisconsin DNR describes strict bag, size and length-of-season limits and makes sale of flesh or roe illegal. Any size expectation must come from the local rule set, not from this record.",
+    "typicalWeight": "USFWS gives typical adults at 30–80 lb.",
+    "maximumDocumentedSize": "USFWS gives the largest fish at about 7 ft and 200–300 lb. Wisconsin's state record is 170 lb 10 oz (1979); Michigan's is 193 lb; Wisconsin DNR also cites a 215 lb, 81 in Canadian fish. COSEWIC gives lengths to 3 m and weights to 180 kg.",
+    "longevity": "USFWS gives most adults at 50–100 years with the oldest around 150; Michigan DNR gives about 55 years typical with individuals over 100 documented; Wisconsin's oldest record was 82 years and COSEWIC gives ages in excess of 100. Wisconsin DNR notes 97% of sturgeon over 30 years old are female. Females mature at 24–26 years and spawn once every four to six years; males mature at about 15 years and spawn every other year or annually.",
+    "sources": [
+      {
+        "label": "Wisconsin DNR species account: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/Species_lakesturgeon.pdf"
+      },
+      {
+        "label": "Michigan DNR Michigan species: lake sturgeon",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-sturgeon"
+      },
+      {
+        "label": "USFWS species profile: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/lake-sturgeon-acipenser-fulvescens"
+      },
+      {
+        "label": "COSEWIC assessment and status report on lake sturgeon (Environment and Climate Change Canada, Species at Risk Public Registry)",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/lake-sturgeon/chapter-10.html"
+      },
+      {
+        "label": "Missouri Department of Conservation field guide: paddlefish (similar-species listing)",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/paddlefish"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional / vernacular names — no agency source reached supplied a list",
+      "a field key separating lake sturgeon from shovelnose sturgeon where the two overlap",
+      "sexual dimorphism outside of size-at-maturity",
+      "spawning coloration"
+    ]
+  },
+  "behavior": {
+    "speciesId": "acipenser_fulvescens",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "Izzo et al. (2022) found juvenile and adult home ranges overlapping substantially in shallow water in spring and summer, then diverging sharply in winter: adults used a shallow-water (6–9 m) overwintering area and stayed sedentary, while more than half of juveniles overwintered in deep water (25–40 m) on the slope and made long-range movements of 18–34 km in winter and spring.",
+      "note": "Not a schooling species. The overlapping home ranges the telemetry work reports are shared habitat use, not shoaling. The dense congregations described in the agency accounts are spawning behaviour, which is treated as conservation context here and is not located or described further."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A toothless benthic suction feeder. The fish drags its barbels lightly over the bottom to detect prey, then extends its protrusible mouth and takes the food in with a mouthful of sediment, expelling the debris through the gills. Braun et al. (2018) place it as the top predator of the benthic food web in the system they studied, with no direct competition from congeners for its preferred prey."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved. The sources reached do not establish a diel activity pattern for lake sturgeon; 'mixed' is entered as the least-committing value rather than as a finding. Treat this field as unsourced and see gaps."
+    },
+    "seasonalActivity": "Spawning migration runs from late April to early June (Wisconsin DNR) or mid-April to late May (Michigan DNR). Larvae drift from spawning areas in June (COSEWIC). Izzo et al. (2022) found comparable juvenile and adult home-range sizes in spring and summer, smaller juvenile ranges than adult ranges in fall, and the reverse in winter.",
+    "thermalDrivenBehavior": "The best-sourced thermal numbers are reproductive rather than behavioural. Wisconsin DNR gives spawning starting at 53°F under high flow or 58–59°F under low flow; Michigan DNR gives 55–64°F. COSEWIC gives successful incubation between 10–18°C, optimal hatching at 14–16°C, deformity and mortality at 18–20°C, and lethal conditions above 20°C for embryos. The catalog preferred band of 50–66°F is consistent with those spawning numbers but is not itself corroborated by an adult thermal-preference study in the sources reached.",
+    "depthMovement": "Wisconsin DNR describes the species using lakes with extensive shallow water (less than 30 ft) and deep river pools where bottom organisms are abundant. Izzo et al. (2022) recorded adults overwintering at 6–9 m while over half of juveniles overwintered at 25–40 m and occasionally beyond 40 m; the deepwater sites showed less temperature variability and warmer accumulated degree-days.",
+    "predatorAvoidance": "Wisconsin DNR describes lake sturgeon leaping clear of the water and notes the hypothesis that this may shake off lampreys, since most adults carry one or more old lamprey scars. This is a hypothesis in the source, not an established function.",
+    "openWaterBehavior": "A bottom-oriented fish of lake basins, deltas and deep river pools. The telemetry work reports sandy delta substrate as the shared juvenile-and-adult habitat, with juveniles additionally using deeper bay and main-lake areas that adults did not.",
+    "spawningBehavior": "Spring spawner. Migration to spawning areas runs late April to early June, with spawning over rocky substrate in flowing water — USFWS gives 0.5–1 m/s velocity at depths of 0.3–8 m — beginning at 53°F under high flow or 58–59°F under low flow (Wisconsin DNR), or 55–64°F (Michigan DNR). Eggs are adhesive and hatch in five to eight days. Females spawn only once every three to seven years and males every one to two years, so a very small fraction of the population is reproductively active in any year. Spawning areas, staging concentrations and migration bottlenecks are conservation context and are neither located nor described in this record; unnatural flow regimes are documented to delay spawning and hold fish on spawning grounds four to six weeks longer than under natural flow.",
+    "sources": [
+      {
+        "label": "Wisconsin DNR species account: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/Species_lakesturgeon.pdf"
+      },
+      {
+        "label": "Michigan DNR Michigan species: lake sturgeon",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-sturgeon"
+      },
+      {
+        "label": "Izzo, Zydlewski, Marsden & Parrish 2022, Seasonal movements and spatial overlap of juvenile and adult lake sturgeon in Lake Champlain, Transactions of the American Fisheries Society 151(6):666–681",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/151/6/666/7814409"
+      },
+      {
+        "label": "Braun, Phillips, Nanayakkara & Wissel 2018, Diet characterization and a preliminary investigation into trophic niche placement for an endangered lake sturgeon population in the Saskatchewan River, PLoS ONE 13(11): e0206313",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0206313"
+      },
+      {
+        "label": "COSEWIC assessment and status report on lake sturgeon (Environment and Climate Change Canada, Species at Risk Public Registry)",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/lake-sturgeon/chapter-10.html"
+      },
+      {
+        "label": "USFWS species profile: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/lake-sturgeon-acipenser-fulvescens"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel activity pattern — no source reached established one, which is the main reason this record is partial",
+      "an adult thermal preference or avoidance study; the temperature numbers reached are reproductive",
+      "current-facing and velocity selection outside the spawning context",
+      "clarity, cold-front, water-level and angling-pressure responses",
+      "territoriality and aggression — not described in any source reached",
+      "the telemetry findings come from one system (Lake Champlain) and may not generalise to riverine populations"
+    ]
+  },
+  "diet": {
+    "speciesId": "acipenser_fulvescens",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "crustaceans",
+      "mollusks",
+      "aquatic_insects",
+      "worms_annelids",
+      "small_forage_fish",
+      "eggs"
+    ],
+    "primaryNote": "A toothless benthic feeder that locates prey by dragging its barbels over the substrate and takes it by suction along with a mouthful of sediment, expelling debris through the gills. Wisconsin DNR names snails, insect larvae, leeches, small clams and other invertebrates; Michigan DNR names insect larvae, crayfish, snails, clams and leeches; USFWS adds small fish and eggs to that invertebrate list. Braun et al. (2018) quantified diet in one river population as dominated by crayfish (49.1 ± 6.4%) and snails (36.3 ± 5.5%), with all other invertebrate taxa contributing minimally. Capacity is not a current forage event.",
+    "lifeStageDiet": {
+      "adult": "Benthic macroinvertebrates dominate, with small fish and eggs taken as well."
+    },
+    "ontogeneticShift": "Braun et al. (2018) found no meaningful ontogenetic diet shift in the population they studied — juveniles and adults showed similar prey use and minimal separation in carbon and nitrogen isotope signatures, which the authors note is contrary to patterns reported in other sturgeon populations.",
+    "forageSubstitutions": "Prey emphasis is system-specific: the Saskatchewan River population studied by Braun et al. ran on crayfish and snails, while COSEWIC attributes historical Assiniboine River abundance to a mayfly-larva food base. Diet follows the benthic invertebrate community of the particular water.",
+    "observedForageRule": "Diet capacity is not proof that a forage event is occurring. Observed current forage still comes from a user observation or Hatch Match. Note also that lake sturgeon feeding is substrate-mediated — the fish detects prey with its barbels on the bottom — so the diet record describes what is in the sediment, not what is in the water column.",
+    "sources": [
+      {
+        "label": "Braun, Phillips, Nanayakkara & Wissel 2018, Diet characterization and a preliminary investigation into trophic niche placement for an endangered lake sturgeon population in the Saskatchewan River, PLoS ONE 13(11): e0206313",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0206313"
+      },
+      {
+        "label": "Wisconsin DNR species account: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/Species_lakesturgeon.pdf"
+      },
+      {
+        "label": "Michigan DNR Michigan species: lake sturgeon",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-sturgeon"
+      },
+      {
+        "label": "USFWS species profile: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/lake-sturgeon-acipenser-fulvescens"
+      },
+      {
+        "label": "COSEWIC assessment and status report on lake sturgeon (Environment and Climate Change Canada, Species at Risk Public Registry)",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/lake-sturgeon/chapter-10.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "young-of-year and juvenile diet as distinct entries — the one quantitative study reached found no ontogenetic separation and the agency accounts do not break diet out by life stage",
+      "seasonal diet emphasis",
+      "prey size shifts with fish size",
+      "how large a share of the diet small fish and eggs actually represent; USFWS names them without quantifying them"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "acipenser_fulvescens",
+    "status": "partial",
+    "overview": "Lake sturgeon is a long-lived benthic suction feeder that works the bottom of lake basins, deltas and deep river pools, detecting prey with its barbels rather than by sight. It is a regulated-context record: USFWS issued a not-warranted 12-month finding under the ESA in April 2024, leaving management with states, provinces and Tribes, and the resulting rules differ sharply between jurisdictions — Michigan allows one fish per angler per year in designated waters with 24-hour registration, Wisconsin runs strict bag, size and season limits and bans sale of flesh or roe, and many waters are closed to any harvest. Nothing in this calendar overrides the local rule set. Seasonal structure below rests largely on one telemetry study in one lake, which is why this record is partial.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Basin and drop-off. Adults used a discrete shallow-water (6–9 m) overwintering area and were sedentary; over half of juveniles overwintered deep (25–40 m) on the slope, occasionally beyond 40 m.",
+        "depthTendency": "Sharply split by life stage — shallow for adults, deep for most juveniles, in the one system studied.",
+        "movementTendency": "Adults sedentary, with a median 95% home range of 4.6 km². Juveniles ranged more widely (median 7.2 km²) and made long-range movements of 18–34 km in winter and spring.",
+        "thermalContext": "Deepwater overwintering sites showed less temperature variability and warmer accumulated degree-days than the shallow sites.",
+        "presentationImplication": "Where a jurisdiction permits hook-and-line angling for lake sturgeon — many do not — the feeding mechanics point only to bottom families: stationary bait in flowing water, bottom contact or slow drag in stillwater. The fish finds food by dragging its barbels over the substrate and takes it by suction, so any presentation held off the bottom is outside its feeding mode. Check the water's own rules before anything else.",
+        "invalidators": [
+          "generalising this life-stage depth split, which comes from a single lake study, to a river population",
+          "assuming an open season — jurisdictional rules govern"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Movement toward spawning areas from late April to early June; shallow delta and shoreline habitat with sandy substrate for fish not spawning. In rivers, run and current-break water over rock.",
+        "movementTendency": "Spawning migration is the dominant spring movement. Juvenile long-range movements of 18–34 km also occurred in winter and spring.",
+        "thermalContext": "Spawning begins at 53°F under high flow or 58–59°F under low flow (Wisconsin DNR); Michigan DNR gives 55–64°F.",
+        "conservationNote": "Spring is the spawning period. Females spawn only once every three to seven years, so the reproductively active fraction of any population is small in a given year and disturbance costs are high. Spawning areas, staging concentrations and migration bottlenecks are not located or described in this record, and no presentation implication is given for this season. Unnatural flow regimes are documented to hold fish on spawning grounds four to six weeks longer than natural flow does.",
+        "invalidators": [
+          "reading the spawning migration as an opportunity",
+          "using spawning substrate as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Basin, drop-off and rocky shoreline in lakes; deep pool, run and pool-tail in rivers. Wisconsin DNR describes lakes with extensive shallow water under 30 ft and deep river pools where bottom organisms are abundant. Sandy delta substrate was the shared juvenile-and-adult habitat in the telemetry study.",
+        "depthTendency": "Juvenile and adult distributions overlapped substantially in shallow delta water through spring and summer.",
+        "forageEmphasis": "Benthic invertebrates — crayfish and snails dominated the one quantified diet study; insect larvae, leeches and small clams appear across the agency accounts.",
+        "presentationImplication": "Same mechanical constraint as winter, and the same jurisdictional gate: where hook-and-line angling is authorised at all, only bottom families match a barbel-and-suction benthic feeder — stationary bait in flowing water, bottom contact or slow drag in stillwater. Many jurisdictions authorise none.",
+        "invalidators": [
+          "treating this as a mid-water or sight-feeding fish",
+          "assuming an open season — jurisdictional rules govern"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Delta and basin habitat continues; juveniles concentrated activity on the delta with smaller home ranges (median 5.5 km²) than adults (7.0 km²).",
+        "movementTendency": "Juvenile home ranges contract relative to adults, reversing in winter.",
+        "presentationImplication": "Unchanged by season: bottom-contact families only — stationary bait in flowing water, bottom contact or slow drag in stillwater — and only where the jurisdiction authorises hook-and-line angling for the species. Season dates, tag requirements and closures are set locally and are not inferable from this record.",
+        "invalidators": [
+          "assuming an open season — jurisdictional rules govern"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Izzo, Zydlewski, Marsden & Parrish 2022, Seasonal movements and spatial overlap of juvenile and adult lake sturgeon in Lake Champlain, Transactions of the American Fisheries Society 151(6):666–681",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/151/6/666/7814409"
+      },
+      {
+        "label": "Wisconsin DNR species account: Lake Sturgeon (Acipenser fulvescens)",
+        "class": "agency",
+        "url": "https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/Species_lakesturgeon.pdf"
+      },
+      {
+        "label": "Michigan DNR Michigan species: lake sturgeon (harvest rules and registration)",
+        "class": "agency",
+        "url": "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-sturgeon"
+      },
+      {
+        "label": "USFWS press release, April 2024: collaborative conservation keeps lake sturgeon off the endangered list (not-warranted 12-month finding)",
+        "class": "agency",
+        "url": "https://www.fws.gov/press-release/2024-04/collaborative-conservation-keeps-lake-sturgeon-endangered-list"
+      },
+      {
+        "label": "Braun, Phillips, Nanayakkara & Wissel 2018, Diet characterization and a preliminary investigation into trophic niche placement for an endangered lake sturgeon population in the Saskatchewan River, PLoS ONE 13(11): e0206313",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0206313"
+      },
+      {
+        "label": "COSEWIC assessment and status report on lake sturgeon (Environment and Climate Change Canada, Species at Risk Public Registry)",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/lake-sturgeon/chapter-10.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "riverine seasonal habitat use — the seasonal structure here comes almost entirely from one lake telemetry study, which is why this record is partial",
+      "tailwater use, which the catalog lists as river holding for this species but which no source reached documents",
+      "light sensitivity and diel habitat shifts",
+      "a seasonal feeding-intensity or thermal-activity curve for adults"
+    ]
+  }
+}

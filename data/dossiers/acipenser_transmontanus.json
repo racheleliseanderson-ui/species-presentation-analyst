@@ -1,0 +1,304 @@
+{
+  "identification": {
+    "speciesId": "acipenser_transmontanus",
+    "status": "reviewed",
+    "regionalNames": [
+      "pacific sturgeon"
+    ],
+    "bodyShape": "Scaleless, torpedo-shaped body on a cartilaginous skeleton with a persistent notochord, tapering to a heterocercal, shark-like tail. The snout is moderately blunt in adults; the mouth is ventral, toothless, tube-like and protrusible, with four sensory barbels hanging in a row on the underside of the snout ahead of it.",
+    "identificationTraits": [
+      "Barbels sit closer to the tip of the snout than to the mouth. This is the primary separation from green sturgeon, whose barbels sit midway between mouth and snout tip or nearer the mouth (Fisheries and Oceans Canada).",
+      "Five rows of bony scutes. Fisheries and Oceans Canada gives 11-14 in the dorsal row, 38-48 in the lateral row and 4-8 in the ventral rows; Montana's account gives 11-14 dorsal, 36-48 lateral and 9-12 ventral. The ventral counts disagree between those two sources, so treat the lateral row (high thirties to high forties) as the workable count.",
+      "No scutes behind the dorsal fin. Green sturgeon carries 1-2 there (Oregon Sea Grant).",
+      "Vent sits near the tail rather than between the pelvic fins (Oregon Sea Grant).",
+      "Three to four small pairs of pre-anal plates and one to two post-anal plates (Fisheries and Oceans Canada).",
+      "Body is scaleless apart from the scute rows; mouth is toothless and works by suction."
+    ],
+    "coloration": "Grey to slate or olive-grey over the back and upper sides, shading to a clean white or pale grey belly. Fisheries and Oceans Canada describes whitish lateral lines and a clean white belly, in contrast to the green sturgeon's yellowish sharp-tipped scutes and dark olive ventral stripe.",
+    "adultAppearance": "A very large, scaleless, grey benthic fish with five rows of bony scutes, four barbels set well forward under a moderately blunt snout, a toothless protrusible ventral mouth, and an upturned shark-like tail.",
+    "similarSpecies": [
+      {
+        "name": "Green sturgeon (Acipenser medirostris)",
+        "distinction": "The only sturgeon congener sharing Pacific drainages with white sturgeon. Barbels are midway between the mouth and the snout tip, or closer to the mouth, where white sturgeon's sit closer to the snout tip. Scute counts are much lower: 8-11 dorsal, 23-30 lateral, 1-4 ventral, against white sturgeon's 11-14, 38-48, 4-8. Green sturgeon also carries 1-2 scutes behind the dorsal fin, which white sturgeon lacks, and has olive-green colour with yellowish, sharp-tipped scutes rather than grey with a clean white belly."
+      },
+      {
+        "speciesId": "acipenser_fulvescens",
+        "name": "Lake sturgeon",
+        "distinction": "A separate catalog record and a separate set of drainages - lake sturgeon is a Great Lakes, Mississippi and St. Lawrence species, white sturgeon a Pacific-drainage species. The sources reached do not supply a shared field key for the two; where a fish must be assigned, use the jurisdiction's own key."
+      }
+    ],
+    "averageAdultLength": "Population-dependent. Washington's account gives fish growing to more than 10 ft; Oregon Sea Grant notes modern fish rarely exceed about 6 ft. In the lower Columbia the Oregon plan puts male maturity near 54 in fork length and female maturity near 65 in fork length. Montana's landlocked account gives fish to about 6 ft.",
+    "commonAnglingSize": "Set by regulation rather than by biology, and it differs by water. Where retention is allowed at all it is typically inside a fork-length slot with oversize fish released - the Oregon conservation plan describes a 38-54 in fork-length sport slot for the period it covers, with a one-fish daily and five-fish annual limit, and a catch-and-release fishery on oversize fish above that slot. Washington reports no recreational retention in several coastal and Puget Sound waters and catch-and-release only in selected rivers. Any size expectation must come from the current local rule set, not from this record.",
+    "typicalWeight": "Not reported as a single figure in the sources reviewed; weight tracks length and population. Montana gives landlocked Kootenai fish to over 80 lb with no reports over 200 lb, and Kootenay Lake fish exceeding 350 lb.",
+    "maximumDocumentedSize": "Oregon Sea Grant gives a historical maximum near 20 ft and over 1,500 lb; the Canadian recovery strategy reports Fraser River fish over 6 m. Washington gives growth to more than 10 ft and hundreds of pounds. Modern fish are far smaller than the historical maxima.",
+    "longevity": "The Northwest Power and Conservation Council gives fish living to 82 years and occasionally beyond 100; Washington and Montana both give individuals to 100 years or older. Maturity is very late - males at roughly 10-20 years and females at 15-30 years - and females spawn only every 4-6 years, males every 2-4.",
+    "sources": [
+      {
+        "label": "Washington Department of Fish and Wildlife — species profile: White sturgeon (Acipenser transmontanus)",
+        "class": "agency",
+        "url": "https://wdfw.wa.gov/species-habitats/species/acipenser-transmontanus"
+      },
+      {
+        "label": "Fisheries and Oceans Canada, Pacific Region — Sturgeon Identification Guide (white vs. green sturgeon scute and barbel characters)",
+        "class": "agency",
+        "url": "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/docs/sturgeon-esturgeon-idguide-pub-eng.html"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sturgeon",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=afcaa01050"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Columbia River Basin Fish and Wildlife Program — Volume III, Chapter 1: White Sturgeon",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._1__White_Sturgeon.pdf"
+      },
+      {
+        "label": "Environment and Climate Change Canada, Species at Risk Public Registry — Recovery Strategy for White Sturgeon (Acipenser transmontanus), Chapter 1",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/recovery-strategies/white-sturgeon/chapter-1.html"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Lower Columbia River and Oregon Coast White Sturgeon Conservation Plan",
+        "class": "agency",
+        "url": "https://www.dfw.state.or.us/fish/crp/docs/lower_columbia_sturgeon/lcr_white_sturgeon_conservation_plan.pdf"
+      },
+      {
+        "label": "Oregon Sea Grant (Oregon State University), Willamette River Field Guide — White Sturgeon",
+        "class": "synthesis",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/sturgeons/white-sturgeon"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional / vernacular names - no agency source reached supplied a list",
+      "juvenile appearance as a distinct field character",
+      "sexual dimorphism outside of size-at-maturity",
+      "spawning coloration",
+      "the ventral scute count disagrees between Fisheries and Oceans Canada (4-8) and Montana (9-12) and was not resolved",
+      "a single continent-wide typical weight"
+    ]
+  },
+  "behavior": {
+    "speciesId": "acipenser_transmontanus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "The Oregon conservation plan separates life stages by habitat rather than by grouping: age-0 fish over fine sand in deep, low-velocity main-channel water (more than 99% of age-0 fish over 6 in fork length were over sand), juveniles and subadults across a 6-131 ft depth range in low-velocity sandy habitat, and adults moving between fresh and salt water to feed where ocean access exists.",
+      "note": "Not a schooling species. Shared use of depositional bottom habitat is what the sources describe rather than shoaling. Spawning-period concentrations are treated as conservation context here and are neither located nor described."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A benthic suction feeder. The Canadian recovery strategy describes highly sensitive taste receptors on the barbels near the mouth locating prey in dark water, with the toothless protrusible mouth taking food by suction. Montana's account summarises the result as consuming almost any available organism on the bottom. Adults add fish where fish are available."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "The one quantified diel pattern reached is vertical, not activity-based: the Oregon conservation plan reports juvenile and subadult white sturgeon in the lower Columbia averaging about 69 ft depth in daylight and about 49 ft at night. The Canadian recovery strategy notes nocturnal drift in early larval life. No source reached establishes an adult feeding-activity rhythm, so this class is entered as the least-committing value."
+    },
+    "seasonalActivity": "The Canadian recovery strategy describes localised, volitional movement in July-September with frequent short forays between shallow and deep water to feed; reduced activity and use of deeper, lower-velocity water in winter; spring and summer movement tied to staging, spawning and feeding; and fall movement following feeding opportunities. The Oregon plan adds that in the lower Columbia immature fish move upstream in fall and downstream in spring.",
+    "thermalDrivenBehavior": "The best-sourced temperature numbers are reproductive rather than behavioural. The Oregon plan gives spring spawning at 50-64 F with optimal incubation near 57 F; the Northwest Power and Conservation Council gives spawning from about 50 F with a peak at 54-57 F in the lower Columbia and 47-54 F in the Kootenai, and reports embryo mortality at 8 C and at 20 C with 98% mortality at 18 C and above. The catalog's 50-68 F preferred band is consistent with those reproductive numbers but is not itself corroborated by an adult thermal-preference study in the sources reached.",
+    "currentFacing": "Juvenile habitat in the Canadian recovery strategy runs 0.1-1.2 m/s mean column velocity; the Oregon plan describes juveniles and subadults preferring low-velocity sandy habitat. High-velocity water in the sources reached is associated with spawning rather than with holding or feeding.",
+    "depthMovement": "Wide. The Canadian recovery strategy gives juvenile habitat across 2-58 m; the Oregon plan gives juveniles and subadults across 6-131 ft with a day-deep, night-shallow vertical shift. Shallower use in spring and summer alternates with short feeding forays into deeper water; winter use shifts to deeper, lower-velocity areas.",
+    "clarityResponse": "A barbel-and-taste feeder rather than a sight feeder, which the Canadian recovery strategy ties explicitly to locating prey in dark water. The Oregon plan notes spawning typically occurs at higher turbidity. No source reached describes a feeding or habitat response to clarity outside those contexts.",
+    "predatorAvoidance": "Early life stages hide in interstitial spaces among gravel and coarse substrate, which the Canadian recovery strategy names as the primary larval survival strategy. Nothing comparable is described for adults.",
+    "openWaterBehavior": "Facultatively anadromous where ocean access exists. The Northwest Power and Conservation Council reports lower Columbia fish recaptured in 23 separate locations outside the Columbia basin, including systems roughly 310 miles north and 560 miles south, and seasonal movements exceeding 100 km within systems. Landlocked populations do none of this and are confined to their own system.",
+    "spawningBehavior": "Spring spawner. Broadcast spawning occurs during the freshet over boulder, cobble and coarse gravel in deep, swift water - the Oregon plan gives depths exceeding 20 ft at average velocities of 1.1-5.6 mph, and the Canadian recovery strategy gives mean column velocities of 0.5-2.5 m/s. Temperature thresholds run from about 8.5 C to 14 C across populations. Females spawn only every 4-6 years and males every 2-4, so a small fraction of any population is reproductively active in a given year. Spawning substrate, staging concentrations and migration bottlenecks are conservation context and are neither located nor described in this record.",
+    "sources": [
+      {
+        "label": "Environment and Climate Change Canada, Species at Risk Public Registry — Recovery Strategy for White Sturgeon (Acipenser transmontanus), Chapter 1",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/recovery-strategies/white-sturgeon/chapter-1.html"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Lower Columbia River and Oregon Coast White Sturgeon Conservation Plan",
+        "class": "agency",
+        "url": "https://www.dfw.state.or.us/fish/crp/docs/lower_columbia_sturgeon/lcr_white_sturgeon_conservation_plan.pdf"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Columbia River Basin Fish and Wildlife Program — Volume III, Chapter 1: White Sturgeon",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._1__White_Sturgeon.pdf"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sturgeon",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=afcaa01050"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — species profile: White sturgeon (Acipenser transmontanus)",
+        "class": "agency",
+        "url": "https://wdfw.wa.gov/species-habitats/species/acipenser-transmontanus"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "an adult feeding-activity diel rhythm; the day/night difference reached is a depth shift in juveniles and subadults in one system",
+      "an adult thermal preference or avoidance study - the temperature numbers reached are reproductive",
+      "territoriality and aggression - not described in any source reached",
+      "cold-front / barometric response",
+      "water-level and flow-change response outside the spawning and incubation context",
+      "angling-pressure response",
+      "cover use by adults"
+    ]
+  },
+  "diet": {
+    "speciesId": "acipenser_transmontanus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "mollusks",
+      "crustaceans",
+      "worms_annelids",
+      "small_forage_fish",
+      "larger_prey_fish",
+      "eggs"
+    ],
+    "primaryNote": "A bottom feeder that finds prey with taste receptors on its barbels and takes it by suction. Montana's account summarises the adult diet as almost any available organism, naming fish, crustaceans, mollusks, worms and plant material; Oregon Sea Grant names clams, mussels, crayfish, worms and fish eggs for juveniles and smelt, anchovies, lamprey, shad and salmon for adults; the Canadian recovery strategy names aquatic insects, isopods, mysids, clams, snails, small fishes and fish eggs for juveniles and states that adults feed predominantly on fish, particularly migratory salmonids where available, with crayfish and chironomids also taken. Capacity is not a current forage event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Amphipods (Corophium species), copepods and dipteran larvae after the switch to exogenous feeding at roughly 25-30 days; the Northwest Power and Conservation Council reports amphipods at 98% of the age-0 diet in some studies.",
+      "juvenile": "Aquatic insects, isopods, mysids, clams, snails, small fishes and fish eggs. In the upper Columbia the introduced opossum shrimp Mysis relicta became the most common prey of 1-2 year old juveniles.",
+      "adult": "Predominantly fish where fish are available - migratory salmonids, lamprey, shad and smelt-scale forage - with crayfish and chironomids still taken."
+    },
+    "preySizeShifts": "Prey size tracks gape and life stage. The catalog's larger_prey_fish class belongs to large adults with ocean or large-river access, not to juveniles.",
+    "ontogeneticShift": "A clear shift from amphipod- and insect-scale benthic invertebrates in the first years to a fish-dominated adult diet where forage fish and migratory salmonids are available. Landlocked populations without those runs stay closer to the invertebrate end.",
+    "forageSubstitutions": "Strongly system-specific. Where anadromous runs are present the adult diet is dominated by them; the Canadian recovery strategy ties fall movement to feeding opportunities created by spawning kokanee. In impounded and landlocked systems the diet stays benthic and invertebrate-led, and the upper Columbia example shows an introduced mysid becoming the dominant juvenile prey.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Environment and Climate Change Canada, Species at Risk Public Registry — Recovery Strategy for White Sturgeon (Acipenser transmontanus), Chapter 1",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/recovery-strategies/white-sturgeon/chapter-1.html"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Columbia River Basin Fish and Wildlife Program — Volume III, Chapter 1: White Sturgeon",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._1__White_Sturgeon.pdf"
+      },
+      {
+        "label": "Oregon Sea Grant (Oregon State University), Willamette River Field Guide — White Sturgeon",
+        "class": "synthesis",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/sturgeons/white-sturgeon"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sturgeon",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=afcaa01050"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Lower Columbia River and Oregon Coast White Sturgeon Conservation Plan",
+        "class": "agency",
+        "url": "https://www.dfw.state.or.us/fish/crp/docs/lower_columbia_sturgeon/lcr_white_sturgeon_conservation_plan.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "quantified season-by-season adult diet - the seasonal statements reached are qualitative",
+      "diet of landlocked populations specifically, as distinct from anadromous and impounded ones",
+      "worms_annelids is carried in the catalog and named in the agency accounts only as an unresolved 'worms' category; no study reached quantifies it"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "acipenser_transmontanus",
+    "status": "partial",
+    "overview": "A very long-lived benthic suction feeder that works soft and depositional bottoms and locates food by taste rather than sight. This is a regulated-context record: the Kootenai River population was listed as endangered under the ESA on 6 September 1994 and the USFWS reports that during 14 years of intensive monitoring only one hatching embryo was found and no free-swimming larvae or young-of-the-year, with natural recruitment averaging about 10 juveniles a year. Elsewhere the species is closely regulated rather than listed - Washington reports no recreational retention in several waters and catch-and-release only in selected rivers, and the Oregon conservation plan describes fork-length slot limits, annual bag caps and a seasonal spawning closure. Nothing in this calendar overrides the local rule set. The seasonal structure below rests largely on lower Columbia and Canadian recovery-strategy material and is thin on winter, which is why this record is partial.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deep pool and current-break water in rivers; basin and drop-off in lakes and reservoirs. The Canadian recovery strategy describes reduced activity and use of deeper, lower-velocity areas.",
+        "depthTendency": "Deeper than in spring and summer, in low-velocity water.",
+        "movementTendency": "Reduced activity; localised.",
+        "presentationImplication": "Where a jurisdiction authorises hook-and-line angling for white sturgeon at all - many do not, and the Kootenai population is ESA-listed - the feeding mechanics point only to bottom families: stationary bait or bottom-contact drift in flowing water, bottom contact or slow drag in stillwater. The fish finds food with barbel taste receptors on the substrate and takes it by suction, so anything held off the bottom is outside its feeding mode. Check the water's own rules first.",
+        "invalidators": [
+          "assuming an open season or a legal size - jurisdictional rules govern and differ by pool and by river",
+          "treating a scarcity of winter data as evidence of a winter pattern"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Deep, swift coarse-substrate water during the freshet for spawning fish; shallower depositional habitat for fish that are not spawning. Immature fish in the lower Columbia move downstream in spring.",
+        "movementTendency": "Spawning migration is the dominant spring movement in the sources reached, alongside downstream movement of immature fish.",
+        "thermalContext": "Spawning at 50-64 F with optimal incubation near 57 F (Oregon plan); a peak at 54-57 F in the lower Columbia and 47-54 F in the Kootenai (Northwest Power and Conservation Council). Embryo mortality reaches 98% at 18 C and above.",
+        "conservationNote": "Spring is the spawning period. Females spawn only every 4-6 years and males every 2-4, so the reproductively active fraction of a population is small in any year and disturbance costs are high. Spawning areas, staging concentrations and migration bottlenecks are not located or described in this record, and no presentation implication is given for this season. Some jurisdictions close areas seasonally to protect spawning fish.",
+        "invalidators": [
+          "reading the spawning migration as an opportunity",
+          "using spawning substrate as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Depositional bottom where food settles - basin, drop-off and run over sand and fine substrate; deep pool and current-break water in rivers. The Canadian recovery strategy describes localised movement with frequent short forays between shallow and deep water to feed.",
+        "depthTendency": "Shallower overall than winter, with repeated short trips into deeper water. The Oregon plan gives juveniles and subadults across 6-131 ft, averaging about 69 ft in daylight and about 49 ft at night.",
+        "forageEmphasis": "Benthic invertebrates for juveniles - amphipods, mysids, insects, clams and snails - with adults taking fish where fish are available.",
+        "lightSensitivity": "A day-deep, night-shallow vertical shift is documented for juveniles and subadults in the lower Columbia. This is a depth statement, not a feeding-rate statement.",
+        "presentationImplication": "Same mechanical constraint and the same jurisdictional gate as winter: where angling for the species is authorised, only bottom families match a barbel-and-suction benthic feeder - stationary bait or bottom-contact drift in flowing water, bottom contact or slow drag in stillwater.",
+        "invalidators": [
+          "treating this as a mid-water or sight-feeding fish",
+          "assuming an open season - jurisdictional rules govern"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Depositional bottom and deep pool water; the Canadian recovery strategy ties fall movement to feeding opportunity rather than to a habitat change. In the lower Columbia immature fish move upstream in fall.",
+        "movementTendency": "Feeding-driven movement; upstream movement of immature fish in the lower Columbia.",
+        "forageEmphasis": "Where anadromous or adfluvial runs occur, the adult diet shifts toward them. This is documented feeding capacity, not a declared event.",
+        "presentationImplication": "Unchanged by season: bottom families only - stationary bait or bottom-contact drift in flowing water, bottom contact or slow drag in stillwater - and only where the jurisdiction authorises angling for the species. Season dates, slot limits and closures are set locally and are not inferable from this record.",
+        "invalidators": [
+          "assuming an egg or carcass event from the calendar alone",
+          "assuming an open season - jurisdictional rules govern"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Environment and Climate Change Canada, Species at Risk Public Registry — Recovery Strategy for White Sturgeon (Acipenser transmontanus), Chapter 1",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/recovery-strategies/white-sturgeon/chapter-1.html"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife — Lower Columbia River and Oregon Coast White Sturgeon Conservation Plan",
+        "class": "agency",
+        "url": "https://www.dfw.state.or.us/fish/crp/docs/lower_columbia_sturgeon/lcr_white_sturgeon_conservation_plan.pdf"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Columbia River Basin Fish and Wildlife Program — Volume III, Chapter 1: White Sturgeon",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._1__White_Sturgeon.pdf"
+      },
+      {
+        "label": "USFWS species profile: White Sturgeon (Acipenser transmontanus) — Kootenai River population",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/white-sturgeon-acipenser-transmontanus"
+      },
+      {
+        "label": "Idaho Species website (Idaho Department of Fish and Game / Idaho Office of Species Conservation) — Kootenai River White Sturgeon",
+        "class": "agency",
+        "url": "https://species.idaho.gov/aquatic-species/kootenai-river-white-sturgeon/"
+      },
+      {
+        "label": "Washington Department of Fish and Wildlife — species profile: White sturgeon (Acipenser transmontanus)",
+        "class": "agency",
+        "url": "https://wdfw.wa.gov/species-habitats/species/acipenser-transmontanus"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sturgeon",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=afcaa01050"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "winter habitat and activity are described only in general terms in the sources reached - no depth, temperature or duration numbers",
+      "seasonal habitat use of landlocked populations, which is likely to differ from the lower Columbia material this calendar leans on",
+      "stillwater (lake and reservoir) seasonal structure, which the catalog carries but which no source reached describes season by season",
+      "a seasonal feeding-intensity or thermal-activity curve for adults"
+    ]
+  }
+}

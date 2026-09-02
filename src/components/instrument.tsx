@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ChipGroup } from "@/components/chips";
+import { TemperatureInput } from "@/components/temperature-input";
+import { inferTempMode, type TempMode } from "@/lib/engine/temp-mode";
 import { Plate } from "@/components/plate";
 import { Readout } from "@/components/readout";
 import { Button } from "@/components/ui/button";
@@ -100,6 +102,13 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
   const [query, setQuery] = useState("");
   const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
   const [searchReady, setSearchReady] = useState(false);
+  const [tempMode, setTempMode] = useState<TempMode>("unknown");
+
+  // The stored session decides which answer is already on record, so returning
+  // to this step shows what was declared rather than resetting to "unknown".
+  useEffect(() => {
+    setTempMode(inferTempMode(useSession.getState()));
+  }, []);
 
   useEffect(() => {
     setSearchReady(true);
@@ -373,45 +382,28 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
             Step 03 — Conditions
           </p>
           <h2 className="font-display text-3xl">Declare what you know. Leave the rest unknown.</h2>
-          <div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-              Water temperature
-            </span>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <input
-                type="number"
-                inputMode="decimal"
-                aria-label="Water temperature in Fahrenheit"
-                value={session.tempF ?? ""}
-                onChange={(e) =>
-                  session.patch({
-                    tempF: e.target.value === "" ? null : Number(e.target.value),
-                    tempSource:
-                      session.tempSource === "unknown" && e.target.value !== ""
-                        ? "user_measured"
-                        : session.tempSource,
-                  })
-                }
-                placeholder="°F"
-                className="min-h-12 w-28 rounded-[var(--radius-sm)] bg-elevated px-3 font-mono text-sm text-fg shadow-[var(--shadow-border)]"
-              />
-              <p className="flex min-h-12 items-center font-mono text-xs text-muted">
-                {session.tempF == null
-                  ? "NOT MEASURED YET"
-                  : `${session.tempF}°F — ${labelOf(session.tempSource).toUpperCase()}`}
-              </p>
-            </div>
-            <p className="mt-2 text-xs text-dim">
-              Never silently substitute air temperature. Provenance stays visible. Unknown is a valid answer.
-            </p>
-          </div>
-          <ChipGroup
-            legend="Temperature provenance"
-            value={session.tempSource}
-            onChange={(tempSource) => session.patch({ tempSource })}
-            options={opts(TEMP_SOURCES)}
-            columns={2}
+          <TemperatureInput
+            session={session}
+            onPatch={(partial) => session.patch(partial)}
+            mode={tempMode}
+            onModeChange={setTempMode}
           />
+          <p className="font-mono text-xs text-muted">
+            {session.tempF != null
+              ? `${session.tempF}°F — ${labelOf(session.tempSource).toUpperCase()}`
+              : session.tempRangeF
+                ? `${session.tempRangeF[0]}–${session.tempRangeF[1]}°F — ${labelOf(session.tempSource).toUpperCase()}`
+                : "NOT MEASURED YET"}
+          </p>
+          {tempMode !== "unknown" && (
+            <ChipGroup
+              legend="Temperature provenance"
+              value={session.tempSource}
+              onChange={(tempSource) => session.patch({ tempSource })}
+              options={opts(TEMP_SOURCES)}
+              columns={2}
+            />
+          )}
           {session.waterType === "flowing" ? (
             <ChipGroup
               legend="Flow"

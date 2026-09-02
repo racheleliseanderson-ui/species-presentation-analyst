@@ -1,0 +1,335 @@
+{
+  "identification": {
+    "speciesId": "salvelinus_malma",
+    "status": "reviewed",
+    "regionalNames": [
+      "Dolly Varden",
+      "Dolly",
+      "sea-run Dolly Varden",
+      "northern form Dolly Varden",
+      "southern form Dolly Varden"
+    ],
+    "bodyShape": "Char body with an elongated head and a notably wide caudal peduncle (thick tail base). The tail is square to only shallowly forked — less fork than Arctic char.",
+    "identificationTraits": [
+      "Char pattern, not trout pattern: light spots (white, yellow, orange or red) on a dark body — the reverse of a rainbow's dark spots on a light body.",
+      "Spots are small and numerous, usually SMALLER than the fish's pupil, and there are no spots on the head or the tail.",
+      "Caudal peduncle is thick and the tail is squared off rather than deeply forked.",
+      "Pelvic and anal fins carry white leading edges.",
+      "Head and snout are longer than Arctic char's.",
+      "Internal meristics decide it against Arctic char when external characters overlap: 16–23 gill rakers, long and straight, and 21–30 pyloric caeca. These require a dissected fish and are not a live-release field character.",
+      "Spawning males develop a pronounced, large kype."
+    ],
+    "coloration": "Olive green to dark blue or brown background — bluish grey to silver in sea-run and freshly returned fish — with many small yellow, orange or red spots along the sides and a paler belly.",
+    "regionalColorVariation": "Sea-run fish are silvery and much less obviously spotted until they have been in fresh water a while. Two forms are recognised in Alaska — a northern and a southern form differing in vertebral and chromosome counts — but they are not separated by colour in the field.",
+    "spawningColoration": "Alaska's comparative key gives Dolly Varden spawning colour as usually red or pink on the lower abdomen with bright red spots, and a large kype on males — a stronger red than Arctic char's gold-to-rose. That colour change is biology, not a targeting cue.",
+    "juvenileAppearance": "Stream-rearing juveniles hold in fresh water for 2–6 years before any seaward migration; dwarf freshwater residents mature at only 3–6 in and remain small for life.",
+    "adultAppearance": "A dark-bodied char with dense small pale-to-red spots, an unspotted head and tail, white-edged lower fins, a thick tail base and a squarish tail.",
+    "sexualDimorphism": "Spawning males develop a pronounced hooked jaw (a large kype) and stronger red colour. Sex is not a field ID key outside the spawning period.",
+    "similarSpecies": [
+      {
+        "speciesId": "salvelinus_alpinus",
+        "name": "Arctic char",
+        "distinction": "The hardest separation. Dolly Varden have smaller, more numerous spots (usually smaller than the pupil), a wider caudal peduncle, a squarer tail and a longer head and snout; Arctic char have fewer, larger spots (usually larger than the pupil), a narrower tail base, a deeper fork and a shorter head. Meristics settle it in hand: Dolly Varden 16–23 long straight gill rakers and 21–30 pyloric caeca; Arctic char 23–30 short blunt gill rakers and 40–50 pyloric caeca. Life history helps in northern Alaska, where Arctic char are exclusively lake-resident while Dolly Varden occur as anadromous, stream-resident and lake-resident fish."
+      },
+      {
+        "speciesId": "salvelinus_confluentus",
+        "name": "Bull trout",
+        "distinction": "Bull trout have a comparatively large, broad and flattened head with a proportionally larger upper jaw, and a more slender, ventrally flattened body; they carry more anal-fin rays and more branchiostegal rays than Dolly Varden. The published identification protocol uses branchiostegal ray count, anal fin ray count, upper jaw length relative to body length, and total length — that is, no single field mark separates them reliably where the ranges overlap. Treat a big-headed char in bull trout country as a bull trout question and handle it accordingly; bull trout is a conservation-sensitive catalog record."
+      },
+      {
+        "name": "Lake trout (Salvelinus namaycush)",
+        "distinction": "Lake trout have a deeply forked tail and spots on the face and tail — Alaska's key states no other Alaskan char has spots on face and tail. Dolly Varden have an unspotted head and tail and a squarish tail."
+      },
+      {
+        "speciesId": "salvelinus_fontinalis",
+        "name": "Brook trout",
+        "distinction": "Brook trout carry worm-like vermiculations over the back and dorsal fin and red spots ringed with blue halos. Dolly Varden have no vermiculations and no blue halos."
+      },
+      {
+        "speciesId": "oncorhynchus_mykiss",
+        "name": "Rainbow trout",
+        "distinction": "Rainbow is a trout: dark spots on a light body, spots on the tail, and a pinkish lateral band. Dolly Varden is a char: light spots on a dark body and no spots on the tail. Alaska's regulations key uses exactly this reversal as the first cut."
+      }
+    ],
+    "averageAdultLength": "Form-dependent. Alaska's northern form exceeds 30 in; the southern form runs to about 28 in; dwarf freshwater residents mature at 3–6 in and stay there. There is no single meaningful species mean.",
+    "commonAnglingSize": "Population-specific. Sea-run fish of the southern form are commonly caught well under the 28 in maximum; dwarf resident populations never reach angling size in the usual sense.",
+    "typicalWeight": "Not given as a typical figure in the agency accounts reviewed. Alaska reports maxima of 20+ lb for the northern form and about 10 lb for the southern form.",
+    "maximumDocumentedSize": "Northern form over 30 in and 20 or more pounds; southern form about 28 in and 10 lb.",
+    "longevity": "Sea-run fish mature at ages 5–9 after 2–6 years of stream rearing, and spawn more than once — males up to twice and females up to three times in Southcentral Alaska. A maximum age was not given in the accounts reviewed.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/dolly_varden.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game, Southcentral Region — Dolly Varden life history publication",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static-sf/Region2/pdfpubs/dolly.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden & Arctic Char in Northern Alaska (identification guide, meristic comparison)",
+        "class": "agency",
+        "url": "https://www.north-slope.org/wp-content/uploads/2022/04/arctic_char-dollyvarden.ADFG_.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Sport Fishing Regulations: How to identify trout and char in Alaska",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/regulations/fishregulations/PDFs/southcentral/2023sc_sfregs_trout_other_id.pdf"
+      },
+      {
+        "label": "COSEWIC Assessment and Status Report on Bull Trout (Government of Canada, 2012) — morphological separation from Dolly Varden",
+        "class": "agency",
+        "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/bull-trout-2012/chapter-5.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "a field character that separates Dolly Varden from bull trout without ray counts — the published protocol relies on meristics and proportions, so no reliable single field mark exists where ranges overlap",
+      "northern vs southern form appearance in the field; the forms are defined by vertebral and chromosome counts, not by external marks",
+      "maximum documented age"
+    ]
+  },
+  "behavior": {
+    "speciesId": "salvelinus_malma",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Size classes separate. In a southwestern Alaska study, larger Dolly Varden moved to follow the salmon-derived food pulse while young-of-year — too small to handle eggs and fry — concentrated in small tributary streams where fewer salmon spawned, a distribution the authors attributed to reducing predation risk from larger conspecifics.",
+      "note": "Not a defended-lie species in the brown trout sense, and not a schooling pelagic species. Distribution within a system is driven by food availability and by size-structured predation risk."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "drift_feeding",
+        "opportunistic",
+        "benthic_feeding"
+      ],
+      "note": "Opportunistic carnivore. Alaska describes them as more scavenger than predator, primarily taking drifting salmon eggs where salmon are present, alongside insects, crustaceans and fish. Where salmon are absent the same fish work aquatic invertebrates in flowing water."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Recorded as a non-claim. No agency or peer-reviewed source reviewed here resolves a diel activity pattern for Dolly Varden, and the high-latitude light regime across most of its range makes a borrowed pattern unreliable. 'mixed' is entered because the field is required; the gap is listed."
+    },
+    "seasonalActivity": "Strongly form-specific and worth stating separately. Anadromous fish: juveniles rear in streams for 2–4 years (sometimes six), smolt, and migrate seaward in May–June, with some going as late as September–October; they return to fresh water from July onward to forage, spawn and overwinter. Southern-form sea-run fish winter in lakes after leaving the ocean; northern-form anadromous fish spawn and overwinter in rivers. Stream-resident and lake-resident populations do not make the marine migration at all and stay in fresh water year-round.",
+    "thermalDrivenBehavior": "A cold-water specialist — the British Columbia species account gives a ceiling near 15°C (59°F). The catalog's 42–55°F preferred band sits below that ceiling.",
+    "currentFacing": "A flowing-water char in its resident and returning forms; the British Columbia account places it on gravel and cobble reaches of smaller, lower-order streams of low gradient (roughly 1.0–1.5%).",
+    "coverUse": "The British Columbia habitat account names undercut banks, debris jams, pools and overhanging vegetation as the cover forms associated with Dolly Varden stream habitat.",
+    "openWaterBehavior": "Lake-resident and lake-wintering populations occur across the range, but the sources reviewed do not describe how these fish distribute within a lake.",
+    "spawningBehavior": "Fall spawner, September through November across Alaska and late September or October in Southcentral Alaska, in gravel streambeds. Unlike Pacific salmon they survive to spawn again — males up to twice, females up to three times — and females deposit roughly 600–6,000 eggs. Fry emerge from the gravel in April–May after overwintering as alevins. Spawning substrate and any spawning-period holding water are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/dolly_varden.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game, Southcentral Region — Dolly Varden life history publication",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static-sf/Region2/pdfpubs/dolly.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden & Arctic Char in Northern Alaska (identification guide, meristic comparison)",
+        "class": "agency",
+        "url": "https://www.north-slope.org/wp-content/uploads/2022/04/arctic_char-dollyvarden.ADFG_.pdf"
+      },
+      {
+        "label": "Province of British Columbia — Dolly Varden (Salvelinus malma) species account, BC Timber Sales",
+        "class": "agency",
+        "url": "https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/bc-timber-sales/ems-sfm-certification/business-area/kamloops/dolly_varden.pdf"
+      },
+      {
+        "label": "Denton, Rich & Quinn — Diet, Movement, and Growth of Dolly Varden in Response to Sockeye Salmon Subsidies (Transactions of the American Fisheries Society, 2009)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article-abstract/138/6/1207/7888587"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel activity pattern — no primary source found",
+      "cold-front / barometric response — no primary source found",
+      "angling-pressure response — no primary source found",
+      "water-level, flow-change and clarity response with primary-source support",
+      "how lake-resident and lake-wintering fish distribute within a lake (depth, structure)",
+      "territoriality — not described in the sources reviewed"
+    ]
+  },
+  "diet": {
+    "speciesId": "salvelinus_malma",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "aquatic_insects",
+      "emerging_insects",
+      "eggs",
+      "crustaceans",
+      "small_forage_fish",
+      "larger_prey_fish"
+    ],
+    "primaryNote": "Opportunistic carnivore taking insects, crustaceans, fish and salmon eggs. Alaska characterises them as more scavenger than predator, primarily consuming drifting eggs where salmon are present. A southwestern Alaska study documented the sequence directly: heavy feeding on sockeye fry while fry were available, an almost exclusive shift to eggs once salmon spawning began, then blowfly larvae colonising carcasses later in the season, with growth rates rising as those subsidies appeared. In systems without salmon, none of that applies and the fish work invertebrates. Capacity is not a current hatch, and the presence of this species does not mean an egg event is occurring.",
+    "seasonalDiet": [
+      {
+        "season": "spring",
+        "emphasis": "Juvenile salmon where present — sockeye fry were the dominant item before salmon spawning began in the studied system. Aquatic invertebrates otherwise."
+      },
+      {
+        "season": "summer",
+        "emphasis": "Aquatic invertebrates in fresh water; anadromous fish at sea feed in the marine environment over a summer that Alaska describes as beginning with a May–June seaward migration."
+      },
+      {
+        "season": "fall",
+        "emphasis": "Where salmon spawn, drifting eggs dominate, followed later by blowfly larvae from carcasses. This is a system-specific subsidy tied to another species' spawning and is not an instruction to fish spawning substrate."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Too small to handle salmon eggs and fry; in the studied system young-of-year occupied small tributary streams with fewer spawning salmon, feeding on invertebrate-scale prey.",
+      "adult": "Insects, crustaceans, fish, and salmon eggs where available; large anadromous fish add marine prey during the sea phase."
+    },
+    "ontogeneticShift": "Invertebrate-scale prey to a mixed invertebrate, egg and fish diet as gape allows; the shift onto eggs and fry is gated by body size, not by season alone.",
+    "forageSubstitutions": "System-specific. Salmon-bearing systems substitute eggs, fry and carcass-associated larvae for part of the year; systems without salmon runs, and stream-resident dwarf populations, stay on aquatic invertebrates.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/dolly_varden.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game, Southcentral Region — Dolly Varden life history publication",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static-sf/Region2/pdfpubs/dolly.pdf"
+      },
+      {
+        "label": "Denton, Rich & Quinn — Diet, Movement, and Growth of Dolly Varden in Response to Sockeye Salmon Subsidies (Transactions of the American Fisheries Society, 2009)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article-abstract/138/6/1207/7888587"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the catalog's emerging_insects class is not itemised separately in the sources reviewed — 'insects' is the level of detail the agency accounts give",
+      "the catalog's larger_prey_fish class rests on general piscivory; no prey-size ceiling was found",
+      "marine-phase diet composition for anadromous fish",
+      "winter diet and whether feeding largely ceases during freshwater overwintering — not resolved by the sources reviewed"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "salvelinus_malma",
+    "status": "reviewed",
+    "overview": "Three life-history forms share one record and they do not behave alike: anadromous fish that smolt, go to sea for a summer and return; stream-resident fish; and lake-resident fish including dwarf populations that mature at 3–6 in. Statements below name the form where the literature distinguishes them. Cold-water specialist with a ceiling near 15°C (59°F). Fall spawning, and the salmon spawning that supplies the egg subsidy, are both conservation context — neither is holding water.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Runs, pool heads and seams in gravel and cobble reaches of smaller, low-gradient streams; lake inlets and outlets for lake-associated fish.",
+        "movementTendency": "Anadromous form: smolts migrate seaward in May–June. Resident forms stay put. Fry from the previous fall's spawning emerge from gravel in April–May.",
+        "forageEmphasis": "Aquatic invertebrates; juvenile salmon where a salmon system supplies them.",
+        "thermalContext": "Well inside the sub-15°C ceiling.",
+        "presentationImplication": "Dead drift and tight-line drift match a fish taking drifting food in flowing water; swing and cross-current retrieve cover a run or seam when prey is fish-sized rather than insect-sized.",
+        "invalidators": [
+          "applying the anadromous seaward migration to a stream-resident or lake-resident population",
+          "assuming a salmon-fry subsidy in a system with no salmon run"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Runs, seams, pool heads and pool tails with current breaks in low-gradient gravel-and-cobble streams; undercut banks, debris jams and pools are the cover forms the British Columbia account associates with this species.",
+        "movementTendency": "Anadromous fish are at sea for the summer; Alaska's Southcentral account has Dolly Varden present in the great majority of freshwater streams from July through early September as returning and resident fish.",
+        "forageEmphasis": "Aquatic invertebrates in fresh water.",
+        "thermalContext": "The 15°C (59°F) ceiling is the constraint; the catalog's 42–55°F preferred band sits below it.",
+        "coverUse": "Undercut banks, debris jams and pools.",
+        "presentationImplication": "Dead drift and bottom-contact drift through runs and seams; swing and downstream retrieve where the fish are on fish-sized prey. Surface families only when a surface event is observed, not assumed.",
+        "invalidators": [
+          "fishing water above the thermal ceiling",
+          "treating the summer stream population as the same fish that are still at sea"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Runs, deep pools and current breaks in fresh water; gravel as spawning approaches.",
+        "movementTendency": "Anadromous fish return to fresh water from July onward to forage, spawn and overwinter, with some individuals entering as late as September–October.",
+        "forageEmphasis": "Where salmon spawn, drifting eggs dominate the diet, followed by carcass-associated blowfly larvae. That is diet capacity in a salmon system, not an instruction to fish spawning gravel.",
+        "presentationImplication": "Dead drift and bottom-contact drift remain the matched flowing families. Do not convert spawning colour or an egg subsidy into a new family.",
+        "conservationNote": "Fall spawner, September–November (late September or October in Southcentral Alaska). Dolly Varden spawning substrate is excluded from target guidance, and so is the spawning substrate of the salmon whose eggs supply the autumn subsidy.",
+        "invalidators": [
+          "using either species' spawning substrate as holding water",
+          "assuming an egg event from the calendar alone"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Spawning overlap continues, then overwintering water — rivers for the northern anadromous form, lakes for southern-form fish that winter in fresh water after leaving the ocean.",
+        "movementTendency": "Movement toward overwintering water. Form matters: northern anadromous Dolly Varden spawn and overwinter in rivers; southern-form sea-run fish winter in lakes.",
+        "conservationNote": "Late-fall spawning overlap remains caution across much of the range.",
+        "presentationImplication": "Bottom-contact drift and dead drift in remaining feeding water."
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Deep pools and current breaks in rivers for the northern anadromous form; lake basins and drop-offs for southern-form fish wintering in lakes. Alevins from the fall spawning are in the gravel through the winter.",
+        "thermalContext": "Cold end of the range; the sources reviewed do not describe a winter activity or feeding level for this species.",
+        "invalidators": [
+          "assuming the same winter behaviour for anadromous, stream-resident and lake-resident fish",
+          "assuming a feeding level that no source reviewed establishes"
+        ],
+        "conservationNote": "Overwintering eggs and alevins are in spawning substrate through the winter; that substrate is excluded from target guidance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=dollyvarden.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/dolly_varden.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game, Southcentral Region — Dolly Varden life history publication",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static-sf/Region2/pdfpubs/dolly.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden & Arctic Char in Northern Alaska (identification guide, meristic comparison)",
+        "class": "agency",
+        "url": "https://www.north-slope.org/wp-content/uploads/2022/04/arctic_char-dollyvarden.ADFG_.pdf"
+      },
+      {
+        "label": "Province of British Columbia — Dolly Varden (Salvelinus malma) species account, BC Timber Sales",
+        "class": "agency",
+        "url": "https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/bc-timber-sales/ems-sfm-certification/business-area/kamloops/dolly_varden.pdf"
+      },
+      {
+        "label": "Denton, Rich & Quinn — Diet, Movement, and Growth of Dolly Varden in Response to Sockeye Salmon Subsidies (Transactions of the American Fisheries Society, 2009)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article-abstract/138/6/1207/7888587"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "winter feeding level and activity — no primary source found, so the winter entry carries habitat and caution only and no presentation implication",
+      "depth tendency in any season — not described in the sources reviewed",
+      "light sensitivity — not resolved at these latitudes by any source reviewed",
+      "how lake-resident and lake-wintering fish use stillwater structure, which the catalog's stillHolding classes imply but the sources reviewed do not describe"
+    ]
+  }
+}

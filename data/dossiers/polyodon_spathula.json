@@ -1,0 +1,265 @@
+{
+  "identification": {
+    "speciesId": "polyodon_spathula",
+    "status": "reviewed",
+    "regionalNames": [
+      "spoonbill",
+      "spoonbill cat"
+    ],
+    "bodyShape": "Shark-like in outline, with a greatly elongated, flattened, paddle-shaped rostrum making up roughly one third of the total length. The tail is forked and heterocercal, with the upper lobe longer than the lower. The body is scaleless except for a patch on the tail.",
+    "identificationTraits": [
+      "The paddle-shaped rostrum ahead of the mouth is unmistakable — no other North American freshwater fish has one. USGS gives it as up to one third of total body length.",
+      "Mouth is very large and toothless in adults and set far back beneath the head.",
+      "Eyes are small and directed downward.",
+      "A fleshy, pointed flap trails from the gill cover.",
+      "No scales except a patch on the tail.",
+      "Gill rakers are numerous, long and fine — the filtering apparatus, visible when the mouth is opened."
+    ],
+    "coloration": "Bluish grey to blackish on the back, grading to white on the belly.",
+    "juvenileAppearance": "First-year fish reach 10–14 in. Young paddlefish carry small teeth and pick individual zooplankton; after their first year they switch to filtering with the gill rakers, and the teeth are lost in adults.",
+    "adultAppearance": "A large, scaleless, blue-grey filter feeder with a paddle rostrum, a huge toothless mouth set well back under the head, small downturned eyes and a forked shark-like tail. Missouri Department of Conservation gives 17-year-old fish at about 60 in.",
+    "similarSpecies": [
+      {
+        "speciesId": "acipenser_fulvescens",
+        "name": "Lake sturgeon",
+        "distinction": "Lake sturgeon have a conical snout, five rows of bony scutes and four barbels ahead of a small protrusible mouth. Paddlefish have a paddle rostrum, no scutes and a very large toothless mouth. Both have shark-like heterocercal tails, which is the character that causes the confusion."
+      },
+      {
+        "name": "Shovelnose sturgeon",
+        "distinction": "Listed by Missouri Department of Conservation as a paddlefish look-alike in large-river systems. It is a scute-bearing sturgeon with barbels and a flattened shovel snout, not a paddle rostrum."
+      },
+      {
+        "name": "Longnose gar",
+        "distinction": "Also listed by Missouri Department of Conservation as a look-alike. The gar's long snout is a toothed beak-like jaw, not a flat paddle, and the gar is heavily armoured with ganoid scales where the paddlefish is essentially scaleless."
+      }
+    ],
+    "averageAdultLength": "USGS gives about 150 cm (roughly 59 in) as common. Missouri Department of Conservation gives 17-year-old fish at about 60 in and first-year fish at 10–14 in.",
+    "commonAnglingSize": "Set by regulation, not by biology, and in most waters the fish is not taken on a presentation at all. North Dakota Game and Fish states plainly that paddlefish will not take large bait, which is why anglers seeking to harvest one must snag. Where a snagging fishery exists it runs under jurisdiction-specific permits, quotas, season dates and length limits — Missouri, for example, opens a defined spring snagging season. Any size expectation must come from the local rule set.",
+    "typicalWeight": "The agency sources reached give maxima rather than a typical weight. Missouri Department of Conservation gives over 160 lb for the largest fish; no typical adult weight was found.",
+    "maximumDocumentedSize": "Missouri Department of Conservation gives about 7 ft and over 160 lb. USGS gives a maximum total length of 221 cm.",
+    "longevity": "Missouri Department of Conservation gives a lifespan of more than 30 years. The New York species status assessment gives about 15 years typically, with individuals documented at 30–50 years; males mature at 7–9 years and females at 9–12, with males spawning annually and females every two to seven years.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation field guide: Paddlefish",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/paddlefish"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species species profile: Paddlefish (Polyodon spathula)",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=876"
+      },
+      {
+        "label": "North Dakota Game and Fish Department: what do paddlefish eat, and how do they do it?",
+        "class": "agency",
+        "url": "https://gf.nd.gov/node/7447"
+      },
+      {
+        "label": "New York State Department of Environmental Conservation, Species Status Assessment: Paddlefish",
+        "class": "agency",
+        "url": "https://dec.ny.gov/sites/default/files/2024-08/paddlefish.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional / vernacular names — no agency source reached supplied a list",
+      "a typical (as opposed to maximum) adult weight",
+      "sexual dimorphism outside of age at maturity",
+      "coloration variation between river and reservoir populations"
+    ]
+  },
+  "behavior": {
+    "speciesId": "polyodon_spathula",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Missouri Department of Conservation describes paddlefish in the open water of large rivers, swimming continuously and holding no fixed home range. The New York status assessment describes fish congregating within a preferred depth band. Neither source describes coordinated schooling, and the telemetry work reached found individuals ranging over an entire navigation pool with most stays at a location lasting under three to six days. Treat 'loose_aggregation' as shared use of a depth band and a food resource, not as a shoal."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "filter"
+      ],
+      "note": "An obligate ram suspension feeder as an adult. The fish swims slowly with its mouth wide open and strains zooplankton from the water with numerous long, fine gill rakers. Haines and Sanderson (2017) showed the mechanism is not simple sieving but vortical cross-step filtration, in which flow patterns organised by the branchial arches carry particles to the posterior margins of the gill slots; their model swam at a mean 0.75 total lengths per second, and swimming kinematics sharply reduced fouling of the filter (23.5% mesh coverage while swimming versus 86.6% stationary). Young fish under a year old use small teeth to pick individual zooplankton before switching to gill-raker filtration. The rostrum functions as an electrosensory organ for detecting plankton. There is no strike, no pursuit and no prey-capture event of the kind a presentation could imitate."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Not resolved. No source reached established a diel activity pattern for paddlefish; 'mixed' is entered as the least-committing value rather than as a finding. See gaps."
+    },
+    "seasonalActivity": "Movement rates are highest in the spring spawning period. Welsh et al. (2024), tracking paddlefish in the Ohio and Kanawha rivers, recorded most movement in April and May and reduced movement in colder months, with no movement observed in February. Two of five tagged fish used an entire navigation pool over an eleven-month study; 60% of stays at a receiver lasted under three days and 78% under six.",
+    "thermalDrivenBehavior": "The best-sourced thermal numbers are reproductive: the New York status assessment gives spawning triggered at 50–65°F, and notes current New York spring temperatures may be too cold for paddlefish spawning. The catalog preferred band of 58–74°F is not contradicted by that, but no adult thermal-preference or avoidance study was found in the sources reached, so the band is not corroborated here.",
+    "depthMovement": "The New York status assessment gives a preference for depths greater than 1.5 m, with fish congregating at 2–12 m and an optimum of 3–6 m, and relocation to deeper water (greater than 3 m) in winter. Missouri Department of Conservation describes fish in open water of large rivers swimming near the surface.",
+    "waterLevelResponse": "Substantial rises in water level, together with higher flows, rising temperature and changing photoperiod, are the documented spawning cues. This is a reproductive trigger, not a feeding response.",
+    "openWaterBehavior": "This is the species' normal condition: open water of large rivers, reservoirs and deep slow river sections, swimming continuously with no fixed home range. USGS gives large, deep, slow-moving rivers, lakes and reservoirs as the habitat.",
+    "spawningBehavior": "Spring spawner. The New York status assessment gives spawning from late spring through early summer (April–June), triggered by water temperatures of 50–65°F, higher flows, substantial rises in water level and changing photoperiod, with migrations of 50–200 miles to reach flooded, fast-flowing tributary reaches with clean gravel. Missouri Department of Conservation gives late spring at high water on silt-free gravel bars, with eggs needing shallow water or exposure at normal levels and larvae drifting downstream to deeper pools. Spawning areas, staging concentrations and migration bottlenecks are conservation context and are neither located nor described in this record. Dams that block spawning migrations are a primary cause of decline, and many impoundment populations do not reproduce naturally and are maintained by stocking.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation field guide: Paddlefish",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/paddlefish"
+      },
+      {
+        "label": "New York State Department of Environmental Conservation, Species Status Assessment: Paddlefish",
+        "class": "agency",
+        "url": "https://dec.ny.gov/sites/default/files/2024-08/paddlefish.pdf"
+      },
+      {
+        "label": "Haines & Sanderson 2017, Integration of swimming kinematics and ram suspension feeding in a model American paddlefish, Polyodon spathula, Journal of Experimental Biology 220(23):4535–4547",
+        "class": "peer_reviewed",
+        "url": "https://journals.biologists.com/jeb/article/220/23/4535/33715/Integration-of-swimming-kinematics-and-ram"
+      },
+      {
+        "label": "Welsh et al. 2024, Paddlefish movement and dam passage in the Ohio and Kanawha rivers, Proceedings of the West Virginia Academy of Science",
+        "class": "peer_reviewed",
+        "url": "https://pwvas.org/index.php/pwvas/article/download/1103/946/3558"
+      },
+      {
+        "label": "North Dakota Game and Fish Department: what do paddlefish eat, and how do they do it?",
+        "class": "agency",
+        "url": "https://gf.nd.gov/node/7447"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species species profile: Paddlefish (Polyodon spathula)",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=876"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel activity pattern — no source reached established one, a main reason this record is partial",
+      "an adult thermal preference or avoidance study",
+      "clarity, cold-front and angling-pressure responses",
+      "territoriality and aggression — no source reached describes either, consistent with a non-territorial open-water filter feeder but not positively established",
+      "the movement study reached tracked five fish in one river system over eleven months and should not be generalised"
+    ]
+  },
+  "diet": {
+    "speciesId": "polyodon_spathula",
+    "status": "reviewed",
+    "feedingStyle": "specialized",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "zooplankton"
+    ],
+    "primaryNote": "Paddlefish are filter feeders and effectively single-resource specialists on zooplankton. USGS describes them straining zooplankton from the water with numerous large, fine gill rakers; Missouri Department of Conservation describes them swimming slowly with mouths wide open, collecting tiny crustaceans and insects; North Dakota Game and Fish gives zooplankton as the main food with aquatic insects and occasional small fish also taken. Fish under one year old pick individual zooplankton with small teeth, then switch to gill-raker filtration. The rostrum is an electrosensory organ used to detect plankton. The mechanical consequence matters more than the taxon list: there is no strike and no prey-capture event. North Dakota Game and Fish states that paddlefish will not take large bait, which is why harvest, where legal, is by snagging rather than by any presentation. Capacity is not a current forage event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Selective particulate feeding — individual zooplankton picked with small teeth during the first year.",
+      "adult": "Ram suspension filtration of zooplankton, with aquatic insects and occasional small fish also reported."
+    },
+    "ontogeneticShift": "From selective particulate feeding with teeth in the first year to obligate gill-raker filter feeding thereafter; the teeth are absent in adults.",
+    "observedForageRule": "Diet capacity is not proof that a forage event is occurring, and for this species the rule takes an additional form: a zooplankton diet is not a forage cue an angler can act on. Observed current forage still comes from a user observation or Hatch Match, and no observation of plankton density converts into presentation guidance for a filter feeder.",
+    "sources": [
+      {
+        "label": "USGS Nonindigenous Aquatic Species species profile: Paddlefish (Polyodon spathula)",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=876"
+      },
+      {
+        "label": "Missouri Department of Conservation field guide: Paddlefish",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/paddlefish"
+      },
+      {
+        "label": "North Dakota Game and Fish Department: what do paddlefish eat, and how do they do it?",
+        "class": "agency",
+        "url": "https://gf.nd.gov/node/7447"
+      },
+      {
+        "label": "Haines & Sanderson 2017, Integration of swimming kinematics and ram suspension feeding in a model American paddlefish, Polyodon spathula, Journal of Experimental Biology 220(23):4535–4547",
+        "class": "peer_reviewed",
+        "url": "https://journals.biologists.com/jeb/article/220/23/4535/33715/Integration-of-swimming-kinematics-and-ram"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "seasonal diet emphasis and how filtration rate varies with plankton density",
+      "quantitative diet composition by mass for wild adults",
+      "how much of the diet the reported aquatic insects and occasional small fish actually represent"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "polyodon_spathula",
+    "status": "partial",
+    "overview": "Paddlefish live in the open water of large, deep, slow rivers, reservoirs and impoundments and feed by swimming continuously with the mouth open, filtering zooplankton through fine gill rakers. This is a regulated-context record with an unusual property: the species is not caught by presentation. North Dakota Game and Fish states that paddlefish will not take large bait and that harvest requires snagging, and where snagging fisheries exist they run under jurisdiction-specific permits, quotas, season dates, length limits and area restrictions that differ sharply between states — the species is also CITES Appendix II and IUCN Vulnerable. Accordingly no entry below carries a presentation implication; this calendar is depth, movement and conservation context only, and the local rule set governs everything else.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deep pool and basin; suspended in open water. The New York status assessment gives relocation to water deeper than 3 m in winter.",
+        "depthTendency": "Deeper than the 2–12 m general band, moving below about 3 m.",
+        "movementTendency": "Reduced. Welsh et al. (2024) observed no movement in February and reduced movement generally in colder months.",
+        "conservationNote": "Not a presentation-caught species. Where a snagging fishery exists at all it is bounded by jurisdiction-specific season dates, permits and quotas; nothing in this entry implies an open season.",
+        "invalidators": [
+          "reading a depth band as target guidance for a species not taken on a presentation"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Open-water river habitat; the spawning migration is under way through this period and is treated as conservation context only (see the conservation note).",
+        "movementTendency": "Highest of the year. Welsh et al. (2024) recorded most movement in April and May, with tagged fish frequenting the upper section of a navigation pool.",
+        "thermalContext": "Spawning is triggered at 50–65°F together with higher flows, substantial water-level rises and changing photoperiod.",
+        "conservationNote": "Spring is the spawning period, and the New York assessment records migrations of 50–200 miles to reach suitable reaches. Spawning areas, staging concentrations and migration bottlenecks are not located or described in this record. Dams that block these migrations are a primary cause of decline, and many impoundment populations do not reproduce naturally and persist only through stocking. No presentation implication is given, in this or any season.",
+        "invalidators": [
+          "treating the spawning migration as an opportunity",
+          "assuming natural reproduction occurs in an impoundment population"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Open water of large rivers, reservoirs and deep slow river sections — suspended open water, basin, deep pool, and current-break or tailwater in flowing systems.",
+        "depthTendency": "Deeper than 1.5 m as a floor, congregating at 2–12 m with an optimum of 3–6 m; Missouri Department of Conservation also describes fish swimming near the surface in open river water.",
+        "forageEmphasis": "Zooplankton, filtered continuously rather than taken in discrete feeding events. Water rich in zooplankton is the habitat requirement.",
+        "conservationNote": "Not a presentation-caught species. The continuous ram-filtration feeding mode means there is no strike to provoke; a zooplankton food base is a habitat fact, not a forage cue.",
+        "invalidators": [
+          "converting a plankton concentration into a presentation cue",
+          "treating the surface-swimming description as a surface-feeding behaviour"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Open-water river and reservoir habitat continues; movement begins to slow ahead of winter.",
+        "movementTendency": "Declining from the spring peak toward the winter minimum.",
+        "conservationNote": "Not a presentation-caught species; jurisdiction-specific rules govern any harvest. Zebra mussels competing for plankton are noted by Missouri Department of Conservation as an added pressure in infested waters.",
+        "invalidators": [
+          "assuming an open season — jurisdictional rules govern"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "New York State Department of Environmental Conservation, Species Status Assessment: Paddlefish",
+        "class": "agency",
+        "url": "https://dec.ny.gov/sites/default/files/2024-08/paddlefish.pdf"
+      },
+      {
+        "label": "Welsh et al. 2024, Paddlefish movement and dam passage in the Ohio and Kanawha rivers, Proceedings of the West Virginia Academy of Science",
+        "class": "peer_reviewed",
+        "url": "https://pwvas.org/index.php/pwvas/article/download/1103/946/3558"
+      },
+      {
+        "label": "Missouri Department of Conservation field guide: Paddlefish",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/paddlefish"
+      },
+      {
+        "label": "North Dakota Game and Fish Department: what do paddlefish eat, and how do they do it? (harvest by snagging)",
+        "class": "agency",
+        "url": "https://gf.nd.gov/node/7447"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species species profile: Paddlefish (Polyodon spathula)",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/factsheet.aspx?SpeciesID=876"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "fall habitat use specifically — the fall entry is interpolated between the sourced spring peak and the sourced winter minimum in movement, which is the main reason this record is partial",
+      "light sensitivity and diel depth shifts",
+      "how the 2–12 m congregation band varies between river and reservoir populations",
+      "tributary-mouth and tailwater use, which the catalog lists as river holding but which the sources reached do not document outside the spawning-migration context"
+    ]
+  }
+}

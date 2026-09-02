@@ -132,3 +132,85 @@ export function useDossierCoverage(speciesTotalFallback: number): CoverageState 
 
   return state;
 }
+
+export type WaterContextValue = {
+  documentedInWaterways: boolean;
+  waters: {
+    id: string;
+    name: string;
+    state: string;
+    stateCode: string;
+    waterType: string;
+    broadRegion: string;
+  }[];
+  waterCount: number;
+  agency: {
+    stateCode: string;
+    name: string;
+    regulationsUrl: string;
+    accessMapUrl: string | null;
+    verifiedOn: string;
+  } | null;
+  unresolvedJurisdiction: string | null;
+};
+
+export type WaterContextState = {
+  status: "idle" | "loading" | "ready" | "unavailable";
+  context: WaterContextValue | null;
+};
+
+const waterCache = new Map<string, WaterContextValue>();
+
+/**
+ * Reviewed public waters that document this species, and the agency whose
+ * rules apply where the angler says they are. Keyed on species plus declared
+ * jurisdiction, because changing either changes the answer.
+ */
+export function useWaterContext(
+  speciesId: string | null | undefined,
+  jurisdiction: string | null | undefined,
+): WaterContextState {
+  const key = speciesId ? `${speciesId}::${(jurisdiction ?? "").trim().toLowerCase()}` : "";
+  const [state, setState] = useState<WaterContextState>(() =>
+    key && waterCache.has(key)
+      ? { status: "ready", context: waterCache.get(key)! }
+      : { status: speciesId ? "loading" : "idle", context: null },
+  );
+
+  useEffect(() => {
+    if (!speciesId) {
+      setState({ status: "idle", context: null });
+      return;
+    }
+    const cached = waterCache.get(key);
+    if (cached) {
+      setState({ status: "ready", context: cached });
+      return;
+    }
+
+    let live = true;
+    setState({ status: "loading", context: null });
+    const query = jurisdiction?.trim()
+      ? `?jurisdiction=${encodeURIComponent(jurisdiction.trim())}`
+      : "";
+    fetch(`/api/water-context/${encodeURIComponent(speciesId)}${query}`, {
+      headers: { accept: "application/json" },
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error(`water-context ${response.status}`);
+        return response.json() as Promise<{ context: WaterContextValue }>;
+      })
+      .then((body) => {
+        waterCache.set(key, body.context);
+        if (live) setState({ status: "ready", context: body.context });
+      })
+      .catch(() => {
+        if (live) setState({ status: "unavailable", context: null });
+      });
+    return () => {
+      live = false;
+    };
+  }, [speciesId, jurisdiction, key]);
+
+  return state;
+}

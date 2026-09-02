@@ -1,0 +1,362 @@
+{
+  "identification": {
+    "speciesId": "catostomus_commersonii",
+    "status": "reviewed",
+    "regionalNames": [
+      "common sucker"
+    ],
+    "bodyShape": "Long, round-bodied catostomid, cylindrical in cross-section, with a ventral (sub-terminal) sucking mouth and a forked tail. The Peace River key gives it a deep caudal peduncle whose depth is about equal to the length of the dorsal fin base — a proportion that separates it from largescale sucker, where the peduncle is at most half the dorsal base.",
+    "identificationTraits": [
+      "Body scales get progressively smaller from the tail toward the head. This gradient is the fastest cut against redhorse, whose scales are large and evenly sized front to back.",
+      "Complete lateral line with a fine scale count: 55–80 (Connecticut DEEP), 55–85 (Iowa DNR), 60–75 (Montana). All of these sit well below the longnose sucker's count.",
+      "Short dorsal fin of 11–13 rays (Montana) or 11–12 (Connecticut DEEP), on a short base.",
+      "Lower lip is thick and fleshy, roughly twice the size of the upper lip, covered in small papillae, and carries a deep median notch.",
+      "Snout short and rounded, projecting only slightly past the upper lip; the rear corner of the mouth does not reach, or only barely reaches, the nostrils.",
+      "Cleft between the lower lips forms a narrow inverted 'V' (Peace River key).",
+      "Young fish carry three or more irregular dark blotches along the side (Massachusetts)."
+    ],
+    "coloration": "Olive-brown to greenish or greyish over a dark back, with a brassy, bronze or silvery lustre on the sides and a white belly. Scales are dark-edged; fins are clear or slightly dusky.",
+    "spawningColoration": "Breeding males darken markedly, develop a gold cast to the back and a scarlet, pink-red or black lateral stripe, and carry tubercles on the head, body and fins. This is biology, not a targeting cue.",
+    "juvenileAppearance": "Three or more irregular dark lateral blotches along the side, on a body whose white underside is especially pronounced in young fish — the character the common name refers to.",
+    "adultAppearance": "A bronze-to-olive, fine-scaled sucker with a short rounded snout, a thick notched papillose lower lip, a deep caudal peduncle and a plain, unmarked body.",
+    "sexualDimorphism": "Breeding males develop tubercles and the lateral stripe; females run larger on average in the size ranges reported, but size overlap is wide and sex is not a field ID key.",
+    "similarSpecies": [
+      {
+        "speciesId": "catostomus_catostomus",
+        "name": "Longnose sucker",
+        "distinction": "The single most important separation, and it is a scale count. Longnose carries more than 85 lateral-line scales; white sucker 55–85, and usually 60–75. Longnose has a long, pointed snout that noticeably overhangs the mouth, with the rear of the mouth reaching back beyond the nostrils; white sucker's snout is short and rounded and barely projects, with the mouth not reaching the nostrils. The cleft between the lower lips is deep in longnose (Massachusetts describes the lower lips as two square flaps) and a narrow inverted 'V' in white sucker. Note that the two hybridize — Montana documents white × longnose hybridization at several locations — so intermediate fish occur and not every specimen will key cleanly."
+      },
+      {
+        "speciesId": "catostomus_macrocheilus",
+        "name": "Largescale sucker",
+        "distinction": "Range is usually the first cut: white sucker is native to Atlantic, Arctic, Great Lakes and Mississippi basins and USGS records its western introductions in the Colorado, Green, Rio Grande and San Juan drainages, not the Columbia basin, while largescale sucker is a Pacific-drainage fish. Where both occur — Montana carries white sucker in its eastern and northern drainages and largescale in the western ones — scale counts will not separate them, because largescale runs 62–80 against white sucker's 60–75. Use the dorsal fin instead: 13–15 rays on an elongated base in largescale, 11–13 on a short base in white sucker. The lip cleft also differs, a broad inverted 'V' in largescale against a narrow one in white sucker."
+      },
+      {
+        "speciesId": "moxostoma_macrolepidotum",
+        "name": "Shorthead redhorse",
+        "distinction": "Shorthead redhorse has large, evenly sized scales over the whole body, plicate (folded) lower lips rather than papillose ones, and a red caudal fin. White sucker has fine scales that grade smaller toward the head, papillose lips with a deep median notch, and clear-to-dusky fins."
+      },
+      {
+        "name": "Northern hog sucker (Hypentelium nigricans)",
+        "distinction": "Northern hog sucker has a large, square, bony head that is concave between the eyes, and usually four dark crossbars over the body. White sucker's head is rounded and not concave between the eyes, and adults carry no crossbars."
+      }
+    ],
+    "averageAdultLength": "10–16 in (Iowa DNR); 12–20 in (National Park Service). Connecticut gives an overall adult span of roughly 6–18 in.",
+    "commonAnglingSize": "Most fish encountered run 12–18 in.",
+    "typicalWeight": "1–2 lb (National Park Service); Iowa DNR gives up to 2 lb for typical adults, and the Ontario database 0.2–1.4 kg.",
+    "maximumDocumentedSize": "To about 30 in / 760 mm (Massachusetts), with most adults under 24 in. The Ontario database gives a maximum of 64.0 cm and 4.11 kg; Minnesota's state record of 4.12 kg (9 lb 1 oz) is consistent with that ceiling.",
+    "longevity": "Commonly about 10–12 years (University of Minnesota); the Ontario database gives a lifespan span of 15–25 years. Males mature at 2–3 years and females at 3–4 (Ontario), or in the third or fourth year (Montana).",
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02060"
+      },
+      {
+        "label": "Connecticut DEEP — Freshwater Fishes of Connecticut: White Sucker",
+        "class": "agency",
+        "url": "https://portal.ct.gov/DEEP/Fishing/Freshwater/Freshwater-Fishes-of-Connecticut/White-Sucker"
+      },
+      {
+        "label": "Massachusetts Division of Fisheries and Wildlife — White Sucker",
+        "class": "agency",
+        "url": "https://www.mass.gov/info-details/white-sucker"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — white sucker (Catostomus commersonii) species fact sheet",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/cdindex/whitesucker.pdf"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — White Sucker species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/50"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — White Sucker (Catostomus commersonii)",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/white-sucker-catostomus-commersonii.htm"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — White Sucker account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/white_sucker.html"
+      },
+      {
+        "label": "Peace River Fish Identification Key (BC Hydro Site C project, draft 2022) — Catostomus couplets on snout, lip cleft, scale size and caudal peduncle",
+        "class": "synthesis",
+        "url": "https://www.sitecproject.com/sites/default/files/Peace-River-Fish-Identification-Key.pdf"
+      },
+      {
+        "label": "Ontario Freshwater Fishes Life History Database — species records for white sucker and longnose sucker",
+        "class": "synthesis",
+        "url": "https://www.ontariofishes.ca/fish_detail.php?FID=19"
+      },
+      {
+        "label": "USGS Nonindigenous Aquatic Species database — White Sucker (Catostomus commersonii) species profile: native range and introductions",
+        "class": "agency",
+        "url": "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=346"
+      },
+      {
+        "label": "NCFishes.com — Sucker species (Catostomidae) diversity and identification key for North Carolina (scale-size gradient character)",
+        "class": "synthesis",
+        "url": "https://ncfishes.com/wp-content/uploads/2021/01/NC-Suckers-and-Identification-Key.pdf"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: White Sucker (comparative characters against redhorse)",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/white-sucker"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional / vernacular names — no agency source reached supplied a list",
+      "regional colour variation",
+      "the lateral-line scale count differs between agencies (55–80, 55–85, 60–75); the overlap with largescale sucker at the upper end was not resolved by a single authority",
+      "a field character for separating white × longnose hybrids from either parent"
+    ]
+  },
+  "behavior": {
+    "speciesId": "catostomus_commersonii",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "note": "Illinois DNR describes white suckers swimming in schools near the bottom, and the species is the second most commonly collected fish across Iowa's monitored sites and among the most abundant fish of its size where it occurs — Connecticut calls it the majority of the fish biomass in many streams. Kavaliers' laboratory work, reviewed by Reebs, used shoals of 25 fish and found shoal size changed the activity phase, which is itself evidence of a socially structured fish. Spawning aggregations are conservation context and are not located here."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A bottom-vacuuming omnivore. The ventral, downward-facing mouth with thick fleshy lips carries taste buds used to sense food on the substrate (National Park Service); the Ontario database classes the species invertivore/detritivore, and Montana describes an omnivorous diet of detritus and insects taken with bottom organisms. Food is worked out of and off the substrate, not intercepted in the drift."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Genuinely plastic, and the sourcing is laboratory rather than field. Reebs' review reports Kavaliers' finding that individual white suckers held under a light/dark cycle were mostly night-active while groups of 25 were mostly light-active — activity phase shifted with shoal size. The UMass Climate Action Tool profile separately describes the species occupying shallow water at night to feed and retreating to cooler, deeper water in daylight. 'Mixed' is entered because both patterns are documented, not as a hedge."
+    },
+    "seasonalActivity": "A spring spawning migration up tributary streams is the strongest seasonal signal in the agency accounts — Connecticut puts the runs at their most abundant from March to early May, Montana gives April through June, Minnesota April into early May. Autumn and winter activity is not resolved by the sources reviewed.",
+    "thermalDrivenBehavior": "A coolwater fish. The Ontario database gives a preferred range of 17–24 °C; the UMass Climate Action Tool gives an optimum of 15–25 °C, maximum growth and swimming performance near 24 °C, and an upper tolerance near 27.4 °C. The catalog's 55–68 °F band therefore sits at the cool end of the reported preferendum rather than at its centre, and the species' real constraint is the warm edge, not the cold one.",
+    "currentFacing": "Montana states plainly that white sucker avoids rapid current, and reaches peak abundance in reservoirs. Illinois places it in creeks, small rivers and lakes. This is a slack-and-moderate-flow benthic fish, not a swift-riffle specialist.",
+    "depthMovement": "The Ontario database puts lake fish usually at 6–9 m. The Climate Action Tool describes a daily shallow-at-night, deeper-and-cooler-in-daylight pattern.",
+    "clarityResponse": "Broadly tolerant. Iowa DNR assigns it intermediate pollution tolerance; the Ontario database calls it tolerant of pollution and moderately tolerant of turbidity; the National Park Service notes it persists from pristine to polluted water and across cold and warm conditions.",
+    "spawningBehavior": "Spring spawner. Adults migrate upstream into tributaries and spawn over gravel or rocky shoals as an open-substratum, non-guarding spawner. Reported windows run March to early May (Connecticut), mid-April to May (Massachusetts), April to June (Montana). Spawning temperature is given as 10–20 °C (Ontario database). Fecundity runs from about 12,500 to 140,000 eggs, with over 100,000 possible from large females; incubation is 12–20 days at 50 °F, or 5–10 days in Minnesota's warmer account, and 18–20 days in Illinois'. Spawning substrate and any spawning-period concentration are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02060"
+      },
+      {
+        "label": "Connecticut DEEP — Freshwater Fishes of Connecticut: White Sucker",
+        "class": "agency",
+        "url": "https://portal.ct.gov/DEEP/Fishing/Freshwater/Freshwater-Fishes-of-Connecticut/White-Sucker"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — white sucker (Catostomus commersonii) species fact sheet",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/cdindex/whitesucker.pdf"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — White Sucker species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/50"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — White Sucker (Catostomus commersonii)",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/white-sucker-catostomus-commersonii.htm"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — White Sucker account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/white_sucker.html"
+      },
+      {
+        "label": "Ontario Freshwater Fishes Life History Database — species records for white sucker and longnose sucker",
+        "class": "synthesis",
+        "url": "https://www.ontariofishes.ca/fish_detail.php?FID=19"
+      },
+      {
+        "label": "UMass Amherst Climate Action Tool — White Sucker thermal and habitat profile",
+        "class": "synthesis",
+        "url": "https://climateactiontool.org/species/white-sucker"
+      },
+      {
+        "label": "Reebs 2002, Plasticity of diel and circadian activity rhythms in fishes, Reviews in Fish Biology and Fisheries 12:349–371 (reviewing Kavaliers 1980 on white sucker)",
+        "class": "peer_reviewed",
+        "url": "https://www.umoncton.ca/sites/prof.prod.umoncton.ca/files/users/user109/Reebs%20fish%20review.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "winter habitat and overwintering behaviour — no primary source reached describes it",
+      "cold-front / barometric response",
+      "water-level and flow-change response",
+      "angling-pressure response",
+      "predator avoidance and cover use beyond the general statement that this is a bottom-oriented fish",
+      "territoriality and aggression — not described in any source reached",
+      "the diel evidence is a laboratory study on activity phase plus one secondary habitat statement; no field telemetry was reached"
+    ]
+  },
+  "diet": {
+    "speciesId": "catostomus_commersonii",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "aquatic_insects",
+      "worms_annelids",
+      "crustaceans"
+    ],
+    "primaryNote": "A bottom-working omnivore that senses food with taste buds in its fleshy lips and takes it off and out of the substrate. The University of Minnesota account names aquatic insect larvae, water fleas, amphipods, snails, clams, algae, other plant matter, detritus and fish eggs; Montana names aquatic invertebrates, diatoms, algae and organic debris; the Climate Action Tool profile names mayfly nymphs and chironomid larvae; Illinois summarises the diet as mainly insects. Capacity is not a current hatch.",
+    "lifeStageDiet": {
+      "adult": "Benthic invertivore and detritivore: midge and mayfly immatures and other aquatic insect larvae taken off and within the bottom, plus small crustaceans, worms and a substantial fraction of algae and organic debris."
+    },
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02060"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — white sucker (Catostomus commersonii) species fact sheet",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/cdindex/whitesucker.pdf"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — White Sucker species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/50"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — White Sucker (Catostomus commersonii)",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/white-sucker-catostomus-commersonii.htm"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — White Sucker account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/white_sucker.html"
+      },
+      {
+        "label": "Ontario Freshwater Fishes Life History Database — species records for white sucker and longnose sucker",
+        "class": "synthesis",
+        "url": "https://www.ontariofishes.ca/fish_detail.php?FID=19"
+      },
+      {
+        "label": "UMass Amherst Climate Action Tool — White Sucker thermal and habitat profile",
+        "class": "synthesis",
+        "url": "https://climateactiontool.org/species/white-sucker"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the agency accounts also document snails and clams, algae and diatoms, detritus and fish eggs, none of which the catalog carries as forage classes for this species; the catalog classes have been kept and the discrepancy recorded rather than resolved",
+      "young-of-year and juvenile diet — not described in the sources reviewed",
+      "season-by-season diet shifts — not described in the sources reviewed",
+      "prey-size shifts with growth"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "catostomus_commersonii",
+    "status": "partial",
+    "overview": "An abundant, adaptable, slack-water benthic omnivore rather than a current-swept specialist: Montana notes it avoids rapid current and peaks in reservoirs. Its calendar is dominated by one well-documented event, the spring tributary spawning run, which is conservation context. Warm water rather than cold is its real constraint. No winter entry is written because no source reached describes overwintering, which is why this record is partial.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Run, pool tail and current-break water in tributary streams during the upstream migration; gravel and rocky shoals for spawning; shallow flats and inlet water in lakes.",
+        "movementTendency": "Upstream migration into tributaries, at its most abundant March to early May in the south of the range and April to June farther north.",
+        "thermalContext": "Spawning reported at 10–20 °C. Incubation runs 12–20 days at 50 °F.",
+        "feedingEmphasis": "Bottom-worked insect immatures and organic debris; feeding is a substrate activity, not a drift-interception activity.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift keep an offering on the substrate where this species actually feeds, and stationary bait is the other reviewed flowing family that matches a downward-facing benthic omnivore. In stillwater, bottom contact and slow drag. Surface and mid-column families do not match the mouth.",
+        "conservationNote": "Spring spawner. Spawning substrate and any spawning-period concentration are excluded from target guidance.",
+        "invalidators": [
+          "treating the spring run as a location cue",
+          "reading a spawning aggregation as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Deep pool, run and current-break water away from fast current in streams; basin, drop-off and shallow flats in lakes and reservoirs, where the species reaches peak abundance.",
+        "depthTendency": "Lake fish usually at 6–9 m, with a shallower-at-night, deeper-in-daylight daily pattern reported.",
+        "thermalContext": "Preferred range reported at 17–24 °C with maximum growth near 24 °C and an upper tolerance near 27.4 °C. The catalog's 55–68 °F band sits at the cool end of that. The warm edge, not the cold one, is the constraint.",
+        "currentUse": "Avoids rapid current; holds in slack and moderate flow and behind current breaks.",
+        "lightSensitivity": "Shallow-water use at night and deeper, cooler water in daylight is reported; laboratory work shows activity phase itself shifting with shoal size. This is a depth-and-phase statement, not a feeding-rate statement.",
+        "presentationImplication": "Bottom-contact drift, tight-line drift and stationary bait in flowing water; bottom contact and slow drag in stillwater. The mechanics follow the mouth, not the season.",
+        "invalidators": [
+          "fishing it as a mid-column or surface feeder",
+          "forcing swift riffle water on a species the agency accounts say avoids rapid current"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "The same slack-to-moderate stream water and lake basins as summer; no autumn habitat shift is documented in the sources reviewed.",
+        "feedingEmphasis": "Benthic invertivory and detritivory continue; no seasonal prey switch is described in the sources reviewed.",
+        "presentationImplication": "Bottom-contact drift, tight-line drift and stationary bait in flowing water; bottom contact and slow drag in stillwater.",
+        "invalidators": [
+          "importing a fall-spawning pattern from salmonids — this is a spring spawner",
+          "assuming an autumn habitat shift the sources do not describe"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — White Sucker",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC02060"
+      },
+      {
+        "label": "Connecticut DEEP — Freshwater Fishes of Connecticut: White Sucker",
+        "class": "agency",
+        "url": "https://portal.ct.gov/DEEP/Fishing/Freshwater/Freshwater-Fishes-of-Connecticut/White-Sucker"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — white sucker (Catostomus commersonii) species fact sheet",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/cdindex/whitesucker.pdf"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — White Sucker species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/50"
+      },
+      {
+        "label": "National Park Service, Mississippi National River and Recreation Area — White Sucker (Catostomus commersonii)",
+        "class": "agency",
+        "url": "https://www.nps.gov/miss/learn/nature/white-sucker-catostomus-commersonii.htm"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — White Sucker account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/white_sucker.html"
+      },
+      {
+        "label": "Ontario Freshwater Fishes Life History Database — species records for white sucker and longnose sucker",
+        "class": "synthesis",
+        "url": "https://www.ontariofishes.ca/fish_detail.php?FID=19"
+      },
+      {
+        "label": "UMass Amherst Climate Action Tool — White Sucker thermal and habitat profile",
+        "class": "synthesis",
+        "url": "https://climateactiontool.org/species/white-sucker"
+      },
+      {
+        "label": "Reebs 2002, Plasticity of diel and circadian activity rhythms in fishes, Reviews in Fish Biology and Fisheries 12:349–371 (reviewing Kavaliers 1980 on white sucker)",
+        "class": "peer_reviewed",
+        "url": "https://www.umoncton.ca/sites/prof.prod.umoncton.ca/files/users/user109/Reebs%20fish%20review.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "winter entry omitted — no sourced description of overwintering habitat or activity",
+      "depth tendency by season beyond the general lake figure",
+      "stillwater seasonal structure, which the catalog carries and the agency accounts confirm occurs, but which none of them describes season by season",
+      "riprap is carried in the catalog as still-water holding for this species but is not documented in any source reached"
+    ]
+  }
+}

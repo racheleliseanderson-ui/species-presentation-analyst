@@ -1,0 +1,289 @@
+{
+  "identification": {
+    "speciesId": "stenodus_leucichthys",
+    "status": "reviewed",
+    "regionalNames": [
+      "sheefish",
+      "inconnu",
+      "shee"
+    ],
+    "bodyShape": "A large, long, deep-bodied member of the whitefish subfamily with large scales, an adipose fin and a forked tail. The mouth is large and the lower jaw extends beyond the upper — the single character that separates it from every other North American whitefish.",
+    "identificationTraits": [
+      "Strong, projecting lower jaw that extends beyond the upper jaw. Every other Alaskan whitefish has either a small inferior (bottom-facing) mouth or a small terminal one.",
+      "Largest species in the whitefish subfamily — an adult sheefish is not size-confusable with a cisco or a round whitefish.",
+      "Small, densely packed teeth in the jaws.",
+      "Large scales and an overall silvery body; Alaska's notebook describes a phosphorescent purple sheen on a fish just taken from the water.",
+      "Fins are dark-tipped (Fisheries and Oceans Canada), and the caudal fin is forked."
+    ],
+    "coloration": "Silvery overall, darker along the back, with dark-tipped fins and a purple sheen visible on a fresh fish.",
+    "adultAppearance": "A big, bright silver, large-scaled whitefish with a pike-like jaw line — lower jaw leading — an adipose fin and a forked tail.",
+    "similarSpecies": [
+      {
+        "name": "Humpback whitefish and broad whitefish (Coregonus spp.)",
+        "distinction": "Both have a small inferior, bottom-facing mouth under a short blunt snout, built for picking clams, snails and insect larvae off the bottom. Sheefish has a large mouth with the lower jaw projecting beyond the upper. Broad and humpback whitefish also top out far smaller."
+      },
+      {
+        "name": "Round whitefish (Prosopium cylindraceum)",
+        "distinction": "Round whitefish has a tiny pointed snout and an inferior mouth, and seldom exceeds 16 in. No projecting lower jaw."
+      },
+      {
+        "name": "Least cisco (Coregonus sardinella)",
+        "distinction": "Least cisco does have a superior mouth with the lower jaw projecting, so the jaw character alone is not enough. Size settles it: least cisco reaches about 14 in in lakes and 19 in and 4.5 lb at the extreme, against a sheefish that exceeds a metre. The cisco is also slender and herring-like rather than deep-bodied."
+      },
+      {
+        "name": "Bering cisco and Arctic cisco (Coregonus laurettae, C. autumnalis)",
+        "distinction": "Both have a terminal mouth — jaws even — rather than a projecting lower jaw, are silvery with white pectoral and pelvic fins, and reach only about 14–17 in."
+      }
+    ],
+    "averageAdultLength": "Fisheries and Oceans Canada gives a typical range of 450–760 mm (18–30 in), occasionally to 1.1 m. Alaskan stocks in the northwest exceed 1 m; interior Alaskan fish run smaller.",
+    "commonAnglingSize": "Stock-dependent. Alaska's notebook contrasts northwestern fish reaching 60 lb with interior fish that typically stay under 25 lb.",
+    "typicalWeight": "Interior Alaskan fish typically under 25 lb; northwestern Alaskan fish commonly much heavier, to about 60 lb at the extreme. Canadian fish of 450–760 mm are correspondingly lighter.",
+    "maximumDocumentedSize": "Up to 27 kg (about 60 lb) and over 1 m in northwestern Alaska; the sport record from that region was 24 kg (53 lb).",
+    "longevity": "Fisheries and Oceans Canada gives up to 21 years in some regions; Alaska reports northwestern fish exceeding 20 years; otolith work on Yukon River fish gives longevity beyond 40 years. Maturity is late — ages 5–9 for males and 7–12 for females in one Alaskan stock, ages 7–10 in Canada, 5–12 across the Yukon River.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/sheefish.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Whitefish Species (Wildlife Notebook Series), comparative mouth and snout characters",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/whitefish_species.pdf"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Inconnu (Stenodus leucichthys) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/inconnu-eng.html"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "juvenile appearance and any parr-stage markings",
+      "sexual dimorphism and spawning coloration — not described in the sources reviewed",
+      "regional colour variation between stocks",
+      "the taxonomic relationship between North American sheefish and the Caspian Sea population carried under the same species name"
+    ]
+  },
+  "behavior": {
+    "speciesId": "stenodus_leucichthys",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "The sources reviewed describe sheefish as migratory and locally abundant during runs but do not describe a defined school or a defended lie. 'loose_aggregation' is the closest supported reading; treat it as weakly evidenced and see the gap list."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Adults are generalist piscivores. Alaska says adults feed almost exclusively on other fish — herring, smelt and juvenile outmigrants depending on season and location — and an account of one northwestern Alaskan stock adds lamprey and juvenile salmon and sheefish, so cannibalism is on the menu. Yukon River work describes them as generalist piscivores taking a wide variety of smaller fish including their own young, and pelagic invertebrates to a much lesser extent. Juveniles start on plankton and benthic invertebrates."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Recorded as a non-claim. No source reviewed resolves a diel activity pattern for sheefish, and much of the range is under continuous summer daylight. 'mixed' is entered because the field is required; the gap is listed."
+    },
+    "seasonalActivity": "Form-specific and the difference is large. Estuarine-anadromous stocks overwinter in brackish bays, coastal waters and lower river, then move upstream through the summer — fish of one northwestern Alaskan stock migrate gradually from June through August. Freshwater-resident stocks (a large Canadian lake population, and stocks Alaska calls 'residents') never enter brackish water at all. Yukon River work adds a third pattern, partial anadromy, in which fish use the estuary early in life and then stay in fresh water. Spring feeding migrations into tributaries occur in late May through June. Post-spawn fish descend fast — 72.5 km/day on the Yukon against 22.5 km/day going up.",
+    "thermalDrivenBehavior": "Cold water throughout. Spawning occurs at 0.5–5.5°C (40°F or colder). Fisheries and Oceans Canada places inconnu in cold water shallower than 40 m and preferentially under 30 m. The catalog's 45–58°F band is a feeding-season band, well above the spawning temperatures.",
+    "depthMovement": "Fisheries and Oceans Canada gives a depth envelope of less than 40 m and preferentially less than 30 m. Finer depth structure was not found in the sources reviewed.",
+    "clarityResponse": "Alaska notes sheefish favour glacial, silt-laden rivers, and that spawning occurs in both clear and silty tributaries — heavy glacial turbidity is normal habitat for this species rather than a disturbance.",
+    "openWaterBehavior": "Overwintering is in estuary and coastal water for anadromous stocks, where Yukon River work notes food resources are more available than in upstream fresh water. Freshwater-resident stocks overwinter in large lakes.",
+    "spawningBehavior": "Fall spawner, late September to early October, in cold shallow water over gravel. Sheefish are broadcast spawners — eggs and milt are released into the water column and no nest is built. Most fish spawn biennially or less often; Fisheries and Oceans Canada gives every 2–4 years, and Yukon River work found most individuals spawn only once in a lifetime, with about 23% of one population spawning in consecutive years. Fecundity is high — a 50 lb female carries nearly 400,000 eggs. Juveniles hatched in the spring drift long distances downstream to rearing habitat; Yukon River juveniles cover 1,600–1,700 km in 40–60 days. Spawning substrate and any spawning-period holding water are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/sheefish.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — 'The Tarpon of the North' sheefish research article (Alaska Fish & Wildlife News)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=wildlifenews.view_article&articles_id=487"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Inconnu (Stenodus leucichthys) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/inconnu-eng.html"
+      },
+      {
+        "label": "Yukon River Inconnu: Biology, Distribution, and Migration (Transactions of the American Fisheries Society, 2025)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/154/5/505/8233096"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Northern Alaska Sport Fishing Regulations Summary (sheefish bag and possession limits)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/regulations/fishregulations/PDFs/northern/2025northern_sfregs_complete.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel activity pattern — no primary source found",
+      "cold-front / barometric response — no primary source found",
+      "angling-pressure response — no primary source found",
+      "water-level and flow-change response with primary-source support",
+      "current-facing behaviour and holding position within a run — not described in the sources reviewed",
+      "cover use and predator avoidance",
+      "social structure outside migration"
+    ]
+  },
+  "diet": {
+    "speciesId": "stenodus_leucichthys",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "aquatic_insects"
+    ],
+    "primaryNote": "Adults are generalist piscivores — Alaska states they feed almost exclusively on other fish, naming herring, smelt and juvenile outmigrants, with lamprey and juvenile salmon and sheefish added for one northwestern Alaskan stock. Yukon River work describes a wide variety of smaller fish including their own young, plus pelagic invertebrates to a much lesser extent. Juveniles are the invertebrate feeders: plankton first, then insect larvae and small fish by the second year, and Canadian work on a large-lake freshwater-resident stock records a switch from benthic invertebrates to fish at about age 4. Capacity is not a current hatch.",
+    "lifeStageDiet": {
+      "youngOfYear": "Plankton, then benthic invertebrates.",
+      "juvenile": "Insect larvae and small fish by the second year; a freshwater-resident Canadian stock switched from benthic invertebrates to fish at about age 4.",
+      "adult": "Almost exclusively fish, taken opportunistically from whatever the system holds, including conspecific young."
+    },
+    "ontogeneticShift": "Plankton to benthic invertebrates to near-obligate piscivory, with the switch reported around age 4 in one freshwater-resident stock and by the second year in Alaskan accounts. The shift is what drives the species' rapid growth.",
+    "forageSubstitutions": "Stock- and system-specific. Estuarine and coastal wintering fish take marine and estuarine forage fish; upstream fish take whatever small fish the river holds, including juvenile salmon in salmon systems and their own young.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/sheefish.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — 'The Tarpon of the North' sheefish research article (Alaska Fish & Wildlife News)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=wildlifenews.view_article&articles_id=487"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Inconnu (Stenodus leucichthys) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/inconnu-eng.html"
+      },
+      {
+        "label": "Yukon River Inconnu: Biology, Distribution, and Migration (Transactions of the American Fisheries Society, 2025)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/154/5/505/8233096"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the catalog's aquatic_insects class belongs to juveniles; no source reviewed shows adults relying on insects",
+      "prey-size relationship against predator gape",
+      "seasonal diet composition through the freshwater feeding season",
+      "winter feeding rate in estuarine overwintering areas"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "stenodus_leucichthys",
+    "status": "partial",
+    "overview": "A long-distance migratory piscivore of large cold northern rivers, their estuaries and associated lakes. Three life-history patterns share this record — estuarine-anadromous, freshwater-resident and partially anadromous — and their seasonal positions differ, so each entry names the form where the literature does. Turbid glacial water is normal habitat, not a disturbance. Late maturity, infrequent spawning and drainage-specific harvest limits make this a regulated-context species: check the applicable regulation before targeting it.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Tributary mouths, runs and current breaks in the main river; lower-river and estuarine water for stocks that have not yet moved up.",
+        "movementTendency": "Yukon River work records spring feeding migrations into tributaries in late May through June. Freshwater-resident stocks do not make an estuarine migration at all.",
+        "forageEmphasis": "Smaller fish; juvenile outmigrants where a system produces them.",
+        "presentationImplication": "Swing and cross-current retrieve present a fish-sized profile across a run or a tributary-mouth seam; suspended drift and pulse jig work the same water at depth. This is a piscivore — insect-scale families do not match adult feeding.",
+        "invalidators": [
+          "applying the anadromous spring movement to a freshwater-resident stock",
+          "reading a spring feeding migration as a spawning movement — spawning is in the fall"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Runs, deep pools, pool heads and current breaks in large main-stem rivers, much of it glacial and silt-laden; lake basins and suspended open water for lake-resident stocks.",
+        "movementTendency": "Upstream migration through the summer — one Alaskan stock moves gradually from June through August, and Alaska reports fish covering over 1,600 km within a single summer. Upstream rate on the Yukon averaged 22.5 km/day.",
+        "forageEmphasis": "Fish. Adults feed almost exclusively on other fish.",
+        "thermalContext": "The catalog's 45–58°F band applies to the feeding season; spawning temperatures are far colder.",
+        "clarityResponse": "Heavy glacial turbidity is normal habitat for this species.",
+        "presentationImplication": "Swing, cross-current retrieve and downstream retrieve cover moving water; pulse jig and suspended drift reach fish holding deeper in a run or pool head. In lakes, trolling, horizontal retrieve and subsurface slow roll are the reviewed families matched to a roaming piscivore.",
+        "invalidators": [
+          "treating silty water as unfishable habitat for this species",
+          "assuming the fish are stationary — this is a species moving hundreds of kilometres through a season"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Upper-river runs and gravel reaches as spawning approaches, then a rapid descent through main-stem runs and pools.",
+        "movementTendency": "Spawning migration completes in late summer and early fall; post-spawn fish descend fast, at 72.5 km/day on the Yukon, toward lower-river and estuarine overwintering water.",
+        "thermalContext": "Spawning occurs at 0.5–5.5°C (40°F or colder).",
+        "conservationNote": "Fall spawner, late September to early October. Broadcast spawner over gravel, most individuals spawning biennially or less often — every 2–4 years in Canada, and most Yukon River fish only once in a lifetime. Combined with maturity at ages 5–12, this is a slow-turnover population: spawning substrate and any spawning-period holding water are excluded from target guidance, and drainage-specific bag limits apply, which in some drainages drop from 10 per day to 2 per day.",
+        "invalidators": [
+          "using spawning substrate as holding water",
+          "assuming the general bag limit applies in a drainage with a special regulation"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Brackish bays, coastal water and lower river for estuarine-anadromous stocks; large lake basins for freshwater-resident stocks.",
+        "movementTendency": "Anadromous fish are in estuarine and coastal overwintering areas, where Yukon River work notes food is more available than in upstream fresh water.",
+        "invalidators": [
+          "assuming upstream river reaches still hold anadromous fish in winter",
+          "assuming a freshwater-resident stock behaves like an estuarine one"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=sheefish.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Sheefish (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/sheefish.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — 'The Tarpon of the North' sheefish research article (Alaska Fish & Wildlife News)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=wildlifenews.view_article&articles_id=487"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Inconnu (Stenodus leucichthys) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/inconnu-eng.html"
+      },
+      {
+        "label": "Yukon River Inconnu: Biology, Distribution, and Migration (Transactions of the American Fisheries Society, 2025)",
+        "class": "peer_reviewed",
+        "url": "https://academic.oup.com/tafs/article/154/5/505/8233096"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Northern Alaska Sport Fishing Regulations Summary (sheefish bag and possession limits)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/regulations/fishregulations/PDFs/northern/2025northern_sfregs_complete.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no winter presentation implication is written — the sources reviewed do not establish a winter feeding level or holding pattern in enough detail",
+      "depth tendency by season beyond the general under-30-m envelope",
+      "light sensitivity, which is hard to source at these latitudes",
+      "current use and holding position within a run — the catalog's riverHolding classes are not independently confirmed by a habitat study in the sources reviewed",
+      "early_spring, early_summer and late_summer entries — no material specific to those sub-seasons"
+    ]
+  }
+}

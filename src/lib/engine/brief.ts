@@ -1,6 +1,36 @@
+import { alternatives } from "./alternatives.ts";
+import { responseRead, seasonRead } from "./condition-read.ts";
+import { EMPTY_OVERLAYS, type SpeciesOverlays } from "../knowledge/overlays.ts";
 import type { Interpretation, ScenarioInput } from "../protocol/types.ts";
 import { INSTRUMENT_NAME, labelOf } from "../protocol/vocab.ts";
 import { temperatureEvidenceLabel } from "./temperature.ts";
+
+/** Reader-facing names for the tackle requirements a presentation implies. */
+const SYSTEM_LABEL: Record<string, string> = {
+  depthControl: "Depth control",
+  sensitivity: "Sensitivity",
+  castingDistance: "Casting distance",
+  lureWeightBand: "Weight range",
+  coverResistance: "Cover resistance",
+  lineVisibilityPreference: "Line visibility",
+  retieFrequency: "Retie frequency",
+};
+
+function wrap(text: string, width = 78): string[] {
+  const words = String(text).split(/\s+/).filter(Boolean);
+  const lines: string[] = [];
+  let line = "";
+  for (const word of words) {
+    if (line && line.length + 1 + word.length > width) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = line ? `${line} ${word}` : word;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
 
 export function freshness(
   reviewedAt: string,
@@ -38,7 +68,20 @@ export function freshnessLabel(state: ReturnType<typeof freshness>): string {
   return "overdue for review";
 }
 
-export function fieldBrief(input: ScenarioInput, result: Interpretation): string {
+/**
+ * The paper that goes on the water.
+ *
+ * This is deliberately the whole reading, not a summary of it: it is printed or
+ * copied precisely because the water is where there is no signal to re-read the
+ * screen. Anything the app is willing to say on screen belongs here too — which
+ * is why the season, tackle and fallback layers are in it rather than only in
+ * the UI that introduced them.
+ */
+export function fieldBrief(
+  input: ScenarioInput,
+  result: Interpretation,
+  overlays: SpeciesOverlays = EMPTY_OVERLAYS,
+): string {
   const species = result.species;
   const holding =
     input.waterType === "flowing"
@@ -74,11 +117,15 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
       : "Regional context · none declared",
     "Ranking compares reviewed presentation jobs only. It is not a bite score.",
     "",
+    ...seasonLines(input, overlays),
+    ...responseLines(input, overlays),
     "PRESENTATION FAMILIES (jobs, not lures to buy — in order)",
     ...result.presentations.map(
       (p, i) => `${String.fromCharCode(65 + i)}. ${p.label} — ${p.job}`,
     ),
     "",
+    ...tackleLines(result),
+    ...alternativeLines(input, result, overlays),
     "FORAGE",
     result.forageNote,
     `Classes: ${result.forageClasses.map(labelOf).join(", ")}`,
@@ -95,6 +142,88 @@ export function fieldBrief(input: ScenarioInput, result: Interpretation): string
     "This is an account of plausibility, not a prediction that fish will bite.",
   ];
   return lines.join("\n");
+}
+
+
+/** Where the fish should be this season, from the reviewed calendar. */
+function seasonLines(input: ScenarioInput, overlays: SpeciesOverlays): string[] {
+  const read = seasonRead(input, overlays);
+  if (read.status === "no_season") {
+    return ["WHERE IT SHOULD BE", "Season undeclared, so the reviewed seasonal calendar was not applied.", ""];
+  }
+  if (read.status === "no_calendar") {
+    return ["WHERE IT SHOULD BE", "No reviewed seasonal calendar exists for this species yet.", ""];
+  }
+  if (read.status === "no_entry") {
+    return [
+      "WHERE IT SHOULD BE",
+      `The reviewed calendar covers ${read.covered.map(labelOf).join(", ")} — not the season declared.`,
+      "",
+    ];
+  }
+  return [
+    `WHERE IT SHOULD BE — ${labelOf(read.declared).toUpperCase()}`,
+    ...(read.exact
+      ? []
+      : wrap(`(Nearest reviewed entry: ${labelOf(read.matched)}. Not a statement about ${labelOf(read.declared).toLowerCase()} specifically.)`)),
+    ...wrap(read.overview),
+    ...read.rows.flatMap((row) => wrap(`· ${row.label}: ${row.value}`)),
+    ...(read.presentationImplication
+      ? ["", ...wrap(`Implies: ${read.presentationImplication}`)]
+      : []),
+    ...(read.conservationNote ? ["", ...wrap(`Conservation: ${read.conservationNote}`)] : []),
+    "",
+  ];
+}
+
+/** What it is responding to, for the conditions actually declared. */
+function responseLines(input: ScenarioInput, overlays: SpeciesOverlays): string[] {
+  const read = responseRead(input, overlays);
+  if (read.notes.length === 0) return [];
+  return [
+    "WHAT IT IS RESPONDING TO",
+    ...read.notes.flatMap((note) => wrap(`· ${note.trigger} — ${note.text}`)),
+    "",
+  ];
+}
+
+/** What the tackle has to deliver for the leading family. */
+function tackleLines(result: Interpretation): string[] {
+  const top = result.presentations[0];
+  const equipment = result.equipment as Record<string, string>;
+  const rows = Object.entries(equipment).filter(([, value]) => value);
+  return [
+    "WHAT THE TACKLE HAS TO DO",
+    top ? `Follows from ${top.label}. Change the family and these change with it.` : "No family ranked.",
+    ...rows.map(
+      ([key, value]) => `· ${SYSTEM_LABEL[key] ?? key}: ${String(value).replaceAll("_", " ")}`,
+    ),
+    "",
+    ...wrap(`Connection: ${result.connection.job}`),
+    `Priorities: ${result.connection.priorities.map((p) => p.replaceAll("_", " ")).join(" · ")}`,
+    ...(result.rigQuestion ? ["", ...wrap(`Check the rig: ${result.rigQuestion}`)] : []),
+    "",
+  ];
+}
+
+/** The ordered fallback plan, cheapest change first. */
+function alternativeLines(
+  input: ScenarioInput,
+  result: Interpretation,
+  overlays: SpeciesOverlays,
+): string[] {
+  const moves = alternatives(input, result, overlays);
+  if (moves.length === 0) return [];
+  return [
+    "IF IT ISN'T WORKING (in order — one change at a time)",
+    ...moves.flatMap((move, index) => [
+      ...wrap(`${String(index + 1).padStart(2, "0")}. ${move.symptom}`),
+      ...wrap(`    → ${move.move}`),
+      ...wrap(`    ${move.why}`),
+    ]),
+    "Give each change a fair trial before the next one.",
+    "",
+  ];
 }
 
 export function packetSummary(input: ScenarioInput, result: Interpretation): { label: string; value: string }[] {

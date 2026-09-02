@@ -60,7 +60,7 @@ export function SelectedSpeciesProfile() {
   );
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6" aria-labelledby="species-profile-heading">
+    <section className="no-print mx-auto max-w-6xl px-4 pb-10 sm:px-6" aria-labelledby="species-profile-heading">
       <details className="group rounded-[var(--radius-lg)] bg-elevated shadow-[var(--shadow-border)]">
         <summary className="cursor-pointer list-none p-5 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">

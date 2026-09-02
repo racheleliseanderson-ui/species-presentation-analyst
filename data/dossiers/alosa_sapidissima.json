@@ -1,0 +1,293 @@
+{
+  "identification": {
+    "speciesId": "alosa_sapidissima",
+    "status": "reviewed",
+    "regionalNames": [
+      "shad",
+      "white shad"
+    ],
+    "bodyShape": "Deep-bodied and strongly laterally compressed, with a sharply keeled, saw-toothed belly ridge and a deeply forked tail. The largest herring in most of its range.",
+    "identificationTraits": [
+      "Terminal mouth: the lower jaw fits evenly under the upper and does not form part of the dorsal profile of the head. Hickory shad's lower jaw projects well beyond the upper (NC identification key, Virginia DWR).",
+      "Cheek is deeper than long. Hickory shad's cheek is about as deep as wide (NC identification key, NC Wildlife Resources Commission).",
+      "59–76 crowded gill rakers on the lower limb of the first gill arch. Hickory shad has only 18–23, widely spaced (NC identification key). Massachusetts gives 59–75, more than any other herring in state waters.",
+      "Adult jaw teeth are minute or absent; hickory shad has jaw teeth present (NC identification key).",
+      "A dark spot behind the gill cover, usually followed by a row of fainter spots along the side that fades toward the tail (NC Wildlife Resources Commission, Northwest Power and Conservation Council).",
+      "A saw-toothed ridge of scutes along the belly (NC Wildlife Resources Commission)."
+    ],
+    "coloration": "Silvery scales over a bluish to blue-green back, white below, with a silvery cheek patch that is deeper than it is long (NC Wildlife Resources Commission).",
+    "juvenileAppearance": "Juveniles form large schools in fresh water. Northwest Power and Conservation Council gives 3.7–11.2 cm at emigration; Massachusetts gives about 4 in before they move to sea.",
+    "adultAppearance": "A deep-bodied, bright silver herring with a blue-green back, keeled belly, forked tail and a dark shoulder spot, typically 14–24 in depending on river and latitude.",
+    "sexualDimorphism": "Females mature later and grow larger than males — Northwest Power and Conservation Council gives female maturity at 4–6 years and male maturity at 3–5 years. No sourced external field mark separates the sexes.",
+    "similarSpecies": [
+      {
+        "name": "Hickory shad (Alosa mediocris)",
+        "distinction": "Hickory shad has a superior mouth with the lower jaw projecting well beyond the upper, a cheek about as deep as wide, jaw teeth present, and only 18–23 widely spaced gill rakers on the lower limb of the first arch. American shad has a terminal mouth, a cheek deeper than long, minute or absent jaw teeth, and 59–76 crowded gill rakers."
+      },
+      {
+        "name": "Alewife (Alosa pseudoharengus)",
+        "distinction": "River herring are much smaller than adult American shad and differ in the shape of the upper margin of the lower jaw inside the mouth, in peritoneum colour and in dorsal pigmentation. Alewife is separated from blueback herring by eye diameter exceeding the distance from the front of the eye to the tip of the snout (NC identification key, Virginia DWR)."
+      },
+      {
+        "name": "Blueback herring (Alosa aestivalis)",
+        "distinction": "As for alewife, but eye diameter is smaller than the distance from the front of the eye to the tip of the snout. Both river herring are far smaller than adult American shad and carry different gill raker and peritoneum characters (NC identification key, Virginia DWR)."
+      }
+    ],
+    "averageAdultLength": "NC Wildlife Resources Commission: adults typically 14–16 in. Massachusetts: 46–61 cm (18–24 in) in state waters. Northwest Power and Conservation Council: Columbia River fish average 43–55.8 cm.",
+    "commonAnglingSize": "State accounts place in-river adults broadly in the 14–24 in band, with the figure depending on river and latitude rather than on a single species-wide value.",
+    "typicalWeight": "NC Wildlife Resources Commission gives 2.2–6.6 lb. Northwest Power and Conservation Council gives 3–5 lb for Columbia River fish.",
+    "maximumDocumentedSize": "Northwest Power and Conservation Council gives a maximum near 30 in and 12 lb. NC Wildlife Resources Commission's largest reported fish was 23 in at 11 years old.",
+    "longevity": "NC Wildlife Resources Commission: typically 5–7 years, with an 11-year fish reported. Massachusetts: up to 10 years. Northwest Power and Conservation Council: up to 11 years.",
+    "sources": [
+      {
+        "label": "NC Wildlife Resources Commission American shad species account",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/media/3590/open"
+      },
+      {
+        "label": "North Carolina herring and shad identification key (NCFishes.com, NC State/NCWRC-affiliated key)",
+        "class": "agency",
+        "url": "https://ncfishes.com/wp-content/uploads/2021/01/NC-Herring-and-Identification-Key.pdf"
+      },
+      {
+        "label": "Virginia Department of Wildlife Resources: American or hickory? ID your shad catch",
+        "class": "agency",
+        "url": "https://dwr.virginia.gov/blog/american-or-hickory-id-your-shad-catch/"
+      },
+      {
+        "label": "Massachusetts Division of Marine Fisheries American shad species page",
+        "class": "agency",
+        "url": "https://www.mass.gov/info-details/american-shad"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Volume III Chapter 6: American shad",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._6__American_Shad.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Spawning coloration or breeding condition as a field character.",
+      "Regional colour or morphological variation between Atlantic-coast native populations and introduced Pacific-coast populations.",
+      "Vernacular names beyond 'shad' from an agency source."
+    ]
+  },
+  "behavior": {
+    "speciesId": "alosa_sapidissima",
+    "status": "reviewed",
+    "social": {
+      "pattern": "schooling",
+      "byLifeStage": "Juveniles form large schools in fresh water before emigrating (Massachusetts). ASMFC notes males enter rivers ahead of females on the spawning run.",
+      "note": "Anadromous and strongly schooling at every stage. Outside the spawning run, adults are pelagic schooling fish on the continental shelf."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "filter",
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Adults filter larger zooplankton — copepods and mysids — through their crowded gill rakers, and also take fish eggs and small fish (NC Wildlife Resources Commission, Northwest Power and Conservation Council). NC Wildlife Resources Commission states that during the spawning run adult American shad typically do not feed, yet still strike artificial lures. Feeding capacity and strike response are separate things for this species and should not be conflated."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "ASMFC: spawning typically occurs at night or under overcast conditions. Northwest Power and Conservation Council reports adult diel vertical migration in the ocean following prey, and notes larvae are denser at night in vegetated habitat. No sourced general diel feeding rhythm for in-river adults was found, because in-river adults largely do not feed."
+    },
+    "seasonalActivity": "Adults enter rivers in spring; Massachusetts notes fish remain in fresh water until July. Juveniles rear in fresh water through the summer and emigrate in autumn as river temperature falls — Leggett and Whitney give a juvenile downstream migration trigger below 15.5°C.",
+    "thermalDrivenBehavior": "Leggett and Whitney found Atlantic coastal migration tracking the 13-18 C isotherms as those isotherms move north and south seasonally. Across the rivers they examined, peak upstream movement was recorded at 18.0 C in one large western river (90% of runs between 15.5 and 19.5 C over 32 years) and averaged 19.5 C in a large northeastern river, with maximum movements near 14-15 C in lower-river and estuary-transition settings. Reported spawning optimum is 16-20 C; NC Wildlife Resources Commission gives spawning at 11-15 C and the Northwest Power and Conservation Council 15.5-18.3 C. The catalog band of 50-65 F (about 10-18 C) brackets the lower and middle of that range. Massachusetts describes shad as fluvial specialists in fresh water that tolerate warm water. River names are omitted here deliberately: migration timing is described, the waters it happens in are not.",
+    "depthMovement": "Northwest Power and Conservation Council: eggs are most numerous near the bottom but occur at any depth during the spawning season; larvae occupy main channel, shoreline, slough and backwater habitat. Adult oceanic diel vertical migration follows prey.",
+    "openWaterBehavior": "Outside the spawning run, adults are pelagic and schooling. ASMFC describes primary offshore feeding grounds and three offshore wintering areas; the directed ocean fishery has been closed since 2005.",
+    "spawningBehavior": "Anadromous spring spawner. ASMFC: males enter rivers first, followed by females, and spawning typically occurs at night or under overcast conditions. NC Wildlife Resources Commission gives spawning at 11–15°C with eggs hatching in 8–12 days. Reproductive strategy follows a latitudinal gradient: populations south of Cape Hatteras are semelparous, with females releasing up to 700,000 eggs and dying after spawning, while northern populations are iteroparous, producing around 300,000 eggs and surviving to spawn in several years. Spawning, the upstream migration itself, and any structure that constricts that migration are conservation context and are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "ASMFC American shad species page (management, stock status, spawning run description)",
+        "class": "agency",
+        "url": "https://asmfc.org/species/american-shad/"
+      },
+      {
+        "label": "NC Wildlife Resources Commission American shad species account",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/media/3590/open"
+      },
+      {
+        "label": "Massachusetts Division of Marine Fisheries American shad species page",
+        "class": "agency",
+        "url": "https://www.mass.gov/info-details/american-shad"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Volume III Chapter 6: American shad",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._6__American_Shad.pdf"
+      },
+      {
+        "label": "Leggett and Whitney, Water temperature and the migrations of American shad (NOAA Fishery Bulletin)",
+        "class": "peer_reviewed",
+        "url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/1972/703/leggett.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Current-facing and velocity-selection behaviour for in-river adults with primary-source support. The telemetry literature reached is organised around passage at barriers, which this record will not use.",
+      "Flow-change and water-level response with primary-source support.",
+      "Water-clarity response with primary-source support.",
+      "Cold-front or barometric response with primary-source support.",
+      "Angling-pressure response with primary-source support.",
+      "A mechanism for why non-feeding migrants strike; the sourced accounts state the behaviour without explaining it."
+    ]
+  },
+  "diet": {
+    "speciesId": "alosa_sapidissima",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "pelagic",
+    "primaryForage": [
+      "zooplankton",
+      "crustaceans",
+      "small_forage_fish"
+    ],
+    "primaryNote": "Adults filter larger zooplankton, chiefly copepods and mysids, through crowded gill rakers, and also take fish eggs and small fish (NC Wildlife Resources Commission, Northwest Power and Conservation Council). Massachusetts gives a wide variety of zooplankton, shrimp and small fishes at sea. The critical qualifier for this species: NC Wildlife Resources Commission states adults typically do not feed during the spawning run, and Massachusetts states they eat little in fresh water and only occasionally take small prey. Dietary capacity here is largely a marine-phase capacity and is not evidence of a current in-river forage event.",
+    "seasonalDiet": [
+      {
+        "season": "spring",
+        "emphasis": "In-river adults typically do not feed (NC Wildlife Resources Commission); Massachusetts describes them as eating little in fresh water. Do not build a forage story around the spring run."
+      },
+      {
+        "season": "summer",
+        "emphasis": "Juveniles rearing in fresh water feed on small midwater copepods, ostracods and insects (Massachusetts); larvae take copepods and chironomid larvae (Northwest Power and Conservation Council)."
+      },
+      {
+        "season": "fall",
+        "emphasis": "Juveniles emigrate as river temperature falls; post-spawn adults resume feeding on returning to salt water (Northwest Power and Conservation Council)."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Copepods and chironomid larvae as larvae; small midwater copepods, ostracods and insects as young juveniles (Northwest Power and Conservation Council, Massachusetts).",
+      "juvenile": "Small aquatic insects and crustaceans such as copepods and dipterans (NC Wildlife Resources Commission).",
+      "adult": "Larger zooplankton — copepods and mysids filtered through the gill rakers — plus fish eggs and small fish, principally in the marine phase (NC Wildlife Resources Commission, Northwest Power and Conservation Council, Massachusetts)."
+    },
+    "preySizeShifts": "Prey size increases modestly with fish size, but the species stays fundamentally a filter-feeding planktivore with an opportunistic fish and egg component; it does not become piscivorous in the way a predator species does.",
+    "ontogeneticShift": "Larval copepod and chironomid feeding, then juvenile microcrustacean and insect feeding in fresh water, then adult gill-raker filtration of larger zooplankton at sea.",
+    "forageSubstitutions": "Freshwater juveniles substitute chironomids, ostracods and insects for the copepods and mysids that dominate the marine adult diet. Substitution is life-stage and habitat driven rather than seasonal.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match. This matters more than usual for American shad, whose in-river adults are sourced as largely non-feeding.",
+    "sources": [
+      {
+        "label": "NC Wildlife Resources Commission American shad species account",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/media/3590/open"
+      },
+      {
+        "label": "Massachusetts Division of Marine Fisheries American shad species page",
+        "class": "agency",
+        "url": "https://www.mass.gov/info-details/american-shad"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Volume III Chapter 6: American shad",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._6__American_Shad.pdf"
+      },
+      {
+        "label": "ASMFC American shad species page",
+        "class": "agency",
+        "url": "https://asmfc.org/species/american-shad/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Quantitative stomach-content data for in-river adults confirming the degree of feeding cessation, as opposed to the qualitative agency statements used here.",
+      "Winter marine diet composition.",
+      "Whether introduced Pacific-coast populations feed in fresh water differently from Atlantic-coast populations; Northwest Power and Conservation Council notes little is documented about Pacific ocean-phase feeding."
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "alosa_sapidissima",
+    "status": "partial",
+    "overview": "American shad is anadromous, heavily managed, and — in fresh water — largely non-feeding. Its calendar is a temperature-tracked spring entry into rivers, a summer in which adults have left and juveniles rear, and an autumn juvenile emigration triggered by cooling water. The 2020 ASMFC benchmark assessment found coastwide populations depleted, roughly 40% of historic habitat in the US and Canada is blocked, the directed ocean fishery has been closed since 2005, and some states hold full moratoria. Every migration phase in this calendar is conservation context: the timing is described, the places where migrating fish concentrate are not.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Moving fresh water. The catalog's flowing-water classes for this species are run, pool head and current break — velocity-graded water within the channel rather than any named place.",
+        "movementTendency": "Adults enter rivers and move upstream. ASMFC: males ahead of females.",
+        "thermalContext": "Coastal migration tracks the 13-18 C isotherms (Leggett and Whitney). Across the rivers in that study, peak upstream movement was recorded at 18.0 C in one system and averaged 19.5 C in another, with maximum movements near 14-15 C in lower-river settings. The catalog band of 50-65 F brackets the lower and middle of that range. Timing is given; the waters are not.",
+        "feedingEmphasis": "Sourced as largely absent. NC Wildlife Resources Commission: adults on the run typically do not feed, yet still strike artificial lures.",
+        "lightSensitivity": "ASMFC: spawning typically occurs at night or under overcast conditions.",
+        "conservationNote": "Spawning migration period. Spawning, the migration itself, and any structure that constricts or concentrates migrating fish are excluded from target guidance. Stock is depleted coastwide; several states hold moratoria on American shad, and Virginia's is statewide with mandatory immediate release.",
+        "presentationImplication": "Swing and cross-current retrieve are the reviewed flowing-water families that match a fish holding in current and reacting rather than feeding; tight-line drift and pulse jig also sit inside the reviewed set. The approach is a reaction problem, not a forage-matching problem — the sourced accounts say these fish are not feeding.",
+        "invalidators": [
+          "treating migration timing as a location cue",
+          "assuming a feeding or hatch-matching response against the sourced non-feeding state",
+          "ignoring state moratoria, closed seasons and mandatory-release rules"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Adults are leaving or gone from fresh water — Massachusetts notes fish remain in fresh water until July, after which the freshwater population is juveniles. Juveniles occupy main channel, shoreline, slough and backwater habitat.",
+        "movementTendency": "Post-spawn adults drop back to salt water; in northern iteroparous populations a proportion survives to return in later years.",
+        "forageEmphasis": "Juvenile feeding on small midwater copepods, ostracods and insects.",
+        "conservationNote": "Rearing juveniles are not a target class in this app. No presentation guidance is given for this season.",
+        "invalidators": [
+          "targeting rearing juveniles"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Juvenile rearing habitat in the river, emptying as fish move seaward.",
+        "movementTendency": "Juvenile downstream emigration.",
+        "thermalContext": "Leggett and Whitney give a juvenile downstream migration trigger below 15.5°C; Massachusetts describes juveniles entering the sea in autumn as river temperatures decline.",
+        "conservationNote": "Juvenile emigration period. The emigration and any structure that constricts it are excluded from target guidance.",
+        "invalidators": [
+          "treating juvenile emigration timing as a targeting window"
+        ]
+      },
+      {
+        "season": "winter",
+        "habitatClass": "Offshore marine feeding and wintering areas. This is not a freshwater season for American shad — ASMFC places adults on offshore feeding grounds and in offshore wintering areas.",
+        "conservationNote": "The directed ocean fishery has been closed since 2005; modern landings are largely bycatch and in-river.",
+        "invalidators": [
+          "expecting adult shad in fresh water outside the spring run"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "ASMFC American shad species page (2020 benchmark assessment: depleted coastwide; 40% of historic habitat blocked; 2005 ocean fishery closure)",
+        "class": "agency",
+        "url": "https://asmfc.org/species/american-shad/"
+      },
+      {
+        "label": "NC Wildlife Resources Commission American shad species account",
+        "class": "agency",
+        "url": "https://www.ncwildlife.gov/media/3590/open"
+      },
+      {
+        "label": "Massachusetts Division of Marine Fisheries American shad species page",
+        "class": "agency",
+        "url": "https://www.mass.gov/info-details/american-shad"
+      },
+      {
+        "label": "Virginia Department of Wildlife Resources shad identification page (statewide American shad and river herring moratorium)",
+        "class": "agency",
+        "url": "https://dwr.virginia.gov/blog/american-or-hickory-id-your-shad-catch/"
+      },
+      {
+        "label": "Leggett and Whitney, Water temperature and the migrations of American shad (NOAA Fishery Bulletin)",
+        "class": "peer_reviewed",
+        "url": "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/1972/703/leggett.pdf"
+      },
+      {
+        "label": "Northwest Power and Conservation Council, Volume III Chapter 6: American shad",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/Vol._III_Ch._6__American_Shad.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "Within-channel holding-water selection by migrating adults from a primary source that is not organised around barriers and fish passage. The catalog carries 'tailwater' and 'tributary_mouth' as holding classes for this species; those are deliberately not developed here, because the sourced literature that describes them describes them as migration bottlenecks.",
+      "Flow, stage and clarity responses during the run.",
+      "Depth and current-velocity preference for in-river adults.",
+      "Regulatory status by state and river, which changes annually and must be checked locally."
+    ]
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "identification": {
+    "speciesId": "thymallus_arcticus",
+    "status": "reviewed",
+    "regionalNames": [
+      "grayling",
+      "Arctic grayling"
+    ],
+    "bodyShape": "Salmonid form, slender and slightly compressed, with an adipose fin and a small terminal mouth. The defining structure is an outsized, sail-like dorsal fin with a scalloped trailing edge, unlike anything else in the family.",
+    "identificationTraits": [
+      "A very large sail-like dorsal fin with a scalloped edge — the single unambiguous field character.",
+      "The dorsal fin is typically fringed in red and dotted with large iridescent red, aqua, or purple spots; the markings are most developed on large fish.",
+      "Small black spots are scattered on the anterior sides, forward of mid-body — not a full-body trout spotting pattern.",
+      "Pelvic fins carry iridescent orange, red, or pink stripes running along the rays.",
+      "A black slash marks each side of the lower jaw.",
+      "The iris is gold, and a gold band borders the white belly.",
+      "Sides may run black, silver, gold, or blue depending on the population."
+    ],
+    "coloration": "Dark on the back, iridescent grey to silver on the sides with a gold band above a white belly, black spots on the forward sides, and a heavily marked dorsal fin. Adipose, caudal, pectoral, and anal fins are generally grey; pelvics are striped pink to orange.",
+    "regionalColorVariation": "Body colour varies substantially between populations — sides are described as black, silver, gold, or blue depending on where the fish is from. Colour is not a population key in this catalog.",
+    "spawningColoration": "Dorsal-fin iridescence is reported as particularly brilliant on spawning fish. That colour change is biology and conservation context, not a targeting cue.",
+    "adultAppearance": "A grey-to-silver salmonid carrying an unmistakable oversized spotted dorsal fin, black spots only on the forward sides, striped pelvic fins, and a gold iris.",
+    "similarSpecies": [
+      {
+        "speciesId": "prosopium_williamsoni",
+        "name": "Mountain whitefish",
+        "distinction": "Whitefish has a short 12–13 ray dorsal with no markings, no body spots at all, and a small mouth set under a blunt overhanging snout. Grayling has the sail dorsal with coloured spots and a terminal mouth."
+      },
+      {
+        "name": "Trout and char",
+        "distinction": "Trout and char carry a normal, small dorsal fin and spotting distributed over the body and often the tail. No trout or char has the scalloped sail dorsal or the striped pelvic fins."
+      },
+      {
+        "name": "Ciscoes and other coregonines",
+        "distinction": "Ciscoes are slender, herring-like, and plainly silver with a short dorsal fin. They lack both the sail dorsal and the black lower-jaw slash."
+      }
+    ],
+    "averageAdultLength": "Sexual maturity is reached at roughly 10–12 in (255–305 mm), so most adults in a population sit at or above that. Exceptional fish reach about 20 in.",
+    "commonAnglingSize": "Around and somewhat above the 10–12 in maturity size in most populations; a defensible population-specific mean was not located.",
+    "typicalWeight": "Not well characterised as a single figure in the sources reached. Documented weights scale from roughly 3 lb at about 20 in to 5 lb 1 oz at the 24 in maximum; a fish over 3 lb is treated as a trophy by the Alaska agency programme.",
+    "maximumDocumentedSize": "610 mm (24 in) and 2.3 kg (5 lb 1 oz); an Alaska state record of 23 in and 4 lb 13 oz is also reported.",
+    "longevity": "Up to 30–32 years in Alaska. Life span is strongly population-dependent — the Montana fluvial population rarely lives beyond 5 years, with spawning dominated by age 3–4 fish. First spawning occurs between ages 4 and 7 in Alaska and by age 3 in Montana.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_grayling.pdf"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Arctic Grayling",
+        "class": "agency",
+        "url": "http://fieldguide.mt.gov/detail_AFCHA07010.aspx"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "no sourced description of juvenile appearance or parr marking was found, so juvenileAppearance is omitted",
+      "no sourced sexual dimorphism outside spawning colour was found, so the field is omitted",
+      "typical adult weight is genuinely unresolved; the field records the documented scaling instead of a fabricated average",
+      "the informal regional-name list was not audited against a naming authority"
+    ]
+  },
+  "behavior": {
+    "speciesId": "thymallus_arcticus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "loose_aggregation",
+      "byLifeStage": "River populations sort themselves along the length of a drainage by size: the largest, oldest adults occupy the cooler upper reaches, sub-adults the middle, and juveniles and young-of-year the warmer lower sections. In a mountain watershed study, young-of-year and juveniles held low-elevation, silty-sand, flat and run habitat while adults held high-elevation pool and boulder habitat at about 7°C mean stream temperature.",
+      "note": "Feeding fish occupy positions within dominance hierarchies rather than dispersing at random, so the group is structured by competition. Winter is the exception: reduced feeding and metabolism allow large congregations of otherwise competitive fish."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "drift_feeding",
+        "opportunistic"
+      ],
+      "note": "A drift feeder that holds a focal position and intercepts what the current delivers. Position choice follows the drift-foraging model — the fish balances a low-velocity holding spot against access to faster water that delivers prey, maximising net energy intake. Alongside that, sources describe grayling as generalists that take whatever is abundant, including eggs and small fish."
+    },
+    "territoriality": "Foraging positions are allocated through dominance hierarchies, so the best drift-delivery lies are held by dominant fish. This is spacing and competition, not a catch claim.",
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Unresolved. The sources reached document drift foraging as a position-holding, prey-interception mode but do not characterise a diel feeding rhythm for this species. Do not read a low-light or nocturnal bias into this record."
+    },
+    "seasonalActivity": "Strongly migratory on an annual cycle. Fish move to spawning habitat just before and after spring breakup, redistribute to summer feeding areas, and from early fall move — typically downstream — toward overwintering areas. Individual annual movement ranges from under a kilometre to over 160 km. Summer is the voracious feeding season; winter feeding is minimal.",
+    "thermalDrivenBehavior": "Adult growth is optimal between about 4 and 15°C (39–59°F). Above roughly 15°C fish are stressed; above 20°C is lethal without a route to escape, and the thermal maximum sits around 20–25°C. Young-of-year and juveniles grow across a slightly warmer 10–20°C band, which is consistent with the observed size-by-elevation sorting.",
+    "currentFacing": "Holds a focal position facing into flow and intercepts drift, choosing the position that trades holding cost against delivery rate rather than occupying the fastest water.",
+    "depthMovement": "Under winter ice, telemetered fish selected depths greater than 1 m and water with dissolved oxygen above 4.0 mg/L, staying in the upper water column of the deeper, better-oxygenated zones. Adults in a mountain watershed were associated with pool and boulder habitat.",
+    "openWaterBehavior": "Lake-dwelling (adfluvial) populations are common and rely heavily on zooplankton, in contrast with river populations that feed primarily on aquatic insects.",
+    "spawningBehavior": "Spring spawner. Fish migrate to spawning habitat just before and after breakup and broadcast eggs over gravel; the eggs sink and lodge between pebbles, with no redd construction and no parental care. Fry hatch about three weeks later and hold in quiet water. Spawning habitat, spawning movements, and any spawning-associated concentration are excluded from target guidance. Conservation context: the Montana fluvial population is ranked S1 — declining and facing threats to persistence — and is the last native fluvial population in the lower 48 states.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_grayling.pdf"
+      },
+      {
+        "label": "Western Native Trout Initiative / Alaska Department of Fish and Game — Arctic grayling (Thymallus arcticus) species assessment",
+        "class": "agency",
+        "url": "https://westernnativetrout.org/wp-content/uploads/2019/07/wnti-species_assessment_arctic-grayling_adfg_20130318.pdf"
+      },
+      {
+        "label": "Montana State University / Transactions of the American Fisheries Society — Winter Survival, Habitat Use, and Hypoxia Tolerance of Arctic Grayling",
+        "class": "peer_reviewed",
+        "url": "https://www.montana.edu/mcmahon/Grayling%20winter%20survival.pdf"
+      },
+      {
+        "label": "Environmental Biology of Fishes — Habitat use by fluvial Arctic grayling (Thymallus arcticus) across life stages",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-023-01388-z"
+      },
+      {
+        "label": "Hughes & Dill (1990), Position Choice by Drift-Feeding Salmonids: Model and Test for Arctic Grayling, Canadian Journal of Fisheries and Aquatic Sciences; as reviewed in Environmental Biology of Fishes, 'A historical perspective on drift foraging models'",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-013-0187-6"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Arctic Grayling",
+        "class": "agency",
+        "url": "http://fieldguide.mt.gov/detail_AFCHA07010.aspx"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel tendency is unresolved — no diel activity study for this species was reached, and the class is set to mixed rather than guessed",
+      "no primary source found for cold-front / barometric response",
+      "no primary source found for turbidity or clarity response",
+      "no primary source found for water-level or flow-change response",
+      "no primary source found for angling-pressure response",
+      "predator avoidance and structural cover use are not described in the sources reached; fields omitted",
+      "aggression beyond dominance-hierarchy position allocation is not documented here"
+    ]
+  },
+  "diet": {
+    "speciesId": "thymallus_arcticus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "zooplankton",
+      "small_forage_fish",
+      "eggs"
+    ],
+    "primaryNote": "Generalists whose core intake is drifting aquatic insects — blackflies, mayflies, stoneflies, and caddisflies are named specifically. Beyond that they take what is abundant: salmon eggs, salmon smolts and other small fish, and terrestrial insects. Lake populations rely heavily on zooplankton instead. Capacity is not a current hatch.",
+    "seasonalDiet": [
+      {
+        "season": "spring",
+        "emphasis": "Spring is dominated by the movement to spawning habitat rather than by a described feeding pattern; no season-specific diet composition was sourced."
+      },
+      {
+        "season": "summer",
+        "emphasis": "The heavy feeding season — described as voracious feeding on drifting aquatic insects, especially blackflies, mayflies, stoneflies, and caddisflies. Terrestrials, eggs, and small fish appear opportunistically. This is capacity, not a declared hatch."
+      },
+      {
+        "season": "fall",
+        "emphasis": "Feeding continues while fish move toward overwintering areas; no season-specific diet composition was sourced beyond continued opportunism."
+      },
+      {
+        "season": "winter",
+        "emphasis": "Feeding is minimal, and metabolism drops far enough that normally competitive fish tolerate close congregation."
+      }
+    ],
+    "lifeStageDiet": {
+      "youngOfYear": "Young-of-year hold low-elevation, warmer, flat-water habitat over silty sand; a sourced prey composition for this stage was not located.",
+      "adult": "Drifting aquatic insects as the base, with eggs, small fish, and terrestrials taken opportunistically. Lake-dwelling adults rely heavily on zooplankton."
+    },
+    "forageSubstitutions": "The clearest documented substitution is habitat-driven: river populations feed primarily on aquatic insects while lake populations rely heavily on zooplankton. Egg and small-fish use appears where those are seasonally available. Substitution is system-specific.",
+    "observedForageRule": "Diet capacity is not proof that a hatch, egg drop, or baitfish event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_grayling.pdf"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Arctic Grayling",
+        "class": "agency",
+        "url": "http://fieldguide.mt.gov/detail_AFCHA07010.aspx"
+      },
+      {
+        "label": "Environmental Biology of Fishes — Habitat use by fluvial Arctic grayling (Thymallus arcticus) across life stages",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-023-01388-z"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the catalog includes larger_prey_fish for this species; the sources reached support only smolt-scale and small fish, so larger_prey_fish is not carried into primaryForage and needs a human decision",
+      "the catalog includes crustaceans indirectly via zooplankton only; no separate crustacean diet record was sourced",
+      "no quantitative diet composition study by season or region was reached",
+      "ontogenetic diet shift and prey-size shift are not documented in the sources reached; fields omitted"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "thymallus_arcticus",
+    "status": "partial",
+    "overview": "A drift-feeding, position-holding salmonid on a strongly migratory annual cycle: spawning habitat around breakup, summer feeding areas, and a downstream shift to overwintering water from early fall. Within a drainage, big fish sit cold and high, small fish warm and low. Summer is the heavy feeding season and winter is close to a standstill. Seasonal detail is stronger for summer and winter than for spring and fall, so this record is marked partial.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Overwintering water — low-velocity, deep enough, oxygenated, free of frazil ice, with cover from predators. Under ice, depths greater than 1 m in the better-oxygenated zones.",
+        "depthTendency": "Selects water deeper than 1 m under ice, holding in the upper water column where dissolved oxygen exceeds 4.0 mg/L.",
+        "feedingEmphasis": "Minimal feeding; metabolism drops and normally competitive fish tolerate close congregation.",
+        "thermalContext": "Well below the 4–15°C growth band. Adults tolerate hypoxia to a 24-hour LC50 near 0.75 mg/L dissolved oxygen at 1–3°C; juveniles are less tolerant at 1.50–1.96 mg/L, and stress behaviour appears at or below 4.0 mg/L.",
+        "invalidators": [
+          "treating a winter congregation as a feeding opportunity",
+          "assuming a summer drift-feeding posture applies under ice"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Movement to spawning habitat just before and after breakup, then redistribution toward summer feeding water.",
+        "movementTendency": "The most directed movement of the year; individual annual ranges run from under a kilometre to over 160 km.",
+        "conservationNote": "Spring spawner. Spawning habitat, spawning movement, and any spawning-associated concentration are excluded from target guidance. The Montana fluvial population carries an S1 rank.",
+        "invalidators": [
+          "using spawning habitat or spawning movement as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Summer feeding water — riffle-to-run, run, pool head, seam, and side channel in rivers; drop-off, basin, inlet, and outlet in lakes. Adults associate with pool and boulder habitat; sub-adults spread across riffle, pool, and cascade-boulder habitat.",
+        "movementTendency": "Sorted by size along the drainage: largest adults highest and coldest, juveniles lowest and warmest.",
+        "feedingEmphasis": "The voracious feeding season.",
+        "forageEmphasis": "Drifting aquatic insects — blackflies, mayflies, stoneflies, caddisflies — with terrestrials, eggs, and small fish taken opportunistically. Lake fish lean on zooplankton.",
+        "thermalContext": "Adult growth optimal 4–15°C (39–59°F); stress above about 15°C; lethal above 20°C without escape. Young-of-year and juveniles grow across 10–20°C.",
+        "currentUse": "Holds a focal position that trades holding cost against drift delivery rate. Dominant fish hold the best-delivering positions.",
+        "presentationImplication": "Dead drift and suspended drift match a fish intercepting what the current carries; swing and cross-current retrieve work the same delivery lanes. In lakes, horizontal retrieve and subsurface slow roll. Surface drift only when surface feeding is actually observed.",
+        "invalidators": [
+          "inventing a hatch from diet capacity",
+          "forcing water above about 15°C where cooler water is available"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Feeding water giving way to a movement toward overwintering areas, typically downstream of the summer feeding water.",
+        "movementTendency": "Slow migration toward overwintering habitat begins in early fall.",
+        "presentationImplication": "Dead drift and suspended drift remain the reviewed flowing families while fish are still in feeding water.",
+        "invalidators": [
+          "assuming summer feeding-area occupancy persists once the downstream shift begins"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticgrayling.main"
+      },
+      {
+        "label": "Western Native Trout Initiative / Alaska Department of Fish and Game — Arctic grayling (Thymallus arcticus) species assessment",
+        "class": "agency",
+        "url": "https://westernnativetrout.org/wp-content/uploads/2019/07/wnti-species_assessment_arctic-grayling_adfg_20130318.pdf"
+      },
+      {
+        "label": "Montana State University / Transactions of the American Fisheries Society — Winter Survival, Habitat Use, and Hypoxia Tolerance of Arctic Grayling",
+        "class": "peer_reviewed",
+        "url": "https://www.montana.edu/mcmahon/Grayling%20winter%20survival.pdf"
+      },
+      {
+        "label": "Environmental Biology of Fishes — Habitat use by fluvial Arctic grayling (Thymallus arcticus) across life stages",
+        "class": "peer_reviewed",
+        "url": "https://link.springer.com/article/10.1007/s10641-023-01388-z"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Grayling (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_grayling.pdf"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "spring and fall entries are thin — the sources describe movement but not habitat class, depth, or forage detail for those windows",
+      "no light-sensitivity material for any season, consistent with the unresolved diel class",
+      "stillwater (adfluvial) seasonal habitat is only weakly separated from riverine habitat in the sources reached",
+      "no sourced early_spring, early_summer, or late_summer material"
+    ]
+  }
+}

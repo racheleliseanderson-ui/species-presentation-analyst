@@ -1,10 +1,6 @@
-import {
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { AlternativesPanel } from "@/components/alternatives-panel";
+import { Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Handoffs } from "@/components/handoffs";
 import { ResponseRead, SeasonRead } from "@/components/season-read";
@@ -16,21 +12,17 @@ import {
   nextAdaptiveQuestion,
   type AdaptiveQuestion,
 } from "@/lib/engine/adaptive-guidance";
+import { fieldBrief } from "@/lib/engine/brief";
 import { interpret } from "@/lib/engine/infer";
 import { normalizeTemperatureRangeF } from "@/lib/engine/temperature";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
 import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
-import { useSpeciesOverlays } from "@/lib/knowledge/use-species-overlays";
+import { useSpeciesOverlays, useWaterContext } from "@/lib/knowledge/use-species-overlays";
+import { WaterContextPanel } from "@/components/water-context";
 import { SpeciesThumb } from "@/components/species-thumb";
 import { parseEnhancedIncomingPacket } from "@/lib/protocol/enhanced-packet";
 import type { ScenarioInput } from "@/lib/protocol/types";
-import {
-  SEASONS,
-  labelOf,
-  type Light,
-  type Season,
-  type WaterType,
-} from "@/lib/protocol/vocab";
+import { SEASONS, labelOf, type Light, type Season, type WaterType } from "@/lib/protocol/vocab";
 import { STARTERS, toInput, useSession } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -157,15 +149,21 @@ function contextRows(pending: Partial<ScenarioInput>) {
   if (pending.tempF != null) {
     rows.push({ label: "Water temperature", value: `${pending.tempF}°F` });
   } else if (pendingRange) {
-    rows.push({ label: "Water temperature", value: `${pendingRange[0]}–${pendingRange[1]}°F range` });
+    rows.push({
+      label: "Water temperature",
+      value: `${pendingRange[0]}–${pendingRange[1]}°F range`,
+    });
   }
   if (pending.season) rows.push({ label: "Season", value: labelOf(pending.season) });
-  if (pending.light && pending.light !== "unknown") rows.push({ label: "Light", value: labelOf(pending.light) });
-  if (pending.flow && pending.flow !== "unknown") rows.push({ label: "Flow", value: labelOf(pending.flow) });
+  if (pending.light && pending.light !== "unknown")
+    rows.push({ label: "Light", value: labelOf(pending.light) });
+  if (pending.flow && pending.flow !== "unknown")
+    rows.push({ label: "Flow", value: labelOf(pending.flow) });
   if (pending.stillState && pending.stillState !== "unknown") {
     rows.push({ label: "Stillwater state", value: labelOf(pending.stillState) });
   }
-  if (pending.clarity && pending.clarity !== "unknown") rows.push({ label: "Clarity", value: labelOf(pending.clarity) });
+  if (pending.clarity && pending.clarity !== "unknown")
+    rows.push({ label: "Clarity", value: labelOf(pending.clarity) });
   if (pending.forage) rows.push({ label: "Observed forage", value: labelOf(pending.forage.class) });
   return rows;
 }
@@ -181,6 +179,7 @@ function timeBandForLight(light: Light | undefined): string | null {
 export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   const session = useSession();
   const overlays = useSpeciesOverlays(session.speciesId);
+  const waterContext = useWaterContext(session.speciesId, session.water.jurisdiction);
   const [query, setQuery] = useState("");
   const [context, setContext] = useState<QuickContext>(() => defaultContext());
   const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
@@ -232,12 +231,12 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
 
   const canonicalRange = input ? normalizeTemperatureRangeF(input.tempRangeF) : null;
   const rangeAssessment =
-    input && canonicalRange ? assessTemperatureRange(input, canonicalRange[0], canonicalRange[1]) : null;
+    input && canonicalRange
+      ? assessTemperatureRange(input, canonicalRange[0], canonicalRange[1])
+      : null;
 
   const adaptiveQuestion: AdaptiveQuestion | null =
-    input && readableResult && followUpsAnswered < 2
-      ? nextAdaptiveQuestion(input)
-      : null;
+    input && readableResult && followUpsAnswered < 2 ? nextAdaptiveQuestion(input) : null;
 
   const canRead = Boolean(session.speciesId && session.water.waterType);
   const holdingChoices = input ? coarseHoldingChoices(input) : [];
@@ -314,7 +313,8 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
     const current = useSession.getState();
     const nextSpecies = pending.speciesId ?? current.speciesId;
     const nextWaterType = pending.waterType ?? pending.water?.waterType ?? current.waterType;
-    const declarationChanged = nextSpecies !== current.speciesId || nextWaterType !== current.waterType;
+    const declarationChanged =
+      nextSpecies !== current.speciesId || nextWaterType !== current.waterType;
     const incomingRange = normalizeTemperatureRangeF(pending.tempRangeF);
 
     current.patch({
@@ -372,7 +372,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   const primaryTop =
     rangeAssessment?.stable && rangeAssessment.lowTop
       ? rangeAssessment.lowTop
-      : readableResult?.presentations[0] ?? null;
+      : (readableResult?.presentations[0] ?? null);
 
   return (
     <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-8 sm:px-6 sm:pt-10">
@@ -383,19 +383,27 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           </p>
           <h2 className="mt-2 font-display text-2xl">Use what we already know?</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted">
-            One confirmation carries the useful fields forward. Nothing is applied until you approve it, and geography still cannot silently choose a population profile.
+            One confirmation carries the useful fields forward. Nothing is applied until you approve
+            it, and geography still cannot silently choose a population profile.
           </p>
           <dl className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {contextRows(pending).map((row) => (
-              <div key={`${row.label}-${row.value}`} className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3">
-                <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">{row.label}</dt>
+              <div
+                key={`${row.label}-${row.value}`}
+                className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3"
+              >
+                <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                  {row.label}
+                </dt>
                 <dd className="mt-1 text-sm text-fg">{row.value}</dd>
               </div>
             ))}
           </dl>
           <div className="mt-4 flex flex-wrap gap-2">
             <Button onClick={applyPending}>Use this context</Button>
-            <Button variant="ghost" onClick={dismissPending}>Start without it</Button>
+            <Button variant="ghost" onClick={dismissPending}>
+              Start without it
+            </Button>
           </div>
         </section>
       )}
@@ -414,9 +422,12 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           </p>
         </div>
         <div className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)]">
-          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-dim">How this works</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-dim">
+            How this works
+          </p>
           <p className="mt-2 text-sm text-fg">
-            You get the reading first. The app may then ask one high-value follow-up only if changing that answer can materially change the result.
+            You get the reading first. The app may then ask one high-value follow-up only if
+            changing that answer can materially change the result.
           </p>
         </div>
       </section>
@@ -505,7 +516,9 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                     </button>
                   ))}
                   {filteredSpecies.length === 0 && (
-                    <p className="text-sm text-muted">No reviewed species matches this search and water type.</p>
+                    <p className="text-sm text-muted">
+                      No reviewed species matches this search and water type.
+                    </p>
                   )}
                 </div>
               )}
@@ -517,45 +530,64 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-dim">2 · Water</p>
           <h2 className="mt-1 font-display text-2xl">What kind of water are you on?</h2>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            <Choice active={session.water.waterType === "flowing"} onClick={() => setWaterType("flowing")}>
+            <Choice
+              active={session.water.waterType === "flowing"}
+              onClick={() => setWaterType("flowing")}
+            >
               <span className="block font-medium">River / stream</span>
               <span className="mt-0.5 block text-xs opacity-75">Moving water</span>
             </Choice>
-            <Choice active={session.water.waterType === "stillwater"} onClick={() => setWaterType("stillwater")}>
+            <Choice
+              active={session.water.waterType === "stillwater"}
+              onClick={() => setWaterType("stillwater")}
+            >
               <span className="block font-medium">Lake / reservoir</span>
               <span className="mt-0.5 block text-xs opacity-75">Stillwater</span>
             </Choice>
           </div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <label>
-              <span className="font-mono text-[9px] uppercase tracking-wider text-dim">State / province · optional</span>
+              <span className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                State / province · optional
+              </span>
               <input
                 value={session.water.jurisdiction ?? ""}
-                onChange={(event) => session.patch({ water: { ...session.water, jurisdiction: event.target.value } })}
+                onChange={(event) =>
+                  session.patch({ water: { ...session.water, jurisdiction: event.target.value } })
+                }
                 placeholder="Montana"
                 className="mt-1 min-h-11 w-full rounded-[var(--radius-sm)] bg-subtle px-3 text-sm shadow-[var(--shadow-border)]"
               />
             </label>
             <label>
-              <span className="font-mono text-[9px] uppercase tracking-wider text-dim">Named public water · optional</span>
+              <span className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                Named public water · optional
+              </span>
               <input
                 value={session.water.waterName ?? ""}
-                onChange={(event) => session.patch({ water: { ...session.water, waterName: event.target.value } })}
+                onChange={(event) =>
+                  session.patch({ water: { ...session.water, waterName: event.target.value } })
+                }
                 placeholder="Clark Fork River"
                 className="mt-1 min-h-11 w-full rounded-[var(--radius-sm)] bg-subtle px-3 text-sm shadow-[var(--shadow-border)]"
               />
             </label>
           </div>
           <p className="mt-3 text-xs text-dim">
-            Geography helps with context and regulation checks. It never silently assigns a population profile.
+            Geography helps with context and regulation checks. It never silently assigns a
+            population profile.
           </p>
         </section>
 
         <section className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-dim">3 · When · optional</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-dim">
+            3 · When · optional
+          </p>
           <h2 className="mt-1 font-display text-2xl">When are you fishing?</h2>
           <label className="mt-4 block max-w-xs">
-            <span className="font-mono text-[9px] uppercase tracking-wider text-dim">Trip date</span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-dim">
+              Trip date
+            </span>
             <input
               type="date"
               value={context.tripDate}
@@ -565,7 +597,11 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           </label>
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
             {TIME_BANDS.map((band) => (
-              <Choice key={band.id} active={context.timeBand === band.id} onClick={() => chooseTime(band)}>
+              <Choice
+                key={band.id}
+                active={context.timeBand === band.id}
+                onClick={() => chooseTime(band)}
+              >
                 {band.label}
               </Choice>
             ))}
@@ -587,7 +623,9 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 className="mt-1 min-h-11 w-full rounded-[var(--radius-sm)] bg-subtle px-3 text-sm shadow-[var(--shadow-border)]"
               >
                 {SEASONS.map((season) => (
-                  <option key={season} value={season}>{labelOf(season)}</option>
+                  <option key={season} value={season}>
+                    {labelOf(season)}
+                  </option>
                 ))}
               </select>
             </label>
@@ -604,7 +642,9 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
         </section>
 
         <section className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-dim">4 · Water temperature · optional</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-dim">
+            4 · Water temperature · optional
+          </p>
           <h2 className="mt-1 font-display text-2xl">What do you actually know?</h2>
           <div className="mt-4 grid gap-2 sm:grid-cols-3">
             <Choice active={context.tempMode === "unknown"} onClick={() => setTempMode("unknown")}>
@@ -637,7 +677,9 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 placeholder="°F"
                 className="min-h-12 w-28 rounded-[var(--radius-sm)] bg-subtle px-3 font-mono text-sm shadow-[var(--shadow-border)]"
               />
-              <span className="text-sm text-muted">Measured water temperature. Air temperature is never substituted.</span>
+              <span className="text-sm text-muted">
+                Measured water temperature. Air temperature is never substituted.
+              </span>
             </div>
           )}
 
@@ -665,7 +707,8 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 />
               </div>
               <p className="mt-2 text-xs text-dim">
-                The range stays a range. We look at the temperatures it covers — we do not turn it into a single midpoint.
+                The range stays a range. We look at the temperatures it covers — we do not turn it
+                into a single midpoint.
               </p>
             </div>
           )}
@@ -683,9 +726,15 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           Show my Quick Read
         </Button>
         {!canRead && (
-          <p className="text-sm text-muted">Pick a species and river/stream or lake/reservoir to start.</p>
+          <p className="text-sm text-muted">
+            Pick a species and river/stream or lake/reservoir to start.
+          </p>
         )}
-        <button type="button" onClick={openFullAnalysis} className="ml-auto min-h-11 text-sm text-muted underline">
+        <button
+          type="button"
+          onClick={openFullAnalysis}
+          className="ml-auto min-h-11 text-sm text-muted underline"
+        >
           Open Full Analysis
         </button>
       </section>
@@ -694,188 +743,303 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
         <section className="mt-8 space-y-4">
           {"error" in result ? (
             <div className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)]">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-dim">This combination needs a different declaration</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-dim">
+                This combination needs a different declaration
+              </p>
               <h2 className="mt-2 font-display text-3xl">{result.error}</h2>
-              <p className="mt-3 text-sm text-muted">We will not invent a record. Change the water type or target.</p>
+              <p className="mt-3 text-sm text-muted">
+                We will not invent a record. Change the water type or target.
+              </p>
             </div>
           ) : (
             <>
-              <div className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)] sm:p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-mark">Start here · not a bite prediction</p>
-                <h2 className="mt-2 font-display text-4xl">{result.species.commonNames[0]}</h2>
-                {rangeAssessment && !rangeAssessment.stable && rangeAssessment.lowTop && rangeAssessment.highTop ? (
-                  <div className="mt-4 max-w-3xl">
-                    <p className="font-display text-2xl">The temperature range crosses a presentation decision.</p>
-                    <p className="mt-2 text-sm text-fg">
-                      {rangeAssessment.lowF}°F → {rangeAssessment.lowTop.label} · {rangeAssessment.highF}°F → {rangeAssessment.highTop.label}
-                    </p>
-                  </div>
-                ) : primaryTop ? (
-                  <p className="mt-4 max-w-3xl font-display text-2xl">Lead presentation: {primaryTop.label}</p>
-                ) : null}
-                <p className="mt-3 max-w-3xl text-sm text-muted">{result.why}</p>
-                {rangeAssessment && (
-                  <p className="mt-3 max-w-3xl rounded-[var(--radius-sm)] bg-subtle px-3 py-3 text-sm text-fg">
-                    {describeRangeAssessment(rangeAssessment)}
+              {/* On paper the field brief below is the deliverable, so the
+                  styled reading is hidden rather than printed twice. */}
+              <div className="no-print space-y-4">
+                <div className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)] sm:p-8">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-mark">
+                    Start here · not a bite prediction
                   </p>
-                )}
-              </div>
-
-              <div className="grid gap-3 lg:grid-cols-2">
-                <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-dim">Look here</p>
-                  <ul className="mt-3 space-y-2">
-                    {result.positioning.slice(0, 3).map((position) => (
-                      <li key={position.text} className="text-sm text-fg">{position.text}</li>
-                    ))}
-                  </ul>
-                  <p className="mt-4 text-xs text-dim">Ecological positioning, never coordinates or hotspots.</p>
-                </article>
-
-                <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-dim">Present it like this</p>
-                  {rangeAssessment && !rangeAssessment.stable && rangeAssessment.lowTop && rangeAssessment.highTop ? (
-                    <div className="mt-3 space-y-4">
-                      {[rangeAssessment.lowTop, rangeAssessment.highTop].filter((item, index, all) => all.findIndex((x) => x.id === item.id) === index).map((top) => (
-                        <div key={top.id}>
-                          <h3 className="font-display text-xl">{top.label}</h3>
-                          <p className="mt-1 text-sm text-fg">{top.job}</p>
-                        </div>
-                      ))}
+                  <h2 className="mt-2 font-display text-4xl">{result.species.commonNames[0]}</h2>
+                  {rangeAssessment &&
+                  !rangeAssessment.stable &&
+                  rangeAssessment.lowTop &&
+                  rangeAssessment.highTop ? (
+                    <div className="mt-4 max-w-3xl">
+                      <p className="font-display text-2xl">
+                        The temperature range crosses a presentation decision.
+                      </p>
+                      <p className="mt-2 text-sm text-fg">
+                        {rangeAssessment.lowF}°F → {rangeAssessment.lowTop.label} ·{" "}
+                        {rangeAssessment.highF}°F → {rangeAssessment.highTop.label}
+                      </p>
                     </div>
                   ) : primaryTop ? (
-                    <>
-                      <h3 className="mt-2 font-display text-2xl">{primaryTop.label}</h3>
-                      <p className="mt-2 text-sm text-fg">{primaryTop.job}</p>
-                      <ul className="mt-3 grid gap-1 sm:grid-cols-2">
-                        {primaryTop.mechanics.slice(0, 4).map((mechanic) => (
-                          <li key={mechanic} className="font-mono text-xs text-muted">· {mechanic}</li>
+                    <p className="mt-4 max-w-3xl font-display text-2xl">
+                      Lead presentation: {primaryTop.label}
+                    </p>
+                  ) : null}
+                  <p className="mt-3 max-w-3xl text-sm text-muted">{result.why}</p>
+                  {rangeAssessment && (
+                    <p className="mt-3 max-w-3xl rounded-[var(--radius-sm)] bg-subtle px-3 py-3 text-sm text-fg">
+                      {describeRangeAssessment(rangeAssessment)}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid gap-3 lg:grid-cols-2">
+                  <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-dim">
+                      Look here
+                    </p>
+                    <ul className="mt-3 space-y-2">
+                      {result.positioning.slice(0, 3).map((position) => (
+                        <li key={position.text} className="text-sm text-fg">
+                          {position.text}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-4 text-xs text-dim">
+                      Ecological positioning, never coordinates or hotspots.
+                    </p>
+                  </article>
+
+                  <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-dim">
+                      Present it like this
+                    </p>
+                    {rangeAssessment &&
+                    !rangeAssessment.stable &&
+                    rangeAssessment.lowTop &&
+                    rangeAssessment.highTop ? (
+                      <div className="mt-3 space-y-4">
+                        {[rangeAssessment.lowTop, rangeAssessment.highTop]
+                          .filter(
+                            (item, index, all) => all.findIndex((x) => x.id === item.id) === index,
+                          )
+                          .map((top) => (
+                            <div key={top.id}>
+                              <h3 className="font-display text-xl">{top.label}</h3>
+                              <p className="mt-1 text-sm text-fg">{top.job}</p>
+                            </div>
+                          ))}
+                      </div>
+                    ) : primaryTop ? (
+                      <>
+                        <h3 className="mt-2 font-display text-2xl">{primaryTop.label}</h3>
+                        <p className="mt-2 text-sm text-fg">{primaryTop.job}</p>
+                        <ul className="mt-3 grid gap-1 sm:grid-cols-2">
+                          {primaryTop.mechanics.slice(0, 4).map((mechanic) => (
+                            <li key={mechanic} className="font-mono text-xs text-muted">
+                              · {mechanic}
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    ) : (
+                      <p className="mt-2 text-sm text-muted">
+                        No presentation family is available for this reviewed record.
+                      </p>
+                    )}
+                  </article>
+                </div>
+
+                {adaptiveQuestion && (
+                  <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border-hover)] sm:p-6">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-mark">
+                      One thing could sharpen this
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl">{adaptiveQuestion.prompt}</h3>
+                    <p className="mt-2 max-w-3xl text-sm text-muted">{adaptiveQuestion.reason}</p>
+
+                    {adaptiveQuestion.id === "temperature" && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <Button variant="ghost" onClick={() => setTempMode("exact")}>
+                          I can measure it
+                        </Button>
+                        <Button variant="ghost" onClick={() => setTempMode("range")}>
+                          I know a rough range
+                        </Button>
+                        <Button
+                          variant="quiet"
+                          onClick={() => setFollowUpsAnswered((count) => count + 1)}
+                        >
+                          I don't know
+                        </Button>
+                      </div>
+                    )}
+
+                    {adaptiveQuestion.id === "time" && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {TIME_BANDS.map((band) => (
+                          <Button
+                            key={band.id}
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => {
+                              chooseTime(band);
+                              setShowResult(true);
+                              setFollowUpsAnswered((count) => count + 1);
+                            }}
+                          >
+                            {band.label}
+                          </Button>
                         ))}
-                      </ul>
-                    </>
-                  ) : (
-                    <p className="mt-2 text-sm text-muted">No presentation family is available for this reviewed record.</p>
-                  )}
-                </article>
-              </div>
+                      </div>
+                    )}
 
-              {adaptiveQuestion && (
-                <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border-hover)] sm:p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-mark">One thing could sharpen this</p>
-                  <h3 className="mt-2 font-display text-2xl">{adaptiveQuestion.prompt}</h3>
-                  <p className="mt-2 max-w-3xl text-sm text-muted">{adaptiveQuestion.reason}</p>
-
-                  {adaptiveQuestion.id === "temperature" && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <Button variant="ghost" onClick={() => setTempMode("exact")}>I can measure it</Button>
-                      <Button variant="ghost" onClick={() => setTempMode("range")}>I know a rough range</Button>
-                      <Button variant="quiet" onClick={() => setFollowUpsAnswered((count) => count + 1)}>I don't know</Button>
-                    </div>
-                  )}
-
-                  {adaptiveQuestion.id === "time" && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {TIME_BANDS.map((band) => (
+                    {adaptiveQuestion.id === "holding" && (
+                      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                        {holdingChoices.map((choice) => (
+                          <button
+                            key={choice.id}
+                            type="button"
+                            onClick={() => {
+                              answerFollowUp(
+                                input.waterType === "flowing"
+                                  ? {
+                                      holdingRiver: choice.holding as ScenarioInput["holdingRiver"],
+                                      holdingStill: null,
+                                    }
+                                  : {
+                                      holdingRiver: null,
+                                      holdingStill: choice.holding as ScenarioInput["holdingStill"],
+                                    },
+                              );
+                            }}
+                            className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3 text-left shadow-[var(--shadow-border)]"
+                          >
+                            <span className="block text-sm font-medium text-fg">
+                              {choice.label}
+                            </span>
+                            <span className="mt-1 block text-xs text-muted">{choice.detail}</span>
+                          </button>
+                        ))}
                         <Button
-                          key={band.id}
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => {
-                            chooseTime(band);
-                            setShowResult(true);
-                            setFollowUpsAnswered((count) => count + 1);
-                          }}
+                          variant="quiet"
+                          onClick={() => setFollowUpsAnswered((count) => count + 1)}
                         >
-                          {band.label}
+                          I'm not sure
                         </Button>
-                      ))}
-                    </div>
-                  )}
+                      </div>
+                    )}
 
-                  {adaptiveQuestion.id === "holding" && (
-                    <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                      {holdingChoices.map((choice) => (
-                        <button
-                          key={choice.id}
-                          type="button"
-                          onClick={() => {
-                            answerFollowUp(
-                              input.waterType === "flowing"
-                                ? { holdingRiver: choice.holding as ScenarioInput["holdingRiver"], holdingStill: null }
-                                : { holdingRiver: null, holdingStill: choice.holding as ScenarioInput["holdingStill"] },
-                            );
-                          }}
-                          className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3 text-left shadow-[var(--shadow-border)]"
-                        >
-                          <span className="block text-sm font-medium text-fg">{choice.label}</span>
-                          <span className="mt-1 block text-xs text-muted">{choice.detail}</span>
-                        </button>
-                      ))}
-                      <Button variant="quiet" onClick={() => setFollowUpsAnswered((count) => count + 1)}>I'm not sure</Button>
-                    </div>
-                  )}
-
-                  {adaptiveQuestion.id === "forage" && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {result.species.forageClasses.slice(0, 5).map((forageClass) => (
+                    {adaptiveQuestion.id === "forage" && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {result.species.forageClasses.slice(0, 5).map((forageClass) => (
+                          <Button
+                            key={forageClass}
+                            variant="ghost"
+                            size="sm"
+                            onClick={() =>
+                              answerFollowUp({
+                                forage: { class: forageClass, source: "user_observation" },
+                              })
+                            }
+                          >
+                            {labelOf(forageClass)}
+                          </Button>
+                        ))}
                         <Button
-                          key={forageClass}
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => answerFollowUp({ forage: { class: forageClass, source: "user_observation" } })}
+                          variant="quiet"
+                          onClick={() => setFollowUpsAnswered((count) => count + 1)}
                         >
-                          {labelOf(forageClass)}
+                          Nothing obvious
                         </Button>
-                      ))}
-                      <Button variant="quiet" onClick={() => setFollowUpsAnswered((count) => count + 1)}>Nothing obvious</Button>
-                    </div>
-                  )}
+                      </div>
+                    )}
 
-                  {adaptiveQuestion.id === "clarity" && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <Button variant="ghost" onClick={() => answerFollowUp({ clarity: "clear" })}>Mostly clear</Button>
-                      <Button variant="ghost" onClick={() => answerFollowUp({ clarity: "stained" })}>Stained</Button>
-                      <Button variant="quiet" onClick={() => setFollowUpsAnswered((count) => count + 1)}>I'm not sure</Button>
-                    </div>
-                  )}
-                </article>
-              )}
+                    {adaptiveQuestion.id === "clarity" && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <Button
+                          variant="ghost"
+                          onClick={() => answerFollowUp({ clarity: "clear" })}
+                        >
+                          Mostly clear
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          onClick={() => answerFollowUp({ clarity: "stained" })}
+                        >
+                          Stained
+                        </Button>
+                        <Button
+                          variant="quiet"
+                          onClick={() => setFollowUpsAnswered((count) => count + 1)}
+                        >
+                          I'm not sure
+                        </Button>
+                      </div>
+                    )}
+                  </article>
+                )}
 
-              {!adaptiveQuestion && (
-                <article className="rounded-[var(--radius-lg)] bg-subtle p-5 sm:p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-dim">Enough to start</p>
-                  <p className="mt-2 text-sm text-fg">
-                    No additional missing variable currently justifies another required question. You can stop here or inspect the full evidence trail.
-                  </p>
-                </article>
-              )}
+                {!adaptiveQuestion && (
+                  <article className="rounded-[var(--radius-lg)] bg-subtle p-5 sm:p-6">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-dim">
+                      Enough to start
+                    </p>
+                    <p className="mt-2 text-sm text-fg">
+                      No additional missing variable currently justifies another required question.
+                      You can stop here or inspect the full evidence trail.
+                    </p>
+                  </article>
+                )}
 
-              <div className="grid gap-3 lg:grid-cols-2 lg:items-start">
-                <SeasonRead input={input} overlays={overlays} compact />
-                <ResponseRead input={input} overlays={overlays} />
+                <div className="grid gap-3 lg:grid-cols-2 lg:items-start">
+                  <SeasonRead input={input} overlays={overlays} compact />
+                  <ResponseRead input={input} overlays={overlays} />
+                </div>
+
+                <TackleRequirements result={readableResult ?? result} />
+
+                <WaterContextPanel
+                  state={waterContext}
+                  speciesName={result.species.commonNames[0]}
+                  jurisdictionDeclared={Boolean(session.water.jurisdiction?.trim())}
+                />
+
+                <AlternativesPanel
+                  input={input}
+                  result={readableResult ?? result}
+                  overlays={overlays}
+                />
+
+                <Handoffs
+                  input={input}
+                  result={readableResult ?? result}
+                  heading="Hand this off"
+                  intro="Quick Read stops at the presentation. These take the next job — where to fish it, what is actually hatching, and what the rig, tackle and connection have to do. Nothing is sent until you check what travels."
+                />
+
+                <div className="flex flex-wrap gap-2">
+                  <Button onClick={openFullAnalysis}>See Full Analysis</Button>
+                  <Button variant="ghost" onClick={() => setShowResult(false)}>
+                    Adjust Quick Read
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      if (typeof window !== "undefined") window.print();
+                    }}
+                  >
+                    <Printer className="size-4" />
+                    Print brief
+                  </Button>
+                </div>
+
+                {/* The same field brief the full analysis prints. Beginners are
+                  the likeliest to want paper, and the water is where there is
+                  no signal to re-read any of this. */}
               </div>
 
-              <TackleRequirements result={readableResult ?? result} />
-
-              <AlternativesPanel
-                input={input}
-                result={readableResult ?? result}
-                overlays={overlays}
-              />
-
-              <Handoffs
-                input={input}
-                result={readableResult ?? result}
-                heading="Hand this off"
-                intro="Quick Read stops at the presentation. These take the next job — where to fish it, what is actually hatching, and what the rig, tackle and connection have to do. Nothing is sent until you check what travels."
-              />
-
-              <div className="flex flex-wrap gap-2">
-                <Button onClick={openFullAnalysis}>See Full Analysis</Button>
-                <Button variant="ghost" onClick={() => setShowResult(false)}>
-                  Adjust Quick Read
-                </Button>
-              </div>
+              <pre className="print-only hidden whitespace-pre-wrap font-mono text-xs leading-relaxed">
+                {fieldBrief(
+                  input,
+                  readableResult ?? result,
+                  overlays.status === "ready" ? overlays.overlays : undefined,
+                )}
+              </pre>
             </>
           )}
         </section>

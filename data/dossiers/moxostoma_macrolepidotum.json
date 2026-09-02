@@ -1,0 +1,299 @@
+{
+  "identification": {
+    "speciesId": "moxostoma_macrolepidotum",
+    "status": "reviewed",
+    "regionalNames": [
+      "shorthead redhorse",
+      "northern redhorse",
+      "redhorse"
+    ],
+    "bodyShape": "Catostomid (sucker) build — moderately slender, round in cross-section, with a sub-terminal, downward-facing sucking mouth and a forked caudal fin. The head is conspicuously short and scaleless, roughly 17–19% of total length, and goes more than 4.5 times into standard length.",
+    "identificationTraits": [
+      "Caudal fin is bright red in life. Montana's state key states that no other Montana sucker carries a red tail fin, which makes tail colour the fastest field cut where only one red-tailed redhorse occurs.",
+      "Rear margin of the lower lip is nearly straight, and the lower lip is broken into parallel folds (plicae) rather than papillae. This straight rear margin is the primary separation from golden and river redhorse, whose lower-lip margin forms a V-shaped angle.",
+      "Head is short — about 17–19% of total length — the character the common name refers to; other redhorse have proportionally longer heads.",
+      "Dorsal fin is short, 12–13 rays (12–14 in some state accounts), with a strongly concave, inward-curving outer margin.",
+      "41–45 scales in the complete lateral line; body scales are large and even in size front to back, many with a dark crescent-shaped mark at the base.",
+      "Pharyngeal (throat) teeth are slender and blade-like in a comb-like series, with no flattened molar grinding surfaces.",
+      "A pea-shaped swelling is often present at the middle of the upper lip (reported as especially common in Ozark specimens)."
+    ],
+    "coloration": "Back and upper sides olive to greenish brown with golden reflections; lower sides a rich golden yellow to yellow-brown; belly white to yellow. Caudal fin red, dorsal fin green or grey.",
+    "adultAppearance": "A golden-bronze, large-scaled sucker with a very short head, a short concave-margined dorsal fin, and a red tail.",
+    "sexualDimorphism": "Breeding males develop tubercles on all fins except the dorsal. Size overlap between sexes is not treated as a field key in the agency accounts reviewed.",
+    "similarSpecies": [
+      {
+        "name": "Golden redhorse (Moxostoma erythrurum)",
+        "distinction": "Golden redhorse has the rear margin of the lower lip forming a V-shaped angle; shorthead's rear lip margin is nearly straight. Golden redhorse also has a proportionally longer head than the shorthead's 17–19%-of-total-length head."
+      },
+      {
+        "name": "River redhorse (Moxostoma carinatum)",
+        "distinction": "River redhorse also has a bright red tail, so tail colour will not separate them. Use the mouth: river redhorse has few, broad, molar-like pharyngeal teeth with flat grinding surfaces (a shell-crusher) and a slight V-angle to the rear lip margin, and its dorsal margin is straight to slightly convex. Shorthead has comb-like slender teeth, a nearly straight rear lip margin, and a strongly concave dorsal margin."
+      },
+      {
+        "speciesId": "catostomus_commersonii",
+        "name": "White sucker",
+        "distinction": "White sucker has fine scales that are largest near the tail and get smaller toward the head, and lips covered in small bumps (papillae). Shorthead redhorse has large, evenly sized scales over the whole body and plicate (folded) lips, plus the red tail."
+      },
+      {
+        "name": "Northern hog sucker (Hypentelium nigricans)",
+        "distinction": "Northern hog sucker has a large, square, bony head that is concave between the eyes and usually four dark crossbars over the body. Shorthead redhorse has a small rounded head and no crossbars."
+      }
+    ],
+    "averageAdultLength": "Adults commonly 300–400 mm (12–16 in); fish over 500 mm (20 in) occur. A Canadian review of the genus puts the species mean near 500 mm TL, so mean length is population-dependent rather than a single figure.",
+    "commonAnglingSize": "Most fish encountered are in the 12–16 in range; state accounts give an overall adult span of roughly 9–30 in.",
+    "typicalWeight": "Not consistently reported in the agency accounts reviewed. Montana gives a state maximum near 5 lb, which brackets the upper end rather than describing a typical fish.",
+    "maximumDocumentedSize": "State accounts give a length span to about 30 in; Montana reports fish to roughly 5 lb. A single continent-wide maximum was not found in the sources reviewed.",
+    "longevity": "Commonly 8–10 years, occasionally 12 or more; a review of the genus gives a mean lifespan near 11 years and notes this is the shortest-lived of the redhorses.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/shorthead-redhorse"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: River Redhorse (comparative characters)",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/river-redhorse"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Golden Redhorse (comparative characters)",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/golden-redhorse"
+      },
+      {
+        "label": "Missouri Department of Conservation — Field Guide: White Sucker and Northern Hog Sucker (comparative characters)",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/white-sucker"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — Wild About Fishes: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsucker/wafshortheadredhorse.html"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC10110"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — Shorthead Redhorse account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/shorthead_redhorse.html"
+      },
+      {
+        "label": "Biology and Conservation of Moxostoma spp. Occurring in Canada (review, Fishes 2025)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2673-7159/5/2/27"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "juvenile and young-of-year appearance — not described in the agency accounts reviewed",
+      "regional colour variation and any spawning colour change beyond male tubercles",
+      "a typical (rather than maximum) weight from a primary source",
+      "current taxonomic limits of Moxostoma macrolepidotum relative to closely related redhorse forms were not resolved from the sources reviewed; treat the record as the broad, widely used concept"
+    ]
+  },
+  "behavior": {
+    "speciesId": "moxostoma_macrolepidotum",
+    "status": "partial",
+    "social": {
+      "pattern": "loose_aggregation",
+      "note": "Outside the spawning period the sources reviewed describe co-occurrence with other redhorse and stream fishes in the same current-swept habitat rather than a defined school. Aggregation at spawning time is documented but is conservation context only. The non-spawning social structure is not resolved by the sources reviewed."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "opportunistic"
+      ],
+      "note": "A benthic invertivore. The sub-terminal, downward-facing sucking mouth is built to work the bottom, and a review of the genus found gut contents dominated by mayflies (53%), caddisflies (24%), chironomids (10%) and crustaceans (8%), with 46% of gut content by volume being sediment — that is, prey taken with a mouthful of substrate rather than picked out of the drift."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Recorded as a non-claim. No agency or peer-reviewed source reviewed here resolves a diel activity pattern for this species; 'mixed' is entered because the field is required, and the gap is listed rather than filled with a guess."
+    },
+    "seasonalActivity": "Adults make a spring migration out of larger rivers into smaller rivers and streams; a review of the genus describes spring migration to coarse-substrate, fast-running water as the shared Moxostoma pattern. Autumn and winter movement was not resolved by the sources reviewed.",
+    "thermalDrivenBehavior": "Habitat accounts place the species in rivers of intermediate temperature. Reproductive activity begins near 14°C (57°F) and is sustained to about 22°C (72°F); Minnesota records spawning across 8–16°C. The upper lethal limit is reported at 33.3°C and the critical thermal maximum at 35.1°C, so the catalog's 55–70°F band sits well inside the species' tolerance rather than at its edge.",
+    "currentFacing": "Associated with strong current. State accounts place it in medium-sized to moderately large rivers with strong flow and substantial areas free of silt, and Montana specifically with the shallow, swift water of larger rivers.",
+    "clarityResponse": "Tolerant across clear to moderately turbid water, but tied to sand, gravel or rock bottom without heavy silt deposition. Iowa classifies it as a species of intermediate pollution tolerance.",
+    "spawningBehavior": "Spring spawner over coarse rubble in shallow, moderate-to-fast flowing water; adults move from larger rivers into smaller rivers and streams to do it. Reported spawning temperatures run from about 8°C to 22°C depending on latitude, with initiation near 14°C. Fecundity is reported at roughly 12,000–45,000 eggs per female, with no parental care. Spawning substrate and any spawning-period concentration are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/shorthead-redhorse"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — Wild About Fishes: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsucker/wafshortheadredhorse.html"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC10110"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — Shorthead Redhorse species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/57"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — Shorthead Redhorse account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/shorthead_redhorse.html"
+      },
+      {
+        "label": "Biology and Conservation of Moxostoma spp. Occurring in Canada (review, Fishes 2025)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2673-7159/5/2/27"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel activity pattern — no primary source found",
+      "winter habitat and overwintering behaviour — no primary source found",
+      "cold-front / barometric response — no primary source found",
+      "water-level and flow-change response with primary-source support",
+      "angling-pressure response — no primary source found",
+      "cover use and predator avoidance — the accounts reviewed describe substrate and current association only",
+      "non-spawning social structure (school vs. loose association)"
+    ]
+  },
+  "diet": {
+    "speciesId": "moxostoma_macrolepidotum",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "benthic",
+    "primaryForage": [
+      "aquatic_insects",
+      "mollusks",
+      "crustaceans",
+      "worms_annelids"
+    ],
+    "primaryNote": "Predominantly immature aquatic insects gleaned from the bottom — a review of the genus found mayflies at 53%, caddisflies at 24% and chironomids at 10% of gut contents, and Minnesota calls this the most insectivorous of its suckers. Crustaceans made up about 8% (water fleas, copepods and amphipods are named in state accounts) and worms are also taken. Nearly half the gut content by volume was sediment, which is what a substrate-vacuuming feeding mode looks like. Capacity is not a current hatch.",
+    "lifeStageDiet": {
+      "adult": "Benthic invertivore: immature midges, mayflies and caddisflies taken off and within the bottom, plus small crustaceans and worms."
+    },
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/shorthead-redhorse"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — Wild About Fishes: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsucker/wafshortheadredhorse.html"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — Shorthead Redhorse species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/57"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — Shorthead Redhorse account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/shorthead_redhorse.html"
+      },
+      {
+        "label": "Biology and Conservation of Moxostoma spp. Occurring in Canada (review, Fishes 2025)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2673-7159/5/2/27"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "direct dietary confirmation of mollusks for this species was not found in the sources reviewed; the catalog forage class is retained but is not independently verified here, and note that shorthead pharyngeal teeth are slender and comb-like rather than the molar, shell-crushing type carried by river redhorse",
+      "young-of-year and juvenile diet — not described in the sources reviewed",
+      "season-by-season diet shifts — not described in the sources reviewed",
+      "prey-size shifts with growth"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "moxostoma_macrolepidotum",
+    "status": "partial",
+    "overview": "A current-and-substrate fish rather than a cover fish: medium-to-large rivers with strong flow, sand-gravel-rock bottom and little silt, worked from below by a downward-facing sucking mouth. Spring brings a movement out of larger rivers into smaller flowing water, which is conservation context. Autumn and winter habitat use is not resolved by the sources reviewed, and no entry is written for winter.",
+    "entries": [
+      {
+        "season": "spring",
+        "habitatClass": "Riffle-to-run and run over clean gravel, rubble and rock in medium-to-large rivers, and the same water in the smaller rivers and streams adults move into.",
+        "movementTendency": "Adults move from larger rivers into smaller rivers and streams as water warms.",
+        "feedingEmphasis": "Bottom-worked immature insects; feeding is a substrate activity, not a drift-interception activity.",
+        "thermalContext": "Reproductive activity begins near 14°C (57°F); Minnesota records the spawning window across 8–16°C, running from late April in the south to early June in the north.",
+        "currentUse": "Moderate to fast flow over coarse substrate.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift keep an offering on the substrate where this species actually feeds; stationary bait is the other reviewed flowing family that matches a bottom-oriented invertivore. Surface families do not match the mouth.",
+        "conservationNote": "Spring spawner. Spawning substrate and any spawning-period concentration are excluded from target guidance.",
+        "invalidators": [
+          "treating a spring movement into smaller water as a location cue",
+          "reading the spawning aggregation as holding water"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Strong-flow runs, riffle-to-run and pool tails over sand, gravel or rock with substantial silt-free area; current breaks adjacent to that water.",
+        "feedingEmphasis": "Continued benthic invertivory on mayfly, caddisfly and midge immatures.",
+        "thermalContext": "Well inside tolerance through summer — the upper lethal limit is reported at 33.3°C and critical thermal maximum at 35.1°C, far above the catalog's 55–70°F preferred band.",
+        "currentUse": "Holds in and beside swift water rather than in slack backwater.",
+        "presentationImplication": "Bottom-contact drift and stationary bait remain the families matched to a downward-facing benthic feeder; tight-line drift covers the same substrate in faster water.",
+        "invalidators": [
+          "fishing it as a mid-column or surface feeder",
+          "assuming heavy siltation holds the same density of fish as clean gravel"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "The same current-swept gravel and rubble runs and pool tails as water cools; no autumn habitat shift is documented in the sources reviewed.",
+        "feedingEmphasis": "Benthic invertivory continues; no seasonal prey switch is described in the sources reviewed.",
+        "presentationImplication": "Bottom-contact drift and tight-line drift; the mechanics do not change because the calendar does.",
+        "invalidators": [
+          "importing a fall-spawning pattern from salmonids — this is a spring spawner"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Missouri Department of Conservation — Field Guide: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://mdc.mo.gov/discover-nature/field-guide/shorthead-redhorse"
+      },
+      {
+        "label": "Illinois Department of Natural Resources — Wild About Fishes: Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsucker/wafshortheadredhorse.html"
+      },
+      {
+        "label": "Montana Field Guide (Montana Natural Heritage Program / Montana Fish, Wildlife & Parks) — Shorthead Redhorse",
+        "class": "agency",
+        "url": "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=AFCJC10110"
+      },
+      {
+        "label": "Iowa Department of Natural Resources BioNet — Shorthead Redhorse species overview",
+        "class": "agency",
+        "url": "https://programs.iowadnr.gov/bionet/Fish/Species/57"
+      },
+      {
+        "label": "University of Minnesota, Fishes of Minnesota — Shorthead Redhorse account",
+        "class": "synthesis",
+        "url": "https://academics.cehd.umn.edu/hatch/research/fish/fishes/shorthead_redhorse.html"
+      },
+      {
+        "label": "Biology and Conservation of Moxostoma spp. Occurring in Canada (review, Fishes 2025)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2673-7159/5/2/27"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "winter entry omitted — no sourced description of overwintering habitat or activity",
+      "depth tendency by season — not described in the sources reviewed",
+      "light sensitivity / diel pattern — not described in the sources reviewed",
+      "stillwater (lake and reservoir) seasonal use, which state accounts confirm occurs but do not describe"
+    ]
+  }
+}

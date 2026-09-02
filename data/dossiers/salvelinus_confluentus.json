@@ -1,0 +1,295 @@
+{
+  "identification": {
+    "speciesId": "salvelinus_confluentus",
+    "status": "reviewed",
+    "regionalNames": [
+      "bull char"
+    ],
+    "bodyShape": "Char body form with a notably large head and mouth relative to body length. Tail is slightly forked in both adults and juveniles.",
+    "identificationTraits": [
+      "Dorsal fin carries no black spots or lines; some fish show a few light markings along the base of the dorsal fin. Brook trout show solid black dorsal markings with distinct edges, and bull trout × brook trout hybrids show markings that are neither solid black nor sharply edged. ODFW notes this key applies to fish of at least 125 mm.",
+      "Sides carry pale spots — cream, pink, yellow, orange, sometimes crimson — with no blue halo around them.",
+      "White leading edges on the fins. WDFW's char key gives white leading edges on the lower fins for brook trout as well, so this trait alone is not diagnostic against brook trout.",
+      "Slightly forked tail; pure fish have spotless dorsal and tail fins, the basis of the fishery-manager phrase 'fins black, put it back'.",
+      "Head and mouth are large relative to the body — a consistent field impression separating bull trout from stream trout of similar length."
+    ],
+    "coloration": "Olive to bronze, gray-green back and sides with pale yellow, orange, or salmon-colored spots, grading to a pale belly. Spot color runs from cream and pink through orange to occasional crimson, always without a blue halo.",
+    "juvenileAppearance": "Stream juveniles are generally under 20 in and carry the same slightly forked tail and unmarked dorsal fin. The dorsal-fin key is applied to fish of at least 125 mm; below that size ODFW does not offer it.",
+    "adultAppearance": "A large-headed olive-to-bronze char with pale yellow, orange, or salmon spotting, an unmarked dorsal fin, white fin leading edges, and a slightly forked tail. Migratory (fluvial and adfluvial) adults are far larger than stream residents; Montana FWP's field guide separates lake adults over 20 in from stream juveniles under 20 in.",
+    "similarSpecies": [
+      {
+        "speciesId": "salvelinus_fontinalis",
+        "name": "Brook trout",
+        "distinction": "Brook trout carry solid, sharply edged black markings on the dorsal fin and crimson spots ringed with blue halos, plus worm-trail vermiculations on the back. Bull trout have an unmarked dorsal fin and pale spots with no blue halo. Bull trout × brook trout hybrids show intermediate dorsal markings that are neither solid black nor distinctly edged — a hybrid is not a bull trout and should not be forced into this record."
+      },
+      {
+        "speciesId": "salvelinus_malma",
+        "name": "Dolly Varden",
+        "distinction": "The agency keys reached for this record (WDFW) treat bull trout and Dolly Varden together as light-spotted char with no blue halos and do not supply a field character separating them. Where ranges overlap, this record does not support a reliable field separation from Dolly Varden."
+      },
+      {
+        "name": "Lake trout",
+        "distinction": "Lake trout carry irregular white or gray spots rather than the orange-to-cream spotting of bull trout and Dolly Varden."
+      }
+    ],
+    "averageAdultLength": "Life-history dependent. USFWS gives stream residents reaching about 10 in and migratory forms reaching about 35 in. Oregon Sea Grant cites migratory populations up to 41 in.",
+    "commonAnglingSize": "Not a target species in this catalog — bull trout are ESA-listed as threatened across much of their U.S. range and encounters here are incidental. As a size frame only, Montana FWP's guide separates stream juveniles under 20 in from lake adults over 20 in, and states that all bull trout must be released immediately where catch-and-release seasons apply.",
+    "typicalWeight": "The sources reached give maxima rather than a typical weight. USFWS gives migratory forms to about 32 lb; the Montana AFS species account gives 20+ lb for large fish. No sourced typical weight for stream residents.",
+    "maximumDocumentedSize": "USFWS: about 35 in and 32 lb for migratory forms. Montana AFS: 37 in and 20+ lb. Oregon Sea Grant: up to 41 in and 32 lb. Maxima are population-specific and these three agency figures do not resolve to one number.",
+    "longevity": "USFWS gives maturity at four to seven years; the Montana AFS account gives a minimum breeding age of five. Maximum age was not found in the sources reached.",
+    "sources": [
+      {
+        "label": "USFWS species profile: Bull Trout (Salvelinus confluentus)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/bull-trout-salvelinus-confluentus"
+      },
+      {
+        "label": "Oregon Department of Fish and Wildlife bull trout identification guide (dorsal-fin marking key)",
+        "class": "agency",
+        "url": "https://myodfw.com/articles/bull-trout-identification-guide"
+      },
+      {
+        "label": "Montana Fish, Wildlife & Parks bull trout identification guide",
+        "class": "agency",
+        "url": "https://myfwp.mt.gov/getRepositoryFile?objectID=79595"
+      },
+      {
+        "label": "WDFW, Salmon and Trout: The Identification Guide (char section)",
+        "class": "agency",
+        "url": "https://wdfw.wa.gov/sites/default/files/publications/00303/wdfw00303.pdf"
+      },
+      {
+        "label": "Oregon Sea Grant native fishes account: bull trout",
+        "class": "agency",
+        "url": "https://seagrant.oregonstate.edu/WRF/native-fishes/salmon-and-trout/bull-trout"
+      },
+      {
+        "label": "Montana Chapter, American Fisheries Society — bull trout species of concern status account",
+        "class": "synthesis",
+        "url": "https://units.fisheries.org/montana/science/species-of-concern/species-status/bull-trout/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "regional / vernacular names — no agency source reached supplied a name list, so the field is left empty rather than guessed",
+      "spawning coloration — not described in any source reached",
+      "sexual dimorphism outside the spawning period",
+      "a field character separating bull trout from Dolly Varden; the agency key reached treats them together",
+      "typical (as opposed to maximum) adult weight",
+      "maximum documented age"
+    ]
+  },
+  "behavior": {
+    "speciesId": "salvelinus_confluentus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Fry and juveniles hold individual focal sites and consistently return to the same holding site after feeding forays, displaying territoriality when another individual takes the site. No schooling behavior for adults is documented in the sources reached.",
+      "note": "Biological context only. Bull trout are a conservation-sensitive record in this catalog and this dossier carries no targeting guidance."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "drift_feeding",
+        "benthic_feeding",
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Fry feed on or near the bottom, in the water column, and at the surface, taking mostly aquatic insects off the bottom or in drift. From about 110 mm, juveniles begin taking small fish and forage near the substrate and in the water column but not at the surface. Most adults become piscivorous. Stream residents in systems without fish prey subsist on benthic invertebrates and plankton."
+    },
+    "territoriality": "Fry hold focal sites about 4 cm off the bottom, strongly associated with instream cover and especially overhead cover, and defend them against individuals that take the site.",
+    "dielTendency": {
+      "class": "nocturnal",
+      "note": "Documented for juveniles and subadults. Thurow et al. (2020) found juveniles 14.5 times less likely to be concealed in constant darkness than in constant light, with 70–82% concealed during daylight where large substrate was available, and concealment 6.2 times less likely in small (26–51 mm) than in larger (52–102 mm) substrate. Muhlfeld and Marotz (2003) found wintering subadults concealed in deep midchannel water by day and emerging to shallow, low-velocity channel margins without overhead cover at night, with emergence immediately at the onset of night and concealment at daybreak. Adult diel pattern is not established in the sources reached."
+    },
+    "seasonalActivity": "Adfluvial adults forage in the littoral zone in fall and spring and move to deep water in summer once temperatures exceed 15°C. Juvenile emigration from natal areas begins in spring and continues through most of summer. Spawning migration occurs in late summer and fall and is conservation context only.",
+    "thermalDrivenBehavior": "USFWS frames the species requirement as cold, clean, complex and connected habitat with water below about 59–64°F. Bull trout are uncommon wherever water rises above 15°C (59°F) for extended periods. Juvenile rearing is associated with summer temperatures under 15°C, and spawning with water below about 8–9°C. Thurow et al. (2020) found juvenile concealment declining as temperature rose toward about 13.3°C, near the species' peak growth temperature. The catalog preferred band of 44–54°F sits inside these agency limits and does not contradict them.",
+    "depthMovement": "Juvenile focal sites sit close to the bottom — about 4 cm off it. Wintering subadults used deep midchannel water by day and shallow margins at night, with a median day-to-night displacement of 86 m (range 27–594 m). Lacustrine adults move from the littoral zone into deep water in summer above 15°C.",
+    "flowChangeResponse": "Muhlfeld and Marotz (2003) recommended flow management that maximizes and stabilizes channel-margin habitat at night, on the basis that wintering subadults use those margins after dark. Dewatering of channel margins therefore removes the habitat this life stage occupies at night. This is a habitat-availability finding, not a feeding response.",
+    "predatorAvoidance": "Daytime concealment in interstitial spaces of larger substrate; the authors interpret nocturnal emergence as energy conservation or predator avoidance.",
+    "coverUse": "Complex cover is the documented rearing requirement — deep pools, large woody debris, rocky stream beds, and undercut banks. Juvenile focal sites are strongly associated with instream and especially overhead cover, and concealment depends on interstitial space, which larger substrate (52–102 mm) supplies and small substrate does not.",
+    "openWaterBehavior": "Lacustrine and adfluvial fish forage in the littoral zone in spring and fall and hold in deep water in summer. No pelagic schooling form is documented in the sources reached.",
+    "spawningBehavior": "Fall spawner. USFWS gives spawning between August and November, sometimes as late as December; the Montana AFS account gives late August through early November, with spawning associated with water below about 8–9°C. Females deposit roughly 5,000 eggs in gravel redds; eggs may incubate up to about 210 days and juveniles rear one to four years before migrating. Spawning substrate, redds, and any pre-spawn holding water are conservation context and are excluded from this record's habitat guidance. No spawning area, aggregation, or migration bottleneck is described here.",
+    "sources": [
+      {
+        "label": "USFWS species profile: Bull Trout (Salvelinus confluentus)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/bull-trout-salvelinus-confluentus"
+      },
+      {
+        "label": "McPhail & Baxter, A Review of Bull Trout (Salvelinus confluentus) Life-History and Habitat Use in Relation to Compensation and Improvement Opportunities (British Columbia fisheries management report)",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/App67_RevBT_LifeHist.pdf"
+      },
+      {
+        "label": "Thurow, Peterson, Chandler, Moffitt & Bjornn 2020, Concealment of juvenile bull trout in response to temperature, light, and substrate: implications for detection, PLoS ONE 15(9): e0237716",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0237716"
+      },
+      {
+        "label": "Muhlfeld & Marotz 2003, Winter diel habitat use and movement by subadult bull trout in the upper Flathead River, Montana, North American Journal of Fisheries Management 23:163–171",
+        "class": "peer_reviewed",
+        "url": "https://pubs.usgs.gov/publication/70159995"
+      },
+      {
+        "label": "Montana Chapter, American Fisheries Society — bull trout species of concern status account",
+        "class": "synthesis",
+        "url": "https://units.fisheries.org/montana/science/species-of-concern/species-status/bull-trout/"
+      },
+      {
+        "label": "Idaho Governor's Office of Species Conservation — bull trout account (listing status and threats)",
+        "class": "agency",
+        "url": "https://species.idaho.gov/aquatic-species/bull-trout-updated/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "adult diel pattern — the concealment and winter-diel work reached covers juveniles and subadults only",
+      "current-facing / velocity-selection behavior for adults",
+      "water clarity response",
+      "cold-front or barometric response with primary-source support",
+      "angling-pressure response with primary-source support",
+      "water-level rise and fall response as a behavioral (not habitat-availability) finding"
+    ]
+  },
+  "diet": {
+    "speciesId": "salvelinus_confluentus",
+    "status": "reviewed",
+    "feedingStyle": "mixed",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "aquatic_insects",
+      "small_forage_fish",
+      "larger_prey_fish"
+    ],
+    "primaryNote": "Biological context only; this catalog withholds presentation guidance for bull trout. Fry take mostly aquatic insects off the bottom and in drift and will also feed at the surface. From about 110 mm, juveniles add small fish — sculpins, mountain whitefish and trout fry are the taxa named in the life-history review — and stop feeding at the surface. Most adults become piscivorous, with a documented propensity for sculpins, kokanee and mountain whitefish where those are present, and for Dolly Varden in sympatric systems. Stream residents in systems without fish prey remain on benthic invertebrates and plankton. Capacity is not a current hatch or a current forage event.",
+    "lifeStageDiet": {
+      "youngOfYear": "Mostly aquatic insects taken off the bottom and in drift, with some surface feeding.",
+      "juvenile": "Aquatic insects plus small fish from about 110 mm, foraging near the substrate and in the water column but not at the surface.",
+      "adult": "Predominantly fish. Stream residents without fish prey remain invertebrate and plankton feeders."
+    },
+    "preySizeShifts": "Prey size steps with fish size: small fish enter the diet at about 110 mm, and a sudden acceleration in growth around 550 mm coincides with a shift onto kokanee-scale prey.",
+    "ontogeneticShift": "Aquatic insects to mixed insect-and-small-fish at about 110 mm to predominantly piscivorous adults, with the terminal stage conditional on fish prey being available in the system.",
+    "forageSubstitutions": "Prey emphasis is system-specific. Where forage fish are present the review names sculpins, mountain whitefish, trout fry and kokanee; where they are absent, resident fish remain on benthic invertebrates and plankton rather than substituting a different fish prey.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match. For this species the rule is doubly binding: bull trout are conservation-sensitive here and no forage record in this dossier is a targeting cue.",
+    "sources": [
+      {
+        "label": "McPhail & Baxter, A Review of Bull Trout (Salvelinus confluentus) Life-History and Habitat Use in Relation to Compensation and Improvement Opportunities (British Columbia fisheries management report)",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/App67_RevBT_LifeHist.pdf"
+      },
+      {
+        "label": "USFWS species profile: Bull Trout (Salvelinus confluentus)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/bull-trout-salvelinus-confluentus"
+      },
+      {
+        "label": "Montana Chapter, American Fisheries Society — bull trout species of concern status account",
+        "class": "synthesis",
+        "url": "https://units.fisheries.org/montana/science/species-of-concern/species-status/bull-trout/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "crustaceans — the catalog forage list carries this class, but the sources reached document only 'benthic invertebrates and plankton' generically and no crustacean-specific diet record, so it is omitted from primaryForage rather than asserted",
+      "season-by-season diet emphasis; the sources reached give ontogenetic rather than seasonal diet structure",
+      "quantitative diet composition (percent by mass or number) for any life stage"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "salvelinus_confluentus",
+    "status": "partial",
+    "overview": "Bull trout are a cold-water char with a narrow thermal envelope — uncommon above 15°C (59°F) for extended periods — and a strong daytime-concealment, nighttime-emergence pattern documented in juveniles and subadults. The species is ESA-listed as threatened across much of its U.S. range and is a conservation-sensitive record in this catalog: this calendar is biological context only and carries no presentation implication in any season. Winter and summer are the best-sourced seasons; spring and fall entries rest on migration and habitat-use statements rather than season-specific studies, hence the partial status.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Deep midchannel water by day; shallow, low-velocity channel margins without overhead cover at night. In lakes, deep water outside the littoral zone.",
+        "depthTendency": "Deep by day, shallow at night for subadults in a large river system.",
+        "movementTendency": "92% of tracked subadults made at least one diel movement, moving on about 73% of occasions, with a median day-to-night displacement of 86 m (range 27–594 m).",
+        "lightSensitivity": "Nocturnal emergence began immediately at the onset of night; daytime concealment resumed at daybreak.",
+        "coverUse": "Interstitial concealment in larger substrate (52–102 mm) by day; no overhead cover at the night margin positions.",
+        "conservationNote": "Conservation-sensitive record. Channel-margin dewatering removes the habitat this life stage uses after dark.",
+        "invalidators": [
+          "reading the daytime midchannel position as the whole winter picture",
+          "converting any part of this entry into targeting guidance — presentation guidance is withheld for this species"
+        ]
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Littoral zone for lacustrine adults; complex stream cover — deep pools, large woody debris, rocky beds, undercut banks — for rearing juveniles.",
+        "movementTendency": "Juvenile emigration from natal areas begins in spring and continues through most of summer.",
+        "thermalContext": "Below the 15°C (59°F) limit that bounds the species across its range.",
+        "conservationNote": "Conservation-sensitive record; no presentation implication is given for any season.",
+        "invalidators": [
+          "treating juvenile spring emigration as a concentration cue"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Deep water in lakes once surface temperatures exceed 15°C; in streams, the coldest complex habitat available with instream and overhead cover.",
+        "depthTendency": "Lacustrine adults move off the littoral zone into deep water as surface temperature rises.",
+        "thermalContext": "Uncommon where water exceeds 15°C (59°F) for extended periods; juvenile rearing associated with summer temperatures under 15°C. Juvenile concealment declines as temperature approaches about 13.3°C, near peak growth temperature.",
+        "coverUse": "Deep pools, large woody debris, rocky stream beds and undercut banks.",
+        "conservationNote": "Thermal compression in summer concentrates this species in the little cold habitat that remains. Conservation-sensitive record; no presentation implication.",
+        "invalidators": [
+          "assuming bull trout will use warm water because other salmonids in the system do"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Littoral foraging continues in lakes. In streams the spawning period is under way; spawning substrate and pre-spawn holding water are conservation context and are excluded from this record's habitat description.",
+        "thermalContext": "Spawning is associated with water dropping below about 8–9°C.",
+        "conservationNote": "Fall spawner. Spawning gravel, redds and any pre-spawn holding water are excluded from target guidance, and no spawning area or aggregation is named. Presentation guidance is withheld for this species in every season.",
+        "invalidators": [
+          "using spawning substrate as holding water",
+          "reading the fall spawning period as an activity or opportunity window"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Movement out of spawning reaches toward wintering habitat, then the winter deep-by-day / margin-by-night pattern.",
+        "conservationNote": "USFWS records spawning between August and November and sometimes as late as December, so late-fall spawning overlap remains conservation caution. Presentation guidance is withheld.",
+        "invalidators": [
+          "assuming spawning has finished because the calendar has turned"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Muhlfeld & Marotz 2003, Winter diel habitat use and movement by subadult bull trout in the upper Flathead River, Montana, North American Journal of Fisheries Management 23:163–171",
+        "class": "peer_reviewed",
+        "url": "https://pubs.usgs.gov/publication/70159995"
+      },
+      {
+        "label": "Thurow, Peterson, Chandler, Moffitt & Bjornn 2020, Concealment of juvenile bull trout in response to temperature, light, and substrate: implications for detection, PLoS ONE 15(9): e0237716",
+        "class": "peer_reviewed",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0237716"
+      },
+      {
+        "label": "McPhail & Baxter, A Review of Bull Trout (Salvelinus confluentus) Life-History and Habitat Use in Relation to Compensation and Improvement Opportunities (British Columbia fisheries management report)",
+        "class": "agency",
+        "url": "https://www.nwcouncil.org/sites/default/files/App67_RevBT_LifeHist.pdf"
+      },
+      {
+        "label": "USFWS species profile: Bull Trout (Salvelinus confluentus)",
+        "class": "agency",
+        "url": "https://www.fws.gov/species/bull-trout-salvelinus-confluentus"
+      },
+      {
+        "label": "Montana Chapter, American Fisheries Society — bull trout species of concern status account",
+        "class": "synthesis",
+        "url": "https://units.fisheries.org/montana/science/species-of-concern/species-status/bull-trout/"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "spring and fall habitat use are inferred from migration and general habitat statements rather than season-specific studies — the reason this record is partial",
+      "stillwater seasonal structure beyond the littoral-in-spring-and-fall / deep-in-summer split",
+      "adult (as opposed to subadult and juvenile) winter diel habitat use",
+      "regional variation between the coastal, interior and adfluvial life-history forms"
+    ]
+  }
+}

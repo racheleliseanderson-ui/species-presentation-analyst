@@ -213,6 +213,12 @@ details > summary::-webkit-details-marker {
 }
 
 @media print {
+  /* One page, printed once. The screen reading and the field brief say the
+     same thing, so on paper only the brief is wanted: every on-screen section
+     carries `no-print`, and `.print-only` is what remains. */
+  .print-only {
+    display: block !important;
+  }
   header,
   footer,
   nav,

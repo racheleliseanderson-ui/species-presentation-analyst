@@ -1,0 +1,353 @@
+{
+  "identification": {
+    "speciesId": "salvelinus_alpinus",
+    "status": "reviewed",
+    "regionalNames": [
+      "Arctic charr",
+      "char",
+      "blueback trout"
+    ],
+    "bodyShape": "Slender char body with small scales, a narrow caudal peduncle and a distinctly forked tail — more fork than Dolly Varden. Head and snout are shorter than Dolly Varden's.",
+    "identificationTraits": [
+      "Char pattern, not trout pattern: light spots on a dark ground. Spots are pink to red and, in Alaska's key, usually LARGER than the fish's pupil.",
+      "Spots are fewer and larger than Dolly Varden's, and the caudal peduncle (tail base) is narrower.",
+      "Tail is more deeply forked than Dolly Varden's.",
+      "Paired and lower fins carry a bright white leading edge.",
+      "No worm-like vermiculations on the back or dorsal fin — that pattern belongs to brook trout.",
+      "Internal meristics separate it from Dolly Varden where external characters overlap: 23–30 gill rakers, short and blunt, and 40–50 pyloric caeca. These require a sacrificed or dissected fish and are not a live-release field character.",
+      "Juveniles carry 10–15 parr marks along the side (Maine populations)."
+    ],
+    "coloration": "Dark back — dark blue, brown, olive or green — fading through silvery or lighter sides to a pale or white belly, with sparse pink, violet-pink, red or yellow spots that lack the pale halos seen on brook trout red spots.",
+    "regionalColorVariation": "Highly variable between lakes. Sea-run fish in the Canadian Arctic are silvery with a dark back; landlocked Maine fish are darker with orange-red paired fins. Colour is lake-specific and is not a subspecies key in this catalog.",
+    "spawningColoration": "Spawning adults turn bright — spots, belly and fins take on orange, red or gold, males more intensely than females; Maine records orange-yellow ventral surfaces over a blue-green back. Alaska's comparative key notes Arctic char spawning colour is usually gold, orange, yellow or rose and only infrequently red, and that the male kype is small. That colour change is biology, not a targeting cue.",
+    "juvenileAppearance": "Parr-marked (10–15 marks along the side in Maine populations) before adult spotting develops.",
+    "adultAppearance": "A dark-backed, small-scaled char with sparse large pale-to-red spots, white-edged lower fins, a narrow tail base and a clearly forked tail.",
+    "sexualDimorphism": "Spawning males colour more intensely than females and develop a small kype. Size overlap is large; sex is not a field ID key.",
+    "similarSpecies": [
+      {
+        "speciesId": "salvelinus_malma",
+        "name": "Dolly Varden",
+        "distinction": "The hardest separation. Externally: Arctic char have fewer, larger spots (usually larger than the pupil), a narrower caudal peduncle and a more deeply forked tail; Dolly Varden have smaller, more numerous spots (usually smaller than the pupil), a wider tail base and a squarer tail, and a longer head and snout. Meristics decide it when the fish is in hand and can be sacrificed: Arctic char 23–30 short blunt gill rakers and 40–50 pyloric caeca; Dolly Varden 16–23 long straight gill rakers and 21–30 pyloric caeca. Life history helps in northern Alaska, where all known Arctic char are lake-resident while Dolly Varden also occur as stream-resident and anadromous fish."
+      },
+      {
+        "name": "Lake trout (Salvelinus namaycush)",
+        "distinction": "Lake trout carry spots on the face and tail — Alaska's key states no other Alaskan char has spots on face and tail — and have a deeply forked tail. Arctic char have an unspotted head and tail and only a moderate fork."
+      },
+      {
+        "speciesId": "salvelinus_fontinalis",
+        "name": "Brook trout",
+        "distinction": "Brook trout have worm-like vermiculations across the back and dorsal fin and red spots ringed with blue halos. Arctic char have no vermiculations and its pink-to-red spots lack halos. Where the two share a Maine lake they also separate by depth, brook trout shallow and charr deep."
+      },
+      {
+        "speciesId": "salvelinus_confluentus",
+        "name": "Bull trout",
+        "distinction": "Bull trout have a comparatively large, broad, flattened head and a more slender, ventrally flattened body, with a proportionally larger upper jaw and more anal-fin and branchiostegal rays than Dolly Varden or Arctic char. Range overlap with Arctic char is minimal, but treat any big-headed char in bull trout country as a bull trout question, not an Arctic char one."
+      }
+    ],
+    "averageAdultLength": "Strongly lake-dependent. Maine fish reach about 20 in, most much smaller; Alaska lakes produce fish to about 38 in. There is no single meaningful mean across the species' range.",
+    "commonAnglingSize": "Lake-specific. Maine treats a fish over 2 lb as significant; Alaska lake populations vary from dwarf forms to fish of many pounds in the same drainage.",
+    "typicalWeight": "Fisheries and Oceans Canada gives sea-run fish 2.3–4.5 kg (5–10 lb) and freshwater-resident fish 0.2–2.3 kg (0.4–5 lb). Maine's landlocked charr are usually well under 3 lb.",
+    "maximumDocumentedSize": "Alaska reports fish to 38 in and 15 lb; productivity varies greatly by lake. A single global maximum is not treated as a catalog number.",
+    "longevity": "Fisheries and Oceans Canada gives 20–40 years; Maine's landlocked populations live to about 15 years. Maturity at 6–9 years in Alaska, 8–15 years in the Canadian Arctic.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_char.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden & Arctic Char in Northern Alaska (identification guide, meristic comparison)",
+        "class": "agency",
+        "url": "https://www.north-slope.org/wp-content/uploads/2022/04/arctic_char-dollyvarden.ADFG_.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Sport Fishing Regulations: How to identify trout and char in Alaska",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/regulations/fishregulations/PDFs/southcentral/2023sc_sfregs_trout_other_id.pdf"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Arctic Char (Salvelinus alpinus) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/arctic-char-omble-chevalier-eng.html"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr species information",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/arctic-charr.html"
+      },
+      {
+        "label": "Maine 2025 Wildlife Action Plan — Arctic Charr (Salvelinus alpinus oquassa) SGCN report",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/wildlife/reports/pdfs/SGCN_Reports/SGCN/Arctic%20Charr__Salvelinus%20alpinus%20oquassa.pdf"
+      },
+      {
+        "label": "Colorado Parks and Wildlife — Arctic Char species page",
+        "class": "agency",
+        "url": "https://cpw.state.co.us/species/arctic-char"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "a quantitative spot-size threshold that separates Arctic char from Dolly Varden without dissection — the agency keys give 'larger/smaller than the pupil' and 'fewer/more', which overlap in practice",
+      "dwarf vs normal form appearance within a single lake, which Alaska documents but does not describe morphologically",
+      "sea-run vs landlocked colour map as a structured field"
+    ]
+  },
+  "behavior": {
+    "speciesId": "salvelinus_alpinus",
+    "status": "reviewed",
+    "social": {
+      "pattern": "mixed_by_life_stage",
+      "byLifeStage": "Alaskan lakes commonly hold both a 'dwarf' and a 'normal' form with very different growth rates. In West Greenland lakes, charr over about 20 cm were mainly piscivorous while charr under 20 cm fed on chironomid larvae, zooplankton and benthic invertebrates — size classes occupying different feeding niches within one lake.",
+      "note": "Not a schooling pelagic species in the sense of a baitfish shoal. Structure is by size and feeding niche within a lake rather than by defended territory."
+    },
+    "feedingStrategy": {
+      "modes": [
+        "benthic_feeding",
+        "pursuit",
+        "opportunistic"
+      ],
+      "note": "Maine describes charr taking prey from the surface, through the water column, and off the bottom of lakes and ponds — a whole-column generalist. Juveniles are near-exclusive planktivores; adults add benthos (snails, clams, insect larvae) and fish. In larger Greenland lakes, catches were higher in littoral and profundal zones than in the pelagic zone, so bottom-associated feeding dominates where a lake offers it."
+    },
+    "dielTendency": {
+      "class": "mixed",
+      "note": "Recorded as a non-claim. The agency and peer-reviewed sources reviewed here do not resolve a diel activity pattern for Arctic char, and high-latitude light regimes make any borrowed pattern suspect. 'mixed' is entered because the field is required; the gap is listed rather than filled."
+    },
+    "seasonalActivity": "Form-specific. In northern Alaska all known Arctic char populations are lake-resident and spawn, overwinter and reside in lakes year-round. The Canadian anadromous form is different: it enters salt water for only 4–8 weeks in summer, first migrating at age 4–5 at 150–250 mm, and returns to fresh water from mid-August to mid-September to overwinter. Statements about sea entry apply only to the anadromous form.",
+    "thermalDrivenBehavior": "A cold-water specialist. Maine's management plan puts preference below 10°C (50°F), which is why charr are usually captured near lake bottoms, and the species page gives a preference below 55°F. When temperature allows they occupy the whole water column. The catalog's 39–50°F band sits inside that.",
+    "depthMovement": "Maine describes a seasonal depth pattern: after ice-out charr are found at a range of depths, and by summer they move to deeper water near the thermocline, typically 20–30 ft. They occupy the full column only when temperature permits it.",
+    "coverUse": "Structure use is depth and substrate rather than woody cover — oligotrophic, deep, cold, well-oxygenated lakes; littoral and profundal zones carried higher catches than open pelagic water in the larger of two Greenland study lakes.",
+    "openWaterBehavior": "Reliance on open pelagic water is a function of lake shape. In a smaller lake with a proportionally larger littoral zone, charr leaned on littoral macroinvertebrates; in a larger, deeper lake the expanded pelagic zone pushed them toward zooplankton.",
+    "predatorAvoidance": "Not described in the sources reviewed.",
+    "spawningBehavior": "Fall spawner over gravel or rocky substrate. Alaska records spawning between August and October with individuals usually spawning only every other year; Fisheries and Oceans Canada gives September–October with females spawning every 2–3 years; Maine's landlocked populations spawn from late October through November as broadcast spawners that build no nest. Eggs incubate roughly six months beneath ice in the Canadian Arctic. Spawning substrate and any spawning-period holding water are excluded from target guidance.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_char.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden & Arctic Char in Northern Alaska (identification guide, meristic comparison)",
+        "class": "agency",
+        "url": "https://www.north-slope.org/wp-content/uploads/2022/04/arctic_char-dollyvarden.ADFG_.pdf"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Arctic Char (Salvelinus alpinus) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/arctic-char-omble-chevalier-eng.html"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr Management Plan",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/docs/strategic-management-plans/arcticcharr.pdf"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr species information",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/arctic-charr.html"
+      },
+      {
+        "label": "The Importance of Habitat and Lake Morphometry for the Summer Diet of Arctic charr (Water, 2023; West Greenland lakes)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2073-4441/15/12/2164"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "diel activity pattern — no primary source found",
+      "cold-front / barometric response — no primary source found",
+      "angling-pressure response — no primary source found",
+      "predator avoidance and cover use beyond depth and habitat zone",
+      "water-clarity response — not described in the sources reviewed",
+      "winter under-ice depth and activity for lake-resident populations"
+    ]
+  },
+  "diet": {
+    "speciesId": "salvelinus_alpinus",
+    "status": "reviewed",
+    "feedingStyle": "opportunistic",
+    "feedingZone": "mixed",
+    "primaryForage": [
+      "zooplankton",
+      "aquatic_insects",
+      "emerging_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "larger_prey_fish"
+    ],
+    "primaryNote": "A whole-column generalist that shifts with size. Juveniles are near-exclusive planktivores; adults add benthic invertebrates — snails, clams, insect larvae — and fish. Fisheries and Oceans Canada names freshwater shrimp and insect larvae for juveniles; Greenland work found charr over 20 cm mainly piscivorous on three-spined stickleback while smaller fish took chironomid larvae, zooplankton and benthic invertebrates. In large Alaskan lakes char feed on outmigrating juvenile salmon in late spring and early summer. Capacity is not a current hatch.",
+    "seasonalDiet": [
+      {
+        "season": "spring",
+        "emphasis": "In large Alaskan lakes, outmigrating juvenile salmon become available from late May into early July where salmon systems exist. That is a system-specific subsidy, not a universal spring pattern."
+      },
+      {
+        "season": "summer",
+        "emphasis": "Benthic invertebrates and zooplankton dominate for small fish; larger fish take forage fish. The balance between littoral macroinvertebrates and pelagic zooplankton tracks lake shape rather than the calendar."
+      }
+    ],
+    "lifeStageDiet": {
+      "juvenile": "Almost exclusively plankton in Maine populations; freshwater shrimp and insect larvae in Canadian Arctic populations.",
+      "adult": "Benthic organisms including snails, clams and insect larvae, plus small fish. At sea the anadromous form feeds on invertebrates and fishes."
+    },
+    "ontogeneticShift": "Planktivory to a mixed benthic-invertebrate diet, with fish becoming the dominant item above roughly 20 cm in the Greenland populations studied.",
+    "forageSubstitutions": "Lake-specific. Where a lake holds a small forage fish (stickleback in Greenland, juvenile salmon in Alaskan salmon systems) larger charr become piscivorous; where it does not, they stay on benthos and zooplankton.",
+    "observedForageRule": "Diet capacity is not proof that a hatch or prey event is occurring. Observed current forage still comes from a user observation or Hatch Match.",
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_char.pdf"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Arctic Char (Salvelinus alpinus) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/arctic-char-omble-chevalier-eng.html"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr Management Plan",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/docs/strategic-management-plans/arcticcharr.pdf"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr species information",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/arctic-charr.html"
+      },
+      {
+        "label": "The Importance of Habitat and Lake Morphometry for the Summer Diet of Arctic charr (Water, 2023; West Greenland lakes)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2073-4441/15/12/2164"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "the catalog's emerging_insects class is only indirectly supported — Maine records charr taking prey at the water surface, but no source reviewed itemises emergences",
+      "the catalog's larger_prey_fish class rests on adult piscivory generally; no source reviewed gives a prey-size ceiling",
+      "winter and under-ice diet",
+      "prey-size shifts against gape as a measured relationship"
+    ]
+  },
+  "seasonal_calendar": {
+    "speciesId": "salvelinus_alpinus",
+    "status": "reviewed",
+    "overview": "A cold, deep, oligotrophic-lake fish. Depth is the master variable: preference below 10°C (50°F) keeps charr near the bottom or at the thermocline through the warm months, and they use the whole column only when temperature allows. Where a statement below applies to the anadromous form rather than the lake-resident form it is labelled — in northern Alaska every known population is lake-resident. Fall spawning is conservation context.",
+    "entries": [
+      {
+        "season": "winter",
+        "habitatClass": "Lake basin and adjacent drop-offs beneath ice; lake-resident populations remain in the lake year-round, and the anadromous form has already returned to fresh water to overwinter.",
+        "thermalContext": "The whole column is within thermal preference under ice, so temperature stops being the constraint it is in summer.",
+        "presentationImplication": "Vertical jig, drop presentation and bottom contact are the reviewed stillwater families that work a basin and a drop-off edge; live/natural bait suspension is the other reviewed family matched to a stationary column presentation.",
+        "invalidators": [
+          "assuming the summer thermocline depth still applies once the lake is isothermal under ice"
+        ],
+        "conservationNote": "Eggs from the previous fall are incubating in substrate through the winter — roughly six months beneath ice in Canadian Arctic populations. Spawning substrate is excluded from target guidance."
+      },
+      {
+        "season": "spring",
+        "habitatClass": "Rocky shoreline, drop-offs and submerged humps; after ice-out charr are found across a range of depths rather than pinned deep.",
+        "depthTendency": "Spread through the column after ice-out.",
+        "forageEmphasis": "Zooplankton and benthic invertebrates; in large Alaskan lakes on salmon systems, outmigrating juvenile salmon become available from late May.",
+        "thermalContext": "Surface water is still inside the sub-10°C preference, which is what releases charr from the deep.",
+        "presentationImplication": "Horizontal retrieve, subsurface slow roll and stop-and-go cover a column that is thermally open top to bottom; trolling covers water when fish are scattered across depths.",
+        "invalidators": [
+          "carrying a summer thermocline depth back into an ice-out lake",
+          "assuming a salmon-smolt subsidy in a lake with no salmon run"
+        ]
+      },
+      {
+        "season": "summer",
+        "habitatClass": "Thermocline edge, basin and deep drop-offs. Maine puts summer charr in deeper water near the thermocline, typically 20–30 ft.",
+        "depthTendency": "Deep. Preference below 10°C (50°F) is the reason charr are usually captured near lake bottoms.",
+        "forageEmphasis": "Benthic invertebrates and zooplankton for smaller fish; forage fish for larger fish. Whether littoral macroinvertebrates or pelagic zooplankton dominate is set by lake shape.",
+        "thermalContext": "The 55°F / 10°C preference edge is the summer constraint; warm surface water is unusable.",
+        "coverUse": "Depth and bottom association rather than woody or weedy cover; littoral and profundal zones carried higher catch than open pelagic water in the larger of two Greenland study lakes.",
+        "presentationImplication": "Vertical jig, bottom contact and slow drag work the deep zones; suspend-pause and trolling address fish holding at a thermocline edge rather than on the bottom.",
+        "invalidators": [
+          "fishing warm surface water above the thermal preference",
+          "treating a small, shallow lake's littoral pattern as transferable to a large deep lake"
+        ]
+      },
+      {
+        "season": "fall",
+        "habitatClass": "Rocky and gravel substrate as spawning approaches; feeding water elsewhere in the lake.",
+        "thermalContext": "Cooling surface water reopens shallower depths.",
+        "conservationNote": "Fall spawner — August to October in Alaska, September to October in the Canadian Arctic — and most individuals spawn only every other year (females every 2–3 years in the Canadian Arctic). Spawning substrate and any spawning-period holding water are excluded from target guidance. Anadromous fish return to fresh water from mid-August to mid-September.",
+        "presentationImplication": "Horizontal retrieve, stop-and-go and subsurface slow roll in remaining feeding water. Do not convert spawning colour into a new family.",
+        "invalidators": [
+          "using spawning substrate as holding water",
+          "reading the spawning migration of the anadromous form onto a lake-resident population"
+        ]
+      },
+      {
+        "season": "late_fall",
+        "habitatClass": "Spawning overlap continues in southern landlocked populations, then lake basin as ice forms.",
+        "conservationNote": "Maine's landlocked charr spawn from late October through November; late-fall spawning overlap remains caution across the range.",
+        "presentationImplication": "Bottom contact and drop presentation in remaining feeding water as the lake cools."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char species profile",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/index.cfm?adfg=arcticchar.main"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Arctic Char (Wildlife Notebook Series)",
+        "class": "agency",
+        "url": "https://www.adfg.alaska.gov/static/education/wns/arctic_char.pdf"
+      },
+      {
+        "label": "Alaska Department of Fish and Game — Dolly Varden & Arctic Char in Northern Alaska (identification guide, meristic comparison)",
+        "class": "agency",
+        "url": "https://www.north-slope.org/wp-content/uploads/2022/04/arctic_char-dollyvarden.ADFG_.pdf"
+      },
+      {
+        "label": "Fisheries and Oceans Canada — Arctic Char (Salvelinus alpinus) species profile",
+        "class": "agency",
+        "url": "https://www.dfo-mpo.gc.ca/species-especes/profiles-profils/arctic-char-omble-chevalier-eng.html"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr Management Plan",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/docs/strategic-management-plans/arcticcharr.pdf"
+      },
+      {
+        "label": "Maine Department of Inland Fisheries and Wildlife — Arctic Charr species information",
+        "class": "agency",
+        "url": "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/arctic-charr.html"
+      },
+      {
+        "label": "The Importance of Habitat and Lake Morphometry for the Summer Diet of Arctic charr (Water, 2023; West Greenland lakes)",
+        "class": "peer_reviewed",
+        "url": "https://www.mdpi.com/2073-4441/15/12/2164"
+      }
+    ],
+    "reviewedAt": "2026-08-30",
+    "nextReviewAt": "2026-11-28",
+    "gaps": [
+      "early_spring and late_summer entries — no sourced material specific to those sub-seasons",
+      "light sensitivity by season, which matters at high latitude and was not resolved by any source reviewed",
+      "depth figures outside Maine — the 20–30 ft summer thermocline range is a Maine observation and should not be treated as a range-wide number",
+      "flowing-water use: the catalog gives this species no riverHolding classes, and no flowing-water calendar is written here"
+    ]
+  }
+}
