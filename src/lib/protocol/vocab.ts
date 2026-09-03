@@ -57,6 +57,14 @@ export type TideMovement = (typeof TIDE_MOVEMENTS)[number];
 export const TIDE_STRENGTHS = ["spring_tide", "average_tide", "neap_tide", "unknown"] as const;
 export type TideStrength = (typeof TIDE_STRENGTHS)[number];
 
+/**
+ * How a water temperature was come by, in THIS APP's spelling.
+ *
+ * Snake_case, like every other axis here, and like every reading already saved
+ * in a reader's browser. The fleet packet pins the same idea to kebab-case
+ * (`user-measured`, `official-station`); `protocol/packet.ts` is the one place
+ * the two dialects are translated, in both directions.
+ */
 export const TEMP_SOURCES = ["user_measured", "official_station", "estimated", "unknown"] as const;
 export type TempSource = (typeof TEMP_SOURCES)[number];
 
@@ -241,12 +249,18 @@ export type ForageClass = (typeof FORAGE_CLASSES)[number];
 export const CONFIDENCE = ["high", "moderate", "low"] as const;
 export type Confidence = (typeof CONFIDENCE)[number];
 
+/**
+ * How a provenance entry was come by. This one is the FLEET's vocabulary rather
+ * than this app's, because it is only ever written into a packet — so it is
+ * spelled the fleet's way, kebab-case, and matches `EVIDENCE_CLASSES` in
+ * `hth-packet.ts`.
+ */
 export const EVIDENCE_CLASS = [
   "probed",
   "declared",
   "device",
-  "user_measured",
-  "official_station",
+  "user-measured",
+  "official-station",
   "unknown",
 ] as const;
 export type EvidenceClass = (typeof EVIDENCE_CLASS)[number];

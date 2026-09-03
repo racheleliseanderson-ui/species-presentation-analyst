@@ -57,6 +57,47 @@ import type {
 export const ORIGIN = "species-presentation" as const;
 
 /* ========================================================================== *
+ * The vocabulary boundary
+ *
+ * HTH-1.0 pins the fleet spelling of a temperature source and an evidence class
+ * to kebab-case: `official-station`, `user-measured`. Snake-case is still read
+ * and normalised by the shared module, but it is never emitted.
+ *
+ * This app's own vocabulary is snake_case on every axis it has — `slack_high`,
+ * `spring_tide`, `frontal_change`, `low_light` — `LABELS` in `vocab.ts` is keyed
+ * on those strings, and so is every reading already saved in a reader's
+ * browser. So the internal spelling stays snake_case and this file is the one
+ * place the two dialects meet: kebab goes out, and kebab comes back in.
+ *
+ * The alternative was renaming two of this app's fifteen axes, which would have
+ * left it with two dialects of its own to fix one at the boundary and would
+ * have dropped the temperature source out of every session already stored.
+ * ========================================================================== */
+
+/** This app's temperature-source spelling → the fleet's. */
+const TEMP_SOURCE_OUT: Record<TempSource, string> = {
+  user_measured: "user-measured",
+  official_station: "official-station",
+  estimated: "estimated",
+  unknown: "unknown",
+};
+
+/** The fleet's spelling → this app's. The snake spellings are the same string
+ *  in both dialects for the two axes that never drifted, so only these two
+ *  need a row; anything else falls through to the check against TEMP_SOURCES. */
+const TEMP_SOURCE_IN: Record<string, TempSource> = {
+  "user-measured": "user_measured",
+  "official-station": "official_station",
+};
+
+/** The evidence class the fleet expects for a reading of this source. */
+function fleetEvidenceClass(source: TempSource): string {
+  if (source === "user_measured") return "user-measured";
+  if (source === "official_station") return "official-station";
+  return source === "unknown" ? "unknown" : "declared";
+}
+
+/* ========================================================================== *
  * Outgoing
  * ========================================================================== */
 
@@ -100,7 +141,7 @@ export function buildPacket(
       waterType: input.waterType,
       tempF: input.tempF,
       tempRangeF: tempRangeF ? { low: tempRangeF[0], high: tempRangeF[1] } : null,
-      tempSource: input.tempSource,
+      tempSource: TEMP_SOURCE_OUT[input.tempSource] ?? "unknown",
       /* Temperature provenance travels with the number. A reading with no
        * observation time is a number someone typed, and the next instrument
        * has no way to tell unless these come along. */
@@ -199,14 +240,8 @@ function buildProvenance(input: ScenarioInput, result: Interpretation) {
           : input.tempSource === "official_station"
             ? `official station temperature${input.tempStation?.name ? ` · ${input.tempStation.name}` : ""}`
             : "temperature provenance declared",
-      evidenceClass:
-        input.tempSource === "user_measured"
-          ? ("user_measured" as const)
-          : input.tempSource === "official_station"
-            ? ("official_station" as const)
-            : input.tempSource === "unknown"
-              ? ("unknown" as const)
-              : ("declared" as const),
+      // Kebab, because that is the only evidence-class spelling HTH-1.0 emits.
+      evidenceClass: fleetEvidenceClass(input.tempSource),
       reviewedAt: result.species.reviewedAt,
       /* The record's own review date is not the moment this link was pressed.
        * `builtAt` is left to the shared builder's `createdAt`; nothing here
@@ -249,10 +284,19 @@ export function coerceWaterType(value: unknown): WaterType | undefined {
   return undefined;
 }
 
+/**
+ * A carried temperature source, in this app's spelling.
+ *
+ * The fleet writes kebab-case, so that is tried first. The snake spellings are
+ * still accepted because a packet built before HTH-1.0 pinned the vocabulary
+ * can still be sitting in a tab, and reading it as "unknown" would throw away a
+ * reading the sender actually took.
+ */
 function coerceTempSource(value: unknown): TempSource {
-  if (typeof value === "string" && (TEMP_SOURCES as readonly string[]).includes(value)) {
-    return value as TempSource;
-  }
+  if (typeof value !== "string") return "unknown";
+  const fromFleet = TEMP_SOURCE_IN[value];
+  if (fromFleet) return fromFleet;
+  if ((TEMP_SOURCES as readonly string[]).includes(value)) return value as TempSource;
   return "unknown";
 }
 

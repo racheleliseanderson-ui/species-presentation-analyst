@@ -405,7 +405,11 @@ export type HthPacket = {
   unknowns: string[];
   provenance: { source: string; evidenceClass: EvidenceClass; reviewedAt: string }[];
   privacy: {
+    /* Re-asserted false by the shared module on every read and every write,
+     * because the coordinate strip has actually run by then. */
     containsCoordinates: false;
-    containsPrivateWater: false;
+    /* NOT false. A private-water warning is OR-ed forward and can never be
+     * lowered by a re-emit, so an incoming true arrives here still true. */
+    containsPrivateWater: boolean;
   };
 };
