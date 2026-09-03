@@ -80,7 +80,7 @@ if not exist "node_modules\.package-lock.json" (
 echo.
 
 REM ---------------------------------------------------------------- step 3
-echo  [3/8] Taking a "before" reading, so we can measure the gain...
+echo  [3/8] Taking a "before" reading, so there is something to compare against...
 call npm run report:coverage > "BEFORE-report.txt" 2>&1
 call npm run report:freshness >> "BEFORE-report.txt" 2>&1
 echo        Saved to BEFORE-report.txt

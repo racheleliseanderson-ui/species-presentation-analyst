@@ -11,6 +11,8 @@ type Matchers = {
   toBe: (expected: unknown) => void;
   toEqual: (expected: unknown) => void;
   toBeNull: () => void;
+  toBeUndefined: () => void;
+  toBeDefined: () => void;
   toContain: (expected: unknown) => void;
   toMatch: (expected: RegExp | string) => void;
   toBeGreaterThan: (expected: number) => void;
@@ -40,6 +42,8 @@ function matchers(received: unknown, negated: boolean): Matchers {
       ok(Object.is(received, expected), `expected ${String(received)} to be ${String(expected)}`),
     toEqual: (expected) => ok(deepEqual(received, expected), "expected deep equality"),
     toBeNull: () => ok(received === null, `expected ${String(received)} to be null`),
+    toBeUndefined: () => ok(received === undefined, `expected ${String(received)} to be undefined`),
+    toBeDefined: () => ok(received !== undefined, "expected the value to be defined"),
     toContain: (expected) =>
       ok(has(received, expected), `expected value to contain ${String(expected)}`),
     toMatch: (expected) =>
@@ -72,6 +76,8 @@ import {
   CHAIN_ORDER,
   FLEET_CONTRACT,
   FLEET_TARGETS,
+  INSTRUMENT_ORIGIN,
+  ORIGIN_TO_TOOL,
   PACKET_VERSION,
   assessFreshness,
   buildPacket,
@@ -194,7 +200,8 @@ describe("round trip", () => {
     const url = packetUrl("ops", FIELD_SENSE_PACKET);
     expect(url).toContain("#packet=");
     expect(url.split("#")[0]).not.toContain("packet");
-    expect(url.split("#")[0]).toBe(FLEET_TARGETS.ops.url);
+    // A bare host gets the root slash, so a link checker has nothing to rewrite.
+    expect(url.split("#")[0]).toBe(`${FLEET_TARGETS.ops.url}/`);
   });
 
   test("the base64url dialect is read as readily as the URI-encoded one", () => {
@@ -301,7 +308,9 @@ describe("the three-state read", () => {
   });
 
   test("the packet parameter is found wherever it sits in the fragment", () => {
-    const read = readPacket(`#tab=water&packet=${encodeURIComponent(JSON.stringify(FIELD_SENSE_PACKET))}`);
+    const read = readPacket(
+      `#tab=water&packet=${encodeURIComponent(JSON.stringify(FIELD_SENSE_PACKET))}`,
+    );
     expect(read.state).toBe("ok");
   });
 });
@@ -353,11 +362,146 @@ describe("coordinates", () => {
     );
     if (!isPacketOk(read)) throw new Error("unreachable");
     expect(JSON.stringify(read.packet)).not.toMatch(/"lat"|"lon"|"coords"|"gps"|"centroid"/);
-    // The receiver restates the claim as its own fact, rather than repeating it.
+    // Two fields, two rules. The coordinate claim is restated as this file's own
+    // fact, because the strip above actually ran. The private-water warning is
+    // not this file's to check, so it is carried exactly as it arrived.
     expect(read.packet.privacy).toEqual({
       containsCoordinates: false,
-      containsPrivateWater: false,
+      containsPrivateWater: true,
     });
+  });
+});
+
+describe("the private-water warning", () => {
+  const privatePacket = {
+    ...FIELD_SENSE_PACKET,
+    privacy: { containsCoordinates: false, containsPrivateWater: true },
+  };
+
+  test("it survives a re-emit by an instrument that never set it", () => {
+    const read = readPacket(hashOf(privatePacket));
+    if (!isPacketOk(read)) throw new Error("unreachable");
+    const reemitted = buildPacket({ origin: "tackle-link-analyst", incoming: read });
+    expect(reemitted.privacy?.containsPrivateWater).toBe(true);
+  });
+
+  test("it survives three hops, none of which claim it", () => {
+    let packet = buildPacket({
+      origin: "field-sense",
+      privacy: { containsPrivateWater: true },
+    });
+    for (const origin of ["species-presentation", "tackle-link-analyst", "knot-analyst"]) {
+      packet = buildPacket({ origin, incoming: packet });
+    }
+    expect(packet.privacy?.containsPrivateWater).toBe(true);
+  });
+
+  test("an instrument may raise the warning on a packet that arrived without it", () => {
+    const first = buildPacket({ origin: "field-sense" });
+    expect(first.privacy?.containsPrivateWater).toBe(false);
+    const second = buildPacket({
+      origin: "field-ops-desk",
+      incoming: first,
+      privacy: { containsPrivateWater: true },
+    });
+    expect(second.privacy?.containsPrivateWater).toBe(true);
+  });
+
+  test("the coordinate claim is still this file's own, not the sender's", () => {
+    const read = readPacket(
+      hashOf({
+        ...FIELD_SENSE_PACKET,
+        privacy: { containsCoordinates: true, containsPrivateWater: false },
+      }),
+    );
+    if (!isPacketOk(read)) throw new Error("unreachable");
+    expect(read.packet.privacy?.containsCoordinates).toBe(false);
+  });
+});
+
+describe("one dialect out", () => {
+  const withConditions = (conditions: Record<string, unknown>) => {
+    const read = readPacket(
+      hashOf({
+        ...FIELD_SENSE_PACKET,
+        conditions: { ...FIELD_SENSE_PACKET.conditions, ...conditions },
+      }),
+    );
+    if (!isPacketOk(read)) throw new Error("unreachable");
+    return read;
+  };
+
+  test("the snake temperature-source spellings normalise to the kebab ones", () => {
+    const read = withConditions({ tempSource: "official_station", airTempSource: "user_measured" });
+    expect(read.packet.conditions?.tempSource).toBe("official-station");
+    expect(read.packet.conditions?.airTempSource).toBe("user-measured");
+    expect(read.normalizations.join(" ")).toContain("official-station");
+  });
+
+  test("an already-canonical source is left alone and reported as nothing", () => {
+    const read = withConditions({ tempSource: "official-gauge" });
+    expect(read.packet.conditions?.tempSource).toBe("official-gauge");
+    expect(read.normalizations).toEqual([]);
+  });
+
+  test("the snake evidence spellings normalise too", () => {
+    const read = readPacket(
+      hashOf({
+        ...FIELD_SENSE_PACKET,
+        provenance: [
+          { source: "an angler", evidenceClass: "user_measured" },
+          { source: "a gauge", evidenceClass: "official_station" },
+          { source: "the record", evidenceClass: "declared" },
+        ],
+      }),
+    );
+    if (!isPacketOk(read)) throw new Error("unreachable");
+    const classes = (read.packet.provenance ?? []).map((e) => e.evidenceClass);
+    expect(classes).toEqual(["user-measured", "official-station", "declared"]);
+  });
+
+  test("both temperature-range shapes read, and only one is emitted", () => {
+    const asObject = withConditions({ tempRangeF: { low: 52, high: 61 } });
+    expect(asObject.packet.conditions?.tempRangeF).toEqual({ low: 52, high: 61 });
+    expect(asObject.normalizations).toEqual([]);
+
+    const asTuple = withConditions({ tempRangeF: [52, 61] });
+    expect(asTuple.packet.conditions?.tempRangeF).toEqual({ low: 52, high: 61 });
+    expect(asTuple.normalizations.join(" ")).toContain("temperature range");
+
+    const asMinMax = withConditions({ tempRangeF: { min: 61, max: 52 } });
+    expect(asMinMax.packet.conditions?.tempRangeF).toEqual({ low: 52, high: 61 });
+  });
+
+  test("a range that is not a usable pair of numbers is dropped, not half-read", () => {
+    const read = withConditions({ tempRangeF: [52] });
+    expect(read.packet.conditions?.tempRangeF).toBeUndefined();
+    expect(read.normalizations.join(" ")).toContain("Dropped");
+  });
+
+  test("a tuple handed to buildPacket leaves as an object", () => {
+    const packet = buildPacket({
+      origin: "species-presentation",
+      conditions: { tempRangeF: [61, 52] },
+    });
+    expect(packet.conditions?.tempRangeF).toEqual({ low: 52, high: 61 });
+  });
+
+  test("Rig Signal's pressure-trend spellings map onto the fleet trends", () => {
+    expect(withConditions({ weather: "falling" }).packet.conditions?.weather).toBe(
+      "frontal_change",
+    );
+    expect(withConditions({ weather: "front_approaching" }).packet.conditions?.weather).toBe(
+      "frontal_change",
+    );
+    expect(withConditions({ weather: "rising" }).packet.conditions?.weather).toBe("post_front");
+  });
+
+  test("the two spellings the vocabularies already share are not rewritten", () => {
+    const stable = withConditions({ weather: "stable" });
+    expect(stable.packet.conditions?.weather).toBe("stable");
+    expect(stable.normalizations).toEqual([]);
+    expect(withConditions({ weather: "post_front" }).packet.conditions?.weather).toBe("post_front");
   });
 });
 
@@ -395,10 +539,7 @@ describe("the trail", () => {
   test("a receiver may hand its readPacket result straight back in", () => {
     const read = readPacket(hashOf(FIELD_SENSE_PACKET));
     const next = buildPacket({ origin: "species-presentation", incoming: read });
-    expect(next.fleet.trail.map((t) => t.origin)).toEqual([
-      "field-sense",
-      "species-presentation",
-    ]);
+    expect(next.fleet.trail.map((t) => t.origin)).toEqual(["field-sense", "species-presentation"]);
   });
 
   test("an invalid read contributes nothing and starts a fresh chain", () => {
@@ -527,6 +668,91 @@ describe("assessFreshness", () => {
     expect(g.severity).toBe("caution");
     expect(g.measured).toBe(false);
   });
+
+  test("an ageless packet reports expired: false, which is why callers gate on severity", () => {
+    const g = assessFreshness(
+      { ...FIELD_SENSE_PACKET, createdAt: null, fleet: { ...FIELD_SENSE_PACKET.fleet, trail: [] } },
+      { now },
+    );
+    // Correct, and a trap: there was no age to expire. `severity` folds in the
+    // unmeasurable case; `expired` on its own makes an ageless packet look fresh.
+    expect(g.expired).toBe(false);
+    expect(g.measured).toBe(false);
+    expect(g.severity).not.toBe("clear");
+  });
+
+  test("one minute reads as one minute, not as one minute(s)", () => {
+    const g = assessFreshness(at("2026-09-02T14:59:30.000Z"), { now });
+    expect(g.detail).toContain("Carried 1 minute ago");
+    expect(g.detail).not.toContain("(s)");
+  });
+
+  test("every band pluralises, and none of them show the parenthesis", () => {
+    for (const iso of [
+      "2026-09-02T14:59:30.000Z",
+      "2026-09-02T14:50:00.000Z",
+      "2026-09-02T14:20:00.000Z",
+      "2026-09-02T13:00:00.000Z",
+    ]) {
+      const detail = assessFreshness(at(iso), { now }).detail;
+      expect(detail).not.toContain("(s)");
+      expect(detail).toMatch(/\b\d+ minutes? ago\b/);
+      if (/\b1 minutes? ago\b/.test(detail)) expect(detail).toContain("1 minute ago");
+    }
+  });
+
+  test("the window with one minute in it also reads as one minute", () => {
+    const g = assessFreshness(at("2026-09-02T14:58:00.000Z"), { now, windowMs: 60_000 });
+    expect(g.detail).toContain("2 minutes ago");
+    expect(g.detail).not.toContain("(s)");
+  });
+});
+
+describe("instrument ids", () => {
+  test("every registered id resolves to a fleet name and a tool key", () => {
+    for (const [id, origin] of Object.entries(INSTRUMENT_ORIGIN)) {
+      expect(id).toMatch(/^HTH-[A-Z]{2,3}-\d{3}$/);
+      expect(ORIGIN_TO_TOOL[id]).toBeDefined();
+      expect(ORIGIN_TO_TOOL[origin]).toBeDefined();
+    }
+  });
+
+  test("the three instruments that were missing now resolve", () => {
+    expect(INSTRUMENT_ORIGIN["HTH-TL-001"]).toBe("tackle-link-analyst");
+    expect(INSTRUMENT_ORIGIN["HTH-KN-001"]).toBe("knot-analyst");
+    expect(INSTRUMENT_ORIGIN["HTH-OPS-001"]).toBe("field-ops-desk");
+  });
+
+  test("a sender that gives an id and no origin gets its fleet name in the trail", () => {
+    const read = readPacket(
+      hashOf({
+        ...FIELD_SENSE_PACKET,
+        origin: undefined,
+        instrumentId: "HTH-KN-001",
+        createdAt: "2026-09-02T14:00:00.000Z",
+        fleet: { contract: FLEET_CONTRACT, trail: [], lastUpdatedBy: "" },
+      }),
+    );
+    if (!isPacketOk(read)) throw new Error("unreachable");
+    expect(lastHop(read.packet)?.origin).toBe("knot-analyst");
+    expect(read.packet.origin).toBe("knot-analyst");
+  });
+
+  test("the desk's three-letter id is graded against the desk's own window", () => {
+    const packet: HthPacket = {
+      ...FIELD_SENSE_PACKET,
+      instrumentId: "HTH-OPS-001",
+      origin: "HTH-OPS-001",
+      fleet: {
+        contract: FLEET_CONTRACT,
+        trail: [{ origin: "HTH-OPS-001", at: "2026-09-02T13:00:00.000Z" }],
+        lastUpdatedBy: "HTH-OPS-001",
+      },
+    };
+    const g = assessFreshness(packet, { now: new Date("2026-09-02T15:00:00.000Z") });
+    expect(g.windowMs).toBe(CARRY_WINDOW_MS["field-ops-desk"]);
+    expect(g.severity).toBe("clear");
+  });
 });
 
 describe("the fleet registry", () => {
@@ -548,5 +774,52 @@ describe("the fleet registry", () => {
   test("a bare base URL works as a target, for a route inside an instrument", () => {
     const url = packetUrl("https://ops.hookthehorizon.blog/debrief", FIELD_SENSE_PACKET);
     expect(url.startsWith("https://ops.hookthehorizon.blog/debrief#packet=")).toBe(true);
+  });
+});
+
+describe("vocabulary aliases resolve own properties only", () => {
+  test("a packet naming an Object.prototype member never writes a Function into the packet", () => {
+    const hostile = {
+      ...FIELD_SENSE_PACKET,
+      conditions: {
+        tempSource: "constructor",
+        airTempSource: "toString",
+        weather: "valueOf",
+      },
+      provenance: [{ source: "x", evidenceClass: "hasOwnProperty" }],
+    } as unknown as HthPacket;
+
+    const read = readPacket(`#packet=${encodeURIComponent(JSON.stringify(hostile))}`);
+    expect(read.state).toBe("ok");
+    if (read.state !== "ok") return;
+
+    const conditions = read.packet.conditions as Record<string, unknown>;
+    const provenance = (read.packet.provenance ?? [])[0] as Record<string, unknown>;
+
+    // A bare `aliases[key]` lookup returned the inherited member, which is a
+    // Function. It survived as state "ok" and was interpolated into a note
+    // shown to the reader.
+    expect(typeof conditions["tempSource"]).not.toBe("function");
+    expect(typeof conditions["airTempSource"]).not.toBe("function");
+    expect(typeof conditions["weather"]).not.toBe("function");
+    expect(typeof provenance["evidenceClass"]).not.toBe("function");
+
+    // An unrecognised string is not an alias, so nothing is "repaired".
+    expect(read.normalizations ?? []).toEqual([]);
+  });
+
+  test("a real alias still normalises, so the guard did not disable the feature", () => {
+    const legacy = {
+      ...FIELD_SENSE_PACKET,
+      conditions: { tempSource: "official_station" },
+    } as unknown as HthPacket;
+
+    const read = readPacket(`#packet=${encodeURIComponent(JSON.stringify(legacy))}`);
+    expect(read.state).toBe("ok");
+    if (read.state !== "ok") return;
+    expect((read.packet.conditions as Record<string, unknown>)["tempSource"]).toBe(
+      "official-station",
+    );
+    expect((read.normalizations ?? []).length).toBeGreaterThan(0);
   });
 });
