@@ -3,6 +3,9 @@ import { Copy, Download, Printer, RotateCcw, Bookmark } from "lucide-react";
 import { AlternativesPanel } from "@/components/alternatives-panel";
 import { Button } from "@/components/ui/button";
 import { Handoffs } from "@/components/handoffs";
+import { ShareReading } from "@/components/share-reading";
+import { Link } from "@tanstack/react-router";
+import { speciesSlug } from "@/lib/knowledge/species-slug";
 import { ResponseRead, SeasonRead } from "@/components/season-read";
 import { TackleRequirements } from "@/components/tackle-requirements";
 import { WhatIf } from "@/components/what-if";
@@ -137,7 +140,7 @@ export function Readout({
     return (
       <section className="instrument-rule rounded-[var(--radius-lg)] bg-elevated p-6 sm:p-8">
         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-          We cannot read this combination
+          No reading for this combination
         </p>
         <h2 className="mt-2 font-display text-3xl text-fg">{result.error}</h2>
         <p className="mt-4 max-w-xl text-sm text-muted">
@@ -218,6 +221,14 @@ What seems wrong:
           {species.scientificName} · {tempLine} · {labelOf(session.waterType)}
           {session.water.waterName ? ` · ${session.water.waterName}` : ""}
         </p>
+        <Link
+          to="/species/$speciesId"
+          params={{ speciesId: speciesSlug(species) }}
+          className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-fg underline decoration-mark decoration-2 underline-offset-4"
+        >
+          The full {species.commonNames[0]} record — sources, behaviour and what it does not know
+          <span aria-hidden>→</span>
+        </Link>
         {top && (
           <p className="mt-5 max-w-3xl font-display text-2xl text-fg sm:text-3xl">
             Most plausible family: {top.label}.
@@ -384,7 +395,7 @@ What seems wrong:
         )}
       </Layer>
 
-      <Layer title="How we reached this, and what it rests on" defaultOpen={advanced}>
+      <Layer title="How this was reached, and what it rests on" defaultOpen={advanced}>
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-dim">
           Record {RECORD_WORD[fresh]} · reviewed {species.reviewedAt} · next review{" "}
           {species.nextReviewAt}
@@ -422,6 +433,8 @@ What seems wrong:
       </Layer>
 
       <Handoffs input={input} result={result} />
+
+      <ShareReading input={input} result={result} />
 
       <section className="no-print rounded-[var(--radius-lg)] bg-elevated p-6 shadow-[var(--shadow-border)] sm:p-8">
         <h3 className="font-display text-2xl">Keep this reading</h3>

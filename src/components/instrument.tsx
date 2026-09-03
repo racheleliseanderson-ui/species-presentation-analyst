@@ -231,7 +231,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Step 01 — Target</p>
           <h2 className="mt-2 font-display text-3xl">Which reviewed species?</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted">
-            {SPECIES.length} North American records are loaded, and names we have not reviewed never fall through to generic advice. Search accepts common names and nicknames.
+            {SPECIES.length} North American records are loaded. A name that isn't in them never falls through to generic advice. Search accepts common names and nicknames.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {STARTERS.map((s) => (
@@ -260,7 +260,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
           </label>
           {query.trim() && filtered.length === 0 && (
             <p className="mt-6 max-w-xl text-sm text-muted">
-              No reviewed record matches “{query}”. Try another common name or nickname — we will not invent biology for a fish we have not reviewed.
+              No reviewed record matches “{query}”. Try another common name or nickname. Nothing here invents biology for a fish that hasn't been reviewed.
             </p>
           )}
           {GROUPS.map((g) => {
@@ -351,7 +351,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
           />
           {mismatch && (
             <p className="instrument-rule rounded-[var(--radius-md)] bg-elevated px-4 py-3 text-sm">
-              {species.commonNames[0]} has no reviewed {labelOf(session.waterType)} record. We will say so rather than guess. Switch the water type, or pick a different species.
+              {species.commonNames[0]} has no reviewed {labelOf(session.waterType)} record. Saying so is the honest answer; guessing one would read the same and be wrong. Switch the water type, or pick a different species.
             </p>
           )}
           <div className="flex gap-2">
@@ -559,7 +559,7 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Nothing evaluated yet</p>
           <h2 className="mt-2 font-display text-3xl text-fg">Add a species to begin.</h2>
           <p className="mt-4 max-w-xl text-sm text-muted">
-            Pick a reviewed species first and the reading fills in from there. Names we have not reviewed never fall through to generic advice.
+            Pick a reviewed species first and the reading fills in from there. A name that isn't in the catalog never falls through to generic advice.
           </p>
           <Button className="mt-6" variant="ghost" onClick={() => session.setStep("target")}>
             Choose a species

@@ -11,6 +11,8 @@ import {
   type AnglerProfileStatus,
 } from "@/lib/knowledge/angler-profile";
 import { useSession } from "@/lib/store";
+import { Link } from "@tanstack/react-router";
+import { speciesSlug } from "@/lib/knowledge/species-slug";
 
 function statusLabel(status: AnglerProfileStatus): string {
   if (status === "reviewed") return "Reviewed";
@@ -74,6 +76,15 @@ export function SelectedSpeciesProfile() {
               <p className="mt-2 max-w-3xl text-sm text-muted">
                 Ten angler questions, separated into what is already reviewed, what is only partly covered, and what still needs authoritative research. This does not fill missing facts with generic AI text.
               </p>
+              <Link
+                to="/species/$speciesId"
+                params={{ speciesId: speciesSlug(species) }}
+                onClick={(event) => event.stopPropagation()}
+                className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-fg underline decoration-mark decoration-2 underline-offset-4"
+              >
+                Open the {species.commonNames[0]} record on its own page
+                <span aria-hidden>→</span>
+              </Link>
               <p className="mt-2 text-xs text-dim">
                 {status === "loading"
                   ? "Loading the reviewed record for this fish…"

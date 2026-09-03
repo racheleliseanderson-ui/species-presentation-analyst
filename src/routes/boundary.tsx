@@ -4,6 +4,7 @@ import { SEED_DOCTRINE, SEED_WAVES, nextSeedWave } from "@/lib/knowledge/seed-qu
 import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { useDossierCoverage } from "@/lib/knowledge/use-species-overlays";
 import { REFUSES } from "@/lib/protocol/vocab";
+import { SITE_ORIGIN, canonicalFor } from "@/lib/site";
 
 export const Route = createFileRoute("/boundary")({
   head: () => ({
@@ -14,7 +15,17 @@ export const Route = createFileRoute("/boundary")({
         content:
           "What Species & Presentation Analyst will not tell you, and why: no bite scores, no hotspots, no invented biology.",
       },
+      { property: "og:title", content: "Limits & sources · Species & Presentation Analyst" },
+      {
+        property: "og:description",
+        content:
+          "What Species & Presentation Analyst will not tell you, and why: no bite scores, no hotspots, no invented biology.",
+      },
+      { property: "og:url", content: `${SITE_ORIGIN}/boundary` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
     ],
+    links: [{ rel: "canonical", href: canonicalFor("/boundary") }],
   }),
   component: Boundary,
 });
@@ -35,7 +46,7 @@ function Boundary() {
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">The gaps are printed on the dial</p>
         <h1 className="mt-4 font-display text-5xl">What this won't tell you</h1>
         <p className="mt-5 text-base text-muted">
-          Species & Presentation Analyst explains biological plausibility. It does not compete with catch-prediction products. The list below is an editorial stance we have chosen, not a shortcoming we plan to fix. These limits are product rules, not preferences.
+          Species & Presentation Analyst explains biological plausibility. It does not compete with catch-prediction products. The list below is a chosen editorial stance, not a shortcoming waiting to be fixed. These limits are product rules, not preferences.
         </p>
         <ul className="mt-8 space-y-3">
           {REFUSES.map((r) => (
@@ -45,13 +56,13 @@ function Boundary() {
           ))}
         </ul>
         <p className="mt-8 text-sm text-muted">
-          No unreviewed species falls through to generic AI-written text. If we have no reviewed record for a fish, we say so and stop.
+          No unreviewed species falls through to generic AI-written text. With no reviewed record for a fish, the app says so and stops.
         </p>
 
         <section className="mt-12 border-t border-line pt-10" aria-labelledby="catalog-knowledge-heading">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">Catalog knowledge</p>
           <h2 id="catalog-knowledge-heading" className="mt-4 font-display text-3xl">
-            What we actually know
+            What is actually known
           </h2>
           <p className="mt-4 text-sm text-muted">
             Enrichment is a ranked queue of lookalike groups, not a race to fill seventy-five encyclopedia pages. A species becomes knowable only when identification, behavior, diet, and seasonal calendar are reviewed together from agency or peer-reviewed sources.

@@ -6,10 +6,40 @@ import { Instrument } from "@/components/instrument";
 import { QuickReadV2 } from "@/components/quick-read-v2";
 import { SelectedSpeciesProfile } from "@/components/species-profile";
 import { NEXT_REVIEW, REVIEWED_AT } from "@/lib/protocol/vocab";
+import { resolveSpeciesRef } from "@/lib/knowledge/species-slug";
+import { SPECIES } from "@/lib/knowledge/species-catalog";
+import { SITE_ORIGIN, canonicalFor } from "@/lib/site";
+import { useSession } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { TripContextBar } from "@/components/trip-context-bar";
 
-export const Route = createFileRoute("/")({ component: Home });
+/**
+ * `?species=<slug>` preselects a fish.
+ *
+ * It is how a species page opens the reading: the reader has already decided
+ * what they are fishing for, and making them find it again in a search box is
+ * the kind of small tax that ends a session. The parameter is validated against
+ * the catalog, so an unknown value leaves the reading where it was rather than
+ * clearing it.
+ *
+ * `canonicalFor("/")` drops the search string on purpose. This is one document
+ * with a preselected field, not a hundred and eleven copies of the home page.
+ */
+export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>): { species?: string } => {
+    const value = typeof search.species === "string" ? search.species : "";
+    return value ? { species: value.slice(0, 80) } : {};
+  },
+  head: () => ({
+    meta: [
+      { property: "og:url", content: `${SITE_ORIGIN}/` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+    ],
+    links: [{ rel: "canonical", href: canonicalFor("/") }],
+  }),
+  component: Home,
+});
 
 export type ExperienceMode = "beginner" | "competent" | "advanced";
 
@@ -42,6 +72,20 @@ const PATHS: {
 
 function Home() {
   const [mode, setMode] = useState<ExperienceMode>("beginner");
+  const { species: requestedSpecies } = Route.useSearch();
+  const session = useSession();
+  const { hydrate, patch } = session;
+
+  useEffect(() => {
+    hydrate();
+  }, [hydrate]);
+
+  useEffect(() => {
+    if (!requestedSpecies) return;
+    const ref = resolveSpeciesRef(requestedSpecies);
+    if (!ref) return;
+    patch({ speciesId: ref.species.id, step: "water" });
+  }, [requestedSpecies, patch]);
 
   useEffect(() => {
     try {
@@ -144,6 +188,12 @@ function Home() {
             <p className="mt-2 text-sm text-muted">Species &amp; Presentation Analyst</p>
           </div>
           <div className="flex flex-col gap-2 sm:items-end">
+            <Link
+              to="/species"
+              className="inline-flex min-h-11 items-center font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:text-fg"
+            >
+              All {SPECIES.length} species records
+            </Link>
             <Link
               to="/boundary"
               className="inline-flex min-h-11 items-center font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:text-fg"

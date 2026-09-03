@@ -1,0 +1,9 @@
+# Species & Presentation Analyst — Hook the Horizon
+#
+# Everything is crawlable. The reviewed species records are the point of the
+# site and there is nothing here worth hiding from an index.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://species.hookthehorizon.blog/sitemap.xml

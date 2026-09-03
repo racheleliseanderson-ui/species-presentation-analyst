@@ -28,6 +28,12 @@ export function Chrome() {
         </Link>
         <nav aria-label="Secondary" className="flex items-center gap-1">
           <Link
+            to="/species"
+            className="inline-flex min-h-11 items-center rounded-[var(--radius-xs)] px-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:bg-subtle hover:text-fg"
+          >
+            Species
+          </Link>
+          <Link
             to="/boundary"
             className="inline-flex min-h-11 items-center rounded-[var(--radius-xs)] px-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:bg-subtle hover:text-fg"
           >

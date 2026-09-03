@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "node scripts/with-app-env.mjs vite dev --host 0.0.0.0 --port 8080",
-    "build": "node scripts/with-app-env.mjs vite build && npm run db:migrate",
+    "build": "npm run build:sitemap && node scripts/with-app-env.mjs vite build && npm run db:migrate",
+    "build:sitemap": "node --experimental-strip-types scripts/build-sitemap.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed-dossiers": "node --experimental-strip-types scripts/seed-dossiers.mjs",
     "validate:dossiers": "node --experimental-strip-types scripts/validate-dossiers.mjs data/dossiers",

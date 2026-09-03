@@ -1,4 +1,4 @@
-import { declaredHolding } from "../engine/water.ts";
+import { declaredHolding, reviewedPresentationsFor } from "../engine/water.ts";
 import { normalizeTemperatureRangeF } from "../engine/temperature.ts";
 import { matchesSpecies } from "../knowledge/aliases.ts";
 import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
@@ -45,6 +45,7 @@ import {
 import type {
   ForagePacket,
   Interpretation,
+  SpeciesRecord,
   PopulationContextInput,
   ReadingCue,
   ScenarioInput,
@@ -197,6 +198,61 @@ export function buildPacket(
       connectionRequirements: result.connection,
       deviceQuestions: result.rigQuestion ? [result.rigQuestion] : [],
       unknowns: result.unknowns,
+    },
+  });
+}
+
+/**
+ * A packet carrying the fish and nothing else.
+ *
+ * The species page has no conditions on it — nobody has said where they are or
+ * what the water is doing — so it cannot honestly build a reading packet. What
+ * it can do is hand the next tool the one thing it does know, which is which
+ * fish the reader was looking at.
+ *
+ * The blocks a reading would fill are simply absent rather than empty, and
+ * `openChecks` says out loud that the conditions never travelled. A receiving
+ * app that treats a missing block as "not declared" behaves correctly; one that
+ * would have read a zero gets nothing to misread.
+ */
+export function buildSpeciesReferencePacket(
+  species: SpeciesRecord,
+  options: { intent?: string; waterType?: WaterType } = {},
+): FleetPacket {
+  const waterType = options.waterType ?? species.habitat.waterTypes[0];
+  return buildFleetPacket({
+    origin: ORIGIN,
+    instrumentId: INSTRUMENT_ID,
+    intent: options.intent ?? "hatch",
+    incoming: loadIncomingPacket(),
+    water: {
+      ...(waterType ? { waterType } : {}),
+      selectedSpecies: species.id,
+      documentedSpecies: [species.id],
+    },
+    ...(waterType ? { conditions: { waterType } } : {}),
+    openChecks: [
+      "No water, season or temperature was declared — this came from a species reference page, not a reading.",
+      "Presentation families have not been ranked; only the reviewed candidate list travels.",
+    ],
+    provenance: [
+      {
+        source: `${species.scientificName} reviewed record`,
+        evidenceClass: "declared" as const,
+        reviewedAt: species.reviewedAt,
+      },
+    ],
+    blocks: {
+      species: {
+        id: species.id,
+        scientificName: species.scientificName,
+        commonNames: species.commonNames,
+        targetStatus: species.targetStatus ?? "standard",
+        targetContext: species.targetContext,
+      },
+      presentationRequirements: {
+        families: waterType ? reviewedPresentationsFor(species, waterType) : [],
+      },
     },
   });
 }
