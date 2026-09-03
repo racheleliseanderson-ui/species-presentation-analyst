@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, Contrast, Moon, Sun, X } from "lucide-react";
 import { applyTheme, readTheme, THEMES, type ThemeId } from "@/lib/theme";
+import { FIELD_MODE_LABEL, FIELD_MODE_NOTE, useFieldMode } from "@/lib/field-mode";
 import { cn } from "@/lib/utils";
 
 /**
@@ -20,6 +21,7 @@ const ICONS: Record<ThemeId, typeof Sun> = {
 
 export function AppearanceControl() {
   const [theme, setTheme] = useState<ThemeId>("dark");
+  const { setting: fieldSetting, set: setFieldMode } = useFieldMode();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -76,12 +78,10 @@ export function AppearanceControl() {
           id="appearance-panel"
           role="group"
           aria-label="Appearance and accessibility"
-          className="w-[min(19rem,calc(100vw-2rem))] rounded-[var(--radius-md)] bg-elevated p-3 shadow-[var(--shadow-border-hover)]"
+          className="max-h-[70dvh] w-[min(19rem,calc(100vw-2rem))] overflow-y-auto rounded-[var(--radius-md)] bg-elevated p-3 shadow-[var(--shadow-border-hover)]"
         >
           <div className="flex items-start justify-between gap-2">
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-              Appearance
-            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Appearance</p>
             <button
               type="button"
               onClick={() => {
@@ -95,7 +95,47 @@ export function AppearanceControl() {
             </button>
           </div>
 
-          <div className="mt-2 flex flex-col gap-1.5" role="radiogroup" aria-label="Appearance mode">
+          {/* Reading mode lives with appearance because it is an appearance
+              decision made about a place rather than a preference. */}
+          <div className="mt-2">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">Reading</p>
+            <div
+              className="mt-2 grid grid-cols-3 gap-1.5"
+              role="radiogroup"
+              aria-label="Reading mode"
+            >
+              {(["off", "auto", "on"] as const).map((m) => {
+                const on = fieldSetting === m;
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    role="radio"
+                    aria-checked={on}
+                    onClick={() => setFieldMode(m)}
+                    className={cn(
+                      "min-h-11 rounded-[var(--radius-sm)] px-2 text-xs font-medium shadow-[var(--shadow-border)]",
+                      on ? "bg-accent text-accent-fg" : "bg-subtle text-fg",
+                    )}
+                  >
+                    {FIELD_MODE_LABEL[m]}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-2 px-1 text-xs leading-snug text-dim">
+              {FIELD_MODE_NOTE[fieldSetting]}
+            </p>
+          </div>
+
+          <p className="mt-3 border-t border-[color-mix(in_oklab,currentColor_12%,transparent)] pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+            Ground
+          </p>
+          <div
+            className="mt-2 flex flex-col gap-1.5"
+            role="radiogroup"
+            aria-label="Appearance mode"
+          >
             {THEMES.map((item) => {
               const Icon = ICONS[item.id];
               const on = theme === item.id;

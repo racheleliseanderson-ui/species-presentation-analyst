@@ -1,4 +1,5 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { FIELD_MODE_BOOT_SCRIPT, FieldModeProvider } from "@/lib/field-mode";
 import { AuthProvider } from "@/lib/auth/provider";
 import { AppearanceControl } from "@/components/appearance-control";
 import { FleetFooter } from "@/components/fleet-footer";
@@ -78,18 +79,24 @@ function Root() {
   return (
     <html lang="en" className="antialiased" data-theme="dark" suppressHydrationWarning>
       <head>
+        {/* Field mode before first paint, so a phone never flashes the desk layout. */}
+        <script dangerouslySetInnerHTML={{ __html: FIELD_MODE_BOOT_SCRIPT }} />
         <HeadContent />
       </head>
       <body>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         {import.meta.env.DEV && <PreviewHostBridge />}
         <PwaRegister />
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
-        <FleetFooter />
-        <SupportLink />
-        <AppearanceControl />
+        <FieldModeProvider>
+          <AuthProvider>
+            <Outlet />
+          </AuthProvider>
+          <FleetFooter />
+          <SupportLink />
+          {/* Inside the provider on purpose: this panel is where reading mode
+              is changed, so it needs the same context the pages have. */}
+          <AppearanceControl />
+        </FieldModeProvider>
         <Scripts />
       </body>
     </html>
