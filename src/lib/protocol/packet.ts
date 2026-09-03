@@ -495,18 +495,38 @@ function declinedBlocks(packet: FleetPacket): string[] {
     out.push("Air temperature — this reading works off water temperature, and the two are not interchangeable");
   }
   if (Array.isArray(packet.openChecks) && packet.openChecks.length) {
-    out.push(`${packet.openChecks.length} open check(s) — those belong to the water record, not to a species reading`);
+    const count = packet.openChecks.length;
+    out.push(
+      `${count === 1 ? "One open check" : `${count} open checks`} — open checks belong to the water record, and Field Ops is where they get worked through`,
+    );
   }
   if (packet.logistics) {
-    out.push("Launches, access and amenities — Field Ops does something with those; this app does not");
+    out.push("Launches, access and amenities — that is Field Ops' side of the trip, not this one");
   }
   if (packet.readiness) {
-    out.push("A readiness score — no score from another tool changes what a fish is doing");
+    out.push("A readiness score — how ready a trip is says nothing about what the fish are doing");
   }
   if (packet.privacy) {
     out.push("The sender's privacy claim — coordinates are stripped here on arrival either way, so the claim is not relied on");
   }
   return out;
+}
+
+/** An ISO stamp is not something to put in front of a reader. */
+function readableTime(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const ms = Date.parse(value);
+  if (Number.isNaN(ms)) return value;
+  try {
+    return new Date(ms).toLocaleString(undefined, {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  } catch {
+    return value;
+  }
 }
 
 function carriedRows(applied: Partial<ScenarioInput>): CarriedRow[] {
@@ -545,9 +565,8 @@ function carriedRows(applied: Partial<ScenarioInput>): CarriedRow[] {
         .join(" · "),
     });
   }
-  if (applied.tempObservedAt) {
-    rows.push({ label: "Reading taken", value: applied.tempObservedAt });
-  }
+  const observed = readableTime(applied.tempObservedAt);
+  if (observed) rows.push({ label: "Reading taken", value: observed });
   if (applied.tempRetained) {
     rows.push({
       label: "Heads up",
