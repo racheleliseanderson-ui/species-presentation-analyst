@@ -1,54 +1,112 @@
-import { carryFleetContext } from "./fleet-context.ts";
 import { declaredHolding } from "../engine/water.ts";
 import { normalizeTemperatureRangeF } from "../engine/temperature.ts";
 import { matchesSpecies } from "../knowledge/aliases.ts";
 import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import {
+  assessFreshness,
+  buildPacket as buildFleetPacket,
+  readPacket,
+  type FreshnessAssessment,
+  type HthPacket as FleetPacket,
+  type PacketRead,
+} from "../hth-packet.ts";
+import { loadIncomingPacket, rememberIncomingPacket } from "./fleet-context.ts";
+import {
+  CLARITY,
+  FLOW_CLASSES,
   FORAGE_CLASSES,
   INSTRUMENT_ID,
-  PACKET_VERSION,
+  LIGHT,
+  RIVER_HOLDING,
+  SEASONS,
+  STILL_HOLDING,
+  STILL_STATES,
   TEMP_SOURCES,
   TIDE_MOVEMENTS,
   TIDE_STRENGTHS,
   WATER_TYPES,
+  WEATHER_TRENDS,
   isMarine,
+  labelOf,
+  type Clarity,
+  type FlowClass,
   type ForageClass,
+  type Light,
+  type RiverHolding,
+  type Season,
+  type StillHolding,
+  type StillState,
   type TempSource,
   type TideMovement,
   type TideStrength,
   type WaterType,
+  type WeatherTrend,
 } from "./vocab.ts";
 import type {
   ForagePacket,
-  HthPacket,
   Interpretation,
   PopulationContextInput,
+  ReadingCue,
   ScenarioInput,
+  TempStation,
   TemperatureRangeF,
   WaterPacket,
 } from "./types.ts";
 
-export function buildPacket(input: ScenarioInput, result: Interpretation): HthPacket {
+/** This app's own name in the fleet. Every trail entry it writes says this. */
+export const ORIGIN = "species-presentation" as const;
+
+/* ========================================================================== *
+ * Outgoing
+ * ========================================================================== */
+
+/**
+ * Build the packet this app hands to the next step.
+ *
+ * The envelope, the version stamp, the trail append and the coordinate strip
+ * all come from `src/lib/hth-packet.ts`, the file the whole fleet shares.
+ * Everything below it is this app's own: which of its results belong in which
+ * block, and what its vocabulary calls them.
+ *
+ * `incoming` is always the ORIGINAL packet that arrived, read back out of
+ * session storage — never this app's own previous output. That is what keeps
+ * the trail one hop longer than what arrived instead of growing every time the
+ * reading re-renders.
+ */
+export function buildPacket(
+  input: ScenarioInput,
+  result: Interpretation,
+  options: { intent?: string; incoming?: FleetPacket | PacketRead | null } = {},
+): FleetPacket {
   const holding = declaredHolding(input) ?? undefined;
-  const packet: HthPacket = {
-    packetVersion: PACKET_VERSION,
-    origin: "species-presentation",
-    createdAt: new Date().toISOString(),
+  const tempRangeF = normalizeTemperatureRangeF(input.tempRangeF);
+  const incoming = options.incoming === undefined ? loadIncomingPacket() : options.incoming;
+
+  return buildFleetPacket({
+    origin: ORIGIN,
     instrumentId: INSTRUMENT_ID,
-    water: input.water,
-    species: {
-      id: result.species.id,
-      scientificName: result.species.scientificName,
-      commonNames: result.species.commonNames,
-      targetStatus: result.species.targetStatus ?? "standard",
-      targetContext: result.species.targetContext,
+    intent: options.intent ?? "hatch",
+    incoming,
+
+    water: {
+      ...input.water,
+      waterType: input.waterType,
+      /* The fleet's key for the fish the reader actually picked. This app used
+       * to write it only under `species.id`, where nothing downstream looked. */
+      selectedSpecies: result.species.id,
     },
-    populationContext: result.populationContext,
+
     conditions: {
       waterType: input.waterType,
       tempF: input.tempF,
-      tempRangeF: normalizeTemperatureRangeF(input.tempRangeF),
+      tempRangeF: tempRangeF ? { low: tempRangeF[0], high: tempRangeF[1] } : null,
       tempSource: input.tempSource,
+      /* Temperature provenance travels with the number. A reading with no
+       * observation time is a number someone typed, and the next instrument
+       * has no way to tell unless these come along. */
+      tempObservedAt: input.tempObservedAt ?? null,
+      tempRetained: input.tempRetained ?? null,
+      tempStation: input.tempStation ?? null,
       flow: input.flow,
       stillState: input.stillState,
       // Only written when this water is actually read on the tide, so a
@@ -65,86 +123,108 @@ export function buildPacket(input: ScenarioInput, result: Interpretation): HthPa
       season: input.season,
       holding,
     },
-    observations: { forage: input.forage ?? null },
-    hypotheses: {
-      thermalState: result.thermalState,
-      positioning: result.positioning.map((p) => p.text),
-      why: result.why,
-      invalidators: result.invalidators,
-    },
-    presentationRequirements: {
-      families: result.presentations.map((p) => p.id),
-      mechanics: result.presentations[0]?.mechanics ?? [],
-      weightingModel: result.weightingModel.version,
-      speciesOverrideModel: result.weightingModel.speciesOverrideVersion,
-      appliedSpeciesOverrides: result.weightingModel.appliedSpeciesOverrideIds,
-      regionalPopulationModel: result.weightingModel.regionalPopulationVersion,
-      appliedPopulationProfileId: result.weightingModel.appliedPopulationProfileId,
-      weightedFamilies: result.presentations.map((p) => ({ id: p.id, weight: p.weight })),
-    },
-    equipmentRequirements: result.equipment,
-    connectionRequirements: result.connection,
-    deviceQuestions: result.rigQuestion ? [result.rigQuestion] : [],
-    unknowns: result.unknowns,
-    provenance: [
-      {
-        source: `${result.species.scientificName} reviewed record`,
-        evidenceClass: "declared",
-        reviewedAt: result.species.reviewedAt,
+
+    provenance: buildProvenance(input, result),
+
+    blocks: {
+      species: {
+        id: result.species.id,
+        scientificName: result.species.scientificName,
+        commonNames: result.species.commonNames,
+        targetStatus: result.species.targetStatus ?? "standard",
+        targetContext: result.species.targetContext,
       },
-      {
-        source: `${result.weightingModel.version} explainable presentation weighting`,
-        evidenceClass: "declared",
-        reviewedAt: result.species.reviewedAt,
+      populationContext: result.populationContext,
+      observations: { forage: input.forage ?? null },
+      hypotheses: {
+        thermalState: result.thermalState,
+        positioning: result.positioning.map((p) => p.text),
+        why: result.why,
+        invalidators: result.invalidators,
       },
-      ...(result.weightingModel.appliedSpeciesOverrideIds?.length
-        ? [
-            {
-              source: `${result.weightingModel.speciesOverrideVersion ?? "species override"} reviewed species-specific weighting · ${result.weightingModel.appliedSpeciesOverrideIds.join(", ")}`,
-              evidenceClass: "declared" as const,
-              reviewedAt: result.species.reviewedAt,
-            },
-          ]
-        : []),
-      ...(result.populationContext
-        ? [
-            {
-              source: `${result.weightingModel.regionalPopulationVersion ?? "regional population context"} · ${result.populationContext.label} · ${result.populationContext.source}`,
-              evidenceClass: "declared" as const,
-              reviewedAt: result.species.reviewedAt,
-            },
-          ]
-        : []),
-      {
-        source:
-          normalizeTemperatureRangeF(input.tempRangeF)
-            ? "estimated water-temperature range"
-            : input.tempSource === "user_measured"
-              ? "user-measured water temperature"
-              : input.tempSource === "official_station"
-                ? "official station temperature"
-                : "temperature provenance declared",
-        evidenceClass:
-          input.tempSource === "user_measured"
-            ? "user_measured"
-            : input.tempSource === "official_station"
-              ? "official_station"
-              : input.tempSource === "unknown"
-                ? "unknown"
-                : "declared",
-        reviewedAt: result.species.reviewedAt,
+      presentationRequirements: {
+        families: result.presentations.map((p) => p.id),
+        mechanics: result.presentations[0]?.mechanics ?? [],
+        weightingModel: result.weightingModel.version,
+        speciesOverrideModel: result.weightingModel.speciesOverrideVersion,
+        appliedSpeciesOverrides: result.weightingModel.appliedSpeciesOverrideIds,
+        regionalPopulationModel: result.weightingModel.regionalPopulationVersion,
+        appliedPopulationProfileId: result.weightingModel.appliedPopulationProfileId,
+        weightedFamilies: result.presentations.map((p) => ({ id: p.id, weight: p.weight })),
       },
-    ],
-    privacy: {
-      containsCoordinates: false,
-      containsPrivateWater: false,
+      equipmentRequirements: result.equipment,
+      connectionRequirements: result.connection,
+      deviceQuestions: result.rigQuestion ? [result.rigQuestion] : [],
+      unknowns: result.unknowns,
     },
-  };
-  return carryFleetContext(packet);
+  });
 }
 
-export function encodePacketHash(packet: HthPacket): string {
-  return "#packet=" + encodeURIComponent(JSON.stringify(packet));
+function buildProvenance(input: ScenarioInput, result: Interpretation) {
+  const range = normalizeTemperatureRangeF(input.tempRangeF);
+  return [
+    {
+      source: `${result.species.scientificName} reviewed record`,
+      evidenceClass: "declared" as const,
+      reviewedAt: result.species.reviewedAt,
+    },
+    {
+      source: `${result.weightingModel.version} explainable presentation weighting`,
+      evidenceClass: "declared" as const,
+      reviewedAt: result.species.reviewedAt,
+    },
+    ...(result.weightingModel.appliedSpeciesOverrideIds?.length
+      ? [
+          {
+            source: `${result.weightingModel.speciesOverrideVersion ?? "species override"} reviewed species-specific weighting · ${result.weightingModel.appliedSpeciesOverrideIds.join(", ")}`,
+            evidenceClass: "declared" as const,
+            reviewedAt: result.species.reviewedAt,
+          },
+        ]
+      : []),
+    ...(result.populationContext
+      ? [
+          {
+            source: `${result.weightingModel.regionalPopulationVersion ?? "regional population context"} · ${result.populationContext.label} · ${result.populationContext.source}`,
+            evidenceClass: "declared" as const,
+            reviewedAt: result.species.reviewedAt,
+          },
+        ]
+      : []),
+    {
+      source: range
+        ? "estimated water-temperature range"
+        : input.tempSource === "user_measured"
+          ? "user-measured water temperature"
+          : input.tempSource === "official_station"
+            ? `official station temperature${input.tempStation?.name ? ` · ${input.tempStation.name}` : ""}`
+            : "temperature provenance declared",
+      evidenceClass:
+        input.tempSource === "user_measured"
+          ? ("user_measured" as const)
+          : input.tempSource === "official_station"
+            ? ("official_station" as const)
+            : input.tempSource === "unknown"
+              ? ("unknown" as const)
+              : ("declared" as const),
+      reviewedAt: result.species.reviewedAt,
+      /* The record's own review date is not the moment this link was pressed.
+       * `builtAt` is left to the shared builder's `createdAt`; nothing here
+       * pretends a month-old record was checked this morning. */
+      ...(input.tempObservedAt ? { observedAt: input.tempObservedAt } : {}),
+    },
+  ];
+}
+
+/* ========================================================================== *
+ * Incoming — this app's vocabulary, the fleet's envelope
+ * ========================================================================== */
+
+/** A carried value is used only when it is one this app's vocabulary knows. */
+function enumValue<T extends string>(value: unknown, allowed: readonly T[]): T | undefined {
+  return typeof value === "string" && (allowed as readonly string[]).includes(value)
+    ? (value as T)
+    : undefined;
 }
 
 /**
@@ -207,7 +287,39 @@ function coerceTideStrength(value: unknown): TideStrength {
 }
 
 function coerceTempRange(value: unknown): TemperatureRangeF | null {
+  /* The fleet writes `{ low, high }`; this app's engine works in `[low, high]`.
+   * Both shapes are accepted so a packet from either dialect lands. */
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    const o = value as Record<string, unknown>;
+    if (typeof o.low === "number" && typeof o.high === "number") {
+      return normalizeTemperatureRangeF([o.low, o.high]);
+    }
+  }
   return normalizeTemperatureRangeF(value);
+}
+
+function coerceTempStation(value: unknown): TempStation | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const o = value as Record<string, unknown>;
+  if (typeof o.id !== "string" || !o.id.trim()) return null;
+  return {
+    id: o.id.trim(),
+    name: typeof o.name === "string" ? o.name : undefined,
+    agency: typeof o.agency === "string" ? o.agency : undefined,
+  };
+}
+
+function coerceCues(value: unknown): ReadingCue[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((entry) => {
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) return null;
+      const o = entry as Record<string, unknown>;
+      if (typeof o.family !== "string" || typeof o.title !== "string") return null;
+      return { family: o.family, title: o.title };
+    })
+    .filter((cue): cue is ReadingCue => cue !== null)
+    .slice(0, 12);
 }
 
 function coerceForage(raw: unknown): ForagePacket | null {
@@ -240,79 +352,251 @@ function coercePopulationContext(raw: unknown): PopulationContextInput | null {
   };
 }
 
+function text(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
+}
+
 function coerceWater(raw: unknown): WaterPacket {
   if (!raw || typeof raw !== "object") return {};
   const o = raw as Record<string, unknown>;
-  const waterType = coerceWaterType(o.waterType);
   const documented = Array.isArray(o.documentedSpecies)
     ? o.documentedSpecies.filter((item): item is string => typeof item === "string")
     : undefined;
   return {
-    waterId: typeof o.waterId === "string" ? o.waterId : undefined,
-    waterName: typeof o.waterName === "string" ? o.waterName : undefined,
-    waterType,
-    jurisdiction: typeof o.jurisdiction === "string" ? o.jurisdiction : undefined,
+    waterId: text(o.waterId),
+    waterName: text(o.waterName),
+    waterType: coerceWaterType(o.waterType),
+    waterClass: text(o.waterClass),
+    region: text(o.region),
+    state: text(o.state),
+    jurisdiction: text(o.jurisdiction),
     documentedSpecies: documented,
-    accessContext: typeof o.accessContext === "string" ? o.accessContext : undefined,
+    selectedSpecies: text(o.selectedSpecies),
+    accessContext: text(o.accessContext),
+    managingAgency: text(o.managingAgency),
+    officialSourceUrl: text(o.officialSourceUrl),
   };
 }
 
-export function parseIncomingPacket(hash: string): Partial<ScenarioInput> | null {
-  if (!hash.startsWith("#packet=")) return null;
-  try {
-    const raw = decodeURIComponent(hash.slice("#packet=".length));
-    const data = JSON.parse(raw) as Record<string, unknown>;
-    const water = coerceWater(data.water);
-    const conditions = (data.conditions ?? {}) as Record<string, unknown>;
-    const species = data.species as
-      | { id?: string; speciesId?: string; commonName?: string; commonNames?: unknown[] }
-      | undefined;
-    const observations = (data.observations ?? {}) as { forage?: unknown };
-    const waterType = coerceWaterType(conditions.waterType) ?? water.waterType;
-    const carriedSpeciesId =
-      typeof species?.id === "string" && species.id.trim()
-        ? species.id.trim()
-        : typeof species?.speciesId === "string" && species.speciesId.trim()
-          ? species.speciesId.trim()
-          : undefined;
-    const carriedNames = [
-      ...(Array.isArray(species?.commonNames)
-        ? species.commonNames.filter((name): name is string => typeof name === "string")
-        : []),
-      ...(typeof species?.commonName === "string" ? [species.commonName] : []),
-    ];
-    const speciesId =
-      (carriedSpeciesId && SPECIES_BY_ID[carriedSpeciesId] ? carriedSpeciesId : undefined) ??
-      SPECIES.find((candidate) => carriedNames.some((name) => matchesSpecies(candidate, name)))?.id;
-    const exactTempF =
-      typeof conditions.tempF === "number" && Number.isFinite(conditions.tempF) ? conditions.tempF : null;
-    const tempRangeF = exactTempF == null ? coerceTempRange(conditions.tempRangeF) : null;
-    return {
-      speciesId,
-      water,
-      waterType,
-      populationContext: coercePopulationContext(data.populationContext),
-      tempF: exactTempF,
-      tempRangeF,
-      tempSource: coerceTempSource(conditions.tempSource),
-      ...(waterType && isMarine(waterType)
-        ? {
-            tideMovement: coerceTideMovement(conditions.tideMovement ?? data.tideMovement),
-            tideStrength: coerceTideStrength(conditions.tideStrength ?? data.tideStrength),
-          }
-        : {}),
-      forage: coerceForage(observations.forage ?? data.forage),
-    };
-  } catch {
-    return null;
+/**
+ * Resolve the fish the reader already picked upstream.
+ *
+ * `water.selectedSpecies` is the fleet's key and is tried first: it is the one
+ * the reader chose in Field Sense, which is why they should not have to choose
+ * again here. `species.id` / `species.speciesId` are this app's own older keys
+ * and the Field Ops slug, kept so a packet from either still resolves. Common
+ * names go through the alias table last, because a name match is a guess where
+ * an id is not — and nothing is inferred from `documentedSpecies`, which is a
+ * list of what lives there, not a choice.
+ */
+function resolveSpeciesId(packet: FleetPacket): string | undefined {
+  const water = (packet.water ?? {}) as Record<string, unknown>;
+  const species = (packet.species ?? {}) as Record<string, unknown>;
+  const candidates = [text(water.selectedSpecies), text(species.id), text(species.speciesId)];
+  for (const candidate of candidates) {
+    if (candidate && SPECIES_BY_ID[candidate]) return candidate;
   }
+  const names = [
+    ...(Array.isArray(species.commonNames)
+      ? species.commonNames.filter((name): name is string => typeof name === "string")
+      : []),
+    ...(text(species.commonName) ? [text(species.commonName) as string] : []),
+    ...candidates.filter((value): value is string => Boolean(value)),
+  ];
+  return SPECIES.find((candidate) => names.some((name) => matchesSpecies(candidate, name)))?.id;
 }
 
-export const FLEET = [
-  { name: "Field Sense", href: "https://waterways.hookthehorizon.blog/" },
-  { name: "Hatch Match", href: "https://hatch.hookthehorizon.blog/" },
-  { name: "Tackle Link", href: "https://tackle.hookthehorizon.blog/" },
-  { name: "Knot Analyst", href: "https://knot.hookthehorizon.blog/" },
-  { name: "Rig Signal", href: "https://rig-signal.hookthehorizon.blog/" },
-  { name: "Field Ops Desk", href: "https://ops.hookthehorizon.blog/" },
-] as const;
+/** Map a validated fleet packet onto this app's scenario vocabulary. */
+export function applyIncoming(packet: FleetPacket): Partial<ScenarioInput> {
+  const water = coerceWater(packet.water);
+  const conditions = (packet.conditions ?? {}) as Record<string, unknown>;
+  const reading = (packet.reading ?? {}) as Record<string, unknown>;
+  const observations = (packet.observations ?? {}) as { forage?: unknown };
+  const waterType = coerceWaterType(conditions.waterType) ?? water.waterType;
+
+  const exactTempF =
+    typeof conditions.tempF === "number" && Number.isFinite(conditions.tempF)
+      ? conditions.tempF
+      : null;
+  const tempRangeF = exactTempF == null ? coerceTempRange(conditions.tempRangeF) : null;
+
+  /* Holding water belongs to the water type it was declared on. A "seam" from
+   * a river packet means nothing on a flat, so it is only kept when the water
+   * type that arrived is the one that class belongs to. */
+  const holding = text(conditions.holding);
+  const holdingRiver =
+    waterType === "flowing" ? enumValue<RiverHolding>(holding, RIVER_HOLDING) : undefined;
+  const holdingStill =
+    waterType === "stillwater" ? enumValue<StillHolding>(holding, STILL_HOLDING) : undefined;
+
+  return {
+    speciesId: resolveSpeciesId(packet),
+    water,
+    waterType,
+    populationContext: coercePopulationContext(packet.populationContext),
+    tempF: exactTempF,
+    tempRangeF,
+    tempSource: coerceTempSource(conditions.tempSource),
+    tempObservedAt: text(conditions.tempObservedAt) ?? null,
+    tempRetained: typeof conditions.tempRetained === "boolean" ? conditions.tempRetained : null,
+    tempStation: coerceTempStation(conditions.tempStation),
+    cues: coerceCues(reading.cues),
+    flow: enumValue<FlowClass>(conditions.flow, FLOW_CLASSES),
+    stillState: enumValue<StillState>(conditions.stillState, STILL_STATES),
+    clarity: enumValue<Clarity>(conditions.clarity, CLARITY),
+    light: enumValue<Light>(conditions.light, LIGHT),
+    weather: enumValue<WeatherTrend>(conditions.weather, WEATHER_TRENDS),
+    season: enumValue<Season>(conditions.season, SEASONS),
+    holdingRiver,
+    holdingStill,
+    ...(waterType && isMarine(waterType)
+      ? {
+          tideMovement: coerceTideMovement(conditions.tideMovement),
+          tideStrength: coerceTideStrength(conditions.tideStrength),
+        }
+      : {}),
+    forage: coerceForage(observations.forage),
+  };
+}
+
+/* ========================================================================== *
+ * The three-state read
+ * ========================================================================== */
+
+export type CarriedRow = { label: string; value: string };
+
+/**
+ * What this app does with a link it was handed.
+ *
+ * Three states, all of them visible. `absent` is the ordinary case and not an
+ * error. `invalid` says so in words the reader can act on and leaves them to
+ * fill the reading in by hand. `ok` shows what arrived and what was left on the
+ * floor, and applies nothing until they say so.
+ */
+export type IncomingCarry =
+  | { state: "absent" }
+  | { state: "invalid"; reason: string }
+  | {
+      state: "ok";
+      packet: FleetPacket;
+      applied: Partial<ScenarioInput>;
+      carried: CarriedRow[];
+      declined: string[];
+      normalizations: string[];
+      freshness: FreshnessAssessment;
+      from: string;
+    };
+
+/** Blocks this app knowingly does not read, named on screen when they arrive. */
+function declinedBlocks(packet: FleetPacket): string[] {
+  const out: string[] = [];
+  const conditions = (packet.conditions ?? {}) as Record<string, unknown>;
+  if (typeof conditions.airTempF === "number") {
+    out.push("Air temperature — this reading works off water temperature, and the two are not interchangeable");
+  }
+  if (Array.isArray(packet.openChecks) && packet.openChecks.length) {
+    out.push(`${packet.openChecks.length} open check(s) — those belong to the water record, not to a species reading`);
+  }
+  if (packet.logistics) {
+    out.push("Launches, access and amenities — Field Ops does something with those; this app does not");
+  }
+  if (packet.readiness) {
+    out.push("A readiness score — no score from another tool changes what a fish is doing");
+  }
+  if (packet.privacy) {
+    out.push("The sender's privacy claim — coordinates are stripped here on arrival either way, so the claim is not relied on");
+  }
+  return out;
+}
+
+function carriedRows(applied: Partial<ScenarioInput>): CarriedRow[] {
+  const rows: CarriedRow[] = [];
+  if (applied.speciesId) {
+    const species = SPECIES_BY_ID[applied.speciesId];
+    rows.push({
+      label: "Species picked upstream",
+      value: species ? species.commonNames[0] : applied.speciesId,
+    });
+  }
+  if (applied.water?.waterName) rows.push({ label: "Water", value: applied.water.waterName });
+  if (applied.water?.waterClass) {
+    rows.push({ label: "Water class", value: applied.water.waterClass });
+  }
+  if (applied.waterType) rows.push({ label: "Water type", value: labelOf(applied.waterType) });
+  if (applied.water?.jurisdiction) {
+    rows.push({ label: "Area", value: applied.water.jurisdiction });
+  }
+  if (applied.tempF != null) {
+    rows.push({ label: "Water temperature", value: `${applied.tempF}°F` });
+  } else if (applied.tempRangeF) {
+    rows.push({
+      label: "Water temperature",
+      value: `${applied.tempRangeF[0]}–${applied.tempRangeF[1]}°F range`,
+    });
+  }
+  if (applied.tempSource && applied.tempSource !== "unknown") {
+    rows.push({ label: "Where that reading came from", value: labelOf(applied.tempSource) });
+  }
+  if (applied.tempStation?.name || applied.tempStation?.id) {
+    rows.push({
+      label: "Station",
+      value: [applied.tempStation.name ?? applied.tempStation.id, applied.tempStation.agency]
+        .filter(Boolean)
+        .join(" · "),
+    });
+  }
+  if (applied.tempObservedAt) {
+    rows.push({ label: "Reading taken", value: applied.tempObservedAt });
+  }
+  if (applied.tempRetained) {
+    rows.push({
+      label: "Heads up",
+      value: "That temperature was already past its own freshness window when it was sent",
+    });
+  }
+  if (applied.tideMovement && applied.tideMovement !== "unknown") {
+    rows.push({ label: "Tide", value: labelOf(applied.tideMovement) });
+  }
+  if (applied.tideStrength && applied.tideStrength !== "unknown") {
+    rows.push({ label: "Tide range", value: labelOf(applied.tideStrength) });
+  }
+  if (applied.forage) rows.push({ label: "Forage", value: labelOf(applied.forage.class) });
+  if (applied.populationContext?.profileId) {
+    rows.push({
+      label: "Population context",
+      value: `${applied.populationContext.profileId} · ${applied.populationContext.source.replaceAll("_", " ")}`,
+    });
+  }
+  for (const cue of applied.cues ?? []) {
+    rows.push({ label: `Water read · ${cue.family}`, value: cue.title });
+  }
+  return rows;
+}
+
+/**
+ * Read the packet on the way in.
+ *
+ * One function, used by every screen that can be landed on with a link, so the
+ * incoming packet is remembered for the outgoing carry no matter which screen
+ * the reader arrived at. It used to be remembered in only one of the three
+ * entry paths, which is why a trail that came through "Advanced" survived and
+ * the same trail through the ordinary reading did not.
+ */
+export function readIncoming(source?: string | null): IncomingCarry {
+  const read = readPacket(source);
+  if (read.state === "absent") return { state: "absent" };
+  if (read.state === "invalid") return { state: "invalid", reason: read.reason };
+
+  rememberIncomingPacket(read.packet);
+  const applied = applyIncoming(read.packet);
+  return {
+    state: "ok",
+    packet: read.packet,
+    applied,
+    carried: carriedRows(applied),
+    declined: declinedBlocks(read.packet),
+    normalizations: read.normalizations,
+    freshness: assessFreshness(read.packet),
+    from: text(read.packet.fleet?.lastUpdatedBy) ?? text(read.packet.origin) ?? "another Hook tool",
+  };
+}

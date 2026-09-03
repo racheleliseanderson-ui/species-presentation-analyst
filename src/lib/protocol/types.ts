@@ -222,9 +222,32 @@ export type WaterPacket = {
   waterId?: string;
   waterName?: string;
   waterType?: WaterType;
+  /** The sender's finer class for the same water, kept beside the fleet type
+   *  because "tailwater" and "flowing" are not the same sentence. */
+  waterClass?: string;
+  region?: string;
+  state?: string;
   jurisdiction?: string;
   documentedSpecies?: string[];
+  /** The one species the reader picked upstream. The fleet's own key for it —
+   *  this app used to look under `species.id`, which nothing else wrote. */
+  selectedSpecies?: string;
   accessContext?: string;
+  managingAgency?: string;
+  officialSourceUrl?: string;
+};
+
+/** A published station behind a carried water temperature. */
+export type TempStation = {
+  id: string;
+  name?: string;
+  agency?: string;
+};
+
+/** One thing the water read called out upstream. Titles, not measurements. */
+export type ReadingCue = {
+  family: string;
+  title: string;
 };
 
 export type TemperatureRangeF = [number, number];
@@ -238,6 +261,13 @@ export type ScenarioInput = {
   tempRangeF?: TemperatureRangeF | null;
   tempSource: TempSource;
   tempObservedAt?: string | null;
+  /** True when the sender carried a reading that had already gone past its own
+   *  freshness window. Carried, and labelled as carried. */
+  tempRetained?: boolean | null;
+  tempStation?: TempStation | null;
+  /** What the water read upstream called out. Context for the reader; the
+   *  weighting engine does not touch it. */
+  cues?: ReadingCue[];
   flow?: FlowClass;
   stillState?: StillState;
   /** Saltwater's equivalent of flow and stillwater state. */

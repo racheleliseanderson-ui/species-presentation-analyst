@@ -2,7 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { packetSummary } from "@/lib/engine/brief";
-import { buildPacket, encodePacketHash, FLEET } from "@/lib/protocol/packet";
+import { FLEET_TARGETS, packetUrl, type FleetTargetKey } from "@/lib/hth-packet";
+import { buildPacket } from "@/lib/protocol/packet";
 import type { Interpretation, ScenarioInput } from "@/lib/protocol/types";
 import { cn } from "@/lib/utils";
 
@@ -17,59 +18,44 @@ import { cn } from "@/lib/utils";
  * name left the reader to guess why they would follow it.
  */
 
-type HandoffId = "waterways" | "hatch" | "tackle" | "knot" | "rig" | "ops";
-
 type HandoffSpec = {
-  id: HandoffId;
-  /** Name in FLEET. */
-  fleetName: string;
-  label: string;
+  /** The key in the shared fleet registry. One list of addresses, not two —
+   *  the name and the URL both come from `FLEET_TARGETS`. */
+  id: FleetTargetKey;
   /** The question the destination answers. */
   purpose: string;
-  /** Where this sits in Waterways → Species → Forage → Presentation → Rig → Knot → Field Ops. */
+  /** Where this sits in Water → Species → Forage → Tackle → Knot → Field Ops. */
   chainStep: string;
 };
 
 const SPECS: HandoffSpec[] = [
   {
-    id: "waterways",
-    fleetName: "Field Sense",
-    label: "Field Sense Navigator",
+    id: "water",
     purpose: "Where does water like this exist, and what is it doing right now?",
     chainStep: "Back one step · water",
   },
   {
     id: "hatch",
-    fleetName: "Hatch Match",
-    label: "Hatch Match",
     purpose: "What is actually hatching or swimming here, so forage stops being an assumption?",
     chainStep: "Forage",
   },
   {
     id: "tackle",
-    fleetName: "Tackle Link",
-    label: "Tackle Link",
     purpose: "What rod, line and terminal setup delivers this presentation?",
     chainStep: "Tackle",
   },
   {
     id: "rig",
-    fleetName: "Rig Signal",
-    label: "Rig Signal",
     purpose: "Can this rig and electronics actually fish the depth and speed the family needs?",
-    chainStep: "Rig",
+    chainStep: "Optional · rig",
   },
   {
     id: "knot",
-    fleetName: "Knot Analyst",
-    label: "Knot Analyst",
     purpose: "Which connection survives this line class, this cover and these hands?",
     chainStep: "Knot",
   },
   {
     id: "ops",
-    fleetName: "Field Ops Desk",
-    label: "Field Ops",
     purpose: "Keep this reading with the rest of the trip.",
     chainStep: "Field ops",
   },
@@ -88,12 +74,22 @@ export function Handoffs({
   intro?: string;
   className?: string;
 }) {
-  const [pending, setPending] = useState<HandoffId | null>(null);
+  const [pending, setPending] = useState<FleetTargetKey | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
 
-  const packet = useMemo(() => buildPacket(input, result), [input, result]);
-  const hash = useMemo(() => encodePacketHash(packet), [packet]);
+  /* One link per destination, each built from the packet that arrived rather
+   * than from the previous link — that is what keeps the trail one hop longer
+   * instead of one hop longer every time this re-renders. */
+  const links = useMemo(
+    () =>
+      SPECS.map((spec) => ({
+        ...spec,
+        label: FLEET_TARGETS[spec.id].name,
+        href: packetUrl(spec.id, buildPacket(input, result, { intent: spec.id })),
+      })),
+    [input, result],
+  );
   const summary = useMemo(() => packetSummary(input, result), [input, result]);
 
   useEffect(() => {
@@ -111,12 +107,7 @@ export function Handoffs({
     openerRef.current?.focus();
   }
 
-  const specs = SPECS.map((spec) => {
-    const target = FLEET.find((item) => item.name === spec.fleetName);
-    return target ? { ...spec, href: `${target.href}${hash}` } : null;
-  }).filter((item): item is HandoffSpec & { href: string } => item !== null);
-
-  const active = specs.find((spec) => spec.id === pending) ?? null;
+  const active = links.find((spec) => spec.id === pending) ?? null;
 
   return (
     <section
@@ -132,7 +123,7 @@ export function Handoffs({
       <p className="mt-2 max-w-3xl text-sm text-muted">{intro}</p>
 
       <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-        {specs.map((spec) => (
+        {links.map((spec) => (
           <li key={spec.id}>
             <button
               type="button"
@@ -176,7 +167,7 @@ export function Handoffs({
               Send this reading to {active.label}?
             </h4>
             <p className="mt-2 text-sm text-muted">{active.purpose}</p>
-            <p className="mt-3 text-sm text-fg">Here's the summary. The link also carries whatever the app you came from sent along:</p>
+            <p className="mt-3 text-sm text-fg">What the link carries:</p>
             <dl className="mt-3 space-y-2 text-sm">
               {summary.map((row) => (
                 <div key={row.label} className="flex justify-between gap-4">
@@ -185,6 +176,15 @@ export function Handoffs({
                 </div>
               ))}
             </dl>
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              Under those rows the packet also holds the presentation families and the
+              reasoning behind each one, the equipment and connection notes, the record
+              sources this reading leaned on, and the route the context took to get here.
+              If you arrived from another Hook tool, what it sent is still in there. What
+              is not: coordinates, which get stripped on the way in and again on the way
+              out, and anything resembling a bite score. Saved readings stay on this
+              device.
+            </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <a
                 href={active.href}
