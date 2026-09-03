@@ -38,20 +38,20 @@ export type ThermalBasis = "preference" | "distribution" | "mixed";
 
 export type ThermalBandSpec = {
   /** Below this the fish is reported inactive, avoiding, or cold-stressed. */
-  coldEdgeF?: number | null;
+  coldEdgeF?: number | null | undefined;
   /** Reported active and feeding across this range. */
-  activeF?: [number, number] | null;
+  activeF?: [number, number] | null | undefined;
   /** The sourced preference or optimum. */
-  preferredF?: [number, number] | null;
+  preferredF?: [number, number] | null | undefined;
   /** The same as coldEdge, at the top. */
-  warmEdgeF?: number | null;
+  warmEdgeF?: number | null | undefined;
   /** What the angler actually has: a reading, or a range they are working in. */
-  observedF?: number | [number, number] | null;
-  observedLabel?: string;
+  observedF?: number | [number, number] | null | undefined;
+  observedLabel?: string | undefined;
   /** Whether the numbers describe preference or only distribution. */
-  basis?: ThermalBasis | null;
+  basis?: ThermalBasis | null | undefined;
   /** The source's own caveat, when it has one worth showing. */
-  note?: string;
+  note?: string | undefined;
 };
 
 const W = 700;
@@ -79,11 +79,11 @@ export function ThermalBandPlate({
   testid = "thermal-band-plate",
 }: {
   spec: ThermalBandSpec;
-  eyebrow?: string;
+  eyebrow?: string | undefined;
   title: string;
-  caption?: string;
-  aside?: ReactNode;
-  testid?: string;
+  caption?: string | undefined;
+  aside?: ReactNode | undefined;
+  testid?: string | undefined;
 }) {
   const marks: number[] = [];
   const push = (v: number | null | undefined) => {

@@ -63,9 +63,9 @@ export type PresentationJob = {
   /** How long the thing stays where a fish can decide about it. */
   strikeWindow: StrikeWindow;
   /** Only meaningful where there is current. */
-  current?: "across" | "with" | "against" | "none";
+  current?: "across" | "with" | "against" | "none" | undefined;
   /** Free text: silhouette and size, in the reader's units. */
-  profile?: string;
+  profile?: string | undefined;
 };
 
 const W = 720;
@@ -210,12 +210,12 @@ export function PresentationPathPlate({
   testid = "presentation-path-plate",
 }: {
   job: PresentationJob;
-  eyebrow?: string;
+  eyebrow?: string | undefined;
   title: string;
-  caption?: string;
-  aside?: ReactNode;
-  unknown?: ReactNode;
-  testid?: string;
+  caption?: string | undefined;
+  aside?: ReactNode | undefined;
+  unknown?: ReactNode | undefined;
+  testid?: string | undefined;
 }) {
   const glow = usePlateId("zonewash");
   const centre = bandCenter(job.depth);
