@@ -247,3 +247,29 @@ details > summary::-webkit-details-marker {
     text-decoration: none;
   }
 }
+
+/*
+ * Shared field plates, mapped onto this instrument's tokens.
+ *
+ * The kit ships legible fallbacks so it works in an app that defines none of
+ * these. This block is what makes it look like it belongs here rather than
+ * merely working here — one mapping, and every plate follows the theme,
+ * including the light variant.
+ */
+:root {
+  --hthp-ink: var(--fg);
+  --hthp-muted: var(--fg-muted);
+  --hthp-accent: var(--mark);
+  --hthp-line: var(--border-strong);
+  --hthp-surface: var(--bg-elevated);
+  --hthp-paper: var(--bg);
+  --hthp-deep: var(--plate-water);
+  --hthp-land: var(--bg-subtle);
+  --hthp-foam: color-mix(in oklab, var(--fg) 50%, transparent);
+  --hthp-alarm: color-mix(in oklab, var(--warn) 80%, #b3402a);
+  --hthp-steady: var(--ok);
+  --hthp-watch: var(--warn);
+  --hthp-mono: var(--font-mono);
+  --hthp-sans: var(--font-sans);
+  --hthp-display: var(--font-display);
+}

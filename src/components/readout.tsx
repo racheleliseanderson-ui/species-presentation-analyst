@@ -3,6 +3,8 @@ import { Copy, Download, Printer, RotateCcw, Bookmark } from "lucide-react";
 import { AlternativesPanel } from "@/components/alternatives-panel";
 import { Button } from "@/components/ui/button";
 import { Handoffs } from "@/components/handoffs";
+import { JobLine, PresentationJobPlate } from "@/components/presentation-job";
+import { ThermalBandPlate } from "@/lib/field-plates";
 import { ShareReading } from "@/components/share-reading";
 import { Link } from "@tanstack/react-router";
 import { speciesSlug } from "@/lib/knowledge/species-slug";
@@ -251,10 +253,41 @@ What seems wrong:
         <Axis label="Presentation fit" value={FIT_WORD[result.confidence.presentation]} />
       </section>
 
+      <ThermalBandPlate
+        title={`${species.commonNames[0]} — the reviewed temperature band`}
+        caption={result.thermalLabel}
+        spec={{
+          coldEdgeF: species.thermal?.coldEdgeF ?? null,
+          activeF: species.thermal?.activeF ?? null,
+          preferredF: species.thermal?.preferredF ?? null,
+          warmEdgeF: species.thermal?.warmEdgeF ?? null,
+          observedF: session.tempF ?? session.tempRangeF ?? null,
+          observedLabel: session.tempF == null && session.tempRangeF ? "Your range" : "Yours",
+          basis: species.thermal?.basis ?? null,
+          note: species.thermal?.note,
+        }}
+        aside={
+          <p>
+            The band is the species record, reviewed {species.reviewedAt}. The mark is what you
+            entered. Where they disagree, the water in front of you is the one that is right — a
+            published range describes a population, and you are standing at one point in one system
+            on one day.
+          </p>
+        }
+      />
+
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         <SeasonRead input={input} overlays={overlays} />
         <ResponseRead input={input} overlays={overlays} />
       </div>
+
+      {top ? (
+        <PresentationJobPlate
+          presentation={top}
+          forageClasses={result.forageClasses}
+          forageCertainty={result.forageCertainty}
+        />
+      ) : null}
 
       <section className="space-y-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
@@ -288,6 +321,7 @@ What seems wrong:
                 </li>
               ))}
             </ul>
+            <JobLine presentation={p} />
             {i === 0 ? (
               <>
                 {result.presentations[1] && (
