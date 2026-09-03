@@ -3,6 +3,7 @@ import { AlternativesPanel } from "@/components/alternatives-panel";
 import { Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Handoffs } from "@/components/handoffs";
+import { ShareReading } from "@/components/share-reading";
 import { ResponseRead, SeasonRead } from "@/components/season-read";
 import { TackleRequirements } from "@/components/tackle-requirements";
 import {
@@ -685,8 +686,8 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 />
               </div>
               <p className="mt-2 text-xs text-dim">
-                The range stays a range. We look at the temperatures it covers — we do not turn it
-                into a single midpoint.
+                The range stays a range. The reading works across every temperature it covers rather
+                than collapsing it to a midpoint that nobody measured.
               </p>
             </div>
           )}
@@ -726,7 +727,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
               </p>
               <h2 className="mt-2 font-display text-3xl">{result.error}</h2>
               <p className="mt-3 text-sm text-muted">
-                We will not invent a record. Change the water type or target.
+                There is no record to read here, and inventing one would look like an answer. Change the water type or the target.
               </p>
             </div>
           ) : (
@@ -1000,6 +1001,8 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                   heading="Hand this off"
                   intro="Quick Read stops at the presentation. These take the next job — where to fish it, what is actually hatching, and what the rig, tackle and connection have to do. Nothing is sent until you check what travels."
                 />
+
+                <ShareReading input={input} result={readableResult ?? result} />
 
                 <div className="flex flex-wrap gap-2">
                   <Button onClick={openFullAnalysis}>See Full Analysis</Button>
