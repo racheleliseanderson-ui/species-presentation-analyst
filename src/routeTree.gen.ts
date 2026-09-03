@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BoundaryRouteImport } from './routes/boundary'
+import { Route as SpeciesIndexRouteImport } from './routes/species.index'
+import { Route as SpeciesSpeciesIdRouteImport } from './routes/species.$speciesId'
 import { Route as ApiDossierCoverageRouteImport } from './routes/api/dossier-coverage'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
 import { Route as ApiDossiersSpeciesIdRouteImport } from './routes/api/dossiers.$speciesId'
@@ -24,6 +26,16 @@ const IndexRoute = IndexRouteImport.update({
 const BoundaryRoute = BoundaryRouteImport.update({
   id: '/boundary',
   path: '/boundary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeciesIndexRoute = SpeciesIndexRouteImport.update({
+  id: '/species/',
+  path: '/species/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeciesSpeciesIdRoute = SpeciesSpeciesIdRouteImport.update({
+  id: '/species/$speciesId',
+  path: '/species/$speciesId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiDossierCoverageRoute = ApiDossierCoverageRouteImport.update({
@@ -51,6 +63,8 @@ const ApiWaterContextSpeciesIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/boundary': typeof BoundaryRoute
+  '/species': typeof SpeciesIndexRoute
+  '/species/$speciesId': typeof SpeciesSpeciesIdRoute
   '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
   '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
@@ -59,6 +73,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/boundary': typeof BoundaryRoute
+  '/species': typeof SpeciesIndexRoute
+  '/species/$speciesId': typeof SpeciesSpeciesIdRoute
   '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
   '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
@@ -68,6 +84,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/boundary': typeof BoundaryRoute
+  '/species/': typeof SpeciesIndexRoute
+  '/species/$speciesId': typeof SpeciesSpeciesIdRoute
   '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
   '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
@@ -78,6 +96,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/boundary'
+    | '/species'
+    | '/species/$speciesId'
     | '/api/dossier-coverage'
     | '/api/health'
     | '/api/dossiers/$speciesId'
@@ -86,6 +106,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/boundary'
+    | '/species'
+    | '/species/$speciesId'
     | '/api/dossier-coverage'
     | '/api/health'
     | '/api/dossiers/$speciesId'
@@ -94,6 +116,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/boundary'
+    | '/species/'
+    | '/species/$speciesId'
     | '/api/dossier-coverage'
     | '/api/health'
     | '/api/dossiers/$speciesId'
@@ -103,6 +127,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BoundaryRoute: typeof BoundaryRoute
+  SpeciesIndexRoute: typeof SpeciesIndexRoute
+  SpeciesSpeciesIdRoute: typeof SpeciesSpeciesIdRoute
   ApiDossierCoverageRoute: typeof ApiDossierCoverageRoute
   ApiHealthRoute: typeof ApiHealthRoute
   ApiDossiersSpeciesIdRoute: typeof ApiDossiersSpeciesIdRoute
@@ -123,6 +149,20 @@ declare module '@tanstack/react-router' {
       path: '/boundary'
       fullPath: '/boundary'
       preLoaderRoute: typeof BoundaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/species/': {
+      id: '/species/'
+      path: '/species'
+      fullPath: '/species'
+      preLoaderRoute: typeof SpeciesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/species/$speciesId': {
+      id: '/species/$speciesId'
+      path: '/species/$speciesId'
+      fullPath: '/species/$speciesId'
+      preLoaderRoute: typeof SpeciesSpeciesIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/dossier-coverage': {
@@ -159,6 +199,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BoundaryRoute: BoundaryRoute,
+  SpeciesIndexRoute: SpeciesIndexRoute,
+  SpeciesSpeciesIdRoute: SpeciesSpeciesIdRoute,
   ApiDossierCoverageRoute: ApiDossierCoverageRoute,
   ApiHealthRoute: ApiHealthRoute,
   ApiDossiersSpeciesIdRoute: ApiDossiersSpeciesIdRoute,
