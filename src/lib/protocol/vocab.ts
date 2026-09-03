@@ -424,7 +424,7 @@ export const REFUSES = [
   "Quietly learning your secret spots",
   "Automatic exact GPS collection",
   "Best-lure-today catalogs",
-  "Recommendations we cannot explain",
+  "Recommendations with no explanation behind them",
   "Exact spawning aggregation locations",
   "Vulnerable-fish targeting",
   "Species biology written by a general-purpose chatbot",

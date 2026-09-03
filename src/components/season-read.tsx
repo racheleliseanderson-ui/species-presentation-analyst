@@ -46,8 +46,8 @@ export function SeasonRead({
     return (
       <Shell title="Where it should be, this season">
         <p className="text-sm text-muted">
-          No reviewed seasonal calendar exists for this species yet. The gap stays a gap — we will
-          not write one from a general-purpose model.
+          No reviewed seasonal calendar exists for this species yet. The gap stays a gap rather than
+          getting filled in by a general-purpose model.
         </p>
       </Shell>
     );

@@ -128,7 +128,7 @@ export function WaterContextPanel({
           </>
         ) : unresolvedJurisdiction ? (
           <p className="mt-2 text-sm text-muted">
-            “{unresolvedJurisdiction}” did not resolve to a state we hold an agency record for. Try
+            “{unresolvedJurisdiction}” did not resolve to a state with an agency record on file. Try
             the state name or its two-letter code — a wrong regulations page would be worse than
             none.
           </p>
