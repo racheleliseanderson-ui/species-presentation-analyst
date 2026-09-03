@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { AppearanceControl } from "@/components/appearance-control";
+import { FleetFooter } from "@/components/fleet-footer";
 import { SupportLink } from "@/components/support-link";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { PwaRegister } from "@/components/pwa-register";
@@ -69,6 +70,7 @@ function Root() {
         <AuthProvider>
           <Outlet />
         </AuthProvider>
+        <FleetFooter />
         <SupportLink />
         <AppearanceControl />
         <Scripts />

@@ -1,0 +1,10 @@
+{
+  "note": "Species you want added to the catalogue. Put the common name in; the scientific name and the reason are optional but both make the brief sharper. Nothing here is a record — this file is only a list of what to go and research. Run ADD-SPECIES.bat to turn it into a drafting brief.",
+  "targets": [
+    {
+      "commonName": "Atlantic croaker",
+      "scientificName": "Micropogonias undulatus",
+      "why": "Constantly confused with juvenile black drum and with spot along the same beaches the inshore wave already covers."
+    }
+  ]
+}

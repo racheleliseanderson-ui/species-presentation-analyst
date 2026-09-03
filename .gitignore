@@ -16,3 +16,15 @@ screenshots
 *.local
 AGENTS.md
 startup.sh
+
+# Reports the maintenance runs leave behind for a person to read
+BEFORE-report.txt
+AFTER-report.txt
+test-results.txt
+
+# Files removed on this branch. File deletion is blocked on this mount, so
+# they are parked here instead of deleted outright.
+_to_delete/
+
+# Left behind by a half-finished install; safe to delete this whole folder
+_to_delete/

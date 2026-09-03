@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { FLEET_TARGETS } from "@/lib/hth-packet";
 
 /**
  * App chrome. Appearance and accessibility live in the single floating control
@@ -33,10 +34,10 @@ export function Chrome() {
             Limits &amp; sources
           </Link>
           <a
-            href="https://ops.hookthehorizon.blog/"
+            href={FLEET_TARGETS.ops.url}
             className="hidden min-h-11 items-center rounded-[var(--radius-xs)] px-2 font-mono text-[10px] uppercase tracking-[0.14em] text-dim no-underline hover:bg-subtle hover:text-fg sm:inline-flex"
           >
-            Field Ops <span aria-hidden>&nbsp;↗</span>
+            {FLEET_TARGETS.ops.short} <span aria-hidden>&nbsp;↗</span>
           </a>
         </nav>
       </div>

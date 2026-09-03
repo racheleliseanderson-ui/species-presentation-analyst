@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
-import { buildPacket, encodePacketHash, parseIncomingPacket } from "../protocol/packet.ts";
+import { encodePacketHash, readPacket } from "../hth-packet.ts";
+import { applyIncoming, buildPacket } from "../protocol/packet.ts";
 import type { ScenarioInput, TemperatureRangeF } from "../protocol/types.ts";
 import { interpret } from "./infer.ts";
 
@@ -83,27 +84,65 @@ describe("temperature ranges and unknown season", () => {
     assert.ok(!("error" in result), "expected a reading");
     if ("error" in result) return;
 
-    const packet = buildPacket(input, result);
-    assert.deepEqual(packet.conditions.tempRangeF, range);
-    assert.equal(packet.conditions.tempF, null);
-    assert.equal(packet.privacy.containsCoordinates, false);
+    const packet = buildPacket(input, result, { incoming: null });
+    assert.deepEqual(packet.conditions?.tempRangeF, { low: range[0], high: range[1] });
+    assert.equal(packet.conditions?.tempF, null);
+    assert.equal(packet.privacy?.containsCoordinates, false);
 
-    const parsed = parseIncomingPacket(encodePacketHash(packet));
-    assert.deepEqual(parsed?.tempRangeF, range);
-    assert.equal(parsed?.tempF, null);
+    const read = readPacket(encodePacketHash(packet));
+    assert.equal(read.state, "ok");
+    if (read.state !== "ok") return;
+    const parsed = applyIncoming(read.packet);
+    assert.deepEqual(parsed.tempRangeF, range);
+    assert.equal(parsed.tempF, null);
+    // The fish the reader picked travels under the fleet's own key, so the next
+    // instrument does not have to know this app's internal shape to find it.
+    assert.equal(read.packet.water?.selectedSpecies, "salmo_trutta");
+    assert.equal(parsed.speciesId, "salmo_trutta");
   });
 
   it("resolves a Field Ops species slug through the carried common name", () => {
     const packet = {
       packetVersion: "HTH-1.0",
       origin: "field-ops-desk",
+      fleet: { contract: "HTH-FLEET-1.0", trail: [], lastUpdatedBy: "field-ops-desk" },
       species: { speciesId: "brown-trout", commonNames: ["Brown trout"] },
       water: { waterName: "Named public river", waterType: "flowing" },
       conditions: { waterType: "flowing" },
       privacy: { containsCoordinates: false, containsPrivateWater: false },
     };
 
-    const parsed = parseIncomingPacket(`#packet=${encodeURIComponent(JSON.stringify(packet))}`);
-    assert.equal(parsed?.speciesId, "salmo_trutta");
+    const read = readPacket(`#packet=${encodeURIComponent(JSON.stringify(packet))}`);
+    assert.equal(read.state, "ok");
+    if (read.state !== "ok") return;
+    assert.equal(applyIncoming(read.packet).speciesId, "salmo_trutta");
+  });
+
+  it("prefers the fleet key over this app's older one when both arrive", () => {
+    const packet = {
+      packetVersion: "HTH-1.0",
+      origin: "field-sense",
+      fleet: { contract: "HTH-FLEET-1.0", trail: [], lastUpdatedBy: "field-sense" },
+      // An older Species packet sitting in a tab still says `species.id`. The
+      // fleet's `water.selectedSpecies` is what the water tool actually writes,
+      // and it is the one that should win.
+      species: { id: "salmo_trutta" },
+      water: { waterName: "Named public river", selectedSpecies: "micropterus_dolomieu" },
+      conditions: { waterType: "stillwater" },
+    };
+
+    const read = readPacket(`#packet=${encodeURIComponent(JSON.stringify(packet))}`);
+    assert.equal(read.state, "ok");
+    if (read.state !== "ok") return;
+    assert.equal(applyIncoming(read.packet).speciesId, "micropterus_dolomieu");
+  });
+
+  it("says so when a packet arrives that it cannot honour", () => {
+    const stale = { packetVersion: "HTH-0.9", origin: "field-sense" };
+    const read = readPacket(`#packet=${encodeURIComponent(JSON.stringify(stale))}`);
+    assert.equal(read.state, "invalid");
+    if (read.state !== "invalid") return;
+    assert.match(read.reason, /HTH-0\.9/);
+    assert.match(read.reason, /Nothing has been carried across/);
   });
 });

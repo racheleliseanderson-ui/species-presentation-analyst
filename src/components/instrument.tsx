@@ -6,13 +6,12 @@ import { Plate } from "@/components/plate";
 import { Readout } from "@/components/readout";
 import { Button } from "@/components/ui/button";
 import { interpret } from "@/lib/engine/infer";
-import { POPULATION_CONTEXT_BY_ID } from "@/lib/engine/population-context";
 import { matchesSpecies } from "@/lib/knowledge/aliases";
-import { GROUPS, SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
+import { GROUPS, SPECIES } from "@/lib/knowledge/species-catalog";
 import { SPECIES_IMAGES_BY_ID } from "@/lib/knowledge/species-images";
 import { SpeciesThumb } from "@/components/species-thumb";
-import { parseIncomingPacket } from "@/lib/protocol/packet";
-import type { ScenarioInput } from "@/lib/protocol/types";
+import { readIncoming, type IncomingCarry } from "@/lib/protocol/packet";
+import { CarriedContext } from "@/components/carried-context";
 import {
   CLARITY,
   FLOW_CLASSES,
@@ -47,35 +46,6 @@ const STEPS: { id: Step; n: string; label: string }[] = [
 
 function opts<T extends string>(ids: readonly T[]) {
   return ids.map((id) => ({ id, label: labelOf(id) }));
-}
-
-function incomingRows(p: Partial<ScenarioInput>): { label: string; value: string }[] {
-  const rows: { label: string; value: string }[] = [];
-  if (p.speciesId) {
-    const s = SPECIES_BY_ID[p.speciesId];
-    rows.push({ label: "Species", value: s ? s.commonNames[0] : p.speciesId });
-  }
-  if (p.water?.waterName) rows.push({ label: "Water", value: p.water.waterName });
-  if (p.waterType) rows.push({ label: "Water type", value: labelOf(p.waterType) });
-  if (p.populationContext?.profileId) {
-    const profile = POPULATION_CONTEXT_BY_ID[p.populationContext.profileId];
-    rows.push({
-      label: "Population context",
-      value: profile
-        ? `${profile.label} · ${p.populationContext.source.replaceAll("_", " ")}`
-        : p.populationContext.profileId,
-    });
-  }
-  if (p.tempF != null) rows.push({ label: "Temperature", value: `${p.tempF}°F` });
-  if (p.tempSource) rows.push({ label: "Temp source", value: labelOf(p.tempSource) });
-  if (p.tideMovement && p.tideMovement !== "unknown") {
-    rows.push({ label: "Tide", value: labelOf(p.tideMovement) });
-  }
-  if (p.tideStrength && p.tideStrength !== "unknown") {
-    rows.push({ label: "Tide range", value: labelOf(p.tideStrength) });
-  }
-  if (p.forage) rows.push({ label: "Forage", value: labelOf(p.forage.class) });
-  return rows;
 }
 
 function WorkedExample({ onOpen }: { onOpen: () => void }) {
@@ -113,7 +83,7 @@ function WorkedExample({ onOpen }: { onOpen: () => void }) {
 export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
   const session = useSession();
   const [query, setQuery] = useState("");
-  const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
+  const [carry, setCarry] = useState<IncomingCarry>({ state: "absent" });
   const [searchReady, setSearchReady] = useState(false);
   const [tempMode, setTempMode] = useState<TempMode>("unknown");
 
@@ -128,17 +98,12 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
     const api = useSession.getState();
     api.hydrate();
     if (typeof window === "undefined") return;
-    const incoming = parseIncomingPacket(window.location.hash);
-    if (!incoming) return;
-    if (
-      incoming.speciesId ||
-      incoming.water?.waterId ||
-      incoming.water?.waterName ||
-      incoming.populationContext ||
-      incoming.forage
-    ) {
-      setPending(incoming);
-    }
+    /* Every one of the three read states is put on screen. A packet that could
+     * not be read is not the same thing as no packet, and collapsing the two is
+     * what left readers staring at an empty form after a handoff. */
+    const incoming = readIncoming(window.location.hash);
+    if (incoming.state === "ok" && incoming.carried.length === 0) return;
+    setCarry(incoming);
   }, []);
 
   useEffect(() => {
@@ -155,6 +120,54 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
     species && !species.habitat.waterTypes.includes(session.waterType);
   const movementAxis = movementAxisFor(session.waterType);
 
+  function clearFragment() {
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }
+
+  function applyCarry() {
+    if (carry.state !== "ok") return;
+    const incoming = carry.applied;
+    const cur = useSession.getState();
+    const nextSpecies = incoming.speciesId ?? cur.speciesId;
+    const nextWaterType = incoming.waterType ?? cur.waterType;
+    const declarationChanged =
+      nextSpecies !== cur.speciesId || nextWaterType !== cur.waterType;
+    cur.patch({
+      speciesId: nextSpecies,
+      water: { ...cur.water, ...incoming.water, selectedSpecies: nextSpecies ?? undefined },
+      waterType: nextWaterType,
+      populationContext:
+        incoming.populationContext ?? (declarationChanged ? null : cur.populationContext),
+      tempF: incoming.tempF === undefined ? cur.tempF : incoming.tempF,
+      tempRangeF: incoming.tempRangeF === undefined ? cur.tempRangeF : incoming.tempRangeF,
+      tempSource: incoming.tempSource ?? cur.tempSource,
+      // The number and where it came from travel together, or the next tool has
+      // no way to tell a station reading from something someone typed.
+      tempObservedAt: incoming.tempObservedAt ?? cur.tempObservedAt,
+      tempRetained: incoming.tempRetained ?? cur.tempRetained,
+      tempStation: incoming.tempStation ?? cur.tempStation,
+      cues: incoming.cues?.length ? incoming.cues : cur.cues,
+      tideMovement: incoming.tideMovement ?? cur.tideMovement,
+      tideStrength: incoming.tideStrength ?? cur.tideStrength,
+      // Holding water belongs to the water it was declared on, and an incoming
+      // packet can change the water type underneath it.
+      holdingRiver: declarationChanged ? (incoming.holdingRiver ?? null) : cur.holdingRiver,
+      holdingStill: declarationChanged ? (incoming.holdingStill ?? null) : cur.holdingStill,
+      holdingMarine: declarationChanged ? null : cur.holdingMarine,
+      forage: incoming.forage ?? cur.forage,
+      step: incoming.speciesId ? "water" : cur.step,
+    });
+    setCarry({ state: "absent" });
+    clearFragment();
+  }
+
+  function dismissCarry() {
+    setCarry({ state: "absent" });
+    clearFragment();
+  }
+
   const continueLabel: Partial<Record<Step, { next: Step; label: string }>> = {
     water: { next: "conditions", label: "Continue to conditions" },
     conditions: { next: "holding", label: "Continue to holding water" },
@@ -163,74 +176,18 @@ export function Instrument({ advanced = false }: { advanced?: boolean } = {}) {
 
   return (
     <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-8 sm:px-6 sm:pt-12">
-      {pending && (
-        <section className="no-print mb-8 instrument-rule rounded-[var(--radius-lg)] bg-elevated p-5 sm:p-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
-            Details arrived from another Hook the Horizon app · nothing applied yet
-          </p>
-          <h2 className="mt-2 font-display text-2xl">Check these before you use them</h2>
-          <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-            {incomingRows(pending).map((row) => (
-              <div key={row.label}>
-                <dt className="font-mono text-[10px] uppercase tracking-wider text-dim">{row.label}</dt>
-                <dd className="text-fg">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-3 text-sm text-muted">
-            Coordinates never travel between these apps. Population context is never inferred from the water name. Apply only what you recognize.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Button
-              onClick={() => {
-                const cur = useSession.getState();
-                const nextSpecies = pending.speciesId ?? cur.speciesId;
-                const nextWaterType = pending.waterType ?? cur.waterType;
-                const declarationChanged =
-                  nextSpecies !== cur.speciesId || nextWaterType !== cur.waterType;
-                useSession.getState().patch({
-                  speciesId: nextSpecies,
-                  water: { ...cur.water, ...pending.water },
-                  waterType: nextWaterType,
-                  populationContext:
-                    pending.populationContext ??
-                    (declarationChanged ? null : cur.populationContext),
-                  tempF: pending.tempF === undefined ? cur.tempF : pending.tempF,
-                  tempSource: pending.tempSource ?? cur.tempSource,
-                  tideMovement: pending.tideMovement ?? cur.tideMovement,
-                  tideStrength: pending.tideStrength ?? cur.tideStrength,
-                  // Holding water belongs to the water it was declared on, and
-                  // an incoming packet can change the water type underneath it.
-                  holdingRiver: declarationChanged ? null : cur.holdingRiver,
-                  holdingStill: declarationChanged ? null : cur.holdingStill,
-                  holdingMarine: declarationChanged ? null : cur.holdingMarine,
-                  forage: pending.forage ?? cur.forage,
-                  step: pending.speciesId ? "water" : cur.step,
-                });
-                setPending(null);
-                if (typeof window !== "undefined") window.history.replaceState(null, "", window.location.pathname);
-              }}
-            >
-              Use these details
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => {
-                setPending(null);
-                if (typeof window !== "undefined") window.history.replaceState(null, "", window.location.pathname);
-              }}
-            >
-              Dismiss
-            </Button>
-          </div>
-        </section>
-      )}
+      <CarriedContext
+        carry={carry}
+        className="mb-8"
+        onApply={applyCarry}
+        onDismiss={dismissCarry}
+      />
 
       {session.step === "target" && !session.speciesId && (
         <section className="stagger-in mb-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mark">
-              Biology before bravado
+              Start with the fish
             </p>
             <h1 className="mt-4 max-w-xl font-display text-5xl text-fg sm:text-6xl">
               What is this species plausibly doing here?

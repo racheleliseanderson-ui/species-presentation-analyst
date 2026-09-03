@@ -2,7 +2,9 @@ import { create } from "zustand";
 import type {
   ForagePacket,
   PopulationContextInput,
+  ReadingCue,
   ScenarioInput,
+  TempStation,
   TemperatureRangeF,
   WaterPacket,
 } from "@/lib/protocol/types";
@@ -37,6 +39,14 @@ export type Session = {
   tempF: number | null;
   tempRangeF: TemperatureRangeF | null;
   tempSource: TempSource;
+  /* Where a carried temperature came from, kept beside the number. A reading
+   * with no observation time is a number somebody typed, and nothing
+   * downstream can tell the difference unless these travel with it. */
+  tempObservedAt: string | null;
+  tempRetained: boolean | null;
+  tempStation: TempStation | null;
+  /** What the water read upstream called out. Shown, never weighted. */
+  cues: ReadingCue[];
   flow: FlowClass;
   stillState: StillState;
   clarity: Clarity;
@@ -67,6 +77,10 @@ const defaults: Session = {
   tempF: null,
   tempRangeF: null,
   tempSource: "unknown",
+  tempObservedAt: null,
+  tempRetained: null,
+  tempStation: null,
+  cues: [],
   flow: "unknown",
   stillState: "unknown",
   clarity: "unknown",
@@ -91,6 +105,10 @@ export function toInput(session: Session): ScenarioInput | null {
     tempF: session.tempF,
     tempRangeF: session.tempRangeF,
     tempSource: session.tempSource,
+    tempObservedAt: session.tempObservedAt,
+    tempRetained: session.tempRetained,
+    tempStation: session.tempStation,
+    cues: session.cues,
     flow: session.flow,
     stillState: session.stillState,
     clarity: session.clarity,
@@ -116,6 +134,10 @@ function pick(session: Session): Session {
     tempF: session.tempF,
     tempRangeF: session.tempRangeF,
     tempSource: session.tempSource,
+    tempObservedAt: session.tempObservedAt,
+    tempRetained: session.tempRetained,
+    tempStation: session.tempStation,
+    cues: session.cues,
     flow: session.flow,
     stillState: session.stillState,
     clarity: session.clarity,

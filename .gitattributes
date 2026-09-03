@@ -1,0 +1,23 @@
+# Normalise line endings. Everything Git treats as text is stored LF in the
+# repository and checked out LF, so a Windows checkout stops rewriting a few
+# hundred files that have no content change in them.
+* text=auto eol=lf
+
+# Binary — never touched, never diffed as text.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.mp4   binary
+*.webm  binary
+*.zip   binary
+
+# Generated lockfile; keep it out of review diffs.
+pnpm-lock.yaml -diff linguist-generated

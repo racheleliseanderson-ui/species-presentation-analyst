@@ -21,7 +21,8 @@ import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import { useSpeciesOverlays, useWaterContext } from "@/lib/knowledge/use-species-overlays";
 import { WaterContextPanel } from "@/components/water-context";
 import { SpeciesThumb } from "@/components/species-thumb";
-import { parseEnhancedIncomingPacket } from "@/lib/protocol/enhanced-packet";
+import { readIncoming, type IncomingCarry } from "@/lib/protocol/packet";
+import { CarriedContext } from "@/components/carried-context";
 import type { ScenarioInput } from "@/lib/protocol/types";
 import {
   SEASONS,
@@ -163,40 +164,6 @@ function Choice({
   );
 }
 
-function contextRows(pending: Partial<ScenarioInput>) {
-  const rows: Array<{ label: string; value: string }> = [];
-  if (pending.speciesId) {
-    rows.push({
-      label: "Target",
-      value: SPECIES_BY_ID[pending.speciesId]?.commonNames[0] ?? pending.speciesId,
-    });
-  }
-  if (pending.waterType) rows.push({ label: "Water", value: labelOf(pending.waterType) });
-  if (pending.water?.jurisdiction) rows.push({ label: "Area", value: pending.water.jurisdiction });
-  if (pending.water?.waterName) rows.push({ label: "Named water", value: pending.water.waterName });
-  const pendingRange = normalizeTemperatureRangeF(pending.tempRangeF);
-  if (pending.tempF != null) {
-    rows.push({ label: "Water temperature", value: `${pending.tempF}°F` });
-  } else if (pendingRange) {
-    rows.push({
-      label: "Water temperature",
-      value: `${pendingRange[0]}–${pendingRange[1]}°F range`,
-    });
-  }
-  if (pending.season) rows.push({ label: "Season", value: labelOf(pending.season) });
-  if (pending.light && pending.light !== "unknown")
-    rows.push({ label: "Light", value: labelOf(pending.light) });
-  if (pending.flow && pending.flow !== "unknown")
-    rows.push({ label: "Flow", value: labelOf(pending.flow) });
-  if (pending.stillState && pending.stillState !== "unknown") {
-    rows.push({ label: "Stillwater state", value: labelOf(pending.stillState) });
-  }
-  if (pending.clarity && pending.clarity !== "unknown")
-    rows.push({ label: "Clarity", value: labelOf(pending.clarity) });
-  if (pending.forage) rows.push({ label: "Observed forage", value: labelOf(pending.forage.class) });
-  return rows;
-}
-
 function timeBandForLight(light: Light | undefined): string | null {
   if (light === "night") return "night";
   if (light === "bright") return "midday";
@@ -211,7 +178,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   const waterContext = useWaterContext(session.speciesId, session.water.jurisdiction);
   const [query, setQuery] = useState("");
   const [context, setContext] = useState<QuickContext>(() => defaultContext());
-  const [pending, setPending] = useState<Partial<ScenarioInput> | null>(null);
+  const [carry, setCarry] = useState<IncomingCarry>({ state: "absent" });
   const [showResult, setShowResult] = useState(false);
   const [followUpsAnswered, setFollowUpsAnswered] = useState(0);
 
@@ -234,8 +201,11 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
     }
 
     if (typeof window === "undefined") return;
-    const incoming = parseEnhancedIncomingPacket(window.location.hash);
-    if (incoming) setPending(incoming);
+    /* Same read as the full instrument uses, so a packet that arrives here is
+     * remembered for the outgoing carry exactly the way it is over there. */
+    const incoming = readIncoming(window.location.hash);
+    if (incoming.state === "ok" && incoming.carried.length === 0) return;
+    setCarry(incoming);
   }, []);
 
   useEffect(() => {
@@ -336,52 +306,66 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
     setShowResult(false);
   }
 
-  function applyPending() {
-    if (!pending) return;
+  function applyCarry() {
+    if (carry.state !== "ok") return;
+    const incoming = carry.applied;
     const current = useSession.getState();
-    const nextSpecies = pending.speciesId ?? current.speciesId;
-    const nextWaterType = pending.waterType ?? pending.water?.waterType ?? current.waterType;
+    const nextSpecies = incoming.speciesId ?? current.speciesId;
+    const nextWaterType = incoming.waterType ?? incoming.water?.waterType ?? current.waterType;
     const declarationChanged =
       nextSpecies !== current.speciesId || nextWaterType !== current.waterType;
-    const incomingRange = normalizeTemperatureRangeF(pending.tempRangeF);
+    const incomingRange = normalizeTemperatureRangeF(incoming.tempRangeF);
 
     current.patch({
       speciesId: nextSpecies,
       waterType: nextWaterType,
-      water: { ...current.water, ...pending.water, waterType: nextWaterType },
+      water: {
+        ...current.water,
+        ...incoming.water,
+        waterType: nextWaterType,
+        selectedSpecies: nextSpecies ?? undefined,
+      },
       populationContext:
-        pending.populationContext ?? (declarationChanged ? null : current.populationContext),
-      tempF: pending.tempF === undefined ? current.tempF : pending.tempF,
-      tempRangeF: pending.tempRangeF === undefined ? current.tempRangeF : incomingRange,
-      tempSource: pending.tempSource ?? current.tempSource,
-      flow: pending.flow ?? current.flow,
-      stillState: pending.stillState ?? current.stillState,
-      clarity: pending.clarity ?? current.clarity,
-      light: pending.light ?? current.light,
-      weather: pending.weather ?? current.weather,
-      season: pending.season ?? current.season,
-      holdingRiver: pending.holdingRiver ?? current.holdingRiver,
-      holdingStill: pending.holdingStill ?? current.holdingStill,
-      forage: pending.forage ?? current.forage,
+        incoming.populationContext ?? (declarationChanged ? null : current.populationContext),
+      tempF: incoming.tempF === undefined ? current.tempF : incoming.tempF,
+      tempRangeF: incoming.tempRangeF === undefined ? current.tempRangeF : incomingRange,
+      tempSource: incoming.tempSource ?? current.tempSource,
+      tempObservedAt: incoming.tempObservedAt ?? current.tempObservedAt,
+      tempRetained: incoming.tempRetained ?? current.tempRetained,
+      tempStation: incoming.tempStation ?? current.tempStation,
+      cues: incoming.cues?.length ? incoming.cues : current.cues,
+      tideMovement: incoming.tideMovement ?? current.tideMovement,
+      tideStrength: incoming.tideStrength ?? current.tideStrength,
+      flow: incoming.flow ?? current.flow,
+      stillState: incoming.stillState ?? current.stillState,
+      clarity: incoming.clarity ?? current.clarity,
+      light: incoming.light ?? current.light,
+      weather: incoming.weather ?? current.weather,
+      season: incoming.season ?? current.season,
+      holdingRiver: incoming.holdingRiver ?? current.holdingRiver,
+      holdingStill: incoming.holdingStill ?? current.holdingStill,
+      forage: incoming.forage ?? current.forage,
     });
 
     patchContext({
-      timeBand: timeBandForLight(pending.light) ?? context.timeBand,
-      tempMode: incomingRange ? "range" : pending.tempF != null ? "exact" : context.tempMode,
+      timeBand: timeBandForLight(incoming.light) ?? context.timeBand,
+      tempMode: incomingRange ? "range" : incoming.tempF != null ? "exact" : context.tempMode,
       rangeLow: incomingRange ? String(incomingRange[0]) : context.rangeLow,
       rangeHigh: incomingRange ? String(incomingRange[1]) : context.rangeHigh,
-      seasonSource: pending.season ? "packet" : context.seasonSource,
-      tripDate: pending.season ? "" : context.tripDate,
+      seasonSource: incoming.season ? "packet" : context.seasonSource,
+      tripDate: incoming.season ? "" : context.tripDate,
     });
-    setPending(null);
+    setCarry({ state: "absent" });
     setShowResult(false);
-    if (typeof window !== "undefined") {
-      window.history.replaceState(null, "", window.location.pathname);
-    }
+    clearFragment();
   }
 
-  function dismissPending() {
-    setPending(null);
+  function dismissCarry() {
+    setCarry({ state: "absent" });
+    clearFragment();
+  }
+
+  function clearFragment() {
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", window.location.pathname);
     }
@@ -404,37 +388,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
 
   return (
     <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-8 sm:px-6 sm:pt-10">
-      {pending && (
-        <section className="mb-6 rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-mark">
-            Context arrived from another Hook tool
-          </p>
-          <h2 className="mt-2 font-display text-2xl">Use what we already know?</h2>
-          <p className="mt-2 max-w-2xl text-sm text-muted">
-            One confirmation carries the useful fields forward. Nothing is applied until you approve
-            it, and geography still cannot silently choose a population profile.
-          </p>
-          <dl className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {contextRows(pending).map((row) => (
-              <div
-                key={`${row.label}-${row.value}`}
-                className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3"
-              >
-                <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">
-                  {row.label}
-                </dt>
-                <dd className="mt-1 text-sm text-fg">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Button onClick={applyPending}>Use this context</Button>
-            <Button variant="ghost" onClick={dismissPending}>
-              Start without it
-            </Button>
-          </div>
-        </section>
-      )}
+      <CarriedContext carry={carry} className="mb-6" onApply={applyCarry} onDismiss={dismissCarry} />
 
       <section className="mb-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
@@ -446,7 +400,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted">
             Water sets the situation. Species behavior explains it. Presentation follows from that
-            relationship—not from a product ranking.
+            relationship. It isn't a product ranking.
           </p>
         </div>
         <div className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)]">
@@ -751,7 +705,7 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
         </Button>
         {!canRead && (
           <p className="text-sm text-muted">
-            Pick a species and river/stream or lake/reservoir to start.
+            Pick a species and the kind of water you're on to start.
           </p>
         )}
         <button

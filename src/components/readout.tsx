@@ -164,6 +164,7 @@ export function Readout({
   const species = SPECIES_BY_ID[session.speciesId!];
   const fresh = freshness(species.reviewedAt, species.nextReviewAt);
   const top = result.presentations[0];
+  const readingSlug = result.species.id;
   const tempLine =
     session.tempF == null
       ? "temperature unknown"
@@ -184,7 +185,7 @@ export function Readout({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `species-presentation-reading-${packet.species.id}.json`;
+    a.download = `species-presentation-reading-${readingSlug}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }

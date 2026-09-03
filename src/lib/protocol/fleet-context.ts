@@ -1,125 +1,60 @@
-import type { HthPacket } from "./types.ts";
+import { sanitizePacket, type HthPacket } from "../hth-packet.ts";
 
-export const FLEET_CONTRACT = "HTH-FLEET-1.0" as const;
+/**
+ * Where the packet that arrived is kept for the rest of the visit.
+ *
+ * The reason this exists: the reader lands with a packet in the URL fragment,
+ * the app clears the fragment once they have accepted or dismissed it, and then
+ * they spend ten minutes on the reading. When they press a handoff at the end,
+ * the packet that arrived is long gone from the address bar — so the trail it
+ * carried would restart here and the route from Field Sense onward would be
+ * lost. Session storage holds the ORIGINAL incoming packet, unchanged, so every
+ * outgoing link is built from it rather than from this app's last output.
+ *
+ * The coordinate walker and the privacy re-statement used to live in this file
+ * as a private copy. They are `sanitizePacket()` in `src/lib/hth-packet.ts`
+ * now — one implementation, shared by the whole fleet.
+ */
+
 const FLEET_SESSION_KEY = "hth-fleet-context-v1";
 
-const BLOCKED_KEYS = new Set([
-  "coordinates",
-  "coordinate",
-  "latitude",
-  "longitude",
-  "lat",
-  "lng",
-  "lon",
-  "gps",
-  "geometry",
-]);
-
-function sanitizeValue(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(sanitizeValue);
-  if (!value || typeof value !== "object") return value;
-  const out: Record<string, unknown> = {};
-  for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
-    if (BLOCKED_KEYS.has(key.toLowerCase())) continue;
-    out[key] = sanitizeValue(child);
-  }
-  return out;
-}
-
-function sanitize(packet: Record<string, unknown>): Record<string, unknown> {
-  const clean = sanitizeValue(packet) as Record<string, unknown>;
-  const privacy =
-    clean.privacy && typeof clean.privacy === "object" && !Array.isArray(clean.privacy)
-      ? (clean.privacy as Record<string, unknown>)
-      : {};
-  clean.privacy = {
-    ...privacy,
-    containsCoordinates: false,
-    containsPrivateWater: false,
-  };
-  return clean;
-}
-
-export function rememberIncomingFleetPacket(packet: Record<string, unknown>) {
+/** Keep what arrived, stripped, for the outgoing carry. */
+export function rememberIncomingPacket(packet: HthPacket): void {
   if (typeof window === "undefined") return;
   try {
-    window.sessionStorage.setItem(FLEET_SESSION_KEY, JSON.stringify(sanitize(packet)));
+    window.sessionStorage.setItem(FLEET_SESSION_KEY, JSON.stringify(sanitizePacket(packet)));
   } catch {
-    /* session storage unavailable */
+    /* session storage unavailable — the carry still works, it just does not
+       survive the fragment being cleared */
   }
 }
 
-function loadIncoming(): Record<string, unknown> | null {
+/**
+ * The packet that arrived, or null.
+ *
+ * Stripped again on the way out of storage. Rule 4 of the contract: stripping
+ * on read is what stops a stranger's coordinate being adopted, persisted, and
+ * re-emitted from a path that never saw the original link.
+ */
+export function loadIncomingPacket(): HthPacket | null {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.sessionStorage.getItem(FLEET_SESSION_KEY);
-    return raw ? sanitize(JSON.parse(raw) as Record<string, unknown>) : null;
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+    return sanitizePacket(parsed as HthPacket);
   } catch {
     return null;
   }
 }
 
-function objectPart(value: unknown): Record<string, unknown> {
-  return value && typeof value === "object" && !Array.isArray(value)
-    ? (value as Record<string, unknown>)
-    : {};
-}
-
-/**
- * Preserve public-safe upstream context while letting Species own every field it
- * actually recalculates. This is additive HTH-1.0 compatibility, not a new packet
- * version; older tools simply ignore the optional fleet metadata.
- */
-export function carryFleetContext(packet: HthPacket): HthPacket {
-  const base = loadIncoming();
-  const now = packet.createdAt;
-  const baseFleet = objectPart(base?.fleet);
-  const baseTrail = Array.isArray(baseFleet.trail)
-    ? baseFleet.trail.filter(
-        (entry): entry is { origin: string; at: string } =>
-          Boolean(entry) &&
-          typeof entry === "object" &&
-          typeof (entry as Record<string, unknown>).origin === "string" &&
-          typeof (entry as Record<string, unknown>).at === "string",
-      )
-    : [];
-  const trail = [...baseTrail];
-  const priorOrigin = typeof base?.origin === "string" ? base.origin : null;
-  const priorCreatedAt = typeof base?.createdAt === "string" ? base.createdAt : now;
-  if (!trail.length && priorOrigin) trail.push({ origin: priorOrigin, at: priorCreatedAt });
-  if (trail.at(-1)?.origin !== "species-presentation") {
-    trail.push({ origin: "species-presentation", at: now });
+/** Drop it. Used when the reader says the carried context is not theirs. */
+export function forgetIncomingPacket(): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.removeItem(FLEET_SESSION_KEY);
+  } catch {
+    /* nothing to do */
   }
-
-  const merged = sanitize({
-    ...(base ?? {}),
-    ...packet,
-    fleet: {
-      contract: FLEET_CONTRACT,
-      trail,
-      lastUpdatedBy: "species-presentation",
-    },
-    water: { ...objectPart(base?.water), ...objectPart(packet.water) },
-    species: { ...objectPart(base?.species), ...objectPart(packet.species) },
-    conditions: { ...objectPart(base?.conditions), ...objectPart(packet.conditions) },
-    observations: { ...objectPart(base?.observations), ...objectPart(packet.observations) },
-    presentationRequirements: {
-      ...objectPart(base?.presentationRequirements),
-      ...objectPart(packet.presentationRequirements),
-    },
-    equipmentRequirements: {
-      ...objectPart(base?.equipmentRequirements),
-      ...objectPart(packet.equipmentRequirements),
-    },
-    connectionRequirements: {
-      ...objectPart(base?.connectionRequirements),
-      ...objectPart(packet.connectionRequirements),
-    },
-    provenance: [
-      ...(Array.isArray(base?.provenance) ? base!.provenance : []),
-      ...packet.provenance,
-    ],
-  });
-
-  return merged as unknown as HthPacket;
 }

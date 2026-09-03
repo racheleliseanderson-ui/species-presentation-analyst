@@ -56,7 +56,7 @@ function gapExplains(record, field) {
   return keywords.some((word) => gaps.includes(word));
 }
 
-const REQUIRED = {
+export const REQUIRED = {
   identification: [
     "speciesId", "status", "regionalNames", "bodyShape", "identificationTraits",
     "coloration", "adultAppearance", "similarSpecies", "averageAdultLength",
@@ -78,7 +78,7 @@ const REQUIRED = {
   ],
 };
 
-const ENUMS = {
+export const ENUMS = {
   status: ["reviewed", "partial"],
   sourceClass: ["agency", "peer_reviewed", "synthesis"],
   socialPattern: ["schooling", "solitary", "loose_aggregation", "mixed_by_life_stage"],
