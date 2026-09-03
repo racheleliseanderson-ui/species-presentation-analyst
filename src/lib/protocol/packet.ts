@@ -1,6 +1,7 @@
 import { declaredHolding, reviewedPresentationsFor } from "../engine/water.ts";
 import { normalizeTemperatureRangeF } from "../engine/temperature.ts";
 import { matchesSpecies } from "../knowledge/aliases.ts";
+import { motionFor } from "../knowledge/presentation-motion.ts";
 import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import {
   assessFreshness,
@@ -187,6 +188,17 @@ export function buildPacket(
       presentationRequirements: {
         families: result.presentations.map((p) => p.id),
         mechanics: result.presentations[0]?.mechanics ?? [],
+        /*
+         * The leading family's job, stated mechanically rather than named.
+         *
+         * A family id travels fine between instruments that share this app's
+         * vocabulary and means nothing to one that does not. Six dimensions —
+         * depth, path, speed, pause, contact, strike window — describe the
+         * same job in terms any receiving instrument can act on, which is what
+         * lets Rig Signal turn a reading into an actual arrangement instead of
+         * guessing from a name.
+         */
+        motion: leadingMotion(result),
         weightingModel: result.weightingModel.version,
         speciesOverrideModel: result.weightingModel.speciesOverrideVersion,
         appliedSpeciesOverrides: result.weightingModel.appliedSpeciesOverrideIds,
@@ -255,6 +267,31 @@ export function buildSpeciesReferencePacket(
       },
     },
   });
+}
+
+/**
+ * The leading family's mechanical job, for the packet.
+ *
+ * Returns null rather than a partial object when the catalogue has no motion
+ * for the family: a receiver treats a missing block as "not declared" and
+ * falls back to the family name, which is a weaker signal it will label as
+ * such. Half a motion block would be read as a whole one.
+ */
+function leadingMotion(result: Interpretation): Record<string, unknown> | null {
+  const top = result.presentations[0];
+  if (!top) return null;
+  const motion = motionFor(top.id);
+  if (!motion) return null;
+  return {
+    family: top.id,
+    depth: motion.depth,
+    shape: motion.shape,
+    speed: motion.speed,
+    pause: motion.pause,
+    contact: motion.contact,
+    strikeWindow: motion.strikeWindow,
+    ...(motion.current ? { current: motion.current } : {}),
+  };
 }
 
 function buildProvenance(input: ScenarioInput, result: Interpretation) {
