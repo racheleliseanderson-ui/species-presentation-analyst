@@ -89,7 +89,9 @@ export function CarriedContext({
               key={`${row.label}-${row.value}`}
               className="rounded-[var(--radius-sm)] bg-subtle px-3 py-3"
             >
-              <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">{row.label}</dt>
+              <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                {row.label}
+              </dt>
               <dd className="mt-1 text-sm text-fg">{row.value}</dd>
             </div>
           ))}
@@ -106,8 +108,9 @@ export function CarriedContext({
 
       {carriedTemp && (
         <p className="mt-2 text-sm text-warn">
-          That water temperature was carried past its own window before it was sent. Worth checking
-          again if the day has moved.
+          That water temperature was already past its own window when it was sent. How much that
+          matters depends on the water: a shallow flat moves a few degrees over an afternoon of sun,
+          a deep lake barely moves in a day. If you can put a thermometer in, that settles it.
         </p>
       )}
 
@@ -138,9 +141,10 @@ export function CarriedContext({
       )}
 
       <p className="mt-3 max-w-2xl text-sm text-muted">
-        Coordinates are stripped when a packet arrives here, whatever the sender claimed about them.
-        Where a fish lives is not decided by the name of the water, so a population profile still
-        has to be chosen rather than guessed from an area.
+        Coordinates get stripped on the way in, whatever the sender claimed about them. Population
+        context does not travel at all. Two waters in the same county can run on different
+        schedules, so that one is still yours to set. If the reading stops matching what you are
+        seeing on the water, it is the first thing worth changing.
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">

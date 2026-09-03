@@ -536,7 +536,9 @@ function declinedBlocks(packet: FleetPacket): string[] {
   const out: string[] = [];
   const conditions = (packet.conditions ?? {}) as Record<string, unknown>;
   if (typeof conditions.airTempF === "number") {
-    out.push("Air temperature — this reading works off water temperature, and the two are not interchangeable");
+    out.push(
+      "Air temperature — air can swing twenty degrees between dawn and afternoon while the water under it barely moves, so it is not a stand-in for a water reading",
+    );
   }
   if (Array.isArray(packet.openChecks) && packet.openChecks.length) {
     const count = packet.openChecks.length;
@@ -548,10 +550,14 @@ function declinedBlocks(packet: FleetPacket): string[] {
     out.push("Launches, access and amenities — that is Field Ops' side of the trip, not this one");
   }
   if (packet.readiness) {
-    out.push("A readiness score — how ready a trip is says nothing about what the fish are doing");
+    out.push(
+      "A readiness score — that measures how ready the trip is, which is a different question from what the fish are doing, and nothing here takes it as input",
+    );
   }
   if (packet.privacy) {
-    out.push("The sender's privacy claim — coordinates are stripped here on arrival either way, so the claim is not relied on");
+    out.push(
+      "The sender's privacy claim — coordinates are stripped here on arrival either way, so the claim is not relied on",
+    );
   }
   return out;
 }
