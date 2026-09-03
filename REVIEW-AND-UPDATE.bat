@@ -116,15 +116,56 @@ echo.
 
 REM ---------------------------------------------------------------- step 6
 echo  [6/8] Making sure nothing broke...
-call npm run typecheck
-if errorlevel 1 (
-  echo.
-  echo   ^>^> STOPPED. The type check failed.
-  echo      Nothing has been saved. Send the messages above to Claude.
-  echo.
-  pause
-  exit /b 1
-)
+set REPAIRED=0
+
+:typecheck
+call npm run typecheck > "typecheck-results.txt" 2>&1
+if not errorlevel 1 goto typecheck_ok
+
+REM An error inside node_modules is a damaged package, not damaged code.
+REM OneDrive syncing this folder while npm writes tens of thousands of files
+REM into it leaves some of them cut off halfway, and TypeScript reports that
+REM as a syntax error inside a library nobody has ever edited. Reinstalling
+REM is the fix, so try it once before bothering anybody.
+findstr /C:"error TS" "typecheck-results.txt" | findstr /V /C:"node_modules" >nul
+if not errorlevel 1 goto typecheck_real_failure
+if "%REPAIRED%"=="1" goto typecheck_repair_failed
+
+echo.
+echo        Every error is inside node_modules, so the installed packages are
+echo        damaged rather than your code. Reinstalling them and trying again.
+echo        This takes a few minutes.
+echo.
+rmdir /s /q node_modules
+call npm install --no-audit --no-fund
+set REPAIRED=1
+echo.
+goto typecheck
+
+:typecheck_repair_failed
+echo.
+echo   ^>^> STOPPED. The packages are still damaged after a clean reinstall.
+echo      Nothing has been saved.
+echo.
+echo      This project sits inside OneDrive. OneDrive rewriting the folder
+echo      while npm is filling it is the usual cause. Pause OneDrive, run
+echo      this file again, then resume OneDrive.
+echo.
+echo      Moving the project out of OneDrive fixes it for good.
+echo.
+pause
+exit /b 1
+
+:typecheck_real_failure
+echo.
+echo   ^>^> STOPPED. The type check failed in code, not in a package.
+echo      Nothing has been saved to GitHub and the database was not
+echo      touched. Send typecheck-results.txt to Claude.
+echo.
+pause
+exit /b 1
+
+:typecheck_ok
 echo        Types are clean.
 call npm test > "test-results.txt" 2>&1
 findstr /C:"# fail 0" "test-results.txt" >nul

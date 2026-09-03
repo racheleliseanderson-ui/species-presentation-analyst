@@ -1,10 +1,263 @@
 {
-  "note": "Species you want added to the catalogue. Put the common name in; the scientific name and the reason are optional but both make the brief sharper. Nothing here is a record — this file is only a list of what to go and research. Run ADD-SPECIES.bat to turn it into a drafting brief.",
+  "note": "Fish worth adding to the catalogue. Nothing in this file is a record and nothing in it is sourced - it is a list of what to go and research, and the reasons are editorial, not reviewed claims. Run ADD-SPECIES.bat to turn every entry into a drafting brief in one pass. Anything already in the catalogue under a name you did not type gets skipped and told to you. Delete freely; this is a queue, not a commitment.",
   "targets": [
     {
+      "group": "A - the black bass complex, which is three records deep and needs to be seven",
+      "commonName": "Alabama bass",
+      "scientificName": "Micropterus henshalli",
+      "why": "Split out of spotted bass and now stocked and spreading well outside its native range, where it hybridises with and displaces smallmouth bass. Anglers call it a spotted bass and several states no longer agree. This is the hardest black bass identification in the country and it carries a limit."
+    },
+    {
+      "group": "A - black bass",
+      "commonName": "Guadalupe bass",
+      "scientificName": "Micropterus treculii",
+      "why": "Texas state fish, endemic, and threatened primarily by hybridisation with introduced smallmouth bass. Routinely reported as a spotted bass or a small largemouth bass."
+    },
+    {
+      "group": "A - black bass",
+      "commonName": "Shoal bass",
+      "scientificName": "Micropterus cataractae",
+      "why": "Restricted range, taken for a redeye bass or a smallmouth bass everywhere it occurs."
+    },
+    {
+      "group": "A - black bass",
+      "commonName": "Redeye bass",
+      "scientificName": "Micropterus coosae",
+      "why": "Confused with rock bass, which already carries the redeye and red eye aliases in this catalogue, and with shoal bass. The alias collision alone is a reason to write the record."
+    },
+    {
+      "group": "A - black bass",
+      "commonName": "Florida bass",
+      "scientificName": "Micropterus salmoides",
+      "why": "The largemouth bass record here uses Micropterus nigricans, which follows the recent revision. Which name attaches to which fish changed recently and the sources disagree; resolving that against a current authority is part of this record, not an assumption to carry into it."
+    },
+    {
+      "group": "B - the crappie record is currently two fish in one",
+      "commonName": "Black crappie",
+      "scientificName": "Pomoxis nigromaculatus",
+      "why": "The catalogue carries a single merged crappie record covering both Pomoxis species. Black and white crappie have different limits in a number of states and separating them by dorsal spine count and barring is the most-asked panfish identification in fresh water. Splitting the record may be the right answer, or keeping it merged and saying why may be; either way it should be a decision rather than an inheritance."
+    },
+    {
+      "group": "B - crappie",
+      "commonName": "White crappie",
+      "scientificName": "Pomoxis annularis",
+      "why": "The other half of the merged crappie record."
+    },
+    {
+      "group": "C - invasive carp, regulated and constantly misidentified",
+      "commonName": "Grass carp",
+      "scientificName": "Ctenopharyngodon idella",
+      "why": "Taken for a common carp on sight. Stocked as triploid in some states, prohibited in others, and unlawful to transport live almost everywhere. Regulated context."
+    },
+    {
+      "group": "C - invasive carp",
+      "commonName": "Silver carp",
+      "scientificName": "Hypophthalmichthys molitrix",
+      "why": "Confused with bigmouth buffalo, which is already in the catalogue as a regulated-context record, and with gizzard shad at small size. Jumping behaviour makes it the one every angler has heard of and few can identify."
+    },
+    {
+      "group": "C - invasive carp",
+      "commonName": "Bighead carp",
+      "scientificName": "Hypophthalmichthys nobilis",
+      "why": "Separated from silver carp only by eye position and mottling. Both are filter feeders like the paddlefish record, so the same fail-closed logic may apply."
+    },
+    {
+      "group": "C - invasive carp",
+      "commonName": "Black carp",
+      "scientificName": "Mylopharyngodon piceus",
+      "why": "The mollusk-feeder of the four and the one most likely to be reported as a grass carp. Federally injurious."
+    },
+    {
+      "group": "D - Atlantic and Gulf inshore collisions with records already written",
       "commonName": "Atlantic croaker",
       "scientificName": "Micropogonias undulatus",
-      "why": "Constantly confused with juvenile black drum and with spot along the same beaches the inshore wave already covers."
+      "why": "Confused with juvenile black drum and with spot along the same beaches and marsh edges the inshore wave already covers."
+    },
+    {
+      "group": "D - inshore",
+      "commonName": "Spot",
+      "scientificName": "Leiostomus xanthurus",
+      "why": "The other half of the croaker confusion, and the bait a great deal of the red drum and spotted seatrout fishing runs on."
+    },
+    {
+      "group": "D - inshore",
+      "commonName": "Florida pompano",
+      "scientificName": "Trachinotus carolinus",
+      "why": "Permit is already in the catalogue and pompano is the fish people actually catch from the beach. They are the same genus, they are separated by body depth and dorsal lobe, and they carry different limits. Leaving pompano out while permit is in is the wrong way round."
+    },
+    {
+      "group": "D - inshore",
+      "commonName": "Southern flounder",
+      "scientificName": "Paralichthys lethostigma",
+      "why": "Summer flounder is in; southern and gulf flounder are not. The three overlap, the eyed-side spotting is the separation, and states set different seasons for them."
+    },
+    {
+      "group": "D - inshore",
+      "commonName": "Crevalle jack",
+      "scientificName": "Caranx hippos",
+      "why": "Caught constantly by people fishing for snook and red drum, and reported as everything from a permit to a bluefish."
+    },
+    {
+      "group": "E - snapper and grouper, where identification carries legal weight",
+      "commonName": "Gray snapper",
+      "scientificName": "Lutjanus griseus",
+      "why": "The snapper most inshore anglers actually meet, and the catalogue has only red and mutton. Confused with lane, mahogany and cubera snapper."
+    },
+    {
+      "group": "E - snapper and grouper",
+      "commonName": "Lane snapper",
+      "scientificName": "Lutjanus synagris",
+      "why": "Small, abundant, and routinely kept as a juvenile mutton or gray snapper, which is a limit problem rather than a taste problem."
+    },
+    {
+      "group": "E - snapper and grouper",
+      "commonName": "Yellowtail snapper",
+      "scientificName": "Ocyurus chrysurus",
+      "why": "Different feeding position in the water column from every snapper currently in the catalogue, which changes the presentation answer, not just the identification."
+    },
+    {
+      "group": "E - snapper and grouper",
+      "commonName": "Red grouper",
+      "scientificName": "Epinephelus morio",
+      "why": "Gag and scamp are in; red grouper is not, and gag versus red is the identification the recreational fishery turns on."
+    },
+    {
+      "group": "E - snapper and grouper",
+      "commonName": "Black grouper",
+      "scientificName": "Mycteroperca bonaci",
+      "why": "Same genus as the two grouper records already written and the hardest of the three to tell apart. A misidentified black grouper is a closed-season violation."
+    },
+    {
+      "group": "E - snapper and grouper",
+      "commonName": "Hogfish",
+      "scientificName": "Lachnolaimus maximus",
+      "why": "California sheephead is in the catalogue; the Atlantic wrasse that everyone calls hogfish is not, and the two share the sheephead alias."
+    },
+    {
+      "group": "F - the tuna and mackerel confusion set",
+      "commonName": "Little tunny",
+      "scientificName": "Euthynnus alletteratus",
+      "why": "Called false albacore and bonito interchangeably, and confused with Atlantic bonito, skipjack and small blackfin tuna. Nothing in this group is currently in the catalogue except yellowfin."
+    },
+    {
+      "group": "F - tuna and mackerel",
+      "commonName": "Atlantic bonito",
+      "scientificName": "Sarda sarda",
+      "why": "The other half of the false albacore confusion, and the one that is actually good to eat, which is why people care which they have."
+    },
+    {
+      "group": "F - tuna and mackerel",
+      "commonName": "Blackfin tuna",
+      "scientificName": "Thunnus atlanticus",
+      "why": "Same genus as the yellowfin record. Taken for a small yellowfin constantly."
+    },
+    {
+      "group": "F - tuna and mackerel",
+      "commonName": "Cero",
+      "scientificName": "Scomberomorus regalis",
+      "why": "Spanish and king mackerel are both in. Cero sits between them, is separated by the lateral stripe and spotting, and carries its own limit."
+    },
+    {
+      "group": "F - tuna and mackerel",
+      "commonName": "Wahoo",
+      "scientificName": "Acanthocybium solandri",
+      "why": "Fished on the same offshore features as the mahi and king mackerel records and mistaken for a king mackerel by people who have never seen one."
+    },
+    {
+      "group": "G - Pacific, where the rockfish set is four records out of roughly sixty",
+      "commonName": "Black rockfish",
+      "scientificName": "Sebastes melanops",
+      "why": "The rockfish most nearshore Pacific anglers actually catch, and the catalogue does not have it. Confused with blue and deacon rockfish."
+    },
+    {
+      "group": "G - Pacific",
+      "commonName": "Copper rockfish",
+      "scientificName": "Sebastes caurinus",
+      "why": "Confused with quillback rockfish, which is already written, and with brown and China rockfish. Nearshore rockfish limits are species-specific."
+    },
+    {
+      "group": "G - Pacific",
+      "commonName": "Yelloweye rockfish",
+      "scientificName": "Sebastes ruberrimus",
+      "why": "Rebuilding stock, prohibited or severely restricted in much of its range, and confused with vermilion rockfish, which is already in the catalogue. This is a conservation-sensitive or regulated-context record before it is a fishing one."
+    },
+    {
+      "group": "G - Pacific",
+      "commonName": "Cabezon",
+      "scientificName": "Scorpaenichthys marmoratus",
+      "why": "Caught alongside lingcod, which is written, and taken for one. Its roe is toxic, which is a safety fact rather than a preference."
+    },
+    {
+      "group": "G - Pacific",
+      "commonName": "California halibut",
+      "scientificName": "Paralichthys californicus",
+      "why": "Same genus as the summer flounder record, entirely different fishery from the Pacific halibut record already written, and confused with both."
+    },
+    {
+      "group": "G - Pacific",
+      "commonName": "Yellowtail",
+      "scientificName": "Seriola dorsalis",
+      "why": "Greater amberjack is in the catalogue; the Pacific Seriola that the entire southern California fishery runs on is not."
+    },
+    {
+      "group": "H - Northeast bottom and structure",
+      "commonName": "Atlantic cod",
+      "scientificName": "Gadus morhua",
+      "why": "Nothing in the catalogue covers the New England groundfish bottom fishery, and cod is confused with pollock and haddock, all three under different rules."
+    },
+    {
+      "group": "H - Northeast",
+      "commonName": "Pollock",
+      "scientificName": "Pollachius virens",
+      "why": "The other half of the cod confusion and the one people keep by mistake."
+    },
+    {
+      "group": "H - Northeast",
+      "commonName": "Scup",
+      "scientificName": "Stenotomus chrysops",
+      "why": "Same family as the sheepshead record and the porgy every Northeast bottom angler catches."
+    },
+    {
+      "group": "H - Northeast",
+      "commonName": "Winter flounder",
+      "scientificName": "Pseudopleuronectes americanus",
+      "why": "Right-eyed against the summer flounder record's left-eyed, which is the cleanest separation in the whole flatfish group and worth writing down once properly."
+    },
+    {
+      "group": "I - western native trout, all of which read as a rainbow to most people",
+      "commonName": "Apache trout",
+      "scientificName": "Oncorhynchus apache",
+      "why": "Federally recovered but still tightly managed, hybridises with rainbow trout, and confused with golden trout and cutthroat. Likely regulated context."
+    },
+    {
+      "group": "I - western native trout",
+      "commonName": "Gila trout",
+      "scientificName": "Oncorhynchus gilae",
+      "why": "Threatened, limited catch-and-release fisheries only, and separated from Apache trout by fine spotting. Conservation-sensitive until a source says otherwise."
+    },
+    {
+      "group": "I - western native trout",
+      "commonName": "California golden trout",
+      "scientificName": "Oncorhynchus aguabonita",
+      "why": "California state fish, high-elevation only, and taken for a rainbow trout or a small brook trout by anyone who has not seen one."
+    },
+    {
+      "group": "J - sharks, on the same argument the catalogue already makes for blacktip and spinner",
+      "commonName": "Sandbar shark",
+      "scientificName": "Carcharhinus plumbeus",
+      "why": "Prohibited in the recreational fishery and confused with dusky and bull shark. The catalogue already separates blacktip from spinner for exactly this reason."
+    },
+    {
+      "group": "J - sharks",
+      "commonName": "Dusky shark",
+      "scientificName": "Carcharhinus obscurus",
+      "why": "Prohibited, and the fish most often landed by someone who believed they had a sandbar or a bull shark."
+    },
+    {
+      "group": "J - sharks",
+      "commonName": "Bull shark",
+      "scientificName": "Carcharhinus leucas",
+      "why": "Enters fresh water, so it collides with records in this catalogue that no other shark does, and it is the third corner of the sandbar and dusky confusion."
     }
   ]
 }

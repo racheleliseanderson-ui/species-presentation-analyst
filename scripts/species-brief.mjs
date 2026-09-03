@@ -137,19 +137,37 @@ function renderBrief({ target, hits, vocab, presentations, todayIso }) {
   out.push("");
   if (target.scientificName) out.push("Scientific name as given: *" + target.scientificName + "*");
   out.push("Proposed species id: `" + slug + "`");
+  if (target.group) out.push("Queued under: " + target.group);
   if (target.why) {
     out.push("");
     out.push("Why it was asked for: " + target.why);
   }
   out.push("");
 
+  const line = ({ record, reasons }) =>
+    "- **" + (record.commonNames?.[0] ?? record.id) + "** `" + record.id + "` (*" + record.scientificName +
+    "*) — " + reasons.join(", ");
+
+  // Named in the note or sharing a genus is a real collision. Sharing a word is
+  // not, on its own: "bass" is in the common name of a Micropterus, a Morone, a
+  // Centropristis and a red drum, and putting all of those in one list buries
+  // the two that matter.
+  const likely = hits.filter((hit) => hit.rank <= 1);
+  const namesake = hits.filter((hit) => hit.rank > 1);
+
   out.push("## What it will be confused with");
   out.push("");
-  if (!hits.length) {
+  if (!likely.length && !namesake.length) {
     out.push(
       "Nothing in the catalogue shares its genus or its common name. Worth a second look rather than a relief — " +
         "a fish with no lookalike in a 111-record North American catalogue is either genuinely distinct or the " +
         "scientific name is wrong.",
+    );
+  } else if (!likely.length) {
+    out.push(
+      "Nothing here shares its genus, and nothing you named in the note is in the catalogue yet. Whatever this " +
+        "fish actually gets mistaken for may not be written down yet either — worth deciding before the record is " +
+        "drafted rather than after.",
     );
   } else {
     out.push(
@@ -157,12 +175,21 @@ function renderBrief({ target, hits, vocab, presentations, todayIso }) {
         "distinction somebody can use with the fish in their hands. Not a list of adjectives.",
     );
     out.push("");
-    for (const { record, reasons } of hits) {
-      out.push(
-        "- **" + (record.commonNames?.[0] ?? record.id) + "** `" + record.id + "` (*" + record.scientificName +
-          "*) — " + reasons.join(", "),
-      );
-    }
+    for (const hit of likely) out.push(line(hit));
+  }
+  out.push("");
+
+  if (namesake.length) {
+    out.push("### Share a word, probably not a confusion");
+    out.push("");
+    out.push(
+      "Listed only so the alias table can be checked. A record here should not carry an informal name that already " +
+        "resolves to one of these.",
+    );
+    out.push("");
+    for (const hit of namesake.slice(0, 8)) out.push(line(hit));
+    if (namesake.length > 8) out.push("- ...and " + (namesake.length - 8) + " more sharing the same word.");
+    out.push("");
   }
   out.push("");
 
@@ -252,7 +279,7 @@ function renderBrief({ target, hits, vocab, presentations, todayIso }) {
 
 function outDir() {
   const hit = process.argv.find((value) => value.startsWith("--out="));
-  return join(ROOT, hit ? hit.slice("--out=".length) : "reports");
+  return join(ROOT, hit ? hit.slice("--out=".length) : join("reports", "briefs"));
 }
 
 async function main() {

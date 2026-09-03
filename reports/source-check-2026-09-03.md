@@ -1,6 +1,6 @@
 # Source check — 2026-09-03
 
-336 citation addresses checked across 85 species. 288 answered, 4 moved, 12 are gone, 0 could not be reached, 32 refused to say.
+336 citation addresses checked across 85 species. 292 answered, 0 moved, 12 are gone, 0 could not be reached, 32 refused to say.
 
 ## Gone
 
@@ -42,19 +42,6 @@ These addresses answered 404 or 410. The claim behind each one now has no citati
 - https://www.dnr.sc.gov/swap/supplemental/marine/tarpon2015.pdf
   - cited by: megalops_atlanticus/identification, megalops_atlanticus/behavior, megalops_atlanticus/seasonal_calendar
   - label: SCDNR State Wildlife Action Plan supplemental account: Tarpon (2015)
-
-## Moved and updated
-
-Same domain, permanent redirect, so the citation was pointed at the new address. No claim changed.
-
-- https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/atlantic-bigeye-albacore-yellowfin-and
-  - now: https://www.fisheries.noaa.gov/atlantic-highly-migratory-species/recreational-atlantic-bigeye-albacore-yellowfin-and-skipjack-tuna
-- https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/albula-vulpes/
-  - now: https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/bonefish/
-- https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/sheepshead
-  - now: https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/sheepshead/
-- https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/trachinotus-falcatus/
-  - now: https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/permit/
 
 ## Refused to answer
 
