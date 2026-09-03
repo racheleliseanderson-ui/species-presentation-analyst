@@ -176,6 +176,53 @@ npm test
 
 Engine tests cover six-axis weighting, AFP identification/behavior dossier integrity, canonical spawning seasons, species-specific distinctions, full 75-record override coverage, policy-only records, expansion-04 alias separation, RPC candidate monotonicity, canonical-image registration, RPC profile integrity and family containment, explicit-vs-undeclared population behavior, profile/species/water mismatch fail-closed behavior, holding-water re-ranking, observed-forage weighting, reviewed-family-only invariants, fail-closed water-type mismatch, unknown temperature, conservation-sensitive fail-closed behavior, and regulated-context jurisdiction warnings.
 
+## Keeping the catalogue current
+
+Three double-clickable runners sit in the repository root, for the days when
+the person maintaining this is not sitting in a terminal.
+
+**`CHECK-HEALTH.bat`** — about a minute, reads only, changes nothing. How old
+the records are, whether anything is said twice or about the wrong fish, how
+much of the catalogue is actually reviewed rather than partial, and whether
+every record still passes `validate:dossiers`.
+
+**`REVIEW-AND-UPDATE.bat`** — the cadence run, fifteen to thirty minutes. It
+opens every source the catalogue cites, roughly 340 agency pages and papers,
+and checks each one is still there. Where a page moved permanently and stayed
+on the same domain, the citation is repointed; that changes where a claim
+points and never the claim. A move to a *different* domain is never applied
+automatically, because an expired agency domain bought by somebody else looks
+identical to a real migration from the outside. Everything broken lands in a
+dated worklist. Then validate, typecheck and the full test suite — and only if
+all three pass does anything reach the database or GitHub. The commit is
+scoped to `data/dossiers`, the four dossier modules and `reports`, so work in
+progress elsewhere in the tree is never swept in.
+
+**`ADD-SPECIES.bat`** — reads `data/species-targets.json`, checks whether each
+fish is already here under a name nobody thought to type, works out which
+existing records it will collide with in the field, and writes a drafting
+brief. It does not write a species record and it never will: a record here is a
+reviewed biological claim built from agency and peer-reviewed sources, and a
+script that manufactured one would be the exact failure this application
+exists to prevent.
+
+The scripts underneath, all runnable directly:
+
+```bash
+npm run report:freshness     # how old is the information
+npm run report:coverage      # what can it actually answer
+npm run report:duplicates    # two homes, two names, cloned prose
+npm run check:sources        # open every citation; --fix repoints same-domain moves
+npm run review:queue         # rank what needs a person, and say so when nothing does
+npm run species:brief        # drafting brief for a new species
+```
+
+`check:sources` classifies a 403 as *refused to answer*, not as dead. Several
+state agencies and every academic publisher block automated requests, and
+treating those as broken would send someone re-researching a paper that is
+sitting right where it always was.
+
+
 ## Knowledge
 
 The Species Profile is the optional `AFP-1.2` reference layer: the same ten angler questions as `AFP-1.0`. Identification, behavior, diet, and seasonal calendar can be marked reviewed when `AFP-ID-1.0` / `AFP-BH-1.0` / `AFP-DI-1.0` / `AFP-SC-1.0` dossiers exist. Wave 01 covers 26 high-confusion species. Wave 02a adds brown trout, brook trout, lake trout, and steelhead (kept separate from inland rainbow). Wave 02b adds walleye, sauger, northern pike, muskellunge, chain pickerel, and yellow perch. Wave 02c adds crappie, bluegill, pumpkinseed, redear, green sunfish, and rock bass. Wave 02d adds redbreast, warmouth, longear, and flier. Wave 02e adds channel catfish, blue catfish, flathead, and white catfish. Wave 02f adds chinook, coho, pink, chum, and landlocked Atlantic salmon. Remaining species stay explicitly incomplete. Fight and food value stay unreviewed. Dossiers do not feed presentation weighting. Seeding follows a ranked distinction-group queue; live coverage is computed, not hand-maintained.
