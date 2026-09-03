@@ -28,3 +28,4 @@ _to_delete/
 
 # Left behind by a half-finished install; safe to delete this whole folder
 _to_delete/
+typecheck-results.txt

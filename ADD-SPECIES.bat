@@ -53,11 +53,8 @@ if not exist "data\species-targets.json" (
   exit /b 1
 )
 
-if not exist "node_modules\.package-lock.json" (
-  echo  Installing the tools the project needs. First time only.
-  call npm install --no-audit --no-fund
-  echo.
-)
+REM Nothing here needs the project's packages installed - this is plain Node
+REM reading the repository, so it works on a fresh clone.
 
 echo  Reading your list...
 echo  ----------------------------------------------------------------

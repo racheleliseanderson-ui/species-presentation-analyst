@@ -38,11 +38,9 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist "node_modules\.package-lock.json" (
-  echo  Installing the tools the project needs. First time only.
-  call npm install --no-audit --no-fund
-  echo.
-)
+REM Nothing here needs the project's packages installed. Every check below is
+REM plain Node reading the repository, so this file works on a fresh clone and
+REM keeps working when node_modules is missing or damaged.
 
 echo  [1/4] How old is the information?
 echo  ----------------------------------------------------------------
