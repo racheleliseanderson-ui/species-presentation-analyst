@@ -321,7 +321,35 @@ export type Interpretation = {
   };
   equipment: Record<string, string>;
   connection: {
-    job: string;
+    /**
+     * What the joint has to achieve, in words.
+     *
+     * This used to be called `job`, and `job` is the field the fleet contract
+     * reserves for a connection-job ID. Knot Analyst read this sentence,
+     * checked it against its list of jobs, found no match, and declined the
+     * whole handoff — so the one instrument that exists to answer "which
+     * connection" started from nothing every time Species sent it a reading.
+     * The sentence was never wrong; it was in the wrong field.
+     */
+    intent: string;
+    /**
+     * The connection job, when this instrument can honestly name one.
+     *
+     * Usually it cannot. The joint that matters to a presentation is the main
+     * line to the leader, and whether that is `braid-to-leader` or
+     * `leader-to-leader` depends on the main line material — which is Tackle
+     * Link's fact, not this instrument's. Null with a stated reason is the
+     * honest answer, and it is a more useful one than a guess: the receiving
+     * instrument can ask the one question that settles it.
+     */
+    job: string | null;
+    /** Why `job` is null, when it is. Shown, not swallowed. */
+    jobUndeclared: string | null;
+    /**
+     * How often the top presentation family expects this joint to be retied,
+     * in the fleet's word rather than this instrument's internal level.
+     */
+    retieFrequency: "frequent" | "occasional" | "rare" | null;
     priorities: string[];
   };
   rigQuestion: string | null;
@@ -389,8 +417,12 @@ export type HthPacket = {
     weightedFamilies?: { id: PresentationId; weight: number }[];
   };
   equipmentRequirements: Record<string, string>;
+  /** Mirrors `Interpretation["connection"]`; see the notes there. */
   connectionRequirements: {
-    job: string;
+    intent: string;
+    job: string | null;
+    jobUndeclared: string | null;
+    retieFrequency: "frequent" | "occasional" | "rare" | null;
     priorities: string[];
   };
   deviceQuestions: string[];

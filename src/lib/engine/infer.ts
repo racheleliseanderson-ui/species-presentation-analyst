@@ -370,8 +370,30 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     depthControl: "undeclared",
     sensitivity: "undeclared",
   };
+  /*
+   * Species' own retie levels are a scale; Knot Analyst's are events. Same
+   * concept, two vocabularies, and the packet was carrying neither because
+   * nothing translated. The fleet word is the event word, because that is what
+   * the instrument with a retie axis actually reasons in.
+   */
+  const RETIE_TO_FLEET: Record<string, "frequent" | "occasional" | "rare"> = {
+    very_high: "frequent",
+    high: "frequent",
+    moderate: "occasional",
+    low: "rare",
+  };
+
   const connection = {
-    job: "Match line to leader so the presentation can do the mechanical job without advertising hardware.",
+    intent:
+      "Match line to leader so the presentation can do the mechanical job without advertising hardware.",
+    /* The joint is main-to-leader; which job that is depends on the main line
+       material, and this instrument does not know it. Naming one anyway would
+       send the next instrument to the wrong page with a confident-looking
+       answer on it. */
+    job: null,
+    jobUndeclared:
+      "The joint that matters here is the main line to the leader. Whether that is a braid-to-leader join or a line-to-line join depends on what is on the spool, which this reading does not establish — Tackle Link does.",
+    retieFrequency: RETIE_TO_FLEET[equipment.retieFrequency ?? ""] ?? null,
     priorities: [
       "compact passage through guides",
       "repeatable field retie",

@@ -109,7 +109,25 @@ export function TackleRequirements({ result }: { result: Interpretation }) {
         <h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
           The connection
         </h4>
-        <p className="mt-2 max-w-3xl text-sm text-fg">{result.connection.job}</p>
+        <p className="mt-2 max-w-3xl text-sm text-fg">{result.connection.intent}</p>
+        {result.connection.jobUndeclared && (
+          <p className="mt-2 max-w-3xl border-l-2 border-line pl-3 text-xs leading-relaxed text-muted">
+            {result.connection.jobUndeclared}
+          </p>
+        )}
+        {result.connection.retieFrequency && (
+          <p className="mt-2 text-xs text-muted">
+            Expect to retie this joint{" "}
+            <span className="text-fg">
+              {result.connection.retieFrequency === "frequent"
+                ? "often"
+                : result.connection.retieFrequency === "rare"
+                  ? "rarely"
+                  : "now and then"}
+            </span>
+            .
+          </p>
+        )}
         <ul className="mt-3 flex flex-wrap gap-2">
           {result.connection.priorities.map((priority) => (
             <li

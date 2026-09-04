@@ -203,7 +203,11 @@ function tackleLines(result: Interpretation): string[] {
       ([key, value]) => `· ${SYSTEM_LABEL[key] ?? key}: ${String(value).replaceAll("_", " ")}`,
     ),
     "",
-    ...wrap(`Connection: ${result.connection.job}`),
+    ...wrap(`Connection: ${result.connection.intent}`),
+    ...(result.connection.jobUndeclared ? wrap(`Not settled here: ${result.connection.jobUndeclared}`) : []),
+    ...(result.connection.retieFrequency
+      ? [`Retie: ${result.connection.retieFrequency}`]
+      : []),
     `Priorities: ${result.connection.priorities.map((p) => p.replaceAll("_", " ")).join(" · ")}`,
     ...(result.rigQuestion ? ["", ...wrap(`Check the rig: ${result.rigQuestion}`)] : []),
     "",
