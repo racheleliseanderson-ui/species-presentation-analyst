@@ -9,6 +9,7 @@ import { ShareReading } from "@/components/share-reading";
 import { Link } from "@tanstack/react-router";
 import { speciesSlug } from "@/lib/knowledge/species-slug";
 import { ResponseRead, SeasonRead } from "@/components/season-read";
+import { CalendarConflictCard, YearStrip } from "@/components/year-read";
 import { TackleRequirements } from "@/components/tackle-requirements";
 import { WhatIf } from "@/components/what-if";
 import { fieldBrief, freshness } from "@/lib/engine/brief";
@@ -282,6 +283,14 @@ What seems wrong:
           <SeasonRead input={input} overlays={overlays} />
           <ResponseRead input={input} overlays={overlays} />
         </div>
+
+        {/* The calendar describes a typical year; the reading describes today.
+            When they part company somebody has to say so out loud. */}
+        <CalendarConflictCard input={input} species={species} overlays={overlays} />
+
+        {/* One season at a time hides the only thing the calendar really
+            knows, which is what moves when the season turns. */}
+        <YearStrip speciesId={species.id} overlays={overlays} />
 
         {top ? (
           <PresentationJobPlate
