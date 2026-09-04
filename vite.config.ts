@@ -116,6 +116,25 @@ function authPopupPlugin(): Plugin {
   };
 }
 
+/**
+ * Routes a manifest shortcut points at, and the revision that keeps them fresh.
+ *
+ * A shortcut is pressed from a home screen, which is very often a home screen
+ * on a bank with no bars — that is the whole reason to have one. Everything
+ * this app builds is precached already, but a ROUTE is a document the server
+ * renders, so a shortcut into a page nobody had visited yet went to the
+ * network and failed in exactly the situation it exists for.
+ *
+ * They are precached with a revision rather than pinned with `revision: null`.
+ * A route's HTML names this build's hashed chunks; an entry that never
+ * revalidates would keep serving a document pointing at files the next deploy
+ * deleted. With a revision per build, workbox replaces it on activation and
+ * `cleanupOutdatedCaches` clears the old one.
+ */
+const SHORTCUT_ROUTES = ["/species"];
+const SHORTCUT_REVISION = String(Date.now());
+const shortcutEntries = SHORTCUT_ROUTES.map((url) => ({ url, revision: SHORTCUT_REVISION }));
+
 function fieldWorkboxPlugin(): Plugin {
   return {
     name: "hth:field-workbox",
@@ -135,6 +154,7 @@ function fieldWorkboxPlugin(): Plugin {
           globPatterns: ["**/*.{js,css,html,svg,png,ico,woff2,webmanifest,json}"],
           globIgnores: ["**/sw.js", "**/workbox-*.js"],
           swDest: join(outDir, "sw.js"),
+          additionalManifestEntries: shortcutEntries,
           cleanupOutdatedCaches: true,
           skipWaiting: true,
           clientsClaim: true,
@@ -211,7 +231,14 @@ export default defineConfig(({ command, isPreview }) => ({
       injectRegister: false,
       filename: "sw.js",
       manifest: false,
-      includeAssets: ["favicon.svg", "icon-180.png", "manifest.webmanifest"],
+      includeAssets: [
+        "favicon.svg",
+        "icon-180.png",
+        "icon-192.png",
+        "icon-512.png",
+        "icon-maskable-512.png",
+        "manifest.webmanifest",
+      ],
       includeManifestIcons: false,
       integration: {
         closeBundleOrder: "post",
@@ -221,6 +248,7 @@ export default defineConfig(({ command, isPreview }) => ({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,svg,png,ico,woff2,webmanifest}"],
+        additionalManifestEntries: shortcutEntries,
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
@@ -252,7 +280,8 @@ export default defineConfig(({ command, isPreview }) => ({
             options: { cacheName: "hth-shell" },
           },
           {
-            urlPattern: ({ request }) => request.destination === "image" || request.destination === "font",
+            urlPattern: ({ request }) =>
+              request.destination === "image" || request.destination === "font",
             handler: "CacheFirst",
             options: {
               cacheName: "hth-static",

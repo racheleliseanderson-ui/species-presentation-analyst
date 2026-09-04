@@ -53,31 +53,32 @@ export function PresentationJobPlate({
           is on this screen, and a control for that belongs next to it. */}
       <PlateDepthControl />
       <PresentationPathPlate
-      eyebrow="Presentation brief · the job, not the lure"
-      job={{ ...motion, profile }}
-      title={`${presentation.label} — what it has to do`}
-      caption={briefFor ? `${briefFor}. ${presentation.job}` : presentation.job}
-      testid="presentation-job-plate"
-      unknown={
-        forage.length === 0
-          ? "No forage class was declared, so the profile line is empty. That does not change the path, the depth or the speed — it changes what you hang on the end of it."
-          : undefined
-      }
-      aside={
-        <>
-          <p>
-            <b>What it costs you.</b> {motion.costs}
-          </p>
-          <p>
-            <b>What tells you it is working.</b> {motion.tell}
-          </p>
-          <p>
-            The drawing is the task, not the tackle. If something in your box can be made to travel
-            that path at that speed and hold that depth, it can do this job — and a thing sold for
-            this exact job that cannot hold the depth is the wrong tool with the right label.
-          </p>
-        </>
-      }
+        eyebrow="Presentation brief · the job, not the lure"
+        job={{ ...motion, profile }}
+        title={`${presentation.label} — what it has to do`}
+        caption={briefFor ? `${briefFor}. ${presentation.job}` : presentation.job}
+        testid="presentation-job-plate"
+        unknown={
+          forage.length === 0
+            ? "No forage class was declared, so the profile line is empty. That does not change the path, the depth or the speed — it changes what you hang on the end of it."
+            : undefined
+        }
+        aside={
+          <>
+            <p>
+              <b>What it costs you.</b> {motion.costs}
+            </p>
+            <p>
+              <b>What tells you it is working.</b> {motion.tell}
+            </p>
+            <p>
+              The drawing is the task, not the tackle. If something in your box can be made to
+              travel that path at that speed and hold that depth, it can do this job — and a thing
+              sold for this exact job that cannot hold the depth is the wrong tool with the right
+              label.
+            </p>
+          </>
+        }
       />
     </div>
   );

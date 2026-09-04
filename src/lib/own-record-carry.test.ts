@@ -63,9 +63,7 @@ for (const file of files) {
     }
   });
 }
-const PANELS = [
-  "components/carried-context.tsx",
-];
+const PANELS = ["components/carried-context.tsx"];
 
 // Every read of it is a prop on the shared panel.
 for (const hit of reads) {

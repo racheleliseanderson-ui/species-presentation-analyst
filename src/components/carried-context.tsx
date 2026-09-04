@@ -154,11 +154,7 @@ export function CarriedContext({
        * pressing "Use this" applies the packet to the reading, and this is the
        * one part of the packet the reading never touches.
        */}
-      <OwnRecordPanel
-        record={carry.packet.history}
-        from={carry.from}
-        instrument="This reading"
-      />
+      <OwnRecordPanel record={carry.packet.history} from={carry.from} instrument="This reading" />
 
       <div className="mt-4 flex flex-wrap gap-2">
         <Button onClick={onApply} className="min-h-11">

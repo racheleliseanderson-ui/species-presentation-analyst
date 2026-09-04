@@ -30,7 +30,9 @@ describe("the pathway chooser", () => {
   });
 
   it("offers exactly three, each with a description worth reading", () => {
-    const entries = [...block![1]!.matchAll(/label:\s*"([^"]+)",\s*\n\s*description:\s*\n?\s*"([^"]+)"/g)];
+    const entries = [
+      ...block![1]!.matchAll(/label:\s*"([^"]+)",\s*\n\s*description:\s*\n?\s*"([^"]+)"/g),
+    ];
     assert.equal(entries.length, 3, `parsed ${entries.length} pathways — the parser is stale`);
     for (const [, label, description] of entries) {
       assert.ok(label!.length >= 8, `"${label}" says too little`);

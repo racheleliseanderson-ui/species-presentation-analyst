@@ -846,20 +846,20 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                 </div>
 
                 {/*
-                  * The brief, drawn.
-                  *
-                  * This path was the only one that never got it: the deeper
-                  * paths saw the presentation as a mechanical job — depth,
-                  * path, speed, pause, contact, and how long it stays where a
-                  * fish can decide — and Quick Read got the same answer as
-                  * four phrases in a list. Four phrases are not a picture, and
-                  * this is the path somebody is on while standing in a river.
-                  *
-                  * Only when the reading settles on one family. When the
-                  * temperature range crosses a decision there are two answers,
-                  * and drawing one of them would be picking a side the reading
-                  * deliberately did not pick.
-                  */}
+                 * The brief, drawn.
+                 *
+                 * This path was the only one that never got it: the deeper
+                 * paths saw the presentation as a mechanical job — depth,
+                 * path, speed, pause, contact, and how long it stays where a
+                 * fish can decide — and Quick Read got the same answer as
+                 * four phrases in a list. Four phrases are not a picture, and
+                 * this is the path somebody is on while standing in a river.
+                 *
+                 * Only when the reading settles on one family. When the
+                 * temperature range crosses a decision there are two answers,
+                 * and drawing one of them would be picking a side the reading
+                 * deliberately did not pick.
+                 */}
                 {primaryTop && !(rangeAssessment && !rangeAssessment.stable) ? (
                   <PresentationJobPlate
                     presentation={primaryTop}
