@@ -297,6 +297,7 @@ What seems wrong:
             presentation={top}
             forageClasses={result.forageClasses}
             forageCertainty={result.forageCertainty}
+            briefFor={`${species.commonNames[0]} · ${tempLine} · ${labelOf(session.waterType)}`}
           />
         ) : null}
 

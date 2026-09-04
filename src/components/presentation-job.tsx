@@ -21,10 +21,20 @@ export function PresentationJobPlate({
   presentation,
   forageClasses,
   forageCertainty,
+  briefFor,
 }: {
   presentation: RankedPresentation;
   forageClasses: ForageClass[];
   forageCertainty: "high" | "moderate" | "low";
+  /**
+   * What this brief was worked out for — the species, and the conditions the
+   * reader stated. It exists because the plate can now be saved as a picture,
+   * and a picture of six mechanical values with nothing saying what they were
+   * for is the sort of note you find in a camera roll a month later and
+   * delete. On the screen it is one quiet line; on the card it is the whole
+   * difference between a record and a screenshot.
+   */
+  briefFor?: string | undefined;
 }) {
   const motion = motionFor(presentation.id);
   if (!motion) return null;
@@ -43,9 +53,10 @@ export function PresentationJobPlate({
           is on this screen, and a control for that belongs next to it. */}
       <PlateDepthControl />
       <PresentationPathPlate
+      eyebrow="Presentation brief · the job, not the lure"
       job={{ ...motion, profile }}
       title={`${presentation.label} — what it has to do`}
-      caption={presentation.job}
+      caption={briefFor ? `${briefFor}. ${presentation.job}` : presentation.job}
       testid="presentation-job-plate"
       unknown={
         forage.length === 0

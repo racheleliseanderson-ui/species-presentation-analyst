@@ -24,6 +24,7 @@ import { WaterContextPanel } from "@/components/water-context";
 import { SpeciesThumb } from "@/components/species-thumb";
 import { readIncoming, type IncomingCarry } from "@/lib/protocol/packet";
 import { CarriedContext } from "@/components/carried-context";
+import { PresentationJobPlate } from "@/components/presentation-job";
 import type { ScenarioInput } from "@/lib/protocol/types";
 import {
   SEASONS,
@@ -228,6 +229,21 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
   const input = showResult ? toInput(session) : null;
   const result = input ? interpret(input) : null;
   const readableResult = result && !("error" in result) ? result : null;
+
+  /*
+   * What a saved brief was worked out for. Same shape as the full readout's,
+   * so a card saved from either says the same thing.
+   */
+  const briefSpecies = session.speciesId ? SPECIES_BY_ID[session.speciesId] : null;
+  const briefIdentity = briefSpecies
+    ? [
+        briefSpecies.commonNames[0],
+        session.tempF == null ? "temperature unknown" : `${session.tempF}°F`,
+        session.waterType ? labelOf(session.waterType) : null,
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : undefined;
 
   const canonicalRange = input ? normalizeTemperatureRangeF(input.tempRangeF) : null;
   const rangeAssessment =
@@ -828,6 +844,30 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
                     )}
                   </article>
                 </div>
+
+                {/*
+                  * The brief, drawn.
+                  *
+                  * This path was the only one that never got it: the deeper
+                  * paths saw the presentation as a mechanical job — depth,
+                  * path, speed, pause, contact, and how long it stays where a
+                  * fish can decide — and Quick Read got the same answer as
+                  * four phrases in a list. Four phrases are not a picture, and
+                  * this is the path somebody is on while standing in a river.
+                  *
+                  * Only when the reading settles on one family. When the
+                  * temperature range crosses a decision there are two answers,
+                  * and drawing one of them would be picking a side the reading
+                  * deliberately did not pick.
+                  */}
+                {primaryTop && !(rangeAssessment && !rangeAssessment.stable) ? (
+                  <PresentationJobPlate
+                    presentation={primaryTop}
+                    forageClasses={readableResult?.forageClasses ?? []}
+                    forageCertainty={readableResult?.forageCertainty ?? "low"}
+                    briefFor={briefIdentity}
+                  />
+                ) : null}
 
                 {adaptiveQuestion && (
                   <article className="rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border-hover)] sm:p-6">
