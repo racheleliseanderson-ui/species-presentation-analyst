@@ -134,6 +134,9 @@ if defined DATABASE_URL (
 echo.
 
 echo  [10/10] Saving reviewed work to GitHub...
+REM Refresh work-order briefs are transient. Keep the source-check reports,
+REM review queue and research ledgers, but do not accumulate run folders.
+if exist "!RUNDIR!" rmdir /s /q "!RUNDIR!"
 git add data/dossiers src/lib/knowledge reports "BEFORE-report.txt" "AFTER-report.txt"
 git diff --cached --quiet
 if not errorlevel 1 goto :nothing_to_commit
