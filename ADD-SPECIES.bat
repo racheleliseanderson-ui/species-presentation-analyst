@@ -134,7 +134,10 @@ if defined DATABASE_URL (
 echo.
 
 echo  [9/9] Saving the researched batch to GitHub...
-git add data/dossiers src/lib/knowledge "!RUNDIR!"
+REM The timestamped work-order briefs are temporary. The durable provenance is
+REM the research ledger Claude wrote for each completed species.
+if exist "!RUNDIR!" rmdir /s /q "!RUNDIR!"
+git add data/dossiers src/lib/knowledge
 if exist "reports\research-ledger" git add reports/research-ledger
 git diff --cached --quiet
 if not errorlevel 1 goto :nothing_to_commit
@@ -256,7 +259,7 @@ echo  ==========================================================================
 echo    RESEARCH RAN, BUT THERE IS NOTHING TO COMMIT.
 echo  ================================================================================
 echo.
-echo   Review the run folder and Claude output before trying again.
+echo   Review the research ledger and Claude output before trying again.
 echo.
 pause
 exit /b 0
