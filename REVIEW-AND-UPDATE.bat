@@ -1,256 +1,249 @@
 @echo off
-setlocal enabledelayedexpansion
-title Species Analyst - Review and Update
+setlocal EnableExtensions EnableDelayedExpansion
+title Species Analyst - Substantive Review and Update
 cd /d "%~dp0"
 color 0F
-mode con: cols=100 lines=45
+mode con: cols=108 lines=50
+
+if not defined SPECIES_REFRESH_BATCH_SIZE set "SPECIES_REFRESH_BATCH_SIZE=3"
 
 echo.
-echo  ================================================================
-echo    SPECIES ANALYST - REVIEW AND UPDATE
-echo  ================================================================
+echo  ================================================================================
+echo    REVIEW AND UPDATE - REAL BIOLOGICAL REFRESH
+echo  ================================================================================
 echo.
-echo   This opens every source the catalogue cites - about 340
-echo   agency pages and papers - and checks each one is still there.
+echo   This now does two different jobs in the correct order:
 echo.
-echo   Where a page has permanently moved and stayed on the same
-echo   site, the citation is pointed at the new address. That changes
-echo   where a claim points. It never changes the claim.
+echo     1. Citation maintenance - check every existing source and repair safe same-site moves.
+echo     2. Biological refresh - select up to !SPECIES_REFRESH_BATCH_SIZE! overdue, due-soon,
+echo        partial or high-gap species and perform NEW web research beyond the old citations.
 echo.
-echo   Anything that died, or moved to a different domain, is written
-echo   into a worklist for a person to read. Nothing is guessed.
+echo   A page still returning 200 is NOT treated as a completed review. Claude must search
+echo   taxonomy, habitat/thermal biology, diet, behavior, seasonality and every declared gap,
+echo   compare the old claims to new or independent evidence, and write a research ledger.
 echo.
-echo   Then it saves to GitHub and reseeds the database - but only if
-echo   every test passes. If anything fails, nothing is saved.
+echo   Change batch size with SPECIES_REFRESH_BATCH_SIZE before launching this file.
 echo.
-echo   It only ever saves the dossier files and the reports. Anything
-echo   else you have half-finished in this project stays untouched.
-echo.
-echo   Fifteen to thirty minutes, depending on how the agencies feel
-echo   today. You do not have to watch. You can close this window any
-echo   time; nothing breaks and running it again starts over cleanly.
-echo.
-echo   Leave your laptop plugged in, awake, and on the internet.
-echo.
-echo  ----------------------------------------------------------------
+echo  --------------------------------------------------------------------------------
 echo.
 pause
-echo.
 
-REM ---------------------------------------------------------------- step 1
-echo  [1/8] Checking your computer has what it needs...
+echo.
+echo  [1/10] Preflight...
 where node >nul 2>&1
-if errorlevel 1 (
-  echo.
-  echo   ^>^> STOPPED. Node.js is not installed on this computer.
-  echo.
-  echo      Go to    https://nodejs.org
-  echo      Click the big green "LTS" button, install it,
-  echo      then RESTART this file.
-  echo.
-  pause
-  exit /b 1
-)
-for /f "tokens=*" %%v in ('node -v') do set NODEV=%%v
-echo        Node.js !NODEV! - good.
+if errorlevel 1 goto :no_node
+where npm >nul 2>&1
+if errorlevel 1 goto :no_node
+where git >nul 2>&1
+if errorlevel 1 goto :no_git
+where claude >nul 2>&1
+if errorlevel 1 goto :no_claude
+claude auth status >nul 2>&1
+if errorlevel 1 goto :claude_login
+if not exist "prompts\species-refresh-research.md" goto :missing_protocol
+if not exist "scripts\refresh-brief.mjs" goto :missing_refresh_script
 
-if exist ".git\index.lock" (
-  del /f /q ".git\index.lock" >nul 2>&1
-  echo        Cleared a leftover Git lock file.
-)
+set "DIRTY_KNOWLEDGE="
+for /f "delims=" %%G in ('git status --porcelain -- data/dossiers src/lib/knowledge 2^>nul') do set "DIRTY_KNOWLEDGE=1"
+if defined DIRTY_KNOWLEDGE goto :dirty_knowledge
+
+echo        Node, Git and Claude Code are available and signed in.
 echo.
 
-REM ---------------------------------------------------------------- step 2
-echo  [2/8] Installing the tools the project needs...
-echo        (first time only - this can take a few minutes)
+echo  [2/10] Installing project packages if needed...
 if not exist "node_modules\.package-lock.json" (
   call npm install --no-audit --no-fund
-  if errorlevel 1 (
-    echo.
-    echo   ^>^> STOPPED. The install failed.
-    echo      Usually this means no internet connection.
-    echo      Check your connection and run this file again.
-    echo.
-    pause
-    exit /b 1
-  )
+  if errorlevel 1 goto :install_failed
 ) else (
   echo        Already installed - skipping.
 )
 echo.
 
-REM ---------------------------------------------------------------- step 3
-echo  [3/8] Taking a "before" reading, so there is something to compare against...
+echo  [3/10] Taking a before reading...
 call npm run report:coverage > "BEFORE-report.txt" 2>&1
 call npm run report:freshness >> "BEFORE-report.txt" 2>&1
-echo        Saved to BEFORE-report.txt
+call npm run report:duplicates >> "BEFORE-report.txt" 2>&1
+echo        Saved BEFORE-report.txt
 echo.
 
-REM ---------------------------------------------------------------- step 4
-echo  [4/8] Opening every source the catalogue cites. THIS IS THE LONG PART.
-echo.
-echo        Silence means it is working. Only problems print.
-echo        Safe to leave alone. Safe to close the window.
-echo.
-echo  ----------------------------------------------------------------
+echo  [4/10] Checking every cited source and repairing safe same-domain moves...
 call npm run check:sources -- --fix --concurrency=6
-echo  ----------------------------------------------------------------
+if errorlevel 1 goto :source_check_failed
 echo.
 
-REM ---------------------------------------------------------------- step 5
-echo  [5/8] Checking every record still passes its own rules...
+echo  [5/10] Ranking species that need substantive biological review...
+for /f "delims=" %%I in ('powershell -NoProfile -Command "Get-Date -Format yyyyMMdd-HHmmss"') do set "RUNSTAMP=%%I"
+if not defined RUNSTAMP set "RUNSTAMP=%RANDOM%-%RANDOM%"
+set "RUNDIR=reports\runs\refresh-!RUNSTAMP!"
+node --experimental-strip-types scripts\refresh-brief.mjs --limit=!SPECIES_REFRESH_BATCH_SIZE! --out=!RUNDIR!
+if errorlevel 1 goto :brief_failed
+
+set /a BRIEF_COUNT=0
+for /f "delims=" %%F in ('dir /b /a-d "!RUNDIR!\refresh-*.md" 2^>nul') do set /a BRIEF_COUNT+=1
+echo        !BRIEF_COUNT! species selected for fresh biological research.
+echo.
+
+echo  [6/10] Performing substantive refresh research...
+set /a PROCESSED=0
+for /f "delims=" %%F in ('dir /b /a-d "!RUNDIR!\refresh-*.md" 2^>nul') do (
+  set /a PROCESSED+=1
+  echo.
+  echo        [!PROCESSED!/!BRIEF_COUNT!] %%F
+  set "PROMPTFILE=%TEMP%\species-refresh-!RUNSTAMP!-!PROCESSED!.txt"
+  copy /y "prompts\species-refresh-research.md" "!PROMPTFILE!" >nul
+  >>"!PROMPTFILE!" echo.
+  >>"!PROMPTFILE!" echo ^<refresh_brief^>
+  type "!RUNDIR!\%%F" >>"!PROMPTFILE!"
+  >>"!PROMPTFILE!" echo ^</refresh_brief^>
+  type "!PROMPTFILE!" | claude -p --permission-mode acceptEdits --max-turns 80 "Follow the refresh protocol from stdin. Work directly in this repository. Perform fresh web research and edit the existing species record and dossiers. Do not commit or push."
+  if errorlevel 1 goto :agent_failed
+  del /q "!PROMPTFILE!" >nul 2>&1
+)
+if !BRIEF_COUNT! EQU 0 echo        No species required substantive refresh today; continuing with link maintenance validation.
+echo.
+
+echo  [7/10] Validating dossiers, identity resolution, types and tests...
 call npm run validate:dossiers
-if errorlevel 1 (
-  echo.
-  echo   ^>^> STOPPED. A record failed validation.
-  echo      Nothing has been saved to GitHub and the database was not
-  echo      touched. Any link fixes are still here on your computer.
-  echo      Send the messages above to Claude.
-  echo.
-  pause
-  exit /b 1
-)
-echo.
+if errorlevel 1 goto :validation_failed
 call npm run report:duplicates
+if errorlevel 1 goto :validation_failed
+call npm run typecheck
+if errorlevel 1 goto :typecheck_failed
+call npm test
+if errorlevel 1 goto :tests_failed
 echo.
 
-REM ---------------------------------------------------------------- step 6
-echo  [6/8] Making sure nothing broke...
-set REPAIRED=0
-
-:typecheck
-call npm run typecheck > "typecheck-results.txt" 2>&1
-if not errorlevel 1 goto typecheck_ok
-
-REM An error inside node_modules is a damaged package, not damaged code.
-REM OneDrive syncing this folder while npm writes tens of thousands of files
-REM into it leaves some of them cut off halfway, and TypeScript reports that
-REM as a syntax error inside a library nobody has ever edited. Reinstalling
-REM is the fix, so try it once before bothering anybody.
-findstr /C:"error TS" "typecheck-results.txt" | findstr /V /C:"node_modules" >nul
-if not errorlevel 1 goto typecheck_real_failure
-if "%REPAIRED%"=="1" goto typecheck_repair_failed
-
-echo.
-echo        Every error is inside node_modules, so the installed packages are
-echo        damaged rather than your code. Reinstalling them and trying again.
-echo        This takes a few minutes.
-echo.
-rmdir /s /q node_modules
-call npm install --no-audit --no-fund
-set REPAIRED=1
-echo.
-goto typecheck
-
-:typecheck_repair_failed
-echo.
-echo   ^>^> STOPPED. The packages are still damaged after a clean reinstall.
-echo      Nothing has been saved.
-echo.
-echo      This project sits inside OneDrive. OneDrive rewriting the folder
-echo      while npm is filling it is the usual cause. Pause OneDrive, run
-echo      this file again, then resume OneDrive.
-echo.
-echo      Moving the project out of OneDrive fixes it for good.
-echo.
-pause
-exit /b 1
-
-:typecheck_real_failure
-echo.
-echo   ^>^> STOPPED. The type check failed in code, not in a package.
-echo      Nothing has been saved to GitHub and the database was not
-echo      touched. Send typecheck-results.txt to Claude.
-echo.
-pause
-exit /b 1
-
-:typecheck_ok
-echo        Types are clean.
-call npm test > "test-results.txt" 2>&1
-findstr /C:"# fail 0" "test-results.txt" >nul
-if errorlevel 1 (
-  echo.
-  echo   ^>^> STOPPED. Some tests did not pass.
-  echo      Nothing has been saved to GitHub and the database was not
-  echo      touched. Send test-results.txt to Claude.
-  echo.
-  pause
-  exit /b 1
-)
-echo        All tests passed.
-echo.
-
-REM ---------------------------------------------------------------- step 7
-echo  [7/8] Building the worklist and taking an "after" reading...
+echo  [8/10] Rechecking citations after any research changes...
+call npm run check:sources -- --concurrency=6
+if errorlevel 1 goto :source_check_failed
 call npm run review:queue
 call npm run report:coverage > "AFTER-report.txt" 2>&1
 call npm run report:freshness >> "AFTER-report.txt" 2>&1
-echo        Saved to AFTER-report.txt
+call npm run report:duplicates >> "AFTER-report.txt" 2>&1
+echo        Saved AFTER-report.txt and rebuilt the review queue.
 echo.
 
-REM ---------------------------------------------------------------- step 8
-echo  [8/8] Saving.
+echo  [9/10] Reseeding the database when configured...
+call :load_database_url
+if defined DATABASE_URL (
+  call npm run db:seed-dossiers -- --write
+  if errorlevel 1 goto :seed_failed
+) else (
+  echo        No DATABASE_URL in .env - live database left unchanged.
+)
 echo.
 
-REM The database write needs a connection string. It lives in .env, which
-REM never goes to GitHub. If it is not there, the run still finishes and
-REM says so rather than failing.
+echo  [10/10] Saving reviewed work to GitHub...
+git add data/dossiers src/lib/knowledge reports "BEFORE-report.txt" "AFTER-report.txt"
+git diff --cached --quiet
+if not errorlevel 1 goto :nothing_to_commit
+
+git commit -m "Refresh species evidence and source review"
+if errorlevel 1 goto :commit_failed
+git push
+if errorlevel 1 goto :push_failed
+
+echo.
+echo  ================================================================================
+echo    DONE - SOURCE HEALTH CHECKED AND !PROCESSED! SPECIES SUBSTANTIVELY REFRESHED.
+echo  ================================================================================
+echo.
+echo   Compare BEFORE-report.txt and AFTER-report.txt.
+echo   Research provenance is in reports\research-ledger.
+echo   The newest reports\review-queue-*.md is the next ranked worklist.
+echo.
+pause
+exit /b 0
+
+:load_database_url
 if exist ".env" (
   for /f "usebackq eol=# tokens=1,* delims==" %%a in (".env") do (
     if /i "%%a"=="DATABASE_URL" set "DATABASE_URL=%%b"
   )
 )
-if defined DATABASE_URL (
-  echo        Reseeding the database from the repository...
-  call npm run db:seed-dossiers -- --write
-  if errorlevel 1 (
-    echo.
-    echo        The database write did not match. Your files are fine.
-    echo        Tell Claude "the seed reported a mismatch".
-    echo.
-  )
-) else (
-  echo        No DATABASE_URL in .env, so the database was left alone.
-  echo        The live site keeps serving what it already has.
-)
-echo.
+exit /b 0
 
-echo        Saving to GitHub...
-REM Only the files this run is allowed to have changed. Anything else you
-REM have in progress in this repository stays yours and stays uncommitted.
-git add data/dossiers src/lib/knowledge/identification-dossiers.ts src/lib/knowledge/behavior-dossiers.ts src/lib/knowledge/diet-dossiers.ts src/lib/knowledge/seasonal-calendar-dossiers.ts reports
-git commit -m "Review pass: re-checked every source citation and rebuilt the worklist"
-if errorlevel 1 (
-  echo        Nothing new to save.
-  goto :finish
-)
-git push
-if errorlevel 1 (
-  echo.
-  echo        Saved on this computer, but the upload to GitHub failed.
-  echo        That is usually a sign-in issue. Your work is safe here.
-  echo        Tell Claude "the push failed" and it can sort it out.
-) else (
-  echo        Saved and uploaded.
-)
-
-:finish
+:no_node
 echo.
-echo  ================================================================
-echo    DONE.
-echo  ================================================================
+echo   STOPPED. Node.js/npm are not installed or not on PATH.
+goto :fail
+:no_git
 echo.
-echo   The worklist is the newest review-queue file in the reports
-echo   folder. It lists, in order, what actually needs a person - and
-echo   says so plainly when the answer is nothing.
+echo   STOPPED. Git is not installed or not on PATH.
+goto :fail
+:no_claude
 echo.
-echo   Send these to Claude and it will tell you what the run bought:
+echo   STOPPED. Claude Code is not installed or not on PATH.
+goto :fail
+:claude_login
 echo.
-echo       BEFORE-report.txt
-echo       AFTER-report.txt
-echo       the newest reports\review-queue-*.md
-echo  ----------------------------------------------------------------
+echo   STOPPED. Claude Code is not signed in. Run:  claude auth login
+goto :fail
+:missing_protocol
+echo.
+echo   STOPPED. prompts\species-refresh-research.md is missing.
+goto :fail
+:missing_refresh_script
+echo.
+echo   STOPPED. scripts\refresh-brief.mjs is missing.
+goto :fail
+:dirty_knowledge
+echo.
+echo   STOPPED. There are already unfinished changes under data\dossiers or
+echo   src\lib\knowledge. Commit or stash those first so this automated refresh
+echo   cannot bundle unrelated biological edits into its save.
+goto :fail
+:install_failed
+echo.
+echo   STOPPED. npm install failed.
+goto :fail
+:source_check_failed
+echo.
+echo   STOPPED. Source checking reported a failure. Nothing was pushed.
+goto :fail
+:brief_failed
+echo.
+echo   STOPPED. The refresh worklist could not be built.
+goto :fail
+:agent_failed
+echo.
+echo   STOPPED. Claude Code did not complete the refresh pass. Nothing was pushed.
+goto :fail
+:validation_failed
+echo.
+echo   STOPPED. Dossier or identity validation failed. Nothing was pushed.
+goto :fail
+:typecheck_failed
+echo.
+echo   STOPPED. Type checking failed. Nothing was pushed.
+goto :fail
+:tests_failed
+echo.
+echo   STOPPED. Tests failed. Nothing was pushed.
+goto :fail
+:seed_failed
+echo.
+echo   STOPPED. Database seed failed. Nothing was pushed.
+goto :fail
+:commit_failed
+echo.
+echo   STOPPED. Git commit failed. Changes remain local.
+goto :fail
+:push_failed
+echo.
+echo   The commit is safe on this computer, but git push failed.
+goto :fail
+:nothing_to_commit
+echo.
+echo  ================================================================================
+echo    DONE - NOTHING NEEDED SAVING.
+echo  ================================================================================
+echo.
+echo   Source health and refresh ranking completed, but no repository data changed.
 echo.
 pause
-endlocal
+exit /b 0
+:fail
+echo.
+pause
+exit /b 1
