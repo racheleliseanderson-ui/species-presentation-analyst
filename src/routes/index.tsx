@@ -45,6 +45,22 @@ export type ExperienceMode = "beginner" | "competent" | "advanced";
 
 const EXPERIENCE_KEY = "hth-sp-experience-v1";
 
+/**
+ * Named after the work, not after the reader.
+ *
+ * These three were "Beginner", "Competent" and "Advanced", which is a rank,
+ * and a rank sorts people: somebody who has fished thirty years still wants
+ * the one-screen answer when they are standing in a river, and a beginner at
+ * a kitchen table on a wet Sunday is entitled to the whole weighting trace.
+ * Asking how much of the chain you want to work is a question about this
+ * afternoon. Asking how good you are is a question about you, and it gets a
+ * defensive answer.
+ *
+ * The rest of the fleet already settled this — Field Ops names its ladder
+ * after what the saved records contain, and the plate kit names its depths
+ * after what the drawing does. The stored ids keep their old spelling so
+ * nobody loses the setting they already chose; nothing renders them.
+ */
 const PATHS: {
   id: ExperienceMode;
   label: string;
@@ -52,21 +68,21 @@ const PATHS: {
 }[] = [
   {
     id: "beginner",
-    label: "Beginner",
+    label: "One screen",
     description:
-      "One screen. Answer what you know, get the presentation, and the app asks for more only when it would change the answer.",
+      "Answer what you know and get the presentation. The app asks for more only when the extra answer would change it.",
   },
   {
     id: "competent",
-    label: "Competent",
+    label: "Build the chain",
     description:
-      "Build the chain yourself — water, conditions, holding water — and compare families against each other.",
+      "Work water, conditions and holding water yourself, and compare presentation families against each other.",
   },
   {
     id: "advanced",
-    label: "Advanced",
+    label: "Show the working",
     description:
-      "Everything competent has, with the weighting trace, sources and positioning evidence opened rather than folded away.",
+      "Everything in Build the chain, with the weighting trace, the sources and the positioning evidence opened rather than folded away.",
   },
 ];
 
@@ -130,7 +146,7 @@ function Home() {
           <div
             className="mt-4 grid gap-2 md:grid-cols-3"
             role="radiogroup"
-            aria-label="Experience pathway"
+            aria-label="How much of the chain to work"
           >
             {PATHS.map((path, index) => {
               const on = mode === path.id;

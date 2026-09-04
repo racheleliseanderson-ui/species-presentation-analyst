@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 /**
  * The chain, as it currently stands, above whichever reading mode is open.
  *
- * It shows what has actually been declared rather than a separate idea of the
- * angler's skill level — the pathway selector directly below already owns that,
- * and two competing "levels" on one screen only ever disagreed with each other.
+ * It shows what has actually been declared rather than a separate idea of how
+ * experienced the reader is — the selector directly below asks how much of the
+ * chain they want to work, which is a question about this afternoon, and two
+ * competing "levels" on one screen only ever disagreed with each other.
  */
 
 type LinkState = { label: string; value: string; declared: boolean };
