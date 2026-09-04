@@ -1,4 +1,4 @@
-import { PresentationPathPlate } from "@/lib/field-plates";
+import { PlateDepthControl, PresentationPathPlate } from "@/lib/field-plates";
 import { motionFor } from "@/lib/knowledge/presentation-motion";
 import { labelOf } from "@/lib/protocol/vocab";
 import type { ForageClass } from "@/lib/protocol/vocab";
@@ -38,7 +38,11 @@ export function PresentationJobPlate({
         }`;
 
   return (
-    <PresentationPathPlate
+    <div className="hthp-stack">
+      {/* Beside the drawing rather than in a settings drawer: it changes what
+          is on this screen, and a control for that belongs next to it. */}
+      <PlateDepthControl />
+      <PresentationPathPlate
       job={{ ...motion, profile }}
       title={`${presentation.label} — what it has to do`}
       caption={presentation.job}
@@ -63,7 +67,8 @@ export function PresentationJobPlate({
           </p>
         </>
       }
-    />
+      />
+    </div>
   );
 }
 

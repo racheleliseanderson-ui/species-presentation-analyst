@@ -8,6 +8,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { PwaRegister } from "@/components/pwa-register";
 import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import { SITE_ORIGIN } from "@/lib/site";
+import { PlateDepthProvider } from "@/lib/field-plates";
 import appCss from "../styles.css?url";
 
 /**
@@ -88,9 +89,13 @@ function Root() {
         {import.meta.env.DEV && <PreviewHostBridge />}
         <PwaRegister />
         <FieldModeProvider>
-          <AuthProvider>
-            <Outlet />
-          </AuthProvider>
+          {/* How much every drawing explains about itself. Above the pages so
+              two plates on one screen can never disagree about it. */}
+          <PlateDepthProvider>
+            <AuthProvider>
+              <Outlet />
+            </AuthProvider>
+          </PlateDepthProvider>
           <FleetFooter />
           <SupportLink />
           {/* Inside the provider on purpose: this panel is where reading mode
