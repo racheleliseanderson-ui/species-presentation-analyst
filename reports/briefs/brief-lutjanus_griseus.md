@@ -1,6 +1,6 @@
 # Drafting brief — Gray snapper
 
-Written 2026-09-03. This is a brief, not a record. Nothing below is sourced yet.
+Written 2026-09-04. This is a brief, not a record. Nothing below is sourced yet.
 
 Scientific name as given: *Lutjanus griseus*
 Proposed species id: `lutjanus_griseus`

@@ -1,6 +1,6 @@
 # Drafting brief — Pollock
 
-Written 2026-09-03. This is a brief, not a record. Nothing below is sourced yet.
+Written 2026-09-04. This is a brief, not a record. Nothing below is sourced yet.
 
 Scientific name as given: *Pollachius virens*
 Proposed species id: `pollachius_virens`

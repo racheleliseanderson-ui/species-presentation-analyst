@@ -1,6 +1,6 @@
 # Drafting brief — Dusky shark
 
-Written 2026-09-03. This is a brief, not a record. Nothing below is sourced yet.
+Written 2026-09-04. This is a brief, not a record. Nothing below is sourced yet.
 
 Scientific name as given: *Carcharhinus obscurus*
 Proposed species id: `carcharhinus_obscurus`

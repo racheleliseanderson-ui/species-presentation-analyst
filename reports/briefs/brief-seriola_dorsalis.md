@@ -1,6 +1,6 @@
 # Drafting brief — Yellowtail
 
-Written 2026-09-03. This is a brief, not a record. Nothing below is sourced yet.
+Written 2026-09-04. This is a brief, not a record. Nothing below is sourced yet.
 
 Scientific name as given: *Seriola dorsalis*
 Proposed species id: `seriola_dorsalis`
