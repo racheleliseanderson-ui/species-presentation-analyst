@@ -1,75 +1,95 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal EnableExtensions EnableDelayedExpansion
 title Species Analyst - Health Check
 cd /d "%~dp0"
 color 0F
-mode con: cols=100 lines=45
+mode con: cols=108 lines=48
 
 echo.
-echo  ================================================================
-echo    HEALTH CHECK
-echo  ================================================================
+echo  ================================================================================
+echo    SPECIES ANALYST - HEALTH CHECK
+echo  ================================================================================
 echo.
-echo   Answers four questions in about a minute:
-echo     - How old is the information?
-echo     - Is anything said twice, or said about the wrong fish?
-echo     - How much can the catalogue actually answer?
-echo     - Does every record still pass its own rules?
+echo   Read-only. It answers:
 echo.
-echo   It only reads. It changes nothing.
+echo     - Which biological records are overdue or due soon?
+echo     - Are names or aliases resolving to the wrong fish?
+echo     - How much of the catalogue is actually reviewed versus partial?
+echo     - Does every dossier still satisfy the schema and safety rules?
+echo     - What should the next substantive refresh work on?
 echo.
-echo  ----------------------------------------------------------------
+echo   It does not delete Git locks, alter records, reseed the database or push anything.
+echo.
+echo  --------------------------------------------------------------------------------
 echo.
 pause
+
 echo.
-
-if exist ".git\index.lock" del /f /q ".git\index.lock" >nul 2>&1
-
 where node >nul 2>&1
-if errorlevel 1 (
+if errorlevel 1 goto :no_node
+where npm >nul 2>&1
+if errorlevel 1 goto :no_node
+
+if exist ".git\index.lock" (
+  echo   NOTE: .git\index.lock exists. Health check will not delete it.
+  echo         If no Git process is running and the lock is genuinely stale, remove it manually.
   echo.
-  echo   ^>^> STOPPED. Node.js is not installed on this computer.
-  echo.
-  echo      Go to    https://nodejs.org
-  echo      Click the big green "LTS" button, install it,
-  echo      then RESTART this file.
-  echo.
-  pause
-  exit /b 1
 )
 
-REM Nothing here needs the project's packages installed. Every check below is
-REM plain Node reading the repository, so this file works on a fresh clone and
-REM keeps working when node_modules is missing or damaged.
-
-echo  [1/4] How old is the information?
-echo  ----------------------------------------------------------------
+echo  [1/5] Review age and cadence
+echo  --------------------------------------------------------------------------------
 call npm run report:freshness
+if errorlevel 1 goto :report_failed
 echo.
 
-echo  [2/4] Anything said twice, or about the wrong fish?
-echo  ----------------------------------------------------------------
+echo  [2/5] Duplicate names, aliases and identity collisions
+echo  --------------------------------------------------------------------------------
 call npm run report:duplicates
+if errorlevel 1 goto :report_failed
 echo.
 
-echo  [3/4] What can it answer?
-echo  ----------------------------------------------------------------
+echo  [3/5] Reviewed coverage and declared gaps
+echo  --------------------------------------------------------------------------------
 call npm run report:coverage
+if errorlevel 1 goto :report_failed
 echo.
 
-echo  [4/4] Does every record still pass its own rules?
-echo  ----------------------------------------------------------------
+echo  [4/5] Dossier schema and safety validation
+echo  --------------------------------------------------------------------------------
 call npm run validate:dossiers
+if errorlevel 1 goto :validation_failed
 echo.
 
-echo  ================================================================
-echo   Nothing was changed.
+echo  [5/5] Ranked worklist for the next refresh
+echo  --------------------------------------------------------------------------------
+call npm run review:queue
+if errorlevel 1 goto :report_failed
 echo.
-echo   If records are past their review date, or a name resolves to
-echo   two different fish, run REVIEW-AND-UPDATE.
+
+echo  ================================================================================
+echo    HEALTH CHECK COMPLETE - NOTHING WAS CHANGED.
+echo  ================================================================================
 echo.
-echo   If a record failed validation, tell Claude what it said.
-echo  ================================================================
+echo   Use ADD-SPECIES for genuinely new fish.
+echo   Use REVIEW-AND-UPDATE for fresh biological re-research of existing fish.
+echo   The newest reports\review-queue-*.md is the ranked maintenance list.
 echo.
 pause
-endlocal
+exit /b 0
+
+:no_node
+echo.
+echo   STOPPED. Node.js/npm are not installed or not on PATH.
+goto :fail
+:report_failed
+echo.
+echo   STOPPED. One of the read-only reports failed to run.
+goto :fail
+:validation_failed
+echo.
+echo   STOPPED. At least one dossier failed validation. Nothing was changed.
+goto :fail
+:fail
+echo.
+pause
+exit /b 1
