@@ -45,9 +45,18 @@
   --bg-subtle: #1c1d18;
   --fg: #ece8dc;
   --fg-muted: #a39e8c;
-  /* Clears WCAG AA (>=4.6:1) on bg, elevated AND subtle. `text-dim` is used for
-     the 9-12px mono labels, which is exactly where 4.5:1 is not optional. */
-  --fg-subtle: #8a8676;
+  /*
+   * `text-dim` is used for the 9-12px mono labels, which is exactly where
+   * 4.5:1 is not optional.
+   *
+   * The old value cleared AA on --bg, --bg-elevated and --bg-subtle, which is
+   * what the comment here claimed and checked. It did not clear it on the
+   * slightly lighter ground a selected card paints (#20201c), where an axe
+   * sweep measured 4.47:1 — failing by three hundredths, on the smallest type
+   * in the app, which is the exact combination somebody reads in bright sun.
+   * This value clears 4.7:1 on all four.
+   */
+  --fg-subtle: #8f8b7b;
   --border: color-mix(in oklab, var(--fg) 12%, transparent);
   --border-strong: color-mix(in oklab, var(--fg) 22%, transparent);
   --accent: #ece8dc;
