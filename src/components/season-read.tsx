@@ -157,7 +157,9 @@ export function ResponseRead({
       <ul className="space-y-3">
         {read.notes.map((note) => (
           <li key={note.id} className="border-l-2 border-line pl-3">
-            <p className="font-mono text-[9px] uppercase tracking-wider text-mark">{note.trigger}</p>
+            <p className="font-mono text-[9px] uppercase tracking-wider text-mark">
+              {note.trigger}
+            </p>
             <p className="mt-1 text-sm text-fg">{note.text}</p>
           </li>
         ))}

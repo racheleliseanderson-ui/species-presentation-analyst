@@ -52,12 +52,7 @@ export type IdentificationDossier = {
 export type SocialPattern = "schooling" | "solitary" | "loose_aggregation" | "mixed_by_life_stage";
 
 export type FeedingMode =
-  | "ambush"
-  | "pursuit"
-  | "drift_feeding"
-  | "benthic_feeding"
-  | "filter"
-  | "opportunistic";
+  "ambush" | "pursuit" | "drift_feeding" | "benthic_feeding" | "filter" | "opportunistic";
 
 export type DielClass = "crepuscular" | "diurnal" | "nocturnal" | "mixed";
 

@@ -47,16 +47,17 @@ export function TripContextBar() {
     {
       icon: Thermometer,
       label: "03 · Season & temperature",
-      value: [
-        session.season === "unknown" ? null : labelOf(session.season),
-        session.tempF != null
-          ? `${session.tempF}°F`
-          : session.tempRangeF
-            ? `${session.tempRangeF[0]}–${session.tempRangeF[1]}°F`
-            : null,
-      ]
-        .filter(Boolean)
-        .join(" · ") || "Not declared",
+      value:
+        [
+          session.season === "unknown" ? null : labelOf(session.season),
+          session.tempF != null
+            ? `${session.tempF}°F`
+            : session.tempRangeF
+              ? `${session.tempRangeF[0]}–${session.tempRangeF[1]}°F`
+              : null,
+        ]
+          .filter(Boolean)
+          .join(" · ") || "Not declared",
       declared: session.season !== "unknown" || session.tempF != null || session.tempRangeF != null,
     },
     {
@@ -70,7 +71,10 @@ export function TripContextBar() {
   const declared = links.filter((link) => link.declared).length;
 
   return (
-    <section className="no-print mx-auto max-w-6xl px-4 pt-5 sm:px-6" aria-label="Active trip context">
+    <section
+      className="no-print mx-auto max-w-6xl px-4 pt-5 sm:px-6"
+      aria-label="Active trip context"
+    >
       <div className="rounded-[var(--radius-sm)] bg-elevated shadow-[var(--shadow-border)]">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-3">
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-fg">
@@ -113,10 +117,7 @@ export function TripContextBar() {
                     {hinge ? " · the hinge" : ""}
                   </p>
                   <p
-                    className={cn(
-                      "mt-1 truncate text-sm",
-                      link.declared ? "text-fg" : "text-dim",
-                    )}
+                    className={cn("mt-1 truncate text-sm", link.declared ? "text-fg" : "text-dim")}
                     title={link.value}
                   >
                     {link.value}

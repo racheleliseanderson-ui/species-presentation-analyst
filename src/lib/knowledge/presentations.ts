@@ -24,7 +24,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Dead drift",
     water: "flowing",
     job: "Allow a food-form imitation to move at or near current speed through a defined feeding lane.",
-    mechanics: ["controlled depth", "minimal drag", "short-to-medium presentation lane", "occasional repositioning"],
+    mechanics: [
+      "controlled depth",
+      "minimal drag",
+      "short-to-medium presentation lane",
+      "occasional repositioning",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -40,7 +45,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Tight-line drift",
     water: "flowing",
     job: "Keep a near-direct connection to a drifting imitation so depth and contact can be felt without a floating indicator.",
-    mechanics: ["in-touch leader", "lead the drift", "detect ticks and pauses", "reset after each lane"],
+    mechanics: [
+      "in-touch leader",
+      "lead the drift",
+      "detect ticks and pauses",
+      "reset after each lane",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -104,7 +114,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Cross-current retrieve",
     water: "flowing",
     job: "Represent mobile prey crossing or holding near a current boundary.",
-    mechanics: ["horizontal travel", "intermittent pause", "depth retention", "controlled acceleration"],
+    mechanics: [
+      "horizontal travel",
+      "intermittent pause",
+      "depth retention",
+      "controlled acceleration",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "moderate",
@@ -120,7 +135,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Upstream retrieve",
     water: "flowing",
     job: "Bring a bait back against current so it tracks a seam or bank the fish is already facing.",
-    mechanics: ["cast down-and-across or down", "retrieve into the lane", "keep contact", "vary cadence at the head"],
+    mechanics: [
+      "cast down-and-across or down",
+      "retrieve into the lane",
+      "keep contact",
+      "vary cadence at the head",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "moderate",
@@ -136,7 +156,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Downstream retrieve",
     water: "flowing",
     job: "Move a bait with the current, then add just enough speed to give it a swimming job.",
-    mechanics: ["cast upstream", "recover slack", "match or slightly beat current", "pause in pockets"],
+    mechanics: [
+      "cast upstream",
+      "recover slack",
+      "match or slightly beat current",
+      "pause in pockets",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "moderate",
@@ -168,7 +193,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Surface drift",
     water: "flowing",
     job: "Present a floating food form in a feeding lane with as little drag as the water allows.",
-    mechanics: ["slack management", "reach or mend", "dead or micro-twitch", "leave it in the lane"],
+    mechanics: [
+      "slack management",
+      "reach or mend",
+      "dead or micro-twitch",
+      "leave it in the lane",
+    ],
     system: {
       depthControl: "surface",
       sensitivity: "moderate",
@@ -200,7 +230,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Stationary bait",
     water: "flowing",
     job: "Hold a scent or food form in one feeding station and wait for a fish to move to it.",
-    mechanics: ["anchor the presentation", "keep bait in the pocket", "detect takes without sweeping", "refresh often"],
+    mechanics: [
+      "anchor the presentation",
+      "keep bait in the pocket",
+      "detect takes without sweeping",
+      "refresh often",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "moderate",
@@ -248,7 +283,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Suspend / pause",
     water: "stillwater",
     job: "Leave a neutrally buoyant bait hanging in place where fish are already holding.",
-    mechanics: ["reach the band", "long pause", "tiny pulse only if needed", "do not leave the zone"],
+    mechanics: [
+      "reach the band",
+      "long pause",
+      "tiny pulse only if needed",
+      "do not leave the zone",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -296,7 +336,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Slow drag",
     water: "stillwater",
     job: "Move a bait along the bottom slowly enough that it stays in the feeding layer of inactive fish.",
-    mechanics: ["continuous contact", "very slow travel", "pause at changes in bottom", "do not hop out of the zone"],
+    mechanics: [
+      "continuous contact",
+      "very slow travel",
+      "pause at changes in bottom",
+      "do not hop out of the zone",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -312,7 +357,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Drop presentation",
     water: ["stillwater", "nearshore"],
     job: "Let a bait fall on a controlled line into cover, along a wall, or through a hole in vegetation.",
-    mechanics: ["place then fall", "watch the line", "hold at depth", "short hop only after the fall"],
+    mechanics: [
+      "place then fall",
+      "watch the line",
+      "hold at depth",
+      "short hop only after the fall",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -344,7 +394,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Subsurface slow-roll",
     water: "stillwater",
     job: "Roll a bait just under the surface or just over the weed tops without breaking them.",
-    mechanics: ["barely subsurface", "steady roll", "tick the tops", "speed just enough to stay up"],
+    mechanics: [
+      "barely subsurface",
+      "steady roll",
+      "tick the tops",
+      "speed just enough to stay up",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "moderate",
@@ -392,7 +447,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Live / natural bait suspension",
     water: ["stillwater", "inshore", "nearshore"],
     job: "Present a natural food form with enough life or scent to hold in a station without looking mechanical.",
-    mechanics: ["keep it alive or fresh", "match the holding depth", "minimize hardware bulk", "detect without pulling it away"],
+    mechanics: [
+      "keep it alive or fresh",
+      "match the holding depth",
+      "minimize hardware bulk",
+      "detect without pulling it away",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -415,7 +475,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Surf bait soak",
     water: "surf",
     job: "Hold a natural bait still on the bottom of a trough or cut and let moving water bring fish to it.",
-    mechanics: ["enough lead to hold", "read the trough", "let the rod load", "reset as the tide moves the bar"],
+    mechanics: [
+      "enough lead to hold",
+      "read the trough",
+      "let the rod load",
+      "reset as the tide moves the bar",
+    ],
     system: {
       depthControl: "low",
       sensitivity: "moderate",
@@ -447,7 +512,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Surf swim retrieve",
     water: "surf",
     job: "Swim a soft-bodied bait at a chosen height through the trough where fish are already feeding.",
-    mechanics: ["slow enough to stay down", "quarter into the current", "pause on the drop-off", "feel the sand"],
+    mechanics: [
+      "slow enough to stay down",
+      "quarter into the current",
+      "pause on the drop-off",
+      "feel the sand",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "high",
@@ -463,7 +533,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Flats sight cast",
     water: "inshore",
     job: "Present to a fish you have actually seen, leading it so the bait arrives without landing on it.",
-    mechanics: ["spot first, cast second", "lead the fish", "quiet entry", "strip or retrieve across its path"],
+    mechanics: [
+      "spot first, cast second",
+      "lead the fish",
+      "quiet entry",
+      "strip or retrieve across its path",
+    ],
     system: {
       depthControl: "low",
       sensitivity: "high",
@@ -479,7 +554,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Tidal drift bait",
     water: "inshore",
     job: "Let a natural bait travel at the speed of the tide along an edge fish are feeding on.",
-    mechanics: ["match weight to the run", "stay in the seam", "let it swing at the end", "reset up-tide"],
+    mechanics: [
+      "match weight to the run",
+      "stay in the seam",
+      "let it swing at the end",
+      "reset up-tide",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "high",
@@ -511,7 +591,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Light-edge ambush",
     water: "inshore",
     job: "Work the dark side of a lit water edge where predators wait for bait pushed through it.",
-    mechanics: ["fish the shadow line", "up-current presentation", "let it drift into the light", "no wake"],
+    mechanics: [
+      "fish the shadow line",
+      "up-current presentation",
+      "let it drift into the light",
+      "no wake",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "high",
@@ -527,7 +612,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Structure vertical",
     water: "nearshore",
     job: "Hold a presentation in the water column directly over hard structure and stay there as the boat moves.",
-    mechanics: ["stay vertical", "hold the depth band", "short lifts", "reset when the line angles"],
+    mechanics: [
+      "stay vertical",
+      "hold the depth band",
+      "short lifts",
+      "reset when the line angles",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "high",
@@ -543,7 +633,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Chum-established drift",
     water: "saltwater",
     job: "Establish a scent trail and drift baits back through it at the speed the current is already moving.",
-    mechanics: ["consistent trail", "unweighted or lightly weighted drop-back", "match the sink to the drift", "do not outpace the trail"],
+    mechanics: [
+      "consistent trail",
+      "unweighted or lightly weighted drop-back",
+      "match the sink to the drift",
+      "do not outpace the trail",
+    ],
     system: {
       depthControl: "low",
       sensitivity: "high",
@@ -559,7 +654,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Tide-line drift",
     water: "saltwater",
     job: "Fish the visible seam where two bodies of water meet, letting the rip do the work.",
-    mechanics: ["find the colour change", "present up-current of the edge", "let it wash through", "re-run the line"],
+    mechanics: [
+      "find the colour change",
+      "present up-current of the edge",
+      "let it wash through",
+      "re-run the line",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "moderate",
@@ -575,7 +675,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Trolling spread",
     water: "offshore",
     job: "Pull several baits at different distances and depths so one crosses a fish travelling through open water.",
-    mechanics: ["stagger the spread", "match speed to the bait", "work the edge, not the middle", "turn on marks"],
+    mechanics: [
+      "stagger the spread",
+      "match speed to the bait",
+      "work the edge, not the middle",
+      "turn on marks",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "low",
@@ -591,7 +696,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Deep drop",
     water: "offshore",
     job: "Put bait on the bottom in water deep enough that the drop itself is most of the work.",
-    mechanics: ["heavy enough to go straight down", "know when you are down", "short lift to check", "wind steadily"],
+    mechanics: [
+      "heavy enough to go straight down",
+      "know when you are down",
+      "short lift to check",
+      "wind steadily",
+    ],
     system: {
       depthControl: "high",
       sensitivity: "low",
@@ -607,7 +717,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Run-and-gun cast",
     water: "saltwater",
     job: "Cast into visible surface activity without running the school over.",
-    mechanics: ["approach up-wind and off to the side", "cast to the edge of the bust", "fast retrieve", "leave before you scatter it"],
+    mechanics: [
+      "approach up-wind and off to the side",
+      "cast to the edge of the bust",
+      "fast retrieve",
+      "leave before you scatter it",
+    ],
     system: {
       depthControl: "low",
       sensitivity: "moderate",
@@ -623,7 +738,12 @@ export const PRESENTATIONS: PresentationFamily[] = [
     label: "Live-bait slow troll",
     water: "saltwater",
     job: "Move live bait just fast enough to cover water while it still swims naturally.",
-    mechanics: ["barely-moving speed", "bait leads the boat", "let it swim", "drop back on a follow"],
+    mechanics: [
+      "barely-moving speed",
+      "bait leads the boat",
+      "let it swim",
+      "drop back on a follow",
+    ],
     system: {
       depthControl: "moderate",
       sensitivity: "high",
@@ -636,6 +756,7 @@ export const PRESENTATIONS: PresentationFamily[] = [
   },
 ];
 
-export const PRESENTATION_BY_ID = Object.fromEntries(
-  PRESENTATIONS.map((p) => [p.id, p]),
-) as Record<PresentationId, PresentationFamily>;
+export const PRESENTATION_BY_ID = Object.fromEntries(PRESENTATIONS.map((p) => [p.id, p])) as Record<
+  PresentationId,
+  PresentationFamily
+>;

@@ -54,7 +54,10 @@ function matchers(received: unknown, negated: boolean): Matchers {
         `expected ${String(received)} to match ${String(expected)}`,
       ),
     toBeGreaterThan: (expected) =>
-      ok(Number(received) > expected, `expected ${String(received)} to be greater than ${expected}`),
+      ok(
+        Number(received) > expected,
+        `expected ${String(received)} to be greater than ${expected}`,
+      ),
     toThrow: () => {
       let threw = false;
       try {

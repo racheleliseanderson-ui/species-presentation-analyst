@@ -15,7 +15,9 @@ export function ChipGroup<T extends string>({
 }) {
   return (
     <fieldset className="min-w-0">
-      <legend className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">{legend}</legend>
+      <legend className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
+        {legend}
+      </legend>
       <div
         className={cn(
           "grid gap-2",
@@ -33,7 +35,9 @@ export function ChipGroup<T extends string>({
               onClick={() => onChange(o.id)}
               className={cn(
                 "min-h-11 rounded-[var(--radius-sm)] px-3 text-left text-sm shadow-[var(--shadow-border)] transition-[box-shadow,background-color,color] duration-150",
-                on ? "bg-accent text-accent-fg" : "bg-elevated text-fg hover:shadow-[var(--shadow-border-hover)]",
+                on
+                  ? "bg-accent text-accent-fg"
+                  : "bg-elevated text-fg hover:shadow-[var(--shadow-border-hover)]",
               )}
             >
               {o.label}

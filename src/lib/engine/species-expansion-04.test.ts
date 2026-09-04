@@ -5,10 +5,7 @@ import { describe, it } from "node:test";
 import { searchSpecies, ALIASES } from "../knowledge/aliases.ts";
 import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import { SPECIES_EXPANSION_04 } from "../knowledge/species-expansion-04.ts";
-import {
-  SPECIES_IMAGES,
-  SPECIES_IMAGE_MODEL_VERSION,
-} from "../knowledge/species-images.ts";
+import { SPECIES_IMAGES, SPECIES_IMAGE_MODEL_VERSION } from "../knowledge/species-images.ts";
 import {
   SPECIES_OVERRIDE_COVERAGE,
   SPECIES_OVERRIDE_MODEL_VERSION,
@@ -79,7 +76,10 @@ describe("SPO expansion coverage", () => {
 describe("RPC candidate safety", () => {
   it("keeps expansion candidates reviewed but inactive and monotonic toward restriction", () => {
     assert.equal(POPULATION_CONTEXT_CANDIDATES_04.length, 14);
-    assert.equal(new Set(POPULATION_CONTEXT_CANDIDATES_04.map((candidate) => candidate.id)).size, 14);
+    assert.equal(
+      new Set(POPULATION_CONTEXT_CANDIDATES_04.map((candidate) => candidate.id)).size,
+      14,
+    );
 
     for (const candidate of POPULATION_CONTEXT_CANDIDATES_04) {
       const species = SPECIES_BY_ID[candidate.speciesId];

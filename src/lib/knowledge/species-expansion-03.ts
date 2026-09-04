@@ -49,9 +49,15 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     geographic:
       "Pacific Northwest and western Canada, with lower-48 populations concentrated in portions of Washington, Oregon, Idaho, Montana, and Nevada; legal protections vary by jurisdiction.",
     sources: [
-      { label: "U.S. Fish & Wildlife Service bull trout species profile and 5-year status review", class: SRC.agency },
+      {
+        label: "U.S. Fish & Wildlife Service bull trout species profile and 5-year status review",
+        class: SRC.agency,
+      },
       { label: "USFWS bull trout Species Status Assessment", class: SRC.agency },
-      { label: "Rieman & McIntyre bull trout habitat and conservation literature", class: SRC.peer },
+      {
+        label: "Rieman & McIntyre bull trout habitat and conservation literature",
+        class: SRC.peer,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -82,7 +88,13 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       lightResponse:
         "Light affects movement and cover use, but migration stage, discharge, temperature, and connectivity dominate freshwater positioning.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "small_forage_fish", "crustaceans"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "small_forage_fish",
+      "crustaceans",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
     exceptions: [
@@ -125,7 +137,14 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       lightResponse:
         "Bottom orientation and depth reduce the importance of surface light; low light can support movement but substrate and flow dominate habitat use.",
     },
-    forageClasses: ["aquatic_insects", "crustaceans", "mollusks", "worms_annelids", "small_forage_fish", "eggs"],
+    forageClasses: [
+      "aquatic_insects",
+      "crustaceans",
+      "mollusks",
+      "worms_annelids",
+      "small_forage_fish",
+      "eggs",
+    ],
     flowingPresentations: ["stationary_bait", "bottom_contact_drift"],
     stillPresentations: ["bottom_contact", "slow_drag", "live_natural_bait_suspension"],
     exceptions: [
@@ -208,13 +227,30 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       lightResponse:
         "Daylight sight feeder, with shade and broken light improving shallow cover use.",
     },
-    forageClasses: ["aquatic_insects", "crustaceans", "mollusks", "small_forage_fish", "worms_annelids"],
+    forageClasses: [
+      "aquatic_insects",
+      "crustaceans",
+      "mollusks",
+      "small_forage_fish",
+      "worms_annelids",
+    ],
     flowingPresentations: ["dead_drift", "stationary_bait", "pulse_jig"],
-    stillPresentations: ["drop_presentation", "slow_drag", "surface_retrieve", "live_natural_bait_suspension"],
-    exceptions: ["Bed colonies are a seasonal reproductive condition, not a default location recommendation."],
-    geographic: "Atlantic-slope and eastern interior waters from southern Canada through much of the southeastern United States.",
+    stillPresentations: [
+      "drop_presentation",
+      "slow_drag",
+      "surface_retrieve",
+      "live_natural_bait_suspension",
+    ],
+    exceptions: [
+      "Bed colonies are a seasonal reproductive condition, not a default location recommendation.",
+    ],
+    geographic:
+      "Atlantic-slope and eastern interior waters from southern Canada through much of the southeastern United States.",
     sources: [
-      { label: "North Carolina Wildlife Resources Commission redbreast sunfish profile", class: SRC.agency },
+      {
+        label: "North Carolina Wildlife Resources Commission redbreast sunfish profile",
+        class: SRC.agency,
+      },
       { label: "South Carolina DNR redbreast sunfish habitat and diet summary", class: SRC.agency },
     ],
     reviewedAt: "2026-08-27",
@@ -246,8 +282,11 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     forageClasses: ["aquatic_insects", "crustaceans", "mollusks", "small_forage_fish"],
     flowingPresentations: ["stationary_bait", "pulse_jig", "cross_current_retrieve"],
     stillPresentations: ["drop_presentation", "slow_drag", "stop_and_go", "surface_retrieve"],
-    exceptions: ["Warmouth and rock bass are distinct despite overlapping regional nicknames such as goggle-eye."],
-    geographic: "Great Lakes, Mississippi, Atlantic, and Gulf drainages, strongest in warm low-gradient waters of the South and lower Midwest.",
+    exceptions: [
+      "Warmouth and rock bass are distinct despite overlapping regional nicknames such as goggle-eye.",
+    ],
+    geographic:
+      "Great Lakes, Mississippi, Atlantic, and Gulf drainages, strongest in warm low-gradient waters of the South and lower Midwest.",
     sources: [
       { label: "Texas Parks and Wildlife warmouth species account", class: SRC.agency },
       { label: "Florida Museum warmouth species profile", class: SRC.syn },
@@ -273,16 +312,24 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       stillHolding: ["wood", "weed_edge", "shallow_flat", "basin", "inlet"],
       currentPreference:
         "Favors slow current, backwaters, protected pools, and vegetated or woody margins rather than fast main-channel flow.",
-      depthTendency:
-        "Bottom-oriented; can move shallower at night and around food-rich margins.",
+      depthTendency: "Bottom-oriented; can move shallower at night and around food-rich margins.",
       lightResponse:
         "Low-light and nocturnal feeding are common, though turbid water can extend activity into daylight.",
     },
-    forageClasses: ["aquatic_insects", "crustaceans", "worms_annelids", "mollusks", "small_forage_fish"],
+    forageClasses: [
+      "aquatic_insects",
+      "crustaceans",
+      "worms_annelids",
+      "mollusks",
+      "small_forage_fish",
+    ],
     flowingPresentations: ["stationary_bait", "bottom_contact_drift"],
     stillPresentations: ["bottom_contact", "slow_drag", "live_natural_bait_suspension"],
-    exceptions: ["Do not assume every mud-bottom bullhead is yellow bullhead; chin-barbel color and local range matter."],
-    geographic: "Central and eastern United States into portions of southern Canada, with introduced populations beyond parts of the native range.",
+    exceptions: [
+      "Do not assume every mud-bottom bullhead is yellow bullhead; chin-barbel color and local range matter.",
+    ],
+    geographic:
+      "Central and eastern United States into portions of southern Canada, with introduced populations beyond parts of the native range.",
     sources: [
       { label: "Texas Parks and Wildlife yellow bullhead species account", class: SRC.agency },
       { label: "State bullhead management and identification literature", class: SRC.syn },
@@ -316,8 +363,11 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "larger_prey_fish", "aquatic_insects", "crustaceans"],
     flowingPresentations: ["cross_current_retrieve", "downstream_retrieve", "stationary_bait"],
     stillPresentations: ["horizontal_retrieve", "stop_and_go", "live_natural_bait_suspension"],
-    exceptions: ["Gar regulations and legal methods vary significantly by jurisdiction; verify local rules."],
-    geographic: "Mississippi River drainage from the Gulf Coast north into the central Great Plains and Ohio River system.",
+    exceptions: [
+      "Gar regulations and legal methods vary significantly by jurisdiction; verify local rules.",
+    ],
+    geographic:
+      "Mississippi River drainage from the Gulf Coast north into the central Great Plains and Ohio River system.",
     sources: [
       { label: "Texas Parks and Wildlife shortnose gar species account", class: SRC.agency },
       { label: "Missouri Department of Conservation shortnose gar field guide", class: SRC.agency },
@@ -351,8 +401,11 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "aquatic_insects", "crustaceans", "zooplankton"],
     flowingPresentations: ["cross_current_retrieve", "pulse_jig", "downstream_retrieve"],
     stillPresentations: ["horizontal_retrieve", "vertical_jig", "stop_and_go"],
-    exceptions: ["Do not collapse yellow bass into white bass; habitat overlap does not erase species-level differences."],
-    geographic: "Central Mississippi Valley and associated lowland river-reservoir systems, with scattered introduced populations.",
+    exceptions: [
+      "Do not collapse yellow bass into white bass; habitat overlap does not erase species-level differences.",
+    ],
+    geographic:
+      "Central Mississippi Valley and associated lowland river-reservoir systems, with scattered introduced populations.",
     sources: [
       { label: "Missouri Department of Conservation yellow bass field guide", class: SRC.agency },
       { label: "State temperate-bass management literature", class: SRC.syn },
@@ -390,10 +443,17 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       "Stocking determines presence; habitat alone does not establish that a water contains hybrid striped bass.",
       "Do not infer reproduction from spring upstream movement; common wiper crosses are functionally sterile.",
     ],
-    geographic: "Stocked reservoirs and river systems across much of the United States; distribution is management-created rather than naturally continuous.",
+    geographic:
+      "Stocked reservoirs and river systems across much of the United States; distribution is management-created rather than naturally continuous.",
     sources: [
-      { label: "Missouri Department of Conservation hybrid striped bass field guide", class: SRC.agency },
-      { label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan", class: SRC.agency },
+      {
+        label: "Missouri Department of Conservation hybrid striped bass field guide",
+        class: SRC.agency,
+      },
+      {
+        label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan",
+        class: SRC.agency,
+      },
       { label: "Kentucky hybrid striped bass management literature", class: SRC.agency },
     ],
     reviewedAt: "2026-08-27",
@@ -422,11 +482,23 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       lightResponse:
         "Large light-sensitive eyes make low light and turbid water especially plausible feeding windows.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "small_forage_fish", "crustaceans"],
-    flowingPresentations: ["surface_drift", "cross_current_retrieve", "swing", "downstream_retrieve"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "small_forage_fish",
+      "crustaceans",
+    ],
+    flowingPresentations: [
+      "surface_drift",
+      "cross_current_retrieve",
+      "swing",
+      "downstream_retrieve",
+    ],
     stillPresentations: ["horizontal_retrieve", "surface_retrieve", "stop_and_go"],
     exceptions: ["Goldeye and mooneye overlap geographically but should not be silently merged."],
-    geographic: "Large rivers of central and western Canada and the north-central United States, including major Prairie and Mississippi-basin systems.",
+    geographic:
+      "Large rivers of central and western Canada and the north-central United States, including major Prairie and Mississippi-basin systems.",
     sources: [
       { label: "Government of Alberta goldeye species profile", class: SRC.agency },
       { label: "Canadian and U.S. hiodontid life-history literature", class: SRC.syn },
@@ -457,11 +529,18 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       lightResponse:
         "Feeds visually and can use low-light surface windows, but clear-water populations may remain active through daylight.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "small_forage_fish", "crustaceans"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "small_forage_fish",
+      "crustaceans",
+    ],
     flowingPresentations: ["dead_drift", "surface_drift", "swing", "cross_current_retrieve"],
     stillPresentations: ["horizontal_retrieve", "surface_retrieve", "stop_and_go"],
     exceptions: ["Do not infer goldeye-style turbidity preference from superficial similarity."],
-    geographic: "Southern Ontario and connected central/eastern North American river systems, including portions of the Great Lakes and Mississippi basins.",
+    geographic:
+      "Southern Ontario and connected central/eastern North American river systems, including portions of the Great Lakes and Mississippi basins.",
     sources: [
       { label: "Ontario mooneye species profile", class: SRC.agency },
       { label: "Hiodontidae life-history synthesis", class: SRC.syn },
@@ -502,7 +581,8 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       "Do not treat buffalo as carp; feeding ecology and anatomy differ.",
       "Long lifespan and episodic recruitment make harvest context materially important.",
     ],
-    geographic: "Hudson Bay, lower Great Lakes, Mississippi, and connected interior basins, with some introduced populations beyond the native range.",
+    geographic:
+      "Hudson Bay, lower Great Lakes, Mississippi, and connected interior basins, with some introduced populations beyond the native range.",
     sources: [
       { label: "USGS Bigmouth Buffalo species profile", class: SRC.agency },
       { label: "USGS/FWS Bigmouth Buffalo habitat suitability literature", class: SRC.agency },
@@ -544,7 +624,8 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       "Smallmouth buffalo are not common carp and should not inherit carp habitat assumptions wholesale.",
       "Recent demographic work shows multi-decade longevity; local population resilience should not be assumed.",
     ],
-    geographic: "Large tributaries of the Mississippi basin and Gulf-slope drainages, with reservoirs and major rivers forming the core habitat.",
+    geographic:
+      "Large tributaries of the Mississippi basin and Gulf-slope drainages, with reservoirs and major rivers forming the core habitat.",
     sources: [
       { label: "Texas Parks and Wildlife smallmouth buffalo species account", class: SRC.agency },
       { label: "USGS smallmouth buffalo population-demographic research", class: SRC.peer },
@@ -583,9 +664,13 @@ export const SPECIES_EXPANSION_03: SpeciesRecord[] = [
       "Do not convert spring tributary migrations into aggregation recommendations.",
       "Redhorse identification matters; similar sucker species can carry different conservation status.",
     ],
-    geographic: "Broadly distributed across Mississippi, Great Lakes, St. Lawrence, Hudson Bay, and connected central/eastern river systems.",
+    geographic:
+      "Broadly distributed across Mississippi, Great Lakes, St. Lawrence, Hudson Bay, and connected central/eastern river systems.",
     sources: [
-      { label: "Missouri Department of Conservation shorthead redhorse field guide", class: SRC.agency },
+      {
+        label: "Missouri Department of Conservation shorthead redhorse field guide",
+        class: SRC.agency,
+      },
       { label: "Minnesota river-fish habitat synthesis for redhorse species", class: SRC.agency },
     ],
     reviewedAt: "2026-08-27",

@@ -78,12 +78,9 @@
   --warn: #8a5a22;
   --ok: #3f5c3a;
   --shadow-border:
-    0 0 0 1px rgba(28, 27, 22, 0.08),
-    0 1px 2px -1px rgba(28, 27, 22, 0.06),
+    0 0 0 1px rgba(28, 27, 22, 0.08), 0 1px 2px -1px rgba(28, 27, 22, 0.06),
     0 2px 4px 0 rgba(28, 27, 22, 0.04);
-  --shadow-border-hover:
-    0 0 0 1px rgba(28, 27, 22, 0.12),
-    0 1px 2px -1px rgba(28, 27, 22, 0.08);
+  --shadow-border-hover: 0 0 0 1px rgba(28, 27, 22, 0.12), 0 1px 2px -1px rgba(28, 27, 22, 0.08);
   --plate-seam: color-mix(in oklab, var(--mark) 40%, transparent);
   --plate-water: color-mix(in oklab, var(--fg) 7%, transparent);
 }
@@ -208,12 +205,24 @@ details > summary::-webkit-details-marker {
 .stagger-in > * {
   animation: rise var(--motion, 400ms) cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.stagger-in > *:nth-child(1) { animation-delay: 0ms; }
-.stagger-in > *:nth-child(2) { animation-delay: 40ms; }
-.stagger-in > *:nth-child(3) { animation-delay: 80ms; }
-.stagger-in > *:nth-child(4) { animation-delay: 120ms; }
-.stagger-in > *:nth-child(5) { animation-delay: 160ms; }
-.stagger-in > *:nth-child(6) { animation-delay: 200ms; }
+.stagger-in > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger-in > *:nth-child(2) {
+  animation-delay: 40ms;
+}
+.stagger-in > *:nth-child(3) {
+  animation-delay: 80ms;
+}
+.stagger-in > *:nth-child(4) {
+  animation-delay: 120ms;
+}
+.stagger-in > *:nth-child(5) {
+  animation-delay: 160ms;
+}
+.stagger-in > *:nth-child(6) {
+  animation-delay: 200ms;
+}
 
 @keyframes rise {
   from {

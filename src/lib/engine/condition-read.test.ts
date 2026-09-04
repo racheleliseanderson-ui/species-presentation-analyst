@@ -88,13 +88,19 @@ test("season rows never contain an empty value", () => {
 });
 
 test("response notes only answer conditions that were declared", () => {
-  const declaredNothing = responseRead(input({ clarity: "unknown", weather: "unknown", flow: "unknown", tempF: null }), authoredOverlays("salmo_trutta"));
+  const declaredNothing = responseRead(
+    input({ clarity: "unknown", weather: "unknown", flow: "unknown", tempF: null }),
+    authoredOverlays("salmo_trutta"),
+  );
   assert.equal(
     declaredNothing.notes.some((note) => note.trigger.startsWith("Clarity")),
     false,
   );
 
-  const declaredClarity = responseRead(input({ clarity: "turbid" }), authoredOverlays("salmo_trutta"));
+  const declaredClarity = responseRead(
+    input({ clarity: "turbid" }),
+    authoredOverlays("salmo_trutta"),
+  );
   const clarityNote = declaredClarity.notes.find((note) => note.trigger.startsWith("Clarity"));
   const unreviewed = declaredClarity.unreviewed.some((item) => item.startsWith("Clarity"));
   // Either the record answers for clarity, or it is listed as unreviewed —
@@ -104,7 +110,9 @@ test("response notes only answer conditions that were declared", () => {
 
 test("a front is only discussed when a front was declared", () => {
   assert.equal(
-    responseRead(input({ weather: "stable" }), authoredOverlays("salmo_trutta")).notes.some((note) => note.id === "front"),
+    responseRead(input({ weather: "stable" }), authoredOverlays("salmo_trutta")).notes.some(
+      (note) => note.id === "front",
+    ),
     false,
   );
   const front = responseRead(input({ weather: "post_front" }), authoredOverlays("salmo_trutta"));

@@ -53,7 +53,9 @@ test("alternative families are drawn from the ranked list, never invented", () =
 test("suggested water is always a reviewed holding class for this species", () => {
   const scenario = input();
   const result = read(scenario);
-  const move = alternatives(scenario, result, authoredOverlays("salmo_trutta")).find((item) => item.id === "next-water");
+  const move = alternatives(scenario, result, authoredOverlays("salmo_trutta")).find(
+    (item) => item.id === "next-water",
+  );
   assert.ok(move);
   // Reviewed classes are named in reader-facing words; the move must not name a
   // class the record does not carry.
@@ -65,7 +67,9 @@ test("suggested water is always a reviewed holding class for this species", () =
 test("time of day is only suggested when the angler is fishing bright or mixed light", () => {
   const night = input({ light: "night" });
   assert.equal(
-    alternatives(night, read(night), authoredOverlays("salmo_trutta")).some((move) => move.id === "time-of-day"),
+    alternatives(night, read(night), authoredOverlays("salmo_trutta")).some(
+      (move) => move.id === "time-of-day",
+    ),
     false,
   );
   const bright = input({ light: "bright" });

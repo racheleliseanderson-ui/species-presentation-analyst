@@ -87,7 +87,9 @@ export function fieldBrief(
   const declared = declaredHolding(input);
   const holding = declared ? labelOf(declared) : "not chosen";
   const temp =
-    input.tempF == null ? "Temperature unknown" : `${input.tempF}°F · ${temperatureEvidenceLabel(input).replace("temperature unknown", "UNKNOWN")}`;
+    input.tempF == null
+      ? "Temperature unknown"
+      : `${input.tempF}°F · ${temperatureEvidenceLabel(input).replace("temperature unknown", "UNKNOWN")}`;
   const water = input.water.waterName || "No named public water added";
 
   const lines = [
@@ -115,9 +117,7 @@ export function fieldBrief(
     ...seasonLines(input, overlays),
     ...responseLines(input, overlays),
     "PRESENTATION FAMILIES (jobs, not lures to buy — in order)",
-    ...result.presentations.map(
-      (p, i) => `${String.fromCharCode(65 + i)}. ${p.label} — ${p.job}`,
-    ),
+    ...result.presentations.map((p, i) => `${String.fromCharCode(65 + i)}. ${p.label} — ${p.job}`),
     "",
     ...tackleLines(result),
     ...alternativeLines(input, result, overlays),
@@ -128,7 +128,9 @@ export function fieldBrief(
     "WHAT WOULD CHANGE THIS",
     ...result.invalidators.map((x) => `· ${x}`),
     "",
-    result.unknowns.length ? `STILL UNKNOWN: ${result.unknowns.join(", ")}` : "STILL UNKNOWN: nothing left undeclared",
+    result.unknowns.length
+      ? `STILL UNKNOWN: ${result.unknowns.join(", ")}`
+      : "STILL UNKNOWN: nothing left undeclared",
     "",
     `Record ${freshnessLabel(freshness(species.reviewedAt, species.nextReviewAt))} · reviewed ${species.reviewedAt} · next review ${species.nextReviewAt}`,
     ...species.sources.map((s) => `Source · ${s.class.replaceAll("_", " ")} · ${s.label}`),
@@ -139,12 +141,15 @@ export function fieldBrief(
   return lines.join("\n");
 }
 
-
 /** Where the fish should be this season, from the reviewed calendar. */
 function seasonLines(input: ScenarioInput, overlays: SpeciesOverlays): string[] {
   const read = seasonRead(input, overlays);
   if (read.status === "no_season") {
-    return ["WHERE IT SHOULD BE", "Season undeclared, so the reviewed seasonal calendar was not applied.", ""];
+    return [
+      "WHERE IT SHOULD BE",
+      "Season undeclared, so the reviewed seasonal calendar was not applied.",
+      "",
+    ];
   }
   if (read.status === "no_calendar") {
     return ["WHERE IT SHOULD BE", "No reviewed seasonal calendar exists for this species yet.", ""];
@@ -160,7 +165,9 @@ function seasonLines(input: ScenarioInput, overlays: SpeciesOverlays): string[] 
     `WHERE IT SHOULD BE — ${labelOf(read.declared).toUpperCase()}`,
     ...(read.exact
       ? []
-      : wrap(`(Nearest reviewed entry: ${labelOf(read.matched)}. Not a statement about ${labelOf(read.declared).toLowerCase()} specifically.)`)),
+      : wrap(
+          `(Nearest reviewed entry: ${labelOf(read.matched)}. Not a statement about ${labelOf(read.declared).toLowerCase()} specifically.)`,
+        )),
     ...wrap(read.overview),
     ...read.rows.flatMap((row) => wrap(`· ${row.label}: ${row.value}`)),
     ...(read.presentationImplication
@@ -189,7 +196,9 @@ function tackleLines(result: Interpretation): string[] {
   const rows = Object.entries(equipment).filter(([, value]) => value);
   return [
     "WHAT THE TACKLE HAS TO DO",
-    top ? `Follows from ${top.label}. Change the family and these change with it.` : "No family ranked.",
+    top
+      ? `Follows from ${top.label}. Change the family and these change with it.`
+      : "No family ranked.",
     ...rows.map(
       ([key, value]) => `· ${SYSTEM_LABEL[key] ?? key}: ${String(value).replaceAll("_", " ")}`,
     ),
@@ -221,11 +230,17 @@ function alternativeLines(
   ];
 }
 
-export function packetSummary(input: ScenarioInput, result: Interpretation): { label: string; value: string }[] {
+export function packetSummary(
+  input: ScenarioInput,
+  result: Interpretation,
+): { label: string; value: string }[] {
   const declared = declaredHolding(input);
   const holding = declared ? labelOf(declared) : "not chosen";
   return [
-    { label: "Species", value: `${result.species.commonNames[0]} (${result.species.scientificName})` },
+    {
+      label: "Species",
+      value: `${result.species.commonNames[0]} (${result.species.scientificName})`,
+    },
     { label: "Water", value: input.water.waterName || "No named public water added" },
     { label: "Water type", value: labelOf(input.waterType) },
     {

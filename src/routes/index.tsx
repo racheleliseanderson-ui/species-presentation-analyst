@@ -127,7 +127,11 @@ function Home() {
             <span aria-hidden>→</span> Forage <span aria-hidden>→</span> Presentation{" "}
             <span aria-hidden>→</span> Tackle
           </p>
-          <div className="mt-4 grid gap-2 md:grid-cols-3" role="radiogroup" aria-label="Experience pathway">
+          <div
+            className="mt-4 grid gap-2 md:grid-cols-3"
+            role="radiogroup"
+            aria-label="Experience pathway"
+          >
             {PATHS.map((path, index) => {
               const on = mode === path.id;
               return (
@@ -166,8 +170,8 @@ function Home() {
             })}
           </div>
           <p className="mt-3 text-sm text-muted">
-            Your pathway changes how much is shown, not the biology. None of them adds a bite
-            score or a hotspot. This app doesn't have those.
+            Your pathway changes how much is shown, not the biology. None of them adds a bite score
+            or a hotspot. This app doesn't have those.
           </p>
         </section>
       </div>

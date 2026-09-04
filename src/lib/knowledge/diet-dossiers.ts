@@ -1,8 +1,4 @@
-import {
-  DOSSIER_NEXT_REVIEW_AT,
-  DOSSIER_REVIEWED_AT,
-  type DietDossier,
-} from "./dossier-types.ts";
+import { DOSSIER_NEXT_REVIEW_AT, DOSSIER_REVIEWED_AT, type DietDossier } from "./dossier-types.ts";
 
 const R = {
   reviewedAt: DOSSIER_REVIEWED_AT,
@@ -41,19 +37,23 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Lower metabolic demand; nymphs, midges, and other slow-moving benthic prey dominate over surface events.",
+        emphasis:
+          "Lower metabolic demand; nymphs, midges, and other slow-moving benthic prey dominate over surface events.",
       },
       {
         season: "spring",
-        emphasis: "Aquatic insects and emergences increase in many streams as water warms. This is capacity, not a declared hatch.",
+        emphasis:
+          "Aquatic insects and emergences increase in many streams as water warms. This is capacity, not a declared hatch.",
       },
       {
         season: "summer",
-        emphasis: "Terrestrials and subsurface insects in streams; lake fish often use a mix of insects, crustaceans, and baitfish in the usable thermal band.",
+        emphasis:
+          "Terrestrials and subsurface insects in streams; lake fish often use a mix of insects, crustaceans, and baitfish in the usable thermal band.",
       },
       {
         season: "fall",
-        emphasis: "Opportunistic shift toward eggs, baitfish, or remaining insects depending on the system. Do not assume an egg event from this capacity.",
+        emphasis:
+          "Opportunistic shift toward eggs, baitfish, or remaining insects depending on the system. Do not assume an egg event from this capacity.",
       },
     ],
     lifeStageDiet: {
@@ -61,8 +61,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Aquatic insects, emergences, and small crustaceans.",
       adult: "Insects remain important; larger fish add crustaceans and small forage fish.",
     },
-    preySizeShifts: "Prey length generally tracks gape. Large lake and residualized fish can take baitfish that stream parr cannot.",
-    ontogeneticShift: "Insectivory to a mixed insect–crustacean–fish diet as size increases, especially in lakes.",
+    preySizeShifts:
+      "Prey length generally tracks gape. Large lake and residualized fish can take baitfish that stream parr cannot.",
+    ontogeneticShift:
+      "Insectivory to a mixed insect–crustacean–fish diet as size increases, especially in lakes.",
     forageSubstitutions:
       "Stream fish substitute hatches and terrestrials; lake/reservoir fish substitute Mysis, scuds, or baitfish when those taxa dominate. Substitution is system-specific.",
     observedForageRule: OBSERVED,
@@ -95,15 +97,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Insect drift and lake zooplankton as water warms. Tributary spawning is conservation context, not a diet event.",
+        emphasis:
+          "Insect drift and lake zooplankton as water warms. Tributary spawning is conservation context, not a diet event.",
       },
       {
         season: "summer",
-        emphasis: "Terrestrials and aquatic insects in streams; zooplankton and baitfish possible in lakes.",
+        emphasis:
+          "Terrestrials and aquatic insects in streams; zooplankton and baitfish possible in lakes.",
       },
       {
         season: "fall",
-        emphasis: "Remaining insects and opportunistic fish or egg items where those foods exist. Not a prescribed forage event.",
+        emphasis:
+          "Remaining insects and opportunistic fish or egg items where those foods exist. Not a prescribed forage event.",
       },
     ],
     lifeStageDiet: {
@@ -111,8 +116,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Aquatic insects and crustaceans.",
       adult: "Insects remain central in many interior streams; lake adults may add fish.",
     },
-    ontogeneticShift: "Weaker piscivory than many rainbow populations at the same size in interior streams; lake adults may still shift toward fish.",
-    forageSubstitutions: "Alpine lakes may emphasize zooplankton; connected lakes can add forage fish. Stream diets stay insect-heavy unless sculpins or bait are abundant.",
+    ontogeneticShift:
+      "Weaker piscivory than many rainbow populations at the same size in interior streams; lake adults may still shift toward fish.",
+    forageSubstitutions:
+      "Alpine lakes may emphasize zooplankton; connected lakes can add forage fish. Stream diets stay insect-heavy unless sculpins or bait are abundant.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "State/tribal cutthroat status reviews", class: "agency" },
@@ -132,7 +139,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Zooplankton remains the core diet; depth follows the usable cold-water food layer rather than shoreline insects.",
+        emphasis:
+          "Zooplankton remains the core diet; depth follows the usable cold-water food layer rather than shoreline insects.",
       },
       {
         season: "spring",
@@ -140,27 +148,39 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Follows Daphnia and other zooplankton in the cool, oxygenated layer, often near the thermocline.",
+        emphasis:
+          "Follows Daphnia and other zooplankton in the cool, oxygenated layer, often near the thermocline.",
       },
       {
         season: "fall",
-        emphasis: "Mature fish reduce feeding as they allocate to spawning. Spawning fish are not a forage-matching problem.",
+        emphasis:
+          "Mature fish reduce feeding as they allocate to spawning. Spawning fish are not a forage-matching problem.",
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Smaller zooplankton such as copepods before shifting toward Daphnia as gape allows.",
+      youngOfYear:
+        "Smaller zooplankton such as copepods before shifting toward Daphnia as gape allows.",
       juvenile: "Daphnia and other large zooplankton.",
-      adult: "Zooplankton specialist; insects are incidental. Anadromous sockeye ocean diets do not apply here.",
+      adult:
+        "Zooplankton specialist; insects are incidental. Anadromous sockeye ocean diets do not apply here.",
     },
-    preySizeShifts: "Gape limits which zooplankton taxa are usable; this is not a shift into baitfish as a default inland diet.",
-    ontogeneticShift: "Copepods and small zooplankton in fry; Daphnia-dominated in older fish where that taxon is available.",
+    preySizeShifts:
+      "Gape limits which zooplankton taxa are usable; this is not a shift into baitfish as a default inland diet.",
+    ontogeneticShift:
+      "Copepods and small zooplankton in fry; Daphnia-dominated in older fish where that taxon is available.",
     forageSubstitutions:
       "Some lakes substitute other zooplankton taxa when Daphnia is scarce. That does not convert kokanee into a baitfish predator like anadromous sockeye at sea.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Idaho Department of Fish and Game kokanee management (plankton diet)", class: "agency" },
+      {
+        label: "Idaho Department of Fish and Game kokanee management (plankton diet)",
+        class: "agency",
+      },
       { label: "Washington Department of Fish and Wildlife kokanee profile", class: "agency" },
-      { label: "Scott & Crossman freshwater fishes synthesis for kokanee/sockeye ecology", class: "synthesis" },
+      {
+        label: "Scott & Crossman freshwater fishes synthesis for kokanee/sockeye ecology",
+        class: "synthesis",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, "lake-specific Daphnia vs copepod dominance"],
@@ -176,7 +196,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "summer",
-        emphasis: "Returning adults in freshwater are not treated as feeding trout. Ocean feeding is behind them.",
+        emphasis:
+          "Returning adults in freshwater are not treated as feeding trout. Ocean feeding is behind them.",
       },
       {
         season: "late_summer",
@@ -184,16 +205,21 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "fall",
-        emphasis: "Spawning fish do not establish feeding lies. Diet guidance for freshwater adults stays conservation-first.",
+        emphasis:
+          "Spawning fish do not establish feeding lies. Diet guidance for freshwater adults stays conservation-first.",
       },
     ],
     lifeStageDiet: {
       youngOfYear: "Lake-rearing juveniles feed on zooplankton and aquatic invertebrates.",
-      juvenile: "Smolts leaving lakes still reflect a plankton-based freshwater diet before ocean entry.",
-      adult: "Ocean diet is pelagic zooplankton, squid, and small fishes. Freshwater adults generally do not feed.",
+      juvenile:
+        "Smolts leaving lakes still reflect a plankton-based freshwater diet before ocean entry.",
+      adult:
+        "Ocean diet is pelagic zooplankton, squid, and small fishes. Freshwater adults generally do not feed.",
     },
-    ontogeneticShift: "Freshwater plankton feeding in juveniles; marine pelagic feeding in adults; feeding largely stops on the spawning migration.",
-    forageSubstitutions: "Do not substitute inland kokanee Daphnia feeding for ocean-phase sockeye, or vice versa.",
+    ontogeneticShift:
+      "Freshwater plankton feeding in juveniles; marine pelagic feeding in adults; feeding largely stops on the spawning migration.",
+    forageSubstitutions:
+      "Do not substitute inland kokanee Daphnia feeding for ocean-phase sockeye, or vice versa.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "NOAA Fisheries Sockeye Salmon species profile", class: "agency" },
@@ -207,25 +233,35 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["small_forage_fish", "crustaceans", "amphibians", "aquatic_insects", "larger_prey_fish"],
+    primaryForage: [
+      "small_forage_fish",
+      "crustaceans",
+      "amphibians",
+      "aquatic_insects",
+      "larger_prey_fish",
+    ],
     primaryNote:
       "Adults feed largely on other fish and large invertebrates such as crayfish. Insects and amphibians matter more for smaller fish and in vegetated shallows. TPWD: adults feed almost exclusively on other fish and large invertebrates such as crayfish.",
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Fewer prey items; remaining crayfish and slower fish near cover rather than open-water bait chases.",
+        emphasis:
+          "Fewer prey items; remaining crayfish and slower fish near cover rather than open-water bait chases.",
       },
       {
         season: "spring",
-        emphasis: "Fish and crayfish as water warms. Nesting is conservation context, not a diet event.",
+        emphasis:
+          "Fish and crayfish as water warms. Nesting is conservation context, not a diet event.",
       },
       {
         season: "summer",
-        emphasis: "Bluegill, shad, and other littoral fishes plus crayfish around vegetation and wood.",
+        emphasis:
+          "Bluegill, shad, and other littoral fishes plus crayfish around vegetation and wood.",
       },
       {
         season: "fall",
-        emphasis: "Baitfish become more important where shad or other schooling forage concentrate. Not a named-concentration claim.",
+        emphasis:
+          "Baitfish become more important where shad or other schooling forage concentrate. Not a named-concentration claim.",
       },
     ],
     lifeStageDiet: {
@@ -233,13 +269,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Insects, crayfish, and small fish.",
       adult: "Mostly fish and crayfish; amphibians and large insects remain possible.",
     },
-    preySizeShifts: "Adults take larger sunfish, shad, and crayfish as gape grows. Cannibalism of smaller bass is documented.",
+    preySizeShifts:
+      "Adults take larger sunfish, shad, and crayfish as gape grows. Cannibalism of smaller bass is documented.",
     ontogeneticShift: "Insectivory in YOY to a fish–crayfish diet in adults.",
     forageSubstitutions:
       "Vegetated natural lakes emphasize sunfish, amphibians, and crayfish. Reservoirs with pelagic shad can shift adults toward open-water baitfish without abandoning cover-oriented feeding.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Texas Parks and Wildlife largemouth bass species account (adult fish and crayfish diet)", class: "agency" },
+      {
+        label:
+          "Texas Parks and Wildlife largemouth bass species account (adult fish and crayfish diet)",
+        class: "agency",
+      },
       { label: "Heidinger largemouth life history", class: "peer_reviewed" },
       { label: "State black bass management plans", class: "agency" },
     ],
@@ -257,11 +298,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Reduced feeding; remaining crayfish and sculpins or other benthic prey in deeper rock.",
+        emphasis:
+          "Reduced feeding; remaining crayfish and sculpins or other benthic prey in deeper rock.",
       },
       {
         season: "spring",
-        emphasis: "Insects and crayfish as water nears the 60°F spawning band. Nests on rock are conservation context.",
+        emphasis:
+          "Insects and crayfish as water nears the 60°F spawning band. Nests on rock are conservation context.",
       },
       {
         season: "summer",
@@ -269,7 +312,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "fall",
-        emphasis: "Fish can increase in the diet as crayfish activity drops and baitfish group. Not a prescribed chase.",
+        emphasis:
+          "Fish can increase in the diet as crayfish activity drops and baitfish group. Not a prescribed chase.",
       },
     ],
     lifeStageDiet: {
@@ -277,8 +321,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Insects and small crayfish.",
       adult: "Crayfish-weighted, with small forage fish as a regular complement.",
     },
-    ontogeneticShift: "Insect to crayfish/fish. Large river adults may take more fish than lake fish of the same length.",
-    forageSubstitutions: "Rivers with sculpins or madtoms substitute those fishes. Lakes without crayfish shift toward fish and insects.",
+    ontogeneticShift:
+      "Insect to crayfish/fish. Large river adults may take more fish than lake fish of the same length.",
+    forageSubstitutions:
+      "Rivers with sculpins or madtoms substitute those fishes. Lakes without crayfish shift toward fish and insects.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS / provincial smallmouth assessments", class: "agency" },
@@ -302,7 +348,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Fish and crayfish. Spawning is often slightly deeper / more offshore than largemouth and is conservation context.",
+        emphasis:
+          "Fish and crayfish. Spawning is often slightly deeper / more offshore than largemouth and is conservation context.",
       },
       {
         season: "summer",
@@ -310,7 +357,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "fall",
-        emphasis: "Schooling baitfish can dominate where present. Do not infer a current bait event from this capacity.",
+        emphasis:
+          "Schooling baitfish can dominate where present. Do not infer a current bait event from this capacity.",
       },
     ],
     lifeStageDiet: {
@@ -319,7 +367,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Small forage fish weighted, with crayfish still important on rock.",
     },
     ontogeneticShift: "Earlier shift toward pelagic baitfish than largemouth in many reservoirs.",
-    forageSubstitutions: "Highland reservoirs with threadfin or gizzard shad emphasize fish. Creek systems with crayfish stay more benthic.",
+    forageSubstitutions:
+      "Highland reservoirs with threadfin or gizzard shad emphasize fish. Creek systems with crayfish stay more benthic.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "State spotted bass notes (KY, TN, AL, OK)", class: "agency" },
@@ -339,11 +388,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Forage-following in remaining usable thermal water; coastal and landlocked patterns differ by RPC profile, not by a generic table.",
+        emphasis:
+          "Forage-following in remaining usable thermal water; coastal and landlocked patterns differ by RPC profile, not by a generic table.",
       },
       {
         season: "spring",
-        emphasis: "Anadromous fish are in spawning rivers; feeding is secondary to migration. Landlocked fish may still track shad. Spawning flow is conservation context.",
+        emphasis:
+          "Anadromous fish are in spawning rivers; feeding is secondary to migration. Landlocked fish may still track shad. Spawning flow is conservation context.",
       },
       {
         season: "summer",
@@ -351,7 +402,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "fall",
-        emphasis: "Baitfish concentrations can dominate diet where they exist. This is not a location map.",
+        emphasis:
+          "Baitfish concentrations can dominate diet where they exist. This is not a location map.",
       },
     ],
     lifeStageDiet: {
@@ -360,7 +412,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Schooling fishes; larger prey fish as size allows.",
     },
     preySizeShifts: "Adults take larger clupeids and other fishes as gape and energy demand grow.",
-    ontogeneticShift: "Plankton and invertebrates in larvae to almost exclusive piscivory in adults.",
+    ontogeneticShift:
+      "Plankton and invertebrates in larvae to almost exclusive piscivory in adults.",
     forageSubstitutions:
       "Atlantic anadromous fish substitute menhaden/herring/anchovy. Landlocked reservoirs substitute gizzard or threadfin shad and alewife. RPC selects the population overlay; geography does not.",
     observedForageRule: OBSERVED,
@@ -386,7 +439,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Upriver or windblown-shore spawning is conservation context. Diet remains small fish and insects, not a targeting cue.",
+        emphasis:
+          "Upriver or windblown-shore spawning is conservation context. Diet remains small fish and insects, not a targeting cue.",
       },
       {
         season: "summer",
@@ -403,7 +457,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Small forage fish, especially shad.",
     },
     ontogeneticShift: "Insect/plankton to shad-weighted piscivory.",
-    forageSubstitutions: "Reservoirs with threadfin shad differ from river systems with emerald shiners or other small cyprinids. White perch egg-eating is not a white-bass default.",
+    forageSubstitutions:
+      "Reservoirs with threadfin shad differ from river systems with emerald shiners or other small cyprinids. White perch egg-eating is not a white-bass default.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "State white bass notes (TX, OK, KS, TN)", class: "agency" },
@@ -427,7 +482,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Insects, zooplankton, and eggs where spawning of other fishes overlaps. Egg items are an ecological note, not targeting guidance.",
+        emphasis:
+          "Insects, zooplankton, and eggs where spawning of other fishes overlaps. Egg items are an ecological note, not targeting guidance.",
       },
       {
         season: "summer",
@@ -441,10 +497,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     lifeStageDiet: {
       youngOfYear: "Zooplankton.",
       juvenile: "Insects, crustaceans, and zooplankton.",
-      adult: "Mixed; small fish and eggs can become important in introduced Great Lakes and reservoir populations.",
+      adult:
+        "Mixed; small fish and eggs can become important in introduced Great Lakes and reservoir populations.",
     },
-    ontogeneticShift: "Plankton to a broad omnivorous diet. This is the ecological distinction from white bass.",
-    forageSubstitutions: "Native Atlantic slope diets are more estuarine-invertebrate. Introduced inland populations add more fish eggs and inland zooplankton.",
+    ontogeneticShift:
+      "Plankton to a broad omnivorous diet. This is the ecological distinction from white bass.",
+    forageSubstitutions:
+      "Native Atlantic slope diets are more estuarine-invertebrate. Introduced inland populations add more fish eggs and inland zooplankton.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS Nonindigenous Aquatic Species white perch profile", class: "agency" },
@@ -468,7 +527,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "May travel with white bass; feeding still tracks small fish. Not a reproductive diet shift.",
+        emphasis:
+          "May travel with white bass; feeding still tracks small fish. Not a reproductive diet shift.",
       },
       {
         season: "summer",
@@ -484,12 +544,20 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Insects, crustaceans, and tiny fish.",
       adult: "Small forage fish, especially shad.",
     },
-    ontogeneticShift: "Rapid shift toward piscivory relative to white bass of the same age in many stocking programs.",
-    forageSubstitutions: "Gizzard vs threadfin shad substitutions follow the stocked water, not a statewide default.",
+    ontogeneticShift:
+      "Rapid shift toward piscivory relative to white bass of the same age in many stocking programs.",
+    forageSubstitutions:
+      "Gizzard vs threadfin shad substitutions follow the stocked water, not a statewide default.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Missouri Department of Conservation hybrid striped bass field guide", class: "agency" },
-      { label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan", class: "agency" },
+      {
+        label: "Missouri Department of Conservation hybrid striped bass field guide",
+        class: "agency",
+      },
+      {
+        label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -525,8 +593,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Insects, crustaceans, and tiny fish.",
       adult: "Small forage fish with a larger invertebrate fraction than white bass.",
     },
-    ontogeneticShift: "Plankton/insects to a mixed small-fish diet. Prey remains smaller than striped bass.",
-    forageSubstitutions: "Backwater insect diets vs reservoir small-fish diets. Not interchangeable with white perch egg predation.",
+    ontogeneticShift:
+      "Plankton/insects to a mixed small-fish diet. Prey remains smaller than striped bass.",
+    forageSubstitutions:
+      "Backwater insect diets vs reservoir small-fish diets. Not interchangeable with white perch egg predation.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Missouri Department of Conservation yellow bass field guide", class: "agency" },
@@ -546,7 +616,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Zooplankton and under-ice feeding in coldwater lakes. This is a feeding-window description, not a catch claim.",
+        emphasis:
+          "Zooplankton and under-ice feeding in coldwater lakes. This is a feeding-window description, not a catch claim.",
       },
       {
         season: "spring",
@@ -554,11 +625,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Pelagic zooplankton in the cold, oxygenated layer. Oxythermal squeeze can separate cisco from warmer forage fish.",
+        emphasis:
+          "Pelagic zooplankton in the cold, oxygenated layer. Oxythermal squeeze can separate cisco from warmer forage fish.",
       },
       {
         season: "late_fall",
-        emphasis: "Spawning is conservation context. Diet remains zooplankton/invertebrates, not a shallow-water bait event.",
+        emphasis:
+          "Spawning is conservation context. Diet remains zooplankton/invertebrates, not a shallow-water bait event.",
       },
     ],
     lifeStageDiet: {
@@ -566,8 +639,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Zooplankton and small invertebrates.",
       adult: "Zooplankton core; insects and occasional small fish in some stocks.",
     },
-    ontogeneticShift: "Remains largely planktivorous. Occasional fish in large adults does not convert cisco into a whitefish or trout diet.",
-    forageSubstitutions: "Great Lakes stocks may include more Mysis or other crustaceans. Inland tullibee lakes stay Daphnia/copepod weighted.",
+    ontogeneticShift:
+      "Remains largely planktivorous. Occasional fish in large adults does not convert cisco into a whitefish or trout diet.",
+    forageSubstitutions:
+      "Great Lakes stocks may include more Mysis or other crustaceans. Inland tullibee lakes stay Daphnia/copepod weighted.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "U.S. Fish and Wildlife Service cisco species account", class: "agency" },
@@ -592,11 +667,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Benthic crustaceans and mollusks; eggs of other fishes where those events occur. Egg items are not a targeting cue.",
+        emphasis:
+          "Benthic crustaceans and mollusks; eggs of other fishes where those events occur. Egg items are not a targeting cue.",
       },
       {
         season: "summer",
-        emphasis: "Deeper benthic invertebrates; some suspension when prey distributions warrant it.",
+        emphasis:
+          "Deeper benthic invertebrates; some suspension when prey distributions warrant it.",
       },
       {
         season: "late_fall",
@@ -608,14 +685,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Amphipods, insects, and small mollusks.",
       adult: "Benthic crustaceans and mollusks; fish and eggs as supplements.",
     },
-    ontogeneticShift: "Zooplankton/tiny benthos in YOY to a mollusk- and amphipod-weighted adult diet.",
+    ontogeneticShift:
+      "Zooplankton/tiny benthos in YOY to a mollusk- and amphipod-weighted adult diet.",
     forageSubstitutions:
       "Great Lakes diets shifted after Diporeia declines, with more mollusks or alternative benthos. Inland lakes substitute available amphipods and insects. Do not freeze a historical Diporeia diet as current fact for every water.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS lake whitefish thermal ecology research", class: "agency" },
       { label: "Michigan Department of Natural Resources lake whitefish biology", class: "agency" },
-      { label: "Minnesota Department of Natural Resources lake whitefish profile", class: "agency" },
+      {
+        label: "Minnesota Department of Natural Resources lake whitefish profile",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: ["post-Diporeia diet by lake", SEASONAL_GAP],
@@ -625,17 +706,25 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "surface",
-    primaryForage: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "small_forage_fish", "crustaceans"],
+    primaryForage: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "small_forage_fish",
+      "crustaceans",
+    ],
     primaryNote:
       "Large-eyed, often surface-oriented river predator of drifting and flying insects, with small fish and crustaceans as complements. More turbidity-tolerant and more surface-fish oriented than mooneye.",
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Reduced surface feeding; remaining invertebrates and small fish in deeper holds.",
+        emphasis:
+          "Reduced surface feeding; remaining invertebrates and small fish in deeper holds.",
       },
       {
         season: "spring",
-        emphasis: "Insects as water warms. Spawning in large-river systems is conservation context.",
+        emphasis:
+          "Insects as water warms. Spawning in large-river systems is conservation context.",
       },
       {
         season: "summer",
@@ -652,7 +741,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Insects with regular small-fish complements.",
     },
     ontogeneticShift: "Plankton/insects to a mixed insect–fish surface diet.",
-    forageSubstitutions: "Prairie rivers with high terrestrial input vs clearer systems with more aquatic emergences. Not interchangeable with mooneye’s clearer-water insect diet.",
+    forageSubstitutions:
+      "Prairie rivers with high terrestrial input vs clearer systems with more aquatic emergences. Not interchangeable with mooneye’s clearer-water insect diet.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Government of Alberta goldeye species profile", class: "agency" },
@@ -666,7 +756,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "surface",
-    primaryForage: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "small_forage_fish", "crustaceans"],
+    primaryForage: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "small_forage_fish",
+      "crustaceans",
+    ],
     primaryNote:
       "More insectivorous and more associated with clearer water than goldeye. Small fish remain possible but are not the default adult identity.",
     seasonalDiet: [
@@ -693,7 +789,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Aquatic, emerging, and terrestrial insects; small fish less central than in goldeye.",
     },
     ontogeneticShift: "Remains insect-weighted more than goldeye at comparable size.",
-    forageSubstitutions: "Clearer rivers keep insect identity. Do not copy goldeye’s stronger fish fraction onto this record.",
+    forageSubstitutions:
+      "Clearer rivers keep insect identity. Do not copy goldeye’s stronger fish fraction onto this record.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Ontario mooneye species profile", class: "agency" },
@@ -717,7 +814,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Shallow-flat benthos as water warms. Vegetation spawning is conservation context.",
+        emphasis:
+          "Shallow-flat benthos as water warms. Vegetation spawning is conservation context.",
       },
       {
         season: "summer",
@@ -731,10 +829,12 @@ export const DIET_DOSSIERS: DietDossier[] = [
     lifeStageDiet: {
       youngOfYear: "Zooplankton and tiny benthos.",
       juvenile: "Insect larvae, worms, and small mollusks.",
-      adult: "Broad benthic omnivory including mollusks, annelids, crustaceans, and plant material.",
+      adult:
+        "Broad benthic omnivory including mollusks, annelids, crustaceans, and plant material.",
     },
     ontogeneticShift: "Plankton in larvae to sediment-rooting omnivory in adults.",
-    forageSubstitutions: "Agricultural drains emphasize detritus and oligochaetes. Clearer lakes may show more mollusks and insects. Plant material is used but is not a catalog forage class.",
+    forageSubstitutions:
+      "Agricultural drains emphasize detritus and oligochaetes. Clearer lakes may show more mollusks and insects. Plant material is used but is not a catalog forage class.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS NAS carp fact sheet", class: "agency" },
@@ -758,11 +858,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Zooplankton as water warms. Flooded-margin spawning is conservation context, not a feeding map.",
+        emphasis:
+          "Zooplankton as water warms. Flooded-margin spawning is conservation context, not a feeding map.",
       },
       {
         season: "summer",
-        emphasis: "Pelagic and mid-depth zooplankton filtering in slow channels, backwaters, and reservoirs.",
+        emphasis:
+          "Pelagic and mid-depth zooplankton filtering in slow channels, backwaters, and reservoirs.",
       },
       {
         season: "fall",
@@ -774,8 +876,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Zooplankton and tiny invertebrates.",
       adult: "Zooplankton specialist with incidental benthos.",
     },
-    ontogeneticShift: "Remains a filter feeder. Longevity (Lackmann) means adults can persist on plankton for decades.",
-    forageSubstitutions: "Turbid, productive systems emphasize zooplankton. Clearer water may increase benthic complements without converting the species into a carp.",
+    ontogeneticShift:
+      "Remains a filter feeder. Longevity (Lackmann) means adults can persist on plankton for decades.",
+    forageSubstitutions:
+      "Turbid, productive systems emphasize zooplankton. Clearer water may increase benthic complements without converting the species into a carp.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS Bigmouth Buffalo species profile", class: "agency" },
@@ -800,7 +904,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Benthos as water warms. Broadcast spawning over vegetation/mud is conservation context.",
+        emphasis:
+          "Benthos as water warms. Broadcast spawning over vegetation/mud is conservation context.",
       },
       {
         season: "summer",
@@ -817,7 +922,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Benthic invertebrates and mollusks.",
     },
     ontogeneticShift: "Remains benthic. Mollusk fraction can increase with size.",
-    forageSubstitutions: "Large-river mollusk beds vs reservoir soft-bottom insect larvae. Do not substitute carp plant-rooting or bigmouth buffalo plankton feeding.",
+    forageSubstitutions:
+      "Large-river mollusk beds vs reservoir soft-bottom insect larvae. Do not substitute carp plant-rooting or bigmouth buffalo plankton feeding.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Texas Parks and Wildlife smallmouth buffalo species account", class: "agency" },
@@ -841,11 +947,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Fish along warming margins. Shallow vegetated spawning is conservation context; eggs are toxic.",
+        emphasis:
+          "Fish along warming margins. Shallow vegetated spawning is conservation context; eggs are toxic.",
       },
       {
         season: "summer",
-        emphasis: "Fish in open or slow water; near-surface cruising can be respiratory, not feeding.",
+        emphasis:
+          "Fish in open or slow water; near-surface cruising can be respiratory, not feeding.",
       },
       {
         season: "fall",
@@ -858,7 +966,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Fish, including larger prey fish as size allows.",
     },
     ontogeneticShift: "Invertebrates in YOY to piscivory in adults.",
-    forageSubstitutions: "Large-river fish assemblages vs lake/backwater fishes. Do not treat air-gulping as a surface-forage event.",
+    forageSubstitutions:
+      "Large-river fish assemblages vs lake/backwater fishes. Do not treat air-gulping as a surface-forage event.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "NOAA Mississippi River longnose gar life-history synthesis", class: "agency" },
@@ -882,7 +991,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Fish in vegetated margins. Spawning in flooded timber/backwaters is conservation context.",
+        emphasis:
+          "Fish in vegetated margins. Spawning in flooded timber/backwaters is conservation context.",
       },
       {
         season: "summer",
@@ -898,8 +1008,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Small fish and crustaceans.",
       adult: "Small forage fish with crustacean and insect complements.",
     },
-    ontogeneticShift: "Invertebrates to small-fish piscivory, remaining more littoral than longnose gar.",
-    forageSubstitutions: "Swamp and backwater fishes vs open-lake littoral fishes. Less current-oriented than longnose gar.",
+    ontogeneticShift:
+      "Invertebrates to small-fish piscivory, remaining more littoral than longnose gar.",
+    forageSubstitutions:
+      "Swamp and backwater fishes vs open-lake littoral fishes. Less current-oriented than longnose gar.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Texas Parks and Wildlife Department spotted gar account", class: "agency" },
@@ -941,7 +1053,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Fish, including larger prey as size allows.",
     },
     ontogeneticShift: "Invertebrates to piscivory.",
-    forageSubstitutions: "Backwater fish assemblages vs main-channel margins. More turbidity-tolerant than longnose gar.",
+    forageSubstitutions:
+      "Backwater fish assemblages vs main-channel margins. More turbidity-tolerant than longnose gar.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Texas Parks and Wildlife shortnose gar species account", class: "agency" },
@@ -965,7 +1078,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Fish in connected habitat as water warms. Flooded vegetated spawning is an invalidator.",
+        emphasis:
+          "Fish in connected habitat as water warms. Flooded vegetated spawning is an invalidator.",
       },
       {
         season: "summer",
@@ -981,13 +1095,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Small fish, crustaceans, and amphibians.",
       adult: "Larger prey fish as the energetic core.",
     },
-    preySizeShifts: "Adults regularly take fish far larger than other gar diets. This is size ecology, not a sport rating.",
+    preySizeShifts:
+      "Adults regularly take fish far larger than other gar diets. This is size ecology, not a sport rating.",
     ontogeneticShift: "Invertebrates in YOY to large-fish piscivory in adults.",
-    forageSubstitutions: "River fish assemblages vs reservoir forage. Do not invent a lure-family diet from this prey list.",
+    forageSubstitutions:
+      "River fish assemblages vs reservoir forage. Do not invent a lure-family diet from this prey list.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "U.S. Fish and Wildlife Service Alligator Gar species profile", class: "agency" },
-      { label: "State and USFWS alligator gar life-history and floodplain recruitment literature", class: "agency" },
+      {
+        label: "State and USFWS alligator gar life-history and floodplain recruitment literature",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -997,7 +1116,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "benthic",
-    primaryForage: ["worms_annelids", "aquatic_insects", "crustaceans", "mollusks", "small_forage_fish"],
+    primaryForage: [
+      "worms_annelids",
+      "aquatic_insects",
+      "crustaceans",
+      "mollusks",
+      "small_forage_fish",
+    ],
     primaryNote:
       "Nocturnal benthic omnivore. Scent and barbels matter more than vision. Diet is worms, insect larvae, crustaceans, mollusks, and small fish — not a pelagic baitfish specialist.",
     seasonalDiet: [
@@ -1007,11 +1132,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Benthos as water warms. Cavity nesting and parental guarding are conservation context.",
+        emphasis:
+          "Benthos as water warms. Cavity nesting and parental guarding are conservation context.",
       },
       {
         season: "summer",
-        emphasis: "Night and low-light benthic feeding on insects, worms, crustaceans, and small fish.",
+        emphasis:
+          "Night and low-light benthic feeding on insects, worms, crustaceans, and small fish.",
       },
       {
         season: "fall",
@@ -1024,11 +1151,15 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Broad benthic omnivory including mollusks and small fish.",
     },
     ontogeneticShift: "Invertebrates to a mixed benthic diet with more fish in large adults.",
-    forageSubstitutions: "Weedy lakes emphasize insects and crustaceans. Soft-bottom ponds add oligochaetes. Small fish increase where they are available at night.",
+    forageSubstitutions:
+      "Weedy lakes emphasize insects and crustaceans. Soft-bottom ponds add oligochaetes. Small fish increase where they are available at night.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS Nonindigenous Aquatic Species brown bullhead profile", class: "agency" },
-      { label: "EPA freshwater fish temperature criteria synthesis for brown bullhead", class: "agency" },
+      {
+        label: "EPA freshwater fish temperature criteria synthesis for brown bullhead",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1038,7 +1169,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "benthic",
-    primaryForage: ["worms_annelids", "aquatic_insects", "crustaceans", "mollusks", "small_forage_fish"],
+    primaryForage: [
+      "worms_annelids",
+      "aquatic_insects",
+      "crustaceans",
+      "mollusks",
+      "small_forage_fish",
+    ],
     primaryNote:
       "Highly tolerant benthic omnivore of turbid, soft-bottomed water. Diet overlaps brown bullhead; habitat tolerance is the distinction, not a unique prey list.",
     seasonalDiet: [
@@ -1065,10 +1202,14 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Broad benthic omnivory.",
     },
     ontogeneticShift: "Invertebrates to mixed benthic omnivory.",
-    forageSubstitutions: "Turbid ponds and sloughs emphasize detritus-associated invertebrates. Clearer lakes overlap brown bullhead diets.",
+    forageSubstitutions:
+      "Turbid ponds and sloughs emphasize detritus-associated invertebrates. Clearer lakes overlap brown bullhead diets.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Washington Department of Fish and Wildlife black bullhead sportfish account", class: "agency" },
+      {
+        label: "Washington Department of Fish and Wildlife black bullhead sportfish account",
+        class: "agency",
+      },
       { label: "North American bullhead life-history syntheses", class: "synthesis" },
     ],
     ...R,
@@ -1079,7 +1220,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "benthic",
-    primaryForage: ["aquatic_insects", "crustaceans", "worms_annelids", "mollusks", "small_forage_fish"],
+    primaryForage: [
+      "aquatic_insects",
+      "crustaceans",
+      "worms_annelids",
+      "mollusks",
+      "small_forage_fish",
+    ],
     primaryNote:
       "Benthic omnivore of slower, often clearer or more vegetated water than black bullhead. Insects and crustaceans are prominent. Both parents guard eggs and fry — conservation context, not a forage event.",
     seasonalDiet: [
@@ -1089,11 +1236,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Insects and crustaceans as water warms. Canonical spawning seasons are spring and early_summer.",
+        emphasis:
+          "Insects and crustaceans as water warms. Canonical spawning seasons are spring and early_summer.",
       },
       {
         season: "early_summer",
-        emphasis: "Parental guarding overlaps continued benthic feeding nearby, not a targeting cue.",
+        emphasis:
+          "Parental guarding overlaps continued benthic feeding nearby, not a targeting cue.",
       },
       {
         season: "summer",
@@ -1110,7 +1259,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Benthic omnivory including mollusks and small fish.",
     },
     ontogeneticShift: "Invertebrates to mixed benthic omnivory.",
-    forageSubstitutions: "Vegetated clear-water margins emphasize insects and crayfish-scale crustaceans relative to black bullhead in turbid mud.",
+    forageSubstitutions:
+      "Vegetated clear-water margins emphasize insects and crayfish-scale crustaceans relative to black bullhead in turbid mud.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "Texas Parks and Wildlife yellow bullhead species account", class: "agency" },
@@ -1138,28 +1288,35 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Lower metabolic demand; nymphs, midges, and other slow subsurface prey. Night and cover feeding remain plausible in clear water.",
+        emphasis:
+          "Lower metabolic demand; nymphs, midges, and other slow subsurface prey. Night and cover feeding remain plausible in clear water.",
       },
       {
         season: "spring",
-        emphasis: "Aquatic insects and emergences as water warms. This is capacity, not a declared hatch.",
+        emphasis:
+          "Aquatic insects and emergences as water warms. This is capacity, not a declared hatch.",
       },
       {
         season: "summer",
-        emphasis: "Terrestrials, crayfish, and subsurface insects in the usable thermal band. Large fish add baitfish.",
+        emphasis:
+          "Terrestrials, crayfish, and subsurface insects in the usable thermal band. Large fish add baitfish.",
       },
       {
         season: "fall",
-        emphasis: "Opportunistic insects, crayfish, and fish. Fall spawning is conservation context, not an egg-forage prescription. Do not assume an egg event.",
+        emphasis:
+          "Opportunistic insects, crayfish, and fish. Fall spawning is conservation context, not an egg-forage prescription. Do not assume an egg event.",
       },
     ],
     lifeStageDiet: {
       youngOfYear: "Aquatic invertebrates and drift-scale prey.",
       juvenile: "Aquatic insects, emergences, and small crustaceans.",
-      adult: "Insects remain important; larger fish add crayfish and forage fish, then larger prey fish.",
+      adult:
+        "Insects remain important; larger fish add crayfish and forage fish, then larger prey fish.",
     },
-    preySizeShifts: "Prey length tracks gape. The catalog larger_prey_fish class belongs to large adults, not to parr.",
-    ontogeneticShift: "Insectivory to mixed insect–crustacean–fish, with some adults becoming primarily piscivorous.",
+    preySizeShifts:
+      "Prey length tracks gape. The catalog larger_prey_fish class belongs to large adults, not to parr.",
+    ontogeneticShift:
+      "Insectivory to mixed insect–crustacean–fish, with some adults becoming primarily piscivorous.",
     forageSubstitutions:
       "Streams substitute hatches and terrestrials. Fertile rivers and lakes substitute crayfish and baitfish. Substitution is system-specific.",
     observedForageRule: OBSERVED,
@@ -1189,11 +1346,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Terrestrials and aquatic insects in shaded or high-elevation water. Warm lowland water can be lethal regardless of forage.",
+        emphasis:
+          "Terrestrials and aquatic insects in shaded or high-elevation water. Warm lowland water can be lethal regardless of forage.",
       },
       {
         season: "fall",
-        emphasis: "Remaining insects and opportunistic small fish. Fall spawning is conservation context, not a forage event.",
+        emphasis:
+          "Remaining insects and opportunistic small fish. Fall spawning is conservation context, not a forage event.",
       },
     ],
     lifeStageDiet: {
@@ -1201,8 +1360,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Aquatic insects and small crustaceans.",
       adult: "Insects and terrestrials remain central; small fish where gape allows.",
     },
-    ontogeneticShift: "Weaker shift to piscivory than brown trout at the same length in most streams.",
-    forageSubstitutions: "High lakes may add crustaceans; tiny streams stay insect-heavy. Brown trout competition can change who occupies a food-rich lie, not the brook diet list.",
+    ontogeneticShift:
+      "Weaker shift to piscivory than brown trout at the same length in most streams.",
+    forageSubstitutions:
+      "High lakes may add crustaceans; tiny streams stay insect-heavy. Brown trout competition can change who occupies a food-rich lie, not the brook diet list.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "U.S. Fish and Wildlife Service brook trout species profile", class: "agency" },
@@ -1222,15 +1383,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Fish and remaining invertebrates in the cold column. Shallower relative to summer without becoming a stream-trout diet.",
+        emphasis:
+          "Fish and remaining invertebrates in the cold column. Shallower relative to summer without becoming a stream-trout diet.",
       },
       {
         season: "spring",
-        emphasis: "Forage fish as lakes warm and before summer stratification pins the usable layer.",
+        emphasis:
+          "Forage fish as lakes warm and before summer stratification pins the usable layer.",
       },
       {
         season: "summer",
-        emphasis: "Piscivory on the usable oxythermal layer. Crustaceans (including Mysis where present) can matter in the same band.",
+        emphasis:
+          "Piscivory on the usable oxythermal layer. Crustaceans (including Mysis where present) can matter in the same band.",
       },
       {
         season: "fall",
@@ -1242,13 +1406,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Aquatic insects, crustaceans, and small fish.",
       adult: "Primarily fish; crustaceans and insects remain possible.",
     },
-    preySizeShifts: "Adult gape supports larger prey fish. Juvenile diets are not a proxy for adult trolling forage.",
+    preySizeShifts:
+      "Adult gape supports larger prey fish. Juvenile diets are not a proxy for adult trolling forage.",
     ontogeneticShift: "Invertebrates and small fish to primarily piscivory.",
     forageSubstitutions:
       "Great Lakes substitutions (alewife, smelt, goby) differ from inland cisco/sculpin lakes. RPC overlays that split; this species diet does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Michigan DNR lake trout species account (adult piscivory: cisco, sculpin, alewife, smelt, goby)", class: "agency" },
+      {
+        label:
+          "Michigan DNR lake trout species account (adult piscivory: cisco, sculpin, alewife, smelt, goby)",
+        class: "agency",
+      },
       { label: "Martin & Olver lake trout biology", class: "peer_reviewed" },
     ],
     ...R,
@@ -1265,40 +1434,56 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Returning winter-run fish may take little. Do not convert presence into a nymph or egg hatch.",
+        emphasis:
+          "Returning winter-run fish may take little. Do not convert presence into a nymph or egg hatch.",
       },
       {
         season: "early_spring",
-        emphasis: "Insects and eggs remain capacity only. Spawning overlap is conservation context.",
+        emphasis:
+          "Insects and eggs remain capacity only. Spawning overlap is conservation context.",
       },
       {
         season: "spring",
-        emphasis: "Same rule: forage classes exist; a hatch is not inferred. Summer-run stocks are not on this spring feeding story.",
+        emphasis:
+          "Same rule: forage classes exist; a hatch is not inferred. Summer-run stocks are not on this spring feeding story.",
       },
       {
         season: "summer",
-        emphasis: "Summer-run adults may be in river systems. Heat and low flow are constraints. Still not an inland-rainbow hatch match.",
+        emphasis:
+          "Summer-run adults may be in river systems. Heat and low flow are constraints. Still not an inland-rainbow hatch match.",
       },
       {
         season: "fall",
-        emphasis: "Eggs and insects remain possible foods in some systems. Do not assume an egg event from the calendar.",
+        emphasis:
+          "Eggs and insects remain possible foods in some systems. Do not assume an egg event from the calendar.",
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "USFWS notes zooplankton-scale feeding when young; natal-stream parr then take aquatic invertebrates.",
-      juvenile: "Aquatic insects and crustaceans in freshwater rearing, then ocean prey after emigration — ocean diet is not this freshwater record's job.",
-      adult: "Returning adults may take insects, eggs, and small fish, or may not be feeding in the trout sense.",
+      youngOfYear:
+        "USFWS notes zooplankton-scale feeding when young; natal-stream parr then take aquatic invertebrates.",
+      juvenile:
+        "Aquatic insects and crustaceans in freshwater rearing, then ocean prey after emigration — ocean diet is not this freshwater record's job.",
+      adult:
+        "Returning adults may take insects, eggs, and small fish, or may not be feeding in the trout sense.",
     },
     ontogeneticShift:
       "Freshwater insectivory to marine fish/invertebrate growth, then a freshwater return that is often not a feeding problem in the inland-rainbow sense.",
-    forageSubstitutions: "Great Lakes vs Pacific prey fields differ. This species overlay does not auto-select them.",
+    forageSubstitutions:
+      "Great Lakes vs Pacific prey fields differ. This species overlay does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "NOAA Fisheries steelhead species profile", class: "agency" },
-      { label: "U.S. Fish and Wildlife Service rainbow / steelhead species profile (invertebrates and small fish)", class: "agency" },
+      {
+        label:
+          "U.S. Fish and Wildlife Service rainbow / steelhead species profile (invertebrates and small fish)",
+        class: "agency",
+      },
     ],
     ...R,
-    gaps: [SEASONAL_GAP, "ocean vs freshwater adult diet as a structured split beyond the catalog exception"],
+    gaps: [
+      SEASONAL_GAP,
+      "ocean vs freshwater adult diet as a structured split beyond the catalog exception",
+    ],
   },
   {
     speciesId: "sander_vitreus",
@@ -1311,15 +1496,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Forage fish in the remaining active band. Shallower relative to bright summer without becoming a perch-school diet.",
+        emphasis:
+          "Forage fish in the remaining active band. Shallower relative to bright summer without becoming a perch-school diet.",
       },
       {
         season: "spring",
-        emphasis: "Fish remain primary. Insects and crustaceans are capacity for smaller fish. Spawning overlap is conservation context, not a forage map.",
+        emphasis:
+          "Fish remain primary. Insects and crustaceans are capacity for smaller fish. Spawning overlap is conservation context, not a forage map.",
       },
       {
         season: "summer",
-        emphasis: "Piscivory on the usable light and thermal layer. Perch and other forage fish where they occur. Do not infer a current bait event.",
+        emphasis:
+          "Piscivory on the usable light and thermal layer. Perch and other forage fish where they occur. Do not infer a current bait event.",
       },
       {
         season: "fall",
@@ -1327,17 +1515,23 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Zooplankton-scale and insect prey before the fish shift. Zooplankton is not a catalog forage class on this record.",
+      youngOfYear:
+        "Zooplankton-scale and insect prey before the fish shift. Zooplankton is not a catalog forage class on this record.",
       juvenile: "Aquatic insects, crustaceans, and small forage fish.",
-      adult: "Primarily fish, including yellow perch where they occur; larger prey fish as gape allows.",
+      adult:
+        "Primarily fish, including yellow perch where they occur; larger prey fish as gape allows.",
     },
-    preySizeShifts: "Prey length tracks gape. The larger_prey_fish class belongs to adults, not to young-of-year.",
+    preySizeShifts:
+      "Prey length tracks gape. The larger_prey_fish class belongs to adults, not to young-of-year.",
     ontogeneticShift: "Invertebrates and small fish to primarily piscivory.",
     forageSubstitutions:
       "Lake forage (perch, cisco-scale pelagic fish) differs from large-river forage. RPC lake vs river overlays that split; this species diet does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Minnesota DNR walleye biology (piscivory, yellow perch as primary prey)", class: "agency" },
+      {
+        label: "Minnesota DNR walleye biology (piscivory, yellow perch as primary prey)",
+        class: "agency",
+      },
       { label: "Colby et al. walleye biology", class: "peer_reviewed" },
     ],
     ...R,
@@ -1358,7 +1552,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Fish, insects, and crustaceans as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Fish, insects, and crustaceans as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
@@ -1374,11 +1569,17 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Aquatic insects, crustaceans, and small fish.",
       adult: "Small forage fish with insects and crustaceans still in the mix.",
     },
-    ontogeneticShift: "Invertebrates to small fish. Weaker shift to large piscivory than walleye because that class is not on this record.",
-    forageSubstitutions: "Large-river forage fields differ from reservoir sauger. This overlay does not auto-select them.",
+    ontogeneticShift:
+      "Invertebrates to small fish. Weaker shift to large piscivory than walleye because that class is not on this record.",
+    forageSubstitutions:
+      "Large-river forage fields differ from reservoir sauger. This overlay does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Missouri Department of Conservation sauger field guide (fish, crustaceans, insects)", class: "agency" },
+      {
+        label:
+          "Missouri Department of Conservation sauger field guide (fish, crustaceans, insects)",
+        class: "agency",
+      },
       { label: "USGS sauger habitat and movement research", class: "peer_reviewed" },
     ],
     ...R,
@@ -1395,15 +1596,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Fish in remaining cold, weedy, or wooded water. Activity compresses near the cold edge.",
+        emphasis:
+          "Fish in remaining cold, weedy, or wooded water. Activity compresses near the cold edge.",
       },
       {
         season: "early_spring",
-        emphasis: "Fish and amphibians as ice leaves. Spawning overlap is conservation context, not a frog-hatch declaration.",
+        emphasis:
+          "Fish and amphibians as ice leaves. Spawning overlap is conservation context, not a frog-hatch declaration.",
       },
       {
         season: "summer",
-        emphasis: "Fish along deeper weed edges. Warm weedy water can be a thermal stressor, not a feeding cue.",
+        emphasis:
+          "Fish along deeper weed edges. Warm weedy water can be a thermal stressor, not a feeding cue.",
       },
       {
         season: "fall",
@@ -1411,16 +1615,23 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Michigan DNR: young pike grow rapidly. Invertebrates and tiny fish; invertebrates are not a catalog class here beyond later amphibians and fish.",
+      youngOfYear:
+        "Michigan DNR: young pike grow rapidly. Invertebrates and tiny fish; invertebrates are not a catalog class here beyond later amphibians and fish.",
       juvenile: "Small forage fish.",
       adult: "Fish, including larger prey fish, plus amphibians.",
     },
-    preySizeShifts: "Gape supports large prey. Juvenile diets are not a proxy for adult ambush forage.",
+    preySizeShifts:
+      "Gape supports large prey. Juvenile diets are not a proxy for adult ambush forage.",
     ontogeneticShift: "Small fish to larger piscivory, with amphibians as a reviewed supplement.",
-    forageSubstitutions: "Perch, sunfish, minnow, and sucker substitutions are waterbody-specific. Do not invent a current bait from this list.",
+    forageSubstitutions:
+      "Perch, sunfish, minnow, and sucker substitutions are waterbody-specific. Do not invent a current bait from this list.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Michigan DNR northern pike species account (90 percent fish; perch, sunfish, minnow, sucker, frogs)", class: "agency" },
+      {
+        label:
+          "Michigan DNR northern pike species account (90 percent fish; perch, sunfish, minnow, sucker, frogs)",
+        class: "agency",
+      },
       { label: "Casselman pike thermal ecology", class: "peer_reviewed" },
     ],
     ...R,
@@ -1441,7 +1652,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Fish as water leaves ice-out. Spawning overlap after pike is conservation context.",
+        emphasis:
+          "Fish as water leaves ice-out. Spawning overlap after pike is conservation context.",
       },
       {
         season: "summer",
@@ -1453,16 +1665,22 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Small fish and invertebrates; invertebrates are not a catalog class on this record.",
+      youngOfYear:
+        "Small fish and invertebrates; invertebrates are not a catalog class on this record.",
       juvenile: "Small forage fish.",
       adult: "Primarily larger prey fish; small forage fish and amphibians remain possible.",
     },
-    preySizeShifts: "Adult gape supports large prey. Do not treat a perch-school diet as the muskellunge problem.",
+    preySizeShifts:
+      "Adult gape supports large prey. Do not treat a perch-school diet as the muskellunge problem.",
     ontogeneticShift: "Small fish to primarily large piscivory.",
-    forageSubstitutions: "Sucker, perch, and sunfish substitutions are waterbody-specific. This overlay does not auto-select them.",
+    forageSubstitutions:
+      "Sucker, perch, and sunfish substitutions are waterbody-specific. This overlay does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Michigan DNR muskellunge species account (suckers, minnows, perch, sunfishes)", class: "agency" },
+      {
+        label: "Michigan DNR muskellunge species account (suckers, minnows, perch, sunfishes)",
+        class: "agency",
+      },
       { label: "Crossman muskellunge biology", class: "peer_reviewed" },
     ],
     ...R,
@@ -1479,11 +1697,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Small forage fish along remaining weed and wood edges in ice-free eastern water.",
+        emphasis:
+          "Small forage fish along remaining weed and wood edges in ice-free eastern water.",
       },
       {
         season: "spring",
-        emphasis: "Fish, crustaceans, and amphibians as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Fish, crustaceans, and amphibians as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
@@ -1495,15 +1715,22 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "North Carolina Wildlife: aquatic insects and crustaceans until about 4 in. Insects stay an agency note, not a catalog class here.",
+      youngOfYear:
+        "North Carolina Wildlife: aquatic insects and crustaceans until about 4 in. Insects stay an agency note, not a catalog class here.",
       juvenile: "Crustaceans and small forage fish.",
       adult: "Primarily small forage fish; larger prey fish and amphibians where gape allows.",
     },
-    ontogeneticShift: "Invertebrates and crustaceans to fish around 4 in (North Carolina Wildlife).",
-    forageSubstitutions: "Vegetated eastern waters substitute different small fish than northern pike lakes. Do not import a Great Lakes perch story wholesale.",
+    ontogeneticShift:
+      "Invertebrates and crustaceans to fish around 4 in (North Carolina Wildlife).",
+    forageSubstitutions:
+      "Vegetated eastern waters substitute different small fish than northern pike lakes. Do not import a Great Lakes perch story wholesale.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "North Carolina Wildlife chain pickerel species account (insects and crustaceans to fish near 4 in)", class: "agency" },
+      {
+        label:
+          "North Carolina Wildlife chain pickerel species account (insects and crustaceans to fish near 4 in)",
+        class: "agency",
+      },
       { label: "South Carolina DNR chain pickerel account", class: "agency" },
     ],
     ...R,
@@ -1520,32 +1747,43 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Insects, crustaceans, and small fish in the cold column. Michigan DNR: remain active under ice — that is winter capacity, not a bite claim.",
+        emphasis:
+          "Insects, crustaceans, and small fish in the cold column. Michigan DNR: remain active under ice — that is winter capacity, not a bite claim.",
       },
       {
         season: "spring",
-        emphasis: "Insects, crustaceans, and small fish as water warms. Spawning overlap is conservation context, not an egg-forage prescription.",
+        emphasis:
+          "Insects, crustaceans, and small fish as water warms. Spawning overlap is conservation context, not an egg-forage prescription.",
       },
       {
         season: "summer",
-        emphasis: "Insects and small forage fish along breaks and weed edges. Follows forage and the cooler band, not a deep-basin default.",
+        emphasis:
+          "Insects and small forage fish along breaks and weed edges. Follows forage and the cooler band, not a deep-basin default.",
       },
       {
         season: "fall",
-        emphasis: "Insects and small forage fish as schools use shallower structure than in summer heat.",
+        emphasis:
+          "Insects and small forage fish as schools use shallower structure than in summer heat.",
       },
     ],
     lifeStageDiet: {
       youngOfYear: "Zooplankton-scale prey.",
       juvenile: "Aquatic insects, crustaceans, and zooplankton.",
-      adult: "Immature insects, crayfish-scale crustaceans, and young of other fish (small_forage_fish).",
+      adult:
+        "Immature insects, crayfish-scale crustaceans, and young of other fish (small_forage_fish).",
     },
-    preySizeShifts: "Typical angling-size perch do not take larger_prey_fish. That class is not on this record.",
+    preySizeShifts:
+      "Typical angling-size perch do not take larger_prey_fish. That class is not on this record.",
     ontogeneticShift: "Zooplankton to insects and crustaceans to small fish.",
-    forageSubstitutions: "Great Lakes vs inland prey fields differ. Stunted populations stay insect-heavy. This overlay does not auto-select them.",
+    forageSubstitutions:
+      "Great Lakes vs inland prey fields differ. Stunted populations stay insect-heavy. This overlay does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Michigan DNR yellow perch species account (insects, crayfish, eggs and young of other fish)", class: "agency" },
+      {
+        label:
+          "Michigan DNR yellow perch species account (insects, crayfish, eggs and young of other fish)",
+        class: "agency",
+      },
       { label: "Thorpe yellow perch biology", class: "peer_reviewed" },
     ],
     ...R,
@@ -1562,15 +1800,18 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Zooplankton and remaining invertebrates in deeper timber or basins, with small fish where they occur.",
+        emphasis:
+          "Zooplankton and remaining invertebrates in deeper timber or basins, with small fish where they occur.",
       },
       {
         season: "spring",
-        emphasis: "Insects, crustaceans, and small fish as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Insects, crustaceans, and small fish as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
-        emphasis: "Small forage fish around cover and suspended bait. Zooplankton remains capacity, especially for smaller fish.",
+        emphasis:
+          "Small forage fish around cover and suspended bait. Zooplankton remains capacity, especially for smaller fish.",
       },
       {
         season: "fall",
@@ -1587,7 +1828,10 @@ export const DIET_DOSSIERS: DietDossier[] = [
       "Black vs white forage fields in the same lake can differ with depth and clarity. This complex overlay does not auto-select them.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Minnesota DNR crappie biology (invertebrates then small fish and plankton)", class: "agency" },
+      {
+        label: "Minnesota DNR crappie biology (invertebrates then small fish and plankton)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1597,7 +1841,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["aquatic_insects", "zooplankton", "crustaceans", "terrestrial_insects", "worms_annelids"],
+    primaryForage: [
+      "aquatic_insects",
+      "zooplankton",
+      "crustaceans",
+      "terrestrial_insects",
+      "worms_annelids",
+    ],
     primaryNote:
       "Michigan DNR: fry eat zooplankton; larger fish add aquatic insects. Small fish and some plant matter appear in that agency note; small fish are not a catalog forage class on this record. Terrestrials and worms remain capacity. Do not infer a current hatch.",
     seasonalDiet: [
@@ -1607,11 +1857,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Aquatic insects and zooplankton as water warms. Capacity, not a hatch declaration.",
+        emphasis:
+          "Aquatic insects and zooplankton as water warms. Capacity, not a hatch declaration.",
       },
       {
         season: "summer",
-        emphasis: "Insects, crustaceans, and terrestrials around weeds and docks. Surface foods are capacity only when observed.",
+        emphasis:
+          "Insects, crustaceans, and terrestrials around weeds and docks. Surface foods are capacity only when observed.",
       },
       {
         season: "fall",
@@ -1621,13 +1873,19 @@ export const DIET_DOSSIERS: DietDossier[] = [
     lifeStageDiet: {
       youngOfYear: "Zooplankton.",
       juvenile: "Zooplankton, aquatic insects, and small crustaceans.",
-      adult: "Aquatic insects, crustaceans, terrestrials, and worms. Small fish stay an agency note off this catalog list.",
+      adult:
+        "Aquatic insects, crustaceans, terrestrials, and worms. Small fish stay an agency note off this catalog list.",
     },
-    ontogeneticShift: "Zooplankton to insects and crustaceans. Weaker piscivory than green sunfish or crappie because that class is not on this record.",
-    forageSubstitutions: "Weed ponds substitute insects and terrestrials. Do not invent a hatch from this list.",
+    ontogeneticShift:
+      "Zooplankton to insects and crustaceans. Weaker piscivory than green sunfish or crappie because that class is not on this record.",
+    forageSubstitutions:
+      "Weed ponds substitute insects and terrestrials. Do not invent a hatch from this list.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Michigan DNR bluegill species account (zooplankton then insects)", class: "agency" },
+      {
+        label: "Michigan DNR bluegill species account (zooplankton then insects)",
+        class: "agency",
+      },
       { label: "Werner / Mittelbach sunfish foraging ecology", class: "peer_reviewed" },
     ],
     ...R,
@@ -1638,7 +1896,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["aquatic_insects", "mollusks", "crustaceans", "zooplankton", "small_forage_fish"],
+    primaryForage: [
+      "aquatic_insects",
+      "mollusks",
+      "crustaceans",
+      "zooplankton",
+      "small_forage_fish",
+    ],
     primaryNote:
       "Stronger mollusk and benthic-invertebrate component than bluegill, weaker snail specialization than redear. Insects remain central. Capacity is not a current snail event.",
     seasonalDiet: [
@@ -1665,11 +1929,15 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Insects, mollusks, and crustaceans; some small fish.",
     },
     ontogeneticShift: "Zooplankton to insects and mollusks.",
-    forageSubstitutions: "Lakes with snails add mollusks; snail-poor ponds stay insect-heavy. Do not import a redear shellcracker diet wholesale.",
+    forageSubstitutions:
+      "Lakes with snails add mollusks; snail-poor ponds stay insect-heavy. Do not import a redear shellcracker diet wholesale.",
     observedForageRule: OBSERVED,
     sources: [
       { label: "USGS Nonindigenous Aquatic Species pumpkinseed profile", class: "agency" },
-      { label: "Smithsonian NEMESIS pumpkinseed summary (insects, crustaceans, clams and snails)", class: "agency" },
+      {
+        label: "Smithsonian NEMESIS pumpkinseed summary (insects, crustaceans, clams and snails)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1693,7 +1961,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Snails and other mollusks on vegetation, sand, mud, and shell substrate. Insects where snails are sparse.",
+        emphasis:
+          "Snails and other mollusks on vegetation, sand, mud, and shell substrate. Insects where snails are sparse.",
       },
       {
         season: "fall",
@@ -1701,15 +1970,21 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Agency pond notes describe zooplankton-scale feeding in fry; zooplankton is not a catalog class here. Insects follow.",
+      youngOfYear:
+        "Agency pond notes describe zooplankton-scale feeding in fry; zooplankton is not a catalog class here. Insects follow.",
       juvenile: "Small mollusks and insect larvae.",
       adult: "Primarily snails and other mollusks; insects and crustaceans remain possible.",
     },
     ontogeneticShift: "Insects to primarily mollusks.",
-    forageSubstitutions: "Snail-poor water substitutes insects and crustaceans. That does not turn this record into a bluegill.",
+    forageSubstitutions:
+      "Snail-poor water substitutes insects and crustaceans. That does not turn this record into a bluegill.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Missouri Department of Conservation redear sunfish field guide (snails and other mollusks; shellcracker)", class: "agency" },
+      {
+        label:
+          "Missouri Department of Conservation redear sunfish field guide (snails and other mollusks; shellcracker)",
+        class: "agency",
+      },
       { label: "NC State Extension redear sunfish pond-management guidance", class: "agency" },
     ],
     ...R,
@@ -1720,7 +1995,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["aquatic_insects", "terrestrial_insects", "crustaceans", "small_forage_fish", "mollusks"],
+    primaryForage: [
+      "aquatic_insects",
+      "terrestrial_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+    ],
     primaryNote:
       "Texas Parks and Wildlife: adults feed on insects and small fish. More piscivorous at typical angling size than bluegill. Mollusks and terrestrials remain capacity. Capacity is not a current event.",
     seasonalDiet: [
@@ -1730,7 +2011,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Insects and small fish as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Insects and small fish as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
@@ -1746,11 +2028,16 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Insects and crustaceans.",
       adult: "Insects and small forage fish.",
     },
-    ontogeneticShift: "Insects to mixed insect–fish, stronger piscivory than bluegill at the same length.",
-    forageSubstitutions: "Streams substitute different small fish than ponds. Hybrids should not inherit this list.",
+    ontogeneticShift:
+      "Insects to mixed insect–fish, stronger piscivory than bluegill at the same length.",
+    forageSubstitutions:
+      "Streams substitute different small fish than ponds. Hybrids should not inherit this list.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Texas Parks and Wildlife green sunfish account (insects and small fish)", class: "agency" },
+      {
+        label: "Texas Parks and Wildlife green sunfish account (insects and small fish)",
+        class: "agency",
+      },
       { label: "USGS Nonindigenous Aquatic Species green sunfish profile", class: "agency" },
     ],
     ...R,
@@ -1771,11 +2058,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Insects, crayfish, and small fish as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Insects, crayfish, and small fish as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
-        emphasis: "Crayfish and small forage fish around rock. Surface foods are occasional agency notes, not a catalog surface default.",
+        emphasis:
+          "Crayfish and small forage fish around rock. Surface foods are occasional agency notes, not a catalog surface default.",
       },
       {
         season: "fall",
@@ -1788,10 +2077,14 @@ export const DIET_DOSSIERS: DietDossier[] = [
       adult: "Crayfish, insects, and small forage fish.",
     },
     ontogeneticShift: "Insects to mixed crustacean–fish.",
-    forageSubstitutions: "Rocky rivers substitute crayfish; lakes substitute other small fish. Do not import a smallmouth forage table wholesale.",
+    forageSubstitutions:
+      "Rocky rivers substitute crayfish; lakes substitute other small fish. Do not import a smallmouth forage table wholesale.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Michigan DNR rock bass species account (fish, insects, crustaceans, crayfish)", class: "agency" },
+      {
+        label: "Michigan DNR rock bass species account (fish, insects, crustaceans, crayfish)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1801,21 +2094,30 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["aquatic_insects", "crustaceans", "mollusks", "small_forage_fish", "worms_annelids"],
+    primaryForage: [
+      "aquatic_insects",
+      "crustaceans",
+      "mollusks",
+      "small_forage_fish",
+      "worms_annelids",
+    ],
     primaryNote:
       "South Carolina DNR: predominantly aquatic and terrestrial insects, crayfish, mollusks, and other fish. North Carolina Wildlife: bottom-dwelling insect larvae, snails, clams, shrimp, crayfish, and small fish. Delaware DNREC: mainly insects, also crayfish, leeches, snails, and small fishes. Terrestrial insects are an agency note; they sit beside aquatic insects on this mixed record. Capacity is not a current hatch.",
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Remaining benthic insects, worms, and crustaceans around deeper pools and cover.",
+        emphasis:
+          "Remaining benthic insects, worms, and crustaceans around deeper pools and cover.",
       },
       {
         season: "spring",
-        emphasis: "Aquatic insects, crustaceans, and mollusks as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Aquatic insects, crustaceans, and mollusks as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
-        emphasis: "Insects, crayfish, mollusks, and small forage fish around wood and current margins. Terrestrials are capacity when observed.",
+        emphasis:
+          "Insects, crayfish, mollusks, and small forage fish around wood and current margins. Terrestrials are capacity when observed.",
       },
       {
         season: "fall",
@@ -1827,13 +2129,27 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Aquatic insects, crustaceans, and small mollusks.",
       adult: "Insects, crayfish, mollusks, worms, and small forage fish.",
     },
-    ontogeneticShift: "Insects to mixed insect–crustacean–mollusk, with small fish where gape allows.",
-    forageSubstitutions: "Sandy rivers substitute different mollusks and crayfish than vegetated reservoirs. Do not import a bluegill pond diet wholesale.",
+    ontogeneticShift:
+      "Insects to mixed insect–crustacean–mollusk, with small fish where gape allows.",
+    forageSubstitutions:
+      "Sandy rivers substitute different mollusks and crayfish than vegetated reservoirs. Do not import a bluegill pond diet wholesale.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "South Carolina DNR redbreast sunfish account (insects, crayfish, mollusks, other fish)", class: "agency" },
-      { label: "North Carolina Wildlife Resources Commission redbreast sunfish profile (insect larvae, snails, clams, shrimp, crayfish, small fish)", class: "agency" },
-      { label: "Delaware DNREC Fish Facts redbreast sunfish (insects, crayfish, leeches, snails, small fishes)", class: "agency" },
+      {
+        label:
+          "South Carolina DNR redbreast sunfish account (insects, crayfish, mollusks, other fish)",
+        class: "agency",
+      },
+      {
+        label:
+          "North Carolina Wildlife Resources Commission redbreast sunfish profile (insect larvae, snails, clams, shrimp, crayfish, small fish)",
+        class: "agency",
+      },
+      {
+        label:
+          "Delaware DNREC Fish Facts redbreast sunfish (insects, crayfish, leeches, snails, small fishes)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1853,7 +2169,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Insects, crayfish, and small fish as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Insects, crayfish, and small fish as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
@@ -1865,17 +2182,31 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Texas Parks and Wildlife: zooplankton and small insects. Zooplankton is not a catalog class on this record.",
+      youngOfYear:
+        "Texas Parks and Wildlife: zooplankton and small insects. Zooplankton is not a catalog class on this record.",
       juvenile: "Insects and small crustaceans.",
       adult: "Insects, crayfish, mollusks, and small forage fish.",
     },
-    ontogeneticShift: "Small invertebrates to mixed insect–crayfish–fish, stronger piscivory than bluegill at the same length.",
-    forageSubstitutions: "Swamps substitute crayfish and insects; ponds substitute different small fish. Hybrids should not inherit this list.",
+    ontogeneticShift:
+      "Small invertebrates to mixed insect–crayfish–fish, stronger piscivory than bluegill at the same length.",
+    forageSubstitutions:
+      "Swamps substitute crayfish and insects; ponds substitute different small fish. Hybrids should not inherit this list.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Texas Parks and Wildlife warmouth account (young zooplankton and insects; adults insects, mollusks, small fish)", class: "agency" },
-      { label: "Florida Fish and Wildlife Conservation Commission warmouth profile (crayfish, shrimp, insects, small fishes)", class: "agency" },
-      { label: "Virginia DWR warmouth account (insects, snails, crayfish, small fishes)", class: "agency" },
+      {
+        label:
+          "Texas Parks and Wildlife warmouth account (young zooplankton and insects; adults insects, mollusks, small fish)",
+        class: "agency",
+      },
+      {
+        label:
+          "Florida Fish and Wildlife Conservation Commission warmouth profile (crayfish, shrimp, insects, small fishes)",
+        class: "agency",
+      },
+      {
+        label: "Virginia DWR warmouth account (insects, snails, crayfish, small fishes)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1899,11 +2230,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Insects, terrestrials, crayfish, and some small forage fish in clear stream pools. Surface foods are capacity when observed.",
+        emphasis:
+          "Insects, terrestrials, crayfish, and some small forage fish in clear stream pools. Surface foods are capacity when observed.",
       },
       {
         season: "late_summer",
-        emphasis: "Insects and remaining terrestrials along pool edges. Nesting overlap may continue; that is conservation context.",
+        emphasis:
+          "Insects and remaining terrestrials along pool edges. Nesting overlap may continue; that is conservation context.",
       },
       {
         season: "fall",
@@ -1915,12 +2248,22 @@ export const DIET_DOSSIERS: DietDossier[] = [
       juvenile: "Insects and small crustaceans.",
       adult: "Insects, terrestrials, crayfish-scale crustaceans, and some small forage fish.",
     },
-    ontogeneticShift: "Small invertebrates to mixed insect–crustacean, with small fish where gape allows.",
-    forageSubstitutions: "Clear rocky streams substitute crayfish and insects. Do not import a mollusk specialist diet this record does not have.",
+    ontogeneticShift:
+      "Small invertebrates to mixed insect–crustacean, with small fish where gape allows.",
+    forageSubstitutions:
+      "Clear rocky streams substitute crayfish and insects. Do not import a mollusk specialist diet this record does not have.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Missouri Department of Conservation longear sunfish field guide (insects, small crustaceans, some small fish)", class: "agency" },
-      { label: "Illinois Department of Natural Resources longear sunfish account (insects, fishes, crayfish)", class: "agency" },
+      {
+        label:
+          "Missouri Department of Conservation longear sunfish field guide (insects, small crustaceans, some small fish)",
+        class: "agency",
+      },
+      {
+        label:
+          "Illinois Department of Natural Resources longear sunfish account (insects, fishes, crayfish)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1940,7 +2283,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Aquatic insects, crustaceans, and small fish as water warms. Early spawning overlap is conservation context.",
+        emphasis:
+          "Aquatic insects, crustaceans, and small fish as water warms. Early spawning overlap is conservation context.",
       },
       {
         season: "summer",
@@ -1952,16 +2296,25 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Small aquatic insects. Zooplankton is catalog capacity, not a sourced primary class here.",
+      youngOfYear:
+        "Small aquatic insects. Zooplankton is catalog capacity, not a sourced primary class here.",
       juvenile: "Insects and small crustaceans.",
       adult: "Insects, crustaceans, and small forage fish.",
     },
     ontogeneticShift: "Small insects to mixed insect–fish in vegetated backwater.",
-    forageSubstitutions: "Tannic swamps substitute different insects than clear oxbows. Do not import a crappie plankton-and-schooling diet wholesale.",
+    forageSubstitutions:
+      "Tannic swamps substitute different insects than clear oxbows. Do not import a crappie plankton-and-schooling diet wholesale.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "South Carolina DNR flier account (small aquatic insects and small fishes)", class: "agency" },
-      { label: "Illinois Department of Natural Resources flier account (insects, fishes, crustaceans)", class: "agency" },
+      {
+        label: "South Carolina DNR flier account (small aquatic insects and small fishes)",
+        class: "agency",
+      },
+      {
+        label:
+          "Illinois Department of Natural Resources flier account (insects, fishes, crustaceans)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -1971,25 +2324,35 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "benthic",
-    primaryForage: ["aquatic_insects", "small_forage_fish", "crustaceans", "mollusks", "worms_annelids"],
+    primaryForage: [
+      "aquatic_insects",
+      "small_forage_fish",
+      "crustaceans",
+      "mollusks",
+      "worms_annelids",
+    ],
     primaryNote:
       "Missouri DNR: omnivorous — fish, insects, crayfish, mollusks, and plant material. North Carolina Wildlife: adults eat plant material, insect larvae, crayfish, mollusks, small fish, and even dead fish. Minnesota DNR: snails, crayfish, aquatic insects, other invertebrates, and small fish; more likely than flathead to take carrion. Larger-prey-fish is not a catalog class on this record.",
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Slow bottom intercept of remaining invertebrates and fish in deep, current-protected water.",
+        emphasis:
+          "Slow bottom intercept of remaining invertebrates and fish in deep, current-protected water.",
       },
       {
         season: "spring",
-        emphasis: "Insects, crustaceans, and small fish as water warms. Upstream movement is a class, not a hatch declaration.",
+        emphasis:
+          "Insects, crustaceans, and small fish as water warms. Upstream movement is a class, not a hatch declaration.",
       },
       {
         season: "early_summer",
-        emphasis: "Omnivory around cover and night shallows. Spawning overlap is conservation context.",
+        emphasis:
+          "Omnivory around cover and night shallows. Spawning overlap is conservation context.",
       },
       {
         season: "summer",
-        emphasis: "Insects, crayfish, mollusks, worms, and small forage fish on the bottom of the usable band. Night shallows are a delivery window, not a current event.",
+        emphasis:
+          "Insects, crayfish, mollusks, worms, and small forage fish on the bottom of the usable band. Night shallows are a delivery window, not a current event.",
       },
       {
         season: "fall",
@@ -1997,18 +2360,37 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Missouri DNR: less than 4 in feed almost entirely on small insects. North Carolina Wildlife notes plankton in young; zooplankton is not a catalog class here.",
+      youngOfYear:
+        "Missouri DNR: less than 4 in feed almost entirely on small insects. North Carolina Wildlife notes plankton in young; zooplankton is not a catalog class here.",
       juvenile: "Aquatic insects, crustaceans, and small invertebrates.",
-      adult: "Omnivorous: insects, mollusks, crustaceans, worms, small forage fish, and carrion. Not a live-fish-only flathead diet.",
+      adult:
+        "Omnivorous: insects, mollusks, crustaceans, worms, small forage fish, and carrion. Not a live-fish-only flathead diet.",
     },
-    ontogeneticShift: "Insects to mixed benthic omnivory. Weaker early piscivory than blue catfish.",
-    forageSubstitutions: "Ponds substitute prepared and invertebrate foods; large rivers substitute different small fish and mollusks. Do not import a flathead live-fish diet wholesale.",
+    ontogeneticShift:
+      "Insects to mixed benthic omnivory. Weaker early piscivory than blue catfish.",
+    forageSubstitutions:
+      "Ponds substitute prepared and invertebrate foods; large rivers substitute different small fish and mollusks. Do not import a flathead live-fish diet wholesale.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Missouri Department of Conservation channel catfish field guide (omnivory, insects to fish, night feeding)", class: "agency" },
-      { label: "Texas Parks and Wildlife channel catfish account (insects, mollusks, crustaceans, fish, some plant material)", class: "agency" },
-      { label: "North Carolina Wildlife channel catfish account (omnivory including dead fish)", class: "agency" },
-      { label: "Minnesota DNR catfish biology (invertebrates and small fish; more carrion than flathead)", class: "agency" },
+      {
+        label:
+          "Missouri Department of Conservation channel catfish field guide (omnivory, insects to fish, night feeding)",
+        class: "agency",
+      },
+      {
+        label:
+          "Texas Parks and Wildlife channel catfish account (insects, mollusks, crustaceans, fish, some plant material)",
+        class: "agency",
+      },
+      {
+        label: "North Carolina Wildlife channel catfish account (omnivory including dead fish)",
+        class: "agency",
+      },
+      {
+        label:
+          "Minnesota DNR catfish biology (invertebrates and small fish; more carrion than flathead)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -2018,17 +2400,25 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks", "aquatic_insects"],
+    primaryForage: [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "aquatic_insects",
+    ],
     primaryNote:
       "Texas Parks and Wildlife: varied diet but eats fish earlier than channel catfish; individuals larger than 8 in eat fish and large invertebrates. Virginia DWR: trophic generalist — small fish, crayfish, mollusks, and plant matter, becoming increasingly piscivorous at large size. USGS NAS: highly omnivorous, including scavenged items. Worms are not a catalog class on this record.",
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Texas Parks and Wildlife: downstream toward warmer water. Remaining fish and invertebrates in the usable band.",
+        emphasis:
+          "Texas Parks and Wildlife: downstream toward warmer water. Remaining fish and invertebrates in the usable band.",
       },
       {
         season: "spring",
-        emphasis: "Fish, crustaceans, and insects as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Fish, crustaceans, and insects as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "early_summer",
@@ -2036,7 +2426,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Texas Parks and Wildlife: upstream toward cooler water. Large fish emphasize piscivory. Reservoir roamers may suspend with forage — that is not a current bait event.",
+        emphasis:
+          "Texas Parks and Wildlife: upstream toward cooler water. Large fish emphasize piscivory. Reservoir roamers may suspend with forage — that is not a current bait event.",
       },
       {
         season: "fall",
@@ -2044,19 +2435,38 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Texas Parks and Wildlife: invertebrates still the major portion, but fish as small as 4 in have consumed fish.",
+      youngOfYear:
+        "Texas Parks and Wildlife: invertebrates still the major portion, but fish as small as 4 in have consumed fish.",
       juvenile: "Fish and large invertebrates.",
-      adult: "Increasingly piscivorous; crustaceans, mollusks, and insects remain possible. NOAA / North Carolina Wildlife: large fish consume native fishes in introduced Atlantic-slope waters — conservation context, not a targeting list.",
+      adult:
+        "Increasingly piscivorous; crustaceans, mollusks, and insects remain possible. NOAA / North Carolina Wildlife: large fish consume native fishes in introduced Atlantic-slope waters — conservation context, not a targeting list.",
     },
-    ontogeneticShift: "Invertebrates to mixed fish earlier than channel catfish, then larger prey fish at adult size.",
-    forageSubstitutions: "Native large-river diets differ from introduced tidal-river diets. Do not import a flathead live-fish-only rule or a channel carrion default wholesale. RPC already splits river-channel vs reservoir-roaming.",
+    ontogeneticShift:
+      "Invertebrates to mixed fish earlier than channel catfish, then larger prey fish at adult size.",
+    forageSubstitutions:
+      "Native large-river diets differ from introduced tidal-river diets. Do not import a flathead live-fish-only rule or a channel carrion default wholesale. RPC already splits river-channel vs reservoir-roaming.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Texas Parks and Wildlife blue catfish account (earlier piscivory, 4 in and 8 in diet notes)", class: "agency" },
+      {
+        label:
+          "Texas Parks and Wildlife blue catfish account (earlier piscivory, 4 in and 8 in diet notes)",
+        class: "agency",
+      },
       { label: "Virginia DWR blue catfish account (omnivory to piscivory)", class: "agency" },
-      { label: "USGS Nonindigenous Aquatic Species blue catfish profile (highly omnivorous diet composition)", class: "agency" },
-      { label: "NOAA Fisheries blue catfish species page (opportunistic generalist; Chesapeake native-fish predation as conservation context)", class: "agency" },
-      { label: "North Carolina Wildlife blue catfish account (piscivorous when large)", class: "agency" },
+      {
+        label:
+          "USGS Nonindigenous Aquatic Species blue catfish profile (highly omnivorous diet composition)",
+        class: "agency",
+      },
+      {
+        label:
+          "NOAA Fisheries blue catfish species page (opportunistic generalist; Chesapeake native-fish predation as conservation context)",
+        class: "agency",
+      },
+      {
+        label: "North Carolina Wildlife blue catfish account (piscivorous when large)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, "introduced-range vs native-range prey tables"],
@@ -2076,7 +2486,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "spring",
-        emphasis: "Live fish and crayfish as water warms. Spawning overlap is conservation context.",
+        emphasis:
+          "Live fish and crayfish as water warms. Spawning overlap is conservation context.",
       },
       {
         season: "early_summer",
@@ -2084,7 +2495,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Night intercept of live fish off deep cover. Crayfish remain capacity. This is not a current baitfish declaration.",
+        emphasis:
+          "Night intercept of live fish off deep cover. Crayfish remain capacity. This is not a current baitfish declaration.",
       },
       {
         season: "fall",
@@ -2092,17 +2504,31 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Missouri DNR: smaller than 4 in eat insect larvae. Texas Parks and Wildlife: young feed mostly on invertebrates. Insects are not a catalog class here.",
+      youngOfYear:
+        "Missouri DNR: smaller than 4 in eat insect larvae. Texas Parks and Wildlife: young feed mostly on invertebrates. Insects are not a catalog class here.",
       juvenile: "Texas Parks and Wildlife: invertebrates, then live fish by about 10 in.",
       adult: "Live fish and crayfish. Not scavengers.",
     },
-    ontogeneticShift: "Invertebrates to live-fish specialization. Stronger piscivory than channel catfish at the same length.",
-    forageSubstitutions: "Rivers substitute different live fish than reservoirs. Do not import channel-catfish carrion or insect defaults. Introduced-range diets stay waterbody-specific.",
+    ontogeneticShift:
+      "Invertebrates to live-fish specialization. Stronger piscivory than channel catfish at the same length.",
+    forageSubstitutions:
+      "Rivers substitute different live fish than reservoirs. Do not import channel-catfish carrion or insect defaults. Introduced-range diets stay waterbody-specific.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Missouri Department of Conservation flathead catfish field guide (night forage, live fish and crayfish, not scavengers)", class: "agency" },
-      { label: "Texas Parks and Wildlife flathead catfish account (live fish from about 10 in)", class: "agency" },
-      { label: "Minnesota DNR catfish biology (primarily other fish; shun dead bait relative to channel catfish)", class: "agency" },
+      {
+        label:
+          "Missouri Department of Conservation flathead catfish field guide (night forage, live fish and crayfish, not scavengers)",
+        class: "agency",
+      },
+      {
+        label: "Texas Parks and Wildlife flathead catfish account (live fish from about 10 in)",
+        class: "agency",
+      },
+      {
+        label:
+          "Minnesota DNR catfish biology (primarily other fish; shun dead bait relative to channel catfish)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP],
@@ -2112,7 +2538,13 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "benthic",
-    primaryForage: ["aquatic_insects", "crustaceans", "small_forage_fish", "mollusks", "worms_annelids"],
+    primaryForage: [
+      "aquatic_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+      "worms_annelids",
+    ],
     primaryNote:
       "Smithsonian NEMESIS: omnivorous — aquatic plants, benthic invertebrates, and small fishes. Chesapeake Bay Program: adults favor other fish but also consume crustaceans, insects, and aquatic plants. Larger-prey-fish is not a catalog class. Plant material is an agency note off this catalog list.",
     seasonalDiet: [
@@ -2130,7 +2562,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "summer",
-        emphasis: "Insects, crustaceans, mollusks, worms, and small forage fish around wood and current relief. Daylight feeding is more plausible than a bullhead night-only default.",
+        emphasis:
+          "Insects, crustaceans, mollusks, worms, and small forage fish around wood and current relief. Daylight feeding is more plausible than a bullhead night-only default.",
       },
       {
         season: "fall",
@@ -2138,16 +2571,27 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Smithsonian NEMESIS: small invertebrates (amphipods, mysids, midge larvae in estuary notes). Freshwater young stay insect- and invertebrate-weighted.",
+      youngOfYear:
+        "Smithsonian NEMESIS: small invertebrates (amphipods, mysids, midge larvae in estuary notes). Freshwater young stay insect- and invertebrate-weighted.",
       juvenile: "Benthic invertebrates and small crustaceans.",
-      adult: "Insects, crustaceans, mollusks, worms, and small forage fish. Not a blue-catfish piscivore.",
+      adult:
+        "Insects, crustaceans, mollusks, worms, and small forage fish. Not a blue-catfish piscivore.",
     },
     ontogeneticShift: "Small invertebrates to mixed benthic omnivory with some small fish.",
-    forageSubstitutions: "Coastal rivers substitute different invertebrates than inland ponds. Do not inherit a bullhead night-only diet or a channel-catfish carrion story wholesale.",
+    forageSubstitutions:
+      "Coastal rivers substitute different invertebrates than inland ponds. Do not inherit a bullhead night-only diet or a channel-catfish carrion story wholesale.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Smithsonian NEMESIS white catfish summary (omnivory: plants, benthic invertebrates, small fishes)", class: "agency" },
-      { label: "Chesapeake Bay Program white catfish field guide (omnivory; adults favor fish plus crustaceans and insects)", class: "agency" },
+      {
+        label:
+          "Smithsonian NEMESIS white catfish summary (omnivory: plants, benthic invertebrates, small fishes)",
+        class: "agency",
+      },
+      {
+        label:
+          "Chesapeake Bay Program white catfish field guide (omnivory; adults favor fish plus crustaceans and insects)",
+        class: "agency",
+      },
       { label: "Connecticut DEEP white catfish account (slow-water habitat)", class: "agency" },
     ],
     ...R,
@@ -2164,37 +2608,54 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "spring",
-        emphasis: "Great Lakes and ocean feeding remain piscivorous capacity where those fish are in open water. Aquatic insects remain juvenile/young capacity. Do not infer a current bait event.",
+        emphasis:
+          "Great Lakes and ocean feeding remain piscivorous capacity where those fish are in open water. Aquatic insects remain juvenile/young capacity. Do not infer a current bait event.",
       },
       {
         season: "summer",
-        emphasis: "Older fish on other fish. Lake fish track the cool pelagic layer. Pacific freshwater return is not this feeding story.",
+        emphasis:
+          "Older fish on other fish. Lake fish track the cool pelagic layer. Pacific freshwater return is not this feeding story.",
       },
       {
         season: "late_summer",
-        emphasis: "Pacific freshwater adults are interception, not forage matching. Great Lakes lake feeding may still be underway. Do not collapse the two.",
+        emphasis:
+          "Pacific freshwater adults are interception, not forage matching. Great Lakes lake feeding may still be underway. Do not collapse the two.",
       },
       {
         season: "fall",
-        emphasis: "Spawning adults are not a feeding-trout problem. Redds are excluded. Diet capacity does not license targeting spawners.",
+        emphasis:
+          "Spawning adults are not a feeding-trout problem. Redds are excluded. Diet capacity does not license targeting spawners.",
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "NOAA: terrestrial and aquatic insects, amphipods, and other crustaceans. Terrestrial insects and crustaceans stay off the catalog forage list here.",
+      youngOfYear:
+        "NOAA: terrestrial and aquatic insects, amphipods, and other crustaceans. Terrestrial insects and crustaceans stay off the catalog forage list here.",
       juvenile: "Aquatic insects remain; fish enter as gape allows.",
-      adult: "Older Chinook primarily feed on other fish (NOAA). Freshwater spawning adults are interception, not forage matching.",
+      adult:
+        "Older Chinook primarily feed on other fish (NOAA). Freshwater spawning adults are interception, not forage matching.",
     },
-    preySizeShifts: "Gape tracks the shift from insects to fish. Large adults take larger prey fish; that does not apply to spawning freshwater adults as a feeding model.",
-    ontogeneticShift: "Insects/crustaceans in young fish to piscivory in older fish, then feeding largely stops as a model for Pacific freshwater spawners.",
+    preySizeShifts:
+      "Gape tracks the shift from insects to fish. Large adults take larger prey fish; that does not apply to spawning freshwater adults as a feeding model.",
+    ontogeneticShift:
+      "Insects/crustaceans in young fish to piscivory in older fish, then feeding largely stops as a model for Pacific freshwater spawners.",
     forageSubstitutions:
       "Great Lakes alewife/smelt fields vs Pacific herring-scale forage are not interchangeable. This species overlay does not auto-select them. Do not import an inland-rainbow hatch match.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "NOAA Fisheries Chinook Salmon species profile (young insects/crustaceans; older fish; ESA counts)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chinook-salmon" },
+      {
+        label:
+          "NOAA Fisheries Chinook Salmon species profile (young insects/crustaceans; older fish; ESA counts)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/chinook-salmon",
+      },
       { label: "Healey chinook life history", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [SEASONAL_GAP, "Pacific vs Great Lakes adult diet as a structured split", "terrestrial insects / crustaceans fraction (no catalog forage class here)"],
+    gaps: [
+      SEASONAL_GAP,
+      "Pacific vs Great Lakes adult diet as a structured split",
+      "terrestrial insects / crustaceans fraction (no catalog forage class here)",
+    ],
   },
   {
     speciesId: "oncorhynchus_kisutch",
@@ -2207,32 +2668,47 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "spring",
-        emphasis: "Great Lakes and ocean fish on small forage fish where those fish are in open water. Insects remain juvenile/young capacity.",
+        emphasis:
+          "Great Lakes and ocean fish on small forage fish where those fish are in open water. Insects remain juvenile/young capacity.",
       },
       {
         season: "summer",
-        emphasis: "Small fishes in the usable pelagic band. Catalog: often higher in the column than Chinook. Capacity is not a current bait event.",
+        emphasis:
+          "Small fishes in the usable pelagic band. Catalog: often higher in the column than Chinook. Capacity is not a current bait event.",
       },
       {
         season: "fall",
-        emphasis: "Pacific freshwater adults are interception, not forage matching. Do not treat tributary-mouth habitat as a license to crowd spawning tributaries.",
+        emphasis:
+          "Pacific freshwater adults are interception, not forage matching. Do not treat tributary-mouth habitat as a license to crowd spawning tributaries.",
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "NOAA: plankton and insects in fresh water. Zooplankton stays off the catalog forage list here.",
+      youngOfYear:
+        "NOAA: plankton and insects in fresh water. Zooplankton stays off the catalog forage list here.",
       juvenile: "Insects and, as gape allows, small fish before ocean or lake entry.",
-      adult: "Ocean and Great Lakes adults on small fishes. Freshwater spawning adults are not a feeding-trout model. They do not inherit Chinook larger-prey-fish forage.",
+      adult:
+        "Ocean and Great Lakes adults on small fishes. Freshwater spawning adults are not a feeding-trout model. They do not inherit Chinook larger-prey-fish forage.",
     },
-    ontogeneticShift: "Plankton/insects in freshwater young to small-fish feeding in ocean/lake adults; Pacific freshwater return is not a forage-matching problem.",
+    ontogeneticShift:
+      "Plankton/insects in freshwater young to small-fish feeding in ocean/lake adults; Pacific freshwater return is not a forage-matching problem.",
     forageSubstitutions:
       "Great Lakes vs Pacific small-fish fields differ. Do not substitute Chinook larger-prey-fish forage, and do not substitute an inland-rainbow hatch match.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "NOAA Fisheries Coho Salmon species profile (young plankton and insects; ocean small fishes)", class: "agency", url: "https://www.fisheries.noaa.gov/species/coho-salmon" },
+      {
+        label:
+          "NOAA Fisheries Coho Salmon species profile (young plankton and insects; ocean small fishes)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/coho-salmon",
+      },
       { label: "Sandercock coho life history", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [SEASONAL_GAP, "Pacific vs Great Lakes adult diet as a structured split", "zooplankton fraction in young fish (no catalog forage class here)"],
+    gaps: [
+      SEASONAL_GAP,
+      "Pacific vs Great Lakes adult diet as a structured split",
+      "zooplankton fraction in young fish (no catalog forage class here)",
+    ],
   },
   {
     speciesId: "oncorhynchus_gorbuscha",
@@ -2245,7 +2721,8 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "summer",
-        emphasis: "Returning freshwater adults do not eat (Alaska DFG). Ocean feeding is behind them. Odd/even year structure is not a diet event.",
+        emphasis:
+          "Returning freshwater adults do not eat (Alaska DFG). Ocean feeding is behind them. Odd/even year structure is not a diet event.",
       },
       {
         season: "late_summer",
@@ -2253,21 +2730,36 @@ export const DIET_DOSSIERS: DietDossier[] = [
       },
       {
         season: "fall",
-        emphasis: "Spawning fish do not establish feeding lies. Diet guidance for freshwater adults stays conservation-first.",
+        emphasis:
+          "Spawning fish do not establish feeding lies. Diet guidance for freshwater adults stays conservation-first.",
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "Alaska DFG: aquatic insects and zooplankton on the way to the ocean. They leave gravel quickly.",
-      juvenile: "Short freshwater residence; ocean entry on plankton, shrimp/krill, and small fish.",
-      adult: "Alaska DFG: adults returning to spawn do not eat. As with the pink freshwater record, presentation describes interception/reaction mechanics only.",
+      youngOfYear:
+        "Alaska DFG: aquatic insects and zooplankton on the way to the ocean. They leave gravel quickly.",
+      juvenile:
+        "Short freshwater residence; ocean entry on plankton, shrimp/krill, and small fish.",
+      adult:
+        "Alaska DFG: adults returning to spawn do not eat. As with the pink freshwater record, presentation describes interception/reaction mechanics only.",
     },
-    ontogeneticShift: "Brief freshwater insect/zooplankton feeding, marine pelagic feeding, then feeding stops on the freshwater return.",
+    ontogeneticShift:
+      "Brief freshwater insect/zooplankton feeding, marine pelagic feeding, then feeding stops on the freshwater return.",
     forageSubstitutions:
       "Do not substitute a trout hatch match, a Chinook piscivore diet, or a stillwater pelagic diet — this record is flowing-only and freshwater adults do not eat.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Alaska Department of Fish and Game Pink Salmon species profile (adults returning to spawn do not eat; young insects and zooplankton)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main" },
-      { label: "NOAA Fisheries Pink Salmon species profile (zooplankton, small crustaceans, small fish)", class: "agency", url: "https://www.fisheries.noaa.gov/species/pink-salmon" },
+      {
+        label:
+          "Alaska Department of Fish and Game Pink Salmon species profile (adults returning to spawn do not eat; young insects and zooplankton)",
+        class: "agency",
+        url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main",
+      },
+      {
+        label:
+          "NOAA Fisheries Pink Salmon species profile (zooplankton, small crustaceans, small fish)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/pink-salmon",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, "crustacean fraction (no catalog forage class here)"],
@@ -2283,33 +2775,50 @@ export const DIET_DOSSIERS: DietDossier[] = [
     seasonalDiet: [
       {
         season: "late_summer",
-        emphasis: "Returning freshwater adults have ceased feeding (Alaska DFG). Ocean feeding is behind them.",
+        emphasis:
+          "Returning freshwater adults have ceased feeding (Alaska DFG). Ocean feeding is behind them.",
       },
       {
         season: "fall",
-        emphasis: "Migration and ripening, not a forage-matching problem. Listed ESUs remain conservation context.",
+        emphasis:
+          "Migration and ripening, not a forage-matching problem. Listed ESUs remain conservation context.",
       },
       {
         season: "late_fall",
-        emphasis: "NOAA: spawning continues toward early winter in some populations. Spawners are not feeding trout.",
+        emphasis:
+          "NOAA: spawning continues toward early winter in some populations. Spawners are not feeding trout.",
       },
       {
         season: "winter",
-        emphasis: "Peak spawning can be concentrated in early winter (NOAA). Diet guidance stays conservation-first.",
+        emphasis:
+          "Peak spawning can be concentrated in early winter (NOAA). Diet guidance stays conservation-first.",
       },
     ],
     lifeStageDiet: {
-      youngOfYear: "NOAA / Alaska DFG: insects on the seaward movement. That insect fraction is not a catalog forage class here; crustaceans and zooplankton are.",
+      youngOfYear:
+        "NOAA / Alaska DFG: insects on the seaward movement. That insect fraction is not a catalog forage class here; crustaceans and zooplankton are.",
       juvenile: "Nearshore crustaceans and small fishes after ocean entry (Alaska DFG).",
-      adult: "Ocean: copepods, fishes, mollusks, squid, and tunicates (NOAA / Alaska DFG). Freshwater adults cease feeding.",
+      adult:
+        "Ocean: copepods, fishes, mollusks, squid, and tunicates (NOAA / Alaska DFG). Freshwater adults cease feeding.",
     },
-    ontogeneticShift: "Brief freshwater insect feeding off-catalog, marine crustacean/fish feeding, then digestive-tract shutdown on the spawning run.",
+    ontogeneticShift:
+      "Brief freshwater insect feeding off-catalog, marine crustacean/fish feeding, then digestive-tract shutdown on the spawning run.",
     forageSubstitutions:
       "Do not substitute a trout hatch match or a pink small-scale diet as if they were the same fish. Do not add stillwater families — this record is flowing-only.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Alaska Department of Fish and Game Chum Salmon species profile (cease feeding; ocean copepods, tunicates, mollusks, fishes)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main" },
-      { label: "NOAA Fisheries Chum Salmon species profile (young insects off-catalog; adult marine diet; threatened ESUs)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chum-salmon" },
+      {
+        label:
+          "Alaska Department of Fish and Game Chum Salmon species profile (cease feeding; ocean copepods, tunicates, mollusks, fishes)",
+        class: "agency",
+        url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main",
+      },
+      {
+        label:
+          "NOAA Fisheries Chum Salmon species profile (young insects off-catalog; adult marine diet; threatened ESUs)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/chum-salmon",
+      },
     ],
     ...R,
     gaps: [SEASONAL_GAP, "aquatic insect fraction in young fish (no catalog forage class here)"],
@@ -2319,42 +2828,58 @@ export const DIET_DOSSIERS: DietDossier[] = [
     status: "reviewed",
     feedingStyle: "opportunistic",
     feedingZone: "mixed",
-    primaryForage: ["small_forage_fish", "aquatic_insects", "emerging_insects", "terrestrial_insects"],
+    primaryForage: [
+      "small_forage_fish",
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+    ],
     primaryNote:
       "Maine IFW: rainbow smelt are the principal forage for landlocked salmon in Maine lakes; growth can be poor without adequate smelt. River fish take aquatic, emerging, and terrestrial insects. Unlike Pacific salmon freshwater adults, this form still feeds. Larger prey fish is not a catalog class here — do not import lake trout or brown-trout piscivory wholesale.",
     seasonalDiet: [
       {
         season: "winter",
-        emphasis: "Pelagic forage fish in the remaining cold band. Insects recede. Capacity is not a current smelt event.",
+        emphasis:
+          "Pelagic forage fish in the remaining cold band. Insects recede. Capacity is not a current smelt event.",
       },
       {
         season: "spring",
-        emphasis: "Smelt-scale forage in lakes as water leaves winter; insects and emergences in connected rivers. Do not infer a hatch.",
+        emphasis:
+          "Smelt-scale forage in lakes as water leaves winter; insects and emergences in connected rivers. Do not infer a hatch.",
       },
       {
         season: "summer",
-        emphasis: "Maine IFW: prefer water below 65°F. Lake fish follow cold oxygenated water and pelagic forage. Surface insects are capacity, not a default.",
+        emphasis:
+          "Maine IFW: prefer water below 65°F. Lake fish follow cold oxygenated water and pelagic forage. Surface insects are capacity, not a default.",
       },
       {
         season: "fall",
-        emphasis: "Forage continues until spawning overlap. Maine IFW: mid-October through late November spawn window is an invalidator, not a forage map.",
+        emphasis:
+          "Forage continues until spawning overlap. Maine IFW: mid-October through late November spawn window is an invalidator, not a forage map.",
       },
     ],
     lifeStageDiet: {
       youngOfYear: "Stream insects during the one-to-four-year river residence (Maine IFW).",
-      juvenile: "Aquatic and emerging insects in streams, then a shift toward pelagic forage after lake entry.",
-      adult: "Maine IFW: rainbow smelt principal lake forage. Insects remain river capacity. This is not wild sea-run Atlantic salmon, and it is not a non-feeding Pacific spawner.",
+      juvenile:
+        "Aquatic and emerging insects in streams, then a shift toward pelagic forage after lake entry.",
+      adult:
+        "Maine IFW: rainbow smelt principal lake forage. Insects remain river capacity. This is not wild sea-run Atlantic salmon, and it is not a non-feeding Pacific spawner.",
     },
-    ontogeneticShift: "Stream insectivory to lake pelagic smelt-linked feeding. Absence of smelt or equivalent pelagic forage can materially change growth (catalog).",
+    ontogeneticShift:
+      "Stream insectivory to lake pelagic smelt-linked feeding. Absence of smelt or equivalent pelagic forage can materially change growth (catalog).",
     forageSubstitutions:
       "Lakes substitute other pelagic forage fish when smelt are scarce; growth often suffers. Rivers substitute hatches and terrestrials. Do not substitute a brown-trout hole diet or a steelhead egg diet as the default.",
     observedForageRule: OBSERVED,
     sources: [
-      { label: "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile (rainbow smelt principal lake forage; <65°F)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
+      {
+        label:
+          "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile (rainbow smelt principal lake forage; <65°F)",
+        class: "agency",
+        url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html",
+      },
       { label: "Maine landlocked Atlantic salmon management literature", class: "agency" },
     ],
     ...R,
     gaps: [SEASONAL_GAP, SUB_GAP, "smelt-present vs smelt-absent diet as a structured split"],
   },
-
 ];

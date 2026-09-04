@@ -34,7 +34,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "USFWS species-labeled underwater photograph of migrating sockeye salmon. Adult body and salmon morphology are visible in natural river habitat; the image is identity/context evidence, not a location or run-strength recommendation.",
+    visualQa:
+      "USFWS species-labeled underwater photograph of migrating sockeye salmon. Adult body and salmon morphology are visible in natural river habitat; the image is identity/context evidence, not a location or run-strength recommendation.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -47,7 +48,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "USFWS species-labeled 5184×3888 underwater photograph of pink salmon in the Dosewallips River. The leading fish shows adult head and body morphology in natural habitat; background fish are secondary context.",
+    visualQa:
+      "USFWS species-labeled 5184×3888 underwater photograph of pink salmon in the Dosewallips River. The leading fish shows adult head and body morphology in natural habitat; background fish are secondary context.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -60,7 +62,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "USFWS species-labeled underwater chum salmon photograph. The characteristic adult freshwater body pattern and lateral form are visible in natural habitat.",
+    visualQa:
+      "USFWS species-labeled underwater chum salmon photograph. The characteristic adult freshwater body pattern and lateral form are visible in natural habitat.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -73,33 +76,38 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "scientific_illustration",
     identificationConfidence: "high",
-    visualQa: "Species-level Salmo salar morphology only; landlocked life history is supplied by the reviewed record, not inferred from the image.",
+    visualQa:
+      "Species-level Salmo salar morphology only; landlocked life history is supplied by the reviewed record, not inferred from the image.",
     reviewedAt: "2026-08-27",
   },
   {
     speciesId: "salvelinus_alpinus",
     canonical: "/species/arctic-char/canonical.webp",
     thumb: "/species/arctic-char/thumb.webp",
-    sourcePage: "https://commons.wikimedia.org/wiki/File:Salvelinus_alpinus_256781750_(cropped).jpg",
+    sourcePage:
+      "https://commons.wikimedia.org/wiki/File:Salvelinus_alpinus_256781750_(cropped).jpg",
     sourceOrg: "iNaturalist / Wikimedia Commons",
     creator: "Igor Zagrebin",
     license: "CC0 1.0 Public Domain Dedication",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "Lateral char photograph with body pattern and fin profile visible; retained separately from Dolly Varden identity imagery.",
+    visualQa:
+      "Lateral char photograph with body pattern and fin profile visible; retained separately from Dolly Varden identity imagery.",
     reviewedAt: "2026-08-27",
   },
   {
     speciesId: "salvelinus_malma",
     canonical: "/species/dolly-varden/canonical.webp",
     thumb: "/species/dolly-varden/thumb.webp",
-    sourcePage: "https://commons.wikimedia.org/wiki/File:Salvelinus_malma_malma_from_Quicksilver_Creek.jpg",
+    sourcePage:
+      "https://commons.wikimedia.org/wiki/File:Salvelinus_malma_malma_from_Quicksilver_Creek.jpg",
     sourceOrg: "U.S. Fish and Wildlife Service",
     creator: "Jim Gaither / USFWS",
     license: "Public Domain — U.S. federal government work",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "USFWS-labeled Dolly Varden with lateral pattern visible. Identification is not inferred from geography.",
+    visualQa:
+      "USFWS-labeled Dolly Varden with lateral pattern visible. Identification is not inferred from geography.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -112,7 +120,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — pre-1907 historical work",
     imageType: "scientific_illustration",
     identificationConfidence: "high",
-    visualQa: "Full-lateral sheefish illustration chosen instead of a spawning-population field photograph so identity art does not encourage aggregation targeting.",
+    visualQa:
+      "Full-lateral sheefish illustration chosen instead of a spawning-population field photograph so identity art does not encourage aggregation targeting.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -125,20 +134,23 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "specimen_photograph",
     identificationConfidence: "high",
-    visualQa: "Federal reference-identification photograph. Population and conservation status are never inferred from morphology alone.",
+    visualQa:
+      "Federal reference-identification photograph. Population and conservation status are never inferred from morphology alone.",
     reviewedAt: "2026-08-27",
   },
   {
     speciesId: "atractosteus_spatula",
     canonical: "/species/alligator-gar/canonical.webp",
     thumb: "/species/alligator-gar/thumb.webp",
-    sourcePage: "https://commons.wikimedia.org/wiki/File:Alligator_gar_held_boatside_1_October_2021.png",
+    sourcePage:
+      "https://commons.wikimedia.org/wiki/File:Alligator_gar_held_boatside_1_October_2021.png",
     sourceOrg: "U.S. Fish and Wildlife Service",
     creator: "Ryan Hagerty / USFWS",
     license: "Public Domain — U.S. federal government work",
     imageType: "field_photograph",
     identificationConfidence: "high",
-    visualQa: "Authoritative full alligator gar field photograph. Human/boat context makes it a canonical fallback; replace only with a cleaner equally authoritative whole-fish image.",
+    visualQa:
+      "Authoritative full alligator gar field photograph. Human/boat context makes it a canonical fallback; replace only with a cleaner equally authoritative whole-fish image.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -151,7 +163,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "High-resolution USFWS white sucker photograph with explicit species identity and clearly visible morphology.",
+    visualQa:
+      "High-resolution USFWS white sucker photograph with explicit species identity and clearly visible morphology.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -164,20 +177,23 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "High-resolution USFWS longnose sucker photograph; kept visually and biologically distinct from white sucker despite possible co-occurrence/hybridization.",
+    visualQa:
+      "High-resolution USFWS longnose sucker photograph; kept visually and biologically distinct from white sucker despite possible co-occurrence/hybridization.",
     reviewedAt: "2026-08-27",
   },
   {
     speciesId: "catostomus_macrocheilus",
     canonical: "/species/largescale-sucker/canonical.webp",
     thumb: "/species/largescale-sucker/thumb.webp",
-    sourcePage: "https://commons.wikimedia.org/wiki/File:FMIB_34320_Catostomus_macrochilus_Grd.jpeg",
+    sourcePage:
+      "https://commons.wikimedia.org/wiki/File:FMIB_34320_Catostomus_macrochilus_Grd.jpeg",
     sourceOrg: "U.S. Fish Commission / Freshwater and Marine Image Bank",
     creator: "Historical U.S. Fish Commission illustration",
     license: "Public Domain — historical government collection",
     imageType: "scientific_illustration",
     identificationConfidence: "high",
-    visualQa: "Full-lateral, explicitly labeled largescale sucker illustration. Suitable for canonical identity, not editorial habitat use.",
+    visualQa:
+      "Full-lateral, explicitly labeled largescale sucker illustration. Suitable for canonical identity, not editorial habitat use.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -190,7 +206,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "photograph",
     identificationConfidence: "high",
-    visualQa: "4,288-pixel USFWS identification photograph with barbels, fins, flank and caudal profile clearly visible.",
+    visualQa:
+      "4,288-pixel USFWS identification photograph with barbels, fins, flank and caudal profile clearly visible.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -203,7 +220,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain",
     imageType: "scientific_illustration",
     identificationConfidence: "high",
-    visualQa: "Large full-lateral USFWS illustration clearly showing the opercular flap and deep-bodied Lepomis morphology.",
+    visualQa:
+      "Large full-lateral USFWS illustration clearly showing the opercular flap and deep-bodied Lepomis morphology.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -216,7 +234,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     license: "Public Domain — U.S. federal government work",
     imageType: "scientific_illustration",
     identificationConfidence: "high",
-    visualQa: "USFWS-labeled full-lateral flier illustration with unobstructed deep body and fin morphology.",
+    visualQa:
+      "USFWS-labeled full-lateral flier illustration with unobstructed deep body and fin morphology.",
     reviewedAt: "2026-08-27",
   },
   {
@@ -230,7 +249,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     imageType: "photograph",
     identificationBasis: "visual_review",
     identificationConfidence: "high",
-    visualQa: "Full lateral adult filling the frame against a green riverbed. Identified on diagnostic features rather than the stock keywords: dense black flank spotting, red/orange spots ringed with pale halos along the lateral line, and an essentially unspotted tail — which separates it from rainbow trout. Adipose fin and blunt snout visible. Photographic, with no generative artefacts in fins, eye or background falloff.",
+    visualQa:
+      "Full lateral adult filling the frame against a green riverbed. Identified on diagnostic features rather than the stock keywords: dense black flank spotting, red/orange spots ringed with pale halos along the lateral line, and an essentially unspotted tail — which separates it from rainbow trout. Adipose fin and blunt snout visible. Photographic, with no generative artefacts in fins, eye or background falloff.",
     reviewedAt: "2026-08-29",
   },
   {
@@ -244,7 +264,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     imageType: "photograph",
     identificationBasis: "visual_review",
     identificationConfidence: "high",
-    visualQa: "Full lateral adult in open water against a plain teal ground. Identified on fine black spotting carried across the body AND the tail, plus the silvery-pink lateral band, with no halo-ringed red spots — the combination that separates it from brown trout. Photographic; fins and eye are anatomically coherent.",
+    visualQa:
+      "Full lateral adult in open water against a plain teal ground. Identified on fine black spotting carried across the body AND the tail, plus the silvery-pink lateral band, with no halo-ringed red spots — the combination that separates it from brown trout. Photographic; fins and eye are anatomically coherent.",
     reviewedAt: "2026-08-29",
   },
   {
@@ -258,7 +279,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     imageType: "field_photograph",
     identificationBasis: "visual_review",
     identificationConfidence: "high",
-    visualQa: "Adult holding beside submerged wood in stained water. Identified on the upper jaw extending past the rear margin of the eye — the feature that separates largemouth from smallmouth — with the blotchy lateral band and deeply notched dorsal consistent. The wood is habitat context, not a location claim. Photographic: natural light shafts, coherent debris, plausible surface refraction.",
+    visualQa:
+      "Adult holding beside submerged wood in stained water. Identified on the upper jaw extending past the rear margin of the eye — the feature that separates largemouth from smallmouth — with the blotchy lateral band and deeply notched dorsal consistent. The wood is habitat context, not a location claim. Photographic: natural light shafts, coherent debris, plausible surface refraction.",
     reviewedAt: "2026-08-29",
   },
   {
@@ -272,7 +294,8 @@ export const SPECIES_IMAGES: SpeciesImageRecord[] = [
     imageType: "field_photograph",
     identificationBasis: "visual_review",
     identificationConfidence: "high",
-    visualQa: "Full lateral adult among submerged weed. Identified on the duck-bill snout, pale bean-shaped spots on a dark green ground, and the single soft dorsal set far back — separating it from muskellunge, which carries dark markings on a pale ground. Weed is habitat context, not a location claim. Photographic.",
+    visualQa:
+      "Full lateral adult among submerged weed. Identified on the duck-bill snout, pale bean-shaped spots on a dark green ground, and the single soft dorsal set far back — separating it from muskellunge, which carries dark markings on a pale ground. Weed is habitat context, not a location claim. Photographic.",
     reviewedAt: "2026-08-29",
   },
 ];

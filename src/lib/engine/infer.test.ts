@@ -76,7 +76,11 @@ describe("interpret", () => {
   });
 
   it("distinguishes brown trout from rainbow trout under the same baitfish declaration", () => {
-    const forage = { class: "small_forage_fish" as const, source: "user_observation" as const, confidence: 0.9 };
+    const forage = {
+      class: "small_forage_fish" as const,
+      source: "user_observation" as const,
+      confidence: 0.9,
+    };
     const brown = interpret({ ...brownSeam, forage });
     const rainbow = interpret({ ...brownSeam, speciesId: "oncorhynchus_mykiss", forage });
     assert.ok(!("error" in brown) && !("error" in rainbow));
@@ -84,7 +88,9 @@ describe("interpret", () => {
     assert.equal(brown.presentations[0]?.id, "cross_current_retrieve");
     assert.equal(rainbow.presentations[0]?.id, "dead_drift");
     assert.ok(brown.weightingModel.appliedSpeciesOverrideIds?.includes("brown-piscivory"));
-    assert.ok(rainbow.weightingModel.appliedSpeciesOverrideIds?.includes("rainbow-flow-feeding-lane"));
+    assert.ok(
+      rainbow.weightingModel.appliedSpeciesOverrideIds?.includes("rainbow-flow-feeding-lane"),
+    );
     assert.ok(
       brown.presentations.some((p) => p.weightReasons.some((x) => x.axis === "species_override")),
     );
@@ -106,7 +112,13 @@ describe("interpret", () => {
     assert.ok(baitCross.weightReasons.some((x) => x.axis === "species_override" && x.delta > 0));
     assert.ok(
       baitfish.presentations.every((p) =>
-        ["dead_drift", "bottom_contact_drift", "cross_current_retrieve", "swing", "surface_drift"].includes(p.id),
+        [
+          "dead_drift",
+          "bottom_contact_drift",
+          "cross_current_retrieve",
+          "swing",
+          "surface_drift",
+        ].includes(p.id),
       ),
     );
   });
@@ -131,8 +143,12 @@ describe("interpret", () => {
     assert.ok(!("error" in r));
     if ("error" in r) return;
     assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("largemouth-cover-summer"));
-    assert.ok(r.presentations.some((p) => p.weightReasons.some((x) => x.axis === "species_override")));
-    assert.ok(r.presentations.every((p) => p.id !== "dead_drift" && p.id !== "bottom_contact_drift"));
+    assert.ok(
+      r.presentations.some((p) => p.weightReasons.some((x) => x.axis === "species_override")),
+    );
+    assert.ok(
+      r.presentations.every((p) => p.id !== "dead_drift" && p.id !== "bottom_contact_drift"),
+    );
   });
 
   it("applies lake-trout summer depth overrides to reviewed deep-water families", () => {
@@ -155,8 +171,16 @@ describe("interpret", () => {
     assert.ok(!("error" in r));
     if ("error" in r) return;
     assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("lake-trout-summer-depth"));
-    assert.ok(["trolling", "vertical_jig", "suspend_pause", "horizontal_retrieve"].includes(r.presentations[0]!.id));
-    assert.ok(r.presentations.every((p) => ["vertical_jig", "trolling", "suspend_pause", "horizontal_retrieve"].includes(p.id)));
+    assert.ok(
+      ["trolling", "vertical_jig", "suspend_pause", "horizontal_retrieve"].includes(
+        r.presentations[0]!.id,
+      ),
+    );
+    assert.ok(
+      r.presentations.every((p) =>
+        ["vertical_jig", "trolling", "suspend_pause", "horizontal_retrieve"].includes(p.id),
+      ),
+    );
   });
 
   it("applies SPO-1.2 white-bass pelagic forage weighting", () => {
@@ -180,7 +204,11 @@ describe("interpret", () => {
     if ("error" in r) return;
     assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("white-bass-pelagic-forage"));
     assert.equal(r.presentations[0]?.id, "horizontal_retrieve");
-    assert.ok(r.presentations.every((p) => ["horizontal_retrieve", "stop_and_go", "vertical_jig"].includes(p.id)));
+    assert.ok(
+      r.presentations.every((p) =>
+        ["horizontal_retrieve", "stop_and_go", "vertical_jig"].includes(p.id),
+      ),
+    );
   });
 
   it("applies SPO-1.2 redear mollusk weighting without inheriting bluegill surface logic", () => {
@@ -204,7 +232,16 @@ describe("interpret", () => {
     if ("error" in r) return;
     assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("redear-shell-bottom"));
     assert.equal(r.presentations[0]?.id, "bottom_contact");
-    assert.ok(r.presentations.every((p) => ["bottom_contact", "slow_drag", "drop_presentation", "live_natural_bait_suspension"].includes(p.id)));
+    assert.ok(
+      r.presentations.every((p) =>
+        [
+          "bottom_contact",
+          "slow_drag",
+          "drop_presentation",
+          "live_natural_bait_suspension",
+        ].includes(p.id),
+      ),
+    );
   });
 
   it("applies SPO-1.2 cisco plankton depth-band weighting", () => {
@@ -227,7 +264,11 @@ describe("interpret", () => {
     assert.ok(!("error" in r));
     if ("error" in r) return;
     assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("cisco-plankton-depth-band"));
-    assert.ok(["suspend_pause", "trolling", "vertical_jig", "horizontal_retrieve"].includes(r.presentations[0]!.id));
+    assert.ok(
+      ["suspend_pause", "trolling", "vertical_jig", "horizontal_retrieve"].includes(
+        r.presentations[0]!.id,
+      ),
+    );
   });
 
   it("fail-closes steelhead on stillwater instead of inventing biology", () => {
@@ -281,8 +322,12 @@ describe("interpret", () => {
     if ("error" in r) return;
     assert.equal(r.species.targetStatus, "regulated_context");
     assert.equal(r.species.targetContext?.verifyLocalRules, true);
-    assert.ok(r.weightingModel.appliedSpeciesOverrideIds?.includes("lake-sturgeon-benthic-regulated"));
-    assert.ok(r.invalidators.some((x) => /regulated|regulations|jurisdiction|season|legal/i.test(x)));
+    assert.ok(
+      r.weightingModel.appliedSpeciesOverrideIds?.includes("lake-sturgeon-benthic-regulated"),
+    );
+    assert.ok(
+      r.invalidators.some((x) => /regulated|regulations|jurisdiction|season|legal/i.test(x)),
+    );
     assert.ok(r.unknowns.includes("current jurisdiction rules"));
     assert.match(r.trace[1] ?? "", /closely regulated fishery/i);
   });
@@ -323,7 +368,10 @@ describe("SPO catalog invariants", () => {
     // The direction that matters for safety: a conservation-sensitive or
     // non-target record must never acquire a weighting rule by accident.
     for (const species of SPECIES) {
-      if (species.targetStatus !== "conservation_sensitive" && species.targetStatus !== "non_target") {
+      if (
+        species.targetStatus !== "conservation_sensitive" &&
+        species.targetStatus !== "non_target"
+      ) {
         continue;
       }
       const entry = SPECIES_OVERRIDE_COVERAGE.find((row) => row.speciesId === species.id);
@@ -333,9 +381,9 @@ describe("SPO catalog invariants", () => {
     // that is not driven by targetStatus: it is a filter feeder, so the app
     // declines to weight capture method at all. `no_reviewed_rule` is the
     // different, weaker statement — nothing in the record justified a delta.
-    const policyOnly = SPECIES_OVERRIDE_COVERAGE
-      .filter((entry) => entry.mode === "policy_only")
-      .map((entry) => entry.speciesId);
+    const policyOnly = SPECIES_OVERRIDE_COVERAGE.filter(
+      (entry) => entry.mode === "policy_only",
+    ).map((entry) => entry.speciesId);
     assert.ok(policyOnly.includes("salvelinus_confluentus"));
     assert.ok(policyOnly.includes("polyodon_spathula"));
     assert.ok(policyOnly.includes("megalops_atlanticus"), "tarpon is the saltwater case");
@@ -353,7 +401,9 @@ describe("SPO catalog invariants", () => {
   });
 
   it("gives every weighted coverage record at least one reviewed rule", () => {
-    for (const entry of SPECIES_OVERRIDE_COVERAGE.filter((candidate) => candidate.mode === "weighted")) {
+    for (const entry of SPECIES_OVERRIDE_COVERAGE.filter(
+      (candidate) => candidate.mode === "weighted",
+    )) {
       assert.ok(
         SPECIES_WEIGHT_OVERRIDE_RULES.some((candidate) => candidate.speciesId === entry.speciesId),
         `missing weighted override for ${entry.speciesId}`,

@@ -45,7 +45,8 @@ function bandLabel(species: SpeciesRecord): string | null {
   if (!thermal) return null;
 
   const parts: string[] = [];
-  if (thermal.preferredF) parts.push(`${thermal.preferredF[0]}–${thermal.preferredF[1]}°F preferred`);
+  if (thermal.preferredF)
+    parts.push(`${thermal.preferredF[0]}–${thermal.preferredF[1]}°F preferred`);
   else if (thermal.activeF) parts.push(`${thermal.activeF[0]}–${thermal.activeF[1]}°F active`);
   else if (thermal.coldEdgeF != null && thermal.warmEdgeF != null) {
     parts.push(`${thermal.coldEdgeF}–${thermal.warmEdgeF}°F between the reviewed edges`);
@@ -57,16 +58,14 @@ function bandLabel(species: SpeciesRecord): string | null {
   // An angler reads "prefers 72°F" and "is caught at 72°F" as the same
   // sentence. They are not, and the sources conflate them constantly, so where
   // the record knows the difference it is said.
-  if (thermal.basis === "distribution") parts.push("from where it is found, not a measured preference");
+  if (thermal.basis === "distribution")
+    parts.push("from where it is found, not a measured preference");
   else if (thermal.basis === "mixed") parts.push("mixed preference and distribution data");
 
   return parts.join("; ");
 }
 
-function thermalLabel(
-  resolution: ThermalResolution,
-  species: SpeciesRecord,
-): string {
+function thermalLabel(resolution: ThermalResolution, species: SpeciesRecord): string {
   const band = bandLabel(species);
   const suffix = band ? ` (${band})` : "";
 
@@ -120,9 +119,7 @@ function thermalLabel(
       }
     }
 
-    const states = resolution.states
-      .map((state) => state.replaceAll("_", " "))
-      .join(" / ");
+    const states = resolution.states.map((state) => state.replaceAll("_", " ")).join(" / ");
     return `${low}–${high}°F spans ${states || "multiple"} thermal states; the model withholds a single thermal bias rather than inventing a midpoint${suffix}`;
   }
 
@@ -166,7 +163,9 @@ function bump<T>(arr: T[], item: T | undefined): T[] {
 export function interpret(input: ScenarioInput): Interpretation | { error: string } {
   const species = SPECIES_BY_ID[input.speciesId];
   if (!species) {
-    return { error: "No reviewed record for that species. We will not invent biology to fill the gap." };
+    return {
+      error: "No reviewed record for that species. We will not invent biology to fill the gap.",
+    };
   }
 
   const targetStatus = species.targetStatus ?? "standard";
@@ -274,7 +273,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (species.habitat.currentPreference) whyParts.push(species.habitat.currentPreference);
   // The species record already states the velocity/energy trade-off for some species.
   // Adding the generic sentence there restates the same idea in longer words, so skip it.
-  const speciesStatesVelocityTradeoff = /velocit|energy/i.test(species.habitat.currentPreference ?? "");
+  const speciesStatesVelocityTradeoff = /velocit|energy/i.test(
+    species.habitat.currentPreference ?? "",
+  );
   if (
     input.waterType === "flowing" &&
     (input.flow === "moderate" || input.flow === "elevated") &&
@@ -288,7 +289,9 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
     whyParts.push("Clear water increases the value of cover, depth, and low-light edges.");
   }
   if (input.clarity === "stained" || input.clarity === "turbid") {
-    whyParts.push("Reduced visibility often lets fish sit closer to the food lane and tolerate more presentation bulk.");
+    whyParts.push(
+      "Reduced visibility often lets fish sit closer to the food lane and tolerate more presentation bulk.",
+    );
   }
   if (species.habitat.lightResponse) whyParts.push(species.habitat.lightResponse);
   else {
@@ -328,15 +331,18 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
 
   let forageClasses: ForageClass[] = [...species.forageClasses];
   let forageCertainty: Confidence = "low";
-  let forageNote = "Nothing observed has been carried in from Hatch Match. These are plausible forage classes, not a confirmed current hatch.";
+  let forageNote =
+    "Nothing observed has been carried in from Hatch Match. These are plausible forage classes, not a confirmed current hatch.";
   if (input.forage) {
     forageClasses = bump(forageClasses, input.forage.class);
-    forageCertainty = input.forage.confidence != null && input.forage.confidence >= 0.7 ? "high" : "moderate";
+    forageCertainty =
+      input.forage.confidence != null && input.forage.confidence >= 0.7 ? "high" : "moderate";
     forageNote = `You observed ${labelOf(input.forage.class)}${
       input.forage.hypothesis ? ` · ${input.forage.hypothesis.replaceAll("_", " ")}` : ""
     }. That observation is what the forage side of this reading rests on — nothing about a hatch is invented.`;
   } else if (input.season === "fall" || input.season === "late_summer") {
-    forageNote += " Seasonal terrestrial and baitfish classes may be plausible, but forage does not count toward this reading until you observe one or carry one in.";
+    forageNote +=
+      " Seasonal terrestrial and baitfish classes may be plausible, but forage does not count toward this reading until you observe one or carry one in.";
   }
 
   const appliedSpeciesOverrides = matchingSpeciesWeightOverrides(input, tState);
@@ -410,7 +416,8 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
   if (isMarine(input.waterType) && (!input.tideStrength || input.tideStrength === "unknown")) {
     unknowns.push("tide strength");
   }
-  if (species.targetContext?.verifyLocalRules && !input.water.jurisdiction) unknowns.push("current jurisdiction rules");
+  if (species.targetContext?.verifyLocalRules && !input.water.jurisdiction)
+    unknowns.push("current jurisdiction rules");
   if (populationProfilesForSpecies(species.id, input.waterType).length > 0 && !populationProfile) {
     unknowns.push("regional / population context");
   }
@@ -422,19 +429,20 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
         .join(" · ")
     : "no weighted family";
 
-  const thermalTrace = thermalResolution.rangeF && thermalResolution.states.length > 1
-    ? `thermal range spans ${thermalResolution.states.map((state) => state.replaceAll("_", " ")).join(" / ")} · single thermal bias withheld`
-    : tState === "preferred"
-      ? "energy-efficient feeding positions favored"
-      : tState === "active"
-        ? "active thermal state retained"
-        : tState === "cold_refuge"
-          ? "compressed, slower lies favored"
-          : tState === "warm_stress"
-            ? "refuge from heat / low oxygen favored"
-            : thermalBandReviewed
-              ? "thermal state unresolved"
-              : "no reviewed thermal band · temperature axis not applied";
+  const thermalTrace =
+    thermalResolution.rangeF && thermalResolution.states.length > 1
+      ? `thermal range spans ${thermalResolution.states.map((state) => state.replaceAll("_", " ")).join(" / ")} · single thermal bias withheld`
+      : tState === "preferred"
+        ? "energy-efficient feeding positions favored"
+        : tState === "active"
+          ? "active thermal state retained"
+          : tState === "cold_refuge"
+            ? "compressed, slower lies favored"
+            : tState === "warm_stress"
+              ? "refuge from heat / low oxygen favored"
+              : thermalBandReviewed
+                ? "thermal state unresolved"
+                : "no reviewed thermal band · temperature axis not applied";
   const trace = [
     species.commonNames[0],
     targetStatus === "regulated_context"
@@ -454,13 +462,17 @@ export function interpret(input: ScenarioInput): Interpretation | { error: strin
         ? labelOf(input.stillState ?? "unknown")
         : `tide ${labelOf(input.tideMovement ?? "unknown").toLowerCase()} · ${labelOf(input.tideStrength ?? "unknown").toLowerCase()}`,
     holdingLabel,
-    input.forage ? `${labelOf(input.forage.class)} observed` : forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
+    input.forage
+      ? `${labelOf(input.forage.class)} observed`
+      : forageClasses.slice(0, 3).map(labelOf).join(" / ") + " plausible",
     thermalTrace,
     "ranked on species, season, water temperature, water type, holding water, and observed forage",
     appliedSpeciesOverrides.length
       ? "reviewed adjustments for this species under these conditions were applied"
       : "no species-specific adjustment applied",
-    top ? `${top.label} ranks first for this combination` : "no reviewed presentation for this water type",
+    top
+      ? `${top.label} ranks first for this combination`
+      : "no reviewed presentation for this water type",
     `weighting for the leading family · ${topWeightTrace}`,
     presentations.map((p) => p.label).join(" + ") || "no reviewed presentation for this water type",
     "ranking compares reviewed presentations only — it is never the chance of a bite",

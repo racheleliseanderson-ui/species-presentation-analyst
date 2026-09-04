@@ -102,7 +102,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "occasional",
     strikeWindow: "short",
     current: "with",
-    costs: "Terminal tackle. This is the family that costs you flies, and the snag rate is the price of the depth.",
+    costs:
+      "Terminal tackle. This is the family that costs you flies, and the snag rate is the price of the depth.",
     tell: "Occasional contact, not constant. If you are never touching, you are over the fish; if you are always stuck, you are in the rocks.",
   },
   cross_current_retrieve: {
@@ -113,7 +114,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "none",
     strikeWindow: "medium",
     current: "across",
-    costs: "Depth. Anything you retrieve across current climbs, and it climbs more the faster you move it.",
+    costs:
+      "Depth. Anything you retrieve across current climbs, and it climbs more the faster you move it.",
     tell: "The rod loads evenly. A sudden lightening usually means the lure has broken the surface film.",
   },
   upstream_retrieve: {
@@ -185,7 +187,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "constant",
     strikeWindow: "long",
     current: "none",
-    costs: "Search. You are committing to one spot and waiting to find out whether it was the right one.",
+    costs:
+      "Search. You are committing to one spot and waiting to find out whether it was the right one.",
     tell: "Nothing, for a long time. This is the family where the honest tell is that you gave it long enough to count.",
   },
   horizontal_retrieve: {
@@ -251,7 +254,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "constant",
     strikeWindow: "long",
     current: "none",
-    costs: "Almost all your coverage. A drag is nearly as slow as a stationary bait with more chances to snag.",
+    costs:
+      "Almost all your coverage. A drag is nearly as slow as a stationary bait with more chances to snag.",
     tell: "Weight that builds gradually rather than a tick. A drag loads; it does not knock.",
   },
   drop_presentation: {
@@ -284,7 +288,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "none",
     strikeWindow: "medium",
     current: "none",
-    costs: "Depth control at range. The further out it lands, the deeper the front of the retrieve runs.",
+    costs:
+      "Depth control at range. The further out it lands, the deeper the front of the retrieve runs.",
     tell: "A steady low thrum you can feel through the blank. Lose it and the lure has stopped working.",
   },
   suspended_stationary: {
@@ -317,7 +322,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "none",
     strikeWindow: "long",
     current: "none",
-    costs: "Control. The bait decides a great deal about the presentation, and it does not consult you.",
+    costs:
+      "Control. The bait decides a great deal about the presentation, and it does not consult you.",
     tell: "The bait is still swimming. A tired bait is a different presentation than the one you set up.",
   },
 
@@ -333,7 +339,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "constant",
     strikeWindow: "long",
     current: "none",
-    costs: "Everything mobile. You are betting on the trough you chose, for as long as you stay in it.",
+    costs:
+      "Everything mobile. You are betting on the trough you chose, for as long as you stay in it.",
     tell: "The lead holds. If it walks down the beach, the surf is fishing your rig and you are watching.",
   },
   surf_metal_cast: {
@@ -377,7 +384,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "occasional",
     strikeWindow: "medium",
     current: "with",
-    costs: "Position. The tide decides where the drift goes and it stops being your decision quickly.",
+    costs:
+      "Position. The tide decides where the drift goes and it stops being your decision quickly.",
     tell: "Line angle that stays put. When it starts swinging back under the boat, the drift has ended.",
   },
   structure_pitch: {
@@ -476,7 +484,8 @@ export const PRESENTATION_MOTION: Record<PresentationId, PresentationMotion> = {
     contact: "none",
     strikeWindow: "medium",
     current: "none",
-    costs: "Coverage. It is slow enough that the water you cross is a small fraction of what a spread would.",
+    costs:
+      "Coverage. It is slow enough that the water you cross is a small fraction of what a spread would.",
     tell: "The bait swims rather than planes. If it is skipping, the speed has got away from you.",
   },
 };

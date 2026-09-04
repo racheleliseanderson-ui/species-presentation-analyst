@@ -8,8 +8,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: "bg-accent text-accent-fg shadow-[var(--shadow-border)] hover:opacity-90",
-        ghost:
-          "bg-transparent text-fg shadow-[var(--shadow-border)] hover:bg-subtle",
+        ghost: "bg-transparent text-fg shadow-[var(--shadow-border)] hover:bg-subtle",
         quiet: "bg-transparent text-muted hover:text-fg",
         mark: "bg-mark text-accent-fg",
       },
@@ -30,5 +29,7 @@ export function Button({
   type = "button",
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>) {
-  return <button type={type} className={cn(buttonVariants({ variant, size }), className)} {...props} />;
+  return (
+    <button type={type} className={cn(buttonVariants({ variant, size }), className)} {...props} />
+  );
 }

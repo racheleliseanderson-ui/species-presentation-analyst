@@ -177,13 +177,12 @@ export function Handoffs({
               ))}
             </dl>
             <p className="mt-3 text-xs leading-relaxed text-muted">
-              Under those rows the packet also holds the presentation families and the
-              reasoning behind each one, the equipment and connection notes, the record
-              sources this reading leaned on, and the route the context took to get here.
-              If you arrived from another Hook tool, what it sent is still in there. What
-              is not: coordinates, which get stripped on the way in and again on the way
-              out, and anything resembling a bite score. Saved readings stay on this
-              device.
+              Under those rows the packet also holds the presentation families and the reasoning
+              behind each one, the equipment and connection notes, the record sources this reading
+              leaned on, and the route the context took to get here. If you arrived from another
+              Hook tool, what it sent is still in there. What is not: coordinates, which get
+              stripped on the way in and again on the way out, and anything resembling a bite score.
+              Saved readings stay on this device.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <a

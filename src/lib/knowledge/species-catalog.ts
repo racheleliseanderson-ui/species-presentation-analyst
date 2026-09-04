@@ -30,9 +30,8 @@ export const SPECIES: SpeciesRecord[] = [
   ...SPECIES_MARINE,
 ].map(normalizeSpecies);
 
-export const SPECIES_BY_ID = Object.fromEntries(SPECIES.map((species) => [species.id, species])) as Record<
-  string,
-  SpeciesRecord
->;
+export const SPECIES_BY_ID = Object.fromEntries(
+  SPECIES.map((species) => [species.id, species]),
+) as Record<string, SpeciesRecord>;
 
 export const GROUPS = CORE_GROUPS;

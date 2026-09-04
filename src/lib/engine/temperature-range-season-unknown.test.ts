@@ -59,16 +59,16 @@ describe("temperature ranges and unknown season", () => {
   });
 
   it("withholds a single thermal bias when a range crosses thermal states", () => {
-    const range: TemperatureRangeF = [
-      brownActive[0],
-      brownPreferred[0],
-    ];
+    const range: TemperatureRangeF = [brownActive[0], brownPreferred[0]];
     const result = interpret(scenario(range));
     assert.ok(!("error" in result), "expected a reading");
     if ("error" in result) return;
 
     assert.equal(result.thermalState, "unknown");
-    assert.match(result.thermalLabel, /withholds a single thermal bias rather than inventing a midpoint/i);
+    assert.match(
+      result.thermalLabel,
+      /withholds a single thermal bias rather than inventing a midpoint/i,
+    );
     assert.ok(
       result.presentations.every((presentation) =>
         presentation.weightReasons.every((reason) => reason.axis !== "thermal"),

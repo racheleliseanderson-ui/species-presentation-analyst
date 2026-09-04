@@ -45,8 +45,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 50–60°F in the reviewed record. Warm edges push fish toward faster, more oxygenated, or deeper water rather than proving a bite.",
     currentFacing:
       "Willing to use moderate current if food is delivered. Faces into flow and intercepts seams, riffle-to-run water, and boulder pockets.",
-    depthMovement:
-      "Mid-column to upper when feeding; deeper on bright, warm, or pressured days.",
+    depthMovement: "Mid-column to upper when feeding; deeper on bright, warm, or pressured days.",
     clarityResponse:
       "Clear water increases the value of broken light and distance; stain can allow more mid-day water-column feeding without implying a surface event.",
     predatorAvoidance:
@@ -69,7 +68,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "mixed_by_life_stage",
-      byLifeStage: "Juveniles in tributary and margin water; adults may be solitary or loosely grouped on food.",
+      byLifeStage:
+        "Juveniles in tributary and margin water; adults may be solitary or loosely grouped on food.",
       note: "Interior forms are often more insect-oriented and less competitive than sympatric rainbows where the two overlap.",
     },
     feedingStrategy: {
@@ -88,8 +88,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Slightly cooler-leaning than many inland rainbows in the reviewed thermal bands. Warm, low-oxygen water is a hard constraint for some interior subspecies.",
     currentFacing:
       "Moderate current and tributary-influenced water; less of a heavy-cover fish than brown trout.",
-    depthMovement:
-      "Near drop-offs and inlets in lakes; mid-depth in rivers when feeding.",
+    depthMovement: "Near drop-offs and inlets in lakes; mid-depth in rivers when feeding.",
     predatorAvoidance:
       "Uses depth, broken water, and, in lakes, the safety of open-water distance rather than heavy wood.",
     coverUse:
@@ -110,7 +109,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "schooling",
-      byLifeStage: "Pelagic schools through much of lake residence; spawning fish leave the pelagic layer.",
+      byLifeStage:
+        "Pelagic schools through much of lake residence; spawning fish leave the pelagic layer.",
       note: "A visible school is a mobile plankton/temperature association, not a hotspot coordinate.",
     },
     feedingStrategy: {
@@ -125,16 +125,13 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Summer is an oxythermal problem as much as a forage problem. Fall color-up is spawning biology, not a feeding recommendation.",
     thermalDrivenBehavior:
       "Narrow coldwater band. Fish track the intersection of temperature, oxygen, and plankton rather than a shoreline cover type.",
-    currentFacing:
-      "Pelagic lake fish. Position follows basin circulation more than river current.",
+    currentFacing: "Pelagic lake fish. Position follows basin circulation more than river current.",
     depthMovement:
       "Usually suspended in open water, changing depth seasonally to remain in suitable temperature and food layers.",
-    predatorAvoidance:
-      "Schooling and depth. Shoreline cover is not the default refuge.",
+    predatorAvoidance: "Schooling and depth. Shoreline cover is not the default refuge.",
     coverUse:
       "Open-water depth bands, thermocline edges, and basin structure rather than wood or weeds.",
-    openWaterBehavior:
-      "This is the default identity: suspended, schooling, plankton-associated.",
+    openWaterBehavior: "This is the default identity: suspended, schooling, plankton-associated.",
     spawningBehavior:
       "Fall spawner on suitable lake shore or tributary gravel. Mature staging and spawning fish are not a forage-matching problem and are excluded from targeting guidance. Semelparous.",
     sources: [
@@ -171,14 +168,16 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Freshwater adults may move through the column with migration stage, flow, and lake/river transition. Juvenile lake residence is not an adult targeting proxy.",
     predatorAvoidance:
       "Depth, turbidity, and grouping during travel. Not a cover-oriented ambush fish.",
-    coverUse:
-      "Velocity refuge and channel form, not wood as a feeding station.",
-    openWaterBehavior:
-      "Ocean phase is pelagic. Nursery-lake juveniles are pelagic planktivores.",
+    coverUse: "Velocity refuge and channel form, not wood as a feeding station.",
+    openWaterBehavior: "Ocean phase is pelagic. Nursery-lake juveniles are pelagic planktivores.",
     spawningBehavior:
       "NOAA: typically spawn in summer or fall; females dig redds and both sexes die after spawning. Staging concentrations, redds, and listed ESUs are invalidators, never target layers.",
     sources: [
-      { label: "NOAA Fisheries Sockeye Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/sockeye-salmon" },
+      {
+        label: "NOAA Fisheries Sockeye Salmon species profile",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/sockeye-salmon",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, "stock-specific travel-depth literature as a structured field"],
@@ -188,7 +187,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "solitary",
-      byLifeStage: "Fry may school briefly; juveniles and adults are typically solitary or loosely associated around cover.",
+      byLifeStage:
+        "Fry may school briefly; juveniles and adults are typically solitary or loosely associated around cover.",
       note: "Not a pelagic schooling bass. A group on a dock or weed edge is cover-associated, not a white-bass school.",
     },
     feedingStrategy: {
@@ -205,16 +205,14 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Shallow cover in cool water; vegetation, wood, and shade remain the organizing idea in summer. Winter is a reduced-metabolism, deeper-or-tighter-cover problem rather than a generic 'deep' slogan.",
     thermalDrivenBehavior:
       "Warmwater fish. Cold water slows movement; extreme heat pushes fish to shade, deeper edges, or oxygenated inflows.",
-    currentFacing:
-      "Avoids sustained current; uses slack and cover even in rivers.",
+    currentFacing: "Avoids sustained current; uses slack and cover even in rivers.",
     depthMovement:
       "Shallow to mid; follows vegetation, wood, and shade more than a contour number.",
     waterLevelResponse:
       "Rising water can pull fish into newly flooded cover; falling water can concentrate remaining cover. This is a structure-class statement, not a spot.",
     clarityResponse:
       "Clear water increases shade and cover dependence; stain can allow more open-edge positioning without implying a surface bite.",
-    predatorAvoidance:
-      "Cover first: weeds, wood, docks, shade. Open water is not the default.",
+    predatorAvoidance: "Cover first: weeds, wood, docks, shade. Open water is not the default.",
     coverUse:
       "Weed edges, inside and outside weedlines, wood, dock shade, and slow-water wood in rivers.",
     openWaterBehavior:
@@ -234,7 +232,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "loose_aggregation",
-      byLifeStage: "Juveniles may group on shallow rock; adults often use the same rock complex without true pelagic schooling.",
+      byLifeStage:
+        "Juveniles may group on shallow rock; adults often use the same rock complex without true pelagic schooling.",
       note: "Multiple fish on a rock pile is structure sharing, not a white-bass school.",
     },
     feedingStrategy: {
@@ -251,16 +250,13 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Rock and current remain the organizing idea through the open-water year. Post-front bright calm days commonly slide fish deeper on the same structure class.",
     thermalDrivenBehavior:
       "Cooler-leaning than largemouth. Extreme heat in still water pushes toward depth, shade rock, or current-oxygenated water.",
-    currentFacing:
-      "Uses current; holds on the slow side of fast water, not in dead slack only.",
-    depthMovement:
-      "Shallow to mid on rock; slides deeper on bright, calm, or post-front days.",
+    currentFacing: "Uses current; holds on the slow side of fast water, not in dead slack only.",
+    depthMovement: "Shallow to mid on rock; slides deeper on bright, calm, or post-front days.",
     flowChangeResponse:
       "Elevated, still-fishable flow can pin fish tighter to current breaks; high unfishable flow is an invalidator, not a new family.",
     clarityResponse:
       "Clear water favors sight feeding on rock; stain can pull fish shallower on the same break.",
-    predatorAvoidance:
-      "Depth, rock, and current rather than vegetation as the default.",
+    predatorAvoidance: "Depth, rock, and current rather than vegetation as the default.",
     coverUse:
       "Current breaks, boulder pockets, seams, rocky shorelines, points, riprap, and humps.",
     openWaterBehavior:
@@ -272,7 +268,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       { label: "Coble smallmouth biology", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [PRESSURE_GAP, "species-specific frontal literature beyond the catalog post-front depth note"],
+    gaps: [
+      PRESSURE_GAP,
+      "species-specific frontal literature beyond the catalog post-front depth note",
+    ],
   },
   {
     speciesId: "micropterus_punctulatus",
@@ -293,12 +292,9 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Channel edges, points, and offshore structure remain more important than shallow vegetation through much of the warm season.",
     thermalDrivenBehavior:
       "Warmer-tolerant than smallmouth, more current- and depth-tolerant than largemouth.",
-    currentFacing:
-      "More current-tolerant than largemouth; uses channel edges in reservoirs.",
-    depthMovement:
-      "Often deeper and more pelagic than largemouth in the same lake.",
-    predatorAvoidance:
-      "Depth and channel position more than inside-weed ambush.",
+    currentFacing: "More current-tolerant than largemouth; uses channel edges in reservoirs.",
+    depthMovement: "Often deeper and more pelagic than largemouth in the same lake.",
+    predatorAvoidance: "Depth and channel position more than inside-weed ambush.",
     coverUse:
       "Drop-offs, points, breaklines, humps, rocky shorelines, and outside weedlines rather than inside vegetation.",
     openWaterBehavior:
@@ -333,10 +329,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Summer thermal/oxygen squeeze is a conservation and positioning constraint, especially in landlocked reservoirs.",
     currentFacing:
       "Pelagic and current-oriented; uses current breaks as feeding stations, not as cover.",
-    depthMovement:
-      "Follows bait in the column; summer often on the thermocline in reservoirs.",
-    predatorAvoidance:
-      "Depth, turbidity, and school cohesion rather than weed cover.",
+    depthMovement: "Follows bait in the column; summer often on the thermocline in reservoirs.",
+    predatorAvoidance: "Depth, turbidity, and school cohesion rather than weed cover.",
     coverUse:
       "Points, drop-offs, tailwaters, and open-water depth bands. Not a vegetation ambush fish.",
     openWaterBehavior:
@@ -348,7 +342,11 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       { label: "Setzler-Hamilton striped bass life history", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [PRESSURE_GAP, FRONT_GAP, "anadromous versus landlocked diel table as a structured field"],
+    gaps: [
+      PRESSURE_GAP,
+      FRONT_GAP,
+      "anadromous versus landlocked diel table as a structured field",
+    ],
   },
   {
     speciesId: "morone_chrysops",
@@ -369,20 +367,19 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Spring upriver or windblown-shore spawning runs are public, crowded, and excluded from secret-spot logic. The rest of the year is open-water forage following.",
     thermalDrivenBehavior:
       "Warmwater pelagic fish. Summer depth tracks bait and oxygen, not a weedline.",
-    currentFacing:
-      "Uses current during the run; otherwise pelagic around bait.",
-    depthMovement:
-      "Upper to mid-column when chasing shad; deeper when bait is down.",
-    predatorAvoidance:
-      "Schooling and the water column. Not cover-bound.",
-    coverUse:
-      "Points, flats, and open water rather than wood as a default.",
-    openWaterBehavior:
-      "Default adult identity.",
+    currentFacing: "Uses current during the run; otherwise pelagic around bait.",
+    depthMovement: "Upper to mid-column when chasing shad; deeper when bait is down.",
+    predatorAvoidance: "Schooling and the water column. Not cover-bound.",
+    coverUse: "Points, flats, and open water rather than wood as a default.",
+    openWaterBehavior: "Default adult identity.",
     spawningBehavior:
       "USFWS: spawn in freshwater tributaries or on rocky shoals at about 57°F; no nest-building or parental care. Exact riffles and access points are never named.",
     sources: [
-      { label: "USFWS white bass species account", class: "agency", url: "https://www.fws.gov/species/white-bass-morone-chrysops" },
+      {
+        label: "USFWS white bass species account",
+        class: "agency",
+        url: "https://www.fws.gov/species/white-bass-morone-chrysops",
+      },
       { label: "State white bass notes (TX, OK, KS, TN)", class: "agency" },
     ],
     ...R,
@@ -409,8 +406,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Uses current and tidal flow in the native range; inland fish use points, inlets, and connecting channels.",
     depthMovement:
       "Often shallower than striped bass in the same system, still column-oriented around forage.",
-    predatorAvoidance:
-      "Schooling and turbidity more than heavy cover.",
+    predatorAvoidance: "Schooling and turbidity more than heavy cover.",
     coverUse:
       "Not a weed-edge ambush fish as the default. Channel edges, points, and open nearshore water.",
     openWaterBehavior:
@@ -419,7 +415,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Spring spawner in native coastal/tidal systems. Introduced inland reproduction is a management/biology fact, not a named aggregation product.",
     sources: [
       { label: "USGS Nonindigenous Aquatic Species white perch profile", class: "agency" },
-      { label: "State temperate-bass management literature (NY, MD, Great Lakes)", class: "agency" },
+      {
+        label: "State temperate-bass management literature (NY, MD, Great Lakes)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, "native estuarine versus introduced inland behavior table"],
@@ -445,19 +444,21 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Summer depth is constrained by the combined temperature and oxygen squeeze.",
     currentFacing:
       "Strongly attracted to current edges, tailwaters, and feeder-creek plumes where moving water concentrates pelagic forage.",
-    depthMovement:
-      "Pelagic and forage-following.",
-    predatorAvoidance:
-      "Depth and schooling.",
-    coverUse:
-      "Current edges and basin structure, not vegetation ambush.",
-    openWaterBehavior:
-      "Default identity in reservoirs.",
+    depthMovement: "Pelagic and forage-following.",
+    predatorAvoidance: "Depth and schooling.",
+    coverUse: "Current edges and basin structure, not vegetation ambush.",
+    openWaterBehavior: "Default identity in reservoirs.",
     spawningBehavior:
       "Common wiper crosses are functionally sterile. They may make spring tributary movements with white bass but do not establish a normal reproductive run. Those movements are not a targeting product.",
     sources: [
-      { label: "Missouri Department of Conservation hybrid striped bass field guide", class: "agency" },
-      { label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan", class: "agency" },
+      {
+        label: "Missouri Department of Conservation hybrid striped bass field guide",
+        class: "agency",
+      },
+      {
+        label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -481,8 +482,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Often favors quieter pools and backwaters in large rivers, while reservoir fish can school in open water around forage.",
     depthMovement:
       "Schooling mid-column predator; deeper pools and basins become more important outside shallow feeding windows.",
-    coverUse:
-      "Pools, backwaters, and open-water forage lanes more than weed ambush.",
+    coverUse: "Pools, backwaters, and open-water forage lanes more than weed ambush.",
     openWaterBehavior:
       "Reservoir fish can school pelagically; river fish are more pool-oriented than white bass on a main-channel run.",
     spawningBehavior:
@@ -512,16 +512,12 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Summer is an oxythermal-band problem in inland lakes. Late-fall/winter spawning is biology, not a targeting map. Spawning depth is never given as a location.",
     thermalDrivenBehavior:
       "Coldwater pelagic fish. Warm surface water and oxygen squeeze push usable habitat into a narrowing band.",
-    currentFacing:
-      "Basin circulation rather than river current. This record is stillwater.",
-    depthMovement:
-      "Suspended in the column; depth follows temperature, oxygen, and plankton.",
+    currentFacing: "Basin circulation rather than river current. This record is stillwater.",
+    depthMovement: "Suspended in the column; depth follows temperature, oxygen, and plankton.",
     predatorAvoidance:
       "Depth and schooling. Cisco are themselves major forage for lake trout and other predators.",
-    coverUse:
-      "Open-water depth bands, not wood or weeds.",
-    openWaterBehavior:
-      "Default identity.",
+    coverUse: "Open-water depth bands, not wood or weeds.",
+    openWaterBehavior: "Default identity.",
     spawningBehavior:
       "Fall-to-winter spawning ranges from shallow shoals to deep offshore habitat depending on stock. Spawning depth is never a target location.",
     sources: [
@@ -548,18 +544,15 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     },
     seasonalActivity:
       "Late-fall to early-winter spawning on rock, rubble, gravel, or firm shoals as water cools. Shoal locations are not a product output.",
-    thermalDrivenBehavior:
-      "Coldwater fish. Summer use of deep, oxygenated water is a constraint.",
+    thermalDrivenBehavior: "Coldwater fish. Summer use of deep, oxygenated water is a constraint.",
     currentFacing:
       "Large-lake fish use basin circulation and current-washed structure, but this record does not treat them as a river-current species.",
     depthMovement:
       "Deeper and more benthic than cisco as a working contrast, with seasonal lifts toward spawning shoals.",
-    predatorAvoidance:
-      "Depth and schooling.",
+    predatorAvoidance: "Depth and schooling.",
     coverUse:
       "Basin, drop-off, rocky shoreline, humps, and thermocline edges rather than vegetation.",
-    openWaterBehavior:
-      "Uses open basins but with a stronger substrate association than cisco.",
+    openWaterBehavior: "Uses open basins but with a stronger substrate association than cisco.",
     spawningBehavior:
       "Late-fall to early-winter spawner over clean rock, rubble, gravel, or firm shoals. Those shoals are excluded from targeting guidance.",
     sources: [
@@ -586,23 +579,22 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     },
     thermalDrivenBehavior:
       "Cool-water large-river fish. Bright or cold conditions can push fish deeper in the same current system.",
-    currentFacing:
-      "Uses large-river current and eddy systems.",
+    currentFacing: "Uses large-river current and eddy systems.",
     depthMovement:
       "Mid-column to near-surface during feeding, with deeper holding in bright or cold conditions.",
     clarityResponse:
       "More at home in stain and turbidity than mooneye. Do not merge the two records.",
-    predatorAvoidance:
-      "Turbidity, depth, and the water column rather than heavy cover.",
-    coverUse:
-      "Current, eddies, and the column. Not a wood-ambush fish as the default.",
-    openWaterBehavior:
-      "Uses open river channel and connected-lake surface/column water.",
+    predatorAvoidance: "Turbidity, depth, and the water column rather than heavy cover.",
+    coverUse: "Current, eddies, and the column. Not a wood-ambush fish as the default.",
+    openWaterBehavior: "Uses open river channel and connected-lake surface/column water.",
     spawningBehavior:
       "Spring to early summer in large river systems. Spawning concentrations are not used as target recommendations.",
     sources: [
       { label: "Government of Alberta goldeye species profile", class: "agency" },
-      { label: "Hoover juvenile goldeye identification (eye structure / tapetum)", class: "peer_reviewed" },
+      {
+        label: "Hoover juvenile goldeye identification (eye structure / tapetum)",
+        class: "peer_reviewed",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -628,17 +620,18 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Upper-to-mid column while feeding, with deeper pool use when bright, cold, or inactive.",
     clarityResponse:
       "Clearer-water identity than goldeye. Superficial similarity does not transfer turbidity preference.",
-    predatorAvoidance:
-      "Depth and current more than stain, relative to goldeye.",
-    coverUse:
-      "Runs, seams, and pool tails rather than vegetation ambush.",
-    openWaterBehavior:
-      "Connected lakes and large pools; still more river-run than pelagic-basin.",
+    predatorAvoidance: "Depth and current more than stain, relative to goldeye.",
+    coverUse: "Runs, seams, and pool tails rather than vegetation ambush.",
+    openWaterBehavior: "Connected lakes and large pools; still more river-run than pelagic-basin.",
     spawningBehavior:
       "Spring to early-summer spawner in river and connected-water habitat. Timing varies with latitude and flow. Sites are not named.",
     sources: [
       { label: "Ontario mooneye species profile", class: "agency" },
-      { label: "Minnesota DNR mooneye notes (Rainy River mayfly window as documented feeding class)", class: "agency" },
+      {
+        label:
+          "Minnesota DNR mooneye notes (Rainy River mayfly window as documented feeding class)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -664,20 +657,15 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     },
     seasonalActivity:
       "Shallow vegetation in spring spawning season is biology. Winter can mean deeper holding in some systems. Neither is a hotspot.",
-    thermalDrivenBehavior:
-      "Warm, fertile water. Cold water slows benthic feeding movement.",
-    currentFacing:
-      "Slow water and the inside of bends; feeds on flats more than in current cores.",
-    depthMovement:
-      "Shallow feeding; winters deeper in some systems.",
+    thermalDrivenBehavior: "Warm, fertile water. Cold water slows benthic feeding movement.",
+    currentFacing: "Slow water and the inside of bends; feeds on flats more than in current cores.",
+    depthMovement: "Shallow feeding; winters deeper in some systems.",
     waterLevelResponse:
       "Flooded vegetation and newly covered flats can become feeding habitat. Falling water concentrates remaining soft-bottom feeding ground. Structure class only.",
-    predatorAvoidance:
-      "Depth, turbidity, and distance from banks in clear water.",
+    predatorAvoidance: "Depth, turbidity, and distance from banks in clear water.",
     coverUse:
       "Shallow flats, inlets, weed edges, and slow side-channels — feeding ground more than ambush cover.",
-    openWaterBehavior:
-      "Uses open flats; not a pelagic predator.",
+    openWaterBehavior: "Uses open flats; not a pelagic predator.",
     spawningBehavior:
       "Shallow vegetation when water holds in the 60s. Spawning groups are excluded from targeting guidance. Invasive status varies by jurisdiction and is not a catch recommendation.",
     sources: [
@@ -708,10 +696,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Prefers slow river channels, pools, backwaters, reservoirs, and turbid water rather than sustained fast current.",
     depthMovement:
       "Demersal to mid-depth, often shallower than deep-channel specialists, while filtering plankton or feeding on benthos.",
-    predatorAvoidance:
-      "Turbidity, depth, and size. Not a cover ambush fish.",
-    coverUse:
-      "Slow channels, backwaters, and basins more than wood as a feeding station.",
+    predatorAvoidance: "Turbidity, depth, and size. Not a cover ambush fish.",
+    coverUse: "Slow channels, backwaters, and basins more than wood as a feeding station.",
     openWaterBehavior:
       "Can use open, turbid, plankton-rich water; still not a Morone-style chase predator.",
     spawningBehavior:
@@ -742,12 +728,9 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Common in large rivers and reservoirs, generally using moderate-to-slow channel water and bottom structure rather than fast riffles.",
     depthMovement:
       "Strong bottom orientation; deeper pools and channel edges are common adult habitat.",
-    predatorAvoidance:
-      "Depth and turbidity.",
-    coverUse:
-      "Channel edges, pools, and bottom structure rather than vegetation ambush.",
-    openWaterBehavior:
-      "Reservoir basins are used as bottom habitat, not as a pelagic chase layer.",
+    predatorAvoidance: "Depth and turbidity.",
+    coverUse: "Channel edges, pools, and bottom structure rather than vegetation ambush.",
+    openWaterBehavior: "Reservoir basins are used as bottom habitat, not as a pelagic chase layer.",
     spawningBehavior:
       "Spring spawning commonly begins around 60–65°F with eggs broadcast over vegetation, mud, and flooded margins. Sites are not named. Long-lived; local resilience should not be assumed.",
     sources: [
@@ -778,17 +761,19 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Uses large-river current margins and backwaters but often patrols slow or open water rather than holding tightly to one piece of cover.",
     depthMovement:
       "Adults can occupy deep water while making shallow or surface-oriented movements; juveniles are more vegetation-associated.",
-    predatorAvoidance:
-      "Armor, size, and the option to gulp air. Not a hide-in-weeds-only fish.",
+    predatorAvoidance: "Armor, size, and the option to gulp air. Not a hide-in-weeds-only fish.",
     coverUse:
       "Channel margins, points, and open patrol water more than inside-weed largemouth cover as the default.",
-    openWaterBehavior:
-      "Legitimate open-water cruising, especially in large rivers and reservoirs.",
+    openWaterBehavior: "Legitimate open-water cruising, especially in large rivers and reservoirs.",
     spawningBehavior:
       "Spring spawning in shallow quiet backwaters and vegetated margins as water warms. Eggs are toxic. Spawning sites are excluded from target guidance.",
     sources: [
       { label: "Florida Museum longnose gar species profile", class: "agency" },
-      { label: "USFWS All About Alligator Gar (gar air-breathing / lateral movements as family context)", class: "agency" },
+      {
+        label:
+          "USFWS All About Alligator Gar (gar air-breathing / lateral movements as family context)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -814,17 +799,18 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Strongly favors slow pools, backwaters, swamps, sloughs, and vegetated margins rather than fast current.",
     depthMovement:
       "Often shallow to mid-depth around vegetation and timber, with surface excursions for air that are not necessarily feeding.",
-    predatorAvoidance:
-      "Vegetation, stain, and armor.",
-    coverUse:
-      "Inside weedlines, weed edges, wood, and shallow vegetated flats.",
+    predatorAvoidance: "Vegetation, stain, and armor.",
+    coverUse: "Inside weedlines, weed edges, wood, and shallow vegetated flats.",
     openWaterBehavior:
       "Not the default. This is a vegetated backwater ambush fish more than a channel cruiser.",
     spawningBehavior:
       "Spring spawning in shallow vegetated margins, flooded timber, or backwater habitat. Spawning vegetation is not a target recommendation.",
     sources: [
       { label: "Texas Parks and Wildlife spotted gar account", class: "agency" },
-      { label: "Illinois DNR / Missouri Department of Conservation spotted gar accounts", class: "agency" },
+      {
+        label: "Illinois DNR / Missouri Department of Conservation spotted gar accounts",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -848,14 +834,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Uses large-river backwaters and slower margins rather than sustained fast current.",
     depthMovement:
       "Often shallow to mid-depth near backwaters and prey-rich margins, with access to deeper pools for refuge.",
-    clarityResponse:
-      "Turbidity is less limiting than for longnose gar in the reviewed record.",
-    predatorAvoidance:
-      "Turbidity, backwaters, and armor.",
-    coverUse:
-      "Side channels, eddies, shallow flats, and wood, with deeper pools as refuge.",
-    openWaterBehavior:
-      "Can patrol open backwater and pool water; not a pelagic basin species.",
+    clarityResponse: "Turbidity is less limiting than for longnose gar in the reviewed record.",
+    predatorAvoidance: "Turbidity, backwaters, and armor.",
+    coverUse: "Side channels, eddies, shallow flats, and wood, with deeper pools as refuge.",
+    openWaterBehavior: "Can patrol open backwater and pool water; not a pelagic basin species.",
     spawningBehavior:
       "Late-spring through summer spawning in quiet shallow water, with adhesive eggs scattered over vegetation or submerged objects. Sites are not named. Legal methods vary by jurisdiction.",
     sources: [
@@ -886,8 +868,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Large-river margins, oxbows, and slow connected water rather than high-gradient current.",
     depthMovement:
       "Can occupy deeper channel water and still make shallow movements. Juvenile habitat is more vegetated and is a confusion risk with spotted gar, not a targeting layer.",
-    predatorAvoidance:
-      "Size, armor, and turbid large-river water.",
+    predatorAvoidance: "Size, armor, and turbid large-river water.",
     coverUse:
       "Large woody and vegetated edges in connected off-channel water, plus channel margins. Exact sites are not listed.",
     openWaterBehavior:
@@ -895,9 +876,15 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "Spawning and nursery habitat are conservation context only. Alligator gar is jurisdiction-gated in this catalog. Eggs of gars are toxic. No aggregation locations are published.",
     sources: [
-      { label: "Florida Fish and Wildlife Conservation Commission alligator gar profile", class: "agency" },
+      {
+        label: "Florida Fish and Wildlife Conservation Commission alligator gar profile",
+        class: "agency",
+      },
       { label: "USFWS All About Alligator Gar", class: "agency" },
-      { label: "Texas Parks and Wildlife alligator gar identification and management pages", class: "agency" },
+      {
+        label: "Texas Parks and Wildlife alligator gar identification and management pages",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, "system-specific movement literature without naming waters"],
@@ -907,7 +894,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "mixed_by_life_stage",
-      byLifeStage: "Guarded fry schools; adults typically solitary to loosely grouped on bottom habitat.",
+      byLifeStage:
+        "Guarded fry schools; adults typically solitary to loosely grouped on bottom habitat.",
       note: "Family groups around a nest are parental care, not a target aggregation.",
     },
     feedingStrategy: {
@@ -924,19 +912,20 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Prefers little to moderate current and soft-bottomed protected water rather than fast river lanes.",
     depthMovement:
       "Bottom-oriented, using deeper water or cover by day and moving shallower under darkness or stain.",
-    clarityResponse:
-      "Olfaction reduces dependence on visibility. Stain is not an invalidator.",
+    clarityResponse: "Olfaction reduces dependence on visibility. Stain is not an invalidator.",
     predatorAvoidance:
       "Night, depth, and cover. Spines are defensive anatomy, not a presentation note.",
     coverUse:
       "Wood, basins, weed edges, and deep pools — as bottom cover, not ambush vegetation in the largemouth sense.",
-    openWaterBehavior:
-      "Not pelagic. Open basins are used as bottom habitat.",
+    openWaterBehavior: "Not pelagic. Open basins are used as bottom habitat.",
     spawningBehavior:
       "Protected shallow cavities or depressions as water warms. Parental guarding is not a target cue. Do not collapse brown, black, and yellow bullheads into one behavior record.",
     sources: [
       { label: "USGS Nonindigenous Aquatic Species brown bullhead profile", class: "agency" },
-      { label: "EPA freshwater fish temperature criteria synthesis for brown bullhead", class: "agency" },
+      {
+        label: "EPA freshwater fish temperature criteria synthesis for brown bullhead",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -946,7 +935,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "mixed_by_life_stage",
-      byLifeStage: "Guarded young; adults bottom-oriented and often in groups only where habitat concentrates them.",
+      byLifeStage:
+        "Guarded young; adults bottom-oriented and often in groups only where habitat concentrates them.",
       note: "Family groups are not target aggregations.",
     },
     feedingStrategy: {
@@ -957,25 +947,22 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       class: "nocturnal",
       note: "Low-light and nocturnal feeding is common; olfaction reduces dependence on visibility.",
     },
-    thermalDrivenBehavior:
-      "Especially tolerant of warm, turbid, low-gradient water.",
-    currentFacing:
-      "Slow, turbid, soft-bottomed water with little current.",
+    thermalDrivenBehavior: "Especially tolerant of warm, turbid, low-gradient water.",
+    currentFacing: "Slow, turbid, soft-bottomed water with little current.",
     depthMovement:
       "Bottom-oriented, often shallow at night and deeper or tighter to cover in bright conditions.",
-    clarityResponse:
-      "Turbidity is normal habitat, not a problem to wait out.",
-    predatorAvoidance:
-      "Night, turbidity, and cover.",
-    coverUse:
-      "Basins, wood, weed edges, and soft-bottom flats as feeding ground.",
-    openWaterBehavior:
-      "Not pelagic.",
+    clarityResponse: "Turbidity is normal habitat, not a problem to wait out.",
+    predatorAvoidance: "Night, turbidity, and cover.",
+    coverUse: "Basins, wood, weed edges, and soft-bottom flats as feeding ground.",
+    openWaterBehavior: "Not pelagic.",
     spawningBehavior:
       "Late-spring and summer cavity/depression spawning in protected shallow habitat. Family groups are not target aggregations.",
     sources: [
       { label: "Texas Parks and Wildlife black bullhead species account", class: "agency" },
-      { label: "Washington Department of Fish and Wildlife black bullhead sportfish account", class: "agency" },
+      {
+        label: "Washington Department of Fish and Wildlife black bullhead sportfish account",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -997,22 +984,21 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       class: "nocturnal",
       note: "Low-light and nocturnal feeding are common, though turbid water can extend activity into daylight.",
     },
-    thermalDrivenBehavior:
-      "Warm, slow, vegetated, and turbid water is normal, not exceptional.",
+    thermalDrivenBehavior: "Warm, slow, vegetated, and turbid water is normal, not exceptional.",
     currentFacing:
       "Slow current, backwaters, protected pools, and vegetated or woody margins rather than fast main-channel flow.",
-    depthMovement:
-      "Bottom-oriented; can move shallower at night and around food-rich margins.",
-    predatorAvoidance:
-      "Night, turbidity, and cover.",
-    coverUse:
-      "Wood, weed edges, shallow flats, and protected pools as bottom habitat.",
-    openWaterBehavior:
-      "Not pelagic.",
+    depthMovement: "Bottom-oriented; can move shallower at night and around food-rich margins.",
+    predatorAvoidance: "Night, turbidity, and cover.",
+    coverUse: "Wood, weed edges, shallow flats, and protected pools as bottom habitat.",
+    openWaterBehavior: "Not pelagic.",
     spawningBehavior:
       "TPWD: late spring or early summer, excavate nests in mud bottoms; both parents guard 2,000–12,000 eggs; hatch in four to six days. Canonical season vocabulary stores this as spring and early_summer. Nest sites are not targeting outputs.",
     sources: [
-      { label: "Texas Parks and Wildlife yellow bullhead species account", class: "agency", url: "https://tpwd.texas.gov/huntwild/wild/species/ybh/" },
+      {
+        label: "Texas Parks and Wildlife yellow bullhead species account",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/ybh/",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP],
@@ -1044,16 +1030,14 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 50–60°F. Elliott's thermal work and the catalog put the cold edge near 40°F and the warm edge near 70°F. Warm edges push fish into cover, depth, or faster oxygenated water.",
     currentFacing:
       "Balances food delivery against energy cost. Faces into flow on seams, pool heads, and current breaks rather than occupying the fastest core.",
-    depthMovement:
-      "Holds deeper than rainbow in daylight; slides shallower in low light.",
+    depthMovement: "Holds deeper than rainbow in daylight; slides shallower in low light.",
     clarityResponse:
       "Very clear water increases nocturnal and cover use. Stain can allow more daylight feeding without implying a surface event.",
     anglingPressureResponse:
       "Catalog already ties pressure to stronger low-light and night feeding in clear water. This is a cover/light shift, not a catch-probability claim.",
     predatorAvoidance:
       "Undercut banks, wood, depth, and darkness. More cover-dependent than rainbow.",
-    coverUse:
-      "Undercut banks, submerged wood, deep pools, seams, and current breaks.",
+    coverUse: "Undercut banks, submerged wood, deep pools, seams, and current breaks.",
     openWaterBehavior:
       "Lake fish use weed edges, drop-offs, inlets, wood, and thermocline edges rather than a river undercut. They still are not pelagic schoolers.",
     spawningBehavior:
@@ -1078,8 +1062,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       modes: ["opportunistic", "drift_feeding"],
       note: "Aquatic insects, terrestrials, and crustaceans; small fish where gape allows. Do not infer a current hatch from that capacity.",
     },
-    territoriality:
-      "Holds pockets and cover in small water rather than a single large-river hole.",
+    territoriality: "Holds pockets and cover in small water rather than a single large-river hole.",
     dielTendency: {
       class: "diurnal",
       note: "Uses shade and broken water; less nocturnal than brown trout.",
@@ -1090,12 +1073,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 46–56°F. Cold edge near 38°F; warm edge near 68°F. Stenothermal relative to brown trout.",
     currentFacing:
       "Avoids sustained high velocity. Uses pockets, undercuts, side channels, and wood in small water.",
-    depthMovement:
-      "Often shallow relative to other trout when cover is present.",
+    depthMovement: "Often shallow relative to other trout when cover is present.",
     predatorAvoidance:
       "Shade, broken water, undercuts, and wood. Small streams provide cover by structure, not depth.",
-    coverUse:
-      "Undercut banks, deep pockets, seams, side channels, and submerged wood.",
+    coverUse: "Undercut banks, deep pockets, seams, side channels, and submerged wood.",
     openWaterBehavior:
       "Pond and high-lake fish use inlets, weed edges, wood, and drop-offs. They are not lake-trout pelagic char.",
     spawningBehavior:
@@ -1130,10 +1111,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Fall spawning on rocky reefs is conservation context — fish leave the depths, and that substrate is not a target class. Summer is an oxythermal squeeze.",
     thermalDrivenBehavior:
       "Preferred band roughly 42–52°F. Warm edge near 60°F. Summer surface presence is usually a cold-water exception, not a default pattern.",
-    currentFacing:
-      "Stillwater. Uses points, humps, drop-offs, and basin edges, not river current.",
-    depthMovement:
-      "Deep and pelagic in summer; shallower in spring/fall and at night.",
+    currentFacing: "Stillwater. Uses points, humps, drop-offs, and basin edges, not river current.",
+    depthMovement: "Deep and pelagic in summer; shallower in spring/fall and at night.",
     predatorAvoidance:
       "Depth and low light. Bright summer midday is a down-move, not a cover-wood problem.",
     coverUse:
@@ -1175,12 +1154,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 42–55°F. Cold edge near 36°F; warm edge near 65°F. Summer low flow and heat are invalidators, not a shallow feeding cue.",
     currentFacing:
       "Travel lanes and holding lies adjacent to strong current, not the fastest core.",
-    depthMovement:
-      "Often near bottom in winter; higher in the column as water warms within band.",
+    depthMovement: "Often near bottom in winter; higher in the column as water warms within band.",
     flowChangeResponse:
       "Flow pulses can move fish. That is migration/holding mechanics, not a named bottleneck.",
-    clarityResponse:
-      "Colored water can increase movement. Bright low clear water tightens lies.",
+    clarityResponse: "Colored water can increase movement. Bright low clear water tightens lies.",
     predatorAvoidance:
       "Depth, current, and broken water. Bright low water is a hold-tight problem.",
     coverUse:
@@ -1194,7 +1171,11 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       { label: "Withler / Quinn anadromous Oncorhynchus reviews", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [PRESSURE_GAP, FRONT_GAP, "stock-specific winter vs summer run calendars as a structured overlay"],
+    gaps: [
+      PRESSURE_GAP,
+      FRONT_GAP,
+      "stock-specific winter vs summer run calendars as a structured overlay",
+    ],
   },
   {
     speciesId: "sander_vitreus",
@@ -1246,8 +1227,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "loose_aggregation",
-      byLifeStage:
-        "Adults often share deep runs and pools without being a pelagic school.",
+      byLifeStage: "Adults often share deep runs and pools without being a pelagic school.",
       note: "More riverine than walleye. A group in current is a habitat class, not a dam-name pin.",
     },
     feedingStrategy: {
@@ -1270,8 +1250,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Strong lower-column and bottom association, particularly in daylight and clearer water.",
     clarityResponse:
       "More tolerant of turbidity than walleye. Murk can extend daylight feeding in current. Clear water tightens them to depth and bottom.",
-    predatorAvoidance:
-      "Depth, turbidity, and current. Bright clear shallows are a poor default.",
+    predatorAvoidance: "Depth, turbidity, and current. Bright clear shallows are a poor default.",
     coverUse:
       "Deep pools, runs, tailwater, current breaks, and pool heads. Hard bottom and velocity, not vegetation ambush.",
     openWaterBehavior:
@@ -1311,8 +1290,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Michigan DNR: spawn in the shallows right after ice leaves, and before muskellunge. That is conservation context. Summer is a deeper weed-edge and thermal problem. Catalog exception: warm, weedy southern water may hold pike that are thermally stressed, not feeding.",
     thermalDrivenBehavior:
       "Preferred band roughly 50–65°F. Cold edge near 36°F; warm edge near 75°F. Casselman’s thermal ecology and the catalog: as water warms, fish use deeper weed edges and cooler ambush structure.",
-    currentFacing:
-      "Slack adjacent to a food lane. Not a mid-channel current fish.",
+    currentFacing: "Slack adjacent to a food lane. Not a mid-channel current fish.",
     depthMovement:
       "Weeds and shallows in cool water; deeper weed edges and thermocline as summer warms (Michigan DNR: retreat somewhat deeper in midsummer).",
     clarityResponse:
@@ -1357,14 +1335,11 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 55–70°F. Cold edge near 42°F; warm edge near 80°F. Warm edges push fish to deeper outside weedlines and structural shade.",
     currentFacing:
       "Edges of current and large structural funnels; not open-basin wanderers by default.",
-    depthMovement:
-      "Weed-associated mid-depth; follows forage more than a single contour.",
+    depthMovement: "Weed-associated mid-depth; follows forage more than a single contour.",
     clarityResponse:
       "Clear water increases cover pinning on bright days. Stain can allow more edge travel in daylight.",
-    predatorAvoidance:
-      "Cover, depth, and low light. Bright open flats are a poor default.",
-    coverUse:
-      "Weed edges, outside weedlines, points, inlets, wood, and drop-offs.",
+    predatorAvoidance: "Cover, depth, and low light. Bright open flats are a poor default.",
+    coverUse: "Weed edges, outside weedlines, points, inlets, wood, and drop-offs.",
     openWaterBehavior:
       "May travel between large structural pieces. That is not a pelagic school and is not a reason to import open-water trolling families this record does not have.",
     spawningBehavior:
@@ -1381,8 +1356,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     status: "reviewed",
     social: {
       pattern: "solitary",
-      byLifeStage:
-        "Adults ambush from vegetation and slack cover. They are not open-pelagic pike.",
+      byLifeStage: "Adults ambush from vegetation and slack cover. They are not open-pelagic pike.",
       note: "Catalog exception: chain pickerel are cover-oriented esocids; open-pelagic pike logic should not be imported automatically.",
     },
     feedingStrategy: {
@@ -1399,14 +1373,11 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Early-spring spawning in flooded vegetation is conservation context. Summer is a weed-and-shade problem. Winter remains a cover-edge problem in ice-free eastern water.",
     thermalDrivenBehavior:
       "Preferred band roughly 60–70°F. Cold edge near 42°F; warm edge near 82°F. More at home in warmer vegetated water than northern pike.",
-    currentFacing:
-      "Slack, side channels, and the slow side of a seam. Not a mid-channel fish.",
+    currentFacing: "Slack, side channels, and the slow side of a seam. Not a mid-channel fish.",
     depthMovement:
       "Primarily shallow to mid-depth around weeds and cover, with deeper edge use during bright or warm periods.",
-    clarityResponse:
-      "Stain can open the edge. Bright clear water pins fish inside vegetation.",
-    predatorAvoidance:
-      "Weeds, wood, and shade. Open pelagic water is a mismatch.",
+    clarityResponse: "Stain can open the edge. Bright clear water pins fish inside vegetation.",
+    predatorAvoidance: "Weeds, wood, and shade. Open pelagic water is a mismatch.",
     coverUse:
       "Weed edges, inside and outside weedlines, wood, and shallow flats adjacent to cover.",
     openWaterBehavior:
@@ -1489,14 +1460,12 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Spring spawning in wood and brush as water holds in the upper 50s to mid-60s is conservation context. Winter often deeper timber or basins. Summer follows bait around cover and shade.",
     thermalDrivenBehavior:
       "Preferred band roughly 58–72°F. Cold edge near 44°F; warm edge near 82°F. Black crappie in the complex prefer cooler, clearer water than white crappie.",
-    currentFacing:
-      "Slack. Backwaters, eddies, and side channels — not the current core.",
+    currentFacing: "Slack. Backwaters, eddies, and side channels — not the current core.",
     depthMovement:
       "Suspend around cover and follow bait. Winter often deeper timber or basins. Bright midday summer is a down-move or a tighter-to-wood move.",
     clarityResponse:
       "Stain can allow shallower daylight use. Bright clear water increases depth and shade.",
-    predatorAvoidance:
-      "Wood, docks, shade, and depth. Open bright flats are a poor default.",
+    predatorAvoidance: "Wood, docks, shade, and depth. Open bright flats are a poor default.",
     coverUse:
       "Wood, dock shade, weed edges, drop-offs, basins, inlets, and suspended open water around bait.",
     openWaterBehavior:
@@ -1533,16 +1502,13 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Michigan DNR: spawns in the shallows in late spring or early summer when water reaches about 65°F, and waves can continue through summer. That is conservation context. Winter may use deeper cover on bright days.",
     thermalDrivenBehavior:
       "Preferred band roughly 68–80°F. Cold edge near 52°F; warm edge near 90°F. Warm still water is the default, not a trout thermal story.",
-    currentFacing:
-      "Little current. Vegetated slack, eddies, and side channels.",
-    depthMovement:
-      "Shallow to mid around vegetation; deeper on bright winter days in some lakes.",
+    currentFacing: "Little current. Vegetated slack, eddies, and side channels.",
+    depthMovement: "Shallow to mid around vegetation; deeper on bright winter days in some lakes.",
     clarityResponse:
       "Clear water increases shade and weed use at high sun. Stain can allow more open-edge daylight feeding.",
     predatorAvoidance:
       "Weeds, docks, wood, and shade. Open bright shallows without cover are a poor default.",
-    coverUse:
-      "Weed edges, inside weedlines, dock shade, shallow flats, and wood.",
+    coverUse: "Weed edges, inside weedlines, dock shade, shallow flats, and wood.",
     openWaterBehavior:
       "Not a pelagic schooler. Open water is a short intercept off a weed or dock edge.",
     spawningBehavior:
@@ -1567,8 +1533,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       modes: ["opportunistic", "benthic_feeding"],
       note: "Insects, mollusks, crustaceans, zooplankton, and some small fish. Molar-like pharyngeal teeth can crack clam and snail shells (NEMESIS / Jenkins & Burkhead). That is capacity, not a current snail event.",
     },
-    territoriality:
-      "Protected margins, vegetation, and wood. Nesting males defend a saucer.",
+    territoriality: "Protected margins, vegetation, and wood. Nesting males defend a saucer.",
     dielTendency: {
       class: "diurnal",
       note: "Primarily a daylight feeder; shade and broken light concentrate cover use on bright days.",
@@ -1577,16 +1542,12 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Nesting as littoral water warms into the upper 60s and 70s. Conservation context. Winter remains a vegetated-edge problem, not a basin-crappie problem.",
     thermalDrivenBehavior:
       "Preferred band roughly 68–78°F. Cold edge near 50°F; warm edge near 86°F.",
-    currentFacing:
-      "Absent to sluggish current. Protected margins rather than a fast core.",
+    currentFacing: "Absent to sluggish current. Protected margins rather than a fast core.",
     depthMovement:
       "Mostly shallow to mid-depth around vegetation; deeper edges under bright light or seasonal cooling.",
-    predatorAvoidance:
-      "Weeds, wood, and dock shade.",
-    coverUse:
-      "Weed edges, inside weedlines, wood, dock shade, and shallow flats.",
-    openWaterBehavior:
-      "Not an open-water schooler.",
+    predatorAvoidance: "Weeds, wood, and dock shade.",
+    coverUse: "Weed edges, inside weedlines, wood, dock shade, and shallow flats.",
+    openWaterBehavior: "Not an open-water schooler.",
     spawningBehavior:
       "Early-summer and summer nesting in littoral water. Colonial or concentrated nesting habitat is excluded from target guidance.",
     sources: [
@@ -1621,14 +1582,11 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 72–81°F. Cold edge near 52°F; warm edge near 90°F. A warmwater, still-water fish.",
     currentFacing:
       "Still water or protected overflow pools and bays. Avoids sustained main-channel current (Missouri DNR).",
-    depthMovement:
-      "Often slightly deeper littoral water than bluegill, still near bottom.",
-    predatorAvoidance:
-      "Depth, vegetation, and bottom. Bright surface water is a poor default.",
+    depthMovement: "Often slightly deeper littoral water than bluegill, still near bottom.",
+    predatorAvoidance: "Depth, vegetation, and bottom. Bright surface water is a poor default.",
     coverUse:
       "Weed edges, outside weedlines, wood, shallow flats, and drop-offs — as bottom, not as a bluegill surface edge.",
-    openWaterBehavior:
-      "Not a pelagic schooler. Open water is not the job.",
+    openWaterBehavior: "Not a pelagic schooler. Open water is not the job.",
     spawningBehavior:
       "Missouri DNR: nesting in May or June, sometimes again in August; saucer-shaped colonies with rims often almost touching. Colonies are excluded from target guidance.",
     sources: [
@@ -1667,12 +1625,9 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Usually shallow to mid-depth and structure-oriented; larger fish use deeper cover when light or pressure increases.",
     clarityResponse:
       "Tolerates turbidity better than pumpkinseed or redear. Murk is not a reason to import walleye optics.",
-    predatorAvoidance:
-      "Wood, riprap, shade, and undercut margins.",
-    coverUse:
-      "Wood, weed edges, dock shade, shallow flats, riprap, eddies, and side channels.",
-    openWaterBehavior:
-      "Not an open-water sunfish.",
+    predatorAvoidance: "Wood, riprap, shade, and undercut margins.",
+    coverUse: "Wood, weed edges, dock shade, shallow flats, riprap, eddies, and side channels.",
+    openWaterBehavior: "Not an open-water sunfish.",
     spawningBehavior:
       "Texas Parks and Wildlife: nests in shallow colonies, often closely packed, usually on gravel or rock. Males defend nests. Colonies are excluded from target guidance.",
     sources: [
@@ -1711,12 +1666,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Permanent-flow streams, holding around rock, wood, and velocity relief — not the fastest lane.",
     depthMovement:
       "Shallow to mid-depth around rock and cover, moving deeper with high sun, pressure, or seasonal cooling.",
-    predatorAvoidance:
-      "Rock, shade, and depth. Bright open sand is a poor default.",
+    predatorAvoidance: "Rock, shade, and depth. Bright open sand is a poor default.",
     coverUse:
       "Rocky shoreline, riprap, points, wood, drop-offs, boulder pockets, current breaks, and pool heads.",
-    openWaterBehavior:
-      "Not a pelagic schooler. Open water is a short intercept off rock.",
+    openWaterBehavior: "Not a pelagic schooler. Open water is a short intercept off rock.",
     spawningBehavior:
       "Michigan DNR: spawning from April to early June as water warms; the male digs a nest near lake shallows and guards eggs and young. Nesting areas may be closely packed. Nests are excluded from target guidance.",
     sources: [
@@ -1757,13 +1710,15 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Wood, boulders, undercut margins, and shade. Bright open sand without cover is a poor default.",
     coverUse:
       "Pool tails, runs, current breaks, boulder pockets, submerged wood, rocky shoreline, weed edges, and dock shade.",
-    openWaterBehavior:
-      "Not a pelagic schooler. Open water is a short intercept off cover.",
+    openWaterBehavior: "Not a pelagic schooler. Open water is a short intercept off cover.",
     spawningBehavior:
       "South Carolina DNR: males construct large saucer-shaped nests typically in shallow water on sand or gravel; nests may be solitary or built in groups of more than 80. Males guard. Colonies are excluded from target guidance.",
     sources: [
       { label: "South Carolina DNR redbreast sunfish account", class: "agency" },
-      { label: "North Carolina Wildlife Resources Commission redbreast sunfish profile", class: "agency" },
+      {
+        label: "North Carolina Wildlife Resources Commission redbreast sunfish profile",
+        class: "agency",
+      },
       { label: "Virginia DWR redbreast sunfish account", class: "agency" },
     ],
     ...R,
@@ -1802,13 +1757,15 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Stumps, weeds, undercut banks, and shade. Open bright flats are a poor default.",
     coverUse:
       "Wood, weed edges, inside weedlines, shallow flats, dock shade, eddies, and side channels.",
-    openWaterBehavior:
-      "Not an open-water sunfish.",
+    openWaterBehavior: "Not an open-water sunfish.",
     spawningBehavior:
       "Texas Parks and Wildlife: males construct a disc-shaped nest by fanning silt and debris; after the female deposits eggs the male fertilizes and aggressively defends nest, eggs, and fry. FWC: solitary nesters adjacent to a submerged object. Nests are excluded from target guidance.",
     sources: [
       { label: "Texas Parks and Wildlife warmouth account", class: "agency" },
-      { label: "Florida Fish and Wildlife Conservation Commission warmouth profile", class: "agency" },
+      {
+        label: "Florida Fish and Wildlife Conservation Commission warmouth profile",
+        class: "agency",
+      },
       { label: "Virginia DWR warmouth account", class: "agency" },
     ],
     ...R,
@@ -1845,13 +1802,15 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Pools, vegetation, and current relief. The fastest open lane is a poor default.",
     coverUse:
       "Eddy, side channel, current break, pool tail, submerged wood, weed edge, shallow flat, rocky shoreline, and inlets.",
-    openWaterBehavior:
-      "Not a pelagic schooler.",
+    openWaterBehavior: "Not a pelagic schooler.",
     spawningBehavior:
       "Missouri DNR: evenly rounded nests nearly always fanned over small chert gravel; rims often nearly touch; the male stays with the nest for more than two weeks until fry have hatched and dispersed. Colonies are excluded from target guidance.",
     sources: [
       { label: "Missouri Department of Conservation longear sunfish field guide", class: "agency" },
-      { label: "Illinois Department of Natural Resources longear sunfish account", class: "agency" },
+      {
+        label: "Illinois Department of Natural Resources longear sunfish account",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
@@ -1883,18 +1842,19 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Strongest fit is slack to very slow, vegetated backwater. South Carolina DNR: swamps, creeks, ponds, backwaters, sloughs, and low-flowing streams. Not a sustained current fish.",
     depthMovement:
       "Usually shallow-to-mid around vegetation, wood, and protected backwater structure.",
-    predatorAvoidance:
-      "Weeds, wood, and tannic cover. Bright open water is a poor default.",
+    predatorAvoidance: "Weeds, wood, and tannic cover. Bright open water is a poor default.",
     coverUse:
       "Weed edges, inside weedlines, wood, shallow flats, inlets, dock shade, eddies, side channels, and deep pools as slack, not as current.",
-    openWaterBehavior:
-      "Not a pelagic schooler and not a crappie basin fish.",
+    openWaterBehavior: "Not a pelagic schooler and not a crappie basin fish.",
     spawningBehavior:
       "South Carolina DNR: males build and defend nests which are often in groups; females deposit 20,000–35,000 eggs. Illinois DNR: male fans a nest. Grouped nests are excluded from target guidance.",
     sources: [
       { label: "South Carolina DNR flier account", class: "agency" },
       { label: "Illinois Department of Natural Resources flier account", class: "agency" },
-      { label: "Georgia DNR freshwater fish identification (sluggish lowland habitat)", class: "agency" },
+      {
+        label: "Georgia DNR freshwater fish identification (sluggish lowland habitat)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
@@ -1932,8 +1892,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Depth, wood, and darkness. Spines are a defensive anatomy note, not a fight claim.",
     coverUse:
       "Deep pools, current breaks, runs, tributary mouths, submerged wood, drop-offs, riprap, inlets, and basins.",
-    openWaterBehavior:
-      "Not a pelagic rover. Open water is a short intercept off bottom or cover.",
+    openWaterBehavior: "Not a pelagic rover. Open water is a short intercept off bottom or cover.",
     spawningBehavior:
       "Missouri DNR / Texas Parks and Wildlife: male selects and cleans a dark secluded cavity — drift, logs, undercut banks, burrows — as water holds near 75°F. Female does not guard. Male guards eggs and fry until they leave. Cavities and fry schools are excluded from target guidance.",
     sources: [
@@ -2019,10 +1978,8 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Preferred band roughly 68–82°F. Cold edge near 48°F; warm edge near 90°F. Large-river wood and pool habitat, not a pond-channel default.",
     currentFacing:
       "Missouri DNR: prefers slow current; avoids high-gradient or intermittent streams. Holds on the protected side of wood, scour, or structure rather than the fastest lane.",
-    depthMovement:
-      "Deep cover by day; shallower at night. Winter deeper with current refuge.",
-    predatorAvoidance:
-      "Wood, depth, and darkness. Open sand without cover is a poor default.",
+    depthMovement: "Deep cover by day; shallower at night. Winter deeper with current refuge.",
+    predatorAvoidance: "Wood, depth, and darkness. Open sand without cover is a poor default.",
     coverUse:
       "Deep pools, submerged wood, current breaks, runs, pool heads, drop-offs, basins, and riprap — as occupied cover, not as a crowd.",
     openWaterBehavior:
@@ -2030,7 +1987,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "Missouri DNR: saucer in a natural cavity or near a large submerged object; male guards fry about 7 days; young remain in a compact school near the nest for several days then disperse. Texas Parks and Wildlife: hollow logs, caves, or areas beneath banks. Cavities and fry schools are excluded from target guidance.",
     sources: [
-      { label: "Missouri Department of Conservation flathead catfish field guide", class: "agency" },
+      {
+        label: "Missouri Department of Conservation flathead catfish field guide",
+        class: "agency",
+      },
       { label: "Texas Parks and Wildlife flathead catfish account", class: "agency" },
       { label: "Minnesota DNR catfish biology", class: "agency" },
     ],
@@ -2066,12 +2026,10 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Bottom-oriented from shallow cover to deeper holes and basins, moving shallower to forage under favorable conditions.",
     clarityResponse:
       "Scent and bottom contact work in stain. Bright open sand without structure is a poor default.",
-    predatorAvoidance:
-      "Wood, riprap, depth, and banks.",
+    predatorAvoidance: "Wood, riprap, depth, and banks.",
     coverUse:
       "Deep pools, current breaks, submerged wood, side channels, eddies, basins, riprap, inlets, and drop-offs.",
-    openWaterBehavior:
-      "Not a pelagic schooler.",
+    openWaterBehavior: "Not a pelagic schooler.",
     spawningBehavior:
       "Cavity or depression spawning around banks, roots, and structure. Guarded nests are excluded from target guidance. Exact temperature and nest-density tables remain a gap.",
     sources: [
@@ -2121,11 +2079,19 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "NOAA: Chinook dig gravel nests (redds) on stream bottoms; all die after spawning. Mature typically at age 3 or 4. Redds, listed ESUs, and spawning concentrations are invalidators, never target layers.",
     sources: [
-      { label: "NOAA Fisheries Chinook Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/chinook-salmon" },
+      {
+        label: "NOAA Fisheries Chinook Salmon species profile",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/chinook-salmon",
+      },
       { label: "Healey chinook life history", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [PRESSURE_GAP, FRONT_GAP, "Pacific freshwater-return vs Great Lakes lake feeding as a structured RPC split"],
+    gaps: [
+      PRESSURE_GAP,
+      FRONT_GAP,
+      "Pacific freshwater-return vs Great Lakes lake feeding as a structured RPC split",
+    ],
   },
   {
     speciesId: "oncorhynchus_kisutch",
@@ -2158,8 +2124,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Flow pulses can move traveling adults. That is migration mechanics, not a named bottleneck.",
     clarityResponse:
       "Clarity and overcast can alter how high fish sit. They do not imply a surface event.",
-    predatorAvoidance:
-      "Depth, turbidity, and grouping. Not a wood-ambush trout.",
+    predatorAvoidance: "Depth, turbidity, and grouping. Not a wood-ambush trout.",
     coverUse:
       "Runs, seams, pool heads, current breaks, and tributary mouths as classes. Spawning tributaries are excluded from target guidance.",
     openWaterBehavior:
@@ -2167,12 +2132,24 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "NOAA: females dig gravel nests; all coho die after spawning. Fall return. Redds, listed ESUs, and crowded spawning tributaries are invalidators, never target layers.",
     sources: [
-      { label: "NOAA Fisheries Coho Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/coho-salmon" },
-      { label: "California DFW Coho Salmon conservation profile", class: "agency", url: "https://wildlife.ca.gov/Conservation/Fishes/Coho-Salmon" },
+      {
+        label: "NOAA Fisheries Coho Salmon species profile",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/coho-salmon",
+      },
+      {
+        label: "California DFW Coho Salmon conservation profile",
+        class: "agency",
+        url: "https://wildlife.ca.gov/Conservation/Fishes/Coho-Salmon",
+      },
       { label: "Sandercock coho life history", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [PRESSURE_GAP, FRONT_GAP, "Pacific freshwater-return vs Great Lakes lake feeding as a structured RPC split"],
+    gaps: [
+      PRESSURE_GAP,
+      FRONT_GAP,
+      "Pacific freshwater-return vs Great Lakes lake feeding as a structured RPC split",
+    ],
   },
   {
     speciesId: "oncorhynchus_gorbuscha",
@@ -2201,8 +2178,7 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
       "Typically mid-column to lower-column during river migration, varying with flow, channel form, and light.",
     flowChangeResponse:
       "Flow pulses can move traveling adults. That is migration mechanics, not a named bottleneck.",
-    predatorAvoidance:
-      "Depth, turbidity, and grouping during travel.",
+    predatorAvoidance: "Depth, turbidity, and grouping during travel.",
     coverUse:
       "Runs, pool heads, pool tails, current breaks, and tributary mouths as travel classes. Redds are excluded.",
     openWaterBehavior:
@@ -2210,8 +2186,17 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "NOAA: females construct redds; all pink salmon die after they spawn. Alaska DFG: a group of nests is a redd. Redds and concentrated spawning fish are excluded from target guidance. Odd/even year structure is not a targeting calendar.",
     sources: [
-      { label: "Alaska Department of Fish and Game Pink Salmon species profile (adults do not eat in freshwater; two-year cycle)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main" },
-      { label: "NOAA Fisheries Pink Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/pink-salmon" },
+      {
+        label:
+          "Alaska Department of Fish and Game Pink Salmon species profile (adults do not eat in freshwater; two-year cycle)",
+        class: "agency",
+        url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main",
+      },
+      {
+        label: "NOAA Fisheries Pink Salmon species profile",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/pink-salmon",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
@@ -2235,16 +2220,14 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     },
     seasonalActivity:
       "NOAA: spawn from late summer to March, with peak spawning concentrated in early winter. Hood Canal summer-run and Columbia River ESUs are federally threatened. Population-level status must be declared; it is not a location.",
-    thermalDrivenBehavior:
-      "Preferred band roughly 42–56°F. Warm, low flow is a travel constraint.",
+    thermalDrivenBehavior: "Preferred band roughly 42–56°F. Warm, low flow is a travel constraint.",
     currentFacing:
       "Returning adults use migration lanes and velocity relief in coastal rivers; the record does not convert spawning migration into a feeding model (catalog).",
     depthMovement:
       "Generally travels through mid and lower river columns with flow and channel depth rather than holding as a resident trout.",
     flowChangeResponse:
       "NOAA notes peak spawning concentrated in early winter when river flows are high. Flow is hydrology, not a named bottleneck.",
-    predatorAvoidance:
-      "Depth, turbidity, and grouping during travel.",
+    predatorAvoidance: "Depth, turbidity, and grouping during travel.",
     coverUse:
       "Runs, current breaks, pool heads, pool tails, and tributary mouths as travel classes. Redds are excluded.",
     openWaterBehavior:
@@ -2252,9 +2235,18 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "NOAA: spawn from late summer to March. Listed ESUs and spawning concentrations are conservation context, not target opportunities. Alaska DFG: energy stored in body tissues fuels the run after feeding ceases.",
     sources: [
-      { label: "NOAA Fisheries Chum Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/chum-salmon" },
+      {
+        label: "NOAA Fisheries Chum Salmon species profile",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/chum-salmon",
+      },
       { label: "NOAA Fisheries Chum Salmon protected-ESU profile", class: "agency" },
-      { label: "Alaska Department of Fish and Game Chum Salmon species profile (cease feeding on the spawning run; no dark spots; silver on tail)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main" },
+      {
+        label:
+          "Alaska Department of Fish and Game Chum Salmon species profile (cease feeding on the spawning run; no dark spots; silver on tail)",
+        class: "agency",
+        url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main",
+      },
     ],
     ...R,
     gaps: [PRESSURE_GAP, FRONT_GAP, LEVEL_GAP],
@@ -2295,11 +2287,19 @@ export const BEHAVIOR_DOSSIERS: BehaviorDossier[] = [
     spawningBehavior:
       "Maine IFW: wild fish spawn in lake inlets or outlets from mid-October through late November; eggs buried in gravel; landlocked salmon may spawn more than once. Spawning runs are invalidators. Do not confuse this record with federally endangered wild Gulf of Maine sea-run Atlantic salmon.",
     sources: [
-      { label: "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
+      {
+        label:
+          "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile",
+        class: "agency",
+        url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html",
+      },
       { label: "Maine landlocked Atlantic salmon management literature", class: "agency" },
     ],
     ...R,
-    gaps: [PRESSURE_GAP, FRONT_GAP, "smelt-present vs smelt-absent lake calendars as a structured RPC split"],
+    gaps: [
+      PRESSURE_GAP,
+      FRONT_GAP,
+      "smelt-present vs smelt-absent lake calendars as a structured RPC split",
+    ],
   },
-
 ];

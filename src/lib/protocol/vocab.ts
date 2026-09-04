@@ -43,13 +43,7 @@ export function isMarine(waterType: WaterType): waterType is MarineType {
  * separately because a hard-running neap and a lazy spring are different
  * situations that a single "tide" field would blur.
  */
-export const TIDE_MOVEMENTS = [
-  "flooding",
-  "ebbing",
-  "slack_high",
-  "slack_low",
-  "unknown",
-] as const;
+export const TIDE_MOVEMENTS = ["flooding", "ebbing", "slack_high", "slack_low", "unknown"] as const;
 export type TideMovement = (typeof TIDE_MOVEMENTS)[number];
 
 // Suffixed because a bare `spring` would collide with the season of the same
@@ -213,11 +207,7 @@ export const OFFSHORE_HOLDING = [
 ] as const;
 export type OffshoreHolding = (typeof OFFSHORE_HOLDING)[number];
 
-export type MarineHolding =
-  | SurfHolding
-  | InshoreHolding
-  | NearshoreHolding
-  | OffshoreHolding;
+export type MarineHolding = SurfHolding | InshoreHolding | NearshoreHolding | OffshoreHolding;
 
 /** Every holding class, whatever the water. */
 export type AnyHolding = RiverHolding | StillHolding | MarineHolding;

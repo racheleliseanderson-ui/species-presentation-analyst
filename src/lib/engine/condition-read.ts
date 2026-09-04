@@ -12,10 +12,7 @@
  * season, that is the answer.
  */
 
-import type {
-  DossierSource,
-  SeasonalCalendarEntry,
-} from "../knowledge/dossier-types.ts";
+import type { DossierSource, SeasonalCalendarEntry } from "../knowledge/dossier-types.ts";
 import type { SpeciesOverlays } from "../knowledge/overlays.ts";
 import type { ScenarioInput } from "../protocol/types.ts";
 import { labelOf, type Season } from "../protocol/vocab.ts";
@@ -156,10 +153,7 @@ export function responseRead(input: ScenarioInput, overlays: SpeciesOverlays): R
     // can change, and the diel note applies whether or not light was declared.
     notes.push({
       id: "diel",
-      trigger:
-        input.light === "unknown"
-          ? "Time of day"
-          : `Light · ${labelOf(input.light)}`,
+      trigger: input.light === "unknown" ? "Time of day" : `Light · ${labelOf(input.light)}`,
       text: `${labelOf(behavior.dielTendency.class)} tendency. ${behavior.dielTendency.note}`,
       source: "behavior",
     });

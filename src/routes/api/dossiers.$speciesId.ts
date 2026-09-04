@@ -38,14 +38,16 @@ export const Route = createFileRoute("/api/dossiers/$speciesId")({
             { speciesId, overlays, source: "live" },
             {
               headers: {
-                "cache-control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+                "cache-control":
+                  "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
                 "content-type": "application/json; charset=utf-8",
               },
             },
           );
         } catch (error) {
           console.error("[dossiers] live read failed, serving committed records", error);
-          const { committedOverlaysFor } = await import("@/lib/knowledge/committed-dossiers.server");
+          const { committedOverlaysFor } =
+            await import("@/lib/knowledge/committed-dossiers.server");
           const { overlays, source } = committedOverlaysFor(speciesId);
           return Response.json(
             { speciesId, overlays, source: `committed:${source}` },

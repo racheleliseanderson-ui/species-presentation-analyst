@@ -1,9 +1,6 @@
 import { populationProfilesForSpecies } from "@/lib/engine/population-context";
 import { completeOverlayCount, overlayPresence } from "@/lib/knowledge/overlays";
-import {
-  useDossierCoverage,
-  useSpeciesOverlays,
-} from "@/lib/knowledge/use-species-overlays";
+import { useDossierCoverage, useSpeciesOverlays } from "@/lib/knowledge/use-species-overlays";
 import { SPECIES, SPECIES_BY_ID } from "@/lib/knowledge/species-catalog";
 import {
   buildAnglerSpeciesProfile,
@@ -35,7 +32,10 @@ function FactList({ facts }: { facts: AnglerProfileFact[] }) {
   return (
     <dl className="mt-4 grid gap-2">
       {facts.map((fact) => (
-        <div key={`${fact.label}-${fact.value.slice(0, 24)}`} className="rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5">
+        <div
+          key={`${fact.label}-${fact.value.slice(0, 24)}`}
+          className="rounded-[var(--radius-sm)] bg-elevated px-3 py-2.5"
+        >
           <dt className="font-mono text-[9px] uppercase tracking-wider text-dim">{fact.label}</dt>
           <dd className="mt-1 text-sm text-fg">{fact.value}</dd>
         </div>
@@ -56,13 +56,13 @@ export function SelectedSpeciesProfile() {
   const profile = buildAnglerSpeciesProfile(species, overlays);
   const knowledge = overlayPresence(overlays);
   const overlayComplete = completeOverlayCount(knowledge);
-  const populationProfiles = populationProfilesForSpecies(
-    species.id,
-    session.water.waterType,
-  );
+  const populationProfiles = populationProfilesForSpecies(species.id, session.water.waterType);
 
   return (
-    <section className="no-print mx-auto max-w-6xl px-4 pb-10 sm:px-6" aria-labelledby="species-profile-heading">
+    <section
+      className="no-print mx-auto max-w-6xl px-4 pb-10 sm:px-6"
+      aria-labelledby="species-profile-heading"
+    >
       <details className="group rounded-[var(--radius-lg)] bg-elevated shadow-[var(--shadow-border)]">
         <summary className="cursor-pointer list-none p-5 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
@@ -74,7 +74,9 @@ export function SelectedSpeciesProfile() {
                 Know the fish: {species.commonNames[0]}
               </h2>
               <p className="mt-2 max-w-3xl text-sm text-muted">
-                Ten angler questions, separated into what is already reviewed, what is only partly covered, and what still needs authoritative research. This does not fill missing facts with generic AI text.
+                Ten angler questions, separated into what is already reviewed, what is only partly
+                covered, and what still needs authoritative research. This does not fill missing
+                facts with generic AI text.
               </p>
               <Link
                 to="/species/$speciesId"
@@ -96,9 +98,12 @@ export function SelectedSpeciesProfile() {
               </p>
             </div>
             <div className="text-right">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-dim">Open profile</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-dim">
+                Open profile
+              </p>
               <p className="mt-1 text-xs text-muted">
-                {profile.coverage.reviewed} reviewed · {profile.coverage.partial} partial · {profile.coverage.notReviewed} needs research
+                {profile.coverage.reviewed} reviewed · {profile.coverage.partial} partial ·{" "}
+                {profile.coverage.notReviewed} needs research
               </p>
             </div>
           </div>
@@ -112,15 +117,21 @@ export function SelectedSpeciesProfile() {
             {populationProfiles.length > 0 ? (
               <>
                 <p className="mt-2 text-sm text-fg">
-                  {populationProfiles.length} reviewed population {populationProfiles.length === 1 ? "profile is" : "profiles are"} available for this species{session.water.waterType ? " in the selected water type" : ""}: {populationProfiles.map((item) => item.label).join("; ")}.
+                  {populationProfiles.length} reviewed population{" "}
+                  {populationProfiles.length === 1 ? "profile is" : "profiles are"} available for
+                  this species{session.water.waterType ? " in the selected water type" : ""}:{" "}
+                  {populationProfiles.map((item) => item.label).join("; ")}.
                 </p>
                 <p className="mt-1 text-xs text-muted">
-                  A named population is used only when you declare it, or when it is carried from a reviewed upstream reading. Geography never silently chooses it.
+                  A named population is used only when you declare it, or when it is carried from a
+                  reviewed upstream reading. Geography never silently chooses it.
                 </p>
               </>
             ) : (
               <p className="mt-2 text-sm text-muted">
-                No extra population context is registered for this species{session.water.waterType ? " in the selected water type" : ""}. The reviewed species-level reading remains active without inventing regional behavior.
+                No extra population context is registered for this species
+                {session.water.waterType ? " in the selected water type" : ""}. The reviewed
+                species-level reading remains active without inventing regional behavior.
               </p>
             )}
           </div>
@@ -135,14 +146,19 @@ export function SelectedSpeciesProfile() {
               const sources = factsByKind(item.facts, "source");
 
               return (
-                <details key={item.id} className="rounded-[var(--radius-md)] bg-subtle p-4 shadow-[var(--shadow-border)]">
+                <details
+                  key={item.id}
+                  className="rounded-[var(--radius-md)] bg-subtle p-4 shadow-[var(--shadow-border)]"
+                >
                   <summary className="cursor-pointer list-none">
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <p className="font-medium text-fg">{item.label}</p>
                         <p className="mt-0.5 text-xs text-muted">{item.question}</p>
                       </div>
-                      <span className={`shrink-0 rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider ${statusClass(item.status)}`}>
+                      <span
+                        className={`shrink-0 rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider ${statusClass(item.status)}`}
+                      >
                         {statusLabel(item.status)}
                       </span>
                     </div>
@@ -159,7 +175,9 @@ export function SelectedSpeciesProfile() {
                           <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
                             Diagnostic traits · {traits.length}
                           </p>
-                          <p className="mt-1 text-xs text-muted">Open for the field characters used to tell this fish apart.</p>
+                          <p className="mt-1 text-xs text-muted">
+                            Open for the field characters used to tell this fish apart.
+                          </p>
                         </summary>
                         <ul className="mt-3 grid gap-2">
                           {traits.map((trait) => (
@@ -177,12 +195,16 @@ export function SelectedSpeciesProfile() {
                           <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
                             Tell it apart · {comparisons.length}
                           </p>
-                          <p className="mt-1 text-xs text-muted">Similar species and the reviewed characters that separate them.</p>
+                          <p className="mt-1 text-xs text-muted">
+                            Similar species and the reviewed characters that separate them.
+                          </p>
                         </summary>
                         <dl className="mt-3 grid gap-3">
                           {comparisons.map((fact) => (
                             <div key={fact.label}>
-                              <dt className="text-sm font-medium text-fg">{fact.label.replace("Distinguish from ", "")}</dt>
+                              <dt className="text-sm font-medium text-fg">
+                                {fact.label.replace("Distinguish from ", "")}
+                              </dt>
                               <dd className="mt-1 text-sm text-muted">{fact.value}</dd>
                             </div>
                           ))}
@@ -197,7 +219,8 @@ export function SelectedSpeciesProfile() {
                             By season · {seasons.length}
                           </p>
                           <p className="mt-1 text-xs text-muted">
-                            Broad seasonal progression. Spawning aggregations stay out of targeting guidance.
+                            Broad seasonal progression. Spawning aggregations stay out of targeting
+                            guidance.
                           </p>
                         </summary>
                         <dl className="mt-3 grid gap-3">
@@ -217,7 +240,9 @@ export function SelectedSpeciesProfile() {
                           <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
                             Life stage · {lifeStages.length}
                           </p>
-                          <p className="mt-1 text-xs text-muted">What younger and older fish typically eat when those data exist.</p>
+                          <p className="mt-1 text-xs text-muted">
+                            What younger and older fish typically eat when those data exist.
+                          </p>
                         </summary>
                         <dl className="mt-3 grid gap-3">
                           {lifeStages.map((fact) => (
@@ -238,7 +263,9 @@ export function SelectedSpeciesProfile() {
 
                     {item.gaps.length > 0 && (
                       <div className="mt-4">
-                        <p className="font-mono text-[9px] uppercase tracking-wider text-dim">Still needs reviewed data</p>
+                        <p className="font-mono text-[9px] uppercase tracking-wider text-dim">
+                          Still needs reviewed data
+                        </p>
                         <p className="mt-1 text-xs leading-5 text-muted">{item.gaps.join(" · ")}</p>
                       </div>
                     )}
@@ -249,7 +276,10 @@ export function SelectedSpeciesProfile() {
           </div>
 
           <p className="mt-5 text-xs leading-5 text-dim">
-            The profile is a reference layer, not another required setup screen. Quick Read stays simple; Full Analysis keeps the deeper scenario controls. Current local regulations and consumption advisories remain external verification tasks until a live jurisdiction source is integrated.
+            The profile is a reference layer, not another required setup screen. Quick Read stays
+            simple; Full Analysis keeps the deeper scenario controls. Current local regulations and
+            consumption advisories remain external verification tasks until a live jurisdiction
+            source is integrated.
           </p>
         </div>
       </details>

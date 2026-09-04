@@ -52,11 +52,13 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Current Atlantic striped bass regulations and seasonal closures supersede this biological profile.",
       "Spawning reaches, staging concentrations, and migration bottlenecks are never named as target locations.",
     ],
-    note:
-      "NOAA describes Atlantic striped bass as anadromous, with adults using coastal/estuarine habitat and returning to freshwater or brackish rivers to spawn.",
+    note: "NOAA describes Atlantic striped bass as anadromous, with adults using coastal/estuarine habitat and returning to freshwater or brackish rivers to spawn.",
     sources: [
       { label: "NOAA Fisheries Atlantic striped bass species profile", class: "agency" },
-      { label: "Atlantic States Marine Fisheries Commission striped bass management/life history", class: "agency" },
+      {
+        label: "Atlantic States Marine Fisheries Commission striped bass management/life history",
+        class: "agency",
+      },
     ],
     reviewedAt: "2026-08-27",
   },
@@ -76,8 +78,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Stocking history and current reservoir population status must be verified; habitat alone does not prove striped bass are present.",
       "Summer thermal/oxygen squeeze can turn apparently occupied water into high-stress habitat.",
     ],
-    note:
-      "Landlocked striped bass populations are management-created in many reservoirs and behave as pelagic forage-followers rather than coastal migrants.",
+    note: "Landlocked striped bass populations are management-created in many reservoirs and behave as pelagic forage-followers rather than coastal migrants.",
     sources: [
       { label: "NOAA Fisheries striped bass range/life-history overview", class: "agency" },
       { label: "State reservoir striped bass management literature", class: "agency" },
@@ -100,11 +101,13 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Cutthroat subspecies and hybridization status remain basin-specific and must be verified separately.",
       "Spring spawning tributaries and migration bottlenecks are conservation context, not target layers.",
     ],
-    note:
-      "Westslope cutthroat trout can express resident, fluvial, and adfluvial life histories; this profile represents the river-resident/fluvial side of that split.",
+    note: "Westslope cutthroat trout can express resident, fluvial, and adfluvial life histories; this profile represents the river-resident/fluvial side of that split.",
     sources: [
       { label: "U.S. Fish & Wildlife Service Westslope Cutthroat Trout profile", class: "agency" },
-      { label: "Montana fisheries management plan cutthroat life-history summary", class: "agency" },
+      {
+        label: "Montana fisheries management plan cutthroat life-history summary",
+        class: "agency",
+      },
     ],
     reviewedAt: "2026-08-27",
   },
@@ -124,11 +127,13 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Do not infer a tributary or spawning destination from the adfluvial label.",
       "Subspecies, lake productivity, and hybridization can materially change this profile's fit.",
     ],
-    note:
-      "Adfluvial cutthroat migrate between lake habitat and spawning/rearing tributaries; adult lake behavior is distinct from resident stream fish.",
+    note: "Adfluvial cutthroat migrate between lake habitat and spawning/rearing tributaries; adult lake behavior is distinct from resident stream fish.",
     sources: [
       { label: "U.S. Fish & Wildlife Service Westslope Cutthroat Trout profile", class: "agency" },
-      { label: "Montana fisheries management plan cutthroat life-history summary", class: "agency" },
+      {
+        label: "Montana fisheries management plan cutthroat life-history summary",
+        class: "agency",
+      },
     ],
     reviewedAt: "2026-08-27",
   },
@@ -141,17 +146,24 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
     lifeHistory: "river_resident",
     populationOrigin: "native_or_established",
     waterTypes: ["flowing"],
-    bias: { cross_current_retrieve: 10, bottom_contact_drift: 8, pulse_jig: 7, upstream_retrieve: 5 },
+    bias: {
+      cross_current_retrieve: 10,
+      bottom_contact_drift: 8,
+      pulse_jig: 7,
+      upstream_retrieve: 5,
+    },
     positioning:
       "Current breaks, seams, boulder transitions, and current-delivered crayfish or forage are primary mechanical structure for this population archetype.",
     invalidators: [
       "A river label does not justify fishing spawning beds or known seasonal concentration points.",
       "Very warm or unusually low flow can collapse otherwise typical shallow-current behavior.",
     ],
-    note:
-      "Smallmouth are strongly associated with cool, clear rocky streams in parts of their range; current-facing mechanics deserve more weight than reservoir offshore logic.",
+    note: "Smallmouth are strongly associated with cool, clear rocky streams in parts of their range; current-facing mechanics deserve more weight than reservoir offshore logic.",
     sources: [
-      { label: "Missouri Department of Conservation smallmouth bass habitat profile", class: "agency" },
+      {
+        label: "Missouri Department of Conservation smallmouth bass habitat profile",
+        class: "agency",
+      },
       { label: "USGS / provincial smallmouth assessments", class: "agency" },
     ],
     reviewedAt: "2026-08-27",
@@ -165,17 +177,25 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
     lifeHistory: "reservoir_resident",
     populationOrigin: "native_or_introduced",
     waterTypes: ["stillwater"],
-    bias: { bottom_contact: 8, vertical_jig: 7, horizontal_retrieve: 6, drop_presentation: 5, stop_and_go: 4 },
+    bias: {
+      bottom_contact: 8,
+      vertical_jig: 7,
+      horizontal_retrieve: 6,
+      drop_presentation: 5,
+      stop_and_go: 4,
+    },
     positioning:
       "Points, humps, channel-edge breaks, and rocky depth transitions receive more weight than river-current lanes; fish can use substantially deeper structure in stable reservoirs.",
     invalidators: [
       "Reservoir water-level changes can make yesterday's structural edge biologically irrelevant.",
       "Stocking/introduction history matters outside the native range.",
     ],
-    note:
-      "Reservoir smallmouth retain their rock association but use offshore structure and depth transitions differently from current-oriented river populations.",
+    note: "Reservoir smallmouth retain their rock association but use offshore structure and depth transitions differently from current-oriented river populations.",
     sources: [
-      { label: "Missouri Department of Conservation smallmouth bass habitat profile", class: "agency" },
+      {
+        label: "Missouri Department of Conservation smallmouth bass habitat profile",
+        class: "agency",
+      },
       { label: "State reservoir black-bass management literature", class: "agency" },
     ],
     reviewedAt: "2026-08-27",
@@ -189,15 +209,20 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
     lifeHistory: "lake_resident",
     populationOrigin: "native_or_established",
     waterTypes: ["stillwater"],
-    bias: { bottom_contact: 8, slow_drag: 8, vertical_jig: 6, trolling: 5, live_natural_bait_suspension: 3 },
+    bias: {
+      bottom_contact: 8,
+      slow_drag: 8,
+      vertical_jig: 6,
+      trolling: 5,
+      live_natural_bait_suspension: 3,
+    },
     positioning:
       "Rock, points, breaklines, basin edges, light penetration, and forage depth define the lake frame; low light can move fish shallower without changing the population archetype.",
     invalidators: [
       "Natural-lake recruitment and forage communities vary sharply among waters; do not infer abundance from habitat quality.",
       "Spawning reefs and spring concentrations remain excluded from target guidance.",
     ],
-    note:
-      "This profile strengthens structure/depth mechanics for lake-resident walleye without turning low-light biology into a bite prediction.",
+    note: "This profile strengthens structure/depth mechanics for lake-resident walleye without turning low-light biology into a bite prediction.",
     sources: [
       { label: "Great Lakes / state walleye assessments", class: "agency" },
       { label: "Colby et al. walleye biology", class: "peer_reviewed" },
@@ -213,17 +238,24 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
     lifeHistory: "river_resident_or_migratory",
     populationOrigin: "native_or_established",
     waterTypes: ["flowing"],
-    bias: { bottom_contact_drift: 10, pulse_jig: 9, cross_current_retrieve: 5, downstream_retrieve: 4 },
+    bias: {
+      bottom_contact_drift: 10,
+      pulse_jig: 9,
+      cross_current_retrieve: 5,
+      downstream_retrieve: 4,
+    },
     positioning:
       "Current-washed rock, deep runs, channel edges, and velocity breaks outrank reservoir-style basin searching in this declared population context.",
     invalidators: [
       "Navigation structures and dams may create concentrations; this profile does not name those locations.",
       "Spring migration/spawning concentrations are explicitly excluded from target guidance.",
     ],
-    note:
-      "Large-river walleye use hard bottom, current breaks, and deeper current habitat differently from lake-resident populations.",
+    note: "Large-river walleye use hard bottom, current breaks, and deeper current habitat differently from lake-resident populations.",
     sources: [
-      { label: "Missouri Department of Conservation Upper Mississippi walleye habitat guidance", class: "agency" },
+      {
+        label: "Missouri Department of Conservation Upper Mississippi walleye habitat guidance",
+        class: "agency",
+      },
       { label: "Great Lakes / state walleye assessments", class: "agency" },
     ],
     reviewedAt: "2026-08-27",
@@ -244,8 +276,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Seasonal river movement can be extensive; one channel/depth class is not a year-round rule.",
       "Do not convert lock, dam, or concentration structure into a hotspot map.",
     ],
-    note:
-      "Missouri describes blue catfish as a big-river fish favoring current, pools, and silt-free sand/gravel/rubble substrates.",
+    note: "Missouri describes blue catfish as a big-river fish favoring current, pools, and silt-free sand/gravel/rubble substrates.",
     sources: [
       { label: "Missouri Department of Conservation blue catfish profile", class: "agency" },
       { label: "USGS blue catfish movement and habitat literature", class: "peer_reviewed" },
@@ -268,11 +299,13 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Reservoir populations may be stocked or introduced; verify local ecological and harvest status.",
       "Forage schools are mobile biological structure, not coordinates or a persistent hotspot.",
     ],
-    note:
-      "State reservoir guidance documents blue catfish using the full water column in large lakes and associating with abundant shad forage.",
+    note: "State reservoir guidance documents blue catfish using the full water column in large lakes and associating with abundant shad forage.",
     sources: [
       { label: "Missouri Department of Conservation catfish reservoir guidance", class: "agency" },
-      { label: "Texas Parks and Wildlife reservoir survey reports for blue catfish and shad forage", class: "agency" },
+      {
+        label: "Texas Parks and Wildlife reservoir survey reports for blue catfish and shad forage",
+        class: "agency",
+      },
     ],
     reviewedAt: "2026-08-27",
   },
@@ -292,8 +325,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Great Lakes stock, rehabilitation status, and local regulations vary by lake and management unit.",
       "Known spawning reefs are conservation context, not target outputs.",
     ],
-    note:
-      "Great Lakes lake trout occupy very large depth ranges and track cold water and pelagic prey; summer depth can exceed typical inland-lake scales.",
+    note: "Great Lakes lake trout occupy very large depth ranges and track cold water and pelagic prey; summer depth can exceed typical inland-lake scales.",
     sources: [
       { label: "Michigan DNR lake trout species profile", class: "agency" },
       { label: "Great Lakes lake trout assessments", class: "agency" },
@@ -316,8 +348,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Cold water without adequate oxygen is not usable habitat.",
       "Small inland populations can be sensitive to warming, exploitation, and introduced forage changes.",
     ],
-    note:
-      "Minnesota documents naturally reproducing inland lake trout populations as strongly constrained by available cold thermal habitat; Michigan also distinguishes inland lake populations from the Great Lakes fishery.",
+    note: "Minnesota documents naturally reproducing inland lake trout populations as strongly constrained by available cold thermal habitat; Michigan also distinguishes inland lake populations from the Great Lakes fishery.",
     sources: [
       { label: "Minnesota DNR Sentinel Lakes lake trout habitat assessments", class: "agency" },
       { label: "Michigan DNR lake trout species profile", class: "agency" },
@@ -340,8 +371,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "A cisco school is mobile biological structure and never a coordinate output.",
       "Spawning depth varies widely among stocks; spawning concentrations are not a place to target.",
     ],
-    note:
-      "USFWS describes Great Lakes cisco as pelagic zooplankton feeders that can occupy nearly the full depth range depending on season, time of day, and life stage.",
+    note: "USFWS describes Great Lakes cisco as pelagic zooplankton feeders that can occupy nearly the full depth range depending on season, time of day, and life stage.",
     sources: [
       { label: "U.S. Fish & Wildlife Service Cisco species profile", class: "agency" },
       { label: "Peer-reviewed cisco oxythermal habitat literature", class: "peer_reviewed" },
@@ -364,8 +394,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Verify that the water actually supports cisco; suitable temperature alone does not establish presence.",
       "Introduced predators or forage competitors can materially change depth use and population viability.",
     ],
-    note:
-      "The same pelagic biology applies inland, but the physical scale and available oxythermal refuge can compress the population into a narrower usable layer.",
+    note: "The same pelagic biology applies inland, but the physical scale and available oxythermal refuge can compress the population into a narrower usable layer.",
     sources: [
       { label: "U.S. Fish & Wildlife Service Cisco species profile", class: "agency" },
       { label: "State inland cisco and coldwater-lake assessments", class: "agency" },
@@ -388,8 +417,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Late-fall/winter spawning riffles are not target recommendations.",
       "Do not substitute generic trout surface behavior for the species' stronger benthic tendency.",
     ],
-    note:
-      "Mountain whitefish in rivers are consistently bottom/lower-column oriented and use moderate runs and riffle transitions for feeding.",
+    note: "Mountain whitefish in rivers are consistently bottom/lower-column oriented and use moderate runs and riffle transitions for feeding.",
     sources: [
       { label: "USGS Mountain Whitefish species and habitat literature", class: "agency" },
       { label: "Idaho Fish and Game mountain whitefish management literature", class: "agency" },
@@ -412,8 +440,7 @@ export const POPULATION_CONTEXT_PROFILES: PopulationContextProfile[] = [
       "Do not infer a spawning inlet or tributary from the lake profile.",
       "Local lake productivity and depth can materially change seasonal vertical use.",
     ],
-    note:
-      "The lake profile preserves mountain whitefish's benthic identity while removing river-current assumptions.",
+    note: "The lake profile preserves mountain whitefish's benthic identity while removing river-current assumptions.",
     sources: [
       { label: "USGS Mountain Whitefish species and habitat literature", class: "agency" },
       { label: "Idaho Fish and Game mountain whitefish management literature", class: "agency" },
@@ -432,8 +459,7 @@ export function populationProfilesForSpecies(
 ): PopulationContextProfile[] {
   return POPULATION_CONTEXT_PROFILES.filter(
     (profile) =>
-      profile.speciesId === speciesId &&
-      (!waterType || profile.waterTypes.includes(waterType)),
+      profile.speciesId === speciesId && (!waterType || profile.waterTypes.includes(waterType)),
   );
 }
 
@@ -447,7 +473,8 @@ export function resolvePopulationContext(
   if (!profile) {
     return {
       profile: null,
-      error: "That regional or population context is not one of our reviewed profiles. We do not infer one from a water name or a location.",
+      error:
+        "That regional or population context is not one of our reviewed profiles. We do not infer one from a water name or a location.",
     };
   }
   if (profile.speciesId !== species.id) {

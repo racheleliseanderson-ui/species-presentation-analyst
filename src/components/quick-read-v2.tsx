@@ -389,7 +389,12 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
 
   return (
     <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-8 sm:px-6 sm:pt-10">
-      <CarriedContext carry={carry} className="mb-6" onApply={applyCarry} onDismiss={dismissCarry} />
+      <CarriedContext
+        carry={carry}
+        className="mb-6"
+        onApply={applyCarry}
+        onDismiss={dismissCarry}
+      />
 
       <section className="mb-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div>
@@ -727,7 +732,8 @@ export function QuickReadV2({ onOpenFull }: QuickReadProps) {
               </p>
               <h2 className="mt-2 font-display text-3xl">{result.error}</h2>
               <p className="mt-3 text-sm text-muted">
-                There is no record to read here, and inventing one would look like an answer. Change the water type or the target.
+                There is no record to read here, and inventing one would look like an answer. Change
+                the water type or the target.
               </p>
             </div>
           ) : (

@@ -7,7 +7,11 @@ import {
   buildAnglerSpeciesProfile,
   type AnglerProfileSectionId,
 } from "./angler-profile.ts";
-import { dietDossierFor, identificationDossierFor, seasonalCalendarDossierFor } from "./dossier-catalog.ts";
+import {
+  dietDossierFor,
+  identificationDossierFor,
+  seasonalCalendarDossierFor,
+} from "./dossier-catalog.ts";
 import { authoredOverlays } from "./coverage.ts";
 import type { SpeciesRecord } from "../protocol/types.ts";
 
@@ -108,7 +112,9 @@ test("AFP-1.2 uses identification dossiers when reviewed and leaves remaining sp
   // Without a dossier the section is "partial", not "not reviewed": the
   // catalog still supplies authoritative naming and angler aliases, and the
   // gap list says exactly what is missing beyond that.
-  const bare = unresearchedProfileOf(rainbow).sections.find((section) => section.id === "identification");
+  const bare = unresearchedProfileOf(rainbow).sections.find(
+    (section) => section.id === "identification",
+  );
   assert.equal(bare?.status, "partial");
   assert.ok(bare?.gaps.includes("similar-species comparison keys"));
   assert.ok(!bare?.facts.some((fact) => fact.kind === "comparison"));
@@ -123,7 +129,9 @@ test("AFP-1.2 uses behavior dossiers when reviewed without converting them into 
   assert.equal(whiteBehavior?.status, "reviewed");
   assert.ok(whiteBehavior?.facts.some((fact) => fact.label === "Social pattern"));
 
-  const bare = unresearchedProfileOf(whiteBass).sections.find((section) => section.id === "behavior");
+  const bare = unresearchedProfileOf(whiteBass).sections.find(
+    (section) => section.id === "behavior",
+  );
   assert.ok(bare?.gaps.includes("schooling versus solitary behavior"));
 
   const blob = JSON.stringify(whiteProfile);
@@ -149,13 +157,20 @@ test("AFP-1.2 uses seasonal calendars when reviewed without turning spawn into a
   const kokanee = SPECIES.find((species) => species.id === "oncorhynchus_nerka_kokanee");
   assert.ok(kokanee);
 
-  const kokaneeCal = profileOf(kokanee).sections.find((section) => section.id === "seasonal_calendar");
+  const kokaneeCal = profileOf(kokanee).sections.find(
+    (section) => section.id === "seasonal_calendar",
+  );
   assert.equal(seasonalCalendarDossierFor("oncorhynchus_nerka_kokanee")?.status, "reviewed");
   assert.equal(kokaneeCal?.status, "reviewed");
   assert.ok(kokaneeCal?.facts.some((fact) => fact.kind === "season"));
-  assert.doesNotMatch(JSON.stringify(kokaneeCal), /exact spawning|staging location|migration bottleneck|hotspot/i);
+  assert.doesNotMatch(
+    JSON.stringify(kokaneeCal),
+    /exact spawning|staging location|migration bottleneck|hotspot/i,
+  );
 
-  const bare = unresearchedProfileOf(kokanee).sections.find((section) => section.id === "seasonal_calendar");
+  const bare = unresearchedProfileOf(kokanee).sections.find(
+    (section) => section.id === "seasonal_calendar",
+  );
   assert.ok(bare?.gaps.includes("month-by-month location changes"));
 });
 
@@ -337,4 +352,3 @@ test("AFP-1.2 wave 02f marks chinook, coho, pink, chum, and landlocked Atlantic 
   assert.match(JSON.stringify(landlockedId), /brown/i);
   assert.match(JSON.stringify(landlockedId), /sea-run|anadromous|endangered/i);
 });
-

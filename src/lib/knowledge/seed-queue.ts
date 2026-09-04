@@ -30,8 +30,7 @@ export type SeedWave = {
 
 export const SEED_DOCTRINE = {
   unit: "A distinction group, with every required overlay written together.",
-  usefulFirst:
-    "Openers and high-use targets before rare, regulated, or lookalike-only leftovers.",
+  usefulFirst: "Openers and high-use targets before rare, regulated, or lookalike-only leftovers.",
   sources: "Agency or peer-reviewed. Visible gaps beat generic model text.",
   never: [
     "bite scores or catch probability",
@@ -85,7 +84,8 @@ export const SEED_WAVES: readonly SeedWave[] = [
     id: "02a",
     status: "landed",
     title: "High-use trout",
-    reason: "The trout people actually open: brown, brook, lake trout, and steelhead kept off inland rainbow.",
+    reason:
+      "The trout people actually open: brown, brook, lake trout, and steelhead kept off inland rainbow.",
     overlays: KNOWLEDGE_OVERLAYS,
     speciesIds: [
       "salmo_trutta",
@@ -131,7 +131,12 @@ export const SEED_WAVES: readonly SeedWave[] = [
     title: "Remaining sunfish",
     reason: "After the core panfish set, finish the Lepomis/Centrarchus leftovers as one group.",
     overlays: KNOWLEDGE_OVERLAYS,
-    speciesIds: ["lepomis_auritus", "lepomis_gulosus", "lepomis_megalotis", "centrarchus_macropterus"],
+    speciesIds: [
+      "lepomis_auritus",
+      "lepomis_gulosus",
+      "lepomis_megalotis",
+      "centrarchus_macropterus",
+    ],
   },
   {
     id: "02e",
@@ -139,13 +144,19 @@ export const SEED_WAVES: readonly SeedWave[] = [
     title: "Catfish",
     reason: "Same family, four different jobs.",
     overlays: KNOWLEDGE_OVERLAYS,
-    speciesIds: ["ictalurus_punctatus", "ictalurus_furcatus", "pylodictis_olivaris", "ameiurus_catus"],
+    speciesIds: [
+      "ictalurus_punctatus",
+      "ictalurus_furcatus",
+      "pylodictis_olivaris",
+      "ameiurus_catus",
+    ],
   },
   {
     id: "02f",
     status: "landed",
     title: "Pacific and landlocked salmon",
-    reason: "Keep chinook, coho, pink, chum, and landlocked Atlantic from collapsing into trout or steelhead.",
+    reason:
+      "Keep chinook, coho, pink, chum, and landlocked Atlantic from collapsing into trout or steelhead.",
     overlays: KNOWLEDGE_OVERLAYS,
     speciesIds: [
       "oncorhynchus_tshawytscha",
@@ -159,7 +170,8 @@ export const SEED_WAVES: readonly SeedWave[] = [
     id: "02g",
     status: "landed",
     title: "Remaining salmonids and burbot",
-    reason: "Whitefish, grayling, chars, sheefish, and burbot after the trout people actually open.",
+    reason:
+      "Whitefish, grayling, chars, sheefish, and burbot after the trout people actually open.",
     overlays: KNOWLEDGE_OVERLAYS,
     speciesIds: [
       "prosopium_williamsoni",

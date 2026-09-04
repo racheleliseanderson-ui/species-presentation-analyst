@@ -61,7 +61,11 @@ test("every water type has its own holding vocabulary, and they do not overlap b
 test("every holding class is labelled for a reader", () => {
   for (const waterType of WATER_TYPES) {
     for (const holding of HOLDING_BY_WATER_TYPE[waterType]) {
-      assert.notEqual(labelOf(holding), holding.replaceAll("_", " ").replace(/^./, (c) => c), `${holding} has no label`);
+      assert.notEqual(
+        labelOf(holding),
+        holding.replaceAll("_", " ").replace(/^./, (c) => c),
+        `${holding} has no label`,
+      );
     }
   }
 });
@@ -69,12 +73,16 @@ test("every holding class is labelled for a reader", () => {
 test("the declared holding comes from the water actually being fished", () => {
   assert.equal(declaredHolding(input({ waterType: "flowing", holdingRiver: "seam" })), "seam");
   assert.equal(
-    declaredHolding(input({ waterType: "stillwater", holdingRiver: "seam", holdingStill: "weed_edge" })),
+    declaredHolding(
+      input({ waterType: "stillwater", holdingRiver: "seam", holdingStill: "weed_edge" }),
+    ),
     "weed_edge",
   );
   // The bug this helper exists to prevent: marine reading the stillwater field.
   assert.equal(
-    declaredHolding(input({ waterType: "surf", holdingStill: "weed_edge", holdingMarine: "surf_trough" })),
+    declaredHolding(
+      input({ waterType: "surf", holdingStill: "weed_edge", holdingMarine: "surf_trough" }),
+    ),
     "surf_trough",
   );
   assert.equal(declaredHolding(input({ waterType: "offshore", holdingStill: "basin" })), null);
@@ -89,10 +97,7 @@ test("each water type is read on the movement axis that governs it", () => {
 test("a marine reading counts tide, not flow, as the movement it is missing", () => {
   // Flow declared but irrelevant: the tide is what is undeclared here.
   assert.equal(movementDeclared(input({ waterType: "inshore", flow: "moderate" })), false);
-  assert.equal(
-    movementDeclared(input({ waterType: "inshore", tideMovement: "ebbing" })),
-    true,
-  );
+  assert.equal(movementDeclared(input({ waterType: "inshore", tideMovement: "ebbing" })), true);
   assert.equal(movementDeclared(input({ waterType: "flowing", flow: "moderate" })), true);
 });
 
@@ -131,7 +136,8 @@ test("a species is only offered water it is reviewed for, and holding classes fr
       }
       if (isMarine(waterType)) {
         const withheld =
-          species.targetStatus === "conservation_sensitive" || species.targetStatus === "non_target";
+          species.targetStatus === "conservation_sensitive" ||
+          species.targetStatus === "non_target";
         const presentations = reviewedPresentationsFor(species, waterType);
         if (withheld) {
           // Tarpon and anything else in this class get no presentation

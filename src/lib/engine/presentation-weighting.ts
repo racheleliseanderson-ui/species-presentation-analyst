@@ -212,7 +212,14 @@ const HOLDING_BIASES: HoldingBias[] = [
     note: "edge / margin holding class",
   },
   {
-    holds: ["weed_edge", "inside_weedline", "outside_weedline", "wood", "dock_shade", "shallow_flat"],
+    holds: [
+      "weed_edge",
+      "inside_weedline",
+      "outside_weedline",
+      "wood",
+      "dock_shade",
+      "shallow_flat",
+    ],
     bias: {
       horizontal_retrieve: 7,
       stop_and_go: 6,
@@ -224,7 +231,15 @@ const HOLDING_BIASES: HoldingBias[] = [
     note: "cover-edge holding class",
   },
   {
-    holds: ["point", "secondary_point", "drop_off", "breakline", "submerged_hump", "rocky_shoreline", "riprap"],
+    holds: [
+      "point",
+      "secondary_point",
+      "drop_off",
+      "breakline",
+      "submerged_hump",
+      "rocky_shoreline",
+      "riprap",
+    ],
     bias: {
       bottom_contact: 8,
       slow_drag: 7,
@@ -553,7 +568,12 @@ export function rankPresentationFamilies(
     addReason(candidate, "water_type", exact ? 2 : 1, `${labelOf(input.waterType)} compatibility`);
   }
 
-  applyBias(candidates, "season", SEASON_BIASES[input.season], `${labelOf(input.season)} seasonal mechanics`);
+  applyBias(
+    candidates,
+    "season",
+    SEASON_BIASES[input.season],
+    `${labelOf(input.season)} seasonal mechanics`,
+  );
   if (input.season !== "unknown" && species.spawning?.seasons.includes(input.season)) {
     for (const candidate of candidates) {
       addReason(
@@ -565,19 +585,39 @@ export function rankPresentationFamilies(
     }
   }
 
-  applyBias(candidates, "thermal", thermalBias(thermalState), `${thermalState.replaceAll("_", " ")} thermal state`);
+  applyBias(
+    candidates,
+    "thermal",
+    thermalBias(thermalState),
+    `${thermalState.replaceAll("_", " ")} thermal state`,
+  );
 
   const holding = declaredHolding(input);
   if (holding) {
     const rule = HOLDING_BIASES.find((entry) => entry.holds.includes(holding));
-    applyBias(candidates, "holding", rule?.bias, rule ? `${labelOf(holding)} · ${rule.note}` : labelOf(holding));
+    applyBias(
+      candidates,
+      "holding",
+      rule?.bias,
+      rule ? `${labelOf(holding)} · ${rule.note}` : labelOf(holding),
+    );
   }
 
   if (isMarine(input.waterType)) {
     const movement = input.tideMovement ?? "unknown";
     const strength = input.tideStrength ?? "unknown";
-    applyBias(candidates, "tide", TIDE_MOVEMENT_BIASES[movement], `tide ${labelOf(movement).toLowerCase()}`);
-    applyBias(candidates, "tide", TIDE_STRENGTH_BIASES[strength], `${labelOf(strength).toLowerCase()} range`);
+    applyBias(
+      candidates,
+      "tide",
+      TIDE_MOVEMENT_BIASES[movement],
+      `tide ${labelOf(movement).toLowerCase()}`,
+    );
+    applyBias(
+      candidates,
+      "tide",
+      TIDE_STRENGTH_BIASES[strength],
+      `${labelOf(strength).toLowerCase()} range`,
+    );
   }
 
   if (input.forage) {
@@ -590,17 +630,17 @@ export function rankPresentationFamilies(
   }
 
   for (const rule of matchingSpeciesWeightOverrides(input, thermalState)) {
-    applyBias(
-      candidates,
-      "species_override",
-      rule.bias,
-      `${rule.id} · ${rule.note}`,
-    );
+    applyBias(candidates, "species_override", rule.bias, `${rule.id} · ${rule.note}`);
   }
 
   // Light remains a modest secondary context modifier. It is intentionally weaker
   // than the six requested core axes and cannot introduce an unreviewed family.
-  applyBias(candidates, "light", secondaryLightBias(input.light), `${labelOf(input.light)} secondary context`);
+  applyBias(
+    candidates,
+    "light",
+    secondaryLightBias(input.light),
+    `${labelOf(input.light)} secondary context`,
+  );
 
   return candidates.sort((a, b) => b.weight - a.weight || a.baseIndex - b.baseIndex);
 }

@@ -29,7 +29,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Albula vulpes",
     commonNames: ["Bonefish", "Common bonefish", "Macabi"],
     group: "inshore_surf",
-    nativeContext: "West Atlantic native. Ranges from North Carolina south through the Greater Caribbean, with records to Brazil. IUCN lists the species as Near Threatened. Nomenclature is unsettled: Albula vulpes sits inside a seven-species complex and at least two genetically distinct congeners overlap it in the west Atlantic.",
+    nativeContext:
+      "West Atlantic native. Ranges from North Carolina south through the Greater Caribbean, with records to Brazil. IUCN lists the species as Near Threatened. Nomenclature is unsettled: Albula vulpes sits inside a seven-species complex and at least two genetically distinct congeners overlap it in the west Atlantic.",
     thermal: { preferredF: [80, 82], coldEdgeF: 58, warmEdgeF: 100 },
     spawning: {
       seasons: ["late_fall", "winter", "early_spring", "spring"],
@@ -39,55 +40,70 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["inshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { inshore: ["grass_flat", "sand_hole", "mangrove_edge", "tidal_creek", "creek_mouth"] },
-      currentPreference: "Tide-driven. Acoustic telemetry in Bahamian tidal creeks found bonefish essentially absent from shallow creek backwaters around low water, entering as depth rose after low tide, with detections peaking roughly four hours after low tide. Access to shallow foraging ground is a depth-over-bottom problem set by the tide, not a current-seam problem.",
-      depthTendency: "Adults forage over soft bottom in water shallow enough to feed head-down; Bahamian study fish used creek backwaters well under 2 m. The species is recorded across a much wider depth range than the shallow fishery implies, to at least 84 m.",
-      lightResponse: "Strongly day-biased use of shallow foraging creeks. Murchie et al. recorded 10,040 daytime detections against 1,452 at night in the same creek system.",
+      marineHolding: {
+        inshore: ["grass_flat", "sand_hole", "mangrove_edge", "tidal_creek", "creek_mouth"],
+      },
+      currentPreference:
+        "Tide-driven. Acoustic telemetry in Bahamian tidal creeks found bonefish essentially absent from shallow creek backwaters around low water, entering as depth rose after low tide, with detections peaking roughly four hours after low tide. Access to shallow foraging ground is a depth-over-bottom problem set by the tide, not a current-seam problem.",
+      depthTendency:
+        "Adults forage over soft bottom in water shallow enough to feed head-down; Bahamian study fish used creek backwaters well under 2 m. The species is recorded across a much wider depth range than the shallow fishery implies, to at least 84 m.",
+      lightResponse:
+        "Strongly day-biased use of shallow foraging creeks. Murchie et al. recorded 10,040 daytime detections against 1,452 at night in the same creek system.",
     },
     forageClasses: ["crustaceans", "mollusks", "worms_annelids", "small_forage_fish"],
     flowingPresentations: [],
     stillPresentations: [],
-    marinePresentations: { inshore: ["flats_sight_cast", "tidal_drift_bait", "live_natural_bait_suspension"] },
+    marinePresentations: {
+      inshore: ["flats_sight_cast", "tidal_drift_bait", "live_natural_bait_suspension"],
+    },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Harvest of bonefish has been prohibited in Florida since 1 September 2013 - the fishery is catch-and-release only, commercial sale is prohibited, and the use of multiple hooks with live or dead natural bait to take bonefish is prohibited. Other jurisdictions in the species' range manage it differently, and some permit harvest. The species is IUCN Near Threatened and peer-reviewed work reports post-release predation by sharks reaching roughly 39% within an hour at a site with high shark abundance, so release handling is a real mortality term rather than a formality. Check current rules for the jurisdiction you are standing in before fishing.",
-      jurisdictionScope: "Florida (FWC) state and adjacent federal waters; separate rules apply elsewhere in the Caribbean and western Atlantic.",
+      jurisdictionScope:
+        "Florida (FWC) state and adjacent federal waters; separate rules apply elsewhere in the Caribbean and western Atlantic.",
     },
     exceptions: [
       "Bonefish taxonomy is unresolved. A fish that keys out as Albula vulpes in the field may be A. goreensis or A. sp. cf. vulpes; the three are genetically distinct and morphologically near-identical. Treat this record as covering the field-identifiable bonefish, not a confirmed genetic identification.",
       "Pre-spawning aggregations are excluded from this catalog. Aggregation behavior is recorded here as conservation context and never as holding water.",
       "This record does not include coordinates or named flats, and we never give them.",
     ],
-    geographic: "Tropical and subtropical west Atlantic. In Florida the recreational fishery is concentrated in the southern part of the state; agency sources note that juvenile bigeye bonefish (Albula garcia) also occur there, so juvenile records are not automatically A. vulpes.",
+    geographic:
+      "Tropical and subtropical west Atlantic. In Florida the recreational fishery is concentrated in the southern part of the state; agency sources note that juvenile bigeye bonefish (Albula garcia) also occur there, so juvenile records are not automatically A. vulpes.",
     sources: [
       {
-        label: "Florida Fish and Wildlife Conservation Commission - Bonefish (regulations, spawning period, maturity, longevity)",
+        label:
+          "Florida Fish and Wildlife Conservation Commission - Bonefish (regulations, spawning period, maturity, longevity)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/bonefish/",
       },
       {
-        label: "Smithsonian STRI, Shorefishes of the Greater Caribbean - Albula vulpes (morphology, depth, range, congener distinction)",
+        label:
+          "Smithsonian STRI, Shorefishes of the Greater Caribbean - Albula vulpes (morphology, depth, range, congener distinction)",
         class: SRC.agency,
         url: "https://biogeodb.stri.si.edu/caribbean/en/thefishes/species/2769",
       },
       {
-        label: "Murchie et al. 2013, Movement patterns of bonefish (Albula vulpes) in tidal creeks and coastal waters of Eleuthera, The Bahamas. Fisheries Research 147:404-412",
+        label:
+          "Murchie et al. 2013, Movement patterns of bonefish (Albula vulpes) in tidal creeks and coastal waters of Eleuthera, The Bahamas. Fisheries Research 147:404-412",
         class: SRC.peer,
         url: "https://goldberglab.wisc.edu/pdf/P095.pdf",
       },
       {
-        label: "Brownscombe et al. 2015, Swimming energetics and thermal ecology of adult bonefish (Albula vulpes). Environmental Biology of Fishes",
+        label:
+          "Brownscombe et al. 2015, Swimming energetics and thermal ecology of adult bonefish (Albula vulpes). Environmental Biology of Fishes",
         class: SRC.peer,
         url: "https://link.springer.com/article/10.1007/s10641-015-0420-6",
       },
       {
-        label: "Lingering taxonomic challenges hinder conservation and management of global bonefishes (Fisheries; Albula vulpes species complex)",
+        label:
+          "Lingering taxonomic challenges hinder conservation and management of global bonefishes (Fisheries; Albula vulpes species complex)",
         class: SRC.peer,
         url: "https://onlinelibrary.wiley.com/doi/full/10.1002/fsh.10438",
       },
       {
-        label: "Cooke & Philipp 2004, Behavior and mortality of caught-and-released bonefish (Albula spp.) in Bahamian waters. Biological Conservation 118:599-607",
+        label:
+          "Cooke & Philipp 2004, Behavior and mortality of caught-and-released bonefish (Albula spp.) in Bahamian waters. Biological Conservation 118:599-607",
         class: SRC.peer,
         url: "http://www.fecpl.ca/wp-content/uploads/2004/06/Bonefish-C-and-R-MS.pdf",
       },
@@ -105,7 +121,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Archosargus probatocephalus",
     commonNames: ["Sheepshead"],
     group: "inshore_surf",
-    nativeContext: "Western Atlantic and Gulf of Mexico native, ranging from Nova Scotia through the Gulf. A porgy (Sparidae) built around hard structure: a euryhaline resident recorded from freshwater rivers and lakes through brackish estuaries, bays and sounds to offshore hard bottom.",
+    nativeContext:
+      "Western Atlantic and Gulf of Mexico native, ranging from Nova Scotia through the Gulf. A porgy (Sparidae) built around hard structure: a euryhaline resident recorded from freshwater rivers and lakes through brackish estuaries, bays and sounds to offshore hard bottom.",
     thermal: {
       activeF: [50, 80],
       basis: "distribution",
@@ -124,8 +141,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["oyster_bar", "bridge_piling", "tidal_creek", "mangrove_edge", "grass_flat"],
         nearshore: ["nearshore_reef", "artificial_reef", "wreck", "pier_structure"],
       },
-      currentPreference: "Not sourced as a tide-stage or velocity relationship. What is sourced is that the species is tied to fouled hard structure - the food is attached to the structure rather than delivered past it, which is a different relationship to moving water than a drift-feeding fish has.",
-      depthTendency: "Structure-following rather than depth-following. Inshore fish work oyster reefs, pilings, seawalls and tidal creeks; offshore adults occupy hard-bottom formations in depths to about 37 m. Juveniles settle into grassbeds and move to hard substrate at about 35-50 mm.",
+      currentPreference:
+        "Not sourced as a tide-stage or velocity relationship. What is sourced is that the species is tied to fouled hard structure - the food is attached to the structure rather than delivered past it, which is a different relationship to moving water than a drift-feeding fish has.",
+      depthTendency:
+        "Structure-following rather than depth-following. Inshore fish work oyster reefs, pilings, seawalls and tidal creeks; offshore adults occupy hard-bottom formations in depths to about 37 m. Juveniles settle into grassbeds and move to hard substrate at about 35-50 mm.",
       lightResponse: "Not sourced. No diel pattern was reported by any source consulted.",
     },
     forageClasses: ["mollusks", "crustaceans"],
@@ -134,28 +153,37 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     marinePresentations: {
       surf: ["surf_bait_soak"],
       inshore: ["structure_pitch", "live_natural_bait_suspension", "tidal_drift_bait"],
-      nearshore: ["bottom_contact", "structure_vertical", "live_natural_bait_suspension", "drop_presentation"],
+      nearshore: [
+        "bottom_contact",
+        "structure_vertical",
+        "live_natural_bait_suspension",
+        "drop_presentation",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Florida sets a 12 in total length minimum, a daily bag of 8 per harvester and a vessel limit of 50 per trip during March and April, open year round; harvest with multiple hooks in conjunction with live or dead natural bait is prohibited, as is snatching. FWC separately allows barnacles to be taken for chum with a recreational licence up to 100 lb per day, while oysters may only be harvested from approved shellfish areas - a bait-collection rule anglers routinely trip over. The species ranges from Nova Scotia through the Gulf and every state manages it differently; ASMFC has taken up sheepshead at the South Atlantic board level. Check current rules for the jurisdiction you are standing in.",
-      jurisdictionScope: "Florida (FWC) state and adjacent federal waters, with separate and differing state rules along the Atlantic seaboard and the Gulf; GSMFC and ASMFC provide interstate coordination.",
+      jurisdictionScope:
+        "Florida (FWC) state and adjacent federal waters, with separate and differing state rules along the Atlantic seaboard and the Gulf; GSMFC and ASMFC provide interstate coordination.",
     },
     exceptions: [
       "Sheepshead have very sharp gill covers and dorsal spines; agency sourcing warns about them specifically at cleaning. That is a handling fact, not presentation guidance.",
       "The two largest prey groups by volume in the one quantitative offshore diet study - bryozoans and ascidians - have no class in the closed forage vocabulary. The forageClasses field therefore understates what this species actually eats.",
       "This record does not include coordinates or named reefs, wrecks or jetties, and we never give them.",
     ],
-    geographic: "Nova Scotia through the Gulf of Mexico. Adults are described as remaining in inshore waters during warmer months and moving out of estuaries during periods of low temperature, with some portion of the adult population reported to remain offshore year round.",
+    geographic:
+      "Nova Scotia through the Gulf of Mexico. Adults are described as remaining in inshore waters during warmer months and moving out of estuaries during periods of low temperature, with some portion of the adult population reported to remain offshore year round.",
     sources: [
       {
-        label: "Gulf States Marine Fisheries Commission 2006, Sheepshead Fisheries Profile (GSMFC No. 143)",
+        label:
+          "Gulf States Marine Fisheries Commission 2006, Sheepshead Fisheries Profile (GSMFC No. 143)",
         class: SRC.agency,
         url: "https://www.gsmfc.org/publications/GSMFC%20Number%20143.PDF",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission - Sheepshead regulations and species profile",
+        label:
+          "Florida Fish and Wildlife Conservation Commission - Sheepshead regulations and species profile",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/sheepshead/",
       },
@@ -165,12 +193,14 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://dnr.sc.gov/marine/species/sheepshead.html",
       },
       {
-        label: "Sedberry 1987, Feeding habits of sheepshead, Archosargus probatocephalus, in offshore reef habitats of the southeastern continental shelf. Northeast Gulf Science 9(1):29-37",
+        label:
+          "Sedberry 1987, Feeding habits of sheepshead, Archosargus probatocephalus, in offshore reef habitats of the southeastern continental shelf. Northeast Gulf Science 9(1):29-37",
         class: SRC.peer,
         url: "https://aquila.usm.edu/goms/vol9/iss1/3/",
       },
       {
-        label: "Heil 2017, Life history, diet, and reproductive dynamics of the sheepshead (Archosargus probatocephalus) in the northeastern Gulf of Mexico. MS thesis, Florida State University",
+        label:
+          "Heil 2017, Life history, diet, and reproductive dynamics of the sheepshead (Archosargus probatocephalus) in the northeastern Gulf of Mexico. MS thesis, Florida State University",
         class: SRC.peer,
         url: "https://www.researchgate.net/publication/359399654_Life_History_Diet_and_Reproductive_Dynamics_of_the_Sheepshead_Archosargus_Probatocephalus_in_the_Northeastern_Gulf_of_Mexico",
       },
@@ -188,7 +218,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Atractoscion nobilis",
     commonNames: ["White seabass"],
     group: "offshore_pelagic",
-    nativeContext: "Eastern Pacific marine native ranging from Magdalena Bay, Baja California Sur, to as far north as Alaska; core range and fishery are off California and northern Baja California.",
+    nativeContext:
+      "Eastern Pacific marine native ranging from Magdalena Bay, Baja California Sur, to as far north as Alaska; core range and fishery are off California and northern Baja California.",
     thermal: { preferredF: [55, 61] },
     spawning: {
       seasons: ["spring", "early_summer", "summer"],
@@ -198,10 +229,16 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["inshore", "nearshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { inshore: ["grass_flat"], nearshore: ["kelp_edge", "nearshore_reef", "rock_pile", "pier_structure"] },
-      currentPreference: "Not documented against tide specifically. Adult schools undertake a strong seasonal north-south coastal migration tracking warming/cooling water rather than a tidal cycle (Aalbers et al. telemetry study).",
-      depthTendency: "Newly hatched fish occupy open, shallow coastal water at about 4-8 m; juveniles (roughly ages 1-3) use protected bays with eelgrass beds; older juveniles congregate near piers and jetties with nearby kelp. Adults use rocky reefs, kelp beds, offshore banks, or open ocean from the surface to about 122 m (400 ft), though telemetry found 95% of recorded adult depths were under 50 m. Adults sit deeper in the water column (mean maximum depth about 31 m) October-March and shallower and more surface-oriented (mean maximum depth about 10.5 m, more time in the top 5 m) May-September, peaking in July.",
-      lightResponse: "Spawning is concentrated in the roughly two hours following sunset; no other diel light-response pattern for general feeding behavior was found in sourced material.",
+      marineHolding: {
+        inshore: ["grass_flat"],
+        nearshore: ["kelp_edge", "nearshore_reef", "rock_pile", "pier_structure"],
+      },
+      currentPreference:
+        "Not documented against tide specifically. Adult schools undertake a strong seasonal north-south coastal migration tracking warming/cooling water rather than a tidal cycle (Aalbers et al. telemetry study).",
+      depthTendency:
+        "Newly hatched fish occupy open, shallow coastal water at about 4-8 m; juveniles (roughly ages 1-3) use protected bays with eelgrass beds; older juveniles congregate near piers and jetties with nearby kelp. Adults use rocky reefs, kelp beds, offshore banks, or open ocean from the surface to about 122 m (400 ft), though telemetry found 95% of recorded adult depths were under 50 m. Adults sit deeper in the water column (mean maximum depth about 31 m) October-March and shallower and more surface-oriented (mean maximum depth about 10.5 m, more time in the top 5 m) May-September, peaking in July.",
+      lightResponse:
+        "Spawning is concentrated in the roughly two hours following sunset; no other diel light-response pattern for general feeding behavior was found in sourced material.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "mollusks", "crustaceans"],
     flowingPresentations: [],
@@ -213,23 +250,34 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "California (CDFW); the species' range extends into northern Baja California, Mexico, under separate Mexican regulations not covered here.",
+      jurisdictionScope:
+        "California (CDFW); the species' range extends into northern Baja California, Mexico, under separate Mexican regulations not covered here.",
       note: "CDFW sets a 28 in total length (or 20.5 in alternate length) recreational minimum size, a standard 3-fish daily bag/possession limit, and a reduced 1-fish limit south of Point Conception between mid-March and mid-June (describe the structure; exact calendar dates are set/confirmed annually). White seabass despite the name is a croaker (family Sciaenidae), not a true bass. California also runs the Ocean Resources Enhancement and Hatchery Program (OREHP, established 1982), which has released well over a million tagged hatchery-reared juvenile white seabass since 1986 (current goal on the order of 300,000+ fish/year) -- a stock-enhancement program, not itself evidence the wild population is currently depleted: the 2016 and 2022-2023 CDFW stock assessments/FMP reviews found the population not overfished or depressed, though the 2016 assessment flagged that the then-current optimum yield might be set too high. A human should confirm current-year size/bag/season numbers before fishing.",
     },
-    geographic: "Eastern Pacific from Magdalena Bay, Baja California Sur, north along the California coast, with occasional records as far north as Alaska; core range and fishery are off southern and central California and northern Baja California.",
+    geographic:
+      "Eastern Pacific from Magdalena Bay, Baja California Sur, north along the California coast, with occasional records as far north as Alaska; core range and fishery are off southern and central California and northern Baja California.",
     sources: [
-      { label: "CDFW white seabass identification guidance (anti-poaching field materials)", class: SRC.agency },
-      { label: "CDFW White Seabass Fishery Management Plan, 2022-2023 Annual Review", class: SRC.agency },
       {
-        label: "CDFW / Ocean Resources Enhancement and Hatchery Program (OREHP) White Seabass Enhancement Plan and life-history research",
+        label: "CDFW white seabass identification guidance (anti-poaching field materials)",
         class: SRC.agency,
       },
       {
-        label: "Aalbers, S.A. et al., \"Seasonal movement patterns and temperature profiles of white seabass off California\", NOAA/Fishery Bulletin (SPO)",
+        label: "CDFW White Seabass Fishery Management Plan, 2022-2023 Annual Review",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "CDFW / Ocean Resources Enhancement and Hatchery Program (OREHP) White Seabass Enhancement Plan and life-history research",
+        class: SRC.agency,
+      },
+      {
+        label:
+          'Aalbers, S.A. et al., "Seasonal movement patterns and temperature profiles of white seabass off California", NOAA/Fishery Bulletin (SPO)',
         class: SRC.peer,
       },
       {
-        label: "Cal. Code Regs. Tit. 14, sections 27.60 and 28.35 (White Seabass recreational regulation)",
+        label:
+          "Cal. Code Regs. Tit. 14, sections 27.60 and 28.35 (White Seabass recreational regulation)",
         class: SRC.agency,
       },
       { label: "UC San Diego California Sea Grant white seabass seafood profile", class: SRC.syn },
@@ -243,7 +291,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Bodianus pulcher",
     commonNames: ["California sheephead"],
     group: "reef_bottom",
-    nativeContext: "Eastern Pacific marine native; Monterey Bay, California south to southern Baja California and the Gulf of California, Mexico.",
+    nativeContext:
+      "Eastern Pacific marine native; Monterey Bay, California south to southern Baja California and the Gulf of California, Mexico.",
     spawning: {
       seasons: ["summer"],
       note: "Protogynous hermaphrodite (all individuals begin life female; some later change to male). Spawns nearly every day through the summer months. No spawning site or aggregation location is implied.",
@@ -253,30 +302,42 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: { nearshore: ["nearshore_reef", "kelp_edge", "rock_pile"] },
-      currentPreference: "Not documented against tide in sourced material. Sheephead show strong site fidelity to a home reef territory rather than moving with current.",
-      depthTendency: "Shallow subtidal down to about 280 ft (85 m); most recreational take occurs well inside that range because California's Rockfish Conservation Area rules restrict bottomfishing depth (roughly 30-60 fathoms depending on month) and, within the Cowcod Conservation Area, to under about 20 fathoms.",
-      lightResponse: "Diurnal: active on the reef by day and returns to rock crevices to shelter from sunset until daylight (California Ocean Protection Council marine species report).",
+      currentPreference:
+        "Not documented against tide in sourced material. Sheephead show strong site fidelity to a home reef territory rather than moving with current.",
+      depthTendency:
+        "Shallow subtidal down to about 280 ft (85 m); most recreational take occurs well inside that range because California's Rockfish Conservation Area rules restrict bottomfishing depth (roughly 30-60 fathoms depending on month) and, within the Cowcod Conservation Area, to under about 20 fathoms.",
+      lightResponse:
+        "Diurnal: active on the reef by day and returns to rock crevices to shelter from sunset until daylight (California Ocean Protection Council marine species report).",
     },
     forageClasses: ["mollusks", "crustaceans", "worms_annelids"],
     flowingPresentations: [],
     stillPresentations: [],
-    marinePresentations: { nearshore: ["drop_presentation", "bottom_contact", "structure_vertical"] },
+    marinePresentations: {
+      nearshore: ["drop_presentation", "bottom_contact", "structure_vertical"],
+    },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "California (CDFW); recreational take is also regulated jointly with statewide Rockfish Conservation Area and Cowcod Conservation Area bottomfishing depth closures.",
+      jurisdictionScope:
+        "California (CDFW); recreational take is also regulated jointly with statewide Rockfish Conservation Area and Cowcod Conservation Area bottomfishing depth closures.",
       note: "CDFW sets a recreational minimum size (12 in TL in current regulation text) and a bag limit (2 fish per the current Title 14 regulation text, though an older CDFW status-report document lists 5 -- flagged as a discrepancy, not resolved here), plus a boat-based closed season each January-February south of Point Conception (shore-based angling and diving/spearfishing remain open year-round). A 2004 stock assessment found the population at roughly 20% of its unfished biomass, well below the 50% target, though Catalina Island and San Nicolas Island trends since then diverge (decline vs. possible recovery). Given that dated and mixed stock-status picture, a human should confirm the current assessment and current-year size/bag/season rules before relying on this record.",
     },
-    geographic: "Monterey Bay, California to southern Baja California and the Gulf of California; some agency sources note the northern range limit may be shifting north with ocean warming.",
+    geographic:
+      "Monterey Bay, California to southern Baja California and the Gulf of California; some agency sources note the northern range limit may be shifting north with ocean warming.",
     sources: [
       { label: "CDFW California sheephead status report / assessment summary", class: SRC.agency },
       {
-        label: "Cal. Code Regs. Tit. 14, section 28.26 (California Sheephead recreational regulation)",
+        label:
+          "Cal. Code Regs. Tit. 14, section 28.26 (California Sheephead recreational regulation)",
         class: SRC.agency,
       },
-      { label: "California Ocean Protection Council Draft Marine Species Report: Sheephead", class: SRC.agency },
       {
-        label: "Hamilton & Caselle (2015), \"Exploitation and recovery of a sea urchin predator has implications for the resilience of southern California kelp forests\", Proceedings of the Royal Society B",
+        label: "California Ocean Protection Council Draft Marine Species Report: Sheephead",
+        class: SRC.agency,
+      },
+      {
+        label:
+          'Hamilton & Caselle (2015), "Exploitation and recovery of a sea urchin predator has implications for the resilience of southern California kelp forests", Proceedings of the Royal Society B',
         class: SRC.peer,
       },
     ],
@@ -289,7 +350,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Carcharhinus brevipinna",
     commonNames: ["Spinner shark"],
     group: "sharks",
-    nativeContext: "Warm-temperate to tropical requiem shark of the western Atlantic and Gulf of America continental shelf, using beaches, bays, and river mouths as well as offshore pelagic water; well known for spinning leaps while pursuing baitfish, a behavior that gives the species its name.",
+    nativeContext:
+      "Warm-temperate to tropical requiem shark of the western Atlantic and Gulf of America continental shelf, using beaches, bays, and river mouths as well as offshore pelagic water; well known for spinning leaps while pursuing baitfish, a behavior that gives the species its name.",
     spawning: {
       seasons: ["unknown"],
       note: "An Australian stock assessment (different regional population) gives age at maturity of about 9 years / 209 cm for males and 10 years / 225 cm for females; a western Atlantic/Gulf-specific mating season was not found in an agency source this session. Recorded as conservation context and a gap, not as location guidance.",
@@ -303,9 +365,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["creek_mouth", "channel_edge"],
         nearshore: ["nearshore_reef", "inlet_mouth"],
       },
-      currentPreference: "Described in the sources reviewed as using coastal habitats including beaches, bays, and river mouths as well as offshore pelagic water and nearshore nursery bays; not resolved to a specific current-use pattern.",
-      depthTendency: "FishBase gives a depth range of 0-100 m; no finer inshore/nearshore depth preference was found.",
-      lightResponse: "Not resolved from an agency or peer-reviewed source in this review; recorded as a gap.",
+      currentPreference:
+        "Described in the sources reviewed as using coastal habitats including beaches, bays, and river mouths as well as offshore pelagic water and nearshore nursery bays; not resolved to a specific current-use pattern.",
+      depthTendency:
+        "FishBase gives a depth range of 0-100 m; no finer inshore/nearshore depth preference was found.",
+      lightResponse:
+        "Not resolved from an agency or peer-reviewed source in this review; recorded as a gap.",
     },
     forageClasses: ["small_forage_fish", "mollusks"],
     flowingPresentations: [],
@@ -318,16 +383,19 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
+      jurisdictionScope:
+        "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
       note: "Federal Atlantic HMS rules (NOAA Fisheries) govern federal EEZ waters; Florida state waters are governed separately by FWC, and every other Gulf/Atlantic coastal state sets its own rules again. The two regimes do not match field-for-field. Spinner shark is one of the more consistent cases: both NOAA's federal rule (grouped with hammerhead, bull, lemon, nurse, blacktip, tiger, blacknose, finetooth, blue, porbeagle, and thresher at a 54 in fork-length minimum, 1 shark per vessel per trip) and FWC's state-waters Group 2 (54 in fork length, inside a 1-per-person-per-day / 2-per-vessel bag) agree on the 54 in minimum. The two regimes still differ on the permit/endorsement structure, the bag-limit accounting (per vessel per trip federally vs. per person per day in Florida shore fishing), and hook/gear rules — verify the version that applies to the water and platform (vessel vs. shore) in use. A proposed federal rule (Federal Register, published 2026-01-05, comment period closed 2026-03-06) would revise blacktip and spinner minimum size to a default 48 in and move Atlantic sharpnose and bonnethead bag limits from per-person to a per-vessel default with an annually adjustable range; as of the last check this session made, it had not been finalized. Confirm current status before relying on any figure here. Misidentification carries legal exposure: several similar-looking requiem and hammerhead sharks are federally and/or state prohibited, and a prohibited shark must be released without removing it from the water. Verify identification and the rule set for the exact water (state vs. federal) before harvest.",
     },
     exceptions: [
       "Spinner and blacktip shark are frequently confused with each other at boatside; a size that clears blacktip in Florida state waters (no minimum) does NOT clear spinner shark, which carries a 54 in minimum in both federal and Florida state waters. Confirm the species before assuming the state's no-minimum rule applies.",
     ],
-    geographic: "Western Atlantic and Gulf of America continental shelf and adjacent pelagic water; an Australian population is also assessed by FRDC but is a separate stock and is not used here for U.S. regulatory or size figures.",
+    geographic:
+      "Western Atlantic and Gulf of America continental shelf and adjacent pelagic water; an Australian population is also assessed by FRDC but is a separate stock and is not used here for U.S. regulatory or size figures.",
     sources: [
       {
-        label: "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (S-W species)",
+        label:
+          "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (S-W species)",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/shark-identification-cooperative-shark-0",
       },
@@ -337,22 +405,26 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://media.fisheries.noaa.gov/dam-migration/sharkfinid_guide.pdf",
       },
       {
-        label: "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
+        label:
+          "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/atlantic-highly-migratory-species/recreational-atlantic-shark-fishery-statuses-minimum-sizes-and",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
+        label:
+          "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/sharks/",
       },
       {
-        label: "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
+        label:
+          "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/s3/2025-04/HMS-Recreational-Compliance-Guide-2025-Final.pdf",
       },
       {
-        label: "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
+        label:
+          "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
         class: SRC.agency,
         url: "https://www.federalregister.gov/documents/2026/01/05/2025-24264/atlantic-highly-migratory-species-revisions-to-commercial-atlantic-blacknose-and-recreational",
       },
@@ -362,7 +434,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://fishbase.org/summary/865",
       },
       {
-        label: "FRDC Shark Report Card, Carcharhinus brevipinna (Australian stock; age-at-maturity and max-size context only)",
+        label:
+          "FRDC Shark Report Card, Carcharhinus brevipinna (Australian stock; age-at-maturity and max-size context only)",
         class: SRC.syn,
         url: "https://www.fish.gov.au/docs/SharkReport/2023_FRDC_Carcharhinus_brevipinna_final.pdf",
       },
@@ -375,7 +448,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Carcharhinus limbatus",
     commonNames: ["Blacktip shark", "Atlantic blacktip shark"],
     group: "sharks",
-    nativeContext: "Native warm-temperate to tropical requiem shark of the western Atlantic and Gulf of America; year-round resident of the Gulf, with strong seasonal presence off the southeast Atlantic coast including a well-documented winter aggregation off southeast Florida.",
+    nativeContext:
+      "Native warm-temperate to tropical requiem shark of the western Atlantic and Gulf of America; year-round resident of the Gulf, with strong seasonal presence off the southeast Atlantic coast including a well-documented winter aggregation off southeast Florida.",
     spawning: {
       seasons: ["spring", "early_summer"],
       note: "NOAA Fisheries gives mating between March and June and a gestation of 11-12 months, with pups born the following year in shallow nursery bays and estuaries (3 pups per litter in the Atlantic stock, 4-5 in the Gulf stock). Nursery habitat and any staging or pupping concentration are conservation context only; this record does not identify one.",
@@ -389,9 +463,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["creek_mouth", "channel_edge", "grass_flat"],
         nearshore: ["nearshore_reef", "inlet_mouth", "artificial_reef"],
       },
-      currentPreference: "NOAA describes blacktips as common near beaches, bays, estuaries, and river mouths, and as regular followers of baitfish schools and of fishing vessels for discards; this is a species that works moving water and structure edges where forage concentrates rather than holding on a single fixed lie.",
-      depthTendency: "Primarily a continental-shelf species; NOAA describes it as occurring from the surf zone out over the shelf, without a specific depth figure in the sources reviewed.",
-      lightResponse: "Not resolved from an agency or peer-reviewed source in this review; recorded as a gap rather than assumed.",
+      currentPreference:
+        "NOAA describes blacktips as common near beaches, bays, estuaries, and river mouths, and as regular followers of baitfish schools and of fishing vessels for discards; this is a species that works moving water and structure edges where forage concentrates rather than holding on a single fixed lie.",
+      depthTendency:
+        "Primarily a continental-shelf species; NOAA describes it as occurring from the surf zone out over the shelf, without a specific depth figure in the sources reviewed.",
+      lightResponse:
+        "Not resolved from an agency or peer-reviewed source in this review; recorded as a gap rather than assumed.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks"],
     flowingPresentations: [],
@@ -404,14 +481,16 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
+      jurisdictionScope:
+        "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
       note: "Federal Atlantic HMS rules (NOAA Fisheries) govern federal EEZ waters; Florida state waters are governed separately by FWC, and every other Gulf/Atlantic coastal state sets its own rules again. The two regimes do not match field-for-field. For blacktip specifically the federal and Florida state rules conflict on the one figure anglers care most about: NOAA's current federal recreational rule sets a 54 in fork-length minimum on blacktip (grouped with hammerhead, bull, lemon, nurse, spinner, tiger, blacknose, finetooth, blue, porbeagle, and thresher at 1 shark per vessel per trip), while FWC's state-waters rule places blacktip in its Group 1 with NO minimum size, inside a 1-shark-per-person-per-day, 2-per-vessel bag. A fish legal to keep in Florida state waters on size could be an illegal undersized fish the moment the same boat is in the federal EEZ. Vessel anglers need a federal HMS Angling or Charterboat/Headboat permit plus a shark endorsement (an online ID and regulation course) to retain any shark in federal waters; shore-based anglers in Florida need a separate, no-cost annual FWC Shore-Based Shark Fishing permit and its own online course instead, plus non-offset non-stainless circle hooks, a hook/leader-cutting device, and no chumming from the beach. These are two different permits for two different contexts, not one rule set. A proposed federal rule (Federal Register, published 2026-01-05, comment period closed 2026-03-06) would revise blacktip and spinner minimum size to a default 48 in and move Atlantic sharpnose and bonnethead bag limits from per-person to a per-vessel default with an annually adjustable range; as of the last check this session made, it had not been finalized. Confirm current status before relying on any figure here. Misidentification carries legal exposure: several similar-looking requiem and hammerhead sharks are federally and/or state prohibited, and a prohibited shark must be released without removing it from the water. Verify identification and the rule set for the exact water (state vs. federal) before harvest.",
     },
     exceptions: [
       "Do not assume blacktip and spinner shark are interchangeable for regulatory purposes just because both carry a 54 in federal minimum and look alike at boatside; FWC's state-waters minimum size differs between the two species (blacktip: none: spinner: 54 in), so a size that clears one species in state waters does not clear the other.",
       "Fin-tip coloration on both blacktip and spinner fades with age and is not reliable on large, older fish; identify by the white (blacktip) vs. black-tipped (spinner) anal fin and by dorsal-fin shape, not by tip color alone.",
     ],
-    geographic: "Western Atlantic and Gulf of America continental shelf, roughly Virginia to Brazil with occasional strays to Cape Cod; a large winter aggregation gathers along the southeast Florida coast, which is conservation and identification context, not a location to fish.",
+    geographic:
+      "Western Atlantic and Gulf of America continental shelf, roughly Virginia to Brazil with occasional strays to Cape Cod; a large winter aggregation gathers along the southeast Florida coast, which is conservation and identification context, not a location to fish.",
     sources: [
       {
         label: "NOAA Fisheries, Atlantic Blacktip Shark species overview",
@@ -419,32 +498,38 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/atlantic-blacktip-shark",
       },
       {
-        label: "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
+        label:
+          "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/atlantic-highly-migratory-species/recreational-atlantic-shark-fishery-statuses-minimum-sizes-and",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
+        label:
+          "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/sharks/",
       },
       {
-        label: "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
+        label:
+          "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/s3/2025-04/HMS-Recreational-Compliance-Guide-2025-Final.pdf",
       },
       {
-        label: "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
+        label:
+          "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
         class: SRC.agency,
         url: "https://www.federalregister.gov/documents/2026/01/05/2025-24264/atlantic-highly-migratory-species-revisions-to-commercial-atlantic-blacknose-and-recreational",
       },
       {
-        label: "Kajiura, S.M. and Tellman, S.L. 2016. Quantification of Massive Seasonal Aggregations of Blacktip Sharks (Carcharhinus limbatus) in Southeast Florida. PLOS ONE 11(3):e0150911",
+        label:
+          "Kajiura, S.M. and Tellman, S.L. 2016. Quantification of Massive Seasonal Aggregations of Blacktip Sharks (Carcharhinus limbatus) in Southeast Florida. PLOS ONE 11(3):e0150911",
         class: SRC.peer,
         url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150911",
       },
       {
-        label: "FRDC (Australian Fisheries Research and Development Corporation) Shark Report Card, Carcharhinus limbatus, citing IUCN Vulnerable status and November 2023 CITES Appendix II listing",
+        label:
+          "FRDC (Australian Fisheries Research and Development Corporation) Shark Report Card, Carcharhinus limbatus, citing IUCN Vulnerable status and November 2023 CITES Appendix II listing",
         class: SRC.syn,
         url: "https://www.fish.gov.au/docs/SharkReport/2023_FRDC_Carcharhinus_limbatus_Final.pdf",
       },
@@ -464,7 +549,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Centropomus undecimalis",
     commonNames: ["Common snook", "Snook"],
     group: "inshore_surf",
-    nativeContext: "Native tropical and subtropical estuarine fish at the northern edge of its range in the southeastern United States. Protandric: individuals begin life as males and some reverse sex to female. The northern limit is thermal, not habitat-driven, and it has been moving: snook began appearing around 29 degrees N on Florida's Gulf coast from 2007 and by 2018 showed exponential growth with evidence of local reproduction, tracking a significant decline since 2000 in the number of days below the species' lethal limit (Purtlebaugh et al. 2020).",
+    nativeContext:
+      "Native tropical and subtropical estuarine fish at the northern edge of its range in the southeastern United States. Protandric: individuals begin life as males and some reverse sex to female. The northern limit is thermal, not habitat-driven, and it has been moving: snook began appearing around 29 degrees N on Florida's Gulf coast from 2007 and by 2018 showed exponential growth with evidence of local reproduction, tracking a significant decline since 2000 in the number of days below the species' lethal limit (Purtlebaugh et al. 2020).",
     thermal: { coldEdgeF: 48 },
     spawning: {
       seasons: ["spring", "early_summer", "summer", "late_summer"],
@@ -474,21 +560,40 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["inshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { inshore: ["mangrove_edge", "tidal_creek", "creek_mouth", "channel_edge", "grass_flat", "bridge_piling"] },
-      currentPreference: "Current-facing ambush. FWC describes snook as conservative ambush predators that orient to face moving water while hunting. That is the clearest single behavioural statement in the agency literature for this species and it is a tide statement in an estuary: the fish sets up facing the flow and lets the water bring food past it.",
-      depthTendency: "Shallow and edge-oriented for most of the year, but capable of dropping deep for thermal reasons. Getz et al. 2025 found tagged snook spending the coldest months in a deep (20 m plus) channelised reach with their highest residency times of the year in winter, consistent with seeking thermal stability.",
-      lightResponse: "FWC records gamete release in the late afternoon and early evening, which is a reproductive timing statement rather than a feeding-light statement. No agency or peer-reviewed source located for this record establishes a general diel feeding preference for common snook, and none is asserted.",
+      marineHolding: {
+        inshore: [
+          "mangrove_edge",
+          "tidal_creek",
+          "creek_mouth",
+          "channel_edge",
+          "grass_flat",
+          "bridge_piling",
+        ],
+      },
+      currentPreference:
+        "Current-facing ambush. FWC describes snook as conservative ambush predators that orient to face moving water while hunting. That is the clearest single behavioural statement in the agency literature for this species and it is a tide statement in an estuary: the fish sets up facing the flow and lets the water bring food past it.",
+      depthTendency:
+        "Shallow and edge-oriented for most of the year, but capable of dropping deep for thermal reasons. Getz et al. 2025 found tagged snook spending the coldest months in a deep (20 m plus) channelised reach with their highest residency times of the year in winter, consistent with seeking thermal stability.",
+      lightResponse:
+        "FWC records gamete release in the late afternoon and early evening, which is a reproductive timing statement rather than a feeding-light statement. No agency or peer-reviewed source located for this record establishes a general diel feeding preference for common snook, and none is asserted.",
     },
     forageClasses: ["small_forage_fish", "crustaceans"],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
-      inshore: ["structure_pitch", "live_natural_bait_suspension", "tidal_drift_bait", "horizontal_retrieve", "stop_and_go"],
+      inshore: [
+        "structure_pitch",
+        "live_natural_bait_suspension",
+        "tidal_drift_bait",
+        "horizontal_retrieve",
+        "stop_and_go",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Florida runs nine snook management regions with different slot limits and different closed-season dates; FWC states its snook rules apply in inland, state and adjacent federal waters. Texas and other Gulf states manage snook separately and much more restrictively.",
+      jurisdictionScope:
+        "Florida runs nine snook management regions with different slot limits and different closed-season dates; FWC states its snook rules apply in inland, state and adjacent federal waters. Texas and other Gulf states manage snook separately and much more restrictively.",
       note: "Snook are closed to harvest for part of every year in every Florida region, and the closures do not share dates. Six regions close 1 December to the end of February and again from 1 May (through 31 August in four regions, through 30 September in two); three regions close 15 December to 31 January and 1 June to 31 August. Slot limits are 28-33 in total length in six regions and 28-32 in in three. A snook permit is required in addition to a recreational licence, hook and line is the only legal gear, and there is no commercial harvest or sale. Confirm the region, the date and the permit before keeping a fish.",
     },
     exceptions: [
@@ -497,7 +602,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "A cold-stressed snook is not a normal fish to handle. Cessation of feeding, then loss of equilibrium, then death is the documented sequence, and the temperature gap between the first and last step is only a few degrees.",
       "Adults use open beach during the warm months. That use overlaps the spawning period and the closed season, so this record declares no surf holding classes and gives no surf presentations.",
     ],
-    geographic: "Peninsular Florida and the northeastern Gulf, with the northern limit historically described by FWC as the 50 degrees F water isotherm and now shifting north with warming winters. Also present in Texas and through the Caribbean and western Atlantic tropics.",
+    geographic:
+      "Peninsular Florida and the northeastern Gulf, with the northern limit historically described by FWC as the 50 degrees F water isotherm and now shifting north with warming winters. Also present in Texas and through the Caribbean and western Atlantic tropics.",
     sources: [
       {
         label: "FWC, A Sketch of the Common Snook in Florida",
@@ -510,28 +616,34 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://myfwc.com/wildlifehabitats/profiles/saltwater/snook/snook/",
       },
       {
-        label: "FWC snook recreational regulations (nine Florida management regions, two closed periods per year)",
+        label:
+          "FWC snook recreational regulations (nine Florida management regions, two closed periods per year)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/snook/",
       },
       {
-        label: "Purtlebaugh, Martin and Allen 2020, poleward expansion of common snook in the northeastern Gulf of Mexico, PLOS ONE 15(6):e0234083",
+        label:
+          "Purtlebaugh, Martin and Allen 2020, poleward expansion of common snook in the northeastern Gulf of Mexico, PLOS ONE 15(6):e0234083",
         class: SRC.peer,
       },
       {
-        label: "Hall-Scharf, Tuckett, Stevens and Hill 2025, increased cold tolerance of a tropical fish species at the northern edge of its expanded range, Estuaries and Coasts 48:43",
+        label:
+          "Hall-Scharf, Tuckett, Stevens and Hill 2025, increased cold tolerance of a tropical fish species at the northern edge of its expanded range, Estuaries and Coasts 48:43",
         class: SRC.peer,
       },
       {
-        label: "Hall-Scharf, Tuckett, Stevens, Trotter, Patterson and Hill 2025, how body size and salinity affects thermal tolerance of a range-expanding fish, Marine and Coastal Fisheries 17(4):vtaf023",
+        label:
+          "Hall-Scharf, Tuckett, Stevens, Trotter, Patterson and Hill 2025, how body size and salinity affects thermal tolerance of a range-expanding fish, Marine and Coastal Fisheries 17(4):vtaf023",
         class: SRC.peer,
       },
       {
-        label: "Blewett and Stevens 2014, temperature variability in a subtropical estuary and implications for common snook, a cold-sensitive fish, Gulf of Mexico Science 32(1)",
+        label:
+          "Blewett and Stevens 2014, temperature variability in a subtropical estuary and implications for common snook, a cold-sensitive fish, Gulf of Mexico Science 32(1)",
         class: SRC.peer,
       },
       {
-        label: "Getz, Rodriquez and Kline 2025, season and red tide influence common snook movement and residency in a channelized estuary, Marine and Coastal Fisheries 17(5):vtaf027",
+        label:
+          "Getz, Rodriquez and Kline 2025, season and red tide influence common snook movement and residency in a channelized estuary, Marine and Coastal Fisheries 17(5):vtaf027",
         class: SRC.peer,
       },
       {
@@ -548,7 +660,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Centropristis striata",
     commonNames: ["Black sea bass"],
     group: "reef_bottom",
-    nativeContext: "Atlantic native, Gulf of Maine to the Florida Keys. NOAA Fisheries, MAFMC, ASMFC and SAFMC manage it as two stocks split at Cape Hatteras, North Carolina: a Mid-Atlantic stock (MAFMC/ASMFC/NOAA) and a South Atlantic stock (SAFMC/NOAA).",
+    nativeContext:
+      "Atlantic native, Gulf of Maine to the Florida Keys. NOAA Fisheries, MAFMC, ASMFC and SAFMC manage it as two stocks split at Cape Hatteras, North Carolina: a Mid-Atlantic stock (MAFMC/ASMFC/NOAA) and a South Atlantic stock (SAFMC/NOAA).",
     thermal: { activeF: [48, 82], coldEdgeF: 43, warmEdgeF: 82 },
     spawning: {
       seasons: ["winter", "spring", "summer"],
@@ -562,32 +675,46 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["oyster_bar", "bridge_piling", "channel_edge"],
         nearshore: ["nearshore_reef", "wreck", "rock_pile", "artificial_reef"],
       },
-      currentPreference: "Sources describe black sea bass as structure-holders that shelter in or near hard bottom by day and range onto adjacent soft bottom to feed, rather than a tide-line or current-seam specialist. No agency source ties feeding directly to a tide stage for this species.",
-      depthTendency: "Strongly seasonal by bottom temperature. Warm-season fish (roughly spring through fall) hold shallow nearshore structure, commonly under 120 ft in the Mid-Atlantic stock. As bottom water cools in fall, fish move to deeper outer-shelf wintering grounds - 240-540 ft reported for the Mid-Atlantic stock - returning to nearshore depths in spring as temperatures rise.",
-      lightResponse: "Sources describe daytime shelter in or around structure with foraging extending onto adjacent open/soft bottom, consistent with a species that uses cover more in bright light and ranges to feed as light drops; no source gives a night-specific behavioral claim strong enough to call nocturnal.",
+      currentPreference:
+        "Sources describe black sea bass as structure-holders that shelter in or near hard bottom by day and range onto adjacent soft bottom to feed, rather than a tide-line or current-seam specialist. No agency source ties feeding directly to a tide stage for this species.",
+      depthTendency:
+        "Strongly seasonal by bottom temperature. Warm-season fish (roughly spring through fall) hold shallow nearshore structure, commonly under 120 ft in the Mid-Atlantic stock. As bottom water cools in fall, fish move to deeper outer-shelf wintering grounds - 240-540 ft reported for the Mid-Atlantic stock - returning to nearshore depths in spring as temperatures rise.",
+      lightResponse:
+        "Sources describe daytime shelter in or around structure with foraging extending onto adjacent open/soft bottom, consistent with a species that uses cover more in bright light and ranges to feed as light drops; no source gives a night-specific behavioral claim strong enough to call nocturnal.",
     },
     forageClasses: ["crustaceans", "small_forage_fish", "mollusks", "worms_annelids"],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
       inshore: ["structure_pitch", "live_natural_bait_suspension"],
-      nearshore: ["bottom_contact", "drop_presentation", "structure_vertical", "vertical_jig", "live_natural_bait_suspension"],
+      nearshore: [
+        "bottom_contact",
+        "drop_presentation",
+        "structure_vertical",
+        "vertical_jig",
+        "live_natural_bait_suspension",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Federally managed on both stocks with minimum size, bag limit, and season rules that differ by state and by side of Cape Hatteras; South Atlantic federal waters also carry a standing descending-device requirement for the snapper-grouper complex that black sea bass falls under. Rules change between review cycles - verify current size, bag, and season limits for the specific state and stock before fishing.",
-      jurisdictionScope: "U.S. Atlantic coast, Gulf of Maine to the Florida Keys; Mid-Atlantic stock (north of Cape Hatteras, NC - MAFMC/ASMFC/NOAA) and South Atlantic stock (south of Cape Hatteras - SAFMC/NOAA) are managed and regulated separately.",
+      jurisdictionScope:
+        "U.S. Atlantic coast, Gulf of Maine to the Florida Keys; Mid-Atlantic stock (north of Cape Hatteras, NC - MAFMC/ASMFC/NOAA) and South Atlantic stock (south of Cape Hatteras - SAFMC/NOAA) are managed and regulated separately.",
     },
     exceptions: [
       "Protogynous sex change and size-structured populations are biology and management context, not evidence of a spawning concentration to run to. This reading never names or implies a spawning aggregation site or a structure class built around one.",
     ],
-    geographic: "U.S. Atlantic coast from the Gulf of Maine to the Florida Keys, most abundant from southern New England through the mid-Atlantic and into the South Atlantic Bight. Two-stock management split (Cape Hatteras) is itself a conservation and regulatory constraint, not a location guide.",
+    geographic:
+      "U.S. Atlantic coast from the Gulf of Maine to the Florida Keys, most abundant from southern New England through the mid-Atlantic and into the South Atlantic Bight. Two-stock management split (Cape Hatteras) is itself a conservation and regulatory constraint, not a location guide.",
     sources: [
       { label: "NOAA Fisheries - Black Sea Bass species page", class: SRC.agency },
       { label: "ASMFC - Black Sea Bass species page and life history summary", class: SRC.agency },
       { label: "SAFMC - Sea Bass, Black species page", class: SRC.agency },
-      { label: "MAFMC/ASMFC Black Sea Bass essential-habitat / species profile source document", class: SRC.agency },
+      {
+        label: "MAFMC/ASMFC Black Sea Bass essential-habitat / species profile source document",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -597,34 +724,63 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Coryphaena hippurus",
     commonNames: ["Mahi-mahi", "Dolphinfish", "Dorado"],
     group: "offshore_pelagic",
-    nativeContext: "Native circumtropical/subtropical epipelagic species, present in the western Atlantic, Gulf of Mexico, and Caribbean from Massachusetts to Texas; purely oceanic, not landlocked or introduced.",
+    nativeContext:
+      "Native circumtropical/subtropical epipelagic species, present in the western Atlantic, Gulf of Mexico, and Caribbean from Massachusetts to Texas; purely oceanic, not landlocked or introduced.",
     spawning: {
-      seasons: ["winter", "early_spring", "spring", "early_summer", "summer", "late_summer", "fall"],
+      seasons: [
+        "winter",
+        "early_spring",
+        "spring",
+        "early_summer",
+        "summer",
+        "late_summer",
+        "fall",
+      ],
       note: "A near-year-round, multiple-batch spawner: NOAA reports spawning November through July for fish associated with the Florida Current, and June-July for fish off North Carolina, with spawning occurring under patches of floating Sargassum. Fecundity rises sharply with size, from roughly 33,000-66,000 eggs per event up to several million in the largest females. Spawning water and any staging concentration are conservation context only, not holding water.",
     },
     habitat: {
       waterTypes: ["offshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { offshore: ["weed_line", "temperature_break", "current_rip", "open_bait_school"] },
-      currentPreference: "Strongly structure- and current-oriented despite being a fully pelagic species: concentrates under and along drifting Sargassum weed lines and other floating material, and along current-driven fronts/rips where temperature and current features concentrate prey. Larger males tend toward open-ocean water away from floating objects, while females and smaller males are more consistently associated with natural and artificial floating structure.",
-      depthTendency: "A surface-oriented species; when associated with a floating object or weed line it spends the large majority of its time in the top 10 m of the water column, diving somewhat deeper (documented to roughly 20-50 m) when not associated with floating structure, with the deepest excursions typically by day.",
-      lightResponse: "A daytime surface feeder; peer-reviewed tracking found fish associated with floating objects diving deeper by day and staying shallower at night, consistent with daytime foraging excursions from beneath the structure.",
+      marineHolding: {
+        offshore: ["weed_line", "temperature_break", "current_rip", "open_bait_school"],
+      },
+      currentPreference:
+        "Strongly structure- and current-oriented despite being a fully pelagic species: concentrates under and along drifting Sargassum weed lines and other floating material, and along current-driven fronts/rips where temperature and current features concentrate prey. Larger males tend toward open-ocean water away from floating objects, while females and smaller males are more consistently associated with natural and artificial floating structure.",
+      depthTendency:
+        "A surface-oriented species; when associated with a floating object or weed line it spends the large majority of its time in the top 10 m of the water column, diving somewhat deeper (documented to roughly 20-50 m) when not associated with floating structure, with the deepest excursions typically by day.",
+      lightResponse:
+        "A daytime surface feeder; peer-reviewed tracking found fish associated with floating objects diving deeper by day and staying shallower at night, consistent with daytime foraging excursions from beneath the structure.",
     },
-    forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks", "zooplankton"],
+    forageClasses: [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "zooplankton",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
-    marinePresentations: { offshore: ["run_and_gun_cast", "trolling_spread", "live_bait_slow_troll", "chum_established_drift"] },
+    marinePresentations: {
+      offshore: [
+        "run_and_gun_cast",
+        "trolling_spread",
+        "live_bait_slow_troll",
+        "chum_established_drift",
+      ],
+    },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "US South Atlantic and Gulf of Mexico state and federal waters, managed by NOAA Fisheries, the South Atlantic Fishery Management Council, and the Caribbean Fishery Management Council under the Dolphin Wahoo FMP, plus individual state rules (Florida, Georgia, South Carolina apply a minimum size).",
+      jurisdictionScope:
+        "US South Atlantic and Gulf of Mexico state and federal waters, managed by NOAA Fisheries, the South Atlantic Fishery Management Council, and the Caribbean Fishery Management Council under the Dolphin Wahoo FMP, plus individual state rules (Florida, Georgia, South Carolina apply a minimum size).",
       note: "Recreational rules differ by state and by Gulf vs. Atlantic waters: Florida's Gulf state waters currently carry no minimum size and a 10-per-person/60-per-vessel bag limit, while Florida's Atlantic state waters carry a 20 in fork length minimum and a 5-per-person/30-per-vessel bag limit; SAFMC's federal Atlantic rule is a 20 in fork length minimum with (per one source) a 10-fish recreational daily bag and a 54-fish vessel limit. The South Atlantic stock's population level and overfishing status were both listed as unknown by NOAA, with management measures precautionary rather than assessment-driven. Confirm the current size and bag limit for the exact state/water before fishing.",
     },
     exceptions: [
       "This is a fast-growing, short-lived species (commonly cited maximum lifespan around 5 years) whose stock assessment is described by NOAA as difficult precisely because of that short life span, broad geographic distribution, and highly migratory behavior -- treat population-level statements about mahi-mahi with that uncertainty in mind.",
     ],
-    geographic: "Circumtropical and subtropical, western Atlantic/Gulf of Mexico/Caribbean population ranging Massachusetts to Texas in US waters as part of a globally distributed, highly migratory oceanic population.",
+    geographic:
+      "Circumtropical and subtropical, western Atlantic/Gulf of Mexico/Caribbean population ranging Massachusetts to Texas in US waters as part of a globally distributed, highly migratory oceanic population.",
     sources: [
       {
         label: "NOAA Fisheries, Atlantic Mahi Mahi species page",
@@ -647,12 +803,14 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://myfwc.com/wildlifehabitats/profiles/saltwater/dolphinfish/",
       },
       {
-        label: "Peer-reviewed telemetry study: vertical distributions of dolphinfish (Coryphaena hippurus), PLOS ONE",
+        label:
+          "Peer-reviewed telemetry study: vertical distributions of dolphinfish (Coryphaena hippurus), PLOS ONE",
         class: SRC.peer,
         url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0276873",
       },
       {
-        label: "Merten, W., Appeldoorn, R., Rivera, R., Hammond, D. 2014. Diel vertical movements of adult male dolphinfish (Coryphaena hippurus) in the western central Atlantic as determined by use of pop-up satellite archival transmitters. Marine Biology 161(8):1823-1834.",
+        label:
+          "Merten, W., Appeldoorn, R., Rivera, R., Hammond, D. 2014. Diel vertical movements of adult male dolphinfish (Coryphaena hippurus) in the western central Atlantic as determined by use of pop-up satellite archival transmitters. Marine Biology 161(8):1823-1834.",
         class: SRC.peer,
         url: "https://doi.org/10.1007/s00227-014-2464-0",
       },
@@ -670,7 +828,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Cynoscion nebulosus",
     commonNames: ["Spotted seatrout", "Speckled trout"],
     group: "inshore_surf",
-    nativeContext: "Native estuarine-resident sciaenid of the western Atlantic and Gulf. Unusually estuary-bound for a coastal predator: agency accounts describe Georgia and Florida populations with small home ranges that rarely move far from the estuary they were spawned in, while Chesapeake Bay and North Carolina populations show seasonal migration driven by temperature and reproduction.",
+    nativeContext:
+      "Native estuarine-resident sciaenid of the western Atlantic and Gulf. Unusually estuary-bound for a coastal predator: agency accounts describe Georgia and Florida populations with small home ranges that rarely move far from the estuary they were spawned in, while Chesapeake Bay and North Carolina populations show seasonal migration driven by temperature and reproduction.",
     thermal: { preferredF: [59, 81], coldEdgeF: 38 },
     spawning: {
       seasons: ["spring", "early_summer", "summer", "late_summer"],
@@ -681,22 +840,40 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: {
-        inshore: ["grass_flat", "sand_hole", "marsh_edge", "oyster_bar", "tidal_creek", "creek_mouth", "channel_edge"],
+        inshore: [
+          "grass_flat",
+          "sand_hole",
+          "marsh_edge",
+          "oyster_bar",
+          "tidal_creek",
+          "creek_mouth",
+          "channel_edge",
+        ],
       },
-      currentPreference: "Estuarine and tide-exposed rather than current-seeking. SCDNR places adults at salt marsh edges and over grass beds, in the vicinity of tidal creek mouths and channels, and over oyster reefs, which are tide-worked features. No agency or peer-reviewed source located for this record states a preferred tide stage for spotted seatrout, and none is asserted here.",
-      depthTendency: "Deeper than red drum in the same estuary. In a Texas lagoon array spotted seatrout averaged about 144 cm depth against about 51 cm for red drum, and used open bay 96.3 percent of the time (Moulton et al. 2017). Fish move into deeper channels, holes and dredged harbours as water cools (ASMFC, TPWD).",
-      lightResponse: "The strongest documented behavioural signal in the species. Moulton et al. 2017 recorded a pronounced diel habitat shift: seagrass in daylight 98 percent of the time, bare substrate at night 80 percent of the time, with movement rate rising from about 0.95 m/min by day to about 3.4 m/min at night.",
+      currentPreference:
+        "Estuarine and tide-exposed rather than current-seeking. SCDNR places adults at salt marsh edges and over grass beds, in the vicinity of tidal creek mouths and channels, and over oyster reefs, which are tide-worked features. No agency or peer-reviewed source located for this record states a preferred tide stage for spotted seatrout, and none is asserted here.",
+      depthTendency:
+        "Deeper than red drum in the same estuary. In a Texas lagoon array spotted seatrout averaged about 144 cm depth against about 51 cm for red drum, and used open bay 96.3 percent of the time (Moulton et al. 2017). Fish move into deeper channels, holes and dredged harbours as water cools (ASMFC, TPWD).",
+      lightResponse:
+        "The strongest documented behavioural signal in the species. Moulton et al. 2017 recorded a pronounced diel habitat shift: seagrass in daylight 98 percent of the time, bare substrate at night 80 percent of the time, with movement rate rising from about 0.95 m/min by day to about 3.4 m/min at night.",
     },
     forageClasses: ["crustaceans", "small_forage_fish", "larger_prey_fish", "zooplankton"],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
-      inshore: ["horizontal_retrieve", "live_natural_bait_suspension", "tidal_drift_bait", "surface_retrieve", "stop_and_go"],
+      inshore: [
+        "horizontal_retrieve",
+        "live_natural_bait_suspension",
+        "tidal_drift_bait",
+        "surface_retrieve",
+        "stop_and_go",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Every Atlantic and Gulf coastal state manages spotted seatrout independently; Florida subdivides its own coast into nine management regions with different bag limits and different closed seasons.",
+      jurisdictionScope:
+        "Every Atlantic and Gulf coastal state manages spotted seatrout independently; Florida subdivides its own coast into nine management regions with different bag limits and different closed seasons.",
       note: "Regulations are region-scale, not state-scale. Under Florida's rules the statewide slot is 15-19 in total length, but the daily bag runs from two to five fish depending on region, the Indian River Lagoon and Northeast regions prohibit possession of any fish over 19 in, the Panhandle region is closed for February, and the Indian River Lagoon region is closed 1 November to 31 December. Confirm the rule for the exact region and date before keeping a fish.",
     },
     exceptions: [
@@ -704,7 +881,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "Two Florida regions cap the maximum size outright rather than allowing an oversized fish. Do not assume an oversized allowance exists.",
       "This species suffers documented mass mortality in freeze events. After a hard winter, local abundance can be a fraction of the previous year and state agencies may act on that.",
     ],
-    geographic: "Atlantic and Gulf coasts of the United States, roughly New York to Texas and into Mexico, with the population centre in the southeastern and Gulf estuaries.",
+    geographic:
+      "Atlantic and Gulf coasts of the United States, roughly New York to Texas and into Mexico, with the population centre in the southeastern and Gulf estuaries.",
     sources: [
       {
         label: "ASMFC, Cynoscion nebulosus Spotted Seatrout: Life History and Habitat Needs",
@@ -722,7 +900,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_v3400_044_seatrout.pdf",
       },
       {
-        label: "FWC spotted seatrout profile and recreational regulations (nine Florida management regions)",
+        label:
+          "FWC spotted seatrout profile and recreational regulations (nine Florida management regions)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/spotted-seatrout/",
       },
@@ -732,15 +911,18 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://tpwd.texas.gov/newsmedia/releases/?req=20210223b",
       },
       {
-        label: "Anweiler, Arnott and Denson 2014, low-temperature tolerance of juvenile spotted seatrout in South Carolina, Transactions of the American Fisheries Society 143:999-1010",
+        label:
+          "Anweiler, Arnott and Denson 2014, low-temperature tolerance of juvenile spotted seatrout in South Carolina, Transactions of the American Fisheries Society 143:999-1010",
         class: SRC.peer,
       },
       {
-        label: "Moulton et al. 2017, habitat partitioning and seasonal movement of red drum and spotted seatrout, Estuaries and Coasts 40:905-916",
+        label:
+          "Moulton et al. 2017, habitat partitioning and seasonal movement of red drum and spotted seatrout, Estuaries and Coasts 40:905-916",
         class: SRC.peer,
       },
       {
-        label: "Hall-Scharf, Switzer and Stallings 2016, ontogenetic and long-term diet shifts of a generalist juvenile predatory fish in an urban estuary, Transactions of the American Fisheries Society 145:502-520",
+        label:
+          "Hall-Scharf, Switzer and Stallings 2016, ontogenetic and long-term diet shifts of a generalist juvenile predatory fish in an urban estuary, Transactions of the American Fisheries Society 145:502-520",
         class: SRC.peer,
       },
     ],
@@ -752,7 +934,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Cynoscion regalis",
     commonNames: ["Weakfish"],
     group: "inshore_surf",
-    nativeContext: "Western Atlantic native, Nova Scotia to northeast/central Florida; greatest abundance between New York and North Carolina.",
+    nativeContext:
+      "Western Atlantic native, Nova Scotia to northeast/central Florida; greatest abundance between New York and North Carolina.",
     thermal: { activeF: [49, 87], coldEdgeF: 46 },
     spawning: {
       seasons: ["spring", "early_summer", "summer"],
@@ -762,12 +945,24 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["inshore", "nearshore", "surf"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { inshore: ["grass_flat", "sand_hole", "channel_edge"], nearshore: ["inlet_mouth"], surf: ["surf_trough"] },
+      marineHolding: {
+        inshore: ["grass_flat", "sand_hole", "channel_edge"],
+        nearshore: ["inlet_mouth"],
+        surf: ["surf_trough"],
+      },
       currentPreference: "Not sourced as a tide-stage relationship in the material reviewed.",
-      depthTendency: "A schooling, mid-water-to-bottom species over sand and sand-grass substrate rather than a hard-structure fish. Adults use estuaries, bays, sounds and nearshore coastal water, favoring sandy bottom and the edges of grass beds; juveniles use estuarine nurseries across a wide salinity range, favoring deeper secondary-nursery reaches over the shallowest tributaries, before moving to deeper channels and coastal water as they mature. Winter is spent offshore on the continental shelf. The Florida Fish and Wildlife Conservation Commission's weakfish profile - confirmed on repeated fetch of the page's raw text - states 'Adults move inshore and north during warm months inhabiting the surf, inlets, bays, channels and estuaries and offshore and south during cold months.' That is the basis for adding surf (generic trough/beach water, not a named jetty - jetty-specific use was not separately sourced) and nearshore (inlet) holding here.",
-      lightResponse: "Primarily a low-light/nocturnal feeder: a federal biological report states weakfish feed primarily between dusk and dawn, foraging along the periphery of eelgrass beds during that window.",
+      depthTendency:
+        "A schooling, mid-water-to-bottom species over sand and sand-grass substrate rather than a hard-structure fish. Adults use estuaries, bays, sounds and nearshore coastal water, favoring sandy bottom and the edges of grass beds; juveniles use estuarine nurseries across a wide salinity range, favoring deeper secondary-nursery reaches over the shallowest tributaries, before moving to deeper channels and coastal water as they mature. Winter is spent offshore on the continental shelf. The Florida Fish and Wildlife Conservation Commission's weakfish profile - confirmed on repeated fetch of the page's raw text - states 'Adults move inshore and north during warm months inhabiting the surf, inlets, bays, channels and estuaries and offshore and south during cold months.' That is the basis for adding surf (generic trough/beach water, not a named jetty - jetty-specific use was not separately sourced) and nearshore (inlet) holding here.",
+      lightResponse:
+        "Primarily a low-light/nocturnal feeder: a federal biological report states weakfish feed primarily between dusk and dawn, foraging along the periphery of eelgrass beds during that window.",
     },
-    forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks", "zooplankton"],
+    forageClasses: [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "zooplankton",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
@@ -779,7 +974,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetContext: {
       verifyLocalRules: true,
       note: "Managed by ASMFC alone via an interstate FMP dating to 1985; no federal fishery management council role was found in the sources reviewed, unlike summer flounder and bluefish, which are jointly managed with MAFMC. The stock has been considered depleted since 2003 and remains so: the most recent full assessment (2019) put 2017 spawning stock biomass at about 1,922 mt against a threshold of 6,170 mt, and natural mortality has run far higher over the last decade (about 0.92) than in the fishery's early years (about 0.16) for reasons not fully understood, which has kept the stock from rebuilding even under low harvest. Current coastwide measures are correspondingly restrictive: a 1-fish recreational bag limit in most jurisdictions and a 100-lb commercial bycatch cap.",
-      jurisdictionScope: "U.S. Atlantic coast, Nova Scotia to Florida, most abundant New York to North Carolina, under ASMFC interstate management - check the current bag limit in your state before keeping any fish.",
+      jurisdictionScope:
+        "U.S. Atlantic coast, Nova Scotia to Florida, most abundant New York to North Carolina, under ASMFC interstate management - check the current bag limit in your state before keeping any fish.",
     },
     exceptions: [
       "This species has an unusually soft mouth (the source of the common name); the diet and behavior information in this record documents feeding ecology only and is not fishing advice.",
@@ -787,7 +983,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "Given a 20+ year depleted stock, an elevated and poorly-explained natural mortality rate, and a 1-fish bag limit across most of the coast, this record's classification of weakfish as regulated_context rather than conservation_sensitive is a judgment call, not a clean-cut determination - a reviewer could reasonably decide the stock's condition warrants the stricter category, which would also remove presentation guidance under this catalog's rules.",
       "Surf holding above is sourced only to a generic 'the surf' in one FWC line, not to a specific surf feature beyond open trough water, and no source found this session ties weakfish specifically to a jetty; treat the surf holding class as provisional relative to the more solidly sourced estuarine/inshore habitat above.",
     ],
-    geographic: "Nova Scotia to northeast/central Florida; greatest abundance New York to North Carolina. Adults move north and inshore in spring/summer and south and offshore in fall/winter, wintering on the continental shelf, with the northern contingent generally wintering south of Cape Hatteras.",
+    geographic:
+      "Nova Scotia to northeast/central Florida; greatest abundance New York to North Carolina. Adults move north and inshore in spring/summer and south and offshore in fall/winter, wintering on the continental shelf, with the northern contingent generally wintering south of Cape Hatteras.",
     sources: [
       {
         label: "Atlantic States Marine Fisheries Commission - Weakfish species page",
@@ -810,7 +1007,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.dnr.sc.gov/marine/species/weakfish.html",
       },
       {
-        label: "U.S. Fish and Wildlife Service, Species Profiles: Life Histories and Environmental Requirements - Weakfish (biological report)",
+        label:
+          "U.S. Fish and Wildlife Service, Species Profiles: Life Histories and Environmental Requirements - Weakfish (biological report)",
         class: SRC.agency,
         url: "https://www.nrc.gov/docs/ML0720/ML072060564.pdf",
       },
@@ -833,7 +1031,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Hippoglossus stenolepis",
     commonNames: ["Pacific halibut"],
     group: "reef_bottom",
-    nativeContext: "North Pacific and Bering Sea marine native; U.S. range from Santa Barbara, California to Nome, Alaska, and across to Russia and Japan.",
+    nativeContext:
+      "North Pacific and Bering Sea marine native; U.S. range from Santa Barbara, California to Nome, Alaska, and across to Russia and Japan.",
     thermal: { preferredF: [37, 46] },
     spawning: {
       seasons: ["late_fall", "winter"],
@@ -844,8 +1043,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: { nearshore: ["nearshore_hump"], offshore: ["offshore_ledge", "canyon_edge"] },
-      currentPreference: "Not documented against tide directly in sourced material. Halibut are noted to leave the bottom opportunistically to intercept pelagic prey such as sand lance and herring, rather than holding purely on a current seam.",
-      depthTendency: "Typically found 20-1,000 ft deep, with records to about 3,600 ft. Adults migrate seasonally: deeper (continental slope, roughly 600-1,600+ ft) in winter for spawning, shallower shelf/bank feeding grounds the rest of the year. Juveniles migrate further offshore with age, reaching coastwide distribution by about age five or six.",
+      currentPreference:
+        "Not documented against tide directly in sourced material. Halibut are noted to leave the bottom opportunistically to intercept pelagic prey such as sand lance and herring, rather than holding purely on a current seam.",
+      depthTendency:
+        "Typically found 20-1,000 ft deep, with records to about 3,600 ft. Adults migrate seasonally: deeper (continental slope, roughly 600-1,600+ ft) in winter for spawning, shallower shelf/bank feeding grounds the rest of the year. Juveniles migrate further offshore with age, reaching coastwide distribution by about age five or six.",
       lightResponse: "Not documented in sourced material.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "mollusks", "crustaceans"],
@@ -858,16 +1059,22 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "International Pacific Halibut Commission (IPHC) regulatory areas spanning Alaska, British Columbia, and the U.S. West Coast (Convention between the U.S. and Canada); within the U.S., NOAA Fisheries, the North Pacific Fishery Management Council, the Pacific Fishery Management Council, and state agencies (ADF&G, CDFW) implement IPHC measures for their waters.",
+      jurisdictionScope:
+        "International Pacific Halibut Commission (IPHC) regulatory areas spanning Alaska, British Columbia, and the U.S. West Coast (Convention between the U.S. and Canada); within the U.S., NOAA Fisheries, the North Pacific Fishery Management Council, the Pacific Fishery Management Council, and state agencies (ADF&G, CDFW) implement IPHC measures for their waters.",
       note: "Pacific halibut is managed under a bilateral U.S.-Canada convention administered by the IPHC, which divides the range into numbered regulatory areas (e.g., 2A off Washington/Oregon/California, 2C and 3A-3B in Alaska, 4A-4E further west) and sets an annual catch limit and recreational/charter rules per area through Annual Management Measures published each year -- describe the structure, not a specific year's dates. The structure itself varies sharply by area: Alaska's Area 2C charter fishery has used a reverse-slot size limit (keep only fish at or under a set length, or over a much larger second threshold) with a one-fish bag; Area 3A has used a tiered two-fish bag (one fish of any size plus one fish under a set smaller length); California's Area 2A recreational fishery instead uses a one-fish bag with no minimum size and gear restrictions (no more than one line with two hooks). Exact size thresholds, bag numbers, and open days are reset annually by IPHC/NPFMC/PFMC/NOAA Fisheries and must be checked for the current year and specific area before fishing.",
     },
-    geographic: "Continental shelf and upper slope of the North Pacific Ocean and Bering Sea; U.S. range from Santa Barbara, California to Nome, Alaska.",
+    geographic:
+      "Continental shelf and upper slope of the North Pacific Ocean and Bering Sea; U.S. range from Santa Barbara, California to Nome, Alaska.",
     sources: [
       { label: "ADF&G Pacific Halibut species profile", class: SRC.agency },
-      { label: "IPHC Pacific Halibut (Hippoglossus stenolepis): Stock Status and Biology", class: SRC.agency },
+      {
+        label: "IPHC Pacific Halibut (Hippoglossus stenolepis): Stock Status and Biology",
+        class: SRC.agency,
+      },
       { label: "IPHC Structure of the Commission", class: SRC.agency },
       {
-        label: "NOAA Fisheries, \"Halibut Sport Fishing in Alaska\" / 2026 Charter Halibut regulation FAQ",
+        label:
+          'NOAA Fisheries, "Halibut Sport Fishing in Alaska" / 2026 Charter Halibut regulation FAQ',
         class: SRC.agency,
       },
       { label: "CDFW Pacific Halibut conservation/regulations page", class: SRC.agency },
@@ -881,7 +1088,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Kajikia audax",
     commonNames: ["Striped marlin"],
     group: "offshore_pelagic",
-    nativeContext: "Native Pacific and Indian Ocean epipelagic billfish, highly migratory and oceanic; not landlocked or introduced. In US waters it is chiefly an eastern North Pacific (California Current / Baja) and Hawaii-region species.",
+    nativeContext:
+      "Native Pacific and Indian Ocean epipelagic billfish, highly migratory and oceanic; not landlocked or introduced. In US waters it is chiefly an eastern North Pacific (California Current / Baja) and Hawaii-region species.",
     thermal: { preferredF: [68, 77] },
     spawning: {
       seasons: ["spring", "summer"],
@@ -891,25 +1099,34 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["offshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { offshore: ["temperature_break", "current_rip", "seamount", "open_bait_school"] },
-      currentPreference: "Oceanic and highly mobile; concentrates in frontal zones where a cooler current meets warmer water and around eddy margins, because these features aggregate the epipelagic baitfish and squid it hunts visually. A peer-reviewed telemetry study also found striped marlin associating with seamount and boundary-current features generically, not with any single named feature.",
-      depthTendency: "Epipelagic; spends the large majority of time in the surface mixed layer above the thermocline (commonly cited as roughly the top 200 m), with only brief deeper excursions.",
-      lightResponse: "Reviewed sources are consistent with a daytime-active pattern: one reference database lists the species as diurnal, and an independent peer-reviewed telemetry study found reduced horizontal movement at night versus daytime, consistent with a more visually-driven daytime hunting style.",
+      marineHolding: {
+        offshore: ["temperature_break", "current_rip", "seamount", "open_bait_school"],
+      },
+      currentPreference:
+        "Oceanic and highly mobile; concentrates in frontal zones where a cooler current meets warmer water and around eddy margins, because these features aggregate the epipelagic baitfish and squid it hunts visually. A peer-reviewed telemetry study also found striped marlin associating with seamount and boundary-current features generically, not with any single named feature.",
+      depthTendency:
+        "Epipelagic; spends the large majority of time in the surface mixed layer above the thermocline (commonly cited as roughly the top 200 m), with only brief deeper excursions.",
+      lightResponse:
+        "Reviewed sources are consistent with a daytime-active pattern: one reference database lists the species as diurnal, and an independent peer-reviewed telemetry study found reduced horizontal movement at night versus daytime, consistent with a more visually-driven daytime hunting style.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "mollusks"],
     flowingPresentations: [],
     stillPresentations: [],
-    marinePresentations: { offshore: ["trolling_spread", "live_bait_slow_troll", "chum_established_drift"] },
+    marinePresentations: {
+      offshore: ["trolling_spread", "live_bait_slow_troll", "chum_established_drift"],
+    },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "US West Coast (California/Oregon/Washington) recreational and for-hire fishery under the Pacific HMS FMP; separately, Hawaii and Pacific Insular Areas operate under different Billfish Conservation Act exemptions.",
+      jurisdictionScope:
+        "US West Coast (California/Oregon/Washington) recreational and for-hire fishery under the Pacific HMS FMP; separately, Hawaii and Pacific Insular Areas operate under different Billfish Conservation Act exemptions.",
       note: "Commercial sale of billfish (including striped marlin) is prohibited in the continental US under the Billfish Conservation Act; Hawaii and Pacific Insular Areas are exempted and may land, retain, and sell billfish caught there. That Act's language targets sale and possession-for-sale, not recreational catch and retention. California's 2025 ocean sport fishing regulations set a bag limit of one marlin (species not further subdivided in that rule) per angler per day and give striped marlin no further species-specific state rule; commercial and for-hire HMS vessels need a federal Pacific HMS permit. This dossier could not confirm the assignment-hint claim of a blanket catch-and-release-only US recreational fishery for striped marlin -- confirm current retention rules, any tournament-specific release requirements, and permit needs before fishing.",
     },
     exceptions: [
       "Do not treat the IUCN Red List category as settled here: reviewed sources disagreed (see identification.gaps), and international stock status varies sharply by ocean region -- NOAA describes the eastern Pacific stock as not subject to overfishing while describing the central/western Pacific stock as subject to overfishing.",
     ],
-    geographic: "The most widely distributed billfish worldwide; Pacific and Indian Ocean pelagic, in the eastern Pacific ranging along the US West Coast and Baja California and through Hawaii. Stocks differ regionally in fishing pressure, with the eastern Pacific stock most relevant to US West Coast anglers reported as not overfished and not subject to overfishing, while the central/western Pacific stock is reported subject to overfishing.",
+    geographic:
+      "The most widely distributed billfish worldwide; Pacific and Indian Ocean pelagic, in the eastern Pacific ranging along the US West Coast and Baja California and through Hawaii. Stocks differ regionally in fishing pressure, with the eastern Pacific stock most relevant to US West Coast anglers reported as not overfished and not subject to overfishing, while the central/western Pacific stock is reported subject to overfishing.",
     sources: [
       {
         label: "NOAA Fisheries, Striped Marlin species page",
@@ -917,7 +1134,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/striped-marlin",
       },
       {
-        label: "California Department of Fish and Wildlife, 2025 California Ocean Sport Fishing Regulations",
+        label:
+          "California Department of Fish and Wildlife, 2025 California Ocean Sport Fishing Regulations",
         class: SRC.agency,
         url: "https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=220187&inline=",
       },
@@ -932,7 +1150,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://fishesofaustralia.net.au/home/species/715",
       },
       {
-        label: "Peer-reviewed telemetry study: movement and habitat use of striped marlin Kajikia audax (Journal of Fish Biology), via IOTC document repository",
+        label:
+          "Peer-reviewed telemetry study: movement and habitat use of striped marlin Kajikia audax (Journal of Fish Biology), via IOTC document repository",
         class: SRC.peer,
         url: "https://iotc.org/sites/default/files/documents/2021/08/IOTC-2021-WPB19-INF03.pdf",
       },
@@ -945,7 +1164,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Lutjanus analis",
     commonNames: ["Mutton snapper"],
     group: "reef_bottom",
-    nativeContext: "Western Atlantic reef fish, native from the Carolinas and Gulf of Mexico south through the Caribbean to Brazil; most abundant off south Florida, the Florida Keys, and the Bahamas.",
+    nativeContext:
+      "Western Atlantic reef fish, native from the Carolinas and Gulf of Mexico south through the Caribbean to Brazil; most abundant off south Florida, the Florida Keys, and the Bahamas.",
     spawning: {
       seasons: ["spring", "early_summer", "summer"],
       note: "Broadcast spawner that forms large aggregations tied to lunar periodicity, a well-documented regional conservation vulnerability for this genus. This record intentionally excludes aggregation timing detail, aggregation sites, and migration routes; spawning is conservation context only, not a targeting cue.",
@@ -954,9 +1174,14 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["inshore", "nearshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { inshore: ["grass_flat", "mangrove_edge", "sand_hole"], nearshore: ["nearshore_reef", "rock_pile", "wreck"] },
-      currentPreference: "Reef-resident with strong site fidelity once settled; uses current mainly to deliver prey past holding structure rather than actively working open tide lines.",
-      depthTendency: "Juveniles and small adults use very shallow vegetated and estuarine water (grass beds, mangrove creeks, canals); larger adults hold on reef and hardbottom out to roughly 90 ft (about 28 m), deepening with size.",
+      marineHolding: {
+        inshore: ["grass_flat", "mangrove_edge", "sand_hole"],
+        nearshore: ["nearshore_reef", "rock_pile", "wreck"],
+      },
+      currentPreference:
+        "Reef-resident with strong site fidelity once settled; uses current mainly to deliver prey past holding structure rather than actively working open tide lines.",
+      depthTendency:
+        "Juveniles and small adults use very shallow vegetated and estuarine water (grass beds, mangrove creeks, canals); larger adults hold on reef and hardbottom out to roughly 90 ft (about 28 m), deepening with size.",
     },
     forageClasses: ["small_forage_fish", "crustaceans", "mollusks"],
     flowingPresentations: [],
@@ -968,29 +1193,38 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     exceptions: [
       "Mutton snapper's spawning-aggregation behavior is a documented regional conservation concern; nothing in this record should be read as guidance toward locating, timing, or fishing an aggregation.",
     ],
-    geographic: "Western Atlantic from the Carolinas and Gulf of Mexico to Brazil, including the Caribbean; conservation status is shaped by aggregation-based vulnerability more than by broad-range abundance.",
+    geographic:
+      "Western Atlantic from the Carolinas and Gulf of Mexico to Brazil, including the Caribbean; conservation status is shaped by aggregation-based vulnerability more than by broad-range abundance.",
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "South Atlantic federal minimum size is 18 in TL with a 5-fish recreational bag limit inside a 10-fish aggregate snapper bag, and a reduced commercial trip limit applies during the spring spawning season. Florida state waters currently run this fishery year-round with no closed recreational season. Confirm current size, bag, and any seasonal trip-limit rules with FWC, SAFMC, or GMFMC before targeting.",
-      jurisdictionScope: "US South Atlantic and Gulf of Mexico, state and federal waters; rules differ by state and between state and federal jurisdiction.",
+      jurisdictionScope:
+        "US South Atlantic and Gulf of Mexico, state and federal waters; rules differ by state and between state and federal jurisdiction.",
     },
     sources: [
       {
-        label: "South Atlantic Fishery Management Council — Mutton Snapper species page and Snapper Grouper FMP regulatory amendments",
+        label:
+          "South Atlantic Fishery Management Council — Mutton Snapper species page and Snapper Grouper FMP regulatory amendments",
         class: SRC.agency,
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission — Mutton snapper recreational regulations",
+        label:
+          "Florida Fish and Wildlife Conservation Commission — Mutton snapper recreational regulations",
         class: SRC.agency,
       },
       {
-        label: "NOAA Fisheries Bulletin — Final rule implementing South Atlantic mutton snapper regulations (2018)",
+        label:
+          "NOAA Fisheries Bulletin — Final rule implementing South Atlantic mutton snapper regulations (2018)",
         class: SRC.agency,
       },
-      { label: "SEDAR 15A — Life history of Lutjanus analis inhabiting Florida waters", class: SRC.agency },
       {
-        label: "Southern Regional Aquaculture Center (Mississippi State University Extension) — Mutton snapper species profile",
+        label: "SEDAR 15A — Life history of Lutjanus analis inhabiting Florida waters",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "Southern Regional Aquaculture Center (Mississippi State University Extension) — Mutton snapper species profile",
         class: SRC.syn,
       },
     ],
@@ -1002,40 +1236,71 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Lutjanus campechanus",
     commonNames: ["Red snapper"],
     group: "reef_bottom",
-    nativeContext: "Native to the Gulf of Mexico and western Atlantic; abundant throughout the Gulf and off the southeastern U.S. Atlantic coast, rare north of the Carolinas. Managed as two separate stocks - Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) - each with its own rebuilding plan and rules.",
+    nativeContext:
+      "Native to the Gulf of Mexico and western Atlantic; abundant throughout the Gulf and off the southeastern U.S. Atlantic coast, rare north of the Carolinas. Managed as two separate stocks - Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) - each with its own rebuilding plan and rules.",
     thermal: { activeF: [55, 90], coldEdgeF: 55, warmEdgeF: 92 },
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { nearshore: ["artificial_reef", "wreck", "nearshore_hump"], offshore: ["offshore_ledge", "deep_wreck"] },
-      currentPreference: "No agency or peer-reviewed source found gave a tide- or current-specific preference for this species; adults are described as structure-holders on hard, moderate-to-high-relief bottom rather than current-seam specialists.",
-      depthTendency: "Juveniles occupy shallower shelf water over sand or mud (roughly 66-150 ft per one peer-reviewed source); adults are documented most abundant around 130-360 ft, with the full documented capture range spanning about 23-620 ft depending on the source. Sources do not fully agree on the outer bounds of this range.",
-      lightResponse: "No agency or peer-reviewed source found made a specific light-response claim for this species; omitted rather than inferred.",
+      marineHolding: {
+        nearshore: ["artificial_reef", "wreck", "nearshore_hump"],
+        offshore: ["offshore_ledge", "deep_wreck"],
+      },
+      currentPreference:
+        "No agency or peer-reviewed source found gave a tide- or current-specific preference for this species; adults are described as structure-holders on hard, moderate-to-high-relief bottom rather than current-seam specialists.",
+      depthTendency:
+        "Juveniles occupy shallower shelf water over sand or mud (roughly 66-150 ft per one peer-reviewed source); adults are documented most abundant around 130-360 ft, with the full documented capture range spanning about 23-620 ft depending on the source. Sources do not fully agree on the outer bounds of this range.",
+      lightResponse:
+        "No agency or peer-reviewed source found made a specific light-response claim for this species; omitted rather than inferred.",
     },
-    forageClasses: ["crustaceans", "small_forage_fish", "mollusks", "worms_annelids", "zooplankton"],
+    forageClasses: [
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+      "worms_annelids",
+      "zooplankton",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
-      nearshore: ["bottom_contact", "drop_presentation", "structure_vertical", "vertical_jig", "live_natural_bait_suspension"],
-      offshore: ["vertical_jig", "deep_drop", "suspended_stationary", "live_bait_slow_troll", "chum_established_drift"],
+      nearshore: [
+        "bottom_contact",
+        "drop_presentation",
+        "structure_vertical",
+        "vertical_jig",
+        "live_natural_bait_suspension",
+      ],
+      offshore: [
+        "vertical_jig",
+        "deep_drop",
+        "suspended_stationary",
+        "live_bait_slow_troll",
+        "chum_established_drift",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Structurally, Gulf red snapper is split into a federal for-hire recreational season set annually by NOAA Fisheries, a private-angler recreational allowance managed through state-by-state quota allocations that each Gulf state schedules independently (so state-water and federal-water opportunity - and one state's season versus another's - routinely diverge), and a commercial individual-fishing-quota (catch-share) sector; exact dates and season length change every year and are not stated here as fact. As of this review, South Atlantic red snapper recreational AND commercial harvest were both closed coastwide under an extended rebuilding-plan closure (SAFMC page dated July 29, 2025 stated the closure ran from July 12, 2025 through July 11, 2027, with no authorized recreational harvest, including under Exempted Fishing Permits) - this is a current status, not a permanent rule, and must be reverified. South Atlantic federal waters also carry a standing descending-device requirement (since 2020) and require non-offset, non-stainless-steel circle hooks with natural bait north of 28°N latitude. Gulf federal waters' equivalent descending-device/venting-tool requirement lapsed in January 2026 and was, as of this review, in a proposed-renewal phase rather than active regulation. Verify current season status, size, bag limits, and gear rules for the specific jurisdiction and vessel type before fishing.",
-      jurisdictionScope: "U.S. Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) federal and adjoining state waters; managed as two separate stocks with independent rebuilding plans and rules.",
+      jurisdictionScope:
+        "U.S. Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) federal and adjoining state waters; managed as two separate stocks with independent rebuilding plans and rules.",
     },
     exceptions: [
       "Red snapper form aggregations, including for spawning. This record never names, locates, or describes those aggregations as a structure class to fish; spawning timing is recorded purely as biological/conservation context, and the substrate/depth detail some sources give for spawning habitat is deliberately omitted because it would function as targeting guidance.",
     ],
-    geographic: "Gulf of Mexico and southeastern U.S. Atlantic coast, rare north of the Carolinas; managed as separate Gulf and South Atlantic stocks. This record does not name specific reef, ledge, rig, or wreck locations.",
+    geographic:
+      "Gulf of Mexico and southeastern U.S. Atlantic coast, rare north of the Carolinas; managed as separate Gulf and South Atlantic stocks. This record does not name specific reef, ledge, rig, or wreck locations.",
     sources: [
       { label: "NOAA Fisheries - Red Snapper species page", class: SRC.agency },
       { label: "SAFMC - Snapper, Red species page", class: SRC.agency },
-      { label: "Gulf of Mexico Fishery Management Council - Snapper, Red species page", class: SRC.agency },
       {
-        label: "SEDAR - Species Profiles, Life Histories and Environmental Requirements: Gulf of Mexico Red Snapper",
+        label: "Gulf of Mexico Fishery Management Council - Snapper, Red species page",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "SEDAR - Species Profiles, Life Histories and Environmental Requirements: Gulf of Mexico Red Snapper",
         class: SRC.agency,
       },
     ],
@@ -1047,7 +1312,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Megalops atlanticus",
     commonNames: ["Tarpon", "Atlantic tarpon", "Silver king"],
     group: "inshore_surf",
-    nativeContext: "Native western Atlantic migratory fish ranging Nova Scotia to Argentina, with the United States population centred on Florida and the Gulf and seasonally present as far north as the Carolinas and Virginia. Slow-maturing and long-lived: SCDNR gives maturity at about age 10 and lifespans around 50 years with individuals potentially reaching 70, and FWC gives lifespans in excess of 50 years with a captive fish reaching 63. There is no regional stock assessment and no fishery management plan for the species, and SCDNR records its population status as unknown.",
+    nativeContext:
+      "Native western Atlantic migratory fish ranging Nova Scotia to Argentina, with the United States population centred on Florida and the Gulf and seasonally present as far north as the Carolinas and Virginia. Slow-maturing and long-lived: SCDNR gives maturity at about age 10 and lifespans around 50 years with individuals potentially reaching 70, and FWC gives lifespans in excess of 50 years with a captive fish reaching 63. There is no regional stock assessment and no fishery management plan for the species, and SCDNR records its population status as unknown.",
     thermal: { coldEdgeF: 50 },
     spawning: {
       seasons: ["spring", "early_summer", "summer", "late_summer"],
@@ -1058,9 +1324,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: { inshore: ["tidal_creek", "creek_mouth", "marsh_edge", "channel_edge"] },
-      currentPreference: "Strongly tidal at the daily scale. SCDNR describes a tidal excursion in which fish move seaward on the ebb, by as much as three miles, and well inland on the flood, by as much as seven to ten miles. That is one of the largest tide-linked daily movements recorded for any species in this catalog and it means a tarpon's position is a function of tide stage more than of any fixed structure.",
-      depthTendency: "Adults use shallow coastal water, bays, sounds and estuaries and also enter rivers; FWC adds open marine water. Juveniles use salt marsh, estuarine backwater and freshwater, and Mace et al. 2020 documented juveniles overwintering in shallow tidally restricted upland ponds at the northern edge of the range, where a nearby tidal creek ran colder than the pond and the pond appeared to serve as thermal refuge.",
-      lightResponse: "Not sourced. No agency or peer-reviewed source located for this record establishes a diel pattern for Atlantic tarpon, and none is asserted.",
+      currentPreference:
+        "Strongly tidal at the daily scale. SCDNR describes a tidal excursion in which fish move seaward on the ebb, by as much as three miles, and well inland on the flood, by as much as seven to ten miles. That is one of the largest tide-linked daily movements recorded for any species in this catalog and it means a tarpon's position is a function of tide stage more than of any fixed structure.",
+      depthTendency:
+        "Adults use shallow coastal water, bays, sounds and estuaries and also enter rivers; FWC adds open marine water. Juveniles use salt marsh, estuarine backwater and freshwater, and Mace et al. 2020 documented juveniles overwintering in shallow tidally restricted upland ponds at the northern edge of the range, where a nearby tidal creek ran colder than the pond and the pond appeared to serve as thermal refuge.",
+      lightResponse:
+        "Not sourced. No agency or peer-reviewed source located for this record establishes a diel pattern for Atlantic tarpon, and none is asserted.",
     },
     forageClasses: ["small_forage_fish", "crustaceans", "zooplankton"],
     flowingPresentations: [],
@@ -1069,7 +1338,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "conservation_sensitive",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Florida, Alabama, South Carolina, Texas and the other Gulf and South Atlantic states each regulate tarpon separately, and the rules are not variations on a theme; they range from catch-and-release only to a tag-and-minimum-size harvest.",
+      jurisdictionScope:
+        "Florida, Alabama, South Carolina, Texas and the other Gulf and South Atlantic states each regulate tarpon separately, and the rules are not variations on a theme; they range from catch-and-release only to a tag-and-minimum-size harvest.",
       note: "Tarpon are catch-and-release only in Florida. FWC allows no harvest under standard recreational rules, permits one tarpon tag per person per year and only in pursuit of a Florida state or world record, and requires that any tarpon over 40 in remain in the water unless a tag is being used. Alabama prohibits possession of any tarpon under 60 in and requires a purchased tag attached through the lower jaw immediately on harvest. South Carolina declared tarpon a game fish in 1991, banning sale and setting a one-fish daily possession limit. Beyond the harvest rules, gear is restricted: FWC allows hook and line only and prohibits snagging, snatch hooking, spearing and multiple hooks used with live or dead natural bait. SCDNR records the species as having no regional stock assessment, no fishery management plan and unknown population status, and lists catch-and-release fishing mortality among its threats.",
     },
     exceptions: [
@@ -1077,10 +1347,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "A tarpon over 40 in may not legally be lifted out of the water in Florida. That is a rule about handling, not about landing, and it applies to a fish being released.",
       "Because there is no assessment, an absence of documented decline is not evidence of a healthy population. SCDNR states the status is unknown.",
     ],
-    geographic: "Western Atlantic from Nova Scotia to Argentina, plus the eastern Atlantic coast of Africa, the Gulf and the Caribbean. Seasonal in the Carolinas: SCDNR records arrival from April, peak abundance in July and August, and departure by November, with fish believed to overwinter in Florida.",
+    geographic:
+      "Western Atlantic from Nova Scotia to Argentina, plus the eastern Atlantic coast of Africa, the Gulf and the Caribbean. Seasonal in the Carolinas: SCDNR records arrival from April, peak abundance in July and August, and departure by November, with fish believed to overwinter in Florida.",
     sources: [
       {
-        label: "FWC tarpon recreational regulations (catch-and-release only; tarpon tag; 40-inch handling rule)",
+        label:
+          "FWC tarpon recreational regulations (catch-and-release only; tarpon tag; 40-inch handling rule)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/tarpon/",
       },
@@ -1100,17 +1372,20 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.dnr.sc.gov/marine/species/tarpon.html",
       },
       {
-        label: "SCDNR State Wildlife Action Plan supplemental account: Tarpon Megalops atlanticus (2015)",
+        label:
+          "SCDNR State Wildlife Action Plan supplemental account: Tarpon Megalops atlanticus (2015)",
         class: SRC.agency,
         url: "https://www.dnr.sc.gov/swap/supplemental/marine/tarpon2015.pdf",
       },
       {
-        label: "Alabama Department of Conservation and Natural Resources, Marine Resources Division, tarpon regulations",
+        label:
+          "Alabama Department of Conservation and Natural Resources, Marine Resources Division, tarpon regulations",
         class: SRC.agency,
         url: "https://www.outdooralabama.com/saltwater-regulations-and-enforcement/tarpon-regulations",
       },
       {
-        label: "Mace, Kimball, Elmo and Crane 2020, overwinter survival, age and growth of juvenile tarpon in a shallow, tidally-restricted habitat in South Carolina, Environmental Biology of Fishes 103(8):965-972",
+        label:
+          "Mace, Kimball, Elmo and Crane 2020, overwinter survival, age and growth of juvenile tarpon in a shallow, tidally-restricted habitat in South Carolina, Environmental Biology of Fishes 103(8):965-972",
         class: SRC.peer,
       },
       {
@@ -1127,7 +1402,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Mycteroperca microlepis",
     commonNames: ["Gag grouper", "Gag"],
     group: "reef_bottom",
-    nativeContext: "Western Atlantic native, North Carolina to the Yucatan Peninsula (Mexico), with separately assessed and separately managed Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) stocks.",
+    nativeContext:
+      "Western Atlantic native, North Carolina to the Yucatan Peninsula (Mexico), with separately assessed and separately managed Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) stocks.",
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
@@ -1136,31 +1412,51 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["nearshore_reef", "wreck", "rock_pile", "artificial_reef"],
         offshore: ["offshore_ledge", "deep_wreck"],
       },
-      currentPreference: "No agency or peer-reviewed source found gave a tide- or current-specific preference for adult gag; they are described as hard-bottom/ledge residents rather than current-seam specialists.",
-      depthTendency: "Adults occupy hard-bottom, reef, ledge, and wreck habitat from roughly 60 to 500 ft. Juveniles use estuarine seagrass, oyster reef, and mangrove structure in much shallower water before moving offshore as they grow - a life-stage habitat this record does not target for fishing guidance.",
-      lightResponse: "No agency or peer-reviewed source found made a specific claim about light response for this species; omitted rather than inferred from general grouper behavior.",
+      currentPreference:
+        "No agency or peer-reviewed source found gave a tide- or current-specific preference for adult gag; they are described as hard-bottom/ledge residents rather than current-seam specialists.",
+      depthTendency:
+        "Adults occupy hard-bottom, reef, ledge, and wreck habitat from roughly 60 to 500 ft. Juveniles use estuarine seagrass, oyster reef, and mangrove structure in much shallower water before moving offshore as they grow - a life-stage habitat this record does not target for fishing guidance.",
+      lightResponse:
+        "No agency or peer-reviewed source found made a specific claim about light response for this species; omitted rather than inferred from general grouper behavior.",
     },
     forageClasses: ["small_forage_fish", "crustaceans", "mollusks", "larger_prey_fish"],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
-      nearshore: ["bottom_contact", "drop_presentation", "structure_vertical", "vertical_jig", "live_natural_bait_suspension"],
-      offshore: ["vertical_jig", "deep_drop", "suspended_stationary", "live_bait_slow_troll", "chum_established_drift"],
+      nearshore: [
+        "bottom_contact",
+        "drop_presentation",
+        "structure_vertical",
+        "vertical_jig",
+        "live_natural_bait_suspension",
+      ],
+      offshore: [
+        "vertical_jig",
+        "deep_drop",
+        "suspended_stationary",
+        "live_bait_slow_troll",
+        "chum_established_drift",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Both the Gulf and South Atlantic gag stocks were assessed as overfished in 2021 (not currently subject to overfishing per NOAA Fisheries), and both councils run seasonal closures plus size, bag, and trip limits that change from year to year - the South Atlantic runs a fixed January-April shallow-water-grouper spawning-season closure, while the Gulf recreational season in the current cycle has been closed for most of the year under separate stock-rebuilding rules. A federal descending-device requirement applies in South Atlantic federal waters for the whole snapper-grouper complex (standing rule since 2020); the equivalent Gulf reef-fish descending-device/venting-tool requirement lapsed in January 2026 and was, as of this review, in a proposed-renewal ('information gathering') phase rather than active regulation - verify its status before fishing Gulf federal waters. Verify current season status, size, and bag limits for the specific council/state before fishing.",
-      jurisdictionScope: "U.S. Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) federal and adjoining state waters, North Carolina to the Yucatan Peninsula; Gulf and South Atlantic stocks are assessed and regulated separately.",
+      jurisdictionScope:
+        "U.S. Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) federal and adjoining state waters, North Carolina to the Yucatan Peninsula; Gulf and South Atlantic stocks are assessed and regulated separately.",
     },
     exceptions: [
       "Gag are protogynous hermaphrodites that form spawning aggregations offshore in winter/early spring. This record never names, locates, or describes those aggregations as a structure class to fish, and spawning-season closures are recorded here purely as regulatory/conservation fact, not as a timing cue.",
     ],
-    geographic: "Western Atlantic continental shelf, North Carolina to the Yucatan Peninsula (Mexico); most abundant on the West Florida Shelf and off the Carolinas/Georgia. Management is split between the Gulf of Mexico and South Atlantic stocks; this record does not name specific reef, ledge, or wreck locations.",
+    geographic:
+      "Western Atlantic continental shelf, North Carolina to the Yucatan Peninsula (Mexico); most abundant on the West Florida Shelf and off the Carolinas/Georgia. Management is split between the Gulf of Mexico and South Atlantic stocks; this record does not name specific reef, ledge, or wreck locations.",
     sources: [
       { label: "NOAA Fisheries - Gag Grouper species page", class: SRC.agency },
       { label: "SAFMC - Grouper, Gag species page", class: SRC.agency },
-      { label: "Gulf of Mexico Fishery Management Council - Grouper, Gag species page", class: SRC.agency },
+      {
+        label: "Gulf of Mexico Fishery Management Council - Grouper, Gag species page",
+        class: SRC.agency,
+      },
       { label: "NC Division of Marine Fisheries - Gag Grouper species profile", class: SRC.agency },
     ],
     reviewedAt: "2026-08-27",
@@ -1171,37 +1467,61 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Mycteroperca phenax",
     commonNames: ["Scamp"],
     group: "reef_bottom",
-    nativeContext: "Western Atlantic native, continental shelf waters from the Campeche Banks (Gulf of Mexico) to Florida and north along the U.S. East Coast to North Carolina; managed separately by GMFMC (Gulf) and SAFMC (South Atlantic).",
+    nativeContext:
+      "Western Atlantic native, continental shelf waters from the Campeche Banks (Gulf of Mexico) to Florida and north along the U.S. East Coast to North Carolina; managed separately by GMFMC (Gulf) and SAFMC (South Atlantic).",
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { nearshore: ["nearshore_reef", "rock_pile", "wreck"], offshore: ["offshore_ledge", "deep_wreck"] },
-      currentPreference: "No agency source found gave a tide- or current-specific preference for this species.",
-      depthTendency: "Prefers low-profile, live-bottom habitat in roughly 75-300 ft of water, characterized by dense soft coral and sponge growth; occasionally congregates over wrecks and rocky outcroppings, but live bottom is described as the preferred structure over hard vertical relief.",
-      lightResponse: "No agency source found made a specific light-response claim for this species; omitted rather than inferred.",
+      marineHolding: {
+        nearshore: ["nearshore_reef", "rock_pile", "wreck"],
+        offshore: ["offshore_ledge", "deep_wreck"],
+      },
+      currentPreference:
+        "No agency source found gave a tide- or current-specific preference for this species.",
+      depthTendency:
+        "Prefers low-profile, live-bottom habitat in roughly 75-300 ft of water, characterized by dense soft coral and sponge growth; occasionally congregates over wrecks and rocky outcroppings, but live bottom is described as the preferred structure over hard vertical relief.",
+      lightResponse:
+        "No agency source found made a specific light-response claim for this species; omitted rather than inferred.",
     },
     forageClasses: ["small_forage_fish", "crustaceans"],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
-      nearshore: ["bottom_contact", "drop_presentation", "structure_vertical", "vertical_jig", "live_natural_bait_suspension"],
-      offshore: ["vertical_jig", "deep_drop", "suspended_stationary", "live_bait_slow_troll", "chum_established_drift"],
+      nearshore: [
+        "bottom_contact",
+        "drop_presentation",
+        "structure_vertical",
+        "vertical_jig",
+        "live_natural_bait_suspension",
+      ],
+      offshore: [
+        "vertical_jig",
+        "deep_drop",
+        "suspended_stationary",
+        "live_bait_slow_troll",
+        "chum_established_drift",
+      ],
     },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "South Atlantic (SAFMC) sourced regulations include a 20 in TL minimum size, a 1-fish bag limit aggregated with yellowmouth grouper, a 3-fish grouper-and-tilefish aggregate limit, a January 1-April 30 shallow-water-grouper spawning-season closure, and mandatory head-and-fins-intact landing; the cited commercial quota was already over-harvested (116% of quota) as of the source data. A standing South Atlantic federal-waters descending-device requirement (since 2020) applies to the snapper-grouper complex scamp belongs to. Scamp is also federally managed in the Gulf of Mexico (GMFMC Reef Fish FMP, per SEDAR stock assessments), but this record could not source current Gulf-specific season, size, or bag details, or confirm whether the Gulf reef-fish descending-device/venting-tool requirement (which lapsed in January 2026 pending renewal) currently applies in practice - verify both Gulf and South Atlantic current rules before fishing.",
-      jurisdictionScope: "U.S. Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) federal and adjoining state waters, Campeche Banks to North Carolina.",
+      jurisdictionScope:
+        "U.S. Gulf of Mexico (GMFMC) and South Atlantic (SAFMC) federal and adjoining state waters, Campeche Banks to North Carolina.",
     },
     exceptions: [
       "Scamp are protogynous hermaphrodites that spawn offshore in aggregations. This record never names, locates, or describes those aggregations as a structure class to fish; the regulatory spawning-season closure is recorded purely as conservation/regulatory fact, not as a timing cue.",
     ],
-    geographic: "Western Atlantic continental shelf, Campeche Banks (Gulf of Mexico) to North Carolina; this record does not name specific reef, ledge, or wreck locations.",
+    geographic:
+      "Western Atlantic continental shelf, Campeche Banks (Gulf of Mexico) to North Carolina; this record does not name specific reef, ledge, or wreck locations.",
     sources: [
       { label: "SAFMC - Grouper, Scamp species page", class: SRC.agency },
       { label: "FWC - Scamp species profile", class: SRC.agency },
-      { label: "SEDAR 68 - Gulf of Mexico Scamp Grouper Operational Assessment", class: SRC.agency },
+      {
+        label: "SEDAR 68 - Gulf of Mexico Scamp Grouper Operational Assessment",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -1211,7 +1531,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Ophiodon elongatus",
     commonNames: ["Lingcod"],
     group: "reef_bottom",
-    nativeContext: "Northeastern Pacific groundfish native from the Gulf of Alaska/Aleutian region south to northern Baja California; a greenling (family Hexagrammidae), not a true cod despite the common name.",
+    nativeContext:
+      "Northeastern Pacific groundfish native from the Gulf of Alaska/Aleutian region south to northern Baja California; a greenling (family Hexagrammidae), not a true cod despite the common name.",
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
@@ -1220,11 +1541,19 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["nearshore_reef", "kelp_edge", "rock_pile", "artificial_reef", "wreck"],
         offshore: ["offshore_ledge", "deep_wreck", "canyon_edge"],
       },
-      currentPreference: "Bottom-oriented ambush predator with no swim bladder; holds tight to rock structure rather than working current lines or tide seams, though moving water concentrates the small fish, squid and crab it ambushes from cover.",
-      depthTendency: "Occurs from the intertidal to roughly 1,300 ft, but the bulk of the population sits on rocky bottom in the 30-330 ft band. Juveniles settle shallower over sand/eelgrass/kelp before shifting onto reef structure as they grow, and adults show strong site fidelity to a home reef (most tagged recaptures within a few miles of release).",
+      currentPreference:
+        "Bottom-oriented ambush predator with no swim bladder; holds tight to rock structure rather than working current lines or tide seams, though moving water concentrates the small fish, squid and crab it ambushes from cover.",
+      depthTendency:
+        "Occurs from the intertidal to roughly 1,300 ft, but the bulk of the population sits on rocky bottom in the 30-330 ft band. Juveniles settle shallower over sand/eelgrass/kelp before shifting onto reef structure as they grow, and adults show strong site fidelity to a home reef (most tagged recaptures within a few miles of release).",
       lightResponse: "Not documented in the agency sources reviewed for this record.",
     },
-    forageClasses: ["small_forage_fish", "larger_prey_fish", "mollusks", "crustaceans", "zooplankton"],
+    forageClasses: [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "mollusks",
+      "crustaceans",
+      "zooplankton",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
@@ -1245,12 +1574,16 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "Do not treat a concentration of nest-guarding males in late winter as a location to target. This reading does not include coordinates, and we never give them.",
       "Lingcod lack a swim bladder, so barotrauma differs from rockfish, but California's descending-device carry requirement still applies when targeting federal groundfish generally — verify current rules.",
     ],
-    geographic: "Northeastern Pacific from the Shumagin Islands/Gulf of Alaska south to northern Baja California, most abundant off British Columbia and Washington. Largely non-migratory outside the fall spawning shift, with strong site fidelity to a home reef.",
+    geographic:
+      "Northeastern Pacific from the Shumagin Islands/Gulf of Alaska south to northern Baja California, most abundant off British Columbia and Washington. Largely non-migratory outside the fall spawning shift, with strong site fidelity to a home reef.",
     sources: [
       { label: "Alaska Department of Fish and Game — Lingcod species profile", class: SRC.agency },
       { label: "Fisheries and Oceans Canada — Lingcod species profile", class: SRC.agency },
       { label: "NOAA Fisheries — Lingcod species page", class: SRC.agency },
-      { label: "California Department of Fish and Wildlife — Lingcod life history summary", class: SRC.agency },
+      {
+        label: "California Department of Fish and Wildlife — Lingcod life history summary",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -1260,7 +1593,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Paralichthys dentatus",
     commonNames: ["Summer flounder", "Fluke"],
     group: "inshore_surf",
-    nativeContext: "Western Atlantic native, Nova Scotia to the east coast of Florida; the U.S. fishery is concentrated from Cape Cod, Massachusetts to Cape Hatteras, North Carolina.",
+    nativeContext:
+      "Western Atlantic native, Nova Scotia to the east coast of Florida; the U.S. fishery is concentrated from Cape Cod, Massachusetts to Cape Hatteras, North Carolina.",
     thermal: { activeF: [28, 74] },
     spawning: {
       seasons: ["fall", "late_fall", "winter"],
@@ -1275,11 +1609,21 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["inlet_mouth", "nearshore_reef", "pier_structure"],
         surf: ["jetty_wash", "beach_cut"],
       },
-      currentPreference: "Not sourced as a general tide-stage relationship for adults. The one tide-specific finding available is a New Jersey marsh-creek study of young-of-year moving into creeks at night on a flooding tide and out on the ebb; that single regional, single-life-stage study is not generalized here to adults or other regions.",
-      depthTendency: "Bottom-oriented ambush predator on sand, mud, and shell-hash substrate. Adults use lower-to-middle estuary reaches and shallow coastal water in warm months and move to the outer continental shelf (to roughly 500 ft) in winter. Juveniles settle in shallow marsh creeks, seagrass beds, mudflats and open bays and move to progressively deeper water as they grow. South Carolina DNR's species account, already cited above, separately states summer flounder are found 'also around inlets, jetties, beaches and nearshore reefs' in addition to the estuarine and shelf habitat described above, and ASMFC's species page confirms anglers catch them 'from the shore, piers, and boats' - both agency statements support surf and nearshore presence as an ambush predator on adjacent sand bottom, not a claim that it uses the jetty or pier structure itself the way a structure-oriented fish would.",
-      lightResponse: "Sourced only as a diel feeding pattern, not a light-intensity preference: one source describes increased feeding activity near sunrise, another describes general daylight foraging. No low-light or night-feeding claim beyond the single flood-tide creek-entry study above was found.",
+      currentPreference:
+        "Not sourced as a general tide-stage relationship for adults. The one tide-specific finding available is a New Jersey marsh-creek study of young-of-year moving into creeks at night on a flooding tide and out on the ebb; that single regional, single-life-stage study is not generalized here to adults or other regions.",
+      depthTendency:
+        "Bottom-oriented ambush predator on sand, mud, and shell-hash substrate. Adults use lower-to-middle estuary reaches and shallow coastal water in warm months and move to the outer continental shelf (to roughly 500 ft) in winter. Juveniles settle in shallow marsh creeks, seagrass beds, mudflats and open bays and move to progressively deeper water as they grow. South Carolina DNR's species account, already cited above, separately states summer flounder are found 'also around inlets, jetties, beaches and nearshore reefs' in addition to the estuarine and shelf habitat described above, and ASMFC's species page confirms anglers catch them 'from the shore, piers, and boats' - both agency statements support surf and nearshore presence as an ambush predator on adjacent sand bottom, not a claim that it uses the jetty or pier structure itself the way a structure-oriented fish would.",
+      lightResponse:
+        "Sourced only as a diel feeding pattern, not a light-intensity preference: one source describes increased feeding activity near sunrise, another describes general daylight foraging. No low-light or night-feeding claim beyond the single flood-tide creek-entry study above was found.",
     },
-    forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks", "worms_annelids", "zooplankton"],
+    forageClasses: [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "worms_annelids",
+      "zooplankton",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
@@ -1291,7 +1635,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetContext: {
       verifyLocalRules: true,
       note: "Jointly managed by the Mid-Atlantic Fishery Management Council (federal waters) and the Atlantic States Marine Fisheries Commission (state waters). Recreational size, season and bag limits are set through 'conservation equivalency' - anglers follow the rules of the state where they land their catch rather than one coastwide rule, and those rules are revisited annually, so verify current limits before keeping fish. The 2025 assessment found the stock not overfished and not subject to overfishing.",
-      jurisdictionScope: "U.S. Atlantic coast, Nova Scotia to Florida, under joint MAFMC/ASMFC management with state-by-state recreational implementation via conservation equivalency.",
+      jurisdictionScope:
+        "U.S. Atlantic coast, Nova Scotia to Florida, under joint MAFMC/ASMFC management with state-by-state recreational implementation via conservation equivalency.",
     },
     exceptions: [
       "Both eyes migrate to the left side of the body during larval development; this record assumes a normally left-eyed fish and does not cover the rare reversed individual.",
@@ -1299,7 +1644,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "The thermal figure above is an occurrence range drawn from larval collections (a distribution range, not a controlled preference study). A narrower young-of-year marsh-creek range of about 72-77F was reported in one New Jersey study and a fall spawning-migration range of about 54-66F was reported separately; neither should be read as the species' preferred temperature.",
       "Surf and nearshore holding classes above are sourced to SCDNR's and ASMFC's descriptions of summer flounder around inlets, jetties, piers, beaches and nearshore reefs; the fish itself remains a soft-bottom ambush predator using the sand adjacent to that structure, not the structure directly.",
     ],
-    geographic: "Nova Scotia to the east coast of Florida; commercially and recreationally most important from Cape Cod to Cape Hatteras. Adults winter offshore on the outer continental shelf and move into coastal and estuarine waters in late spring/early summer, reversing in fall.",
+    geographic:
+      "Nova Scotia to the east coast of Florida; commercially and recreationally most important from Cape Cod to Cape Hatteras. Adults winter offshore on the outer continental shelf and move into coastal and estuarine waters in late spring/early summer, reversing in fall.",
     sources: [
       {
         label: "NOAA Fisheries - Summer Flounder species page",
@@ -1312,12 +1658,14 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://asmfc.org/species/summer-flounder/",
       },
       {
-        label: "NOAA Technical Memorandum NMFS-NE-151, Essential Fish Habitat Source Document: Summer Flounder",
+        label:
+          "NOAA Technical Memorandum NMFS-NE-151, Essential Fish Habitat Source Document: Summer Flounder",
         class: SRC.agency,
         url: "https://repository.library.noaa.gov/view/noaa/3149/noaa_3149_DS1.pdf",
       },
       {
-        label: "Mid-Atlantic Fishery Management Council, Summer Flounder Essential Fish Habitat profile",
+        label:
+          "Mid-Atlantic Fishery Management Council, Summer Flounder Essential Fish Habitat profile",
         class: SRC.agency,
         url: "https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/65411c85ab333f64056d4cc5/1698765958269/SummerFlounder_EFHProfile.pdf",
       },
@@ -1332,7 +1680,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.st.nmfs.noaa.gov/data-and-tools/NE-CVA/pdf/Summer_Flounder.pdf",
       },
       {
-        label: "Buzzards Bay Coalition summer flounder fact sheet (synthesis of primary literature)",
+        label:
+          "Buzzards Bay Coalition summer flounder fact sheet (synthesis of primary literature)",
         class: SRC.syn,
         url: "https://buzzardsbay.org/wp-content/uploads/2017/03/summer-flounder.pdf",
       },
@@ -1347,7 +1696,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/winter-flounder",
       },
       {
-        label: "North Carolina DEQ Division of Marine Fisheries - Flounder identification brochure (gill raker counts)",
+        label:
+          "North Carolina DEQ Division of Marine Fisheries - Flounder identification brochure (gill raker counts)",
         class: SRC.agency,
         url: "https://www.deq.nc.gov/marine-fisheries/species-information/flounder-identification-brochure/open",
       },
@@ -1360,7 +1710,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Pogonias cromis",
     commonNames: ["Black drum", "Drum"],
     group: "inshore_surf",
-    nativeContext: "Western Atlantic and Gulf of Mexico native, ranging from the Gulf of Maine (Bay of Fundy in one account) to Florida and south to Argentina. The largest member of the drum family (Sciaenidae) and one of the longest-lived inshore fish an angler will encounter - the generic name means 'bearded' and the specific name means 'to grunt'.",
+    nativeContext:
+      "Western Atlantic and Gulf of Mexico native, ranging from the Gulf of Maine (Bay of Fundy in one account) to Florida and south to Argentina. The largest member of the drum family (Sciaenidae) and one of the longest-lived inshore fish an angler will encounter - the generic name means 'bearded' and the specific name means 'to grunt'.",
     thermal: { activeF: [54, 91] },
     spawning: {
       seasons: ["late_fall", "winter", "early_spring", "spring", "early_summer"],
@@ -1371,11 +1722,20 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: {
-        inshore: ["oyster_bar", "marsh_edge", "tidal_creek", "channel_edge", "bridge_piling", "sand_hole"],
+        inshore: [
+          "oyster_bar",
+          "marsh_edge",
+          "tidal_creek",
+          "channel_edge",
+          "bridge_piling",
+          "sand_hole",
+        ],
         nearshore: ["nearshore_reef", "rock_pile"],
       },
-      currentPreference: "Not sourced as a tide-stage relationship. What is sourced is a substrate and structure relationship: adults are most abundant in the lower reaches of coastal estuaries over sand and soft bottoms where oysters and clams are abundant, and in estuarine habitat with vertical complexity - oyster bars, salt marsh grass, natural rock outcroppings and reefs, and piling structures.",
-      depthTendency: "Bottom-oriented throughout. Juveniles recruit to shallow, muddy tidal creeks and move progressively deeper as they grow; mature fish move to deeper channels and ledges and to nearshore continental shelf water. Reported spawning depths range from about 10-165 ft.",
+      currentPreference:
+        "Not sourced as a tide-stage relationship. What is sourced is a substrate and structure relationship: adults are most abundant in the lower reaches of coastal estuaries over sand and soft bottoms where oysters and clams are abundant, and in estuarine habitat with vertical complexity - oyster bars, salt marsh grass, natural rock outcroppings and reefs, and piling structures.",
+      depthTendency:
+        "Bottom-oriented throughout. Juveniles recruit to shallow, muddy tidal creeks and move progressively deeper as they grow; mature fish move to deeper channels and ledges and to nearshore continental shelf water. Reported spawning depths range from about 10-165 ft.",
       lightResponse: "Not sourced. No diel pattern was reported by any source consulted.",
     },
     forageClasses: ["mollusks", "crustaceans", "worms_annelids", "small_forage_fish"],
@@ -1389,7 +1749,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetContext: {
       verifyLocalRules: true,
       note: "Managed coastwide by ASMFC under a 2013 interstate plan that established a 14 in minimum size and possession restrictions, with state rules layered on top: Florida uses a 14-24 in slot with one fish over 24 in allowed and a 5-fish daily bag including that one oversized fish, open year round; South Carolina has used a 36-69 cm slot with a 5-fish bag since 2007. The 2023 ASMFC benchmark assessment found the stock not overfished and not experiencing overfishing, with spawning biomass above thresholds. Rules differ materially between states - check the jurisdiction you are standing in.",
-      jurisdictionScope: "Atlantic coast under the ASMFC interstate plan with state-by-state implementation; Gulf states manage separately, with GSMFC coordination.",
+      jurisdictionScope:
+        "Atlantic coast under the ASMFC interstate plan with state-by-state implementation; Gulf states manage separately, with GSMFC coordination.",
     },
     exceptions: [
       "Large black drum are old fish. Growth is rapid to about age 15 and slow thereafter, and maximum recorded ages run to 43 years in the northern Gulf and 59 years in Virginia, so a fish over the slot may be several decades old. Slot limits in Florida and South Carolina already restrict harvest of large fish for stock reasons.",
@@ -1397,25 +1758,30 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "This record does not include coordinates or named passes, reefs or channels, and we never give them.",
       "Black drum produce audible drumming, and sound has been used to locate migrating and spawning fish. That is recorded as biology and is not a targeting method in this catalog.",
     ],
-    geographic: "Gulf of Maine to Florida and south to Argentina, throughout the Gulf of Mexico. Adults are described as moving north and inshore in spring and south and offshore in autumn, with potential for long-range migration along the southeastern Atlantic coast. Euryhaline: juveniles have been sampled from 0 to over 30 ppt, mature fish are described as preferring salinities above 18 ppt, and a technical synopsis gives a tolerance range of 10-85 ppt with 25-50 ppt usual.",
+    geographic:
+      "Gulf of Maine to Florida and south to Argentina, throughout the Gulf of Mexico. Adults are described as moving north and inshore in spring and south and offshore in autumn, with potential for long-range migration along the southeastern Atlantic coast. Euryhaline: juveniles have been sampled from 0 to over 30 ppt, mature fish are described as preferring salinities above 18 ppt, and a technical synopsis gives a tolerance range of 10-85 ppt with 25-50 ppt usual.",
     sources: [
       {
-        label: "Atlantic States Marine Fisheries Commission - Black Drum species page and habitat fact sheet",
+        label:
+          "Atlantic States Marine Fisheries Commission - Black Drum species page and habitat fact sheet",
         class: SRC.agency,
         url: "https://asmfc.org/species/black-drum/",
       },
       {
-        label: "South Carolina Department of Natural Resources 2015, Black Drum Pogonias cromis (State Wildlife Action Plan supplemental account)",
+        label:
+          "South Carolina Department of Natural Resources 2015, Black Drum Pogonias cromis (State Wildlife Action Plan supplemental account)",
         class: SRC.agency,
         url: "https://www.dnr.sc.gov/swap/supplemental/marine/blackdrum2015.pdf",
       },
       {
-        label: "Sutter, Waller & McIlwain 1986, Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Gulf of Mexico) - black drum. U.S. Fish and Wildlife Service Biological Report 82(11.51)",
+        label:
+          "Sutter, Waller & McIlwain 1986, Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Gulf of Mexico) - black drum. U.S. Fish and Wildlife Service Biological Report 82(11.51)",
         class: SRC.agency,
         url: "https://www.nrc.gov/docs/ML1409/ML14091A045.pdf",
       },
       {
-        label: "Silverman 1979, Biological and fisheries data on black drum, Pogonias cromis (Linnaeus). NMFS Northeast Fisheries Center Sandy Hook Laboratory Technical Series Report 22",
+        label:
+          "Silverman 1979, Biological and fisheries data on black drum, Pogonias cromis (Linnaeus). NMFS Northeast Fisheries Center Sandy Hook Laboratory Technical Series Report 22",
         class: SRC.agency,
         url: "https://repository.library.noaa.gov/view/noaa/33306/noaa_33306_DS1.pdf",
       },
@@ -1438,7 +1804,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Pomatomus saltatrix",
     commonNames: ["Bluefish"],
     group: "inshore_surf",
-    nativeContext: "Cosmopolitan in temperate and subtropical coastal waters worldwide except the eastern Pacific; the western Atlantic population ranges Maine to Florida.",
+    nativeContext:
+      "Cosmopolitan in temperate and subtropical coastal waters worldwide except the eastern Pacific; the western Atlantic population ranges Maine to Florida.",
     thermal: { coldEdgeF: 55 },
     spawning: {
       seasons: ["spring", "early_summer", "summer"],
@@ -1454,8 +1821,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         surf: ["rip_channel", "outer_sandbar"],
       },
       currentPreference: "Not sourced as a tide-stage relationship in the material reviewed.",
-      depthTendency: "Pelagic and schooling rather than bottom- or structure-oriented. Early life stages are associated with the upper water column (larvae in roughly the upper 15 m, concentrated just below the surface; pelagic juveniles remain surface-associated). Juveniles use estuaries, bays and coastal areas as nurseries over soft substrate (sand, mud, silt, clay), occasionally over grass, algae or oyster beds, before moving offshore to join adults in fall/winter. ASMFC's own species page adds that anglers find bluefish 'near inlets, shoals, and rips, where they come to feed on large schools of bait' - a direct agency statement of surf/nearshore structure use, not just an estuarine nursery pattern. North Carolina DEQ's species profile independently confirms bluefish are fished 'from boats, piers, bridges and the surf' using cast or trolled metal lures, consistent with surf and nearshore presence.",
-      lightResponse: "Not sourced. No diel light-response pattern was reported by the sources reviewed, beyond the well-documented surface-feeding 'blitz' behavior recorded under behavior, which was not tied to a specific light condition in the sources found.",
+      depthTendency:
+        "Pelagic and schooling rather than bottom- or structure-oriented. Early life stages are associated with the upper water column (larvae in roughly the upper 15 m, concentrated just below the surface; pelagic juveniles remain surface-associated). Juveniles use estuaries, bays and coastal areas as nurseries over soft substrate (sand, mud, silt, clay), occasionally over grass, algae or oyster beds, before moving offshore to join adults in fall/winter. ASMFC's own species page adds that anglers find bluefish 'near inlets, shoals, and rips, where they come to feed on large schools of bait' - a direct agency statement of surf/nearshore structure use, not just an estuarine nursery pattern. North Carolina DEQ's species profile independently confirms bluefish are fished 'from boats, piers, bridges and the surf' using cast or trolled metal lures, consistent with surf and nearshore presence.",
+      lightResponse:
+        "Not sourced. No diel light-response pattern was reported by the sources reviewed, beyond the well-documented surface-feeding 'blitz' behavior recorded under behavior, which was not tied to a specific light condition in the sources found.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "mollusks", "zooplankton"],
     flowingPresentations: [],
@@ -1469,14 +1838,16 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetContext: {
       verifyLocalRules: true,
       note: "Jointly managed by the Mid-Atlantic Fishery Management Council (federal waters) and ASMFC (state waters) - the same joint structure as summer flounder. Current federal recreational possession limits are 5 fish per person per day on private/shore trips and 7 per person on for-hire trips, with no federal minimum size; commercial harvest runs under state-by-state quota allocations rather than one coastwide number. The 2025 assessment found the stock not overfished and not subject to overfishing, but still inside a 7-year rebuilding plan (Amendment 7, targeting 2029). States may add their own size or bag restrictions on top of the federal minimums, so check locally.",
-      jurisdictionScope: "U.S. Atlantic coast, Maine to Florida, under joint MAFMC/ASMFC management with state-level commercial quota allocation and possible additional state recreational rules.",
+      jurisdictionScope:
+        "U.S. Atlantic coast, Maine to Florida, under joint MAFMC/ASMFC management with state-level commercial quota allocation and possible additional state recreational rules.",
     },
     exceptions: [
       "Bluefish have sharp, shearing teeth and are documented as cannibalistic on smaller bluefish; this is recorded as biology, not as fishing advice.",
       "The well-documented surface feeding 'blitz' - schools attacking baitfish at the surface - is recorded here as biology only. This catalog does not provide bite-timing or location guidance, and none should be inferred from it.",
       "Surf and nearshore holding classes above are sourced to ASMFC's description of anglers finding bluefish 'near inlets, shoals, and rips' and to NC DEQ's confirmation of surf/pier fishing for the species - both describe where the fish and bait concentrate as a structure class, not a location, and neither is a coordinate or named spot.",
     ],
-    geographic: "Temperate and subtropical coastal waters nearly worldwide (absent from the eastern Pacific); the U.S. Atlantic population ranges Maine to Florida, concentrating Maine to Cape Hatteras in summer and migrating toward the South Atlantic Bight in fall/winter, with a marked winter concentration off Florida's Atlantic coast.",
+    geographic:
+      "Temperate and subtropical coastal waters nearly worldwide (absent from the eastern Pacific); the U.S. Atlantic population ranges Maine to Florida, concentrating Maine to Cape Hatteras in summer and migrating toward the South Atlantic Bight in fall/winter, with a marked winter concentration off Florida's Atlantic coast.",
     sources: [
       {
         label: "NOAA Fisheries - Bluefish species page",
@@ -1532,7 +1903,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Rachycentron canadum",
     commonNames: ["Cobia"],
     group: "offshore_pelagic",
-    nativeContext: "Circumtropical and subtropical, absent from the eastern Pacific; found along the US Atlantic and Gulf coasts, seasonally most abundant as it migrates with warming water.",
+    nativeContext:
+      "Circumtropical and subtropical, absent from the eastern Pacific; found along the US Atlantic and Gulf coasts, seasonally most abundant as it migrates with warming water.",
     thermal: {
       activeF: [68, 82],
       coldEdgeF: 68,
@@ -1552,8 +1924,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["artificial_reef", "wreck", "inlet_mouth"],
         offshore: ["weed_line", "current_rip", "open_bait_school"],
       },
-      currentPreference: "Follows temperature-driven seasonal migration along the coast and uses current-formed structure — weed lines, rips, and temperature breaks — while moving; also holds tight to fixed structure (channel edges, bridges, buoys, wrecks) rather than working an open tide line from a fixed station.",
-      depthTendency: "Ranges from shallow bays and inlets to the edge of the continental shelf; adults are commonly found roughly 1–70 m deep, following bait and temperature rather than a fixed depth.",
+      currentPreference:
+        "Follows temperature-driven seasonal migration along the coast and uses current-formed structure — weed lines, rips, and temperature breaks — while moving; also holds tight to fixed structure (channel edges, bridges, buoys, wrecks) rather than working an open tide line from a fixed station.",
+      depthTendency:
+        "Ranges from shallow bays and inlets to the edge of the continental shelf; adults are commonly found roughly 1–70 m deep, following bait and temperature rather than a fixed depth.",
     },
     forageClasses: ["crustaceans", "small_forage_fish", "mollusks"],
     flowingPresentations: [],
@@ -1566,34 +1940,43 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     exceptions: [
       "Cobia frequently travel with sharks, rays, and sea turtles; the presentations above describe technique classes only and are not license to crowd or harass those animals.",
     ],
-    geographic: "US Atlantic and Gulf coasts, migrating seasonally with water temperature; managed as two separate stocks — Atlantic (ASMFC interstate, state-water management) and Gulf (federal, under the Coastal Migratory Pelagics FMP).",
+    geographic:
+      "US Atlantic and Gulf coasts, migrating seasonally with water temperature; managed as two separate stocks — Atlantic (ASMFC interstate, state-water management) and Gulf (federal, under the Coastal Migratory Pelagics FMP).",
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Atlantic and Gulf cobia are managed as separate stocks with separate rules. Atlantic cobia (Georgia through New York) is managed through an ASMFC interstate plan at the state-water level, with a small recreational bag limit (commonly 1 fish per person, up to a small per-vessel limit) and roughly a 36 in fork length minimum; the fishery has historically run in-season quota closures when landings run ahead of the coastwide annual catch limit, and individual states (South Carolina among them) have closed or shortened their cobia seasons this way. Gulf cobia is managed under the federal Coastal Migratory Pelagics plan, currently listed as open year-round with a similarly small bag limit and 36 in fork length minimum, though Gulf-specific catch-limit adjustments have also been proposed. Confirm the current bag limit, size limit, and whether the season is open with your state agency, ASMFC, or the Gulf/South Atlantic Councils before targeting — do not assume a prior year's dates apply.",
-      jurisdictionScope: "US Atlantic (Georgia–New York, ASMFC/state waters) and Gulf of Mexico (federal Coastal Migratory Pelagics management); rules differ by region and can change between seasons via quota-driven closures.",
+      jurisdictionScope:
+        "US Atlantic (Georgia–New York, ASMFC/state waters) and Gulf of Mexico (federal Coastal Migratory Pelagics management); rules differ by region and can change between seasons via quota-driven closures.",
     },
     sources: [
       {
-        label: "Atlantic States Marine Fisheries Commission — Cobia species/management page and FMP review (FY2023)",
+        label:
+          "Atlantic States Marine Fisheries Commission — Cobia species/management page and FMP review (FY2023)",
         class: SRC.agency,
       },
       {
-        label: "NOAA Fisheries Bulletin — Atlantic cobia (Georgia through New York) recreational season closure notices",
+        label:
+          "NOAA Fisheries Bulletin — Atlantic cobia (Georgia through New York) recreational season closure notices",
         class: SRC.agency,
       },
-      { label: "Gulf of Mexico Fishery Management Council — Cobia fishing regulations", class: SRC.agency },
+      {
+        label: "Gulf of Mexico Fishery Management Council — Cobia fishing regulations",
+        class: SRC.agency,
+      },
       {
         label: "Florida Fish and Wildlife Conservation Commission — Cobia recreational regulations",
         class: SRC.agency,
       },
       {
-        label: "Gulf States Marine Fisheries Commission — Cobia life history and habitat summary table",
+        label:
+          "Gulf States Marine Fisheries Commission — Cobia life history and habitat summary table",
         class: SRC.agency,
       },
       { label: "NOAA Fisheries — Cobia species profile", class: SRC.agency },
       {
-        label: "South Carolina DNR - State Wildlife Action Plan supplemental species report: Cobia (2015)",
+        label:
+          "South Carolina DNR - State Wildlife Action Plan supplemental species report: Cobia (2015)",
         class: SRC.agency,
         url: "https://www.dnr.sc.gov/swap/supplemental/marine/cobia2015.pdf",
       },
@@ -1606,7 +1989,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Rhizoprionodon terraenovae",
     commonNames: ["Atlantic sharpnose shark"],
     group: "sharks",
-    nativeContext: "Small, abundant requiem shark of the western Atlantic and Gulf of America, from New Brunswick, Canada to the Yucatan; one of the most commonly encountered inshore/nearshore sharks by recreational anglers in the southeast U.S.",
+    nativeContext:
+      "Small, abundant requiem shark of the western Atlantic and Gulf of America, from New Brunswick, Canada to the Yucatan; one of the most commonly encountered inshore/nearshore sharks by recreational anglers in the southeast U.S.",
     spawning: {
       seasons: ["spring", "early_summer"],
       note: "NOAA gives annual mating mid-May through mid-July in inshore waters, a 10-11 month gestation, and about four pups per litter delivered in nearshore areas each June, with females maturing around age 2 (Atlantic stock) or 1.3 years (Gulf stock). Recorded as conservation context only; no pupping location is identified.",
@@ -1620,9 +2004,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["marsh_edge", "channel_edge", "tidal_creek"],
         nearshore: ["inlet_mouth", "nearshore_hump"],
       },
-      currentPreference: "NOAA describes this species using bays, estuaries, harbors, and surf zones over mud and sand bottoms; not resolved to a finer current-use pattern from a sourced account.",
-      depthTendency: "NOAA states this species typically remains in water less than about 32 ft deep; NOAA also describes a seasonal inshore/offshore movement (see seasonal_calendar).",
-      lightResponse: "Not resolved from an agency or peer-reviewed source in this review; recorded as a gap.",
+      currentPreference:
+        "NOAA describes this species using bays, estuaries, harbors, and surf zones over mud and sand bottoms; not resolved to a finer current-use pattern from a sourced account.",
+      depthTendency:
+        "NOAA states this species typically remains in water less than about 32 ft deep; NOAA also describes a seasonal inshore/offshore movement (see seasonal_calendar).",
+      lightResponse:
+        "Not resolved from an agency or peer-reviewed source in this review; recorded as a gap.",
     },
     forageClasses: ["small_forage_fish", "crustaceans", "mollusks", "worms_annelids"],
     flowingPresentations: [],
@@ -1635,10 +2022,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
+      jurisdictionScope:
+        "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
       note: "Federal Atlantic HMS rules (NOAA Fisheries) govern federal EEZ waters; Florida state waters are governed separately by FWC, and every other Gulf/Atlantic coastal state sets its own rules again. The two regimes do not match field-for-field. Atlantic sharpnose is the most permissive of the four species in this batch: both NOAA's federal rule and FWC's Group 1 state-waters rule set no minimum size. The two regimes still diverge on bag-limit accounting — NOAA's federal rule is 1 shark per person per trip, while FWC's shore-based rule is 1 shark per person per day with a 2-shark-per-vessel cap — and on permitting: a vessel angler in federal waters needs an HMS Angling/Charterboat permit plus shark endorsement, while a shore-based angler in Florida state waters needs FWC's separate no-cost Shore-Based Shark Fishing permit and course instead. Both regimes require non-offset, non-stainless circle hooks with natural bait. Because this species schools with, and at small sizes can be visually confused with, juvenile blacktip, spinner, and other small coastal sharks, misidentifying a juvenile prohibited species (e.g., a young dusky or sandbar shark) as sharpnose remains a real risk even though sharpnose itself carries the lightest rule set of the four. A proposed federal rule (Federal Register, published 2026-01-05, comment period closed 2026-03-06) would revise blacktip and spinner minimum size to a default 48 in and move Atlantic sharpnose and bonnethead bag limits from per-person to a per-vessel default with an annually adjustable range; as of the last check this session made, it had not been finalized. Confirm current status before relying on any figure here. Misidentification carries legal exposure: several similar-looking requiem and hammerhead sharks are federally and/or state prohibited, and a prohibited shark must be released without removing it from the water. Verify identification and the rule set for the exact water (state vs. federal) before harvest.",
     },
-    geographic: "Western Atlantic and Gulf of America, New Brunswick to the Yucatan; most common catches in U.S. recreational fisheries run Virginia to Texas.",
+    geographic:
+      "Western Atlantic and Gulf of America, New Brunswick to the Yucatan; most common catches in U.S. recreational fisheries run Virginia to Texas.",
     sources: [
       {
         label: "NOAA Fisheries, Atlantic Sharpnose Shark species overview",
@@ -1651,32 +2040,38 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/atlantic-sharpnose-shark/science",
       },
       {
-        label: "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
+        label:
+          "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/atlantic-highly-migratory-species/recreational-atlantic-shark-fishery-statuses-minimum-sizes-and",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
+        label:
+          "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/sharks/",
       },
       {
-        label: "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
+        label:
+          "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/s3/2025-04/HMS-Recreational-Compliance-Guide-2025-Final.pdf",
       },
       {
-        label: "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
+        label:
+          "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
         class: SRC.agency,
         url: "https://www.federalregister.gov/documents/2026/01/05/2025-24264/atlantic-highly-migratory-species-revisions-to-commercial-atlantic-blacknose-and-recreational",
       },
       {
-        label: "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (C-P species)",
+        label:
+          "NOAA Fisheries, Shark Identification for the Cooperative Shark Tagging Program (C-P species)",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/shark-identification-cooperative-shark-2",
       },
       {
-        label: "Parsons, G.R. and Hoffmayer, E.R. 2005. Seasonal Changes in the Distribution and Relative Abundance of the Atlantic Sharpnose Shark Rhizoprionodon terraenovae in the North Central Gulf of Mexico. Copeia 2005(4):914-920.",
+        label:
+          "Parsons, G.R. and Hoffmayer, E.R. 2005. Seasonal Changes in the Distribution and Relative Abundance of the Atlantic Sharpnose Shark Rhizoprionodon terraenovae in the North Central Gulf of Mexico. Copeia 2005(4):914-920.",
         class: SRC.peer,
         url: "https://doi.org/10.1643/0045-8511(2005)005[0914:SCITDA]2.0.CO;2",
       },
@@ -1695,7 +2090,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Sciaenops ocellatus",
     commonNames: ["Red drum", "Redfish", "Channel bass"],
     group: "inshore_surf",
-    nativeContext: "Native estuarine-dependent sciaenid of the western Atlantic and Gulf, ranging Massachusetts to the Gulf of Mexico. Juveniles and subadults are estuarine residents; adults recruit to nearshore coastal water at roughly age 4-5. Managed as separate Atlantic and Gulf stocks.",
+    nativeContext:
+      "Native estuarine-dependent sciaenid of the western Atlantic and Gulf, ranging Massachusetts to the Gulf of Mexico. Juveniles and subadults are estuarine residents; adults recruit to nearshore coastal water at roughly age 4-5. Managed as separate Atlantic and Gulf stocks.",
     thermal: { activeF: [36, 95], coldEdgeF: 36, warmEdgeF: 95 },
     spawning: {
       seasons: ["late_summer", "fall"],
@@ -1706,13 +2102,23 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: {
-        inshore: ["grass_flat", "oyster_bar", "marsh_edge", "tidal_creek", "creek_mouth", "channel_edge"],
+        inshore: [
+          "grass_flat",
+          "oyster_bar",
+          "marsh_edge",
+          "tidal_creek",
+          "creek_mouth",
+          "channel_edge",
+        ],
         surf: ["surf_trough", "inner_sandbar"],
         nearshore: ["nearshore_reef", "artificial_reef"],
       },
-      currentPreference: "Tide-driven. Acoustic telemetry of wild subadults in a salt-marsh estuary (Dresser and Kneib 2007) found high site fidelity at low tide, with fish concentrated on a structured site carrying overhead structure and adjacent oyster reef, then predictable dispersal on the flood tide, some individuals moving through intertidal channels or across the flooded marsh surface. Larvae and postlarvae use tidal currents to enter estuaries. Moving water is a delivery mechanism and an access mechanism here, not cover.",
-      depthTendency: "Shallow for its size. In a Texas lagoon array red drum occupied a mean depth of about 51 cm and used the shallow inner lagoon 82.6 percent of the time, with strong association to habitat edges (Moulton et al. 2017). Juveniles shift into deeper river channels and holes over winter (SCDNR). Adults leave the estuary for nearshore hard and live bottom and artificial reef at roughly age 4-5.",
-      lightResponse: "Not resolved as a simple diel preference. Agency accounts describe daylight shallow feeding, including visible tailing over shallow grass beds (NC DMF). Telemetry shows light interacting with tide rather than overriding it: subadults that otherwise dispersed on a flood tide remained stationary when the flood began after sunset (Dresser and Kneib 2007).",
+      currentPreference:
+        "Tide-driven. Acoustic telemetry of wild subadults in a salt-marsh estuary (Dresser and Kneib 2007) found high site fidelity at low tide, with fish concentrated on a structured site carrying overhead structure and adjacent oyster reef, then predictable dispersal on the flood tide, some individuals moving through intertidal channels or across the flooded marsh surface. Larvae and postlarvae use tidal currents to enter estuaries. Moving water is a delivery mechanism and an access mechanism here, not cover.",
+      depthTendency:
+        "Shallow for its size. In a Texas lagoon array red drum occupied a mean depth of about 51 cm and used the shallow inner lagoon 82.6 percent of the time, with strong association to habitat edges (Moulton et al. 2017). Juveniles shift into deeper river channels and holes over winter (SCDNR). Adults leave the estuary for nearshore hard and live bottom and artificial reef at roughly age 4-5.",
+      lightResponse:
+        "Not resolved as a simple diel preference. Agency accounts describe daylight shallow feeding, including visible tailing over shallow grass beds (NC DMF). Telemetry shows light interacting with tide rather than overriding it: subadults that otherwise dispersed on a flood tide remained stationary when the flood began after sunset (Dresser and Kneib 2007).",
     },
     forageClasses: ["crustaceans", "small_forage_fish", "zooplankton"],
     flowingPresentations: [],
@@ -1731,7 +2137,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Federal EEZ (Gulf and South Atlantic) plus every Atlantic and Gulf coastal state; rules differ sharply between adjacent state waters and federal waters, and between management regions inside a single state.",
+      jurisdictionScope:
+        "Federal EEZ (Gulf and South Atlantic) plus every Atlantic and Gulf coastal state; rules differ sharply between adjacent state waters and federal waters, and between management regions inside a single state.",
       note: "Harvest and possession of red drum are prohibited in federal waters. The Gulf of Mexico Fishery Management Council lists harvest and possession as prohibited under the federal Red Drum FMP, and ASMFC states that a harvest moratorium together with a 2007 Presidential Executive Order prevents any harvest or sale of red drum from federal waters on the Atlantic coast. State slot and bag limits vary widely and change: Florida alone runs nine management regions with a statewide 18-27 in slot but bag limits of one fish per person with vessel limits of two or four depending on region, and the Indian River Lagoon region is catch-and-release only. ASMFC's 2024 benchmark assessment found the southern stock (South Carolina through Florida) overfished and experiencing overfishing. Confirm the rule for the exact water you are standing in, on the day you are there.",
     },
     exceptions: [
@@ -1739,7 +2146,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "Slot limits differ by state and, in Florida, by management region within the state. Do not carry one region's slot to the next.",
       "Large adults are old fish. ASMFC reports ages to about 60 years. Handling a 40 in fish is a conservation decision, not a size decision.",
     ],
-    geographic: "Atlantic and Gulf coasts of the United States, Massachusetts to Mexico. Most adults hold within a few miles of the coast, though some individuals range much further offshore.",
+    geographic:
+      "Atlantic and Gulf coasts of the United States, Massachusetts to Mexico. Most adults hold within a few miles of the coast, though some individuals range much further offshore.",
     sources: [
       {
         label: "ASMFC red drum species page and Amendment 2 interstate FMP materials",
@@ -1757,7 +2165,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://gulfcouncil.org/species/drum-red/",
       },
       {
-        label: "Louisiana Department of Wildlife and Fisheries, 2024 Red Drum Fishery Management Plan",
+        label:
+          "Louisiana Department of Wildlife and Fisheries, 2024 Red Drum Fishery Management Plan",
         class: SRC.agency,
         url: "https://www.wlf.louisiana.gov/assets/Resources/Publications/Marine_Fishery_Management_Plans/2024-Red-Drum-FMP.pdf",
       },
@@ -1777,15 +2186,18 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://myfwc.com/fishing/saltwater/recreational/red-drum/",
       },
       {
-        label: "Dresser and Kneib 2007, site fidelity and movement of wild subadult red drum in a salt-marsh estuary, Fisheries Management and Ecology 14:183-190",
+        label:
+          "Dresser and Kneib 2007, site fidelity and movement of wild subadult red drum in a salt-marsh estuary, Fisheries Management and Ecology 14:183-190",
         class: SRC.peer,
       },
       {
-        label: "Moulton et al. 2017, habitat partitioning and seasonal movement of red drum and spotted seatrout, Estuaries and Coasts 40:905-916",
+        label:
+          "Moulton et al. 2017, habitat partitioning and seasonal movement of red drum and spotted seatrout, Estuaries and Coasts 40:905-916",
         class: SRC.peer,
       },
       {
-        label: "Ward, Blandon, King and Beitinger 1993, comparisons of critical thermal maxima and minima of juvenile red drum from Texas and North Carolina, Northeast Gulf Science 13(1)",
+        label:
+          "Ward, Blandon, King and Beitinger 1993, comparisons of critical thermal maxima and minima of juvenile red drum from Texas and North Carolina, Northeast Gulf Science 13(1)",
         class: SRC.peer,
       },
     ],
@@ -1797,11 +2209,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Scomberomorus cavalla",
     commonNames: ["King mackerel", "Kingfish"],
     group: "offshore_pelagic",
-    nativeContext: "Western Atlantic from North Carolina to Rio de Janeiro, including the Gulf of Mexico; two US migratory stocks (Atlantic and Gulf) mix seasonally off south Florida.",
+    nativeContext:
+      "Western Atlantic from North Carolina to Rio de Janeiro, including the Gulf of Mexico; two US migratory stocks (Atlantic and Gulf) mix seasonally off south Florida.",
     thermal: {
       coldEdgeF: 68,
       basis: "distribution",
-      note: "NOAA Fisheries' king mackerel species profile states the species \"seldom enter waters below 68° F,\" and describes seasonal north-south migration tracking water temperature. That is a distribution/avoidance threshold from an agency species account, not a lab-measured preference or a lethal limit, and no preferred, active, or warm-edge figure was found in agency or peer-reviewed sourcing for this species.",
+      note: 'NOAA Fisheries\' king mackerel species profile states the species "seldom enter waters below 68° F," and describes seasonal north-south migration tracking water temperature. That is a distribution/avoidance threshold from an agency species account, not a lab-measured preference or a lethal limit, and no preferred, active, or warm-edge figure was found in agency or peer-reviewed sourcing for this species.',
     },
     spawning: {
       seasons: ["spring", "summer", "fall"],
@@ -1815,8 +2228,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["nearshore_reef", "wreck", "inlet_mouth", "nearshore_hump"],
         offshore: ["temperature_break", "weed_line", "current_rip", "open_bait_school"],
       },
-      currentPreference: "Coastal pelagic that follows bait and temperature structure rather than holding a fixed ambush station; concentrates along temperature breaks, weed lines, and current rips where bait collects, and moves inshore during summer and on higher tides.",
-      depthTendency: "Adults range to the edge of the continental shelf (about 200 m) but are most common in under about 80 m (roughly 260 ft); moves onto the inner shelf and closer inshore in summer.",
+      currentPreference:
+        "Coastal pelagic that follows bait and temperature structure rather than holding a fixed ambush station; concentrates along temperature breaks, weed lines, and current rips where bait collects, and moves inshore during summer and on higher tides.",
+      depthTendency:
+        "Adults range to the edge of the continental shelf (about 200 m) but are most common in under about 80 m (roughly 260 ft); moves onto the inner shelf and closer inshore in summer.",
     },
     forageClasses: ["small_forage_fish", "crustaceans", "mollusks"],
     flowingPresentations: [],
@@ -1828,28 +2243,39 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     exceptions: [
       "Several health agencies list king mackerel, especially larger individuals, as high in mercury; consumption guidance is a health matter, not a targeting instruction, and is addressed only under targetContext here.",
     ],
-    geographic: "Western Atlantic from North Carolina to Rio de Janeiro, including the Gulf of Mexico; US Atlantic and Gulf migratory groups mix seasonally in a winter zone off south Florida and are managed as separate stocks, both currently not overfished.",
+    geographic:
+      "Western Atlantic from North Carolina to Rio de Janeiro, including the Gulf of Mexico; US Atlantic and Gulf migratory groups mix seasonally in a winter zone off south Florida and are managed as separate stocks, both currently not overfished.",
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Managed as separate Atlantic and Gulf migratory-group stocks, both assessed as not overfished and not subject to overfishing (2020 assessment). Recreational minimum size and bag limits are set by region and can differ between the Atlantic and Gulf migratory zones and between commercial permit zones (South Atlantic states currently list a 24 in fork length minimum and a 3-fish recreational bag limit). Separately — and distinct from harvest regulation — FDA/EPA joint seafood guidance lists king mackerel as high in mercury and advises women who are or may become pregnant, and young children, not to eat it; Florida's health department repeats this guidance. Confirm current size/bag rules with NOAA Fisheries, SAFMC, or GMFMC, and check state-specific mercury consumption guidance before eating large fish.",
-      jurisdictionScope: "US South Atlantic and Gulf of Mexico, state and federal waters; separate migratory-group management with a shared winter mixing zone off south Florida.",
+      jurisdictionScope:
+        "US South Atlantic and Gulf of Mexico, state and federal waters; separate migratory-group management with a shared winter mixing zone off south Florida.",
     },
     sources: [
-      { label: "NOAA Fisheries — King Mackerel species profile and stock status", class: SRC.agency },
       {
-        label: "South Atlantic Fishery Management Council — King mackerel species page and informational document",
+        label: "NOAA Fisheries — King Mackerel species profile and stock status",
         class: SRC.agency,
       },
       {
-        label: "Gulf States Marine Fisheries Commission — King mackerel life history and habitat summary table",
+        label:
+          "South Atlantic Fishery Management Council — King mackerel species page and informational document",
         class: SRC.agency,
       },
       {
-        label: "FDA/EPA — Advice about eating fish (mercury guidance; king mackerel listed as a choice to avoid)",
+        label:
+          "Gulf States Marine Fisheries Commission — King mackerel life history and habitat summary table",
         class: SRC.agency,
       },
-      { label: "Florida Department of Health — Eating Healthy Seafood guidance", class: SRC.agency },
+      {
+        label:
+          "FDA/EPA — Advice about eating fish (mercury guidance; king mackerel listed as a choice to avoid)",
+        class: SRC.agency,
+      },
+      {
+        label: "Florida Department of Health — Eating Healthy Seafood guidance",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -1859,7 +2285,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Scomberomorus maculatus",
     commonNames: ["Spanish mackerel"],
     group: "inshore_surf",
-    nativeContext: "Native western Atlantic and Gulf of Mexico coastal pelagic, Cape Cod/Rhode Island to the Yucatan; a purely marine, ocean-water-column species with no landlocked or freshwater life stage.",
+    nativeContext:
+      "Native western Atlantic and Gulf of Mexico coastal pelagic, Cape Cod/Rhode Island to the Yucatan; a purely marine, ocean-water-column species with no landlocked or freshwater life stage.",
     thermal: { preferredF: [70, 80], activeF: [65, 87], coldEdgeF: 58, warmEdgeF: 87 },
     spawning: {
       seasons: ["spring", "early_summer", "summer", "late_summer"],
@@ -1874,8 +2301,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["grass_flat", "channel_edge"],
         nearshore: ["nearshore_reef", "artificial_reef", "pier_structure", "inlet_mouth"],
       },
-      currentPreference: "A schooling pelagic predator that follows moving bait rather than holding a fixed lie; concentrates where tide-driven current compresses baitfish against a beach cut, jetty, inlet mouth, or reef edge.",
-      depthTendency: "Stays high in the water column over reefs, grass beds, and open water alike; does not hug bottom the way a grouper or snapper would.",
+      currentPreference:
+        "A schooling pelagic predator that follows moving bait rather than holding a fixed lie; concentrates where tide-driven current compresses baitfish against a beach cut, jetty, inlet mouth, or reef edge.",
+      depthTendency:
+        "Stays high in the water column over reefs, grass beds, and open water alike; does not hug bottom the way a grouper or snapper would.",
       lightResponse: "Not resolved in reviewed sources as a diel light preference; see gaps.",
     },
     forageClasses: ["small_forage_fish", "crustaceans", "mollusks"],
@@ -1889,13 +2318,15 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "US South Atlantic and Gulf of Mexico state and federal waters, managed jointly by NOAA Fisheries, the South Atlantic Fishery Management Council, and the Gulf of Mexico Fishery Management Council under the Coastal Migratory Pelagics FMP, plus individual state recreational rules.",
+      jurisdictionScope:
+        "US South Atlantic and Gulf of Mexico state and federal waters, managed jointly by NOAA Fisheries, the South Atlantic Fishery Management Council, and the Gulf of Mexico Fishery Management Council under the Coastal Migratory Pelagics FMP, plus individual state recreational rules.",
       note: "Federal minimum size and bag limits apply and can change; recreational and commercial sectors carry separate annual catch limits and either sector can trigger an early seasonal closure once its limit is projected to be met. Both South Atlantic and Gulf stocks were assessed not overfished and not subject to overfishing as of 2023, but confirm the current size limit, bag limit, and season status for the exact state and water (state vs. federal) before fishing.",
     },
     exceptions: [
       "Sharp teeth and a fast slashing strike make leader material and landing technique a safety and gear issue, not a presentation choice, and are not represented as a presentation family here.",
     ],
-    geographic: "Atlantic coast from Rhode Island/Cape Cod to Florida and Gulf of Mexico to the Yucatan. Movement is a seasonal range expansion and contraction tracking water temperature (concentrating off Florida and in the western Gulf in winter) rather than a single ocean-basin migration route.",
+    geographic:
+      "Atlantic coast from Rhode Island/Cape Cod to Florida and Gulf of Mexico to the Yucatan. Movement is a seasonal range expansion and contraction tracking water temperature (concentrating off Florida and in the western Gulf in winter) rather than a single ocean-basin migration route.",
     sources: [
       {
         label: "NOAA Fisheries, Spanish Mackerel species page",
@@ -1903,7 +2334,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/spanish-mackerel",
       },
       {
-        label: "South Carolina DNR, State Wildlife Action Plan supplemental species report: Spanish mackerel",
+        label:
+          "South Carolina DNR, State Wildlife Action Plan supplemental species report: Spanish mackerel",
         class: SRC.agency,
         url: "https://www.dnr.sc.gov/swap/supplemental/marine/spanishmackerel2015.pdf",
       },
@@ -1926,20 +2358,28 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Sebastes brevispinis",
     commonNames: ["Silvergray rockfish"],
     group: "reef_bottom",
-    nativeContext: "Shelf-dwelling Pacific rockfish native from the western Gulf of Alaska (Bering Sea edge per DFO) south to central Baja California. Long-lived (documented to at least 80 years) and, per NOAA's Alaska stock assessment, one of the more data-limited rockfish species managed on the West Coast.",
+    nativeContext:
+      "Shelf-dwelling Pacific rockfish native from the western Gulf of Alaska (Bering Sea edge per DFO) south to central Baja California. Long-lived (documented to at least 80 years) and, per NOAA's Alaska stock assessment, one of the more data-limited rockfish species managed on the West Coast.",
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { nearshore: ["kelp_edge", "rock_pile"], offshore: ["offshore_ledge", "canyon_edge", "deep_wreck"] },
+      marineHolding: {
+        nearshore: ["kelp_edge", "rock_pile"],
+        offshore: ["offshore_ledge", "canyon_edge", "deep_wreck"],
+      },
       currentPreference: "Not documented in the sources reviewed for this record.",
-      depthTendency: "Adults are most common at roughly 330-990 ft (100-300 m) on hard, high-relief shelf and upper-slope bottom and in troughs near the continental shelf; documented range extends from the surface to about 1,440 ft. Juveniles have been recorded in shallower kelp beds around 56 ft (ADFG, DFO, WDFW, ODFW).",
+      depthTendency:
+        "Adults are most common at roughly 330-990 ft (100-300 m) on hard, high-relief shelf and upper-slope bottom and in troughs near the continental shelf; documented range extends from the surface to about 1,440 ft. Juveniles have been recorded in shallower kelp beds around 56 ft (ADFG, DFO, WDFW, ODFW).",
       lightResponse: "Not documented in the sources reviewed for this record.",
     },
     forageClasses: ["crustaceans", "small_forage_fish"],
     flowingPresentations: [],
     stillPresentations: [],
-    marinePresentations: { nearshore: ["vertical_jig", "drop_presentation"], offshore: ["vertical_jig", "trolling", "deep_drop"] },
+    marinePresentations: {
+      nearshore: ["vertical_jig", "drop_presentation"],
+      offshore: ["vertical_jig", "trolling", "deep_drop"],
+    },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
@@ -1951,18 +2391,33 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       note: "Spawning timing was not documented in any source reviewed for this record — NOAA's own 2023 Gulf of Alaska assessment table leaves the spawning-month field blank for this species. Like other Sebastes, silvergray rockfish is matrotrophically viviparous (internal fertilization, live birth) — a family-level trait, not a species-specific timing claim, sourced from COSEWIC's general description of the genus in the quillback rockfish status report.",
     },
     exceptions: [],
-    geographic: "Western Gulf of Alaska (DFO gives the northern edge near the coastal Bering Sea) south to Bahia de Sebastian Vizcaino, central Baja California, along the outer coast of British Columbia. Most abundant in the eastern Gulf of Alaska.",
+    geographic:
+      "Western Gulf of Alaska (DFO gives the northern edge near the coastal Bering Sea) south to Bahia de Sebastian Vizcaino, central Baja California, along the outer coast of British Columbia. Most abundant in the eastern Gulf of Alaska.",
     sources: [
-      { label: "Fisheries and Oceans Canada — Silvergrey rockfish species profile", class: SRC.agency },
-      { label: "Washington Department of Fish and Wildlife — Silvergray rockfish species profile", class: SRC.agency },
-      { label: "Oregon Department of Fish and Wildlife — Silvergray rockfish fishing page", class: SRC.agency },
-      { label: "Alaska Department of Fish and Game — Rockfish identification guide", class: SRC.agency },
       {
-        label: "NOAA Fisheries Alaska Fisheries Science Center — 2023 Gulf of Alaska Other Rockfish complex stock assessment",
+        label: "Fisheries and Oceans Canada — Silvergrey rockfish species profile",
         class: SRC.agency,
       },
       {
-        label: "California Department of Fish and Wildlife — Nearshore, Shelf and Slope Rockfishes of California",
+        label: "Washington Department of Fish and Wildlife — Silvergray rockfish species profile",
+        class: SRC.agency,
+      },
+      {
+        label: "Oregon Department of Fish and Wildlife — Silvergray rockfish fishing page",
+        class: SRC.agency,
+      },
+      {
+        label: "Alaska Department of Fish and Game — Rockfish identification guide",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "NOAA Fisheries Alaska Fisheries Science Center — 2023 Gulf of Alaska Other Rockfish complex stock assessment",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "California Department of Fish and Wildlife — Nearshore, Shelf and Slope Rockfishes of California",
         class: SRC.agency,
       },
     ],
@@ -1974,7 +2429,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Sebastes maliger",
     commonNames: ["Quillback rockfish"],
     group: "reef_bottom",
-    nativeContext: "Reef-associated Pacific rockfish native from the Gulf of Alaska to southern California, common from southeast Alaska through northern California. Extremely long-lived (documented to at least 95 years in British Columbia) and slow to mature, which several agencies flag as a specific vulnerability to overfishing.",
+    nativeContext:
+      "Reef-associated Pacific rockfish native from the Gulf of Alaska to southern California, common from southeast Alaska through northern California. Extremely long-lived (documented to at least 95 years in British Columbia) and slow to mature, which several agencies flag as a specific vulnerability to overfishing.",
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
@@ -1983,11 +2439,20 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["nearshore_reef", "rock_pile", "kelp_edge", "artificial_reef"],
         offshore: ["offshore_ledge", "deep_wreck", "canyon_edge"],
       },
-      currentPreference: "Habitat specialist on hard, complex substrate with vertical relief (broken rock, reefs, ridges, crevices); DFO/COSEWIC describes a limited home range with fish returning to the same reef after displacement — not a current- or tide-line-oriented species.",
-      depthTendency: "COSEWIC reports 95% of commercial catch between about 14-143 m (46-470 ft); WDFW gives an overall range from the intertidal to 274 m (899 ft). Juveniles occupy shallower nearshore rocky habitat than adults, which move into deeper water and take up largely solitary positions in crevices and holes.",
+      currentPreference:
+        "Habitat specialist on hard, complex substrate with vertical relief (broken rock, reefs, ridges, crevices); DFO/COSEWIC describes a limited home range with fish returning to the same reef after displacement — not a current- or tide-line-oriented species.",
+      depthTendency:
+        "COSEWIC reports 95% of commercial catch between about 14-143 m (46-470 ft); WDFW gives an overall range from the intertidal to 274 m (899 ft). Juveniles occupy shallower nearshore rocky habitat than adults, which move into deeper water and take up largely solitary positions in crevices and holes.",
       lightResponse: "Not documented in the sources reviewed for this record.",
     },
-    forageClasses: ["crustaceans", "small_forage_fish", "mollusks", "worms_annelids", "eggs", "zooplankton"],
+    forageClasses: [
+      "crustaceans",
+      "small_forage_fish",
+      "mollusks",
+      "worms_annelids",
+      "eggs",
+      "zooplankton",
+    ],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
@@ -2008,17 +2473,34 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "Do not treat a reef holding a concentration of parturition-stage females as a location to target. This reading does not include coordinates, and we never give them.",
       "Regulatory status for this species has changed multiple times within the past three years and remains disputed between agency documents — treat any status or bag-limit claim as provisional and verify directly before advising an angler.",
     ],
-    geographic: "Gulf of Alaska (Kodiak Island) south to Anacapa Passage, southern California; common from southeast Alaska through northern California; widespread through British Columbia coastal waters.",
+    geographic:
+      "Gulf of Alaska (Kodiak Island) south to Anacapa Passage, southern California; common from southeast Alaska through northern California; widespread through British Columbia coastal waters.",
     sources: [
-      { label: "Washington Department of Fish and Wildlife — Quillback rockfish species profile", class: SRC.agency },
       {
-        label: "California Department of Fish and Wildlife — Quillback rockfish life history summary",
+        label: "Washington Department of Fish and Wildlife — Quillback rockfish species profile",
         class: SRC.agency,
       },
-      { label: "COSEWIC (Government of Canada) — Quillback rockfish status report", class: SRC.agency },
-      { label: "NOAA Fisheries — Overfished determination for quillback rockfish (California)", class: SRC.agency },
-      { label: "NOAA Fisheries — feature story on 2025 quillback rockfish reassessment", class: SRC.agency },
-      { label: "Federal Register, September 18, 2025 — West Coast groundfish inseason rule", class: SRC.agency },
+      {
+        label:
+          "California Department of Fish and Wildlife — Quillback rockfish life history summary",
+        class: SRC.agency,
+      },
+      {
+        label: "COSEWIC (Government of Canada) — Quillback rockfish status report",
+        class: SRC.agency,
+      },
+      {
+        label: "NOAA Fisheries — Overfished determination for quillback rockfish (California)",
+        class: SRC.agency,
+      },
+      {
+        label: "NOAA Fisheries — feature story on 2025 quillback rockfish reassessment",
+        class: SRC.agency,
+      },
+      {
+        label: "Federal Register, September 18, 2025 — West Coast groundfish inseason rule",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -2028,7 +2510,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Sebastes miniatus",
     commonNames: ["Vermilion rockfish"],
     group: "reef_bottom",
-    nativeContext: "Reef-associated Pacific rockfish native from Prince William Sound, Alaska to Baja California, most abundant off California. A 2015-era genetic study documented a cryptic sister species, sunset rockfish, previously fished and recorded together with vermilion rockfish in the Southern California Bight.",
+    nativeContext:
+      "Reef-associated Pacific rockfish native from Prince William Sound, Alaska to Baja California, most abundant off California. A 2015-era genetic study documented a cryptic sister species, sunset rockfish, previously fished and recorded together with vermilion rockfish in the Southern California Bight.",
     habitat: {
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
@@ -2037,8 +2520,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         nearshore: ["nearshore_reef", "rock_pile", "kelp_edge", "artificial_reef"],
         offshore: ["offshore_ledge", "deep_wreck", "canyon_edge"],
       },
-      currentPreference: "Reef-associated and largely sedentary once settled; CDFW and WDFW both describe adults as remaining on the same reef system rather than working current lines or tide seams.",
-      depthTendency: "WDFW gives an overall range of about 20-1,440 ft with peak abundance at 165-495 ft; CDFW describes the range as shallow subtidal down to about 1,400 ft on rocky bottom.",
+      currentPreference:
+        "Reef-associated and largely sedentary once settled; CDFW and WDFW both describe adults as remaining on the same reef system rather than working current lines or tide seams.",
+      depthTendency:
+        "WDFW gives an overall range of about 20-1,440 ft with peak abundance at 165-495 ft; CDFW describes the range as shallow subtidal down to about 1,400 ft on rocky bottom.",
       lightResponse: "Not documented in the sources reviewed for this record.",
     },
     forageClasses: ["crustaceans", "small_forage_fish", "mollusks", "zooplankton"],
@@ -2062,15 +2547,21 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       "Do not treat a reef holding a concentration of parturition-stage females as a location to target. This reading does not include coordinates, and we never give them.",
       "Vermilion and the cryptic sunset rockfish are frequently misidentified as each other; see the identification dossier before assuming a bag-limit count applies to one species alone.",
     ],
-    geographic: "Zaikof Bay, Prince William Sound, Alaska south to San Benito Islands, Baja California; most abundant off California. Occasional off Washington, where recreational retention is closed in Puget Sound.",
+    geographic:
+      "Zaikof Bay, Prince William Sound, Alaska south to San Benito Islands, Baja California; most abundant off California. Occasional off Washington, where recreational retention is closed in Puget Sound.",
     sources: [
-      { label: "Washington Department of Fish and Wildlife — Vermilion rockfish species profile", class: SRC.agency },
       {
-        label: "California Department of Fish and Wildlife — Vermilion rockfish life history summary",
+        label: "Washington Department of Fish and Wildlife — Vermilion rockfish species profile",
         class: SRC.agency,
       },
       {
-        label: "NOAA repository — peer-reviewed study on vermilion/sunset rockfish spatial and genetic differentiation, Southern California Bight",
+        label:
+          "California Department of Fish and Wildlife — Vermilion rockfish life history summary",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "NOAA repository — peer-reviewed study on vermilion/sunset rockfish spatial and genetic differentiation, Southern California Bight",
         class: SRC.peer,
       },
     ],
@@ -2082,7 +2573,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Sebastes variabilis",
     commonNames: ["Dusky rockfish", "light dusky rockfish"],
     group: "reef_bottom",
-    nativeContext: "North Pacific marine native; Bering Sea south through the Gulf of Alaska to British Columbia, most abundant in the Gulf of Alaska.",
+    nativeContext:
+      "North Pacific marine native; Bering Sea south through the Gulf of Alaska to British Columbia, most abundant in the Gulf of Alaska.",
     spawning: {
       seasons: ["spring"],
       note: "Ovoviviparous (live-bearing) rockfish. Parturition (release of larvae) is believed to occur in spring, based on ripe females sampled on an April Gulf of Alaska research cruise. Mating and internal fertilization happen separately from parturition; sourced material does not document when that occurs. No spawning concentration or location is implied.",
@@ -2092,8 +2584,10 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: { offshore: ["seamount", "offshore_ledge", "canyon_edge"] },
-      currentPreference: "Not documented against tide or current in sourced material. Adults hold over offshore banks and shelf gullies rather than orienting to a visible current seam.",
-      depthTendency: "Adults concentrate on offshore banks and near gullies on the outer continental shelf at about 100-200 m (roughly 330-650 ft), associated with rocky substrate, sponge beds, and coral. Older juveniles occur in shallower, more inshore habitat than adults; the habitat of very young juveniles is not described in sourced material.",
+      currentPreference:
+        "Not documented against tide or current in sourced material. Adults hold over offshore banks and shelf gullies rather than orienting to a visible current seam.",
+      depthTendency:
+        "Adults concentrate on offshore banks and near gullies on the outer continental shelf at about 100-200 m (roughly 330-650 ft), associated with rocky substrate, sponge beds, and coral. Older juveniles occur in shallower, more inshore habitat than adults; the habitat of very young juveniles is not described in sourced material.",
       lightResponse: "Not documented in sourced material.",
     },
     forageClasses: ["zooplankton", "small_forage_fish"],
@@ -2103,22 +2597,31 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Alaska (ADF&G) sport bag/possession/area rules; dusky rockfish is also managed as a distinct Tier 3 stock under the federal Gulf of Alaska Groundfish FMP (NPFMC/NOAA Fisheries).",
+      jurisdictionScope:
+        "Alaska (ADF&G) sport bag/possession/area rules; dusky rockfish is also managed as a distinct Tier 3 stock under the federal Gulf of Alaska Groundfish FMP (NPFMC/NOAA Fisheries).",
       note: "Rockfish brought up from the depths this species holds at (roughly 100-200 m) are highly prone to barotrauma (expanded swim bladder, everted stomach, bulging eyes, distended abdomen). ADF&G's own guidance, built on yelloweye rockfish release studies, found about 98% survival when rockfish are released at capture depth within minutes versus only about 22% able to re-submerge when released at the surface, and recommends a descending device and minimizing surface time for any rockfish, regardless of visible barotrauma signs. Mandatory deepwater-release rules currently target non-pelagic rockfish in parts of Southeast Alaska; whether that mandate extends to a pelagic-shelf species like dusky rockfish in a given area was not confirmed in sourced material and should be checked against the current ADF&G sport fishing regulations booklet for the area being fished, alongside area-specific bag and possession limits.",
     },
     exceptions: [
       "Sebastes variabilis was only re-established as a distinct species from the very similar dark rockfish (Sebastes ciliatus) in 2004; older records and some field guides may still lump the two. Confirm coloration (pink-tinged fins/belly, light-to-dark peritoneum) and jaw pores before treating a catch as this species rather than dark rockfish.",
     ],
-    geographic: "Bering Sea south through the Gulf of Alaska to British Columbia; most abundant on offshore banks of the Gulf of Alaska continental shelf.",
+    geographic:
+      "Bering Sea south through the Gulf of Alaska to British Columbia; most abundant on offshore banks of the Gulf of Alaska continental shelf.",
     sources: [
-      { label: "ADF&G rockfish species identification guide (jaw pores, cheek bars, coloration)", class: SRC.agency },
-      { label: "NOAA Fisheries / AFSC Field Guide to the Rockfishes (Scorpaenidae) of Alaska", class: SRC.agency },
+      {
+        label: "ADF&G rockfish species identification guide (jaw pores, cheek bars, coloration)",
+        class: SRC.agency,
+      },
+      {
+        label: "NOAA Fisheries / AFSC Field Guide to the Rockfishes (Scorpaenidae) of Alaska",
+        class: SRC.agency,
+      },
       {
         label: "NPFMC/AFSC Stock Assessment and Fishery Evaluation: Dusky Rockfish, Gulf of Alaska",
         class: SRC.agency,
       },
       {
-        label: "Orr & Blackburn (2004), \"The dusky rockfishes (Teleostei: Scorpaeniformes) of the North Pacific Ocean: resurrection of Sebastes variabilis and a redescription of Sebastes ciliatus\", NOAA Fishery Bulletin",
+        label:
+          'Orr & Blackburn (2004), "The dusky rockfishes (Teleostei: Scorpaeniformes) of the North Pacific Ocean: resurrection of Sebastes variabilis and a redescription of Sebastes ciliatus", NOAA Fishery Bulletin',
         class: SRC.peer,
       },
       { label: "ADF&G deepwater release / rockfish barotrauma guidance", class: SRC.agency },
@@ -2131,7 +2634,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Seriola dumerili",
     commonNames: ["Greater amberjack"],
     group: "offshore_pelagic",
-    nativeContext: "Circumglobal in subtropical and warm-temperate seas; in the western Atlantic ranges from Nova Scotia to Brazil, including the Gulf of Mexico and the Caribbean.",
+    nativeContext:
+      "Circumglobal in subtropical and warm-temperate seas; in the western Atlantic ranges from Nova Scotia to Brazil, including the Gulf of Mexico and the Caribbean.",
     spawning: {
       seasons: ["spring", "early_summer"],
       note: "Broadcast spawner that congregates on reef and shipwreck structure to spawn, peaking in spring in Gulf/South Atlantic populations; a single female can release tens of millions of eggs across a season. Site- and timing-specific aggregation detail is excluded here as conservation context only.",
@@ -2140,8 +2644,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["nearshore", "offshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { nearshore: ["nearshore_reef", "wreck", "rock_pile"], offshore: ["deep_wreck", "offshore_ledge"] },
-      depthTendency: "Juveniles school pelagically around drifting Sargassum mats in open water for roughly their first 5–6 months; after that, subadults and adults hold near reefs, rocky outcrops, and wrecks at roughly 60–240 ft (18–72 m), with a documented depth range extending past 1,000 ft.",
+      marineHolding: {
+        nearshore: ["nearshore_reef", "wreck", "rock_pile"],
+        offshore: ["deep_wreck", "offshore_ledge"],
+      },
+      depthTendency:
+        "Juveniles school pelagically around drifting Sargassum mats in open water for roughly their first 5–6 months; after that, subadults and adults hold near reefs, rocky outcrops, and wrecks at roughly 60–240 ft (18–72 m), with a documented depth range extending past 1,000 ft.",
     },
     forageClasses: ["larger_prey_fish", "crustaceans", "mollusks", "zooplankton"],
     flowingPresentations: [],
@@ -2153,22 +2661,32 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     exceptions: [
       "The Gulf of Mexico stock is currently under a full recreational harvest closure driven by rebuilding-plan accountability measures; treat any presentation guidance below as biology, not as license to target amberjack in a closed jurisdiction. Verify current Gulf and South Atlantic rules before fishing.",
     ],
-    geographic: "Western Atlantic from Nova Scotia to Brazil, including the Gulf of Mexico and Caribbean; two US management stocks (Gulf of Mexico and South Atlantic) currently carry different stock-status determinations.",
+    geographic:
+      "Western Atlantic from Nova Scotia to Brazil, including the Gulf of Mexico and Caribbean; two US management stocks (Gulf of Mexico and South Atlantic) currently carry different stock-status determinations.",
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
       note: "Two separate US stocks with different status. The Gulf of Mexico stock is overfished (2021 assessment) and is currently under a full recreational harvest closure (zero bag/possession limit) driven by an annual-catch-limit overage and rebuilding-plan accountability measures, with recovery targeted by 2028. The South Atlantic stock is not overfished and not subject to overfishing (2020 assessment, SEDAR 59) and carries a recreational minimum size (28 in fork length), a small bag limit, and an April closure. Season length, bag limits, and even whether the season is open at all change year to year based on quota accounting — verify current status and season with NOAA Fisheries, the Gulf of Mexico Fishery Management Council, and the South Atlantic Fishery Management Council before targeting.",
-      jurisdictionScope: "US Gulf of Mexico and South Atlantic federal waters; state-water rules can differ.",
+      jurisdictionScope:
+        "US Gulf of Mexico and South Atlantic federal waters; state-water rules can differ.",
     },
     sources: [
-      { label: "NOAA Fisheries — Greater Amberjack species overview and stock status", class: SRC.agency },
-      { label: "Federal Register — 2025–2026 recreational closure for Gulf greater amberjack", class: SRC.agency },
       {
-        label: "Gulf of Mexico Fishery Management Council — Greater amberjack season length and closure announcements",
+        label: "NOAA Fisheries — Greater Amberjack species overview and stock status",
         class: SRC.agency,
       },
       {
-        label: "South Atlantic Fishery Management Council — Snapper Grouper Amendment 49 (greater amberjack catch levels and management measures)",
+        label: "Federal Register — 2025–2026 recreational closure for Gulf greater amberjack",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "Gulf of Mexico Fishery Management Council — Greater amberjack season length and closure announcements",
+        class: SRC.agency,
+      },
+      {
+        label:
+          "South Atlantic Fishery Management Council — Snapper Grouper Amendment 49 (greater amberjack catch levels and management measures)",
         class: SRC.agency,
       },
     ],
@@ -2180,7 +2698,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Sphyrna tiburo",
     commonNames: ["Bonnethead", "Bonnethead shark", "Shovelhead shark"],
     group: "sharks",
-    nativeContext: "Smallest hammerhead species, common in shallow coastal waters of the western Atlantic (North Carolina to southern Brazil, including the Gulf of America and Caribbean) and eastern Pacific (southern California to Ecuador). Notable among sharks for a documented omnivorous diet that includes digested seagrass.",
+    nativeContext:
+      "Smallest hammerhead species, common in shallow coastal waters of the western Atlantic (North Carolina to southern Brazil, including the Gulf of America and Caribbean) and eastern Pacific (southern California to Ecuador). Notable among sharks for a documented omnivorous diet that includes digested seagrass.",
     spawning: {
       seasons: ["late_summer", "fall"],
       note: "NOAA gives a roughly 5-month gestation with 4-14 live pups born in late summer or early fall, each about 12 in at birth. Recorded as conservation context only; no pupping location is identified.",
@@ -2189,9 +2708,14 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       waterTypes: ["inshore", "nearshore"],
       riverHolding: [],
       stillHolding: [],
-      marineHolding: { inshore: ["grass_flat", "sand_hole", "tidal_creek"], nearshore: ["nearshore_reef"] },
-      currentPreference: "NOAA describes bonnethead using shallow coastal water over sandy or muddy bottoms, coral reefs, and grass flats, and as common in bays and estuaries; not resolved to a finer tide-driven pattern from a sourced account.",
-      depthTendency: "Shallow-water specialist; a specific depth figure was not found in the sources reviewed.",
+      marineHolding: {
+        inshore: ["grass_flat", "sand_hole", "tidal_creek"],
+        nearshore: ["nearshore_reef"],
+      },
+      currentPreference:
+        "NOAA describes bonnethead using shallow coastal water over sandy or muddy bottoms, coral reefs, and grass flats, and as common in bays and estuaries; not resolved to a finer tide-driven pattern from a sourced account.",
+      depthTendency:
+        "Shallow-water specialist; a specific depth figure was not found in the sources reviewed.",
       lightResponse: "Not resolved from a sourced account; recorded as a gap.",
     },
     forageClasses: ["crustaceans", "mollusks", "small_forage_fish"],
@@ -2204,10 +2728,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
+      jurisdictionScope:
+        "Federal Atlantic HMS EEZ waters (NOAA Fisheries) and Florida state waters (FWC) at minimum; every other Gulf and Atlantic coastal state sets its own rules again.",
       note: "Federal Atlantic HMS rules (NOAA Fisheries) govern federal EEZ waters; Florida state waters are governed separately by FWC, and every other Gulf/Atlantic coastal state sets its own rules again. The two regimes do not match field-for-field. Bonnethead currently carries the same light rule set as Atlantic sharpnose: no minimum size and 1 shark per person per trip federally, no minimum size and 1 shark per person per day (2-per-vessel cap) in Florida state waters, with FWC's separate shore-based permit/course applying to shore anglers. THIS SPECIES CARRIES A SEPARATE, UNRESOLVED FLAG THAT A HUMAN SHOULD RULE ON: a 2024 IUCN Red List reassessment and a peer-reviewed 2024 Frontiers in Marine Science paper both describe bonnethead as now assessed globally as Endangered — driven substantially by steep declines and taxonomic/cryptic-species findings outside U.S. waters — and the species was added to CITES Appendix II at CoP19. NOAA's own domestic species page, by contrast, states the Atlantic and Gulf of America bonnethead stock statuses are 'unknown' rather than overfished, and both stocks remain open with no minimum size in the currently active U.S. recreational fishery. This record does NOT unilaterally reclassify bonnethead as conservation_sensitive, because the domestic managing agencies have not made an overfished determination and the species is actively, legally targeted; but the global IUCN Endangered status is a real and serious signal that a person, not this record, should weigh before deciding whether presentation guidance for this species should be published, restricted, or removed. A proposed federal rule (Federal Register, published 2026-01-05, comment period closed 2026-03-06) would revise blacktip and spinner minimum size to a default 48 in and move Atlantic sharpnose and bonnethead bag limits from per-person to a per-vessel default with an annually adjustable range; as of the last check this session made, it had not been finalized. Confirm current status before relying on any figure here. Misidentification carries legal exposure: several similar-looking requiem and hammerhead sharks are federally and/or state prohibited, and a prohibited shark must be released without removing it from the water. Verify identification and the rule set for the exact water (state vs. federal) before harvest.",
     },
-    geographic: "Western Atlantic (North Carolina to southern Brazil, including Gulf of America and Caribbean) and eastern Pacific (southern California to Ecuador).",
+    geographic:
+      "Western Atlantic (North Carolina to southern Brazil, including Gulf of America and Caribbean) and eastern Pacific (southern California to Ecuador).",
     sources: [
       {
         label: "NOAA Fisheries, Bonnethead Shark species overview",
@@ -2220,37 +2746,44 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/bonnethead-shark/science",
       },
       {
-        label: "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
+        label:
+          "NOAA Fisheries, Recreational Atlantic Shark Fishery Statuses, Minimum Sizes, and Retention Limits",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/atlantic-highly-migratory-species/recreational-atlantic-shark-fishery-statuses-minimum-sizes-and",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
+        label:
+          "Florida Fish and Wildlife Conservation Commission, Sharks (shore-based permit, harvestable species groups, prohibited species)",
         class: SRC.agency,
         url: "https://myfwc.com/fishing/saltwater/recreational/sharks/",
       },
       {
-        label: "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
+        label:
+          "NOAA Fisheries, HMS Recreational Compliance Guide 2025 (permit, shark endorsement, circle hook rule)",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/s3/2025-04/HMS-Recreational-Compliance-Guide-2025-Final.pdf",
       },
       {
-        label: "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
+        label:
+          "Federal Register, Atlantic Highly Migratory Species; Revisions to Commercial Atlantic Blacknose and Recreational Shark Management Measures (proposed rule, not yet final as of last check)",
         class: SRC.agency,
         url: "https://www.federalregister.gov/documents/2026/01/05/2025-24264/atlantic-highly-migratory-species-revisions-to-commercial-atlantic-blacknose-and-recreational",
       },
       {
-        label: "Frontiers in Marine Science (2024), review of bonnethead shark taxonomy, cryptic Atlantic lineage, and 2024 IUCN Red List Endangered reassessment",
+        label:
+          "Frontiers in Marine Science (2024), review of bonnethead shark taxonomy, cryptic Atlantic lineage, and 2024 IUCN Red List Endangered reassessment",
         class: SRC.peer,
         url: "https://frontiersin.org/articles/10.3389/fmars.2024.1235876/full",
       },
       {
-        label: "CITES Sharks and Rays project page, Bonnethead Shark (IUCN Endangered global status; Critically Endangered in some regional assessments)",
+        label:
+          "CITES Sharks and Rays project page, Bonnethead Shark (IUCN Endangered global status; Critically Endangered in some regional assessments)",
         class: SRC.syn,
         url: "https://citessharks.org/bonnethead-shark",
       },
       {
-        label: "Carlson, J.K. and Parsons, G.R. 1999. Seasonal differences in routine oxygen consumption rates of the bonnethead shark. Journal of Fish Biology 55(4):876-879.",
+        label:
+          "Carlson, J.K. and Parsons, G.R. 1999. Seasonal differences in routine oxygen consumption rates of the bonnethead shark. Journal of Fish Biology 55(4):876-879.",
         class: SRC.peer,
         url: "https://doi.org/10.1111/j.1095-8649.1999.tb00724.x",
       },
@@ -2260,7 +2793,7 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     thermal: {
       activeF: [68, 86],
       basis: "mixed",
-      note: "Carlson and Parsons (1999, Journal of Fish Biology) measured routine oxygen consumption of bonnethead sharks across \"the entire seasonal temperature range (20-30°C)\" -- i.e. the natural seasonal water-temperature span these northeastern Gulf of Mexico sharks experience from autumn through summer -- finding metabolic rate rose steadily with temperature (Q10 = 2.34). This is a lab respirometry study reflecting a real seasonal range rather than a stated preference or a catch-distribution figure, so it is recorded as mixed basis. No distinct cold/warm avoidance threshold was reported.",
+      note: 'Carlson and Parsons (1999, Journal of Fish Biology) measured routine oxygen consumption of bonnethead sharks across "the entire seasonal temperature range (20-30°C)" -- i.e. the natural seasonal water-temperature span these northeastern Gulf of Mexico sharks experience from autumn through summer -- finding metabolic rate rose steadily with temperature (Q10 = 2.34). This is a lab respirometry study reflecting a real seasonal range rather than a stated preference or a catch-distribution figure, so it is recorded as mixed basis. No distinct cold/warm avoidance threshold was reported.',
     },
     exceptions: [],
   },
@@ -2269,7 +2802,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Tautoga onitis",
     commonNames: ["Tautog", "Blackfish"],
     group: "reef_bottom",
-    nativeContext: "Western Atlantic native, Nova Scotia and the Gulf of St. Lawrence to South Carolina; most abundant from Cape Cod to Delaware Bay.",
+    nativeContext:
+      "Western Atlantic native, Nova Scotia and the Gulf of St. Lawrence to South Carolina; most abundant from Cape Cod to Delaware Bay.",
     thermal: { preferredF: [66, 70], activeF: [43, 84], coldEdgeF: 36, warmEdgeF: 88 },
     spawning: {
       seasons: ["spring", "early_summer", "summer"],
@@ -2283,9 +2817,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["oyster_bar", "grass_flat"],
         nearshore: ["nearshore_reef", "artificial_reef", "wreck", "rock_pile", "pier_structure"],
       },
-      currentPreference: "Not sourced as a tide-stage relationship. What is sourced is a structure relationship: tautog occupy whatever complex cover is available - natural and artificial reefs, rock outcrops, shellfish beds, and man-made structure such as pilings, jetties, groins and wrecks - and cover availability, not tide, is described as the single most important habitat parameter for the species.",
-      depthTendency: "Structure- and season-dependent rather than a fixed depth. In summer, adults move inshore into shallow structured habitat alongside juveniles; in fall, adults migrate to deeper, more rugged offshore bottom (roughly 25-45 m / 80-150 ft) once bottom temperature drops below about 10C/50F, though some overwinter inshore, especially in northern parts of the range. Juveniles generally stay inshore year-round.",
-      lightResponse: "Strongly diurnal. Sourced as most active in the first hour of daylight, tapering by mid-morning, feeding by sight through the day, and settling into an inactive, low-responsiveness rest state in shelter at night - described in the source as a true rest/sleep state, not simple inactivity.",
+      currentPreference:
+        "Not sourced as a tide-stage relationship. What is sourced is a structure relationship: tautog occupy whatever complex cover is available - natural and artificial reefs, rock outcrops, shellfish beds, and man-made structure such as pilings, jetties, groins and wrecks - and cover availability, not tide, is described as the single most important habitat parameter for the species.",
+      depthTendency:
+        "Structure- and season-dependent rather than a fixed depth. In summer, adults move inshore into shallow structured habitat alongside juveniles; in fall, adults migrate to deeper, more rugged offshore bottom (roughly 25-45 m / 80-150 ft) once bottom temperature drops below about 10C/50F, though some overwinter inshore, especially in northern parts of the range. Juveniles generally stay inshore year-round.",
+      lightResponse:
+        "Strongly diurnal. Sourced as most active in the first hour of daylight, tapering by mid-morning, feeding by sight through the day, and settling into an inactive, low-responsiveness rest state in shelter at night - described in the source as a true rest/sleep state, not simple inactivity.",
     },
     forageClasses: ["mollusks", "crustaceans", "zooplankton"],
     flowingPresentations: [],
@@ -2298,17 +2835,20 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetContext: {
       verifyLocalRules: true,
       note: "Managed solely by ASMFC - no federal fishery management council role was found in the sources reviewed - under a regional framework with four stock units (Massachusetts-Rhode Island, Long Island Sound, New Jersey-New York Bight, and Delaware-Maryland-Virginia), each carrying its own size, season and bag rules that are not uniform coastwide and that can vary by month within a single region (recreational minimum size runs about 15-16 in, but bag limits and open seasons differ region by region and state by state). The 2025 benchmark assessment found the Massachusetts-Rhode Island and Long Island Sound stocks not overfished and not subject to overfishing, the New Jersey-New York Bight stock subject to overfishing, and the Delaware-Maryland-Virginia stock both overfished and subject to overfishing - status is materially worse toward the southern part of the range. Illegal harvest for the live-fish market has been a persistent, documented enforcement problem: ASMFC's own FMP review cites a coastwide commercial harvest-tag return of only 31% in 2022, with roughly 13,000 issued tags unaccounted for, and a 2017 amendment created the tagging program specifically to address undocumented harvest.",
-      jurisdictionScope: "U.S. Atlantic coast, Massachusetts through Virginia, under the four ASMFC tautog stock units - check both the regional and the specific state rule, since they can differ within one region too.",
+      jurisdictionScope:
+        "U.S. Atlantic coast, Massachusetts through Virginia, under the four ASMFC tautog stock units - check both the regional and the specific state rule, since they can differ within one region too.",
     },
     exceptions: [
       "Tautog show strong homesite fidelity, especially as juveniles, ranging only a short distance from a home shelter by day and returning to it at night. This is recorded here as biology, not as a way to find or return to a specific concentration of fish; this record names no reef, wreck or location, and we never give one.",
       "Illegal harvest and undersized-fish sale to the live-fish market is a real, monitored enforcement problem for this species (see targetContext). This record is written so that it does not make locating a concentration of fish easier, and should not be read as doing so.",
       "Winter cold triggers a torpor state below about 6C/43F, with an apparent lethal threshold near 2.1C/36F in the lab/field synthesis reviewed. This is a physiological limit, not a fishing recommendation, and southern populations (e.g. Virginia) have been reported active at temperatures well below this, so it should not be read as a fixed species-wide cutoff.",
     ],
-    geographic: "Nova Scotia and the Gulf of St. Lawrence to South Carolina; most abundant Cape Cod to Delaware Bay. North of Cape Cod generally within a few miles of shore in under 60 ft; from Cape Cod to New Jersey found further offshore, to roughly 80 ft or more.",
+    geographic:
+      "Nova Scotia and the Gulf of St. Lawrence to South Carolina; most abundant Cape Cod to Delaware Bay. North of Cape Cod generally within a few miles of shore in under 60 ft; from Cape Cod to New Jersey found further offshore, to roughly 80 ft or more.",
     sources: [
       {
-        label: "NOAA Technical Memorandum (NEFSC), Tautog (Tautoga onitis) Life History and Habitat Requirements",
+        label:
+          "NOAA Technical Memorandum (NEFSC), Tautog (Tautoga onitis) Life History and Habitat Requirements",
         class: SRC.agency,
         url: "https://repository.library.noaa.gov/view/noaa/3075/noaa_3075_DS1.pdf",
       },
@@ -2318,7 +2858,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://asmfc.org/species/tautog/",
       },
       {
-        label: "Atlantic States Marine Fisheries Commission - Approved Tautog FMP Review for FY2022",
+        label:
+          "Atlantic States Marine Fisheries Commission - Approved Tautog FMP Review for FY2022",
         class: SRC.agency,
         url: "https://asmfc.org/wp-content/uploads/2025/01/Approved_TautogFMPReviewFY2022.pdf",
       },
@@ -2336,13 +2877,14 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Thunnus albacares",
     commonNames: ["Yellowfin tuna"],
     group: "offshore_pelagic",
-    nativeContext: "Native, highly migratory epipelagic tuna of tropical and subtropical oceans worldwide; in US Atlantic waters it ranges the Gulf of Mexico, southeastern Caribbean, and up the coast, moving across entire ocean basins. Purely oceanic, not landlocked or introduced.",
+    nativeContext:
+      "Native, highly migratory epipelagic tuna of tropical and subtropical oceans worldwide; in US Atlantic waters it ranges the Gulf of Mexico, southeastern Caribbean, and up the coast, moving across entire ocean basins. Purely oceanic, not landlocked or introduced.",
     thermal: {
       preferredF: [79, 82],
       activeF: [68, 84],
       coldEdgeF: 46,
       warmEdgeF: 84,
-      note: "warmEdgeF (84°F / 29°C) is the upper bound of the \"optimal temperature\" range for yellowfin tuna (20-29°C, after Nakagome 1978) as cited in the Aquatic Living Resources habitat/behaviour paper already listed in this record's sources; PSAT-tagged fish in that same study spent 71% of their time in 26-28°C surface water. This is a surface figure cited secondhand from older literature, not a directly measured avoidance/stress threshold; the other thermal fields in this record were sourced separately and are unchanged.",
+      note: 'warmEdgeF (84°F / 29°C) is the upper bound of the "optimal temperature" range for yellowfin tuna (20-29°C, after Nakagome 1978) as cited in the Aquatic Living Resources habitat/behaviour paper already listed in this record\'s sources; PSAT-tagged fish in that same study spent 71% of their time in 26-28°C surface water. This is a surface figure cited secondhand from older literature, not a directly measured avoidance/stress threshold; the other thermal fields in this record were sourced separately and are unchanged.',
     },
     spawning: {
       seasons: ["early_summer", "summer", "late_summer", "fall"],
@@ -2353,24 +2895,36 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       riverHolding: [],
       stillHolding: [],
       marineHolding: { offshore: ["temperature_break", "current_rip", "open_bait_school"] },
-      currentPreference: "Oceanic and highly mobile; a peer-reviewed habitat-suitability study found higher yellowfin habitat suitability associated with mesoscale eddies and current fronts, particularly warm-core (anticyclonic) eddy margins, where convergence concentrates prey and eddy-driven downwelling carries warm, oxygen-rich water to depth.",
-      depthTendency: "Stays mostly within the surface mixed layer: one peer-reviewed tagging study found tagged fish spent 97.6% of their time above 200 m, with a mean daytime depth around 74 m and a somewhat deeper mean nighttime depth around 94 m in that study population. Vertical movement is close to fully inhibited once water temperature drops below about 46°F (8°C).",
-      lightResponse: "Diel vertical pattern documented by tagging: daytime and nighttime depth distributions track the deep scattering layer (roughly 40-100 m), consistent with feeding on the same vertically migrating prey layer both day and night, with somewhat deeper mean depths recorded at night in the reviewed study population.",
+      currentPreference:
+        "Oceanic and highly mobile; a peer-reviewed habitat-suitability study found higher yellowfin habitat suitability associated with mesoscale eddies and current fronts, particularly warm-core (anticyclonic) eddy margins, where convergence concentrates prey and eddy-driven downwelling carries warm, oxygen-rich water to depth.",
+      depthTendency:
+        "Stays mostly within the surface mixed layer: one peer-reviewed tagging study found tagged fish spent 97.6% of their time above 200 m, with a mean daytime depth around 74 m and a somewhat deeper mean nighttime depth around 94 m in that study population. Vertical movement is close to fully inhibited once water temperature drops below about 46°F (8°C).",
+      lightResponse:
+        "Diel vertical pattern documented by tagging: daytime and nighttime depth distributions track the deep scattering layer (roughly 40-100 m), consistent with feeding on the same vertically migrating prey layer both day and night, with somewhat deeper mean depths recorded at night in the reviewed study population.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks"],
     flowingPresentations: [],
     stillPresentations: [],
-    marinePresentations: { offshore: ["chum_established_drift", "live_bait_slow_troll", "trolling_spread", "vertical_jig"] },
+    marinePresentations: {
+      offshore: [
+        "chum_established_drift",
+        "live_bait_slow_troll",
+        "trolling_spread",
+        "vertical_jig",
+      ],
+    },
     targetStatus: "regulated_context",
     targetContext: {
       verifyLocalRules: true,
-      jurisdictionScope: "Atlantic Highly Migratory Species (HMS) fishery, US Atlantic and Gulf of Mexico state and federal waters, managed under the 2006 Consolidated Atlantic HMS FMP and internationally by ICCAT.",
+      jurisdictionScope:
+        "Atlantic Highly Migratory Species (HMS) fishery, US Atlantic and Gulf of Mexico state and federal waters, managed under the 2006 Consolidated Atlantic HMS FMP and internationally by ICCAT.",
       note: "Vessels must hold a valid HMS Angling or HMS Charterboat/Headboat permit to fish for Atlantic yellowfin (and bigeye, albacore, or skipjack) tuna. Recreational minimum size is 27 in curved fork length (jaw tip to tail fork), with a bag limit of 3 fish per person per day/trip. Yellowfin cannot be retained if a hammerhead or oceanic whitetip shark is aboard or has been offloaded from the vessel. The 2024 ICCAT-informed stock assessment found Atlantic yellowfin not overfished and not subject to overfishing. Confirm current size, bag limit, and permit requirements before fishing.",
     },
     exceptions: [
       "Retention is prohibited on any trip where a hammerhead or oceanic whitetip shark is aboard or has been offloaded -- a vessel-level rule, not a size or season rule, and easy to overlook.",
     ],
-    geographic: "Tropical and subtropical oceans worldwide near the surface; in the western Atlantic ranges the Gulf of Mexico and Caribbean north along the US coast as part of a globally distributed, highly migratory population capable of crossing entire ocean basins.",
+    geographic:
+      "Tropical and subtropical oceans worldwide near the surface; in the western Atlantic ranges the Gulf of Mexico and Caribbean north along the US coast as part of a globally distributed, highly migratory population capable of crossing entire ocean basins.",
     sources: [
       {
         label: "NOAA Fisheries, Atlantic Yellowfin Tuna species page",
@@ -2378,17 +2932,20 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         url: "https://www.fisheries.noaa.gov/species/atlantic-yellowfin-tuna",
       },
       {
-        label: "NOAA Fisheries, Atlantic Bigeye, Albacore, Yellowfin and Skipjack Tuna Recreational regulations",
+        label:
+          "NOAA Fisheries, Atlantic Bigeye, Albacore, Yellowfin and Skipjack Tuna Recreational regulations",
         class: SRC.agency,
         url: "https://www.fisheries.noaa.gov/new-england-mid-atlantic/atlantic-highly-migratory-species/atlantic-bigeye-albacore-yellowfin-and",
       },
       {
-        label: "Habitat and behaviour of adult yellowfin tuna (Thunnus albacares), Aquatic Living Resources",
+        label:
+          "Habitat and behaviour of adult yellowfin tuna (Thunnus albacares), Aquatic Living Resources",
         class: SRC.peer,
         url: "https://www.alr-journal.org/articles/alr/full_html/2017/01/alr170057/alr170057.html",
       },
       {
-        label: "Mesoscale activity drives the habitat suitability of yellowfin tuna, Scientific Reports",
+        label:
+          "Mesoscale activity drives the habitat suitability of yellowfin tuna, Scientific Reports",
         class: SRC.peer,
         url: "https://www.nature.com/articles/s41598-024-58613-7",
       },
@@ -2401,7 +2958,8 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     scientificName: "Trachinotus falcatus",
     commonNames: ["Permit", "Atlantic permit"],
     group: "inshore_surf",
-    nativeContext: "Western Atlantic native, ranging from Massachusetts and southern Florida through the Bahamas and Caribbean to Brazil, and most abundant in southern Florida. A jack (Carangidae), not a flats specialist by ancestry - the same species uses shallow seagrass foraging ground and nearshore hard structure through its life.",
+    nativeContext:
+      "Western Atlantic native, ranging from Massachusetts and southern Florida through the Bahamas and Caribbean to Brazil, and most abundant in southern Florida. A jack (Carangidae), not a flats specialist by ancestry - the same species uses shallow seagrass foraging ground and nearshore hard structure through its life.",
     spawning: {
       seasons: ["spring", "early_summer", "summer"],
       note: "Conservation context only. Peer-reviewed Florida work documented spawning at least during May-July, with agency sourcing giving spring or summer and noting possible year-round spawning in south Florida; permit are multiple-batch spawners. Reproduction occurs offshore over reef structure in roughly 33-100 ft. Telemetry found residency at natural reef sites rising toward the full moon, a probable spawning cue, and monthly gonad indices correlating with reef residency but not with flats residency. Florida closes harvest inside a defined Special Permit Zone across part of this period. Spawning aggregations are excluded from targeting in this catalog.",
@@ -2414,9 +2972,12 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
         inshore: ["grass_flat", "sand_hole", "channel_edge"],
         nearshore: ["nearshore_reef", "artificial_reef", "wreck"],
       },
-      currentPreference: "Not sourced as a tide-stage relationship, which is a real hole in this record. What is sourced is a depth constraint: permit forage predominantly in shallow nearshore seagrass flats under about 5 m, and the acoustic-telemetry work that examined environmental drivers of residency tested temperature, season and lunar phase rather than tide.",
-      depthTendency: "Two-part. Foraging is shallow - predominantly under about 5 m over nearshore seagrass flats, with juveniles in water under 0.6 m. The same individuals make repeated trips to nearshore and offshore hard structure; 75% of telemetered fish were detected in both flats and reef habitat, and adults are recorded to about 30 m.",
-      lightResponse: "Not sourced. No diel pattern was reported by the telemetry studies consulted.",
+      currentPreference:
+        "Not sourced as a tide-stage relationship, which is a real hole in this record. What is sourced is a depth constraint: permit forage predominantly in shallow nearshore seagrass flats under about 5 m, and the acoustic-telemetry work that examined environmental drivers of residency tested temperature, season and lunar phase rather than tide.",
+      depthTendency:
+        "Two-part. Foraging is shallow - predominantly under about 5 m over nearshore seagrass flats, with juveniles in water under 0.6 m. The same individuals make repeated trips to nearshore and offshore hard structure; 75% of telemetered fish were detected in both flats and reef habitat, and adults are recorded to about 30 m.",
+      lightResponse:
+        "Not sourced. No diel pattern was reported by the telemetry studies consulted.",
     },
     forageClasses: ["crustaceans", "mollusks"],
     flowingPresentations: [],
@@ -2429,41 +2990,49 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     targetContext: {
       verifyLocalRules: true,
       note: "Permit are NOT catch-and-release only in Florida, and a record that says otherwise is wrong. FWC manages them with a zoned rule set: inside a defined Special Permit Zone in south Florida state and adjacent federal waters there is a minimum size, a one-fish daily bag, a two-fish vessel limit and a summer harvest closure; outside that zone there is a fork-length slot, a larger daily bag and a year-round season. Agency pages disagree on the closure start month - one FWC page gives 1 April to 31 July, another describes a May-through-July closure - so the closure dates must be verified against current rule text rather than taken from this record. All directed commercial harvest was eliminated in 2011. A survey of anglers and guides reported significant decline in permit fishing quality from 1995 through 2019, with the decline more pronounced on flats than on reef habitat.",
-      jurisdictionScope: "Florida (FWC) state and adjacent federal waters, with a separate zoned rule set in south Florida; other jurisdictions across the Caribbean and western Atlantic manage the species independently.",
+      jurisdictionScope:
+        "Florida (FWC) state and adjacent federal waters, with a separate zoned rule set in south Florida; other jurisdictions across the Caribbean and western Atlantic manage the species independently.",
     },
     exceptions: [
       "Nearshore hard structure is both a legitimate year-round habitat class for permit and the habitat class in which they aggregate to spawn. This catalog lists the structure class and never a site, and treats the reproductive season as conservation context. Published work reports that shark depredation of hooked permit at offshore aggregation sites can be high, which compounds the cost of fishing them there during the spawning period.",
       "This record does not include coordinates or named reefs, wrecks or flats, and we never give them.",
     ],
-    geographic: "Western Atlantic, Massachusetts to Brazil, most abundant in southern Florida. FWC records permit in northern and central Florida during warm months and in south Florida year-round.",
+    geographic:
+      "Western Atlantic, Massachusetts to Brazil, most abundant in southern Florida. FWC records permit in northern and central Florida during warm months and in south Florida year-round.",
     sources: [
       {
-        label: "Florida Fish and Wildlife Conservation Commission - Permit life history and Permit recreational regulations",
+        label:
+          "Florida Fish and Wildlife Conservation Commission - Permit life history and Permit recreational regulations",
         class: SRC.agency,
         url: "https://myfwc.com/research/saltwater/fish/permit/life-history/",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission - A Review of Florida's Permit Fishery",
+        label:
+          "Florida Fish and Wildlife Conservation Commission - A Review of Florida's Permit Fishery",
         class: SRC.agency,
         url: "https://myfwc.com/research/saltwater/fish/permit/fishery/",
       },
       {
-        label: "Crabtree, Hood & Snodgrass 2002, Age, growth, and reproduction of permit (Trachinotus falcatus) in Florida waters. Fishery Bulletin 100:26-34",
+        label:
+          "Crabtree, Hood & Snodgrass 2002, Age, growth, and reproduction of permit (Trachinotus falcatus) in Florida waters. Fishery Bulletin 100:26-34",
         class: SRC.peer,
         url: "https://spo.nmfs.noaa.gov/sites/default/files/pdf-content/2002/1001/cra.pdf",
       },
       {
-        label: "Brownscombe et al. 2020, Seasonal occupancy and connectivity amongst nearshore flats and reef habitats by permit Trachinotus falcatus. Journal of Fish Biology 96:469-479",
+        label:
+          "Brownscombe et al. 2020, Seasonal occupancy and connectivity amongst nearshore flats and reef habitats by permit Trachinotus falcatus. Journal of Fish Biology 96:469-479",
         class: SRC.peer,
         url: "https://static1.squarespace.com/static/56e83fa03c44d8db592ca684/t/600c7dcc09ec2d32374ee6d4/1611431375396/135+Brownscombe+et+al+2020+Seasonal+occupancy+Permit.pdf",
       },
       {
-        label: "Brownscombe et al. 2023, Spatial-temporal patterns of Permit (Trachinotus falcatus) habitat residency in the Florida Keys, USA. Environmental Biology of Fishes 106:419-431",
+        label:
+          "Brownscombe et al. 2023, Spatial-temporal patterns of Permit (Trachinotus falcatus) habitat residency in the Florida Keys, USA. Environmental Biology of Fishes 106:419-431",
         class: SRC.peer,
         url: "https://link.springer.com/article/10.1007/s10641-022-01332-7",
       },
       {
-        label: "Piczak et al. 2023, Permit (Trachinotus falcatus) fishing quality and conservation threats in the Florida Keys. Gulf and Caribbean Research 34(1):1-12",
+        label:
+          "Piczak et al. 2023, Permit (Trachinotus falcatus) fishing quality and conservation threats in the Florida Keys. Gulf and Caribbean Research 34(1):1-12",
         class: SRC.peer,
         url: "https://www.fecpl.ca/wp-content/uploads/2023/01/Permit-Conservation-in-the-Florida-Keys.pdf",
       },

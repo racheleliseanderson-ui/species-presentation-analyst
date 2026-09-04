@@ -48,7 +48,10 @@ describe("RPC-1.0 catalog invariants", () => {
           waterType === "flowing" ? species.flowingPresentations : species.stillPresentations,
         );
         for (const family of Object.keys(profile.bias)) {
-          assert.ok(approved.has(family as never), `${profile.id} references unreviewed family ${family}`);
+          assert.ok(
+            approved.has(family as never),
+            `${profile.id} references unreviewed family ${family}`,
+          );
         }
       }
       assert.ok(profile.positioning.length > 20);
@@ -93,7 +96,12 @@ describe("RPC-1.0 interpretation behavior", () => {
     );
     assert.ok(
       r.presentations.every((p) =>
-        ["cross_current_retrieve", "pulse_jig", "bottom_contact_drift", "upstream_retrieve"].includes(p.id),
+        [
+          "cross_current_retrieve",
+          "pulse_jig",
+          "bottom_contact_drift",
+          "upstream_retrieve",
+        ].includes(p.id),
       ),
     );
     assert.match(r.positioning.map((x) => x.text).join("\n"), /cool clear river/i);

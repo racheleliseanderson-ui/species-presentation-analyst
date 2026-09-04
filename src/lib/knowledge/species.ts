@@ -14,19 +14,39 @@ export const SPECIES: SpeciesRecord[] = [
     group: "trout_salmon",
     nativeContext: "Pacific basin native; widely introduced in cold temperate fresh water.",
     thermal: { preferredF: [50, 60], activeF: [45, 65], coldEdgeF: 42, warmEdgeF: 70 },
-    spawning: { seasons: ["early_spring", "spring"], note: "Spring spawner in most inland waters; temperature and flow rising together." },
+    spawning: {
+      seasons: ["early_spring", "spring"],
+      note: "Spring spawner in most inland waters; temperature and flow rising together.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["riffle", "riffle_to_run", "run", "seam", "boulder_pocket", "tailwater"],
       stillHolding: ["inlet", "outlet", "drop_off", "thermocline_edge", "point"],
-      currentPreference: "Willing to use moderate current if food is delivered; less bound to the slowest water than brown trout.",
+      currentPreference:
+        "Willing to use moderate current if food is delivered; less bound to the slowest water than brown trout.",
       depthTendency: "Mid-column to upper when feeding; deeper on bright, warm, or pressured days.",
-      lightResponse: "Feeds in daylight more readily than brown trout; still uses shade and broken light.",
+      lightResponse:
+        "Feeds in daylight more readily than brown trout; still uses shade and broken light.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "crustaceans", "small_forage_fish", "worms_annelids"],
-    flowingPresentations: ["dead_drift", "tight_line_drift", "suspended_drift", "swing", "cross_current_retrieve"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "worms_annelids",
+    ],
+    flowingPresentations: [
+      "dead_drift",
+      "tight_line_drift",
+      "suspended_drift",
+      "swing",
+      "cross_current_retrieve",
+    ],
     stillPresentations: ["horizontal_retrieve", "stop_and_go", "suspend_pause", "trolling"],
-    exceptions: ["Steelhead form is anadromous and should be treated as steelhead, not inland rainbow."],
+    exceptions: [
+      "Steelhead form is anadromous and should be treated as steelhead, not inland rainbow.",
+    ],
     geographic: "Temperate freshwater of North America; strain and elevation change thermal edges.",
     sources: [
       { label: "USFWS / state inland trout management summaries", class: SRC.agency },
@@ -42,20 +62,49 @@ export const SPECIES: SpeciesRecord[] = [
     group: "trout_salmon",
     nativeContext: "Eurasian native; introduced across temperate North America.",
     thermal: { preferredF: [50, 60], activeF: [45, 65], coldEdgeF: 40, warmEdgeF: 70 },
-    spawning: { seasons: ["fall", "late_fall"], note: "Fall spawner; fish move onto gravel as days shorten and temps drop." },
+    spawning: {
+      seasons: ["fall", "late_fall"],
+      note: "Fall spawner; fish move onto gravel as days shorten and temps drop.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
-      riverHolding: ["seam", "pool_head", "undercut_bank", "deep_pool", "current_break", "submerged_wood", "run"],
+      riverHolding: [
+        "seam",
+        "pool_head",
+        "undercut_bank",
+        "deep_pool",
+        "current_break",
+        "submerged_wood",
+        "run",
+      ],
       stillHolding: ["weed_edge", "drop_off", "inlet", "wood", "thermocline_edge"],
-      currentPreference: "Balances food delivery against energy cost; velocity boundaries over uniform fast water.",
+      currentPreference:
+        "Balances food delivery against energy cost; velocity boundaries over uniform fast water.",
       depthTendency: "Holds deeper than rainbow in daylight; slides shallower in low light.",
       lightResponse: "Strong low-light and night feeding, especially in clear or pressured water.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "crustaceans", "small_forage_fish", "larger_prey_fish", "worms_annelids"],
-    flowingPresentations: ["dead_drift", "bottom_contact_drift", "cross_current_retrieve", "swing", "surface_drift"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "larger_prey_fish",
+      "worms_annelids",
+    ],
+    flowingPresentations: [
+      "dead_drift",
+      "bottom_contact_drift",
+      "cross_current_retrieve",
+      "swing",
+      "surface_drift",
+    ],
     stillPresentations: ["stop_and_go", "suspend_pause", "horizontal_retrieve", "surface_retrieve"],
-    exceptions: ["Large piscivorous adults may ignore insect-scale presentations even when smaller fish are on them."],
-    geographic: "Temperate freshwater; more tolerant of slightly warmer and more fertile water than brook trout.",
+    exceptions: [
+      "Large piscivorous adults may ignore insect-scale presentations even when smaller fish are on them.",
+    ],
+    geographic:
+      "Temperate freshwater; more tolerant of slightly warmer and more fertile water than brook trout.",
     sources: [
       { label: "USGS / state brown trout habitat notes", class: SRC.agency },
       { label: "Elliott thermal biology of brown trout", class: SRC.peer },
@@ -80,10 +129,18 @@ export const SPECIES: SpeciesRecord[] = [
       lightResponse: "Uses shade and broken water; less nocturnal than brown trout.",
     },
     forageClasses: ["aquatic_insects", "terrestrial_insects", "crustaceans", "small_forage_fish"],
-    flowingPresentations: ["dead_drift", "tight_line_drift", "surface_drift", "downstream_retrieve"],
+    flowingPresentations: [
+      "dead_drift",
+      "tight_line_drift",
+      "surface_drift",
+      "downstream_retrieve",
+    ],
     stillPresentations: ["horizontal_retrieve", "surface_retrieve", "drop_presentation"],
-    exceptions: ["Warm lowland water is often lethal in summer; presence does not imply a workable day."],
-    geographic: "Cold, well-oxygenated streams and ponds; competitive displacement by brown trout is common.",
+    exceptions: [
+      "Warm lowland water is often lethal in summer; presence does not imply a workable day.",
+    ],
+    geographic:
+      "Cold, well-oxygenated streams and ponds; competitive displacement by brown trout is common.",
     sources: [
       { label: "USFWS brook trout conservation summaries", class: SRC.agency },
       { label: "Raleigh habitat suitability (brook trout)", class: SRC.peer },
@@ -96,21 +153,42 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Oncorhynchus clarkii",
     commonNames: ["Cutthroat trout"],
     group: "trout_salmon",
-    nativeContext: "Interior and coastal cutthroat complex of western North America; subspecies differ.",
+    nativeContext:
+      "Interior and coastal cutthroat complex of western North America; subspecies differ.",
     thermal: { preferredF: [48, 58], activeF: [44, 64], coldEdgeF: 40, warmEdgeF: 68 },
-    spawning: { seasons: ["spring"], note: "Spring spawner; many interior forms move into tributaries." },
+    spawning: {
+      seasons: ["spring"],
+      note: "Spring spawner; many interior forms move into tributaries.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
-      riverHolding: ["run", "seam", "riffle_to_run", "pool_head", "side_channel", "tributary_mouth"],
+      riverHolding: [
+        "run",
+        "seam",
+        "riffle_to_run",
+        "pool_head",
+        "side_channel",
+        "tributary_mouth",
+      ],
       stillHolding: ["inlet", "outlet", "drop_off", "point", "weed_edge"],
-      currentPreference: "Moderate current and tributary-influenced water; less of a heavy-cover fish than brown trout.",
+      currentPreference:
+        "Moderate current and tributary-influenced water; less of a heavy-cover fish than brown trout.",
       depthTendency: "Often near drop-offs and inlets in lakes; mid-depth in rivers when feeding.",
       lightResponse: "Daytime feeding common; still uses shade on bright alpine water.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "crustaceans", "small_forage_fish", "zooplankton"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "crustaceans",
+      "small_forage_fish",
+      "zooplankton",
+    ],
     flowingPresentations: ["dead_drift", "swing", "suspended_drift", "surface_drift"],
     stillPresentations: ["horizontal_retrieve", "trolling", "stop_and_go", "surface_retrieve"],
-    exceptions: ["Subspecies (Yellowstone, westslope, coastal, Lahontan) are not interchangeable; treat geographic limits as hard."],
+    exceptions: [
+      "Subspecies (Yellowstone, westslope, coastal, Lahontan) are not interchangeable; treat geographic limits as hard.",
+    ],
     geographic: "Western North America; hybridization with rainbow trout is a conservation issue.",
     sources: [
       { label: "State/tribal cutthroat status reviews", class: SRC.agency },
@@ -130,7 +208,14 @@ export const SPECIES: SpeciesRecord[] = [
     habitat: {
       waterTypes: ["stillwater"],
       riverHolding: [],
-      stillHolding: ["thermocline_edge", "basin", "submerged_hump", "drop_off", "rocky_shoreline", "suspended_open"],
+      stillHolding: [
+        "thermocline_edge",
+        "basin",
+        "submerged_hump",
+        "drop_off",
+        "rocky_shoreline",
+        "suspended_open",
+      ],
       currentPreference: "Stillwater; uses points and humps, not river current.",
       depthTendency: "Deep and pelagic in summer; shallower in spring/fall and at night.",
       lightResponse: "Low light and depth; bright midday summer often pushes fish down.",
@@ -138,7 +223,9 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "aquatic_insects"],
     flowingPresentations: [],
     stillPresentations: ["vertical_jig", "trolling", "suspend_pause", "horizontal_retrieve"],
-    exceptions: ["Summer surface presence is usually a cold-water exception, not a default pattern."],
+    exceptions: [
+      "Summer surface presence is usually a cold-water exception, not a default pattern.",
+    ],
     geographic: "Deep northern lakes and some western reservoirs with a cold hypolimnion.",
     sources: [
       { label: "Great Lakes / provincial lake trout assessments", class: SRC.agency },
@@ -152,22 +239,40 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Oncorhynchus mykiss (anadromous)",
     commonNames: ["Steelhead"],
     group: "trout_salmon",
-    nativeContext: "Anadromous rainbow trout of Pacific drainages; some inland residual populations.",
+    nativeContext:
+      "Anadromous rainbow trout of Pacific drainages; some inland residual populations.",
     thermal: { preferredF: [42, 55], activeF: [38, 60], coldEdgeF: 36, warmEdgeF: 65 },
-    spawning: { seasons: ["winter", "early_spring", "spring"], note: "Winter and summer-run stocks differ; do not collapse them." },
+    spawning: {
+      seasons: ["winter", "early_spring", "spring"],
+      note: "Winter and summer-run stocks differ; do not collapse them.",
+    },
     habitat: {
       waterTypes: ["flowing"],
-      riverHolding: ["run", "seam", "tailwater", "current_break", "pool_head", "deep_pool", "boulder_pocket"],
+      riverHolding: [
+        "run",
+        "seam",
+        "tailwater",
+        "current_break",
+        "pool_head",
+        "deep_pool",
+        "boulder_pocket",
+      ],
       stillHolding: [],
-      currentPreference: "Travel lanes and holding lies adjacent to strong current, not the fastest core.",
-      depthTendency: "Often near bottom in winter; higher in the column as water warms within band.",
-      lightResponse: "Low light and colored water increase movement; bright low clear water often holds them tight.",
+      currentPreference:
+        "Travel lanes and holding lies adjacent to strong current, not the fastest core.",
+      depthTendency:
+        "Often near bottom in winter; higher in the column as water warms within band.",
+      lightResponse:
+        "Low light and colored water increase movement; bright low clear water often holds them tight.",
     },
     forageClasses: ["aquatic_insects", "eggs", "small_forage_fish"],
     flowingPresentations: ["swing", "bottom_contact_drift", "dead_drift", "downstream_retrieve"],
     stillPresentations: [],
-    exceptions: ["Does not imply a hatch match; many winter fish are not feeding in the trout sense."],
-    geographic: "Pacific basin and introduced Great Lakes runs; treat stocks as geographically limited.",
+    exceptions: [
+      "Does not imply a hatch match; many winter fish are not feeding in the trout sense.",
+    ],
+    geographic:
+      "Pacific basin and introduced Great Lakes runs; treat stocks as geographically limited.",
     sources: [
       { label: "NOAA Fisheries steelhead status", class: SRC.agency },
       { label: "Withler / Quinn anadromous Oncorhynchus reviews", class: SRC.peer },
@@ -182,19 +287,26 @@ export const SPECIES: SpeciesRecord[] = [
     group: "trout_salmon",
     nativeContext: "Pacific salmon; also established in the Great Lakes.",
     thermal: { preferredF: [44, 55], activeF: [40, 60], coldEdgeF: 38, warmEdgeF: 64 },
-    spawning: { seasons: ["late_summer", "fall"], note: "Adults on the spawning migration are not a feeding problem." },
+    spawning: {
+      seasons: ["late_summer", "fall"],
+      note: "Adults on the spawning migration are not a feeding problem.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["run", "deep_pool", "seam", "tailwater", "current_break"],
       stillHolding: ["thermocline_edge", "suspended_open", "drop_off", "point"],
       currentPreference: "River travel and holding in moderate-to-strong lanes; lakes are pelagic.",
-      depthTendency: "Often deep or suspended in lakes; river depth follows holding water, not a single number.",
-      lightResponse: "Low light movement; bright conditions push lake fish down along the thermocline.",
+      depthTendency:
+        "Often deep or suspended in lakes; river depth follows holding water, not a single number.",
+      lightResponse:
+        "Low light movement; bright conditions push lake fish down along the thermocline.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "aquatic_insects"],
     flowingPresentations: ["swing", "downstream_retrieve", "bottom_contact_drift"],
     stillPresentations: ["trolling", "vertical_jig", "horizontal_retrieve"],
-    exceptions: ["Spawning adults: presentation is interception, not forage matching. Do not target redds."],
+    exceptions: [
+      "Spawning adults: presentation is interception, not forage matching. Do not target redds.",
+    ],
     geographic: "Pacific and Great Lakes; run timing is stock-specific.",
     sources: [
       { label: "NOAA / DFO chinook assessments", class: SRC.agency },
@@ -210,13 +322,18 @@ export const SPECIES: SpeciesRecord[] = [
     group: "trout_salmon",
     nativeContext: "Pacific salmon; also established in the Great Lakes.",
     thermal: { preferredF: [46, 56], activeF: [42, 62], coldEdgeF: 38, warmEdgeF: 65 },
-    spawning: { seasons: ["fall"], note: "Fall spawner; nearshore and river-mouth staging precedes the run." },
+    spawning: {
+      seasons: ["fall"],
+      note: "Fall spawner; nearshore and river-mouth staging precedes the run.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["run", "seam", "pool_head", "current_break", "tributary_mouth"],
       stillHolding: ["thermocline_edge", "suspended_open", "point", "inlet"],
-      currentPreference: "Willing to use upper-column current and tributary plumes more than chinook.",
-      depthTendency: "Often higher in the column than chinook in lakes; river holding is mid to lower.",
+      currentPreference:
+        "Willing to use upper-column current and tributary plumes more than chinook.",
+      depthTendency:
+        "Often higher in the column than chinook in lakes; river holding is mid to lower.",
       lightResponse: "Low light and overcast favor higher, more aggressive positioning.",
     },
     forageClasses: ["small_forage_fish", "aquatic_insects", "terrestrial_insects"],
@@ -238,18 +355,43 @@ export const SPECIES: SpeciesRecord[] = [
     group: "bass_panfish",
     nativeContext: "Mississippi basin native; now nearly continental in warm still water.",
     thermal: { preferredF: [65, 78], activeF: [55, 82], coldEdgeF: 48, warmEdgeF: 88 },
-    spawning: { seasons: ["spring", "early_summer"], note: "Spawns as water holds in the mid-60s; nests in protected shallows." },
+    spawning: {
+      seasons: ["spring", "early_summer"],
+      note: "Spawns as water holds in the mid-60s; nests in protected shallows.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["eddy", "submerged_wood", "current_break", "side_channel"],
-      stillHolding: ["weed_edge", "inside_weedline", "outside_weedline", "wood", "dock_shade", "point", "shallow_flat"],
+      stillHolding: [
+        "weed_edge",
+        "inside_weedline",
+        "outside_weedline",
+        "wood",
+        "dock_shade",
+        "point",
+        "shallow_flat",
+      ],
       currentPreference: "Avoids sustained current; uses slack and cover even in rivers.",
-      depthTendency: "Shallow to mid; follows vegetation, wood, and shade more than a contour number.",
-      lightResponse: "Shade and low light increase shallow positioning; bright high-sky days push into cover.",
+      depthTendency:
+        "Shallow to mid; follows vegetation, wood, and shade more than a contour number.",
+      lightResponse:
+        "Shade and low light increase shallow positioning; bright high-sky days push into cover.",
     },
-    forageClasses: ["small_forage_fish", "crustaceans", "amphibians", "aquatic_insects", "larger_prey_fish"],
+    forageClasses: [
+      "small_forage_fish",
+      "crustaceans",
+      "amphibians",
+      "aquatic_insects",
+      "larger_prey_fish",
+    ],
     flowingPresentations: ["pulse_jig", "stationary_bait", "cross_current_retrieve"],
-    stillPresentations: ["subsurface_slow_roll", "drop_presentation", "stop_and_go", "surface_retrieve", "bottom_contact"],
+    stillPresentations: [
+      "subsurface_slow_roll",
+      "drop_presentation",
+      "stop_and_go",
+      "surface_retrieve",
+      "bottom_contact",
+    ],
     exceptions: ["Northern vs Florida-strain thermal edges differ; do not treat them as one fish."],
     geographic: "Warm lakes, reservoirs, and slow rivers across North America.",
     sources: [
@@ -264,21 +406,55 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Micropterus dolomieu",
     commonNames: ["Smallmouth bass"],
     group: "bass_panfish",
-    nativeContext: "Great Lakes / Ohio / upper Mississippi native; widely introduced in cool rivers and rocky lakes.",
+    nativeContext:
+      "Great Lakes / Ohio / upper Mississippi native; widely introduced in cool rivers and rocky lakes.",
     thermal: { preferredF: [60, 72], activeF: [52, 76], coldEdgeF: 46, warmEdgeF: 82 },
-    spawning: { seasons: ["spring", "early_summer"], note: "Spawns on rock in current or on windward lake gravel as water holds near 60°F." },
+    spawning: {
+      seasons: ["spring", "early_summer"],
+      note: "Spawns on rock in current or on windward lake gravel as water holds near 60°F.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
-      riverHolding: ["current_break", "seam", "boulder_pocket", "eddy", "run", "riffle_to_run", "pool_head"],
-      stillHolding: ["rocky_shoreline", "point", "secondary_point", "drop_off", "riprap", "submerged_hump"],
-      currentPreference: "Uses current; holds on the slow side of fast water, not in dead slack only.",
+      riverHolding: [
+        "current_break",
+        "seam",
+        "boulder_pocket",
+        "eddy",
+        "run",
+        "riffle_to_run",
+        "pool_head",
+      ],
+      stillHolding: [
+        "rocky_shoreline",
+        "point",
+        "secondary_point",
+        "drop_off",
+        "riprap",
+        "submerged_hump",
+      ],
+      currentPreference:
+        "Uses current; holds on the slow side of fast water, not in dead slack only.",
       depthTendency: "Shallow to mid on rock; slides deeper on bright, calm, or post-front days.",
-      lightResponse: "Feeds in daylight; low light and wind often move fish shallower on the same rock.",
+      lightResponse:
+        "Feeds in daylight; low light and wind often move fish shallower on the same rock.",
     },
     forageClasses: ["crustaceans", "small_forage_fish", "aquatic_insects"],
-    flowingPresentations: ["cross_current_retrieve", "pulse_jig", "bottom_contact_drift", "upstream_retrieve"],
-    stillPresentations: ["bottom_contact", "stop_and_go", "drop_presentation", "horizontal_retrieve", "vertical_jig"],
-    exceptions: ["Forage is often crayfish even when baitfish are visible; do not let one observation erase the other class."],
+    flowingPresentations: [
+      "cross_current_retrieve",
+      "pulse_jig",
+      "bottom_contact_drift",
+      "upstream_retrieve",
+    ],
+    stillPresentations: [
+      "bottom_contact",
+      "stop_and_go",
+      "drop_presentation",
+      "horizontal_retrieve",
+      "vertical_jig",
+    ],
+    exceptions: [
+      "Forage is often crayfish even when baitfish are visible; do not let one observation erase the other class.",
+    ],
     geographic: "Cool, rocky rivers and lakes; less at home in heavy vegetation than largemouth.",
     sources: [
       { label: "USGS / provincial smallmouth assessments", class: SRC.agency },
@@ -294,11 +470,21 @@ export const SPECIES: SpeciesRecord[] = [
     group: "bass_panfish",
     nativeContext: "Ohio / Mississippi tributaries; expanding in highland reservoirs.",
     thermal: { preferredF: [62, 76], activeF: [54, 82], coldEdgeF: 48, warmEdgeF: 86 },
-    spawning: { seasons: ["spring"], note: "Spring spawner, often slightly deeper / more offshore than largemouth." },
+    spawning: {
+      seasons: ["spring"],
+      note: "Spring spawner, often slightly deeper / more offshore than largemouth.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["current_break", "run", "boulder_pocket", "deep_pool"],
-      stillHolding: ["drop_off", "point", "breakline", "submerged_hump", "rocky_shoreline", "outside_weedline"],
+      stillHolding: [
+        "drop_off",
+        "point",
+        "breakline",
+        "submerged_hump",
+        "rocky_shoreline",
+        "outside_weedline",
+      ],
       currentPreference: "More current-tolerant than largemouth; uses channel edges in reservoirs.",
       depthTendency: "Often deeper and more pelagic than largemouth in the same lake.",
       lightResponse: "Follows bait in the column; less bound to shade docks than largemouth.",
@@ -306,7 +492,9 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "crustaceans", "aquatic_insects"],
     flowingPresentations: ["cross_current_retrieve", "pulse_jig", "downstream_retrieve"],
     stillPresentations: ["horizontal_retrieve", "drop_presentation", "vertical_jig", "stop_and_go"],
-    exceptions: ["Alabama / redeye complexes are not this record; do not genericize spotted bass across the South."],
+    exceptions: [
+      "Alabama / redeye complexes are not this record; do not genericize spotted bass across the South.",
+    ],
     geographic: "Interior highland rivers and deep reservoirs.",
     sources: [
       { label: "State spotted bass notes (KY, TN, AL, OK)", class: SRC.agency },
@@ -320,21 +508,42 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Pomoxis nigromaculatus / P. annularis",
     commonNames: ["Crappie"],
     group: "bass_panfish",
-    nativeContext: "Eastern / central North America; both black and white crappie, treated here as a complex.",
+    nativeContext:
+      "Eastern / central North America; both black and white crappie, treated here as a complex.",
     thermal: { preferredF: [58, 72], activeF: [50, 78], coldEdgeF: 44, warmEdgeF: 82 },
-    spawning: { seasons: ["spring"], note: "Shallow wood and brush as water holds in the upper 50s to mid-60s." },
+    spawning: {
+      seasons: ["spring"],
+      note: "Shallow wood and brush as water holds in the upper 50s to mid-60s.",
+    },
     habitat: {
       waterTypes: ["stillwater"],
       riverHolding: ["eddy", "side_channel", "submerged_wood"],
-      stillHolding: ["wood", "dock_shade", "weed_edge", "drop_off", "basin", "inlet", "suspended_open"],
+      stillHolding: [
+        "wood",
+        "dock_shade",
+        "weed_edge",
+        "drop_off",
+        "basin",
+        "inlet",
+        "suspended_open",
+      ],
       currentPreference: "Slack and slow water; river fish use backwaters, not the main current.",
       depthTendency: "Suspend around cover and follow bait; winter often deeper timber or basins.",
-      lightResponse: "Shade and stained water; bright clear days push them tighter to cover or deeper.",
+      lightResponse:
+        "Shade and stained water; bright clear days push them tighter to cover or deeper.",
     },
     forageClasses: ["small_forage_fish", "zooplankton", "aquatic_insects", "crustaceans"],
     flowingPresentations: ["pulse_jig", "stationary_bait"],
-    stillPresentations: ["vertical_jig", "suspend_pause", "drop_presentation", "slow_drag", "live_natural_bait_suspension"],
-    exceptions: ["Black and white crappie habitat splits in the same lake; this record is the complex, not a subspecies key."],
+    stillPresentations: [
+      "vertical_jig",
+      "suspend_pause",
+      "drop_presentation",
+      "slow_drag",
+      "live_natural_bait_suspension",
+    ],
+    exceptions: [
+      "Black and white crappie habitat splits in the same lake; this record is the complex, not a subspecies key.",
+    ],
     geographic: "Reservoirs, oxbows, and slow rivers across the eastern and central U.S.",
     sources: [
       { label: "State crappie management summaries", class: SRC.agency },
@@ -350,19 +559,36 @@ export const SPECIES: SpeciesRecord[] = [
     group: "bass_panfish",
     nativeContext: "Mississippi basin native; now ubiquitous in warm still water.",
     thermal: { preferredF: [68, 80], activeF: [60, 84], coldEdgeF: 52, warmEdgeF: 90 },
-    spawning: { seasons: ["early_summer", "summer"], note: "Colonial nests in shallows through much of summer." },
+    spawning: {
+      seasons: ["early_summer", "summer"],
+      note: "Colonial nests in shallows through much of summer.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["eddy", "side_channel", "submerged_wood"],
       stillHolding: ["weed_edge", "inside_weedline", "dock_shade", "shallow_flat", "wood"],
       currentPreference: "Little current; uses vegetated slack.",
-      depthTendency: "Shallow to mid around vegetation; deeper on bright winter days in some lakes.",
+      depthTendency:
+        "Shallow to mid around vegetation; deeper on bright winter days in some lakes.",
       lightResponse: "Daytime sight feeder in and around cover; shade in high sun.",
     },
-    forageClasses: ["aquatic_insects", "zooplankton", "crustaceans", "terrestrial_insects", "worms_annelids"],
+    forageClasses: [
+      "aquatic_insects",
+      "zooplankton",
+      "crustaceans",
+      "terrestrial_insects",
+      "worms_annelids",
+    ],
     flowingPresentations: ["dead_drift", "stationary_bait"],
-    stillPresentations: ["drop_presentation", "slow_drag", "surface_retrieve", "live_natural_bait_suspension"],
-    exceptions: ["Bed targeting of spawning colonies is a conservation choice, and never something we recommend."],
+    stillPresentations: [
+      "drop_presentation",
+      "slow_drag",
+      "surface_retrieve",
+      "live_natural_bait_suspension",
+    ],
+    exceptions: [
+      "Bed targeting of spawning colonies is a conservation choice, and never something we recommend.",
+    ],
     geographic: "Warm lakes, ponds, and slow rivers continent-wide.",
     sources: [
       { label: "State inland panfish notes", class: SRC.agency },
@@ -378,20 +604,55 @@ export const SPECIES: SpeciesRecord[] = [
     group: "predator",
     nativeContext: "Native to the Great Lakes / Mississippi / Ohio; widely stocked in reservoirs.",
     thermal: { preferredF: [55, 68], activeF: [48, 72], coldEdgeF: 42, warmEdgeF: 76 },
-    spawning: { seasons: ["early_spring", "spring"], note: "Early spring on rock and current; often the first big movement of the year." },
+    spawning: {
+      seasons: ["early_spring", "spring"],
+      note: "Early spring on rock and current; often the first big movement of the year.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
-      riverHolding: ["current_break", "tailwater", "run", "pool_head", "tributary_mouth", "deep_pool"],
-      stillHolding: ["point", "drop_off", "breakline", "rocky_shoreline", "inlet", "thermocline_edge", "basin"],
-      currentPreference: "Uses current and current-washed structure; not a slack-water ambush fish.",
-      depthTendency: "Follows the light-food compromise: deeper in bright clear water, shallower in stain, wind, and low light.",
-      lightResponse: "Strong low-light and night feeding; tapetum-adapted. Bright midday in clear water is often a poor feeding window, not a location problem.",
+      riverHolding: [
+        "current_break",
+        "tailwater",
+        "run",
+        "pool_head",
+        "tributary_mouth",
+        "deep_pool",
+      ],
+      stillHolding: [
+        "point",
+        "drop_off",
+        "breakline",
+        "rocky_shoreline",
+        "inlet",
+        "thermocline_edge",
+        "basin",
+      ],
+      currentPreference:
+        "Uses current and current-washed structure; not a slack-water ambush fish.",
+      depthTendency:
+        "Follows the light-food compromise: deeper in bright clear water, shallower in stain, wind, and low light.",
+      lightResponse:
+        "Strong low-light and night feeding; tapetum-adapted. Bright midday in clear water is often a poor feeding window, not a location problem.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "aquatic_insects", "crustaceans"],
-    flowingPresentations: ["bottom_contact_drift", "cross_current_retrieve", "pulse_jig", "downstream_retrieve"],
-    stillPresentations: ["slow_drag", "trolling", "bottom_contact", "vertical_jig", "live_natural_bait_suspension"],
-    exceptions: ["Does not imply fish will bite at dusk. It implies dusk is metabolically and optically more plausible."],
-    geographic: "Cool lakes and large rivers of the north and interior; southern reservoirs depend on hypolimnion and forage.",
+    flowingPresentations: [
+      "bottom_contact_drift",
+      "cross_current_retrieve",
+      "pulse_jig",
+      "downstream_retrieve",
+    ],
+    stillPresentations: [
+      "slow_drag",
+      "trolling",
+      "bottom_contact",
+      "vertical_jig",
+      "live_natural_bait_suspension",
+    ],
+    exceptions: [
+      "Does not imply fish will bite at dusk. It implies dusk is metabolically and optically more plausible.",
+    ],
+    geographic:
+      "Cool lakes and large rivers of the north and interior; southern reservoirs depend on hypolimnion and forage.",
     sources: [
       { label: "GLFC / state walleye assessments", class: SRC.agency },
       { label: "Colby et al. walleye biology", class: SRC.peer },
@@ -404,21 +665,34 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Esox lucius",
     commonNames: ["Northern pike"],
     group: "predator",
-    nativeContext: "Holarctic; native across northern North America, widely introduced south of that range.",
+    nativeContext:
+      "Holarctic; native across northern North America, widely introduced south of that range.",
     thermal: { preferredF: [50, 65], activeF: [42, 70], coldEdgeF: 36, warmEdgeF: 75 },
-    spawning: { seasons: ["early_spring"], note: "Ice-out vegetated shallows; among the earliest spawners." },
+    spawning: {
+      seasons: ["early_spring"],
+      note: "Ice-out vegetated shallows; among the earliest spawners.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["eddy", "side_channel", "submerged_wood", "current_break", "tributary_mouth"],
       stillHolding: ["weed_edge", "inside_weedline", "outside_weedline", "inlet", "point", "wood"],
       currentPreference: "Ambush from slack adjacent to a food lane, not the current core.",
-      depthTendency: "Weeds and shallows in cool water; deeper weed edges and thermocline as summer warms.",
-      lightResponse: "Sight ambush predator; uses edges and low light but will eat in daylight in stained water.",
+      depthTendency:
+        "Weeds and shallows in cool water; deeper weed edges and thermocline as summer warms.",
+      lightResponse:
+        "Sight ambush predator; uses edges and low light but will eat in daylight in stained water.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "amphibians"],
     flowingPresentations: ["cross_current_retrieve", "upstream_retrieve", "stationary_bait"],
-    stillPresentations: ["subsurface_slow_roll", "stop_and_go", "horizontal_retrieve", "surface_retrieve"],
-    exceptions: ["Warm, weedy southern water may hold pike that are thermally stressed, not 'on the chew'."],
+    stillPresentations: [
+      "subsurface_slow_roll",
+      "stop_and_go",
+      "horizontal_retrieve",
+      "surface_retrieve",
+    ],
+    exceptions: [
+      "Warm, weedy southern water may hold pike that are thermally stressed, not 'on the chew'.",
+    ],
     geographic: "Northern lakes and slow rivers; conservation issues around muskellunge overlap.",
     sources: [
       { label: "Provincial / state esocid plans", class: SRC.agency },
@@ -434,20 +708,33 @@ export const SPECIES: SpeciesRecord[] = [
     group: "predator",
     nativeContext: "Great Lakes / St. Lawrence / Ohio native; intensively managed sport fish.",
     thermal: { preferredF: [55, 70], activeF: [48, 75], coldEdgeF: 42, warmEdgeF: 80 },
-    spawning: { seasons: ["spring"], note: "Shortly after pike; vegetated shallows and tributary mouths." },
+    spawning: {
+      seasons: ["spring"],
+      note: "Shortly after pike; vegetated shallows and tributary mouths.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["current_break", "eddy", "pool_head", "submerged_wood", "tributary_mouth"],
       stillHolding: ["weed_edge", "outside_weedline", "point", "inlet", "wood", "drop_off"],
-      currentPreference: "Edges of current and large structural funnels; not open-basin wanderers by default.",
+      currentPreference:
+        "Edges of current and large structural funnels; not open-basin wanderers by default.",
       depthTendency: "Weed-associated mid-depth; follows forage more than a single contour.",
-      lightResponse: "Low light and weather changes matter; bright high-sky days often pin them to cover.",
+      lightResponse:
+        "Low light and weather changes matter; bright high-sky days often pin them to cover.",
     },
     forageClasses: ["larger_prey_fish", "small_forage_fish", "amphibians"],
     flowingPresentations: ["cross_current_retrieve", "upstream_retrieve", "swing"],
-    stillPresentations: ["stop_and_go", "horizontal_retrieve", "subsurface_slow_roll", "surface_retrieve"],
-    exceptions: ["We do not give aggregation or spawning-site recommendations. This reading will not recommend aggregation or spawning-site locations."],
-    geographic: "Limited native range plus managed inland waters; treat as geographically constrained.",
+    stillPresentations: [
+      "stop_and_go",
+      "horizontal_retrieve",
+      "subsurface_slow_roll",
+      "surface_retrieve",
+    ],
+    exceptions: [
+      "We do not give aggregation or spawning-site recommendations. This reading will not recommend aggregation or spawning-site locations.",
+    ],
+    geographic:
+      "Limited native range plus managed inland waters; treat as geographically constrained.",
     sources: [
       { label: "State muskellunge management plans", class: SRC.agency },
       { label: "Crossman muskellunge biology", class: SRC.peer },
@@ -462,18 +749,27 @@ export const SPECIES: SpeciesRecord[] = [
     group: "predator",
     nativeContext: "Native to northern and eastern North America; schooling, cool-water perciform.",
     thermal: { preferredF: [54, 68], activeF: [46, 72], coldEdgeF: 40, warmEdgeF: 76 },
-    spawning: { seasons: ["early_spring", "spring"], note: "Shallow vegetation and wood shortly after ice-out." },
+    spawning: {
+      seasons: ["early_spring", "spring"],
+      note: "Shallow vegetation and wood shortly after ice-out.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["current_break", "run", "pool_tail"],
       stillHolding: ["weed_edge", "drop_off", "point", "basin", "riprap", "inlet"],
-      currentPreference: "Mild current and current-washed points; schools more than holds a single lie.",
+      currentPreference:
+        "Mild current and current-washed points; schools more than holds a single lie.",
       depthTendency: "Follows zooplankton and bait; often mid-depth along a break.",
       lightResponse: "Daylight schooling; low light may break schools toward shallows.",
     },
     forageClasses: ["zooplankton", "aquatic_insects", "small_forage_fish", "crustaceans"],
     flowingPresentations: ["bottom_contact_drift", "pulse_jig"],
-    stillPresentations: ["vertical_jig", "slow_drag", "drop_presentation", "live_natural_bait_suspension"],
+    stillPresentations: [
+      "vertical_jig",
+      "slow_drag",
+      "drop_presentation",
+      "live_natural_bait_suspension",
+    ],
     exceptions: ["A school is not a hotspot. It is a forage-linked, moving aggregation."],
     geographic: "Cool lakes and large rivers of the north and interior.",
     sources: [
@@ -488,18 +784,29 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Ictalurus punctatus",
     commonNames: ["Channel catfish"],
     group: "other",
-    nativeContext: "Mississippi basin native; now the most widely distributed North American catfish.",
+    nativeContext:
+      "Mississippi basin native; now the most widely distributed North American catfish.",
     thermal: { preferredF: [70, 82], activeF: [60, 86], coldEdgeF: 50, warmEdgeF: 90 },
-    spawning: { seasons: ["early_summer", "summer"], note: "Cavity spawner as water holds in the 70s." },
+    spawning: {
+      seasons: ["early_summer", "summer"],
+      note: "Cavity spawner as water holds in the 70s.",
+    },
     habitat: {
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["deep_pool", "current_break", "run", "tributary_mouth", "submerged_wood"],
       stillHolding: ["drop_off", "wood", "inlet", "riprap", "basin"],
       currentPreference: "Uses current-swept holes and the slow side of moving water.",
       depthTendency: "Bottom-oriented; shallower at night and in stained water.",
-      lightResponse: "Primarily low light and night in clear water; more daytime activity in stain and current.",
+      lightResponse:
+        "Primarily low light and night in clear water; more daytime activity in stain and current.",
     },
-    forageClasses: ["small_forage_fish", "aquatic_insects", "crustaceans", "mollusks", "worms_annelids"],
+    forageClasses: [
+      "small_forage_fish",
+      "aquatic_insects",
+      "crustaceans",
+      "mollusks",
+      "worms_annelids",
+    ],
     flowingPresentations: ["stationary_bait", "bottom_contact_drift", "pulse_jig"],
     stillPresentations: ["bottom_contact", "slow_drag", "live_natural_bait_suspension"],
     exceptions: ["Scent and current delivery often matter more than a visual forage match."],
@@ -518,20 +825,28 @@ export const SPECIES: SpeciesRecord[] = [
     group: "other",
     nativeContext: "Eurasian introduction; established in warm, fertile North American waters.",
     thermal: { preferredF: [62, 78], activeF: [54, 84], coldEdgeF: 46, warmEdgeF: 88 },
-    spawning: { seasons: ["spring", "early_summer"], note: "Shallow vegetation when water holds in the 60s." },
+    spawning: {
+      seasons: ["spring", "early_summer"],
+      note: "Shallow vegetation when water holds in the 60s.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["eddy", "side_channel", "shallow_flat", "tributary_mouth"],
       stillHolding: ["shallow_flat", "inlet", "weed_edge", "inside_weedline", "basin"],
-      currentPreference: "Slow water and the inside of bends; feeds on flats more than in current cores.",
+      currentPreference:
+        "Slow water and the inside of bends; feeds on flats more than in current cores.",
       depthTendency: "Shallow feeding; winters deeper in some systems.",
-      lightResponse: "Daytime visual/tactile feeding on flats; more cautious in very clear bright water.",
+      lightResponse:
+        "Daytime visual/tactile feeding on flats; more cautious in very clear bright water.",
     },
     forageClasses: ["worms_annelids", "mollusks", "crustaceans", "aquatic_insects", "zooplankton"],
     flowingPresentations: ["stationary_bait", "bottom_contact_drift"],
     stillPresentations: ["bottom_contact", "slow_drag", "live_natural_bait_suspension"],
-    exceptions: ["This is not a 'trash fish' record. It is a benthic feeding problem with high pressure sensitivity."],
-    geographic: "Fertile lakes and rivers; invasive status varies by jurisdiction and is not a catch recommendation.",
+    exceptions: [
+      "This is not a 'trash fish' record. It is a benthic feeding problem with high pressure sensitivity.",
+    ],
+    geographic:
+      "Fertile lakes and rivers; invasive status varies by jurisdiction and is not a catch recommendation.",
     sources: [
       { label: "USGS NAS carp fact sheet", class: SRC.agency },
       { label: "Balon carp domestication / biology", class: SRC.peer },
@@ -544,22 +859,31 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Morone saxatilis",
     commonNames: ["Striped bass"],
     group: "other",
-    nativeContext: "Atlantic anadromous native; landlocked in many southern and western reservoirs.",
+    nativeContext:
+      "Atlantic anadromous native; landlocked in many southern and western reservoirs.",
     thermal: { preferredF: [55, 70], activeF: [48, 75], coldEdgeF: 44, warmEdgeF: 78 },
-    spawning: { seasons: ["spring"], note: "Flowing-water spawner; landlocked fish use dam tailraces and large tributaries." },
+    spawning: {
+      seasons: ["spring"],
+      note: "Flowing-water spawner; landlocked fish use dam tailraces and large tributaries.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["tailwater", "current_break", "run", "tributary_mouth", "deep_pool"],
       stillHolding: ["suspended_open", "thermocline_edge", "point", "drop_off", "inlet", "outlet"],
-      currentPreference: "Pelagic and current-oriented; uses current breaks as feeding stations, not as cover.",
+      currentPreference:
+        "Pelagic and current-oriented; uses current breaks as feeding stations, not as cover.",
       depthTendency: "Follows bait in the column; summer often on the thermocline.",
-      lightResponse: "Low light and current increase surface and shallow feeding; bright summer midday is often deep.",
+      lightResponse:
+        "Low light and current increase surface and shallow feeding; bright summer midday is often deep.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish"],
     flowingPresentations: ["cross_current_retrieve", "downstream_retrieve", "swing", "pulse_jig"],
     stillPresentations: ["trolling", "horizontal_retrieve", "vertical_jig", "stop_and_go"],
-    exceptions: ["Do not treat surface busts as a license to run at the school with a boat. This reading does not include coordinates, and we never give them."],
-    geographic: "Atlantic slope and landlocked reservoirs; thermal refuge in summer is a conservation constraint.",
+    exceptions: [
+      "Do not treat surface busts as a license to run at the school with a boat. This reading does not include coordinates, and we never give them.",
+    ],
+    geographic:
+      "Atlantic slope and landlocked reservoirs; thermal refuge in summer is a conservation constraint.",
     sources: [
       { label: "ASMFC / state striped bass plans", class: SRC.agency },
       { label: "Setzler-Hamilton striped bass life history", class: SRC.peer },
@@ -572,9 +896,13 @@ export const SPECIES: SpeciesRecord[] = [
     scientificName: "Morone chrysops",
     commonNames: ["White bass"],
     group: "other",
-    nativeContext: "Mississippi basin native; schooling, spring-run river fish and open-water reservoir fish.",
+    nativeContext:
+      "Mississippi basin native; schooling, spring-run river fish and open-water reservoir fish.",
     thermal: { preferredF: [58, 72], activeF: [50, 78], coldEdgeF: 46, warmEdgeF: 82 },
-    spawning: { seasons: ["spring"], note: "Upriver or windblown-shore spawning run; short and crowded by nature." },
+    spawning: {
+      seasons: ["spring"],
+      note: "Upriver or windblown-shore spawning run; short and crowded by nature.",
+    },
     habitat: {
       waterTypes: ["stillwater", "flowing"],
       riverHolding: ["tributary_mouth", "run", "tailwater", "current_break"],
@@ -586,7 +914,9 @@ export const SPECIES: SpeciesRecord[] = [
     forageClasses: ["small_forage_fish", "aquatic_insects"],
     flowingPresentations: ["cross_current_retrieve", "pulse_jig", "downstream_retrieve"],
     stillPresentations: ["horizontal_retrieve", "stop_and_go", "vertical_jig"],
-    exceptions: ["Spawning runs are public and crowded; we will not name a specific riffle or access as a secret."],
+    exceptions: [
+      "Spawning runs are public and crowded; we will not name a specific riffle or access as a secret.",
+    ],
     geographic: "Interior rivers and reservoirs.",
     sources: [
       { label: "State white bass notes (TX, OK, KS, TN)", class: SRC.agency },

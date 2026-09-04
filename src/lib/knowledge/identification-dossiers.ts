@@ -67,7 +67,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Brook trout are char: worm-like vermiculations on the back, red spots with blue halos, a square tail, and white-then-black leading edges on the lower fins. Rainbows have a spotted tail, a pink lateral band, and lack those vermiculations.",
       },
     ],
-    averageAdultLength: "Inland stream adults commonly 10–16 in; many lake and reservoir fish 16–22 in.",
+    averageAdultLength:
+      "Inland stream adults commonly 10–16 in; many lake and reservoir fish 16–22 in.",
     commonAnglingSize: "10–18 in in most inland fisheries.",
     typicalWeight: "Often under 2 lb in streams; 2–5 lb is common in productive lakes.",
     maximumDocumentedSize:
@@ -75,7 +76,11 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity: "Commonly 4–7 years in inland waters; older fish occur in some lakes.",
     sources: [
       { label: "USFWS / state inland trout management summaries", class: "agency" },
-      { label: "Behnke Oncorhynchus clarkii systematics (rainbow vs cutthroat dentition and maxillary)", class: "peer_reviewed" },
+      {
+        label:
+          "Behnke Oncorhynchus clarkii systematics (rainbow vs cutthroat dentition and maxillary)",
+        class: "peer_reviewed",
+      },
       { label: "Raleigh et al. habitat suitability (rainbow trout)", class: "peer_reviewed" },
     ],
     ...R,
@@ -123,9 +128,11 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Bull trout are char: light spots on a darker body, no cutthroat slash, white leading edges on the fins, and a conservation-sensitive catalog status.",
       },
     ],
-    averageAdultLength: "Many interior stream adults 8–14 in; adfluvial and large-lake forms substantially larger.",
+    averageAdultLength:
+      "Many interior stream adults 8–14 in; adfluvial and large-lake forms substantially larger.",
     commonAnglingSize: "8–16 in in most interior streams.",
-    typicalWeight: "Often under 1.5 lb in small interior streams; lake forms can weigh several pounds.",
+    typicalWeight:
+      "Often under 1.5 lb in small interior streams; lake forms can weigh several pounds.",
     maximumDocumentedSize:
       "Lahontan and some large-lake adfluvial fish historically reached trophy sizes far above typical interior stream fish. Subspecies must not share one maximum.",
     longevity: "Often 5–8 years in interior streams; large-lake forms can live longer.",
@@ -187,15 +194,18 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     typicalWeight: "Often well under 2 lb; a 2 lb fish is large in many waters.",
     maximumDocumentedSize:
       "Some productive lakes produce fish into the high teens of inches and occasional multi-pound trophies, still far below typical anadromous sockeye size.",
-    longevity: "Semelparous; commonly mature and die around age 3–5, similar in structure to sockeye.",
+    longevity:
+      "Semelparous; commonly mature and die around age 3–5, similar in structure to sockeye.",
     sources: [
-      { label: "NOAA Fisheries Sockeye Salmon species profile (kokanee size and life history)", class: "agency", url: "https://www.fisheries.noaa.gov/species/sockeye-salmon" },
+      {
+        label: "NOAA Fisheries Sockeye Salmon species profile (kokanee size and life history)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/sockeye-salmon",
+      },
       { label: "Washington Department of Fish and Wildlife kokanee profile", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "lake-by-lake size variation beyond the NOAA ceiling",
-    ],
+    gaps: ["lake-by-lake size variation beyond the NOAA ceiling"],
   },
   {
     speciesId: "oncorhynchus_nerka_anadromous",
@@ -248,20 +258,21 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity:
       "NOAA: typically mature around age 4–5 after 1–3 years in fresh water and 2–3 years at sea; all die after spawning.",
     sources: [
-      { label: "NOAA Fisheries Sockeye Salmon species profile", class: "agency", url: "https://www.fisheries.noaa.gov/species/sockeye-salmon" },
+      {
+        label: "NOAA Fisheries Sockeye Salmon species profile",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/sockeye-salmon",
+      },
       { label: "NOAA Fisheries Sockeye Salmon protected-ESU profile", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "stock-specific mean size tables",
-    ],
+    gaps: ["stock-specific mean size tables"],
   },
   {
     speciesId: "micropterus_nigricans",
     status: "reviewed",
     regionalNames: ["bucketmouth", "largemouth", "Florida bass (strain/context)", "green bass"],
-    bodyShape:
-      "Deep, compressed centrarchid body; the largest mouth of the common black basses.",
+    bodyShape: "Deep, compressed centrarchid body; the largest mouth of the common black basses.",
     identificationTraits: [
       "TPWD: upper jaw extends well behind the back margin of the eye when the mouth is closed.",
       "Spiny and soft dorsal fins are nearly separated by a deep notch; they are not a continuous fin.",
@@ -273,14 +284,11 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Light to dark green back, white belly, dark horizontal band. Belly white extends higher on the side than in smallmouth.",
     regionalColorVariation:
       "Clear-water fish can be pale with a crisp stripe; tannic or vegetated water produces darker green fish. Florida-strain and northern fish are not visually identical in all waters.",
-    spawningColoration:
-      "Nesting fish darken; this is not a targeting recommendation.",
+    spawningColoration: "Nesting fish darken; this is not a targeting recommendation.",
     juvenileAppearance:
       "Young fish show a strong lateral stripe and a more proportionally large eye and mouth; they can be confused with spotted bass until jaw and dorsal notch are checked.",
-    adultAppearance:
-      "The overshot jaw plus nearly divided dorsal fins is the adult field picture.",
-    sexualDimorphism:
-      "Nesting males guard; sex is not a reliable color key for anglers.",
+    adultAppearance: "The overshot jaw plus nearly divided dorsal fins is the adult field picture.",
+    sexualDimorphism: "Nesting males guard; sex is not a reliable color key for anglers.",
     similarSpecies: [
       {
         speciesId: "micropterus_punctulatus",
@@ -302,21 +310,22 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Trophy fish regularly exceed 10 lb in Florida-strain and some southern fisheries; world-class sizes are documented in agency trophy programs. Northern-strain maxima are typically lower.",
     longevity: "Often 6–10 years; older fish occur in lightly exploited waters.",
     sources: [
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
       { label: "Florida Museum largemouth bass species profile", class: "agency" },
       { label: "Heidinger largemouth life history", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "northern versus Florida-strain size table as a structured field",
-    ],
+    gaps: ["northern versus Florida-strain size table as a structured field"],
   },
   {
     speciesId: "micropterus_dolomieu",
     status: "reviewed",
     regionalNames: ["smallie", "bronzeback", "brown bass"],
-    bodyShape:
-      "More cylindrical than largemouth; bronze rather than green; mouth moderate.",
+    bodyShape: "More cylindrical than largemouth; bronze rather than green; mouth moderate.",
     identificationTraits: [
       "TPWD: jaw does not extend beyond the back margin of the eye when the mouth is closed.",
       "Vertical barring along the sides rather than a single horizontal stripe.",
@@ -324,16 +333,13 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Spiny and soft dorsal fins connected (shallow notch).",
       "No rows of spots forming horizontal stripes on the lower side.",
     ],
-    coloration:
-      "Bronze, brown, or olive with darker vertical bars. Eyes often red-orange.",
+    coloration: "Bronze, brown, or olive with darker vertical bars. Eyes often red-orange.",
     regionalColorVariation:
       "Clear, rocky rivers produce the classic bronzeback. Stained lakes can look darker and lose bar contrast.",
-    spawningColoration:
-      "Nesting males darken; not a targeting recommendation.",
+    spawningColoration: "Nesting males darken; not a targeting recommendation.",
     juvenileAppearance:
       "Strong vertical bars and a bronze cast even at small sizes; orange eyes develop early.",
-    adultAppearance:
-      "Bronze fish with vertical bars and a mouth that stops at the eye.",
+    adultAppearance: "Bronze fish with vertical bars and a mouth that stops at the eye.",
     similarSpecies: [
       {
         speciesId: "micropterus_nigricans",
@@ -361,14 +367,16 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Fish over 6–7 lb are exceptional; agency trophy programs document the upper tail. Do not treat world-record size as a typical expectation.",
     longevity: "Often 6–12 years in northern waters.",
     sources: [
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
       { label: "USGS / provincial smallmouth assessments", class: "agency" },
       { label: "Coble smallmouth biology", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "river versus reservoir mean-size split as a structured field",
-    ],
+    gaps: ["river versus reservoir mean-size split as a structured field"],
   },
   {
     speciesId: "micropterus_punctulatus",
@@ -389,8 +397,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Highland-reservoir fish can look sleek and pelagic. Creek fish may be darker. Alabama bass and related forms are not this record.",
     juvenileAppearance:
       "Rows of spots on the lower side are often already visible; jaw and dorsal connection separate them from young largemouth.",
-    adultAppearance:
-      "A spotted, connected-dorsal black bass whose jaw stops at the eye.",
+    adultAppearance: "A spotted, connected-dorsal black bass whose jaw stops at the eye.",
     similarSpecies: [
       {
         speciesId: "micropterus_nigricans",
@@ -405,13 +412,18 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Smallmouth are bronze with vertical bars and lack the horizontal spot-rows on the lower side.",
       },
     ],
-    averageAdultLength: "Common adults 10–16 in; often smaller-bodied than largemouth in the same reservoir.",
+    averageAdultLength:
+      "Common adults 10–16 in; often smaller-bodied than largemouth in the same reservoir.",
     commonAnglingSize: "10–15 in.",
     typicalWeight: "Often 1–2.5 lb; larger fish occur in highland reservoirs.",
     maximumDocumentedSize:
       "Agency trophy fish exceed typical angling size, but spotted bass do not match largemouth trophy mass. Alabama-bass complexes are excluded from this record.",
     sources: [
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
       { label: "State spotted bass notes (KY, TN, AL, OK)", class: "agency" },
     ],
     ...R,
@@ -424,8 +436,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     speciesId: "morone_saxatilis",
     status: "reviewed",
     regionalNames: ["striper", "rockfish", "linesider"],
-    bodyShape:
-      "Elongate temperate bass; TPWD: body slender, depth less than 1/3 of length.",
+    bodyShape: "Elongate temperate bass; TPWD: body slender, depth less than 1/3 of length.",
     identificationTraits: [
       "TPWD: stripes distinct, several extending to the tail.",
       "TPWD: two distinct tooth patches near the midline toward the back of the tongue.",
@@ -433,8 +444,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Dorsal fins separate.",
       "Second anal spine shorter relative to the third than in white perch.",
     ],
-    coloration:
-      "Olive to steel-blue back, silvery sides, 7–8 continuous dark horizontal stripes.",
+    coloration: "Olive to steel-blue back, silvery sides, 7–8 continuous dark horizontal stripes.",
     regionalColorVariation:
       "Atlantic anadromous fish and landlocked reservoir fish share the same species identity; color is not a population key. RPC overlays handle system archetype separately.",
     spawningColoration:
@@ -469,14 +479,24 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "TPWD: yellow bass have joined dorsal fins, a silvery-yellow cast, stripes broken above the anal fin, and no midline tongue tooth patch.",
       },
     ],
-    averageAdultLength: "Landlocked adults commonly 18–30 in; Atlantic fish span a wider range by stock and year class.",
-    commonAnglingSize: "20–30 in in many reservoir fisheries; coastal fish vary widely by regulation and year class.",
+    averageAdultLength:
+      "Landlocked adults commonly 18–30 in; Atlantic fish span a wider range by stock and year class.",
+    commonAnglingSize:
+      "20–30 in in many reservoir fisheries; coastal fish vary widely by regulation and year class.",
     typicalWeight: "Landlocked fish often 4–12 lb; coastal fish vary with stock status.",
     maximumDocumentedSize:
       "Atlantic fish historically reached much larger sizes than typical landlocked fish. Do not apply one maximum across both life histories.",
     sources: [
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
-      { label: "USFWS white bass species account (striped bass / hybrid tongue-patch contrast)", class: "agency", url: "https://www.fws.gov/species/white-bass-morone-chrysops" },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
+      {
+        label: "USFWS white bass species account (striped bass / hybrid tongue-patch contrast)",
+        class: "agency",
+        url: "https://www.fws.gov/species/white-bass-morone-chrysops",
+      },
       { label: "ASMFC / NOAA Atlantic striped bass life history", class: "agency" },
     ],
     ...R,
@@ -489,8 +509,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     speciesId: "morone_chrysops",
     status: "reviewed",
     regionalNames: ["sand bass", "sandie", "stripes"],
-    bodyShape:
-      "Deep-bodied temperate bass; TPWD: body depth more than 1/3 of length.",
+    bodyShape: "Deep-bodied temperate bass; TPWD: body depth more than 1/3 of length.",
     identificationTraits: [
       "USFWS: distinguishable from striped bass and hybrids by a singular tooth patch on the tongue.",
       "TPWD: stripes faint, only one extending to the tail.",
@@ -499,12 +518,10 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     coloration:
       "Silver with dark back and faint horizontal stripes; only the uppermost stripe typically reaches the tail.",
-    spawningColoration:
-      "No salmon-like dress. Spring fish may be fuller; not a targeting cue.",
+    spawningColoration: "No salmon-like dress. Spring fish may be fuller; not a targeting cue.",
     juvenileAppearance:
       "Young fish are already deep-bodied silvery Morone; tongue patch and stripe count separate them from stripers.",
-    adultAppearance:
-      "A deep, short Morone with one tongue patch and incomplete stripes.",
+    adultAppearance: "A deep, short Morone with one tongue patch and incomplete stripes.",
     similarSpecies: [
       {
         speciesId: "morone_saxatilis",
@@ -535,22 +552,28 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     commonAnglingSize: "10–15 in.",
     typicalWeight: "USFWS: commonly around 1 lb.",
     maximumDocumentedSize: "USFWS maximum recorded weight 6.8 lb.",
-    longevity: "USFWS: juveniles may reach adulthood in about two years in southern climates, longer in the north.",
+    longevity:
+      "USFWS: juveniles may reach adulthood in about two years in southern climates, longer in the north.",
     sources: [
-      { label: "USFWS white bass species account", class: "agency", url: "https://www.fws.gov/species/white-bass-morone-chrysops" },
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
+      {
+        label: "USFWS white bass species account",
+        class: "agency",
+        url: "https://www.fws.gov/species/white-bass-morone-chrysops",
+      },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
     ],
     ...R,
-    gaps: [
-      "northern versus southern mean longevity as a structured field",
-    ],
+    gaps: ["northern versus southern mean longevity as a structured field"],
   },
   {
     speciesId: "morone_americana",
     status: "reviewed",
     regionalNames: ["white perch", "silver perch"],
-    bodyShape:
-      "The deepest-bodied common Morone; more panfish-like than striped bass.",
+    bodyShape: "The deepest-bodied common Morone; more panfish-like than striped bass.",
     identificationTraits: [
       "No distinct continuous dark longitudinal stripes on the side (faint bars or a dusky mottling may be present).",
       "Dorsal fins connected or only narrowly separated — unlike striped bass and white bass.",
@@ -564,8 +587,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Estuarine fish can look greener; inland lake fish more silver. Color is not a population overlay.",
     juvenileAppearance:
       "Young fish are deep-bodied and unstriped; they are often miscalled white bass in inland waters.",
-    adultAppearance:
-      "A deep, unstriped temperate bass with connected dorsals.",
+    adultAppearance: "A deep, unstriped temperate bass with connected dorsals.",
     similarSpecies: [
       {
         speciesId: "morone_chrysops",
@@ -593,13 +615,13 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Fish over 15 in and 2 lb are large. Do not apply striped-bass size expectations to this species.",
     sources: [
       { label: "USGS Nonindigenous Aquatic Species white perch profile", class: "agency" },
-      { label: "State temperate-bass identification literature (NY, MD, Great Lakes)", class: "agency" },
+      {
+        label: "State temperate-bass identification literature (NY, MD, Great Lakes)",
+        class: "agency",
+      },
     ],
     ...R,
-    gaps: [
-      "tongue-patch character as a primary-source quote",
-      "longevity as a structured field",
-    ],
+    gaps: ["tongue-patch character as a primary-source quote", "longevity as a structured field"],
   },
   {
     speciesId: "morone_hybrid_wiper",
@@ -636,8 +658,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       {
         speciesId: "morone_americana",
         name: "White perch",
-        distinction:
-          "White perch lack distinct stripes and have connected dorsal fins.",
+        distinction: "White perch lack distinct stripes and have connected dorsal fins.",
       },
     ],
     averageAdultLength: "Common adults 16–24 in in many stocked reservoirs.",
@@ -646,9 +667,19 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "Agency trophy programs document fish well above typical angling size, still generally below the largest Atlantic striped bass.",
     sources: [
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
-      { label: "Missouri Department of Conservation hybrid striped bass field guide", class: "agency" },
-      { label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan", class: "agency" },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
+      {
+        label: "Missouri Department of Conservation hybrid striped bass field guide",
+        class: "agency",
+      },
+      {
+        label: "Kansas Department of Wildlife & Parks striped bass hybrid management plan",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [
@@ -668,10 +699,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "TPWD: no tooth patch near the midline toward the back of the tongue.",
       "Smaller than white bass, wiper, or striped bass in the same region.",
     ],
-    coloration:
-      "Silvery yellow with dark horizontal stripes that break up above the anal fin.",
-    adultAppearance:
-      "A small yellow-cast Morone with joined dorsals and broken lower stripes.",
+    coloration: "Silvery yellow with dark horizontal stripes that break up above the anal fin.",
+    adultAppearance: "A small yellow-cast Morone with joined dorsals and broken lower stripes.",
     similarSpecies: [
       {
         speciesId: "morone_chrysops",
@@ -692,20 +721,21 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "Fish approaching 2 lb are large for the species. Do not apply white-bass or striper size expectations.",
     sources: [
-      { label: "Texas Parks and Wildlife bass comparison and identification key", class: "agency", url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification" },
+      {
+        label: "Texas Parks and Wildlife bass comparison and identification key",
+        class: "agency",
+        url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/bass-identification",
+      },
       { label: "Missouri Department of Conservation yellow bass field guide", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "coregonus_artedi",
     status: "reviewed",
     regionalNames: ["lake herring", "tullibee", "cisco"],
-    bodyShape:
-      "A slender coregonine whitefish with an adipose fin and relatively large eye.",
+    bodyShape: "A slender coregonine whitefish with an adipose fin and relatively large eye.",
     identificationTraits: [
       "Minnesota DNR / North Dakota GF: mouth terminal — the lower jaw extends up to or beyond the tip of the snout.",
       "More slender, larger-eyed profile than lake whitefish.",
@@ -746,14 +776,19 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "Minnesota DNR: state-record cisco 5 lb 11.8 oz. Lake whitefish in the same waters grow larger.",
     sources: [
-      { label: "Minnesota DNR cisco / lake whitefish / mooneye identification", class: "agency", url: "https://www.dnr.state.mn.us/areas/fisheries/baudette/whitefish.html" },
-      { label: "North Dakota Game and Fish cisco vs lake whitefish identification", class: "agency", url: "https://gf.nd.gov/wildlife/id/cisco-vs-lake-whitefish" },
+      {
+        label: "Minnesota DNR cisco / lake whitefish / mooneye identification",
+        class: "agency",
+        url: "https://www.dnr.state.mn.us/areas/fisheries/baudette/whitefish.html",
+      },
+      {
+        label: "North Dakota Game and Fish cisco vs lake whitefish identification",
+        class: "agency",
+        url: "https://gf.nd.gov/wildlife/id/cisco-vs-lake-whitefish",
+      },
     ],
     ...R,
-    gaps: [
-      "Great Lakes versus inland mean-size table",
-      "longevity as a structured field",
-    ],
+    gaps: ["Great Lakes versus inland mean-size table", "longevity as a structured field"],
   },
   {
     speciesId: "coregonus_clupeaformis",
@@ -769,10 +804,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     coloration:
       "Olive to green-brown back, silvery sides, white belly. Adults can show a darker dorsal 'hump' impression.",
-    spawningColoration:
-      "Late-fall to early-winter spawners; no salmon-red dress.",
-    adultAppearance:
-      "A blunt-snouted, subterminal-mouthed whitefish, deeper than cisco.",
+    spawningColoration: "Late-fall to early-winter spawners; no salmon-red dress.",
+    adultAppearance: "A blunt-snouted, subterminal-mouthed whitefish, deeper than cisco.",
     similarSpecies: [
       {
         speciesId: "coregonus_artedi",
@@ -789,8 +822,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       {
         speciesId: "hiodon_tergisus",
         name: "Mooneye",
-        distinction:
-          "Mooneye lack an adipose fin and have a very large silvery eye.",
+        distinction: "Mooneye lack an adipose fin and have a very large silvery eye.",
       },
     ],
     averageAdultLength: "Common adults often 15–22 in in productive northern lakes.",
@@ -799,13 +831,19 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "Minnesota DNR: state-record lake whitefish 12 lb 4.5 oz (Leech Lake). Great Lakes commercial and assessment fish can exceed typical inland angling size.",
     sources: [
-      { label: "Minnesota DNR cisco / lake whitefish / mooneye identification", class: "agency", url: "https://www.dnr.state.mn.us/areas/fisheries/baudette/whitefish.html" },
-      { label: "North Dakota Game and Fish cisco vs lake whitefish identification", class: "agency", url: "https://gf.nd.gov/wildlife/id/cisco-vs-lake-whitefish" },
+      {
+        label: "Minnesota DNR cisco / lake whitefish / mooneye identification",
+        class: "agency",
+        url: "https://www.dnr.state.mn.us/areas/fisheries/baudette/whitefish.html",
+      },
+      {
+        label: "North Dakota Game and Fish cisco vs lake whitefish identification",
+        class: "agency",
+        url: "https://gf.nd.gov/wildlife/id/cisco-vs-lake-whitefish",
+      },
     ],
     ...R,
-    gaps: [
-      "Great Lakes versus inland mean-size and longevity table",
-    ],
+    gaps: ["Great Lakes versus inland mean-size and longevity table"],
   },
   {
     speciesId: "hiodon_alosoides",
@@ -822,8 +860,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     coloration:
       "Blue-green to olive back, silvery-gold sides, pale belly. The gold iris is the field flash.",
-    adultAppearance:
-      "A gold-eyed, keeled, compressed river fish without an adipose fin.",
+    adultAppearance: "A gold-eyed, keeled, compressed river fish without an adipose fin.",
     similarSpecies: [
       {
         speciesId: "hiodon_tergisus",
@@ -834,8 +871,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       {
         speciesId: "coregonus_artedi",
         name: "Cisco",
-        distinction:
-          "Cisco have an adipose fin and lack the goldeye keel/iris combination.",
+        distinction: "Cisco have an adipose fin and lack the goldeye keel/iris combination.",
       },
     ],
     averageAdultLength: "Common adults often 12–16 in.",
@@ -845,13 +881,14 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Fish over 2 lb are large. Minnesota DNR's listed mooneye record is not this species.",
     sources: [
       { label: "Fishes of Texas goldeye account (Page & Burr counts)", class: "agency" },
-      { label: "Hoover juvenile goldeye identification (USACE / peer literature)", class: "peer_reviewed" },
+      {
+        label: "Hoover juvenile goldeye identification (USACE / peer literature)",
+        class: "peer_reviewed",
+      },
       { label: "Government of Alberta goldeye species profile", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "hiodon_tergisus",
@@ -865,8 +902,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Ventral keel shorter — does not extend forward to the pelvic fins.",
       "Generally associated with clearer water than goldeye.",
     ],
-    coloration:
-      "Silver sides, darker back, large pale eye. No gold iris.",
+    coloration: "Silver sides, darker back, large pale eye. No gold iris.",
     adultAppearance:
       "A large-eyed, un-adipose river/lake fish with a silver iris and a short keel.",
     similarSpecies: [
@@ -879,8 +915,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       {
         speciesId: "coregonus_artedi",
         name: "Cisco",
-        distinction:
-          "Cisco have an adipose fin and a terminal mouth without a hiodontid keel.",
+        distinction: "Cisco have an adipose fin and a terminal mouth without a hiodontid keel.",
       },
     ],
     averageAdultLength: "Common adults often 9–14 in.",
@@ -889,21 +924,30 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "Minnesota DNR: state-record mooneye 1 lb 15 oz (Minnesota River). This is not a goldeye maximum.",
     sources: [
-      { label: "Hoover juvenile goldeye identification (goldeye vs mooneye key)", class: "peer_reviewed" },
-      { label: "Minnesota DNR cisco / lake whitefish / mooneye identification", class: "agency", url: "https://www.dnr.state.mn.us/areas/fisheries/baudette/whitefish.html" },
+      {
+        label: "Hoover juvenile goldeye identification (goldeye vs mooneye key)",
+        class: "peer_reviewed",
+      },
+      {
+        label: "Minnesota DNR cisco / lake whitefish / mooneye identification",
+        class: "agency",
+        url: "https://www.dnr.state.mn.us/areas/fisheries/baudette/whitefish.html",
+      },
       { label: "Ontario mooneye species profile", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "cyprinus_carpio",
     status: "reviewed",
-    regionalNames: ["German carp", "common carp", "mirror carp (variant)", "leather carp (variant)"],
-    bodyShape:
-      "Heavy, deep-bodied cyprinid with a long dorsal fin and a serrated leading spine.",
+    regionalNames: [
+      "German carp",
+      "common carp",
+      "mirror carp (variant)",
+      "leather carp (variant)",
+    ],
+    bodyShape: "Heavy, deep-bodied cyprinid with a long dorsal fin and a serrated leading spine.",
     identificationTraits: [
       "Two barbels on each side of the upper jaw (four barbels total) — absent in buffalo.",
       "Long dorsal fin with a stout, serrated leading spine; anal fin also with a serrated spine.",
@@ -916,8 +960,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Spring fish in flooded vegetation can look darker and fuller; not a targeting cue.",
     juvenileAppearance:
       "Young carp already show barbels; they can be confused with small buffalo only if barbels are not checked.",
-    adultAppearance:
-      "A barbelled, large-scaled, saw-spined cyprinid — not a sucker.",
+    adultAppearance: "A barbelled, large-scaled, saw-spined cyprinid — not a sucker.",
     similarSpecies: [
       {
         speciesId: "ictiobus_cyprinellus",
@@ -942,9 +985,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       { label: "Balon carp domestication / biology", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "ictiobus_cyprinellus",
@@ -959,10 +1000,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Native sucker-family fish; USGS species profile.",
       "Exceptionally long-lived; Lackmann et al. documented centenarian fish.",
     ],
-    coloration:
-      "Gray to olive or bronze back, paler sides, light belly. Not the brassy carp gold.",
-    adultAppearance:
-      "A deep, barbel-less buffalo with a large oblique mouth.",
+    coloration: "Gray to olive or bronze back, paler sides, light belly. Not the brassy carp gold.",
+    adultAppearance: "A deep, barbel-less buffalo with a large oblique mouth.",
     similarSpecies: [
       {
         speciesId: "cyprinus_carpio",
@@ -989,9 +1028,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       { label: "Lackmann et al. validated centenarian longevity research", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "black buffalo (Ictiobus niger) comparison as its own reviewed record",
-    ],
+    gaps: ["black buffalo (Ictiobus niger) comparison as its own reviewed record"],
   },
   {
     speciesId: "ictiobus_bubalus",
@@ -1005,8 +1042,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Body often appears more 'keel-backed' than carp.",
       "Native large-river/reservoir buffalo of the Mississippi and Gulf-slope drainages.",
     ],
-    coloration:
-      "Olive-bronze to dark gray back, paler below. Not carp-gold.",
+    coloration: "Olive-bronze to dark gray back, paler below. Not carp-gold.",
     adultAppearance:
       "A barbel-less, subterminal-mouthed buffalo, more benthic in look than bigmouth.",
     similarSpecies: [
@@ -1019,8 +1055,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       {
         speciesId: "cyprinus_carpio",
         name: "Common carp",
-        distinction:
-          "Carp have barbels and a serrated dorsal spine. Smallmouth buffalo do not.",
+        distinction: "Carp have barbels and a serrated dorsal spine. Smallmouth buffalo do not.",
       },
     ],
     averageAdultLength: "Common adults often 16–26 in.",
@@ -1034,16 +1069,13 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       { label: "USGS smallmouth buffalo age-validation research", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "black buffalo comparison as its own reviewed record",
-    ],
+    gaps: ["black buffalo comparison as its own reviewed record"],
   },
   {
     speciesId: "lepisosteus_osseus",
     status: "reviewed",
     regionalNames: ["needlenose gar", "longnose", "billy gar (misapplied)"],
-    bodyShape:
-      "Torpedo-shaped gar with ganoid scales; snout extremely long and narrow.",
+    bodyShape: "Torpedo-shaped gar with ganoid scales; snout extremely long and narrow.",
     identificationTraits: [
       "Florida Museum: snout more than twice the length of the rest of the head.",
       "A single row of teeth in the upper jaw — not the alligator gar's double row.",
@@ -1054,8 +1086,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Olive to brown back, paler below; dark spots typically on the unpaired fins and often the posterior body.",
     juvenileAppearance:
       "Young fish already show the needle snout; they are not easily confused with alligator gar if snout proportion is checked.",
-    adultAppearance:
-      "A long, needle-snouted gar with one row of upper-jaw teeth.",
+    adultAppearance: "A long, needle-snouted gar with one row of upper-jaw teeth.",
     similarSpecies: [
       {
         speciesId: "atractosteus_spatula",
@@ -1082,21 +1113,26 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "TPWD: adults can reach 6 ft and up to 80 lb. Kentucky DFWR cites about 6 ft and 50 lb as a working upper description.",
     sources: [
-      { label: "Texas Parks and Wildlife how to identify alligator gar (gar comparison)", class: "agency", url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml" },
-      { label: "Florida Museum longnose gar species profile", class: "agency", url: "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/longnose-gar/" },
+      {
+        label: "Texas Parks and Wildlife how to identify alligator gar (gar comparison)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml",
+      },
+      {
+        label: "Florida Museum longnose gar species profile",
+        class: "agency",
+        url: "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/longnose-gar/",
+      },
       { label: "Kentucky Department of Fish & Wildlife gar family key", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "lepisosteus_oculatus",
     status: "reviewed",
     regionalNames: ["spotted gar"],
-    bodyShape:
-      "A shorter-snouted gar than longnose; still elongate with ganoid scales.",
+    bodyShape: "A shorter-snouted gar than longnose; still elongate with ganoid scales.",
     identificationTraits: [
       "TPWD: dark spots on the head, body, and fins — the easiest adult field mark among common gars.",
       "Snout much shorter than longnose; not alligator-broad.",
@@ -1107,8 +1143,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Olive to brown with distinct dark spots on head, body, and fins over a paler ground.",
     juvenileAppearance:
       "Already spotted; TPWD warns that juvenile alligator gar can resemble spotted gar until snout breadth and tooth rows are checked.",
-    adultAppearance:
-      "A moderately short-snouted gar with spots on the head as well as the body.",
+    adultAppearance: "A moderately short-snouted gar with spots on the head as well as the body.",
     similarSpecies: [
       {
         speciesId: "lepisosteus_platostomus",
@@ -1135,21 +1170,22 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "TPWD: reaching just under four feet and about 15 lb. Kentucky DFWR: usually less than 3 ft and 5–10 lb as a typical upper description.",
     sources: [
-      { label: "Texas Parks and Wildlife how to identify alligator gar (gar comparison)", class: "agency", url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml" },
+      {
+        label: "Texas Parks and Wildlife how to identify alligator gar (gar comparison)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml",
+      },
       { label: "Texas Parks and Wildlife spotted gar account", class: "agency" },
       { label: "Kentucky Department of Fish & Wildlife gar family key", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "lepisosteus_platostomus",
     status: "reviewed",
     regionalNames: ["shortnose", "billy gar"],
-    bodyShape:
-      "A short, wide-snouted gar; more compact than longnose, slimmer than alligator.",
+    bodyShape: "A short, wide-snouted gar; more compact than longnose, slimmer than alligator.",
     identificationTraits: [
       "Snout short and wide, but not the heavy alligator profile.",
       "TPWD: lacks dark spots on the top of the head and paired fins (the split from spotted gar).",
@@ -1176,8 +1212,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       {
         speciesId: "lepisosteus_osseus",
         name: "Longnose gar",
-        distinction:
-          "Longnose snout is needle-like and more than twice the rest of the head.",
+        distinction: "Longnose snout is needle-like and more than twice the rest of the head.",
       },
     ],
     averageAdultLength: "Common adults often 18–28 in.",
@@ -1186,14 +1221,16 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "TPWD: similar to spotted gar in size and weight (spotted gar just under four feet / about 15 lb). Kentucky DFWR: usually less than 3 ft and 5–10 lb.",
     sources: [
-      { label: "Texas Parks and Wildlife how to identify alligator gar (gar comparison)", class: "agency", url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml" },
+      {
+        label: "Texas Parks and Wildlife how to identify alligator gar (gar comparison)",
+        class: "agency",
+        url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml",
+      },
       { label: "Texas Parks and Wildlife shortnose gar species account", class: "agency" },
       { label: "Missouri Department of Conservation shortnose gar field guide", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "atractosteus_spatula",
@@ -1207,12 +1244,10 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "FWC: torpedo body, diamond ganoid scales, fins set far back, rounded caudal fin.",
       "TPWD: juveniles can be confused with spotted gar without close examination.",
     ],
-    coloration:
-      "FWC: brown to olive with a paler underside (countershading).",
+    coloration: "FWC: brown to olive with a paler underside (countershading).",
     juvenileAppearance:
       "Young fish can look spotted; tooth rows and snout breadth, not spots alone, separate them from spotted gar (TPWD).",
-    adultAppearance:
-      "A heavy, broad-snouted gar that does not look needle-faced.",
+    adultAppearance: "A heavy, broad-snouted gar that does not look needle-faced.",
     similarSpecies: [
       {
         speciesId: "lepisosteus_osseus",
@@ -1233,20 +1268,27 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Shortnose are similar in snout shortness only at a glance; they lack the mass, alligator head, and double tooth row.",
       },
     ],
-    averageAdultLength: "Adults of several feet are typical where the species persists; this is not a panfish-scale gar.",
+    averageAdultLength:
+      "Adults of several feet are typical where the species persists; this is not a panfish-scale gar.",
     commonAnglingSize: "4–6 ft in fisheries where harvest is legal and populations persist.",
     typicalWeight: "Tens to more than 100 lb for large adults; highly system-dependent.",
     maximumDocumentedSize:
       "TPWD: up to 10 ft and over 300 lb; Texas rod-and-reel record 279 lb; cited world record 327 lb. FWC: 8 ft and over 300 lb. Kentucky DFWR: to 9 ft and 300 lb. Use as documented maxima, not a typical fish.",
     sources: [
-      { label: "Texas Parks and Wildlife how to identify alligator gar", class: "agency", url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml" },
-      { label: "Florida Fish and Wildlife Conservation Commission alligator gar profile", class: "agency", url: "https://myfwc.com/wildlifehabitats/profiles/freshwater/alligator-gar/" },
+      {
+        label: "Texas Parks and Wildlife how to identify alligator gar",
+        class: "agency",
+        url: "https://tpwd.texas.gov/fishboat/fish/management/alligator-gar/identify-gar.phtml",
+      },
+      {
+        label: "Florida Fish and Wildlife Conservation Commission alligator gar profile",
+        class: "agency",
+        url: "https://myfwc.com/wildlifehabitats/profiles/freshwater/alligator-gar/",
+      },
       { label: "USFWS All About Alligator Gar", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "ameiurus_nebulosus",
@@ -1261,12 +1303,10 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Pectoral spines strongly barbed (Noble / regional keys), unlike the weakly barbed black bullhead.",
       "USGS NAS is a reviewed introduction/range source.",
     ],
-    coloration:
-      "Yellow-brown to dark brown, typically mottled or clouded, with a paler belly.",
+    coloration: "Yellow-brown to dark brown, typically mottled or clouded, with a paler belly.",
     juvenileAppearance:
       "Young fish already show mottling and dark chin barbels; they are not channel-catforktails.",
-    adultAppearance:
-      "A mottled, dark-chinned, square-tailed bullhead.",
+    adultAppearance: "A mottled, dark-chinned, square-tailed bullhead.",
     similarSpecies: [
       {
         speciesId: "ameiurus_melas",
@@ -1317,8 +1357,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     coloration:
       "Dark olive-black to yellowish-brown in turbid water; belly paler. Chin barbels remain dark.",
-    adultAppearance:
-      "A dark-chinned, usually unmottled bullhead with a slightly notched tail.",
+    adultAppearance: "A dark-chinned, usually unmottled bullhead with a slightly notched tail.",
     similarSpecies: [
       {
         speciesId: "ameiurus_nebulosus",
@@ -1339,8 +1378,15 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "Fish of a few pounds occur. TPWD treats them as typically smaller than important game catfishes.",
     sources: [
-      { label: "Texas Parks and Wildlife black bullhead species account", class: "agency", url: "https://tpwd.texas.gov/huntwild/wild/species/bigfish/" },
-      { label: "Washington Department of Fish and Wildlife black bullhead sportfish account", class: "agency" },
+      {
+        label: "Texas Parks and Wildlife black bullhead species account",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/bigfish/",
+      },
+      {
+        label: "Washington Department of Fish and Wildlife black bullhead sportfish account",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [
@@ -1352,8 +1398,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     speciesId: "ameiurus_natalis",
     status: "reviewed",
     regionalNames: ["yellow bull", "mudcat", "chucklehead", "polliwog", "butter cat"],
-    bodyShape:
-      "Stocky bullhead; TPWD: tail is not notched and may be slightly rounded.",
+    bodyShape: "Stocky bullhead; TPWD: tail is not notched and may be slightly rounded.",
     identificationTraits: [
       "TPWD: chin barbels white — the most reliable split from brown and black bullhead.",
       "TPWD: light yellow to olive-green on the back, often somewhat mottled; belly yellowish to white.",
@@ -1363,8 +1408,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     coloration:
       "Yellow to olive-green, often mottled, with a yellowish or white belly and white chin barbels.",
-    adultAppearance:
-      "A pale-chinned, yellowish bullhead with an un-notched tail.",
+    adultAppearance: "A pale-chinned, yellowish bullhead with an un-notched tail.",
     similarSpecies: [
       {
         speciesId: "ameiurus_nebulosus",
@@ -1391,13 +1435,15 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     maximumDocumentedSize:
       "TPWD: some individuals may exceed four pounds; largest reported in Texas 5.59 lb. TPWD notes they rarely achieve edible size as a typical expectation — that is a size note, not a consumption-safety claim.",
     sources: [
-      { label: "Texas Parks and Wildlife yellow bullhead species account", class: "agency", url: "https://tpwd.texas.gov/huntwild/wild/species/ybh/" },
+      {
+        label: "Texas Parks and Wildlife yellow bullhead species account",
+        class: "agency",
+        url: "https://tpwd.texas.gov/huntwild/wild/species/ybh/",
+      },
       { label: "Noble Research Institute bullhead identification notes", class: "synthesis" },
     ],
     ...R,
-    gaps: [
-      "longevity as a structured field",
-    ],
+    gaps: ["longevity as a structured field"],
   },
   {
     speciesId: "salmo_trutta",
@@ -1449,16 +1495,22 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Tiger trout show worm-like vermiculations wrapping onto the sides without the brook’s blue-haloed red spots. Treat as a hybrid; do not force the fish into either parent record.",
       },
     ],
-    averageAdultLength: "Stream adults commonly 10–16 in; many fertile rivers and lakes produce 16–22 in fish.",
+    averageAdultLength:
+      "Stream adults commonly 10–16 in; many fertile rivers and lakes produce 16–22 in fish.",
     commonAnglingSize: "12–18 in in most inland fisheries.",
     typicalWeight: "Often 0.75–3 lb in streams; large piscivorous fish are much heavier.",
     maximumDocumentedSize:
       "Large lake and tailwater fish far exceed typical stream size. Continent-wide maxima are fishery-specific and are not a single catalog number.",
-    longevity: "Commonly 5–8 years in inland waters; older fish occur in some lakes and cold tailwaters.",
+    longevity:
+      "Commonly 5–8 years in inland waters; older fish occur in some lakes and cold tailwaters.",
     sources: [
       { label: "USGS / state brown trout habitat notes", class: "agency" },
       { label: "Elliott thermal biology of brown trout", class: "peer_reviewed" },
-      { label: "State inland trout identification keys (unspotted caudal, haloed red spots, opercular spotting)", class: "agency" },
+      {
+        label:
+          "State inland trout identification keys (unspotted caudal, haloed red spots, opercular spotting)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [
@@ -1530,13 +1582,23 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     averageAdultLength: "Wild stream adults commonly 6–12 in; pond and lake fish 10–16 in.",
     commonAnglingSize: "7–12 in in most small-stream fisheries.",
-    typicalWeight: "Often well under 1 lb in streams; larger pond fish occur where summer temperatures allow.",
+    typicalWeight:
+      "Often well under 1 lb in streams; larger pond fish occur where summer temperatures allow.",
     maximumDocumentedSize:
       "Large lake and pond fish exceed typical stream size. Small-stream maxima are not a continent-wide number.",
     longevity: "Often 3–5 years in streams; older fish occur in cold lakes.",
     sources: [
-      { label: "U.S. Fish and Wildlife Service brook trout species profile", class: "agency", url: "https://www.fws.gov/species/brook-trout-salvelinus-fontinalis" },
-      { label: "California DFW brook trout identification (vermiculations, white fin edges, maxillary)", class: "agency", url: "https://wildlife.ca.gov/Fishing/Inland/Brook-Trout" },
+      {
+        label: "U.S. Fish and Wildlife Service brook trout species profile",
+        class: "agency",
+        url: "https://www.fws.gov/species/brook-trout-salvelinus-fontinalis",
+      },
+      {
+        label:
+          "California DFW brook trout identification (vermiculations, white fin edges, maxillary)",
+        class: "agency",
+        url: "https://wildlife.ca.gov/Fishing/Inland/Brook-Trout",
+      },
       { label: "Raleigh habitat suitability (brook trout)", class: "peer_reviewed" },
     ],
     ...R,
@@ -1600,9 +1662,15 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     typicalWeight: "Often 3–8 lb inland; Great Lakes fish commonly heavier.",
     maximumDocumentedSize:
       "Large Great Lakes and big-lake fish far exceed inland pond size. Maxima are waterbody-specific.",
-    longevity: "Slow-growing and long-lived relative to stream trout; decades are documented in some northern lakes.",
+    longevity:
+      "Slow-growing and long-lived relative to stream trout; decades are documented in some northern lakes.",
     sources: [
-      { label: "Michigan DNR lake trout species account (forked tail, light spots, white fin edges, adult piscivory)", class: "agency", url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-trout" },
+      {
+        label:
+          "Michigan DNR lake trout species account (forked tail, light spots, white fin edges, adult piscivory)",
+        class: "agency",
+        url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/lake-trout",
+      },
       { label: "Great Lakes / provincial lake trout assessments", class: "agency" },
       { label: "Martin & Olver lake trout biology", class: "peer_reviewed" },
     ],
@@ -1663,7 +1731,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Atlantic salmon are Salmo, conservation-sensitive in this catalog, and a separate fail-closed record. Do not treat a chrome Pacific or Great Lakes steelhead as Atlantic salmon.",
       },
     ],
-    averageAdultLength: "Returning adults commonly 24–34 in; inland residuals and half-pounders are smaller.",
+    averageAdultLength:
+      "Returning adults commonly 24–34 in; inland residuals and half-pounders are smaller.",
     commonAnglingSize: "26–32 in in many Pacific and Great Lakes fisheries.",
     typicalWeight: "Often 6–12 lb; larger fish occur. Inland rainbow weight bands do not apply.",
     maximumDocumentedSize:
@@ -1671,8 +1740,18 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity:
       "NOAA: unlike most Pacific salmon, steelhead can spawn more than once. Age is stock-specific.",
     sources: [
-      { label: "NOAA Fisheries steelhead species profile (anadromy vs resident rainbow, iteroparity)", class: "agency", url: "https://www.fisheries.noaa.gov/species/steelhead" },
-      { label: "U.S. Fish and Wildlife Service rainbow / steelhead species profile (otolith/scale confirmation of anadromy)", class: "agency", url: "https://www.fws.gov/species/rainbow-trout-oncorhynchus-mykiss" },
+      {
+        label:
+          "NOAA Fisheries steelhead species profile (anadromy vs resident rainbow, iteroparity)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/steelhead",
+      },
+      {
+        label:
+          "U.S. Fish and Wildlife Service rainbow / steelhead species profile (otolith/scale confirmation of anadromy)",
+        class: "agency",
+        url: "https://www.fws.gov/species/rainbow-trout-oncorhynchus-mykiss",
+      },
       { label: "Withler / Quinn anadromous Oncorhynchus reviews", class: "peer_reviewed" },
     ],
     ...R,
@@ -1736,10 +1815,12 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     typicalWeight: "Minnesota DNR: averages 1 to 2 lb in most waters; fish over 10 lb occur.",
     maximumDocumentedSize:
       "Large lake and river fish far exceed the 1–2 lb average. Maxima are waterbody-specific and are not a single catalog number.",
-    longevity: "Related Missouri DNR life-cycle notes put typical walleye longevity around 7–10 years; older fish occur.",
+    longevity:
+      "Related Missouri DNR life-cycle notes put typical walleye longevity around 7–10 years; older fish occur.",
     sources: [
       {
-        label: "Minnesota DNR walleye biology (white lower tail tip, dorsal blotch vs sauger spots, tapetum, 1–2 lb average)",
+        label:
+          "Minnesota DNR walleye biology (white lower tail tip, dorsal blotch vs sauger spots, tapetum, 1–2 lb average)",
         class: "agency",
         url: "https://www.dnr.state.mn.us/fish/walleye/biology.html",
       },
@@ -1747,10 +1828,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       { label: "Colby et al. walleye biology", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "saugeye meristics as a structured hybrid key",
-      "a single continent-wide mean length",
-    ],
+    gaps: ["saugeye meristics as a structured hybrid key", "a single continent-wide mean length"],
   },
   {
     speciesId: "sander_canadensis",
@@ -1775,8 +1853,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Saddles and dorsal spotting appear early. Young sauger can still be confused with young walleye and with yellow perch until canines, saddles, and the dorsal recipe are checked.",
     adultAppearance:
       "A slender river percid with saddle blotches, a spotted first dorsal, and a dark lower tail tip.",
-    sexualDimorphism:
-      "Females commonly grow larger. Sex is not the field key.",
+    sexualDimorphism: "Females commonly grow larger. Sex is not the field key.",
     similarSpecies: [
       {
         speciesId: "sander_vitreus",
@@ -1798,28 +1875,29 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     ],
     averageAdultLength: "Missouri DNR: total length commonly 12–15 in.",
     commonAnglingSize: "12–18 in in large-river fisheries.",
-    typicalWeight: "Minnesota DNR: seldom exceeds 3 lb. Missouri DNR: weight commonly about 2½ lb, with a maximum around 4 lb.",
+    typicalWeight:
+      "Minnesota DNR: seldom exceeds 3 lb. Missouri DNR: weight commonly about 2½ lb, with a maximum around 4 lb.",
     maximumDocumentedSize:
       "River maxima exceed the 12–15 in typical band. Continent-wide records are fishery-specific.",
-    longevity: "Shorter-lived than the largest walleye in many systems; a single continent-wide age table is not reviewed here.",
+    longevity:
+      "Shorter-lived than the largest walleye in many systems; a single continent-wide age table is not reviewed here.",
     sources: [
       {
-        label: "Missouri Department of Conservation sauger field guide (saddles, spotted dorsal, cheek scales, size, river habitat)",
+        label:
+          "Missouri Department of Conservation sauger field guide (saddles, spotted dorsal, cheek scales, size, river habitat)",
         class: "agency",
         url: "https://mdc.mo.gov/discover-nature/field-guide/sauger",
       },
       {
-        label: "Minnesota DNR walleye/sauger biology (dorsal spots, no white tail tip, seldom exceeds 3 lb, turbid-water vision)",
+        label:
+          "Minnesota DNR walleye/sauger biology (dorsal spots, no white tail tip, seldom exceeds 3 lb, turbid-water vision)",
         class: "agency",
         url: "https://www.dnr.state.mn.us/fish/walleye/biology.html",
       },
       { label: "USGS sauger habitat and movement research", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "saugeye meristics as a structured hybrid key",
-      "basin-specific mean length tables",
-    ],
+    gaps: ["saugeye meristics as a structured hybrid key", "basin-specific mean length tables"],
   },
   {
     speciesId: "esox_lucius",
@@ -1870,20 +1948,24 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Michigan DNR lists grass pickerel as a pike-family cousin. It is a small, fully scaled, worm-marked esocid and is not this catalog record.",
       },
     ],
-    averageAdultLength: "Inland adults commonly 18–28 in; larger fish occur in fertile northern waters.",
+    averageAdultLength:
+      "Inland adults commonly 18–28 in; larger fish occur in fertile northern waters.",
     commonAnglingSize: "20–30 in in many inland and Great Lakes fisheries.",
-    typicalWeight: "Often 2–8 lb; large fish are much heavier. Michigan DNR notes continued weight gain after maturity, more slowly.",
+    typicalWeight:
+      "Often 2–8 lb; large fish are much heavier. Michigan DNR notes continued weight gain after maturity, more slowly.",
     maximumDocumentedSize:
       "Large northern waters produce fish far above typical inland size. Maxima are waterbody-specific.",
     longevity: "Michigan DNR: average life span six to eight years; some live as long as 15.",
     sources: [
       {
-        label: "Michigan DNR northern pike species account (light spots on dark, full cheek scales, 5–6 pores)",
+        label:
+          "Michigan DNR northern pike species account (light spots on dark, full cheek scales, 5–6 pores)",
         class: "agency",
         url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/pike",
       },
       {
-        label: "Iowa DNR pike vs muskellunge identification (pores, cheek scales, tail shape, color reverse)",
+        label:
+          "Iowa DNR pike vs muskellunge identification (pores, cheek scales, tail shape, color reverse)",
         class: "agency",
         url: "https://www.iowadnr.gov/news-release/2016-05-25/know-your-catch-how-id-northern-pike-and-muskies",
       },
@@ -1942,13 +2024,15 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     averageAdultLength:
       "Michigan muskellunge management literature: about 32 in at age 4 and exceeding 40 in at age 8 in Michigan waters.",
     commonAnglingSize: "34–42 in in many managed fisheries.",
-    typicalWeight: "Often well above typical pike weight at the same water; large fish are common in managed waters.",
+    typicalWeight:
+      "Often well above typical pike weight at the same water; large fish are common in managed waters.",
     maximumDocumentedSize:
       "Managed waters produce fish far above inland pike size. Maxima are waterbody-specific. Live size limits are jurisdiction rules, not this overlay.",
     longevity: "Longer-lived than typical pike in many waters; age is stock-specific.",
     sources: [
       {
-        label: "Michigan DNR muskellunge species account (dark on light, half-scaled cheek and opercle, 6–10 pores, spawn after pike)",
+        label:
+          "Michigan DNR muskellunge species account (dark on light, half-scaled cheek and opercle, 6–10 pores, spawn after pike)",
         class: "agency",
         url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/muskie",
       },
@@ -1958,7 +2042,11 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
         url: "https://www.iowadnr.gov/news-release/2016-05-25/know-your-catch-how-id-northern-pike-and-muskies",
       },
       { label: "Crossman muskellunge biology", class: "peer_reviewed" },
-      { label: "Michigan DNR muskellunge management plan (color patterns as one species; growth to 40 in)", class: "agency" },
+      {
+        label:
+          "Michigan DNR muskellunge management plan (color patterns as one species; growth to 40 in)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [
@@ -2017,7 +2105,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Large chain pickerel exceed the 14–15 in average. They remain far smaller than typical muskellunge. Maxima are waterbody-specific.",
     sources: [
       {
-        label: "South Carolina DNR chain pickerel account (chain pattern, vertical eye-bar, 14–15 in / 12–14 oz)",
+        label:
+          "South Carolina DNR chain pickerel account (chain pattern, vertical eye-bar, 14–15 in / 12–14 oz)",
         class: "agency",
         url: "https://www.dnr.sc.gov/fish/species/chainpickerel.html",
       },
@@ -2055,8 +2144,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Spring fish laying gelatinous egg strings over vegetation, roots, and wood. That habitat is biology, not a targeting cue.",
     juvenileAppearance:
       "Bars appear early. Young perch can be confused with young walleye until the canines (walleye) versus bars-and-no-canines (perch) are checked.",
-    adultAppearance:
-      "A yellow-sided, seven-barred perch with two dorsal fins and no canine teeth.",
+    adultAppearance: "A yellow-sided, seven-barred perch with two dorsal fins and no canine teeth.",
     sexualDimorphism:
       "Michigan DNR: males mature at about three years, females at four. Females commonly grow larger. Sex is not the field key.",
     similarSpecies: [
@@ -2079,15 +2167,19 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "White perch are Morone: deeper-bodied temperate bass without the yellow-perch bar recipe. Do not collapse the two “perch” names.",
       },
     ],
-    averageAdultLength: "Michigan DNR: average adult length four to 10 in. Crowded waters may never exceed six in.",
-    commonAnglingSize: "6–10 in in many inland and Great Lakes fisheries; larger fish occur where density allows.",
+    averageAdultLength:
+      "Michigan DNR: average adult length four to 10 in. Crowded waters may never exceed six in.",
+    commonAnglingSize:
+      "6–10 in in many inland and Great Lakes fisheries; larger fish occur where density allows.",
     typicalWeight: "Michigan DNR: four to 10 oz at typical adult size.",
     maximumDocumentedSize:
       "Large Great Lakes and productive inland fish exceed the 4–10 in average. Stunting is density- and habitat-dependent (Michigan DNR).",
-    longevity: "Michigan DNR notes maturity at about three to four years; a continent-wide maximum age is not reviewed here.",
+    longevity:
+      "Michigan DNR notes maturity at about three to four years; a continent-wide maximum age is not reviewed here.",
     sources: [
       {
-        label: "Michigan DNR yellow perch species account (seven bars, no canines, 4–10 in / 4–10 oz, schooling, ice activity)",
+        label:
+          "Michigan DNR yellow perch species account (seven bars, no canines, 4–10 in / 4–10 oz, schooling, ice activity)",
         class: "agency",
         url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/yellow-perch",
       },
@@ -2095,10 +2187,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       { label: "Thorpe yellow perch biology", class: "peer_reviewed" },
     ],
     ...R,
-    gaps: [
-      "Great Lakes vs inland mean-size tables",
-      "stunting thresholds by waterbody",
-    ],
+    gaps: ["Great Lakes vs inland mean-size tables", "stunting thresholds by waterbody"],
   },
   {
     speciesId: "pomoxis_spp",
@@ -2123,8 +2212,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Young fish already show the large mouth and speckled or barred sides. They are not round, small-mouthed bluegill fry.",
     adultAppearance:
       "A deep, large-mouthed panfish, silvery-olive, speckled or barred. Treat black and white as this complex unless a future reviewed split exists.",
-    sexualDimorphism:
-      "Males darken on the nest. Size overlap is large; sex is not the field key.",
+    sexualDimorphism: "Males darken on the nest. Size overlap is large; sex is not the field key.",
     similarSpecies: [
       {
         speciesId: "lepomis_macrochirus",
@@ -2158,7 +2246,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Fish over 2 lb occur. Maxima are waterbody-specific and are not a single catalog number.",
     sources: [
       {
-        label: "Minnesota DNR crappie biology (dorsal-spine split, 2 lb unusually large, schooling, nest colonies)",
+        label:
+          "Minnesota DNR crappie biology (dorsal-spine split, 2 lb unusually large, schooling, nest colonies)",
         class: "agency",
         url: "https://www.dnr.state.mn.us/fish/crappie/biology.html",
       },
@@ -2229,7 +2318,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Fish well over 1 lb occur in fertile waters. Stunting is density-dependent. Maxima are waterbody-specific.",
     sources: [
       {
-        label: "Michigan DNR bluegill species account (joined dorsals, small mouth, pointed pectorals, soft-dorsal spot, 65°F spawn)",
+        label:
+          "Michigan DNR bluegill species account (joined dorsals, small mouth, pointed pectorals, soft-dorsal spot, 65°F spawn)",
         class: "agency",
         url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/bluegill",
       },
@@ -2265,8 +2355,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "The ear-flap spot and cheek lines develop with size. Small fish can still be separated from bluegill once the flap color is visible.",
     adultAppearance:
       "A round sunfish with a red-orange ear-flap spot, wavy blue cheek lines, and orange body spotting.",
-    sexualDimorphism:
-      "Males intensify color on the nest. Size overlap is large.",
+    sexualDimorphism: "Males intensify color on the nest. Size overlap is large.",
     similarSpecies: [
       {
         speciesId: "lepomis_macrochirus",
@@ -2301,13 +2390,14 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     sources: [
       { label: "National Park Service pumpkinseed species account", class: "agency" },
       { label: "USGS Nonindigenous Aquatic Species pumpkinseed profile", class: "agency" },
-      { label: "Smithsonian NEMESIS pumpkinseed summary (ear-flap spot, white margin, wavy cheek lines, mollusk feeding)", class: "agency" },
+      {
+        label:
+          "Smithsonian NEMESIS pumpkinseed summary (ear-flap spot, white margin, wavy cheek lines, mollusk feeding)",
+        class: "agency",
+      },
     ],
     ...R,
-    gaps: [
-      "eastern native vs introduced western color tables",
-      "longevity as a structured field",
-    ],
+    gaps: ["eastern native vs introduced western color tables", "longevity as a structured field"],
   },
   {
     speciesId: "lepomis_microlophus",
@@ -2362,21 +2452,21 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity: "Missouri DNR: individuals can live for 6 years.",
     sources: [
       {
-        label: "Missouri Department of Conservation redear sunfish field guide (flap edge, small mouth, mollusk diet, size)",
+        label:
+          "Missouri Department of Conservation redear sunfish field guide (flap edge, small mouth, mollusk diet, size)",
         class: "agency",
         url: "https://mdc.mo.gov/discover-nature/field-guide/redear-sunfish",
       },
       {
-        label: "Texas Parks and Wildlife redear sunfish account (red/orange opercle edge, 10 dorsal spines)",
+        label:
+          "Texas Parks and Wildlife redear sunfish account (red/orange opercle edge, 10 dorsal spines)",
         class: "agency",
         url: "https://tpwd.texas.gov/huntwild/wild/species/sunfish/",
       },
       { label: "USGS Nonindigenous Aquatic Species redear sunfish profile", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "snail-density vs body-size tables by waterbody",
-    ],
+    gaps: ["snail-density vs body-size tables by waterbody"],
   },
   {
     speciesId: "lepomis_cyanellus",
@@ -2436,7 +2526,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Large green sunfish exceed typical pond size. They remain smaller than adult bass. Maxima are waterbody-specific.",
     sources: [
       {
-        label: "Texas Parks and Wildlife green sunfish account (large mouth, bass-like body, hybridization, insect and small-fish diet)",
+        label:
+          "Texas Parks and Wildlife green sunfish account (large mouth, bass-like body, hybridization, insect and small-fish diet)",
         class: "agency",
         url: "https://tpwd.texas.gov/huntwild/wild/species/greensunfish/",
       },
@@ -2472,8 +2563,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Red eyes and mottling appear early. Young rock bass can be confused with young smallmouth until the anal-spine count and bar language are checked.",
     adultAppearance:
       "A red-eyed, large-mouthed, mottled sunfish with six anal spines — a goggle-eye, not a smallmouth and not a bluegill.",
-    sexualDimorphism:
-      "Males guard nests. Size overlap is large; spines and the eye are the key.",
+    sexualDimorphism: "Males guard nests. Size overlap is large; spines and the eye are the key.",
     similarSpecies: [
       {
         speciesId: "micropterus_dolomieu",
@@ -2507,17 +2597,19 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "Large rock bass exceed typical stream size but remain far smaller than adult smallmouth. Maxima are waterbody-specific.",
     sources: [
       {
-        label: "Michigan DNR rock bass species account (six anal spines, red eyes, large mouth, color change, crayfish and fish diet)",
+        label:
+          "Michigan DNR rock bass species account (six anal spines, red eyes, large mouth, color change, crayfish and fish diet)",
         class: "agency",
         url: "https://www.michigan.gov/dnr/education/michigan-species/fish-species/rock-bass",
       },
       { label: "Illinois Department of Natural Resources rock bass account", class: "agency" },
-      { label: "Iowa DNR rock bass identification (six anal spines, ~12 dorsal spines)", class: "agency" },
+      {
+        label: "Iowa DNR rock bass identification (six anal spines, ~12 dorsal spines)",
+        class: "agency",
+      },
     ],
     ...R,
-    gaps: [
-      "a single continent-wide mean length",
-    ],
+    gaps: ["a single continent-wide mean length"],
   },
   {
     speciesId: "lepomis_auritus",
@@ -2570,7 +2662,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Redear have a short flap with a red or orange edge and lack blue cheek lines. Redbreast have a long black flap and blue cheek lines.",
       },
     ],
-    averageAdultLength: "South Carolina DNR: commonly 2–9 in. Virginia DWR: adults typically 3.5–8+ in.",
+    averageAdultLength:
+      "South Carolina DNR: commonly 2–9 in. Virginia DWR: adults typically 3.5–8+ in.",
     commonAnglingSize: "5–8 in in warm rivers, creeks, and connected reservoirs.",
     typicalWeight: "South Carolina DNR: commonly 3–8 oz.",
     maximumDocumentedSize:
@@ -2578,22 +2671,26 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity: "South Carolina DNR / Virginia DWR: approximately 8 years.",
     sources: [
       {
-        label: "North Carolina Wildlife Resources Commission redbreast sunfish profile (long narrow entirely black flap)",
+        label:
+          "North Carolina Wildlife Resources Commission redbreast sunfish profile (long narrow entirely black flap)",
         class: "agency",
         url: "https://www.ncwildlife.gov/species/redbreast-sunfish",
       },
       {
-        label: "South Carolina DNR redbreast sunfish account (elongated body, long black lobe, cheek lines, diet, 65–75°F spawn)",
+        label:
+          "South Carolina DNR redbreast sunfish account (elongated body, long black lobe, cheek lines, diet, 65–75°F spawn)",
         class: "agency",
         url: "https://www.dnr.sc.gov/fish/species/redbreastsunfish.html",
       },
       {
-        label: "Virginia DWR redbreast sunfish account (3 anal spines, faster-water use than many sunfish)",
+        label:
+          "Virginia DWR redbreast sunfish account (3 anal spines, faster-water use than many sunfish)",
         class: "agency",
         url: "https://dwr.virginia.gov/wildlife/information/redbreast-sunfish/",
       },
       {
-        label: "Delaware DNREC Fish Facts redbreast sunfish (bluish-green cheek stripes to elongated black flap)",
+        label:
+          "Delaware DNREC Fish Facts redbreast sunfish (bluish-green cheek stripes to elongated black flap)",
         class: "agency",
       },
     ],
@@ -2648,7 +2745,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Bluegill have a small mouth, a round body, and a soft-dorsal spot. Warmouth mouths are large and the body is thick and mottled.",
       },
     ],
-    averageAdultLength: "Texas Parks and Wildlife: commonly 4–10 in. Virginia DWR: quality specimens typically 6–8 in; can reach about 10 in.",
+    averageAdultLength:
+      "Texas Parks and Wildlife: commonly 4–10 in. Virginia DWR: quality specimens typically 6–8 in; can reach about 10 in.",
     commonAnglingSize: "5–8 in around wood, weeds, and swampy cover.",
     typicalWeight: "Often well under 1 lb; large fish occur in fertile cover.",
     maximumDocumentedSize:
@@ -2656,12 +2754,14 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity: "Virginia DWR: up to 8 years.",
     sources: [
       {
-        label: "Texas Parks and Wildlife warmouth account (tongue teeth, 3 anal / 10 dorsal spines, eye streaks, low-oxygen tolerance)",
+        label:
+          "Texas Parks and Wildlife warmouth account (tongue teeth, 3 anal / 10 dorsal spines, eye streaks, low-oxygen tolerance)",
         class: "agency",
         url: "https://tpwd.texas.gov/huntwild/wild/species/war/",
       },
       {
-        label: "Florida Fish and Wildlife Conservation Commission warmouth profile (red eye, war-paint cheek streaks, solitary nesting)",
+        label:
+          "Florida Fish and Wildlife Conservation Commission warmouth profile (red eye, war-paint cheek streaks, solitary nesting)",
         class: "agency",
         url: "https://myfwc.com/wildlifehabitats/profiles/freshwater/warmouth/",
       },
@@ -2677,10 +2777,7 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       },
     ],
     ...R,
-    gaps: [
-      "hybrid meristics as a structured key",
-      "a single continent-wide mean length",
-    ],
+    gaps: ["hybrid meristics as a structured key", "a single continent-wide mean length"],
   },
   {
     speciesId: "lepomis_megalotis",
@@ -2733,20 +2830,24 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Green sunfish have a large mouth and an elongated body. Longear mouths are moderate; the body is deep and slab-sided.",
       },
     ],
-    averageAdultLength: "Missouri DNR: total length commonly 5–6 in. Illinois DNR: typically about 6–7 in.",
+    averageAdultLength:
+      "Missouri DNR: total length commonly 5–6 in. Illinois DNR: typically about 6–7 in.",
     commonAnglingSize: "4–7 in in clear rocky or sandy streams and connected pools.",
-    typicalWeight: "Missouri DNR: maximum about 7 in and 4.5 oz in that account. Typical fish are lighter.",
+    typicalWeight:
+      "Missouri DNR: maximum about 7 in and 4.5 oz in that account. Typical fish are lighter.",
     maximumDocumentedSize:
       "Large longear exceed the 5–7 in band in some waters but remain smaller than trophy bluegill or redear. Maxima are waterbody-specific.",
     longevity: "Missouri DNR: individuals can live for 6 years.",
     sources: [
       {
-        label: "Missouri Department of Conservation longear sunfish field guide (white-edged elongated flap, rounded pectoral, vermiculations, size)",
+        label:
+          "Missouri Department of Conservation longear sunfish field guide (white-edged elongated flap, rounded pectoral, vermiculations, size)",
         class: "agency",
         url: "https://mdc.mo.gov/discover-nature/field-guide/longear-sunfish",
       },
       {
-        label: "Illinois Department of Natural Resources longear sunfish account (very long white-edged flap, short rounded pectorals)",
+        label:
+          "Illinois Department of Natural Resources longear sunfish account (very long white-edged flap, short rounded pectorals)",
         class: "agency",
         url: "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsunfish/waflongearsunfish.html",
       },
@@ -2802,7 +2903,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Warmouth are thick, large-mouthed, and mottled, with tongue teeth and three anal spines. Fliers are round, teardrop-marked, and high-spined.",
       },
     ],
-    averageAdultLength: "South Carolina DNR: average about 5 in. Illinois DNR: averages about 7 in.",
+    averageAdultLength:
+      "South Carolina DNR: average about 5 in. Illinois DNR: averages about 7 in.",
     commonAnglingSize: "4–7 in in vegetated coastal-plain backwater.",
     typicalWeight: "South Carolina DNR: average about 3 oz. Georgia DNR: most less than ½ lb.",
     maximumDocumentedSize:
@@ -2810,22 +2912,26 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity: "South Carolina DNR: approximately 8 years.",
     sources: [
       {
-        label: "South Carolina DNR flier account (almost circular, teardrop, 11–13 dorsal spines, early 55–65°F spawn)",
+        label:
+          "South Carolina DNR flier account (almost circular, teardrop, 11–13 dorsal spines, early 55–65°F spawn)",
         class: "agency",
         url: "https://www.dnr.sc.gov/fish/species/flier.html",
       },
       {
-        label: "Georgia DNR freshwater fish identification (7–8 anal spines, horizontal scale-spot rows, sluggish lowland habitat)",
+        label:
+          "Georgia DNR freshwater fish identification (7–8 anal spines, horizontal scale-spot rows, sluggish lowland habitat)",
         class: "agency",
         url: "https://georgiawildlife.com/fishing/identification",
       },
       {
-        label: "Florida Museum flier species profile (large black teardrop, interrupted rows of black spots)",
+        label:
+          "Florida Museum flier species profile (large black teardrop, interrupted rows of black spots)",
         class: "agency",
         url: "https://www.floridamuseum.ufl.edu/discover-fish/florida-fishes-gallery/flier/",
       },
       {
-        label: "Illinois Department of Natural Resources flier account (teardrop, April spawn, vegetated low-current water)",
+        label:
+          "Illinois Department of Natural Resources flier account (teardrop, April spawn, vegetated low-current water)",
         class: "agency",
         url: "https://dnr.illinois.gov/education/wildaboutpages/wildaboutfishes/wafsunfish/wafflier.html",
       },
@@ -2887,36 +2993,45 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Bullheads have a square to slightly notched tail, not a deep fork. Channel catfish are not pond bullheads.",
       },
     ],
-    averageAdultLength: "Missouri DNR: commonly 12–32 in. Minnesota DNR: stream fish often much smaller than lake-stocked fish.",
+    averageAdultLength:
+      "Missouri DNR: commonly 12–32 in. Minnesota DNR: stream fish often much smaller than lake-stocked fish.",
     commonAnglingSize: "12–24 in in rivers, reservoirs, and ponds.",
-    typicalWeight: "Minnesota DNR: commonly 1–10 lb and rarely exceeds 20 lb in many waters. Missouri DNR: commonly 1–15 lb.",
+    typicalWeight:
+      "Minnesota DNR: commonly 1–10 lb and rarely exceeds 20 lb in many waters. Missouri DNR: commonly 1–15 lb.",
     maximumDocumentedSize:
       "Missouri DNR: specimens as large as 45 lb are uncommon there. Texas Parks and Wildlife: fish in excess of 36 lb have been landed in Texas. Maxima are waterbody-specific and are not a blue-catfish number.",
     longevity:
       "Missouri DNR: mature at about 4–5 years or 12–15 in; lifespan usually does not exceed 6 or 7 years, though some live more than 10. Texas Parks and Wildlife: natural populations mature at 3–6 years.",
     sources: [
       {
-        label: "Missouri Department of Conservation channel catfish field guide (forked tail, convex anal 24–29 rays, spots, cavity spawn)",
+        label:
+          "Missouri Department of Conservation channel catfish field guide (forked tail, convex anal 24–29 rays, spots, cavity spawn)",
         class: "agency",
         url: "https://mdc.mo.gov/discover-nature/field-guide/channel-catfish",
       },
       {
-        label: "Texas Parks and Wildlife channel catfish account (forked tail, 24–29 anal rays, overbite, omnivory)",
+        label:
+          "Texas Parks and Wildlife channel catfish account (forked tail, 24–29 anal rays, overbite, omnivory)",
         class: "agency",
         url: "https://tpwd.texas.gov/huntwild/wild/species/ccf/",
       },
       {
-        label: "North Carolina Wildlife channel catfish account (rounded anal 24–29 vs blue 30–36 straight)",
+        label:
+          "North Carolina Wildlife channel catfish account (rounded anal 24–29 vs blue 30–36 straight)",
         class: "agency",
         url: "https://www.ncwildlife.gov/species/channel-catfish",
       },
-      { label: "Indiana DNR catfish identification (channel vs blue anal-fin shape and ray counts)", class: "agency" },
-      { label: "Minnesota DNR catfish biology (forked tail, spots fade with age, size band)", class: "agency" },
+      {
+        label: "Indiana DNR catfish identification (channel vs blue anal-fin shape and ray counts)",
+        class: "agency",
+      },
+      {
+        label: "Minnesota DNR catfish biology (forked tail, spots fade with age, size band)",
+        class: "agency",
+      },
     ],
     ...R,
-    gaps: [
-      "stocked-pond vs large-river mean length tables",
-    ],
+    gaps: ["stocked-pond vs large-river mean length tables"],
   },
   {
     speciesId: "ictalurus_furcatus",
@@ -2963,15 +3078,18 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Virginia DWR: white catfish have a more emarginate (less forked) caudal fin, a rounded anal fin, a bulbous head, and in Virginia typically do not exceed 15 in. They are an Ameiurus, not a large-river blue catfish.",
       },
     ],
-    averageAdultLength: "North Carolina Wildlife: commonly reach 36 in. NOAA Fisheries: adults usually less than 2 ft, with much larger fish documented.",
+    averageAdultLength:
+      "North Carolina Wildlife: commonly reach 36 in. NOAA Fisheries: adults usually less than 2 ft, with much larger fish documented.",
     commonAnglingSize: "20–40 in in large rivers and reservoirs where the species is established.",
-    typicalWeight: "Texas Parks and Wildlife: commonly 20–40 lb in waters that grow large fish. Many fisheries see much smaller averages.",
+    typicalWeight:
+      "Texas Parks and Wildlife: commonly 20–40 lb in waters that grow large fish. Many fisheries see much smaller averages.",
     maximumDocumentedSize:
       "Texas Parks and Wildlife: may reach well in excess of 100 lb. Virginia DWR cites a 143 lb record fish. USGS NAS: to about 165 cm. Historical Mississippi-River maxima are not a current-waterbody promise.",
     longevity: "Virginia DWR: average life span about 9–10 years; maximum about 25 years.",
     sources: [
       {
-        label: "Texas Parks and Wildlife blue catfish account (30–35 anal rays, unspotted except Rio Grande, large-river habitat)",
+        label:
+          "Texas Parks and Wildlife blue catfish account (30–35 anal rays, unspotted except Rio Grande, large-river habitat)",
         class: "agency",
         url: "https://tpwd.texas.gov/huntwild/wild/species/blc/",
       },
@@ -2981,22 +3099,32 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
         url: "https://tpwd.texas.gov/regulations/outdoor-annual/fishing/freshwater-fishing/catfish-identification",
       },
       {
-        label: "North Carolina Wildlife blue catfish account (straight anal 30–36 rays, invasive in NC, piscivorous when large)",
+        label:
+          "North Carolina Wildlife blue catfish account (straight anal 30–36 rays, invasive in NC, piscivorous when large)",
         class: "agency",
         url: "https://www.ncwildlife.gov/species/blue-catfish",
       },
       {
-        label: "Virginia DWR blue catfish account (straight anal, dorsal hump, Chesapeake introduced/invasive status, omnivory to piscivory)",
+        label:
+          "Virginia DWR blue catfish account (straight anal, dorsal hump, Chesapeake introduced/invasive status, omnivory to piscivory)",
         class: "agency",
         url: "https://dwr.virginia.gov/wildlife/information/blue-catfish/",
       },
       {
-        label: "USGS Nonindigenous Aquatic Species blue catfish profile (native vs introduced range, anal-fin shape vs channel)",
+        label:
+          "USGS Nonindigenous Aquatic Species blue catfish profile (native vs introduced range, anal-fin shape vs channel)",
         class: "agency",
         url: "https://nas.er.usgs.gov/queries/FactSheet.aspx?SpeciesID=740",
       },
-      { label: "NOAA Fisheries blue catfish species page (Chesapeake invasive context, large-river habitat)", class: "agency" },
-      { label: "Indiana DNR catfish identification (straight anal 30–35 rays, barber’s-comb edge)", class: "agency" },
+      {
+        label:
+          "NOAA Fisheries blue catfish species page (Chesapeake invasive context, large-river habitat)",
+        class: "agency",
+      },
+      {
+        label: "Indiana DNR catfish identification (straight anal 30–35 rays, barber’s-comb edge)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [
@@ -3049,32 +3177,41 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Yellow bullhead are small square-tailed Ameiurus with white chin barbels. They are not a 20–40 in shovelhead. Do not collapse ‘yellow cat’ nicknames.",
       },
     ],
-    averageAdultLength: "Missouri DNR: commonly 15–45 in. National Park Service / Minnesota DNR: often larger-bodied than sympatric channel catfish.",
+    averageAdultLength:
+      "Missouri DNR: commonly 15–45 in. National Park Service / Minnesota DNR: often larger-bodied than sympatric channel catfish.",
     commonAnglingSize: "18–36 in in large rivers and reservoirs with wood and deep pools.",
-    typicalWeight: "Missouri DNR: commonly 1–45 lb in the documented adult band. Texas Parks and Wildlife: 50-pounders are not unusual where mature populations exist.",
+    typicalWeight:
+      "Missouri DNR: commonly 1–45 lb in the documented adult band. Texas Parks and Wildlife: 50-pounders are not unusual where mature populations exist.",
     maximumDocumentedSize:
       "Missouri DNR / Texas Parks and Wildlife / Minnesota DNR: about 100 lb class, with larger commercial reports. Maxima are waterbody-specific.",
     longevity:
       "Texas Parks and Wildlife: average lifespan 12–14 years; one recorded fish lived 24 years. Mature at about 4–5 years or about 18 in (Missouri DNR).",
     sources: [
       {
-        label: "Missouri Department of Conservation flathead catfish field guide (flattened head, underbite, square tail, 14–17 anal rays, solitary cover)",
+        label:
+          "Missouri Department of Conservation flathead catfish field guide (flattened head, underbite, square tail, 14–17 anal rays, solitary cover)",
         class: "agency",
         url: "https://mdc.mo.gov/discover-nature/field-guide/flathead-catfish",
       },
       {
-        label: "Texas Parks and Wildlife flathead catfish account (projecting lower jaw, slightly notched tail, live-fish diet)",
+        label:
+          "Texas Parks and Wildlife flathead catfish account (projecting lower jaw, slightly notched tail, live-fish diet)",
         class: "agency",
         url: "https://tpwd.texas.gov/huntwild/wild/species/catfish/",
       },
-      { label: "Indiana DNR catfish identification (square tail, 14–17 anal rays, mottling)", class: "agency" },
-      { label: "Minnesota DNR catfish biology (largest native MN catfish, live-fish diet, cavity spawn)", class: "agency" },
+      {
+        label: "Indiana DNR catfish identification (square tail, 14–17 anal rays, mottling)",
+        class: "agency",
+      },
+      {
+        label:
+          "Minnesota DNR catfish biology (largest native MN catfish, live-fish diet, cavity spawn)",
+        class: "agency",
+      },
       { label: "USGS Nonindigenous Aquatic Species flathead catfish profile", class: "agency" },
     ],
     ...R,
-    gaps: [
-      "introduced-range vs native-range mean length tables",
-    ],
+    gaps: ["introduced-range vs native-range mean length tables"],
   },
   {
     speciesId: "ameiurus_catus",
@@ -3127,28 +3264,35 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Brown bullhead have dark chin barbels and a square to slightly notched tail. White catfish have light chin barbels and a moderate fork.",
       },
     ],
-    averageAdultLength: "Connecticut DEEP: commonly 8–17 in. Virginia DWR: in Virginia typically do not exceed 15 in.",
+    averageAdultLength:
+      "Connecticut DEEP: commonly 8–17 in. Virginia DWR: in Virginia typically do not exceed 15 in.",
     commonAnglingSize: "8–16 in in coastal rivers, reservoirs, and slow tributaries.",
     typicalWeight: "Usually well under 3 lb. They are not a blue-catfish weight class.",
     maximumDocumentedSize:
       "Connecticut DEEP: state survey max 21.7 in; max reported size 37 in; listed world record 18.9 lb. Those maxima are not typical.",
     sources: [
       {
-        label: "Connecticut DEEP white catfish account (forked rounded lobes, 18–24 anal rays, wide head, light chin barbels)",
+        label:
+          "Connecticut DEEP white catfish account (forked rounded lobes, 18–24 anal rays, wide head, light chin barbels)",
         class: "agency",
         url: "https://portal.ct.gov/deep/fishing/freshwater/freshwater-fishes-of-connecticut/white-catfish",
       },
       {
-        label: "Virginia DWR blue catfish account (white catfish comparison: emarginate tail, rounded anal, bulbous head, ≤15 in in VA)",
+        label:
+          "Virginia DWR blue catfish account (white catfish comparison: emarginate tail, rounded anal, bulbous head, ≤15 in in VA)",
         class: "agency",
         url: "https://dwr.virginia.gov/wildlife/information/blue-catfish/",
       },
       {
-        label: "Chesapeake Bay Program white catfish field guide (white chin barbels, moderately forked rounded lobes, omnivory)",
+        label:
+          "Chesapeake Bay Program white catfish field guide (white chin barbels, moderately forked rounded lobes, omnivory)",
         class: "agency",
         url: "https://www.chesapeakebay.net/discover/field-guide/entry/white-catfish",
       },
-      { label: "Smithsonian NEMESIS white catfish summary (broad head, omnivory, sluggish habitat)", class: "agency" },
+      {
+        label: "Smithsonian NEMESIS white catfish summary (broad head, omnivory, sluggish habitat)",
+        class: "agency",
+      },
     ],
     ...R,
     gaps: [
@@ -3207,16 +3351,28 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Pink are much smaller (ADF&G: 3.5–5 lb, 20–25 in) with large oval spots on the entire tail, very small scales, and no silver on the tail. Chinook are the large blackmouth.",
       },
     ],
-    averageAdultLength: "NOAA: typical mature about 3 ft. Common returning adults often 28–40 in depending on stock.",
+    averageAdultLength:
+      "NOAA: typical mature about 3 ft. Common returning adults often 28–40 in depending on stock.",
     commonAnglingSize: "28–40 in in many Pacific and Great Lakes fisheries.",
-    typicalWeight: "NOAA: typical mature about 30 lb. Many fisheries see smaller adults; stock means vary.",
+    typicalWeight:
+      "NOAA: typical mature about 30 lb. Many fisheries see smaller adults; stock means vary.",
     maximumDocumentedSize:
       "NOAA: as long as 4.9 ft and up to 129 lb. Those maxima are not typical and are not a Great Lakes mean.",
     longevity:
       "NOAA: sexually mature between ages 2 and 7, typically 3 or 4 when they return; all die after spawning.",
     sources: [
-      { label: "NOAA Fisheries Chinook Salmon species profile (black gums / blackmouth, spots on both tail lobes, typical 3 ft / 30 lb, ESA counts)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chinook-salmon" },
-      { label: "Oregon Department of Fish and Wildlife Chinook vs coho gum-line key (lower-jaw uniform dark vs banding; enforcement character)", class: "agency", url: "https://myodfw.com/articles/it-coho-or-chinook" },
+      {
+        label:
+          "NOAA Fisheries Chinook Salmon species profile (black gums / blackmouth, spots on both tail lobes, typical 3 ft / 30 lb, ESA counts)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/chinook-salmon",
+      },
+      {
+        label:
+          "Oregon Department of Fish and Wildlife Chinook vs coho gum-line key (lower-jaw uniform dark vs banding; enforcement character)",
+        class: "agency",
+        url: "https://myodfw.com/articles/it-coho-or-chinook",
+      },
       { label: "Healey chinook life history", class: "peer_reviewed" },
     ],
     ...R,
@@ -3276,17 +3432,32 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Pink have large oval spots on both tail lobes, very small scales, and no silver on the tail. Coho spots are small and restricted to the upper tail lobe.",
       },
     ],
-    averageAdultLength: "NOAA: 24–30 in. California DFW (Moyle): spawning adults typically 55–70 cm fork length.",
+    averageAdultLength:
+      "NOAA: 24–30 in. California DFW (Moyle): spawning adults typically 55–70 cm fork length.",
     commonAnglingSize: "22–30 in in many Pacific and Great Lakes fisheries.",
     typicalWeight: "NOAA: 8–12 lb. California DFW (Moyle): 3–6 kg for spawning adults.",
     maximumDocumentedSize:
       "Oregon DFW notes coho have been observed in the 25–30 lb range. Those fish are not typical and do not convert the record into Chinook.",
-    longevity:
-      "NOAA: about 1½ years feeding in the ocean, then return; all die after spawning.",
+    longevity: "NOAA: about 1½ years feeding in the ocean, then return; all die after spawning.",
     sources: [
-      { label: "NOAA Fisheries Coho Salmon species profile (lighter gumline, upper-lobe tail spots, 8–12 lb / 24–30 in, ESA counts)", class: "agency", url: "https://www.fisheries.noaa.gov/species/coho-salmon" },
-      { label: "Oregon Department of Fish and Wildlife Chinook vs coho gum-line key (dark-light-dark banding; lower-jaw enforcement character)", class: "agency", url: "https://myodfw.com/articles/it-coho-or-chinook" },
-      { label: "California DFW Coho Salmon conservation profile (white at tooth base, no lower-tail spots, California listing)", class: "agency", url: "https://wildlife.ca.gov/Conservation/Fishes/Coho-Salmon" },
+      {
+        label:
+          "NOAA Fisheries Coho Salmon species profile (lighter gumline, upper-lobe tail spots, 8–12 lb / 24–30 in, ESA counts)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/coho-salmon",
+      },
+      {
+        label:
+          "Oregon Department of Fish and Wildlife Chinook vs coho gum-line key (dark-light-dark banding; lower-jaw enforcement character)",
+        class: "agency",
+        url: "https://myodfw.com/articles/it-coho-or-chinook",
+      },
+      {
+        label:
+          "California DFW Coho Salmon conservation profile (white at tooth base, no lower-tail spots, California listing)",
+        class: "agency",
+        url: "https://wildlife.ca.gov/Conservation/Fishes/Coho-Salmon",
+      },
       { label: "Sandercock coho life history", class: "peer_reviewed" },
     ],
     ...R,
@@ -3348,13 +3519,21 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity:
       "Alaska DFG: shortest Pacific salmon lifespan in North America; they mature and complete the entire life cycle in two years. NOAA: typically spawn at age 2.",
     sources: [
-      { label: "Alaska Department of Fish and Game Pink Salmon species profile (ocean-phase ID, small scales, no silver on tail, adults do not eat in freshwater, two-year cycle)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main" },
-      { label: "NOAA Fisheries Pink Salmon species profile (oval spots on entire tail, 3.5–5 lb / 20–25 in, odd/even year structure)", class: "agency", url: "https://www.fisheries.noaa.gov/species/pink-salmon" },
+      {
+        label:
+          "Alaska Department of Fish and Game Pink Salmon species profile (ocean-phase ID, small scales, no silver on tail, adults do not eat in freshwater, two-year cycle)",
+        class: "agency",
+        url: "https://www.adfg.alaska.gov/index.cfm?adfg=pinksalmon.main",
+      },
+      {
+        label:
+          "NOAA Fisheries Pink Salmon species profile (oval spots on entire tail, 3.5–5 lb / 20–25 in, odd/even year structure)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/pink-salmon",
+      },
     ],
     ...R,
-    gaps: [
-      "odd-year vs even-year mean size as a structured split",
-    ],
+    gaps: ["odd-year vs even-year mean size as a structured split"],
   },
   {
     speciesId: "oncorhynchus_keta",
@@ -3407,7 +3586,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Coho have small spots on the upper tail lobe and a white band at the tooth base. Chum are unspotted with silver on the tail rays.",
       },
     ],
-    averageAdultLength: "Alaska DFG: 24–28 in. NOAA working range extends toward 3.6 ft at the documented maximum.",
+    averageAdultLength:
+      "Alaska DFG: 24–28 in. NOAA working range extends toward 3.6 ft at the documented maximum.",
     commonAnglingSize: "24–30 in in lawful coastal fisheries.",
     typicalWeight: "Alaska DFG: 10–13 lb. NOAA: average 8–15 lb.",
     maximumDocumentedSize:
@@ -3415,9 +3595,23 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity:
       "Anadromous; NOAA notes spawning from late summer into March depending on population. All die after spawning. Age is stock-specific.",
     sources: [
-      { label: "NOAA Fisheries Chum Salmon species profile (calico / tiger stripes, size, two threatened ESUs, spawn timing)", class: "agency", url: "https://www.fisheries.noaa.gov/species/chum-salmon" },
-      { label: "NOAA Fisheries Chum Salmon protected-ESU profile (Hood Canal summer-run and Columbia River threatened ESUs)", class: "agency" },
-      { label: "Alaska Department of Fish and Game Chum Salmon species profile (no dark spots, silver on tail rays, cease feeding on the spawning run)", class: "agency", url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main" },
+      {
+        label:
+          "NOAA Fisheries Chum Salmon species profile (calico / tiger stripes, size, two threatened ESUs, spawn timing)",
+        class: "agency",
+        url: "https://www.fisheries.noaa.gov/species/chum-salmon",
+      },
+      {
+        label:
+          "NOAA Fisheries Chum Salmon protected-ESU profile (Hood Canal summer-run and Columbia River threatened ESUs)",
+        class: "agency",
+      },
+      {
+        label:
+          "Alaska Department of Fish and Game Chum Salmon species profile (no dark spots, silver on tail rays, cease feeding on the spawning run)",
+        class: "agency",
+        url: "https://www.adfg.alaska.gov/index.cfm?adfg=chumsalmon.main",
+      },
     ],
     ...R,
     gaps: [
@@ -3476,7 +3670,8 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
           "Steelhead are anadromous rainbow trout with a spotted tail and, often, a pink band after freshwater residence. Landlocked Atlantic salmon are Salmo with X-marks and a slight fork, not an Oncorhynchus.",
       },
     ],
-    averageAdultLength: "Maine lake adults commonly 16–22 in; larger fish occur where smelt forage is adequate.",
+    averageAdultLength:
+      "Maine lake adults commonly 16–22 in; larger fish occur where smelt forage is adequate.",
     commonAnglingSize: "16–22 in in many northeastern managed lakes.",
     typicalWeight: "Often 1.5–4 lb. Maine IFW: growth can be poor without adequate smelt.",
     maximumDocumentedSize:
@@ -3484,9 +3679,24 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
     longevity:
       "Maine IFW: landlocked salmon may spawn more than once (iteroparous), in consecutive or alternate years. Most fish observed on spawning runs are spawning for the first time.",
     sources: [
-      { label: "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile (smelt forage, <65°F, spawn timing, iteroparity)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html" },
-      { label: "Maine IFW identification of salmon and brown trout (vomerine row, slightly forked vs square tail)", class: "agency", url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/difference-salmon-brown-trout.html" },
-      { label: "Maine IFW landlocked salmon vs brown trout field tips (maxillary, X-spots, dark adipose, caudal peduncle)", class: "agency", url: "https://www.maine.gov/ifw/blogs/mdifw-blog/landlocked-salmon-and-brown-trout-tips-identifying-your-catch" },
+      {
+        label:
+          "Maine Department of Inland Fisheries and Wildlife Landlocked Salmon species profile (smelt forage, <65°F, spawn timing, iteroparity)",
+        class: "agency",
+        url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/landlocked-salmon.html",
+      },
+      {
+        label:
+          "Maine IFW identification of salmon and brown trout (vomerine row, slightly forked vs square tail)",
+        class: "agency",
+        url: "https://www.maine.gov/ifw/fish-wildlife/fisheries/species-information/difference-salmon-brown-trout.html",
+      },
+      {
+        label:
+          "Maine IFW landlocked salmon vs brown trout field tips (maxillary, X-spots, dark adipose, caudal peduncle)",
+        class: "agency",
+        url: "https://www.maine.gov/ifw/blogs/mdifw-blog/landlocked-salmon-and-brown-trout-tips-identifying-your-catch",
+      },
     ],
     ...R,
     gaps: [
@@ -3494,5 +3704,4 @@ export const IDENTIFICATION_DOSSIERS: IdentificationDossier[] = [
       "ouananiche vs sebago form tables as structured fields",
     ],
   },
-
 ];

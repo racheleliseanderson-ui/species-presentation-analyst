@@ -21,7 +21,8 @@ export const Route = createFileRoute("/api/dossier-coverage")({
             { speciesTotal: SPECIES.length, coverage, source: "live" },
             {
               headers: {
-                "cache-control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+                "cache-control":
+                  "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
                 "content-type": "application/json; charset=utf-8",
               },
             },

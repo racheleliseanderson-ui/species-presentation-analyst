@@ -34,9 +34,8 @@ export const DIET_BY_SPECIES: Record<string, DietDossier> = Object.fromEntries(
   DIET_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]),
 );
 
-export const SEASONAL_CALENDAR_BY_SPECIES: Record<string, SeasonalCalendarDossier> = Object.fromEntries(
-  SEASONAL_CALENDAR_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]),
-);
+export const SEASONAL_CALENDAR_BY_SPECIES: Record<string, SeasonalCalendarDossier> =
+  Object.fromEntries(SEASONAL_CALENDAR_DOSSIERS.map((dossier) => [dossier.speciesId, dossier]));
 
 export function identificationDossierFor(speciesId: string): IdentificationDossier | null {
   return IDENTIFICATION_BY_SPECIES[speciesId] ?? null;
@@ -54,7 +53,11 @@ export function seasonalCalendarDossierFor(speciesId: string): SeasonalCalendarD
   return SEASONAL_CALENDAR_BY_SPECIES[speciesId] ?? null;
 }
 
-export const IDENTIFICATION_COVERAGE_IDS = IDENTIFICATION_DOSSIERS.map((dossier) => dossier.speciesId);
+export const IDENTIFICATION_COVERAGE_IDS = IDENTIFICATION_DOSSIERS.map(
+  (dossier) => dossier.speciesId,
+);
 export const BEHAVIOR_COVERAGE_IDS = BEHAVIOR_DOSSIERS.map((dossier) => dossier.speciesId);
 export const DIET_COVERAGE_IDS = DIET_DOSSIERS.map((dossier) => dossier.speciesId);
-export const SEASONAL_CALENDAR_COVERAGE_IDS = SEASONAL_CALENDAR_DOSSIERS.map((dossier) => dossier.speciesId);
+export const SEASONAL_CALENDAR_COVERAGE_IDS = SEASONAL_CALENDAR_DOSSIERS.map(
+  (dossier) => dossier.speciesId,
+);

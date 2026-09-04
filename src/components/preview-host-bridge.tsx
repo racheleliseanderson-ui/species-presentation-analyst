@@ -7,10 +7,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "@tanstack/react-router";
-import {
-  collectRoutePathsFromTree,
-  installPreviewHostBridge,
-} from "@/lib/preview-host-bridge";
+import { collectRoutePathsFromTree, installPreviewHostBridge } from "@/lib/preview-host-bridge";
 
 export function PreviewHostBridge() {
   const router = useRouter();

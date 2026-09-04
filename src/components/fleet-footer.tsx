@@ -70,7 +70,10 @@ export function FleetFooter() {
               This publication
             </h3>
             <p className="mt-2">
-              <a href={THIS_PUBLICATION.publication.url} className={`${LINK_CLASS} font-display text-lg text-fg`}>
+              <a
+                href={THIS_PUBLICATION.publication.url}
+                className={`${LINK_CLASS} font-display text-lg text-fg`}
+              >
                 {THIS_PUBLICATION.publication.name}
               </a>
             </p>
@@ -93,10 +96,7 @@ export function FleetFooter() {
             <ul className="mt-2 grid gap-x-6 gap-y-4 sm:grid-cols-2 xl:grid-cols-3">
               {ACROSS_FLEET.map((group) => (
                 <li key={group.publication.url}>
-                  <a
-                    href={group.publication.url}
-                    className={`${LINK_CLASS} font-medium text-fg`}
-                  >
+                  <a href={group.publication.url} className={`${LINK_CLASS} font-medium text-fg`}>
                     {group.publication.name}
                   </a>
                   <ul className="flex flex-col">

@@ -61,7 +61,11 @@ export function TemperatureInput({
       <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim">
         Water temperature
       </span>
-      <div className="mt-2 grid gap-2 sm:grid-cols-3" role="radiogroup" aria-label="What you know about water temperature">
+      <div
+        className="mt-2 grid gap-2 sm:grid-cols-3"
+        role="radiogroup"
+        aria-label="What you know about water temperature"
+      >
         {(
           [
             ["unknown", "I don't know"],

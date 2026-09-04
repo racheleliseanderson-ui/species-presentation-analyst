@@ -27,7 +27,8 @@ export type AnglerProfileSectionId =
 
 export type AnglerProfileStatus = "reviewed" | "partial" | "not_reviewed";
 
-export type AnglerProfileFactKind = "default" | "trait" | "comparison" | "source" | "season" | "life_stage";
+export type AnglerProfileFactKind =
+  "default" | "trait" | "comparison" | "source" | "season" | "life_stage";
 
 export type AnglerProfileFact = {
   label: string;
@@ -119,14 +120,18 @@ function feedingModeLabel(mode: BehaviorDossier["feedingStrategy"]["modes"][numb
   return labelOf(mode);
 }
 
-function identificationSection(species: SpeciesRecord, dossier: IdentificationDossier | null): AnglerProfileSection {
+function identificationSection(
+  species: SpeciesRecord,
+  dossier: IdentificationDossier | null,
+): AnglerProfileSection {
   const aliases = ALIASES[species.id] ?? [];
   const catalogFacts: AnglerProfileFact[] = [
     { label: "Common name", value: species.commonNames[0] },
     { label: "Scientific name", value: species.scientificName },
     {
       label: "Also called",
-      value: aliases.length > 0 ? aliases.join(", ") : "No additional reviewed angler aliases stored",
+      value:
+        aliases.length > 0 ? aliases.join(", ") : "No additional reviewed angler aliases stored",
     },
   ];
 
@@ -170,7 +175,10 @@ function identificationSection(species: SpeciesRecord, dossier: IdentificationDo
       ? [{ label: "Sexual dimorphism", value: dossier.sexualDimorphism }]
       : []),
     ...dossier.identificationTraits.map((trait, index) => ({
-      label: dossier.identificationTraits.length === 1 ? "Diagnostic trait" : `Diagnostic trait ${index + 1}`,
+      label:
+        dossier.identificationTraits.length === 1
+          ? "Diagnostic trait"
+          : `Diagnostic trait ${index + 1}`,
       value: trait,
       kind: "trait" as const,
     })),
@@ -183,7 +191,9 @@ function identificationSection(species: SpeciesRecord, dossier: IdentificationDo
     { label: "Common angling size", value: dossier.commonAnglingSize },
     { label: "Typical weight", value: dossier.typicalWeight },
     { label: "Maximum documented size", value: dossier.maximumDocumentedSize },
-    ...(dossier.longevity ? [{ label: "Longevity / age potential", value: dossier.longevity }] : []),
+    ...(dossier.longevity
+      ? [{ label: "Longevity / age potential", value: dossier.longevity }]
+      : []),
     {
       label: "Identification sources",
       value: dossier.sources.map((source) => source.label).join("; "),
@@ -204,7 +214,10 @@ function identificationSection(species: SpeciesRecord, dossier: IdentificationDo
   );
 }
 
-function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null): AnglerProfileSection {
+function behaviorSection(
+  species: SpeciesRecord,
+  dossier: BehaviorDossier | null,
+): AnglerProfileSection {
   if (!dossier) {
     return section(
       "behavior",
@@ -223,7 +236,10 @@ function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null
         },
         {
           label: "Important exceptions",
-          value: species.exceptions.length > 0 ? species.exceptions.join(" ") : "No additional reviewed exception note",
+          value:
+            species.exceptions.length > 0
+              ? species.exceptions.join(" ")
+              : "No additional reviewed exception note",
         },
       ],
       [
@@ -237,7 +253,10 @@ function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null
   }
 
   const facts: AnglerProfileFact[] = [
-    { label: "Social pattern", value: `${labelOf(dossier.social.pattern)}. ${dossier.social.note}` },
+    {
+      label: "Social pattern",
+      value: `${labelOf(dossier.social.pattern)}. ${dossier.social.note}`,
+    },
     ...(dossier.social.byLifeStage
       ? [{ label: "Schooling by life stage", value: dossier.social.byLifeStage }]
       : []),
@@ -245,25 +264,44 @@ function behaviorSection(species: SpeciesRecord, dossier: BehaviorDossier | null
       label: "Feeding strategy",
       value: `${dossier.feedingStrategy.modes.map(feedingModeLabel).join(", ")}. ${dossier.feedingStrategy.note}`,
     },
-    { label: "Diel tendency", value: `${labelOf(dossier.dielTendency.class)}. ${dossier.dielTendency.note}` },
+    {
+      label: "Diel tendency",
+      value: `${labelOf(dossier.dielTendency.class)}. ${dossier.dielTendency.note}`,
+    },
     ...(dossier.territoriality ? [{ label: "Territoriality", value: dossier.territoriality }] : []),
     ...(dossier.aggression ? [{ label: "Aggression", value: dossier.aggression }] : []),
-    ...(dossier.seasonalActivity ? [{ label: "Seasonal activity", value: dossier.seasonalActivity }] : []),
+    ...(dossier.seasonalActivity
+      ? [{ label: "Seasonal activity", value: dossier.seasonalActivity }]
+      : []),
     ...(dossier.thermalDrivenBehavior
       ? [{ label: "Thermal-driven behavior", value: dossier.thermalDrivenBehavior }]
       : []),
-    ...(dossier.currentFacing ? [{ label: "Current-facing behavior", value: dossier.currentFacing }] : []),
+    ...(dossier.currentFacing
+      ? [{ label: "Current-facing behavior", value: dossier.currentFacing }]
+      : []),
     ...(dossier.depthMovement ? [{ label: "Depth movement", value: dossier.depthMovement }] : []),
-    ...(dossier.waterLevelResponse ? [{ label: "Water-level response", value: dossier.waterLevelResponse }] : []),
-    ...(dossier.flowChangeResponse ? [{ label: "Flow-change response", value: dossier.flowChangeResponse }] : []),
-    ...(dossier.clarityResponse ? [{ label: "Clarity response", value: dossier.clarityResponse }] : []),
-    ...(dossier.coldFrontResponse ? [{ label: "Cold-front response", value: dossier.coldFrontResponse }] : []),
+    ...(dossier.waterLevelResponse
+      ? [{ label: "Water-level response", value: dossier.waterLevelResponse }]
+      : []),
+    ...(dossier.flowChangeResponse
+      ? [{ label: "Flow-change response", value: dossier.flowChangeResponse }]
+      : []),
+    ...(dossier.clarityResponse
+      ? [{ label: "Clarity response", value: dossier.clarityResponse }]
+      : []),
+    ...(dossier.coldFrontResponse
+      ? [{ label: "Cold-front response", value: dossier.coldFrontResponse }]
+      : []),
     ...(dossier.anglingPressureResponse
       ? [{ label: "Angling-pressure response", value: dossier.anglingPressureResponse }]
       : []),
-    ...(dossier.predatorAvoidance ? [{ label: "Predator avoidance", value: dossier.predatorAvoidance }] : []),
+    ...(dossier.predatorAvoidance
+      ? [{ label: "Predator avoidance", value: dossier.predatorAvoidance }]
+      : []),
     ...(dossier.coverUse ? [{ label: "Cover use", value: dossier.coverUse }] : []),
-    ...(dossier.openWaterBehavior ? [{ label: "Open-water behavior", value: dossier.openWaterBehavior }] : []),
+    ...(dossier.openWaterBehavior
+      ? [{ label: "Open-water behavior", value: dossier.openWaterBehavior }]
+      : []),
     { label: "Spawning behavior", value: dossier.spawningBehavior },
     ...(species.habitat.lightResponse
       ? [{ label: "Light response (catalog)", value: species.habitat.lightResponse }]
@@ -317,7 +355,10 @@ function dietSection(species: SpeciesRecord, dossier: DietDossier | null): Angle
       [
         {
           label: "Reviewed forage classes",
-          value: species.forageClasses.length > 0 ? labels(species.forageClasses) : "No forage class reviewed",
+          value:
+            species.forageClasses.length > 0
+              ? labels(species.forageClasses)
+              : "No forage class reviewed",
         },
       ],
       [
@@ -353,7 +394,13 @@ function dietSection(species: SpeciesRecord, dossier: DietDossier | null): Angle
       kind: "season" as const,
     })),
     ...(dossier.lifeStageDiet?.youngOfYear
-      ? [{ label: "Young-of-year", value: dossier.lifeStageDiet.youngOfYear, kind: "life_stage" as const }]
+      ? [
+          {
+            label: "Young-of-year",
+            value: dossier.lifeStageDiet.youngOfYear,
+            kind: "life_stage" as const,
+          },
+        ]
       : []),
     ...(dossier.lifeStageDiet?.juvenile
       ? [{ label: "Juvenile", value: dossier.lifeStageDiet.juvenile, kind: "life_stage" as const }]
@@ -361,8 +408,12 @@ function dietSection(species: SpeciesRecord, dossier: DietDossier | null): Angle
     ...(dossier.lifeStageDiet?.adult
       ? [{ label: "Adult", value: dossier.lifeStageDiet.adult, kind: "life_stage" as const }]
       : []),
-    ...(dossier.preySizeShifts ? [{ label: "Prey-size shifts", value: dossier.preySizeShifts }] : []),
-    ...(dossier.ontogeneticShift ? [{ label: "Ontogenetic shift", value: dossier.ontogeneticShift }] : []),
+    ...(dossier.preySizeShifts
+      ? [{ label: "Prey-size shifts", value: dossier.preySizeShifts }]
+      : []),
+    ...(dossier.ontogeneticShift
+      ? [{ label: "Ontogenetic shift", value: dossier.ontogeneticShift }]
+      : []),
     ...(dossier.forageSubstitutions
       ? [{ label: "Forage substitutions", value: dossier.forageSubstitutions }]
       : []),
@@ -401,7 +452,9 @@ function seasonalCalendarSection(
       [
         {
           label: "Reviewed spawning seasons",
-          value: species.spawning ? labels(species.spawning.seasons) : "Not reviewed for this species",
+          value: species.spawning
+            ? labels(species.spawning.seasons)
+            : "Not reviewed for this species",
         },
         {
           label: "Spawning note",
@@ -471,9 +524,7 @@ export function buildAnglerSpeciesProfile(
   // "no presentation family reviewed" and no holding water at all — the record
   // was complete, the profile just was not asking it the right question.
   const waterTypes = species.habitat.waterTypes;
-  const holding = waterTypes.flatMap((waterType) => [
-    ...reviewedHoldingFor(species, waterType),
-  ]);
+  const holding = waterTypes.flatMap((waterType) => [...reviewedHoldingFor(species, waterType)]);
   const identification = overlays.identification;
   const behavior = overlays.behavior;
   const diet = overlays.diet;
@@ -610,11 +661,16 @@ export function buildAnglerSpeciesProfile(
         { label: "Target status", value: targetStatusLabel(species) },
         {
           label: "Jurisdiction verification",
-          value: species.targetContext?.verifyLocalRules ? "Required" : "Check current local regulations before fishing",
+          value: species.targetContext?.verifyLocalRules
+            ? "Required"
+            : "Check current local regulations before fishing",
         },
         {
           label: "Conservation / regulation note",
-          value: species.targetContext?.note ?? species.targetStatusNote ?? "Use current local regulations and species-specific stewardship guidance.",
+          value:
+            species.targetContext?.note ??
+            species.targetStatusNote ??
+            "Use current local regulations and species-specific stewardship guidance.",
         },
       ],
       [

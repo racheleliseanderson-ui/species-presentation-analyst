@@ -2,22 +2,12 @@ import { interpret } from "./infer.ts";
 import { declareHolding, declaredHolding } from "./water.ts";
 import { normalizeTemperatureRangeF } from "./temperature.ts";
 import { SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
-import type {
-  Interpretation,
-  RankedPresentation,
-  ScenarioInput,
-} from "../protocol/types.ts";
+import type { Interpretation, RankedPresentation, ScenarioInput } from "../protocol/types.ts";
 import { isMarine } from "../protocol/vocab.ts";
 import type { MarineHolding, RiverHolding, StillHolding } from "../protocol/vocab.ts";
 import { labelOf } from "../protocol/vocab.ts";
 
-export type AdaptiveQuestionId =
-  | "temperature"
-  | "time"
-  | "holding"
-  | "forage"
-  | "clarity"
-  | "tide";
+export type AdaptiveQuestionId = "temperature" | "time" | "holding" | "forage" | "clarity" | "tide";
 
 export type AdaptiveQuestion = {
   id: AdaptiveQuestionId;
@@ -53,11 +43,7 @@ function topId(input: ScenarioInput): string | null {
 
 function distinctTopIds(inputs: ScenarioInput[]): string[] {
   return [
-    ...new Set(
-      inputs
-        .map((input) => topId(input))
-        .filter((id): id is string => Boolean(id)),
-    ),
+    ...new Set(inputs.map((input) => topId(input)).filter((id): id is string => Boolean(id))),
   ];
 }
 
@@ -107,12 +93,10 @@ function forageCouldMatter(input: ScenarioInput): boolean {
   const classes = species.forageClasses.slice(0, 5);
   if (classes.length < 2) return false;
 
-  const variants = classes.map(
-    (forageClass): ScenarioInput => ({
-      ...input,
-      forage: { class: forageClass, source: "user_observation" },
-    }),
-  );
+  const variants = classes.map((forageClass): ScenarioInput => ({
+    ...input,
+    forage: { class: forageClass, source: "user_observation" },
+  }));
   return distinctTopIds([input, ...variants]).length > 1;
 }
 
@@ -152,7 +136,12 @@ export function nextAdaptiveQuestion(
   options: { hasTemperatureRange?: boolean } = {},
 ): AdaptiveQuestion | null {
   const hasRange = normalizeTemperatureRangeF(input.tempRangeF) != null;
-  if (input.tempF == null && !hasRange && !options.hasTemperatureRange && temperatureCouldMatter(input)) {
+  if (
+    input.tempF == null &&
+    !hasRange &&
+    !options.hasTemperatureRange &&
+    temperatureCouldMatter(input)
+  ) {
     return {
       id: "temperature",
       prompt: "Do you know roughly how warm the water is?",
@@ -406,7 +395,13 @@ export function coarseHoldingChoices(input: ScenarioInput): CoarseHoldingChoice[
       id: "open-water-sign",
       label: "Open water with something showing",
       detail: "Bait on the surface, a colour change or a rip line",
-      candidates: ["open_bait_school", "temperature_break", "nearshore_hump", "seamount", "canyon_edge"],
+      candidates: [
+        "open_bait_school",
+        "temperature_break",
+        "nearshore_hump",
+        "seamount",
+        "canyon_edge",
+      ],
     },
     {
       id: "light-edge",

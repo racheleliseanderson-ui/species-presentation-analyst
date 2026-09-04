@@ -31,11 +31,7 @@ export function ConnectionStatus() {
   if (!offline) return null;
 
   return (
-    <div
-      role="status"
-      aria-live="polite"
-      className="no-print mx-auto max-w-6xl px-4 pt-4 sm:px-6"
-    >
+    <div role="status" aria-live="polite" className="no-print mx-auto max-w-6xl px-4 pt-4 sm:px-6">
       <p className="instrument-rule flex items-start gap-3 rounded-[var(--radius-md)] bg-elevated px-4 py-3 text-sm text-fg">
         <CloudOff className="mt-0.5 size-4 shrink-0 text-mark" aria-hidden />
         <span>

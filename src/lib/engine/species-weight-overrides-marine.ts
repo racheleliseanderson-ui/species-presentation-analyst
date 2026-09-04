@@ -19,10 +19,7 @@
  */
 
 import type { ScenarioInput, ThermalState } from "../protocol/types.ts";
-import {
-  matchesOverrideRule,
-  type SpeciesWeightOverrideRule,
-} from "./species-weight-overrides.ts";
+import { matchesOverrideRule, type SpeciesWeightOverrideRule } from "./species-weight-overrides.ts";
 import type { SpeciesOverrideCoverageRecord } from "./species-weight-overrides-expansion.ts";
 
 export const SPECIES_OVERRIDE_MARINE_VERSION = "SPO-1.3" as const;
@@ -30,49 +27,233 @@ export const SPECIES_OVERRIDE_MARINE_VERSION = "SPO-1.3" as const;
 const REVIEWED_AT = "2026-08-30";
 
 export const SPECIES_OVERRIDE_MARINE_COVERAGE: SpeciesOverrideCoverageRecord[] = [
-  { speciesId: "albula_vulpes", mode: "weighted", note: "Bonefish weighting is built around water-level access rather than a fed/not-fed tide preference: telemetry shows tide height determines whether shallow foraging ground is even reachable, and a strong day/night split layers on top of that.", reviewedAt: REVIEWED_AT },
-  { speciesId: "archosargus_probatocephalus", mode: "no_reviewed_rule", note: "Sheepshead genuinely support no weighting rule. The record explicitly rejects a tide-stage relationship (food is attached to structure, not delivered past it), reports no diel pattern, and the one dietary shift it documents (toward plants and detritus) has no class in the forage vocabulary to condition on.", reviewedAt: REVIEWED_AT },
-  { speciesId: "atractoscion_nobilis", mode: "weighted", note: "White seabass's weighting reflects a peer-reviewed telemetry-documented seasonal depth shift over the same nearshore reef/kelp structure, without treating the spawning window as a location or timing cue.", reviewedAt: REVIEWED_AT },
-  { speciesId: "bodianus_pulcher", mode: "no_reviewed_rule", note: "California sheephead's reviewed record does not support a presentation-family rule: current/tide is explicitly undocumented, all three reviewed nearshore families are already structure-tight so a diurnal light claim has nothing to differentiate against, the seasonal calendar states plainly that no seasonal presentation shift is documented, and the species' key dietary item (sea urchins) has no matching forage class in the reviewed vocabulary.", reviewedAt: REVIEWED_AT },
-  { speciesId: "carcharhinus_brevipinna", mode: "weighted", note: "Sourcing gaps are real here (no thermal band, no current-facing or light data, diet and behavior both marked partial), so only the one clearly reviewed mechanical trait -- pursuit of baitfish schools -- is turned into a rule.", reviewedAt: REVIEWED_AT },
-  { speciesId: "carcharhinus_limbatus", mode: "weighted", note: "Blacktip's dossier is reviewed rather than partial and supports two grounded mechanics: a documented winter cold-water aggregation and a pursuit-of-baitfish feeding pattern; both stay inside the water types and families the species is actually reviewed for and stop short of naming the aggregation as a place.", reviewedAt: REVIEWED_AT },
-  { speciesId: "centropomus_undecimalis", mode: "weighted", note: "Snook weighting is limited to the one clean behavioral statement in the record, a current-facing ambush posture, and deliberately does not pick a tide direction the sources never resolved.", reviewedAt: REVIEWED_AT },
-  { speciesId: "centropristis_striata", mode: "weighted", note: "Black sea bass weighting expresses two documented mechanics: sheltering/inactivity when bottom water is cold, and a bright-light structure-hugging / low-light bottom-ranging split, in both reviewed water types.", reviewedAt: REVIEWED_AT },
-  { speciesId: "coryphaena_hippurus", mode: "weighted", note: "Mahi-mahi's weighting layers a search phase (finding the weed line or rip), a daytime-visual boost, and a worked-school phase once a school is actually holding under structure, all from the same well-sourced reviewed record.", reviewedAt: REVIEWED_AT },
-  { speciesId: "cynoscion_nebulosus", mode: "weighted", note: "Spotted seatrout weighting rests on the record's strongest signal, a documented day/night habitat and movement switch, rather than on tide: no source located ties this species to a preferred tide stage, and none is invented here.", reviewedAt: REVIEWED_AT },
-  { speciesId: "cynoscion_regalis", mode: "weighted", note: "Weakfish weighting rests on the record's one strong diel-feeding statement rather than tide, which the record explicitly says was not sourced as a tide-stage relationship.", reviewedAt: REVIEWED_AT },
-  { speciesId: "hippoglossus_stenolepis", mode: "weighted", note: "Pacific halibut weighting expresses the one documented departure from strict bottom-ambush behavior: fish will leave the bottom opportunistically to intercept pelagic baitfish when that forage is verified.", reviewedAt: REVIEWED_AT },
-  { speciesId: "kajikia_audax", mode: "weighted", note: "Striped marlin's weighting is built on its two clearest reviewed traits -- frontal-zone current-facing and a diurnal, visually-driven hunting style -- and deliberately stops at the two approved offshore feature classes without keying on the seamount holding class the record also lists.", reviewedAt: REVIEWED_AT },
-  { speciesId: "lutjanus_analis", mode: "weighted", note: "Mutton snapper weighting expresses the one mechanic the record ties to a scenario condition: current sweeping prey past holding structure rather than the fish working open tide lines. Its documented lunar-aggregation spawning behavior is deliberately excluded from any rule.", reviewedAt: REVIEWED_AT },
-  { speciesId: "lutjanus_campechanus", mode: "no_reviewed_rule", note: "No condition in the reviewed record moves red snapper off the generic model. Current/tide, light, and diel behavior are all explicitly undocumented; the thermal figures on file are lab survival/tolerance bounds, not a behavior claim; feeding modes are recorded as ambush/opportunistic/benthic (no pursuit mode); and the species' aggregation and spawning-habitat detail is deliberately withheld from this record, so no rule can be tied to it.", reviewedAt: REVIEWED_AT },
-  { speciesId: "megalops_atlanticus", mode: "policy_only", note: "Tarpon are targetStatus conservation_sensitive (catch-and-release only in Florida's largest jurisdiction, no stock assessment, unknown population status), so this record carries no presentation guidance of any kind.", reviewedAt: REVIEWED_AT },
-  { speciesId: "mycteroperca_microlepis", mode: "weighted", note: "Gag weighting is restricted to the one non-seasonal mechanic the record supports: a documented pursuit mode that activates when fish forage is actually observed. No thermal, tide, light, or seasonal presentation shift is documented for this species, and the record explicitly excludes its winter/spring spawning aggregation from any targeting cue, so no season-keyed rule is written.", reviewedAt: REVIEWED_AT },
-  { speciesId: "mycteroperca_phenax", mode: "no_reviewed_rule", note: "No condition in the reviewed record moves scamp off the generic model. Feeding strategy is recorded as ambush/opportunistic only (no pursuit mode, unlike the closely related gag), no tide, light, or thermal claim is sourced, and the species' actually-preferred low-relief live-bottom habitat has no matching holding class in the reviewed vocabulary, so no rule can be tied to it.", reviewedAt: REVIEWED_AT },
-  { speciesId: "ophiodon_elongatus", mode: "weighted", note: "Lingcod weighting expresses two documented mechanics: current concentrating prey near the ambush point (tide movement), and active off-bottom piscivory when fish forage is verified offshore. The record's nest-guarding-male exception is deliberately kept out of any rule.", reviewedAt: REVIEWED_AT },
-  { speciesId: "paralichthys_dentatus", mode: "no_reviewed_rule", note: "Summer flounder genuinely support no weighting rule. The only tide-specific finding is a young-of-year, single-region creek-entry study the record itself declines to generalize to adults, the diel signal is flagged as thin and possibly not range-wide, and the one documented forage-triggered behavior shift (chasing bait to the surface) has no reviewed presentation family that represents it for this species.", reviewedAt: REVIEWED_AT },
-  { speciesId: "pogonias_cromis", mode: "no_reviewed_rule", note: "Black drum genuinely support no weighting rule. The record explicitly states no tide-stage relationship was sourced despite the species being fished on tidal marsh and oyster habitat, and no diel, clarity, or forage-conditional behavior was documented beyond generalist bottom-crushing that the baseline family list already covers.", reviewedAt: REVIEWED_AT },
-  { speciesId: "pomatomus_saltatrix", mode: "weighted", note: "Bluefish weighting is forage-triggered rather than tide-triggered: the record found no tide-stage relationship, but it does document the surface 'blitz' on schooled bait at the current-compressed edges anglers already fish.", reviewedAt: REVIEWED_AT },
-  { speciesId: "rachycentron_canadum", mode: "weighted", note: "Cobia's weighting expresses three distinct reviewed relationships to water -- inshore sight-fishing on the spring migration, nearshore fixed-object holding, and offshore current-formed structure -- each restricted to the water type and family set it is actually reviewed for.", reviewedAt: REVIEWED_AT },
-  { speciesId: "rhizoprionodon_terraenovae", mode: "weighted", note: "Atlantic sharpnose has the fullest dossier of the four sharks in this batch -- identification, behavior, diet, and seasonal calendar are all status: reviewed -- and its NOAA-sourced inshore/offshore seasonal migration maps cleanly onto the species' reviewed water types.", reviewedAt: REVIEWED_AT },
-  { speciesId: "sciaenops_ocellatus", mode: "weighted", note: "Red drum weighting expresses the estuary's clearest tide signal: subadults hold at structured low-tide sites and disperse across the flooded marsh on the flood, with light modifying rather than overriding that response.", reviewedAt: REVIEWED_AT },
-  { speciesId: "scomberomorus_cavalla", mode: "weighted", note: "King mackerel's weighting separates its two reviewed water types by what draws it there: nearshore bait concentrations versus offshore current-formed features.", reviewedAt: REVIEWED_AT },
-  { speciesId: "scomberomorus_maculatus", mode: "weighted", note: "Spanish mackerel weighting reflects a genuine moving-water claim in the record: current, not tide direction, is what compresses bait against the edges this species is reviewed for.", reviewedAt: REVIEWED_AT },
-  { speciesId: "sebastes_brevispinis", mode: "no_reviewed_rule", note: "Silvergray rockfish is the thinnest-sourced species in this batch: the diet dossier is empty by design (no species-specific source found), feeding strategy is an explicit unconfirmed placeholder, water-column position (pelagic schooler vs. bottom aggregator) is contradicted between agency sources and left unresolved, and no tide, light, thermal, or seasonal shift is documented. There is nothing reviewed to hang a rule on.", reviewedAt: REVIEWED_AT },
-  { speciesId: "sebastes_maliger", mode: "weighted", note: "Quillback rockfish weighting expresses the one mechanic the record singles out specifically for this species (not shared with the other rockfish reviewed alongside it): hard, complex substrate with vertical relief is described as a habitat requirement, not just a preference, for a solitary, crevice-sheltering fish.", reviewedAt: REVIEWED_AT },
-  { speciesId: "sebastes_miniatus", mode: "no_reviewed_rule", note: "Vermilion rockfish's reviewed record does not distinguish it from generic sedentary-reef-rockfish behavior already covered by the water-type/depth split: no tide, light, or thermal claim is sourced, feeding is ambush/opportunistic with no pursuit mode, and coverUse is generic reef-system site fidelity without the more specific vertical-relief/crevice language that justifies a rule for quillback rockfish. Rather than duplicate that rule on a thinner basis, this species is left unweighted.", reviewedAt: REVIEWED_AT },
-  { speciesId: "sebastes_variabilis", mode: "weighted", note: "Dusky rockfish weighting expresses the one trait that clearly separates it from the other rockfish reviewed in this batch: it is classified as a pelagic, mid-water schooling rockfish rather than a solitary bottom-hugger, with a diet almost entirely krill and sand lance.", reviewedAt: REVIEWED_AT },
-  { speciesId: "seriola_dumerili", mode: "no_reviewed_rule", note: "No thermal band, no current-facing or light-response account, and a seasonal calendar the record itself says 'largely repeat[s] the year-round structure-use pattern' leave nothing to condition a delta on beyond the life-stage split (pelagic juvenile vs. structure-holding adult) the scenario inputs cannot express.", reviewedAt: REVIEWED_AT },
-  { speciesId: "sphyrna_tiburo", mode: "no_reviewed_rule", note: "The record is dominated by identification and a lengthy regulatory caveat, including a global IUCN Endangered reassessment the domestic 'unknown' stock status has not caught up with; the mechanical record behind that caveat is thin (no thermal, current-facing, or light data, and a seasonal calendar with only two overlapping partial entries), so no delta is written pending that unresolved conservation flag.", reviewedAt: REVIEWED_AT },
-  { speciesId: "tautoga_onitis", mode: "weighted", note: "Tautog weighting expresses the one clearly documented mechanic: a bottom-temperature-triggered shift between shallow, complex structure in warm months and deeper, more rugged structure once the fall trigger is crossed. Its strongly diurnal light response and its tide-independent, cover-only current preference are both explicitly stated but leave no family, within the already-passive reviewed set, to move against, so neither becomes a rule.", reviewedAt: REVIEWED_AT },
-  { speciesId: "thunnus_albacares", mode: "weighted", note: "Yellowfin's weighting distinguishes working a located current front from working a visible bait school, both drawn from peer-reviewed tagging and habitat-suitability work.", reviewedAt: REVIEWED_AT },
-  { speciesId: "trachinotus_falcatus", mode: "no_reviewed_rule", note: "Permit genuinely support no weighting rule. The reviewed record names its own largest gap as tide-stage behavior on the flats, and no diel, thermal, or forage-conditional signal was sourced either, so nothing here is well-grounded enough to turn into a delta.", reviewedAt: REVIEWED_AT },
+  {
+    speciesId: "albula_vulpes",
+    mode: "weighted",
+    note: "Bonefish weighting is built around water-level access rather than a fed/not-fed tide preference: telemetry shows tide height determines whether shallow foraging ground is even reachable, and a strong day/night split layers on top of that.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "archosargus_probatocephalus",
+    mode: "no_reviewed_rule",
+    note: "Sheepshead genuinely support no weighting rule. The record explicitly rejects a tide-stage relationship (food is attached to structure, not delivered past it), reports no diel pattern, and the one dietary shift it documents (toward plants and detritus) has no class in the forage vocabulary to condition on.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "atractoscion_nobilis",
+    mode: "weighted",
+    note: "White seabass's weighting reflects a peer-reviewed telemetry-documented seasonal depth shift over the same nearshore reef/kelp structure, without treating the spawning window as a location or timing cue.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "bodianus_pulcher",
+    mode: "no_reviewed_rule",
+    note: "California sheephead's reviewed record does not support a presentation-family rule: current/tide is explicitly undocumented, all three reviewed nearshore families are already structure-tight so a diurnal light claim has nothing to differentiate against, the seasonal calendar states plainly that no seasonal presentation shift is documented, and the species' key dietary item (sea urchins) has no matching forage class in the reviewed vocabulary.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "carcharhinus_brevipinna",
+    mode: "weighted",
+    note: "Sourcing gaps are real here (no thermal band, no current-facing or light data, diet and behavior both marked partial), so only the one clearly reviewed mechanical trait -- pursuit of baitfish schools -- is turned into a rule.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "carcharhinus_limbatus",
+    mode: "weighted",
+    note: "Blacktip's dossier is reviewed rather than partial and supports two grounded mechanics: a documented winter cold-water aggregation and a pursuit-of-baitfish feeding pattern; both stay inside the water types and families the species is actually reviewed for and stop short of naming the aggregation as a place.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "centropomus_undecimalis",
+    mode: "weighted",
+    note: "Snook weighting is limited to the one clean behavioral statement in the record, a current-facing ambush posture, and deliberately does not pick a tide direction the sources never resolved.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "centropristis_striata",
+    mode: "weighted",
+    note: "Black sea bass weighting expresses two documented mechanics: sheltering/inactivity when bottom water is cold, and a bright-light structure-hugging / low-light bottom-ranging split, in both reviewed water types.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "coryphaena_hippurus",
+    mode: "weighted",
+    note: "Mahi-mahi's weighting layers a search phase (finding the weed line or rip), a daytime-visual boost, and a worked-school phase once a school is actually holding under structure, all from the same well-sourced reviewed record.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "cynoscion_nebulosus",
+    mode: "weighted",
+    note: "Spotted seatrout weighting rests on the record's strongest signal, a documented day/night habitat and movement switch, rather than on tide: no source located ties this species to a preferred tide stage, and none is invented here.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "cynoscion_regalis",
+    mode: "weighted",
+    note: "Weakfish weighting rests on the record's one strong diel-feeding statement rather than tide, which the record explicitly says was not sourced as a tide-stage relationship.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "hippoglossus_stenolepis",
+    mode: "weighted",
+    note: "Pacific halibut weighting expresses the one documented departure from strict bottom-ambush behavior: fish will leave the bottom opportunistically to intercept pelagic baitfish when that forage is verified.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "kajikia_audax",
+    mode: "weighted",
+    note: "Striped marlin's weighting is built on its two clearest reviewed traits -- frontal-zone current-facing and a diurnal, visually-driven hunting style -- and deliberately stops at the two approved offshore feature classes without keying on the seamount holding class the record also lists.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "lutjanus_analis",
+    mode: "weighted",
+    note: "Mutton snapper weighting expresses the one mechanic the record ties to a scenario condition: current sweeping prey past holding structure rather than the fish working open tide lines. Its documented lunar-aggregation spawning behavior is deliberately excluded from any rule.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "lutjanus_campechanus",
+    mode: "no_reviewed_rule",
+    note: "No condition in the reviewed record moves red snapper off the generic model. Current/tide, light, and diel behavior are all explicitly undocumented; the thermal figures on file are lab survival/tolerance bounds, not a behavior claim; feeding modes are recorded as ambush/opportunistic/benthic (no pursuit mode); and the species' aggregation and spawning-habitat detail is deliberately withheld from this record, so no rule can be tied to it.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "megalops_atlanticus",
+    mode: "policy_only",
+    note: "Tarpon are targetStatus conservation_sensitive (catch-and-release only in Florida's largest jurisdiction, no stock assessment, unknown population status), so this record carries no presentation guidance of any kind.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "mycteroperca_microlepis",
+    mode: "weighted",
+    note: "Gag weighting is restricted to the one non-seasonal mechanic the record supports: a documented pursuit mode that activates when fish forage is actually observed. No thermal, tide, light, or seasonal presentation shift is documented for this species, and the record explicitly excludes its winter/spring spawning aggregation from any targeting cue, so no season-keyed rule is written.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "mycteroperca_phenax",
+    mode: "no_reviewed_rule",
+    note: "No condition in the reviewed record moves scamp off the generic model. Feeding strategy is recorded as ambush/opportunistic only (no pursuit mode, unlike the closely related gag), no tide, light, or thermal claim is sourced, and the species' actually-preferred low-relief live-bottom habitat has no matching holding class in the reviewed vocabulary, so no rule can be tied to it.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "ophiodon_elongatus",
+    mode: "weighted",
+    note: "Lingcod weighting expresses two documented mechanics: current concentrating prey near the ambush point (tide movement), and active off-bottom piscivory when fish forage is verified offshore. The record's nest-guarding-male exception is deliberately kept out of any rule.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "paralichthys_dentatus",
+    mode: "no_reviewed_rule",
+    note: "Summer flounder genuinely support no weighting rule. The only tide-specific finding is a young-of-year, single-region creek-entry study the record itself declines to generalize to adults, the diel signal is flagged as thin and possibly not range-wide, and the one documented forage-triggered behavior shift (chasing bait to the surface) has no reviewed presentation family that represents it for this species.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "pogonias_cromis",
+    mode: "no_reviewed_rule",
+    note: "Black drum genuinely support no weighting rule. The record explicitly states no tide-stage relationship was sourced despite the species being fished on tidal marsh and oyster habitat, and no diel, clarity, or forage-conditional behavior was documented beyond generalist bottom-crushing that the baseline family list already covers.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "pomatomus_saltatrix",
+    mode: "weighted",
+    note: "Bluefish weighting is forage-triggered rather than tide-triggered: the record found no tide-stage relationship, but it does document the surface 'blitz' on schooled bait at the current-compressed edges anglers already fish.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "rachycentron_canadum",
+    mode: "weighted",
+    note: "Cobia's weighting expresses three distinct reviewed relationships to water -- inshore sight-fishing on the spring migration, nearshore fixed-object holding, and offshore current-formed structure -- each restricted to the water type and family set it is actually reviewed for.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "rhizoprionodon_terraenovae",
+    mode: "weighted",
+    note: "Atlantic sharpnose has the fullest dossier of the four sharks in this batch -- identification, behavior, diet, and seasonal calendar are all status: reviewed -- and its NOAA-sourced inshore/offshore seasonal migration maps cleanly onto the species' reviewed water types.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "sciaenops_ocellatus",
+    mode: "weighted",
+    note: "Red drum weighting expresses the estuary's clearest tide signal: subadults hold at structured low-tide sites and disperse across the flooded marsh on the flood, with light modifying rather than overriding that response.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "scomberomorus_cavalla",
+    mode: "weighted",
+    note: "King mackerel's weighting separates its two reviewed water types by what draws it there: nearshore bait concentrations versus offshore current-formed features.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "scomberomorus_maculatus",
+    mode: "weighted",
+    note: "Spanish mackerel weighting reflects a genuine moving-water claim in the record: current, not tide direction, is what compresses bait against the edges this species is reviewed for.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "sebastes_brevispinis",
+    mode: "no_reviewed_rule",
+    note: "Silvergray rockfish is the thinnest-sourced species in this batch: the diet dossier is empty by design (no species-specific source found), feeding strategy is an explicit unconfirmed placeholder, water-column position (pelagic schooler vs. bottom aggregator) is contradicted between agency sources and left unresolved, and no tide, light, thermal, or seasonal shift is documented. There is nothing reviewed to hang a rule on.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "sebastes_maliger",
+    mode: "weighted",
+    note: "Quillback rockfish weighting expresses the one mechanic the record singles out specifically for this species (not shared with the other rockfish reviewed alongside it): hard, complex substrate with vertical relief is described as a habitat requirement, not just a preference, for a solitary, crevice-sheltering fish.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "sebastes_miniatus",
+    mode: "no_reviewed_rule",
+    note: "Vermilion rockfish's reviewed record does not distinguish it from generic sedentary-reef-rockfish behavior already covered by the water-type/depth split: no tide, light, or thermal claim is sourced, feeding is ambush/opportunistic with no pursuit mode, and coverUse is generic reef-system site fidelity without the more specific vertical-relief/crevice language that justifies a rule for quillback rockfish. Rather than duplicate that rule on a thinner basis, this species is left unweighted.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "sebastes_variabilis",
+    mode: "weighted",
+    note: "Dusky rockfish weighting expresses the one trait that clearly separates it from the other rockfish reviewed in this batch: it is classified as a pelagic, mid-water schooling rockfish rather than a solitary bottom-hugger, with a diet almost entirely krill and sand lance.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "seriola_dumerili",
+    mode: "no_reviewed_rule",
+    note: "No thermal band, no current-facing or light-response account, and a seasonal calendar the record itself says 'largely repeat[s] the year-round structure-use pattern' leave nothing to condition a delta on beyond the life-stage split (pelagic juvenile vs. structure-holding adult) the scenario inputs cannot express.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "sphyrna_tiburo",
+    mode: "no_reviewed_rule",
+    note: "The record is dominated by identification and a lengthy regulatory caveat, including a global IUCN Endangered reassessment the domestic 'unknown' stock status has not caught up with; the mechanical record behind that caveat is thin (no thermal, current-facing, or light data, and a seasonal calendar with only two overlapping partial entries), so no delta is written pending that unresolved conservation flag.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "tautoga_onitis",
+    mode: "weighted",
+    note: "Tautog weighting expresses the one clearly documented mechanic: a bottom-temperature-triggered shift between shallow, complex structure in warm months and deeper, more rugged structure once the fall trigger is crossed. Its strongly diurnal light response and its tide-independent, cover-only current preference are both explicitly stated but leave no family, within the already-passive reviewed set, to move against, so neither becomes a rule.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "thunnus_albacares",
+    mode: "weighted",
+    note: "Yellowfin's weighting distinguishes working a located current front from working a visible bait school, both drawn from peer-reviewed tagging and habitat-suitability work.",
+    reviewedAt: REVIEWED_AT,
+  },
+  {
+    speciesId: "trachinotus_falcatus",
+    mode: "no_reviewed_rule",
+    note: "Permit genuinely support no weighting rule. The reviewed record names its own largest gap as tide-stage behavior on the flats, and no diel, thermal, or forage-conditional signal was sourced either, so nothing here is well-grounded enough to turn into a delta.",
+    reviewedAt: REVIEWED_AT,
+  },
 ];
 
 export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "bonefish-flood-access",
     speciesId: "albula_vulpes",
-    when: { waterTypes: ["inshore"], holding: ["tidal_creek", "creek_mouth", "grass_flat", "sand_hole"], tideMovements: ["flooding"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["tidal_creek", "creek_mouth", "grass_flat", "sand_hole"],
+      tideMovements: ["flooding"],
+    },
     bias: { flats_sight_cast: 8, tidal_drift_bait: 5 },
     note: "Acoustic telemetry found bonefish essentially absent from shallow creek backwaters at low water, entering only as depth rose after low tide and peaking in detections roughly four hours later, so a rising tide is what makes this shallow foraging ground reachable at all, not a preferred feeding stage layered on top of access that already exists.",
     reviewedAt: REVIEWED_AT,
@@ -80,7 +261,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "bonefish-low-water-absence",
     speciesId: "albula_vulpes",
-    when: { waterTypes: ["inshore"], holding: ["tidal_creek", "creek_mouth", "grass_flat", "sand_hole"], tideMovements: ["slack_low"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["tidal_creek", "creek_mouth", "grass_flat", "sand_hole"],
+      tideMovements: ["slack_low"],
+    },
     bias: { flats_sight_cast: -5, tidal_drift_bait: -4 },
     note: "The same telemetry recorded near-zero detections in these shallow creek backwaters around low water. There is not enough water over the bottom for the fish to be using it, so presentations built around fish holding on this ground should be discounted at low slack rather than simply fished more quietly.",
     reviewedAt: REVIEWED_AT,
@@ -88,7 +273,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "bonefish-night-inactive",
     speciesId: "albula_vulpes",
-    when: { waterTypes: ["inshore"], holding: ["tidal_creek", "creek_mouth", "grass_flat", "sand_hole"], light: ["night"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["tidal_creek", "creek_mouth", "grass_flat", "sand_hole"],
+      light: ["night"],
+    },
     bias: { flats_sight_cast: -5, tidal_drift_bait: -4, live_natural_bait_suspension: -3 },
     note: "The same telemetry study recorded roughly seven daytime detections in these creek backwaters for every one at night, so darkness is not just a sight-casting problem for this species on this ground; the fish are mostly not foraging there at all after dark.",
     reviewedAt: REVIEWED_AT,
@@ -96,7 +285,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "white-seabass-winter-deep-structure",
     speciesId: "atractoscion_nobilis",
-    when: { waterTypes: ["nearshore"], seasons: ["winter"], holding: ["kelp_edge", "nearshore_reef", "rock_pile"] },
+    when: {
+      waterTypes: ["nearshore"],
+      seasons: ["winter"],
+      holding: ["kelp_edge", "nearshore_reef", "rock_pile"],
+    },
     bias: { structure_vertical: 7, live_bait_slow_troll: -4 },
     note: "Telemetry found white seabass sitting deeper in the water column from October through March than in the warmer months, so a presentation that holds in the column over structure fits that winter depth band better than a near-surface trolled approach.",
     reviewedAt: REVIEWED_AT,
@@ -104,7 +297,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "white-seabass-summer-shallow-kelp",
     speciesId: "atractoscion_nobilis",
-    when: { waterTypes: ["nearshore"], seasons: ["summer", "early_summer"], holding: ["kelp_edge"] },
+    when: {
+      waterTypes: ["nearshore"],
+      seasons: ["summer", "early_summer"],
+      holding: ["kelp_edge"],
+    },
     bias: { live_bait_slow_troll: 7, structure_vertical: 4 },
     note: "The same telemetry study found white seabass shallowest and most surface-oriented in the warmer months, peaking in July, so a presentation worked near the surface along the kelp edge fits that seasonal shift better than a deep vertical approach.",
     reviewedAt: REVIEWED_AT,
@@ -136,8 +333,17 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "snook-moving-tide-ambush",
     speciesId: "centropomus_undecimalis",
-    when: { waterTypes: ["inshore"], holding: ["mangrove_edge", "tidal_creek", "creek_mouth", "channel_edge"], tideMovements: ["flooding", "ebbing"] },
-    bias: { structure_pitch: 7, tidal_drift_bait: 6, live_natural_bait_suspension: 4, horizontal_retrieve: -3 },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["mangrove_edge", "tidal_creek", "creek_mouth", "channel_edge"],
+      tideMovements: ["flooding", "ebbing"],
+    },
+    bias: {
+      structure_pitch: 7,
+      tidal_drift_bait: 6,
+      live_natural_bait_suspension: 4,
+      horizontal_retrieve: -3,
+    },
     note: "FWC describes snook as conservative ambush predators that orient to face moving water and let it deliver food past them, which favors working a bait or lure past structure the current is running along rather than searching for the fish. The rule fires on either tide direction rather than one specifically, because no source resolved the behavior to flood versus ebb.",
     reviewedAt: REVIEWED_AT,
   },
@@ -216,7 +422,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "seatrout-night-open-bottom-search",
     speciesId: "cynoscion_nebulosus",
-    when: { waterTypes: ["inshore"], holding: ["sand_hole", "channel_edge"], light: ["night", "low_light"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["sand_hole", "channel_edge"],
+      light: ["night", "low_light"],
+    },
     bias: { horizontal_retrieve: 7, stop_and_go: 6, live_natural_bait_suspension: -3 },
     note: "The same telemetry has trout leaving seagrass for bare substrate at night while moving at nearly four times the daytime rate, so low light favors a moving search presentation over open bottom rather than a bait parked in one place.",
     reviewedAt: REVIEWED_AT,
@@ -280,7 +490,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "mutton-snapper-inshore-current-delivery",
     speciesId: "lutjanus_analis",
-    when: { waterTypes: ["inshore"], holding: ["mangrove_edge"], tideMovements: ["flooding", "ebbing"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["mangrove_edge"],
+      tideMovements: ["flooding", "ebbing"],
+    },
     bias: { tidal_drift_bait: 6, structure_pitch: 4 },
     note: "Mutton snapper hold tight to structure and rely on current to sweep prey past it rather than actively working open tide lines, so on a moving tide a bait let to travel at tide speed along the mangrove edge fits the documented mechanic better than a stationary presentation off the structure.",
     reviewedAt: REVIEWED_AT,
@@ -336,7 +550,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "bluefish-surf-blitz-forage",
     speciesId: "pomatomus_saltatrix",
-    when: { waterTypes: ["surf"], holding: ["rip_channel", "outer_sandbar"], forage: ["small_forage_fish"] },
+    when: {
+      waterTypes: ["surf"],
+      holding: ["rip_channel", "outer_sandbar"],
+      forage: ["small_forage_fish"],
+    },
     bias: { run_and_gun_cast: 8, surf_metal_cast: 5 },
     note: "Bluefish are documented schooling pursuit predators whose best-known feeding pattern is a surface 'blitz' on schooled baitfish. When small forage fish are actually present at a rip or bar where moving water concentrates them, that favors casting to visible surface activity over a slower presentation built for a fish holding still.",
     reviewedAt: REVIEWED_AT,
@@ -400,7 +618,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "red-drum-oyster-ebb-concentration",
     speciesId: "sciaenops_ocellatus",
-    when: { waterTypes: ["inshore"], holding: ["marsh_edge", "oyster_bar", "creek_mouth"], tideMovements: ["ebbing"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["marsh_edge", "oyster_bar", "creek_mouth"],
+      tideMovements: ["ebbing"],
+    },
     bias: { structure_pitch: 8, tidal_drift_bait: 5, flats_sight_cast: -4 },
     note: "Telemetry found subadult red drum showing high site fidelity to a structured low-tide site carrying overhead structure and adjacent oyster reef, with predictable dispersal only once the flood begins, so a falling tide concentrates fish at structure rather than spreading them across open water, and working that structure outperforms searching open grass for a sighted fish.",
     reviewedAt: REVIEWED_AT,
@@ -408,7 +630,12 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "red-drum-flood-marsh-dispersal",
     speciesId: "sciaenops_ocellatus",
-    when: { waterTypes: ["inshore"], holding: ["marsh_edge", "grass_flat", "tidal_creek"], tideMovements: ["flooding"], light: ["bright", "mixed"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["marsh_edge", "grass_flat", "tidal_creek"],
+      tideMovements: ["flooding"],
+      light: ["bright", "mixed"],
+    },
     bias: { flats_sight_cast: 8, tidal_drift_bait: 4, structure_pitch: -4 },
     note: "The same telemetry has fish dispersing off the low-tide structure and onto the flooded marsh surface and through intertidal channels once the tide turns, and agency accounts separately document visible daytime tailing over shallow grass, so a daylight flood favors sight-casting to fish spread across open water over working the structure they have just left.",
     reviewedAt: REVIEWED_AT,
@@ -416,7 +643,12 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "red-drum-night-flood-holds",
     speciesId: "sciaenops_ocellatus",
-    when: { waterTypes: ["inshore"], holding: ["marsh_edge", "oyster_bar", "creek_mouth"], tideMovements: ["flooding"], light: ["night"] },
+    when: {
+      waterTypes: ["inshore"],
+      holding: ["marsh_edge", "oyster_bar", "creek_mouth"],
+      tideMovements: ["flooding"],
+      light: ["night"],
+    },
     bias: { structure_pitch: 6, live_natural_bait_suspension: 4, flats_sight_cast: -5 },
     note: "The same telemetry study found that subadults which normally disperse onto the flooded marsh on a daytime flood stayed put at their low-tide structured site when the flood began after sunset, so a flooding tide after dark should not be read as the same dispersal cue it is in daylight.",
     reviewedAt: REVIEWED_AT,
@@ -440,7 +672,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "spanish-mackerel-moving-tide-compression-surf",
     speciesId: "scomberomorus_maculatus",
-    when: { waterTypes: ["surf"], holding: ["rip_channel", "jetty_wash"], tideMovements: ["flooding", "ebbing"] },
+    when: {
+      waterTypes: ["surf"],
+      holding: ["rip_channel", "jetty_wash"],
+      tideMovements: ["flooding", "ebbing"],
+    },
     bias: { run_and_gun_cast: 7, surf_metal_cast: 5 },
     note: "Spanish mackerel are described as concentrating where tide-driven current compresses baitfish against a beach cut, jetty, inlet mouth or reef edge rather than holding a fixed lie, so moving water at a rip or jetty is what creates the bait concentration this species is built to exploit. The rule does not fire on slack water, when that compression mechanism is absent.",
     reviewedAt: REVIEWED_AT,
@@ -448,7 +684,11 @@ export const SPECIES_WEIGHT_OVERRIDES_MARINE: SpeciesWeightOverrideRule[] = [
   {
     id: "spanish-mackerel-moving-tide-compression-nearshore",
     speciesId: "scomberomorus_maculatus",
-    when: { waterTypes: ["nearshore"], holding: ["inlet_mouth"], tideMovements: ["flooding", "ebbing"] },
+    when: {
+      waterTypes: ["nearshore"],
+      holding: ["inlet_mouth"],
+      tideMovements: ["flooding", "ebbing"],
+    },
     bias: { run_and_gun_cast: 7, live_bait_slow_troll: 4 },
     note: "The same current-compression mechanism applies at an inlet mouth: moving tide concentrates baitfish there, favoring a presentation cast or trolled to intercept the school over one built for still water.",
     reviewedAt: REVIEWED_AT,

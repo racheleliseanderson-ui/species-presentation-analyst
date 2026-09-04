@@ -33,10 +33,7 @@ export type SpeciesGroup =
   | "sharks";
 
 export type TargetStatus =
-  | "standard"
-  | "regulated_context"
-  | "conservation_sensitive"
-  | "non_target";
+  "standard" | "regulated_context" | "conservation_sensitive" | "non_target";
 
 export type TargetContext = {
   jurisdictionScope?: string;
@@ -288,12 +285,7 @@ export type ScenarioInput = {
   forage?: ForagePacket | null;
 };
 
-export type ThermalState =
-  | "preferred"
-  | "active"
-  | "cold_refuge"
-  | "warm_stress"
-  | "unknown";
+export type ThermalState = "preferred" | "active" | "cold_refuge" | "warm_stress" | "unknown";
 
 export type RankedPresentation = {
   id: PresentationId;

@@ -35,12 +35,7 @@ const DISTINCTION_GROUPS: Record<string, string[]> = {
   char_lakers: ["salvelinus_fontinalis", "salvelinus_namaycush"],
   nerka: ["oncorhynchus_nerka_kokanee", "oncorhynchus_nerka_anadromous"],
   black_bass: ["micropterus_nigricans", "micropterus_dolomieu", "micropterus_punctulatus"],
-  morone: [
-    "morone_saxatilis",
-    "morone_chrysops",
-    "morone_americana",
-    "morone_hybrid_wiper",
-  ],
+  morone: ["morone_saxatilis", "morone_chrysops", "morone_americana", "morone_hybrid_wiper"],
   coregonine: ["coregonus_artedi", "coregonus_clupeaformis"],
   hiodontid: ["hiodon_alosoides", "hiodon_tergisus"],
   buffalo_carp: ["cyprinus_carpio", "ictiobus_cyprinellus", "ictiobus_bubalus"],
@@ -93,10 +88,15 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
     assert.ok(SPECIES_BY_ID[dossier.speciesId], `missing catalog species ${dossier.speciesId}`);
     assert.ok(dossier.sources.length > 0, `${dossier.speciesId} identification is missing sources`);
     assert.ok(
-      dossier.sources.some((source) => source.class === "agency" || source.class === "peer_reviewed"),
+      dossier.sources.some(
+        (source) => source.class === "agency" || source.class === "peer_reviewed",
+      ),
       `${dossier.speciesId} identification needs an agency or peer-reviewed source`,
     );
-    assert.ok(dossier.identificationTraits.length >= 3, `${dossier.speciesId} needs diagnostic traits`);
+    assert.ok(
+      dossier.identificationTraits.length >= 3,
+      `${dossier.speciesId} needs diagnostic traits`,
+    );
     assert.ok(dossier.similarSpecies.length >= 1, `${dossier.speciesId} needs a lookalike key`);
     assert.equal(dossier.reviewedAt, "2026-08-30");
     assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
@@ -119,12 +119,17 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
     assert.ok(species, `missing catalog species ${dossier.speciesId}`);
     assert.ok(dossier.sources.length > 0, `${dossier.speciesId} diet is missing sources`);
     assert.ok(
-      dossier.sources.some((source) => source.class === "agency" || source.class === "peer_reviewed"),
+      dossier.sources.some(
+        (source) => source.class === "agency" || source.class === "peer_reviewed",
+      ),
       `${dossier.speciesId} diet needs an agency or peer-reviewed source`,
     );
     assert.ok(dossier.primaryForage.length > 0);
     for (const forage of dossier.primaryForage) {
-      assert.ok((FORAGE_CLASSES as readonly string[]).includes(forage), `${dossier.speciesId} has unknown forage ${forage}`);
+      assert.ok(
+        (FORAGE_CLASSES as readonly string[]).includes(forage),
+        `${dossier.speciesId} has unknown forage ${forage}`,
+      );
       assert.ok(
         species.forageClasses.includes(forage),
         `${dossier.speciesId} diet class ${forage} is not on the catalog record`,
@@ -142,7 +147,10 @@ test("every dossier points at a reviewed catalog species and has provenance", ()
     const seasons = dossier.entries.map((entry) => entry.season);
     assert.equal(new Set(seasons).size, seasons.length, `${dossier.speciesId} repeats a season`);
     for (const season of seasons) {
-      assert.ok((SEASONS as readonly string[]).includes(season), `${dossier.speciesId} has non-canonical season ${season}`);
+      assert.ok(
+        (SEASONS as readonly string[]).includes(season),
+        `${dossier.speciesId} has non-canonical season ${season}`,
+      );
       assert.notEqual(season, "unknown");
     }
     assert.doesNotMatch(JSON.stringify(dossier), FORBIDDEN);
@@ -163,10 +171,7 @@ test("a species' four overlays land together or not at all", () => {
       overlays.diet,
       overlays.seasonalCalendar,
     ].filter(Boolean).length;
-    assert.ok(
-      present === 0 || present === 4,
-      `${species.id} carries ${present} of four overlays`,
-    );
+    assert.ok(present === 0 || present === 4, `${species.id} carries ${present} of four overlays`);
   }
 });
 
@@ -180,10 +185,7 @@ test("named distinction groups have reciprocal similar-species keys", () => {
       );
       const others = ids.filter((other) => other !== id);
       const hits = others.filter((other) => pointedAt.has(other));
-      assert.ok(
-        hits.length >= 1,
-        `${id} in ${group} does not distinguish at least one group-mate`,
-      );
+      assert.ok(hits.length >= 1, `${id} in ${group} does not distinguish at least one group-mate`);
     }
   }
 });
@@ -197,7 +199,9 @@ test("kokanee remains separate from anadromous sockeye in identification", () =>
   const kokanee = identificationDossierFor("oncorhynchus_nerka_kokanee");
   const sockeye = identificationDossierFor("oncorhynchus_nerka_anadromous");
   assert.ok(kokanee && sockeye);
-  assert.ok(kokanee.similarSpecies.some((item) => item.speciesId === "oncorhynchus_nerka_anadromous"));
+  assert.ok(
+    kokanee.similarSpecies.some((item) => item.speciesId === "oncorhynchus_nerka_anadromous"),
+  );
   assert.ok(sockeye.similarSpecies.some((item) => item.speciesId === "oncorhynchus_nerka_kokanee"));
   assert.match(kokanee.identificationTraits.join(" "), /1\.2 ft|landlocked|non-anadromous/i);
   assert.match(sockeye.identificationTraits.join(" "), /1\.5|4–15 lb|4-15 lb/i);
@@ -263,7 +267,9 @@ test("steelhead stays a separate anadromous record from inland rainbow", () => {
   const rainbow = identificationDossierFor("oncorhynchus_mykiss");
   assert.ok(steelhead && rainbow);
   assert.ok(steelhead.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss"));
-  assert.ok(rainbow.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss_steelhead"));
+  assert.ok(
+    rainbow.similarSpecies.some((item) => item.speciesId === "oncorhynchus_mykiss_steelhead"),
+  );
   assert.match(steelhead.identificationTraits.join(" "), /anadromous/i);
   assert.match(steelhead.identificationTraits.join(" "), /winter-run|summer-run/i);
 
@@ -491,7 +497,9 @@ test("wave 02f Pacific and landlocked salmon keep chinook off coho, pink off chu
   assert.ok(landlocked.similarSpecies.some((item) => item.speciesId === "salmo_trutta"));
   assert.ok(
     landlocked.similarSpecies.some(
-      (item) => item.speciesId === "salmo_salar_anadromous" || /sea-run|anadromous Atlantic|wild.*Atlantic/i.test(item.name + item.distinction),
+      (item) =>
+        item.speciesId === "salmo_salar_anadromous" ||
+        /sea-run|anadromous Atlantic|wild.*Atlantic/i.test(item.name + item.distinction),
     ),
   );
 
@@ -516,8 +524,14 @@ test("wave 02f Pacific and landlocked salmon keep chinook off coho, pink off chu
   const pinkCal = seasonalCalendarDossierFor("oncorhynchus_gorbuscha");
   const chumCal = seasonalCalendarDossierFor("oncorhynchus_keta");
   assert.ok(pinkCal && chumCal);
-  assert.doesNotMatch(JSON.stringify(pinkCal), /trolling|vertical jig|horizontal retrieve|stop-and-go|suspend \/ pause|surface retrieve/i);
-  assert.doesNotMatch(JSON.stringify(chumCal), /trolling|vertical jig|horizontal retrieve|stop-and-go|suspend \/ pause|surface retrieve/i);
+  assert.doesNotMatch(
+    JSON.stringify(pinkCal),
+    /trolling|vertical jig|horizontal retrieve|stop-and-go|suspend \/ pause|surface retrieve/i,
+  );
+  assert.doesNotMatch(
+    JSON.stringify(chumCal),
+    /trolling|vertical jig|horizontal retrieve|stop-and-go|suspend \/ pause|surface retrieve/i,
+  );
   assert.match(pinkCal.overview, /flowing-water only|flowing water only/i);
   assert.match(chumCal.overview, /flowing-water only|flowing water only/i);
 
@@ -527,13 +541,15 @@ test("wave 02f Pacific and landlocked salmon keep chinook off coho, pink off chu
   assert.match(JSON.stringify(landlockedCal), /sea-run|anadromous/i);
 });
 
-
 test("rainbow and cutthroat identification uses slash / dentition characters rather than invented visuals", () => {
   const rainbow = identificationDossierFor("oncorhynchus_mykiss");
   const cutthroat = identificationDossierFor("oncorhynchus_clarkii");
   assert.ok(rainbow && cutthroat);
   assert.match(cutthroat.identificationTraits.join(" "), /slash|basibranchial/i);
-  assert.match(rainbow.similarSpecies.map((item) => item.distinction).join(" "), /slash|basibranchial|hybrid/i);
+  assert.match(
+    rainbow.similarSpecies.map((item) => item.distinction).join(" "),
+    /slash|basibranchial|hybrid/i,
+  );
 });
 
 test("black bass identification uses jaw and dorsal / tongue characters from agency keys", () => {
@@ -587,7 +603,12 @@ test("seasonal calendars do not introduce unreviewed presentation families", () 
 
 test("diet and seasonal overlays are not imported by the presentation engine", () => {
   const engineDir = new URL("../engine/", import.meta.url);
-  const files = ["infer.ts", "presentation-weighting.ts", "population-context.ts", "species-weight-overrides.ts"];
+  const files = [
+    "infer.ts",
+    "presentation-weighting.ts",
+    "population-context.ts",
+    "species-weight-overrides.ts",
+  ];
   for (const file of files) {
     const source = readFileSync(new URL(file, engineDir), "utf8");
     assert.doesNotMatch(source, /diet-dossiers|seasonal-calendar-dossiers/);
@@ -598,7 +619,11 @@ test("every species remains resolvable and spawning seasons stay inside the cano
   // Counted rather than hard-coded so adding a species is a one-file change,
   // but still asserted, because a silently shrinking catalog is a real failure.
   assert.ok(SPECIES.length >= 111, `catalog has shrunk to ${SPECIES.length}`);
-  assert.equal(new Set(SPECIES.map((species) => species.id)).size, SPECIES.length, "duplicate species id");
+  assert.equal(
+    new Set(SPECIES.map((species) => species.id)).size,
+    SPECIES.length,
+    "duplicate species id",
+  );
   assert.equal(
     SPECIES.filter((species) => species.habitat.waterTypes.some(isMarine)).length,
     36,

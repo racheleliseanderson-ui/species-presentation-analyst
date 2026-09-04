@@ -46,11 +46,18 @@ test("landed waves have every required overlay; the next wave does not pretend t
   const next = nextSeedWave();
   if (next) {
     for (const id of next.speciesIds) {
-      assert.equal(hasCompleteKnowledgeOverlays(id), false, `${id} is queued as next but already complete`);
+      assert.equal(
+        hasCompleteKnowledgeOverlays(id),
+        false,
+        `${id} is queued as next but already complete`,
+      );
     }
   }
   for (const species of SPECIES) {
-    assert.ok(seedWaveForSpecies(species.id)?.status === "landed" || !hasCompleteKnowledgeOverlays(species.id));
+    assert.ok(
+      seedWaveForSpecies(species.id)?.status === "landed" ||
+        !hasCompleteKnowledgeOverlays(species.id),
+    );
   }
 });
 
@@ -66,7 +73,10 @@ test("conservation-sensitive records carry biology but never a targeting calenda
   // exactly what stops someone killing a bull trout by mistake. The rule is
   // that nothing in these records tells anyone how to present to them.
   for (const species of SPECIES) {
-    if (species.targetStatus !== "conservation_sensitive" && species.targetStatus !== "non_target") {
+    if (
+      species.targetStatus !== "conservation_sensitive" &&
+      species.targetStatus !== "non_target"
+    ) {
       continue;
     }
     const calendar = authoredOverlays(species.id).seasonalCalendar;
@@ -89,7 +99,11 @@ test("live coverage is computed from dossiers and does not invent fight or food"
   for (const overlay of KNOWLEDGE_OVERLAYS) {
     assert.equal(coverage.byOverlay[overlay], coverage.completeOverlays);
   }
-  assert.equal(coverage.completeOverlays, SPECIES.length, "every species should now carry all four");
+  assert.equal(
+    coverage.completeOverlays,
+    SPECIES.length,
+    "every species should now carry all four",
+  );
   assert.equal(coverage.fightReviewed, 0);
   assert.equal(coverage.foodReviewed, 0);
 });

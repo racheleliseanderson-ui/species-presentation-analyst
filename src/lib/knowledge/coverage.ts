@@ -29,11 +29,7 @@ import {
   type OverlayPresence,
   type SpeciesOverlays,
 } from "./overlays.ts";
-import {
-  KNOWLEDGE_OVERLAYS,
-  nextSeedWave,
-  type KnowledgeOverlay,
-} from "./seed-queue.ts";
+import { KNOWLEDGE_OVERLAYS, nextSeedWave, type KnowledgeOverlay } from "./seed-queue.ts";
 
 export { completeOverlayCount };
 export type { OverlayPresence };
@@ -62,7 +58,9 @@ const FILE_DOSSIERS: Record<string, DossierBundle> = (() => {
   }
   for (const name of names) {
     if (!name.endsWith(".json")) continue;
-    out[name.replace(/\.json$/, "")] = JSON.parse(readFileSync(dir + name, "utf8")) as DossierBundle;
+    out[name.replace(/\.json$/, "")] = JSON.parse(
+      readFileSync(dir + name, "utf8"),
+    ) as DossierBundle;
   }
   return out;
 })();
@@ -128,8 +126,10 @@ export function catalogKnowledgeCoverage() {
   for (const record of SPECIES) {
     const profile = buildAnglerSpeciesProfile(record, authoredOverlays(record.id));
     reviewedSectionCells += profile.coverage.reviewed;
-    if (profile.sections.find((section) => section.id === "fight")?.status === "reviewed") fightReviewed += 1;
-    if (profile.sections.find((section) => section.id === "food_value")?.status === "reviewed") foodReviewed += 1;
+    if (profile.sections.find((section) => section.id === "fight")?.status === "reviewed")
+      fightReviewed += 1;
+    if (profile.sections.find((section) => section.id === "food_value")?.status === "reviewed")
+      foodReviewed += 1;
   }
 
   return {

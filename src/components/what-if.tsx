@@ -48,7 +48,8 @@ export function WhatIf({
     <section className="no-print rounded-[var(--radius-lg)] bg-elevated p-5 shadow-[var(--shadow-border)] sm:p-6">
       <h3 className="font-display text-2xl">Change one thing</h3>
       <p className="mt-1 text-sm text-muted">
-        The reading updates immediately. Same reviewed biology, different inputs — not a fresh guess.
+        The reading updates immediately. Same reviewed biology, different inputs — not a fresh
+        guess.
       </p>
       <div className="mt-5 space-y-5">
         {populationProfiles.length > 0 && (
@@ -89,7 +90,8 @@ export function WhatIf({
               ))}
             </div>
             <p className="mt-2 text-xs text-dim">
-              Optional population context. It is never inferred from a water name, a jurisdiction, or coordinates; choose only a profile you recognize.
+              Optional population context. It is never inferred from a water name, a jurisdiction,
+              or coordinates; choose only a profile you recognize.
             </p>
           </div>
         )}
@@ -103,9 +105,7 @@ export function WhatIf({
               size="sm"
               className="min-h-11"
               disabled={session.tempF == null}
-              onClick={() =>
-                session.tempF != null && onPatch({ tempF: session.tempF - 6 })
-              }
+              onClick={() => session.tempF != null && onPatch({ tempF: session.tempF - 6 })}
             >
               −6°F
             </Button>
@@ -131,9 +131,7 @@ export function WhatIf({
               size="sm"
               className="min-h-11"
               disabled={session.tempF == null}
-              onClick={() =>
-                session.tempF != null && onPatch({ tempF: session.tempF + 6 })
-              }
+              onClick={() => session.tempF != null && onPatch({ tempF: session.tempF + 6 })}
             >
               +6°F
             </Button>
@@ -180,9 +178,7 @@ export function WhatIf({
               <button
                 key={id}
                 type="button"
-                onClick={() =>
-                  onPatch({ forage: { class: id, source: "user_observation" } })
-                }
+                onClick={() => onPatch({ forage: { class: id, source: "user_observation" } })}
                 className={`min-h-11 rounded-[var(--radius-sm)] px-3 text-sm shadow-[var(--shadow-border)] ${
                   session.forage?.class === id ? "bg-accent text-accent-fg" : "bg-subtle text-fg"
                 }`}
@@ -192,7 +188,8 @@ export function WhatIf({
             ))}
           </div>
           <p className="mt-2 text-xs text-dim">
-            {FORAGE_CLASSES.length} classes exist; these four change the ranking most. Hatch Match can carry a forage observation here.
+            {FORAGE_CLASSES.length} classes exist; these four change the ranking most. Hatch Match
+            can carry a forage observation here.
           </p>
         </div>
       </div>

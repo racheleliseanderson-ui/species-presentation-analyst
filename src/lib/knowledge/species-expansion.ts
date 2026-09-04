@@ -19,7 +19,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Prosopium williamsoni",
     commonNames: ["Mountain whitefish"],
     group: "trout_salmon",
-    nativeContext: "Native to cold western North American rivers and lakes; a core interior-West salmonid often omitted from trout-centric tools.",
+    nativeContext:
+      "Native to cold western North American rivers and lakes; a core interior-West salmonid often omitted from trout-centric tools.",
     thermal: { preferredF: [48, 56], activeF: [40, 62], coldEdgeF: 34, warmEdgeF: 68 },
     spawning: {
       seasons: ["late_fall", "winter"],
@@ -29,18 +30,32 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["riffle_to_run", "run", "pool_tail", "deep_pool", "seam"],
       stillHolding: ["drop_off", "rocky_shoreline", "basin", "inlet"],
-      currentPreference: "Adults commonly feed in moderate runs and riffle transitions, then use larger pools and slower water as temperatures fall.",
-      depthTendency: "Usually near bottom or in the lower water column; winter fish commonly consolidate in deeper pools.",
-      lightResponse: "Can feed through the day, with benthic feeding and shallower movement often improving under softer light.",
+      currentPreference:
+        "Adults commonly feed in moderate runs and riffle transitions, then use larger pools and slower water as temperatures fall.",
+      depthTendency:
+        "Usually near bottom or in the lower water column; winter fish commonly consolidate in deeper pools.",
+      lightResponse:
+        "Can feed through the day, with benthic feeding and shallower movement often improving under softer light.",
     },
     forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "eggs"],
-    flowingPresentations: ["dead_drift", "bottom_contact_drift", "tight_line_drift", "suspended_drift"],
-    stillPresentations: ["slow_drag", "vertical_jig", "drop_presentation", "live_natural_bait_suspension"],
+    flowingPresentations: [
+      "dead_drift",
+      "bottom_contact_drift",
+      "tight_line_drift",
+      "suspended_drift",
+    ],
+    stillPresentations: [
+      "slow_drag",
+      "vertical_jig",
+      "drop_presentation",
+      "live_natural_bait_suspension",
+    ],
     exceptions: [
       "Do not collapse mountain whitefish into trout behavior; they are more consistently benthic and can use different velocity/depth combinations.",
       "Known spawning riffles should not be converted into targeting instructions.",
     ],
-    geographic: "Interior western North America in cool rivers, tributaries, and connected lakes; local population status varies by basin.",
+    geographic:
+      "Interior western North America in cool rivers, tributaries, and connected lakes; local population status varies by basin.",
     sources: [
       { label: "USGS Mountain Whitefish species and habitat literature", class: SRC.agency },
       { label: "Boyer et al. mountain whitefish reproductive ecology", class: SRC.peer },
@@ -54,7 +69,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Thymallus arcticus",
     commonNames: ["Arctic grayling"],
     group: "trout_salmon",
-    nativeContext: "Native northern coldwater salmonid; remnant and reintroduced interior populations require geographic restraint.",
+    nativeContext:
+      "Native northern coldwater salmonid; remnant and reintroduced interior populations require geographic restraint.",
     thermal: { preferredF: [48, 60], activeF: [40, 64], coldEdgeF: 34, warmEdgeF: 68 },
     spawning: {
       seasons: ["early_spring", "spring"],
@@ -64,20 +80,39 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["riffle_to_run", "run", "pool_head", "deep_pool", "seam", "side_channel"],
       stillHolding: ["inlet", "outlet", "drop_off", "basin", "rocky_shoreline"],
-      currentPreference: "Feeds efficiently where drifting food crosses moderate current; uses deeper, slower pools for seasonal refuge and wintering.",
-      depthTendency: "Often upper-to-mid column while feeding on drift, but moves deeper when bright, pressured, warm, or wintering.",
-      lightResponse: "Daylight and broken-light surface feeding is common when insects are available; clear water increases the value of approach and distance.",
+      currentPreference:
+        "Feeds efficiently where drifting food crosses moderate current; uses deeper, slower pools for seasonal refuge and wintering.",
+      depthTendency:
+        "Often upper-to-mid column while feeding on drift, but moves deeper when bright, pressured, warm, or wintering.",
+      lightResponse:
+        "Daylight and broken-light surface feeding is common when insects are available; clear water increases the value of approach and distance.",
     },
-    forageClasses: ["aquatic_insects", "emerging_insects", "terrestrial_insects", "zooplankton", "small_forage_fish", "eggs"],
+    forageClasses: [
+      "aquatic_insects",
+      "emerging_insects",
+      "terrestrial_insects",
+      "zooplankton",
+      "small_forage_fish",
+      "eggs",
+    ],
     flowingPresentations: ["dead_drift", "surface_drift", "tight_line_drift", "swing"],
-    stillPresentations: ["horizontal_retrieve", "drop_presentation", "surface_retrieve", "suspend_pause"],
+    stillPresentations: [
+      "horizontal_retrieve",
+      "drop_presentation",
+      "surface_retrieve",
+      "suspend_pause",
+    ],
     exceptions: [
       "Juvenile and adult thermal preferences are not identical; the band here is an adult-oriented field synthesis.",
       "Many lower-48 populations are conservation-sensitive; geographic presence must be verified rather than inferred from habitat alone.",
     ],
-    geographic: "Alaska, Canada, and limited/reintroduced interior western U.S. populations; cold, well-oxygenated systems only.",
+    geographic:
+      "Alaska, Canada, and limited/reintroduced interior western U.S. populations; cold, well-oxygenated systems only.",
     sources: [
-      { label: "Alaska Department of Fish and Game Arctic grayling species profile", class: SRC.agency },
+      {
+        label: "Alaska Department of Fish and Game Arctic grayling species profile",
+        class: SRC.agency,
+      },
       { label: "USGS Arctic Grayling species profile", class: SRC.agency },
       { label: "Recent peer-reviewed Arctic grayling thermal ecology literature", class: SRC.peer },
     ],
@@ -89,7 +124,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Oncorhynchus nerka (landlocked)",
     commonNames: ["Kokanee"],
     group: "trout_salmon",
-    nativeContext: "Landlocked sockeye salmon; pelagic coldwater populations are native in some western basins and widely stocked elsewhere.",
+    nativeContext:
+      "Landlocked sockeye salmon; pelagic coldwater populations are native in some western basins and widely stocked elsewhere.",
     thermal: { preferredF: [50, 59], activeF: [44, 62], coldEdgeF: 38, warmEdgeF: 65 },
     spawning: {
       seasons: ["fall", "late_fall"],
@@ -99,9 +135,12 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["stillwater"],
       riverHolding: [],
       stillHolding: ["suspended_open", "thermocline_edge", "basin", "inlet", "drop_off"],
-      currentPreference: "Pelagic lake fish; position follows temperature, oxygen, plankton, and basin circulation more than shoreline cover.",
-      depthTendency: "Usually suspended in open water, changing depth seasonally to remain in suitable temperature and food layers.",
-      lightResponse: "Vertical position can shift with light and plankton movement; bright periods commonly push usable depth deeper.",
+      currentPreference:
+        "Pelagic lake fish; position follows temperature, oxygen, plankton, and basin circulation more than shoreline cover.",
+      depthTendency:
+        "Usually suspended in open water, changing depth seasonally to remain in suitable temperature and food layers.",
+      lightResponse:
+        "Vertical position can shift with light and plankton movement; bright periods commonly push usable depth deeper.",
     },
     forageClasses: ["zooplankton", "emerging_insects", "aquatic_insects"],
     flowingPresentations: [],
@@ -110,11 +149,15 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       "Tributary spawning runs are deliberately excluded from the reviewed flowing-water presentation record.",
       "A visible school is a mobile plankton/temperature association, not a hotspot coordinate.",
     ],
-    geographic: "Cold western lakes and reservoirs with adequate oxygenated summer refuge; population origin and spawning strategy vary by waterbody.",
+    geographic:
+      "Cold western lakes and reservoirs with adequate oxygenated summer refuge; population origin and spawning strategy vary by waterbody.",
     sources: [
       { label: "Washington Department of Fish and Wildlife kokanee profile", class: SRC.agency },
       { label: "British Columbia kokanee monitoring and assessment literature", class: SRC.agency },
-      { label: "Scott & Crossman freshwater fishes synthesis for kokanee/sockeye ecology", class: SRC.syn },
+      {
+        label: "Scott & Crossman freshwater fishes synthesis for kokanee/sockeye ecology",
+        class: SRC.syn,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -124,7 +167,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Coregonus clupeaformis",
     commonNames: ["Lake whitefish"],
     group: "trout_salmon",
-    nativeContext: "Native northern North American coregonid; important Great Lakes and inland-lake benthic/pelagic coldwater fish.",
+    nativeContext:
+      "Native northern North American coregonid; important Great Lakes and inland-lake benthic/pelagic coldwater fish.",
     thermal: { preferredF: [46, 57], activeF: [39, 63], coldEdgeF: 34, warmEdgeF: 68 },
     spawning: {
       seasons: ["late_fall", "winter"],
@@ -133,23 +177,46 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     habitat: {
       waterTypes: ["stillwater"],
       riverHolding: [],
-      stillHolding: ["basin", "drop_off", "rocky_shoreline", "submerged_hump", "thermocline_edge", "suspended_open"],
-      currentPreference: "Large-lake fish use basin circulation and current-washed structure, but this record does not treat them as a river-current species.",
-      depthTendency: "Bottom-associated over much of the year; often deeper in summer and capable of suspending when prey distributions warrant it.",
-      lightResponse: "Low light can support shallower movement, while clear bright conditions commonly reinforce depth and bottom association.",
+      stillHolding: [
+        "basin",
+        "drop_off",
+        "rocky_shoreline",
+        "submerged_hump",
+        "thermocline_edge",
+        "suspended_open",
+      ],
+      currentPreference:
+        "Large-lake fish use basin circulation and current-washed structure, but this record does not treat them as a river-current species.",
+      depthTendency:
+        "Bottom-associated over much of the year; often deeper in summer and capable of suspending when prey distributions warrant it.",
+      lightResponse:
+        "Low light can support shallower movement, while clear bright conditions commonly reinforce depth and bottom association.",
     },
     forageClasses: ["crustaceans", "mollusks", "aquatic_insects", "small_forage_fish", "eggs"],
     flowingPresentations: [],
-    stillPresentations: ["vertical_jig", "bottom_contact", "slow_drag", "drop_presentation", "live_natural_bait_suspension"],
+    stillPresentations: [
+      "vertical_jig",
+      "bottom_contact",
+      "slow_drag",
+      "drop_presentation",
+      "live_natural_bait_suspension",
+    ],
     exceptions: [
       "Summer depth depends on both temperature and oxygen; a cold depth without adequate oxygen is not usable habitat.",
       "Spawning shoals are never named as target locations.",
     ],
-    geographic: "Great Lakes and cool northern inland lakes; local stocks differ in depth use, prey, and spawning grounds.",
+    geographic:
+      "Great Lakes and cool northern inland lakes; local stocks differ in depth use, prey, and spawning grounds.",
     sources: [
       { label: "USGS lake whitefish thermal ecology research", class: SRC.peer },
-      { label: "Michigan Department of Natural Resources lake whitefish biology", class: SRC.agency },
-      { label: "Minnesota Department of Natural Resources lake whitefish profile", class: SRC.agency },
+      {
+        label: "Michigan Department of Natural Resources lake whitefish biology",
+        class: SRC.agency,
+      },
+      {
+        label: "Minnesota Department of Natural Resources lake whitefish profile",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -159,7 +226,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Lota lota",
     commonNames: ["Burbot"],
     group: "predator",
-    nativeContext: "Holarctic coldwater cod relative; native across northern North America in deep lakes and connected rivers.",
+    nativeContext:
+      "Holarctic coldwater cod relative; native across northern North America in deep lakes and connected rivers.",
     thermal: { preferredF: [42, 52], activeF: [34, 58], coldEdgeF: 32, warmEdgeF: 64 },
     spawning: {
       seasons: ["winter"],
@@ -169,18 +237,27 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["deep_pool", "current_break", "pool_tail", "submerged_wood"],
       stillHolding: ["basin", "rocky_shoreline", "drop_off", "submerged_hump", "thermocline_edge"],
-      currentPreference: "Bottom-oriented and generally favors deeper or slower current margins rather than sustained high-velocity lanes.",
-      depthTendency: "Deep and benthic through much of the warm season; cold-season movement can bring fish shallower.",
-      lightResponse: "Strongly associated with night and low-light activity; daylight often reinforces cover, depth, and bottom contact.",
+      currentPreference:
+        "Bottom-oriented and generally favors deeper or slower current margins rather than sustained high-velocity lanes.",
+      depthTendency:
+        "Deep and benthic through much of the warm season; cold-season movement can bring fish shallower.",
+      lightResponse:
+        "Strongly associated with night and low-light activity; daylight often reinforces cover, depth, and bottom contact.",
     },
     forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "aquatic_insects"],
     flowingPresentations: ["bottom_contact_drift", "pulse_jig", "stationary_bait"],
-    stillPresentations: ["vertical_jig", "bottom_contact", "slow_drag", "live_natural_bait_suspension"],
+    stillPresentations: [
+      "vertical_jig",
+      "bottom_contact",
+      "slow_drag",
+      "live_natural_bait_suspension",
+    ],
     exceptions: [
       "Night activity does not justify a surface presentation; this is a bottom-oriented species record.",
       "Winter spawning concentrations are a conservation-sensitive warning sign, not a hotspot map.",
     ],
-    geographic: "Northern lakes and larger rivers with cold, oxygenated habitat; southern range edges are thermally constrained.",
+    geographic:
+      "Northern lakes and larger rivers with cold, oxygenated habitat; southern range edges are thermally constrained.",
     sources: [
       { label: "USGS Great Lakes burbot thermal-distribution research", class: SRC.peer },
       { label: "USGS Lake Superior burbot life-history literature", class: SRC.agency },
@@ -193,7 +270,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Sander canadensis",
     commonNames: ["Sauger"],
     group: "predator",
-    nativeContext: "Native large-river percid of central North America; also occurs in turbid reservoirs and river-reservoir systems.",
+    nativeContext:
+      "Native large-river percid of central North America; also occurs in turbid reservoirs and river-reservoir systems.",
     thermal: { preferredF: [55, 68], activeF: [45, 74], coldEdgeF: 38, warmEdgeF: 80 },
     spawning: {
       seasons: ["early_spring", "spring"],
@@ -203,22 +281,39 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["deep_pool", "run", "tailwater", "current_break", "pool_head"],
       stillHolding: ["drop_off", "point", "basin", "inlet", "riprap"],
-      currentPreference: "More riverine and current-tolerant than walleye; deep runs and pools with meaningful flow are core habitat rather than exceptions.",
-      depthTendency: "Strong lower-column and bottom association, particularly in daylight and clear conditions.",
-      lightResponse: "Low light favors movement, while turbidity can extend active feeding into daylight by reducing the optical penalty of shallow or current-facing positions.",
+      currentPreference:
+        "More riverine and current-tolerant than walleye; deep runs and pools with meaningful flow are core habitat rather than exceptions.",
+      depthTendency:
+        "Strong lower-column and bottom association, particularly in daylight and clear conditions.",
+      lightResponse:
+        "Low light favors movement, while turbidity can extend active feeding into daylight by reducing the optical penalty of shallow or current-facing positions.",
     },
     forageClasses: ["small_forage_fish", "aquatic_insects", "crustaceans"],
-    flowingPresentations: ["bottom_contact_drift", "pulse_jig", "cross_current_retrieve", "downstream_retrieve"],
-    stillPresentations: ["vertical_jig", "bottom_contact", "slow_drag", "live_natural_bait_suspension"],
+    flowingPresentations: [
+      "bottom_contact_drift",
+      "pulse_jig",
+      "cross_current_retrieve",
+      "downstream_retrieve",
+    ],
+    stillPresentations: [
+      "vertical_jig",
+      "bottom_contact",
+      "slow_drag",
+      "live_natural_bait_suspension",
+    ],
     exceptions: [
       "Sauger and walleye can hybridize; saugeye should not silently inherit this record.",
       "Dam and spawning-run concentrations are not treated as secret aggregation targets.",
     ],
-    geographic: "Mississippi, Missouri, Ohio, Tennessee, and connected interior basins; strongest fit is large turbid river and reservoir habitat.",
+    geographic:
+      "Mississippi, Missouri, Ohio, Tennessee, and connected interior basins; strongest fit is large turbid river and reservoir habitat.",
     sources: [
       { label: "USGS sauger habitat and movement research", class: SRC.peer },
       { label: "Missouri Department of Conservation sauger species account", class: SRC.agency },
-      { label: "Tennessee Wildlife Resources Agency sauger management information", class: SRC.agency },
+      {
+        label: "Tennessee Wildlife Resources Agency sauger management information",
+        class: SRC.agency,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -228,7 +323,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Ictalurus furcatus",
     commonNames: ["Blue catfish"],
     group: "other",
-    nativeContext: "Native to major Mississippi/Gulf drainages; widely introduced into reservoirs and Atlantic-slope systems where ecological status varies.",
+    nativeContext:
+      "Native to major Mississippi/Gulf drainages; widely introduced into reservoirs and Atlantic-slope systems where ecological status varies.",
     thermal: { preferredF: [72, 84], activeF: [50, 86], coldEdgeF: 42, warmEdgeF: 90 },
     spawning: {
       seasons: ["early_summer", "summer"],
@@ -238,21 +334,39 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["deep_pool", "run", "current_break", "tributary_mouth", "submerged_wood"],
       stillHolding: ["basin", "drop_off", "point", "inlet", "riprap", "suspended_open"],
-      currentPreference: "Large-river fish use channel current, current breaks, and travel lanes; reservoir fish can roam pelagically with forage rather than remain pinned to cover.",
-      depthTendency: "Often deep and near bottom, but adults may suspend with open-water forage in reservoirs and shift substantially with season.",
-      lightResponse: "Low light can support shallower movement, but current, forage, temperature, and turbidity can make daytime feeding fully plausible.",
+      currentPreference:
+        "Large-river fish use channel current, current breaks, and travel lanes; reservoir fish can roam pelagically with forage rather than remain pinned to cover.",
+      depthTendency:
+        "Often deep and near bottom, but adults may suspend with open-water forage in reservoirs and shift substantially with season.",
+      lightResponse:
+        "Low light can support shallower movement, but current, forage, temperature, and turbidity can make daytime feeding fully plausible.",
     },
-    forageClasses: ["small_forage_fish", "larger_prey_fish", "crustaceans", "mollusks", "aquatic_insects"],
+    forageClasses: [
+      "small_forage_fish",
+      "larger_prey_fish",
+      "crustaceans",
+      "mollusks",
+      "aquatic_insects",
+    ],
     flowingPresentations: ["stationary_bait", "bottom_contact_drift", "pulse_jig"],
-    stillPresentations: ["bottom_contact", "slow_drag", "live_natural_bait_suspension", "vertical_jig"],
+    stillPresentations: [
+      "bottom_contact",
+      "slow_drag",
+      "live_natural_bait_suspension",
+      "vertical_jig",
+    ],
     exceptions: [
       "Seasonal movement can be extensive; one depth or channel class is not a year-round rule.",
       "Introduced-population status and harvest rules vary sharply by jurisdiction and must remain outside biological inference.",
     ],
-    geographic: "Large warm rivers and reservoirs across the central/southern U.S., plus introduced Atlantic systems.",
+    geographic:
+      "Large warm rivers and reservoirs across the central/southern U.S., plus introduced Atlantic systems.",
     sources: [
       { label: "USGS Nonindigenous Aquatic Species blue catfish profile", class: SRC.agency },
-      { label: "USGS / state agency blue catfish movement and spawning literature", class: SRC.peer },
+      {
+        label: "USGS / state agency blue catfish movement and spawning literature",
+        class: SRC.peer,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -262,7 +376,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Pylodictis olivaris",
     commonNames: ["Flathead catfish"],
     group: "other",
-    nativeContext: "Native Mississippi/Gulf drainage predator; introduced widely outside its native range and highly associated with large woody river habitat.",
+    nativeContext:
+      "Native Mississippi/Gulf drainage predator; introduced widely outside its native range and highly associated with large woody river habitat.",
     thermal: { preferredF: [68, 82], activeF: [55, 86], coldEdgeF: 48, warmEdgeF: 90 },
     spawning: {
       seasons: ["early_summer", "summer"],
@@ -272,9 +387,12 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["deep_pool", "submerged_wood", "current_break", "run", "pool_head"],
       stillHolding: ["wood", "drop_off", "basin", "riprap"],
-      currentPreference: "Uses large-river current but commonly holds on the protected side of wood, scour, or structure rather than in the fastest lane.",
-      depthTendency: "Deep cover by day; adults often move shallower at night and in summer while remaining structurally oriented.",
-      lightResponse: "Strong low-light and nocturnal movement pattern, especially for large adults leaving daytime cover to forage.",
+      currentPreference:
+        "Uses large-river current but commonly holds on the protected side of wood, scour, or structure rather than in the fastest lane.",
+      depthTendency:
+        "Deep cover by day; adults often move shallower at night and in summer while remaining structurally oriented.",
+      lightResponse:
+        "Strong low-light and nocturnal movement pattern, especially for large adults leaving daytime cover to forage.",
     },
     forageClasses: ["larger_prey_fish", "small_forage_fish", "crustaceans"],
     flowingPresentations: ["stationary_bait", "bottom_contact_drift", "pulse_jig"],
@@ -283,10 +401,14 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       "Adult flatheads are strongly piscivorous; generic insect-scale catfish logic is a poor fit for large fish.",
       "Introduced populations can be invasive; presence is not a conservation or harvest endorsement.",
     ],
-    geographic: "Large rivers, impoundments, and connected backwaters of the central/southern U.S.; introduced range extends beyond native basins.",
+    geographic:
+      "Large rivers, impoundments, and connected backwaters of the central/southern U.S.; introduced range extends beyond native basins.",
     sources: [
       { label: "USGS Nonindigenous Aquatic Species flathead catfish profile", class: SRC.agency },
-      { label: "Peer-reviewed flathead catfish habitat and movement literature summarized by USGS", class: SRC.peer },
+      {
+        label: "Peer-reviewed flathead catfish habitat and movement literature summarized by USGS",
+        class: SRC.peer,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
@@ -296,7 +418,8 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
     scientificName: "Aplodinotus grunniens",
     commonNames: ["Freshwater drum"],
     group: "other",
-    nativeContext: "Native large-river and lake sciaenid of central/eastern North America; a benthic generalist with strong mollusk and invertebrate use.",
+    nativeContext:
+      "Native large-river and lake sciaenid of central/eastern North America; a benthic generalist with strong mollusk and invertebrate use.",
     thermal: { preferredF: [65, 75], activeF: [55, 78], coldEdgeF: 48, warmEdgeF: 82 },
     spawning: {
       seasons: ["early_summer", "summer"],
@@ -306,21 +429,39 @@ export const SPECIES_EXPANSION: SpeciesRecord[] = [
       waterTypes: ["flowing", "stillwater"],
       riverHolding: ["deep_pool", "run", "current_break", "pool_tail"],
       stillHolding: ["basin", "drop_off", "riprap", "point"],
-      currentPreference: "Uses large-river current and channel habitat but commonly feeds along bottom transitions, holes, and current-washed structure.",
-      depthTendency: "Predominantly lower-column and bottom-oriented; larger fish commonly use deeper water while moving shallower to feed under favorable conditions.",
-      lightResponse: "Feeds by day and night, with low-light and nighttime benthic feeding often increasing shallow accessibility.",
+      currentPreference:
+        "Uses large-river current and channel habitat but commonly feeds along bottom transitions, holes, and current-washed structure.",
+      depthTendency:
+        "Predominantly lower-column and bottom-oriented; larger fish commonly use deeper water while moving shallower to feed under favorable conditions.",
+      lightResponse:
+        "Feeds by day and night, with low-light and nighttime benthic feeding often increasing shallow accessibility.",
     },
-    forageClasses: ["mollusks", "crustaceans", "aquatic_insects", "small_forage_fish", "zooplankton"],
+    forageClasses: [
+      "mollusks",
+      "crustaceans",
+      "aquatic_insects",
+      "small_forage_fish",
+      "zooplankton",
+    ],
     flowingPresentations: ["bottom_contact_drift", "pulse_jig", "stationary_bait"],
-    stillPresentations: ["bottom_contact", "slow_drag", "vertical_jig", "live_natural_bait_suspension"],
+    stillPresentations: [
+      "bottom_contact",
+      "slow_drag",
+      "vertical_jig",
+      "live_natural_bait_suspension",
+    ],
     exceptions: [
       "A school or seasonal movement is not a hotspot map; freshwater drum can be mobile and forage-linked.",
       "Large adults may be much more mollusk-focused than juveniles, so forage class should remain falsifiable in the field.",
     ],
-    geographic: "Great Lakes, Mississippi/Ohio/Missouri systems, and many connected reservoirs and large rivers of central/eastern North America.",
+    geographic:
+      "Great Lakes, Mississippi/Ohio/Missouri systems, and many connected reservoirs and large rivers of central/eastern North America.",
     sources: [
       { label: "USGS Nonindigenous Aquatic Species freshwater drum profile", class: SRC.agency },
-      { label: "USGS freshwater drum temperature, growth, and life-history literature", class: SRC.peer },
+      {
+        label: "USGS freshwater drum temperature, growth, and life-history literature",
+        class: SRC.peer,
+      },
     ],
     reviewedAt: "2026-08-27",
     nextReviewAt: "2026-11-27",
