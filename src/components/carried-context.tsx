@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { OwnRecordPanel } from "@/lib/field-plates";
 import type { IncomingCarry } from "@/lib/protocol/packet";
 import { cn } from "@/lib/utils";
 
@@ -146,6 +147,18 @@ export function CarriedContext({
         schedules, so that one is still yours to set. If the reading stops matching what you are
         seeing on the water, it is the first thing worth changing.
       </p>
+
+      {/*
+       * What the reader has already written down about this fish on this
+       * water. It sits below the carried fields and outside them on purpose:
+       * pressing "Use this" applies the packet to the reading, and this is the
+       * one part of the packet the reading never touches.
+       */}
+      <OwnRecordPanel
+        record={carry.packet.history}
+        from={carry.from}
+        instrument="This reading"
+      />
 
       <div className="mt-4 flex flex-wrap gap-2">
         <Button onClick={onApply} className="min-h-11">

@@ -4,9 +4,11 @@ import { matchesSpecies } from "../knowledge/aliases.ts";
 import { motionFor } from "../knowledge/presentation-motion.ts";
 import { SPECIES, SPECIES_BY_ID } from "../knowledge/species-catalog.ts";
 import {
+  FLEET_TARGETS,
   assessFreshness,
   buildPacket as buildFleetPacket,
   readPacket,
+  toolKeyOf,
   type FreshnessAssessment,
   type HthPacket as FleetPacket,
   type PacketRead,
@@ -744,6 +746,23 @@ function carriedRows(applied: Partial<ScenarioInput>): CarriedRow[] {
  * entry paths, which is why a trail that came through "Advanced" survived and
  * the same trail through the ordinary reading did not.
  */
+/**
+ * Whose name to put on the banner.
+ *
+ * The identity that arrives on the wire is a slug — `field-ops-desk` — and
+ * this screen was printing it, so a reader who had just pressed a button in
+ * the Field Ops Desk was told "Sent over by field-ops-desk". The registry
+ * knows what these things are called. An origin the registry has never heard
+ * of still falls through to the raw string, which is a worse label but an
+ * honest one.
+ */
+function senderLabel(packet: FleetPacket): string {
+  const key = toolKeyOf(packet);
+  const target = key ? Object.values(FLEET_TARGETS).find((t) => t.toolKey === key) : undefined;
+  if (target) return target.name;
+  return text(packet.fleet?.lastUpdatedBy) ?? text(packet.origin) ?? "another Hook tool";
+}
+
 export function readIncoming(source?: string | null): IncomingCarry {
   const read = readPacket(source);
   if (read.state === "absent") return { state: "absent" };
@@ -759,6 +778,6 @@ export function readIncoming(source?: string | null): IncomingCarry {
     declined: declinedBlocks(read.packet),
     normalizations: read.normalizations,
     freshness: assessFreshness(read.packet),
-    from: text(read.packet.fleet?.lastUpdatedBy) ?? text(read.packet.origin) ?? "another Hook tool",
+    from: senderLabel(read.packet),
   };
 }
