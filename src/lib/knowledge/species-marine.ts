@@ -1109,7 +1109,7 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
       lightResponse:
         "Reviewed sources are consistent with a daytime-active pattern: one reference database lists the species as diurnal, and an independent peer-reviewed telemetry study found reduced horizontal movement at night versus daytime, consistent with a more visually-driven daytime hunting style.",
     },
-    forageClasses: ["small_forage_fish", "larger_prey_fish", "mollusks"],
+    forageClasses: ["small_forage_fish", "larger_prey_fish", "cephalopods"],
     flowingPresentations: [],
     stillPresentations: [],
     marinePresentations: {
@@ -1550,6 +1550,7 @@ export const SPECIES_MARINE: SpeciesRecord[] = [
     forageClasses: [
       "small_forage_fish",
       "larger_prey_fish",
+      "cephalopods",
       "mollusks",
       "crustaceans",
       "zooplankton",

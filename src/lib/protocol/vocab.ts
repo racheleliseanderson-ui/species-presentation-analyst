@@ -233,6 +233,14 @@ export const FORAGE_CLASSES = [
   "eggs",
   "amphibians",
   "zooplankton",
+  /*
+   * The twelfth class, added when Hatch Match's salt wave put a squid into a
+   * class the fleet had no word for. Deliberately not folded into `mollusks`:
+   * a mollusc is a bottom problem and a squid is a mid-column one with a big
+   * soft profile and a jet-and-glide path, so the two bias tables point at
+   * opposite ends of the water. See FORAGE_BIASES.
+   */
+  "cephalopods",
 ] as const;
 export type ForageClass = (typeof FORAGE_CLASSES)[number];
 
@@ -382,6 +390,7 @@ export const LABELS: Record<string, string> = {
   eggs: "Eggs",
   amphibians: "Amphibians",
   zooplankton: "Zooplankton",
+  cephalopods: "Squid / cephalopods",
   schooling: "Schooling",
   solitary: "Solitary",
   loose_aggregation: "Loose aggregation",

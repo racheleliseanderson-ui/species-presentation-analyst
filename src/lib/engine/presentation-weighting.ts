@@ -450,6 +450,31 @@ const FORAGE_BIASES: Record<ForageClass, BiasTable> = {
     suspend_pause: 8,
     horizontal_retrieve: 4,
   },
+  /*
+   * Squid, and the reason this is not filed under mollusks.
+   *
+   * A squid is a big soft profile that moves in the middle of the water in a
+   * jet-and-glide — hard pulse, long coast, hard pulse — and it is a night
+   * animal on the inshore grounds, on the bottom by day and up in the column
+   * after dark. So the mechanics that suit it are the ones that carry a wide
+   * silhouette at depth and then stop dead: a slow roll that keeps the profile
+   * swimming, a stop-and-go that reproduces the coast, a suspended pause for
+   * the moment it hangs. Bottom contact and slow drag score low here for the
+   * same reason they score highest for a clam: they are answering a question
+   * about the bottom, and this animal has left it.
+   */
+  cephalopods: {
+    subsurface_slow_roll: 10,
+    stop_and_go: 9,
+    suspend_pause: 8,
+    horizontal_retrieve: 8,
+    vertical_jig: 7,
+    trolling: 7,
+    cross_current_retrieve: 6,
+    suspended_stationary: 5,
+    bottom_contact: 2,
+    slow_drag: 2,
+  },
 };
 
 function addReason(
