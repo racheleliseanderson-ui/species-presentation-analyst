@@ -12,17 +12,8 @@ echo  ==========================================================================
 echo    REVIEW AND UPDATE - REAL BIOLOGICAL REFRESH
 echo  ================================================================================
 echo.
-echo   This now does two different jobs in the correct order:
-echo.
-echo     1. Citation maintenance - check every existing source and repair safe same-site moves.
-echo     2. Biological refresh - select up to !SPECIES_REFRESH_BATCH_SIZE! overdue, due-soon,
-echo        partial or high-gap species and perform NEW web research beyond the old citations.
-echo.
-echo   A page still returning 200 is NOT treated as a completed review. Claude must search
-echo   taxonomy, habitat/thermal biology, diet, behavior, seasonality and every declared gap,
-echo   compare the old claims to new or independent evidence, and write a research ledger.
-echo.
-echo   Change batch size with SPECIES_REFRESH_BATCH_SIZE before launching this file.
+echo   This checks existing citations, then performs fresh biological research on
+ echo   up to !SPECIES_REFRESH_BATCH_SIZE! overdue, due-soon, partial or high-gap species.
 echo.
 echo  --------------------------------------------------------------------------------
 echo.
@@ -36,10 +27,17 @@ where npm >nul 2>&1
 if errorlevel 1 goto :no_node
 where git >nul 2>&1
 if errorlevel 1 goto :no_git
-where claude >nul 2>&1
+
+if not exist "scripts\resolve-claude.cmd" goto :missing_resolver
+call "scripts\resolve-claude.cmd"
 if errorlevel 1 goto :no_claude
-claude auth status >nul 2>&1
+
+echo        Claude Code found: !CLAUDE_CMD!
+call "!CLAUDE_CMD!" --version
+if errorlevel 1 goto :claude_broken
+call "!CLAUDE_CMD!" auth status >nul 2>&1
 if errorlevel 1 goto :claude_login
+
 if not exist "prompts\species-refresh-research.md" goto :missing_protocol
 if not exist "scripts\refresh-brief.mjs" goto :missing_refresh_script
 
@@ -47,7 +45,7 @@ set "DIRTY_KNOWLEDGE="
 for /f "delims=" %%G in ('git status --porcelain -- data/dossiers src/lib/knowledge 2^>nul') do set "DIRTY_KNOWLEDGE=1"
 if defined DIRTY_KNOWLEDGE goto :dirty_knowledge
 
-echo        Node, Git and Claude Code are available and signed in.
+echo        Node, Git and Claude Code are ready.
 echo.
 
 echo  [2/10] Installing project packages if needed...
@@ -66,12 +64,12 @@ call npm run report:duplicates >> "BEFORE-report.txt" 2>&1
 echo        Saved BEFORE-report.txt
 echo.
 
-echo  [4/10] Checking every cited source and repairing safe same-domain moves...
+echo  [4/10] Checking existing citations and repairing safe same-domain moves...
 call npm run check:sources -- --fix --concurrency=6
 if errorlevel 1 goto :source_check_failed
 echo.
 
-echo  [5/10] Ranking species that need substantive biological review...
+echo  [5/10] Ranking species for substantive biological review...
 for /f "delims=" %%I in ('powershell -NoProfile -Command "Get-Date -Format yyyyMMdd-HHmmss"') do set "RUNSTAMP=%%I"
 if not defined RUNSTAMP set "RUNSTAMP=%RANDOM%-%RANDOM%"
 set "RUNDIR=reports\runs\refresh-!RUNSTAMP!"
@@ -80,7 +78,7 @@ if errorlevel 1 goto :brief_failed
 
 set /a BRIEF_COUNT=0
 for /f "delims=" %%F in ('dir /b /a-d "!RUNDIR!\refresh-*.md" 2^>nul') do set /a BRIEF_COUNT+=1
-echo        !BRIEF_COUNT! species selected for fresh biological research.
+echo        !BRIEF_COUNT! species selected for fresh research.
 echo.
 
 echo  [6/10] Performing substantive refresh research...
@@ -95,14 +93,14 @@ for /f "delims=" %%F in ('dir /b /a-d "!RUNDIR!\refresh-*.md" 2^>nul') do (
   >>"!PROMPTFILE!" echo ^<refresh_brief^>
   type "!RUNDIR!\%%F" >>"!PROMPTFILE!"
   >>"!PROMPTFILE!" echo ^</refresh_brief^>
-  type "!PROMPTFILE!" | claude -p --permission-mode acceptEdits --max-turns 80 "Follow the refresh protocol from stdin. Work directly in this repository. Perform fresh web research and edit the existing species record and dossiers. Do not commit or push."
+  call "!CLAUDE_CMD!" -p --permission-mode acceptEdits --max-turns 80 "Follow the refresh protocol from stdin. Work directly in this repository. Perform fresh web research and edit the existing species record and dossiers. Do not commit or push." < "!PROMPTFILE!"
   if errorlevel 1 goto :agent_failed
   del /q "!PROMPTFILE!" >nul 2>&1
 )
-if !BRIEF_COUNT! EQU 0 echo        No species required substantive refresh today; continuing with link maintenance validation.
+if !BRIEF_COUNT! EQU 0 echo        No species required substantive refresh today.
 echo.
 
-echo  [7/10] Validating dossiers, identity resolution, types and tests...
+echo  [7/10] Validating dossiers, identities, types and tests...
 call npm run validate:dossiers
 if errorlevel 1 goto :validation_failed
 call npm run report:duplicates
@@ -113,7 +111,7 @@ call npm test
 if errorlevel 1 goto :tests_failed
 echo.
 
-echo  [8/10] Rechecking citations after any research changes...
+echo  [8/10] Rechecking citations and rebuilding reports...
 call npm run check:sources -- --concurrency=6
 if errorlevel 1 goto :source_check_failed
 call npm run review:queue
@@ -134,8 +132,6 @@ if defined DATABASE_URL (
 echo.
 
 echo  [10/10] Saving reviewed work to GitHub...
-REM Refresh work-order briefs are transient. Keep the source-check reports,
-REM review queue and research ledgers, but do not accumulate run folders.
 if exist "!RUNDIR!" rmdir /s /q "!RUNDIR!"
 git add data/dossiers src/lib/knowledge reports "BEFORE-report.txt" "AFTER-report.txt"
 git diff --cached --quiet
@@ -153,7 +149,6 @@ echo  ==========================================================================
 echo.
 echo   Compare BEFORE-report.txt and AFTER-report.txt.
 echo   Research provenance is in reports\research-ledger.
-echo   The newest reports\review-queue-*.md is the next ranked worklist.
 echo.
 pause
 exit /b 0
@@ -174,13 +169,32 @@ goto :fail
 echo.
 echo   STOPPED. Git is not installed or not on PATH.
 goto :fail
+:missing_resolver
+echo.
+echo   STOPPED. scripts\resolve-claude.cmd is missing. Run git pull origin main.
+goto :fail
 :no_claude
 echo.
-echo   STOPPED. Claude Code is not installed or not on PATH.
+echo   STOPPED. Claude Code could not be found.
+echo.
+echo   The runner checked PATH, %%USERPROFILE%%\.local\bin,
+echo   WinGet links, npm global commands, and PowerShell command discovery.
+echo.
+echo   Run these in PowerShell and send the output if this still happens:
+echo      claude --version
+echo      claude doctor
+goto :fail
+:claude_broken
+echo.
+echo   STOPPED. Claude Code was found at:
+echo      !CLAUDE_CMD!
+echo   but it would not start. Run claude doctor in PowerShell.
 goto :fail
 :claude_login
 echo.
-echo   STOPPED. Claude Code is not signed in. Run:  claude auth login
+echo   STOPPED. Claude Code is installed but not authenticated.
+echo   Open PowerShell, run:  claude
+echo   Complete the browser sign-in, then run this BAT again.
 goto :fail
 :missing_protocol
 echo.
@@ -192,9 +206,8 @@ echo   STOPPED. scripts\refresh-brief.mjs is missing.
 goto :fail
 :dirty_knowledge
 echo.
-echo   STOPPED. There are already unfinished changes under data\dossiers or
-echo   src\lib\knowledge. Commit or stash those first so this automated refresh
-echo   cannot bundle unrelated biological edits into its save.
+echo   STOPPED. There are unfinished changes under data\dossiers or src\lib\knowledge.
+echo   Commit or stash those first so unrelated biological edits are not bundled.
 goto :fail
 :install_failed
 echo.
