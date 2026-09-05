@@ -8,7 +8,7 @@ import tseslint from "typescript-eslint";
 /** Flat ESLint config for the TanStack Start app-builder template. */
 export default tseslint.config(
   {
-    ignores: [
+    ignores: ["_to_delete/**", 
       "dist/**",
       ".output/**",
       ".vercel/**",
