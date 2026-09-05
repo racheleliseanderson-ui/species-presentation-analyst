@@ -1,0 +1,31 @@
+# One pull request a week, not twenty.
+#
+# Grouping is the whole point. An ungrouped dependabot on a repo with this many
+# transitive packages produces a wall of individual PRs that a single maintainer
+# closes unread, which is worse than having no dependency updates at all —
+# because it looks like the updates are being handled.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 2
+    groups:
+      production:
+        dependency-type: production
+        update-types: [minor, patch]
+      development:
+        dependency-type: development
+        update-types: [minor, patch]
+    # A major on the framework, the router or the build tool is a deliberate
+    # migration with its own testing, not something to review in a batch.
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly

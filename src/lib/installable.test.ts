@@ -113,20 +113,61 @@ describe("a shortcut works where it is pressed", () => {
      * exactly the situation it exists for.
      */
     const config = readFileSync(CONFIG, "utf8");
-    const block = /const SHORTCUT_ROUTES = \[([^\]]*)\]/.exec(config);
-    assert.ok(block, "SHORTCUT_ROUTES is gone from the build config");
-    const cached = [...block[1]!.matchAll(/"([^"]+)"/g)].map((m) => m[1]!);
-    for (const shortcut of shortcuts) {
-      const path = shortcut.url.split("?")[0] || "/";
-      assert.ok(cached.includes(path), `${path} is a shortcut the worker never cached`);
-    }
-    /* Both worker builds have to take them, or which one wins the race
-       decides whether the shortcut works. */
+    /*
+     * The list is derived from this manifest at build time rather than typed
+     * out again, so what is checked here is that the derivation is still
+     * happening and still covers both halves of it.
+     */
+    assert.match(config, /manifest\.start_url/, "start_url is not precached");
+    assert.match(config, /manifest\.shortcuts/, "the shortcuts are not precached");
+    assert.match(
+      config,
+      /readFileSync\("public\/manifest\.webmanifest"/,
+      "the precached document list is no longer read from the manifest, so it can drift from it",
+    );
+    assert.ok(shortcuts.length > 0);
+    /*
+     * Exactly one worker generator, and it is the one taking the shortcuts.
+     *
+     * This repository shipped TWO for a while — `vite-plugin-pwa` and a
+     * hand-rolled `workbox-build` pass — both writing `sw.js` into the same
+     * directory, so the deployed worker was whichever happened to close its
+     * bundle last and the other one's runtime-caching rules were edited by
+     * people who thought they were live. Two generators for one file is not
+     * redundancy, it is a coin toss.
+     */
     assert.equal(
       config.split("additionalManifestEntries: shortcutEntries").length - 1,
-      2,
-      "one of the two service-worker builds is not precaching the shortcut routes",
+      1,
+      "the shortcut routes are precached by more or fewer than one worker build",
     );
+    assert.equal(
+      config.split(/generateSW|VitePWA\(/).length - 1,
+      1,
+      "a second service-worker generator is back in the build config",
+    );
+  });
+
+  it("precaches the page the home-screen icon opens", () => {
+    /*
+     * THE bug this file exists to prevent, found on 2026-09-05 by cutting the
+     * network in a real browser and reading the worker's cache keys.
+     *
+     * The precached list was the shortcuts and nothing else. An installed PWA
+     * opens `start_url` — and the first visit to a site is the visit that
+     * INSTALLS the worker without being controlled by it, so `/` was never
+     * cached on the way in either. The catalogue worked offline. A species
+     * already opened worked offline. The page the icon on the home screen
+     * actually opens did not, which is the only one that has to.
+     *
+     * Nothing else could have caught it: the worker generated, the precache
+     * manifest was non-empty, the fixtures were green, and the build log said
+     * 23 entries.
+     */
+    const start = (manifest.start_url ?? "/").split("?")[0] || "/";
+    const config = readFileSync(CONFIG, "utf8");
+    assert.match(config, /manifest\.start_url \?\? "\/"/);
+    assert.equal(start, "/", "start_url moved; check the worker still precaches it");
   });
 
   it("is revisioned, so a deploy does not leave stale HTML pinned forever", () => {

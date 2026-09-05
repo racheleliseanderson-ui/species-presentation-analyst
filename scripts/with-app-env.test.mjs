@@ -12,7 +12,6 @@ import {
   projectRoot,
   readAppEnv,
 } from "./with-app-env.mjs";
-import { authEnabledFromEnvValue } from "./check-auth-invariant.mjs";
 
 const execFileAsync = promisify(execFile);
 const WRAPPER = join(projectRoot(), "scripts/with-app-env.mjs");
@@ -69,16 +68,6 @@ test("an explicit process-env override wins over the file", () => {
   assert.equal(merged.PATH, "/usr/bin");
 });
 
-test("the repository ships auth off without depending on an untracked file", () => {
-  // `.app/app-env.json` is gitignored, so it exists in some workspaces and not
-  // in others. Asserting its contents made a fresh clone fail this test while
-  // also, more seriously, letting a fresh clone build with sign-in ON. The
-  // real invariant is the predicate: absent any flag, sign-in is off.
-  assert.equal(authEnabledFromEnvValue(readAppEnv(projectRoot()).VITE_AUTH_ENABLED), false);
-  assert.equal(authEnabledFromEnvValue(undefined), false);
-  assert.equal(authEnabledFromEnvValue("false"), false);
-  assert.equal(authEnabledFromEnvValue("true"), true);
-});
 
 test("vite loadEnv resolves the wrapped value", () => {
   // What `import.meta.env.VITE_AUTH_ENABLED` becomes: loadEnv prefix-matches

@@ -1,4 +1,5 @@
 import { SPECIES_IMAGES_BY_ID } from "@/lib/knowledge/species-images";
+import { SPECIES_IMAGE_LADDERS } from "@/lib/knowledge/species-image-ladders";
 import { cn } from "@/lib/utils";
 
 /**
@@ -13,6 +14,9 @@ import { cn } from "@/lib/utils";
  * draw a plainly schematic outline instead of a photograph — it marks the space
  * without asserting anything about what this particular species looks like.
  */
+/** The width `scripts/build-species-images.mjs` writes `thumb.webp` at. */
+const THUMB_WIDTH = 256;
+
 export function SpeciesThumb({
   speciesId,
   commonName,
@@ -27,6 +31,17 @@ export function SpeciesThumb({
   const image = SPECIES_IMAGES_BY_ID[speciesId];
 
   if (image) {
+    /*
+     * Intrinsic dimensions, derived from the picture's own aspect ratio at the
+     * thumb's generated width. Without them the whole index reflowed as the
+     * pictures arrived — a hundred and eleven rows shifting under a thumb while
+     * somebody is already scrolling them.
+     */
+    const ladder = SPECIES_IMAGE_LADDERS[image.thumb.split("/")[2] ?? ""];
+    const ratio = ladder ? ladder.intrinsic.height / ladder.intrinsic.width : 1;
+    const thumbWidth = THUMB_WIDTH;
+    const thumbHeight = Math.round(THUMB_WIDTH * ratio);
+
     return (
       <img
         src={image.thumb}
@@ -34,6 +49,8 @@ export function SpeciesThumb({
         title={`${image.sourceOrg} · ${image.license}`}
         loading="lazy"
         decoding="async"
+        width={thumbWidth}
+        height={thumbHeight}
         className={cn(
           "shrink-0 rounded-[var(--radius-sm)] bg-subtle object-contain p-1 shadow-[var(--shadow-border)]",
           className,

@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Absent, Chip, Panel, Prose, Rows, Section } from "@/components/species/parts";
 import { SpeciesThumb } from "@/components/species-thumb";
+import { SpeciesPhotograph } from "@/components/species/species-photograph";
 import { FLEET_TARGETS, packetUrl } from "@/lib/hth-packet";
 import { buildSpeciesReferencePacket } from "@/lib/protocol/packet";
 import type { SpeciesPageModel } from "@/lib/knowledge/species-page";
@@ -75,12 +76,24 @@ export function SpeciesPageView({ model }: { model: SpeciesPageModel }) {
               : "Freshwater"}
         </p>
         <div className="mt-3 flex flex-wrap items-start gap-5">
-          <SpeciesThumb
-            speciesId={model.species.id}
-            commonName={model.commonName}
-            className="size-20 sm:size-28"
-            decorative
-          />
+          {/*
+           * The thumbnail is the header's picture only when there is no
+           * reviewed photograph to put below it. Where one exists it appears in
+           * full a few hundred pixels down, and showing the same fish twice —
+           * once at eighty pixels and once at eight hundred — makes the small
+           * one read as a loading state for the large one. Where one does not
+           * exist the schematic slot stays, because "nobody has photographed
+           * this to our standard yet" is a fact this page states rather than
+           * hides.
+           */}
+          {!model.image && (
+            <SpeciesThumb
+              speciesId={model.species.id}
+              commonName={model.commonName}
+              className="size-20 sm:size-28"
+              decorative
+            />
+          )}
           <div className="min-w-0 flex-1">
             <h1 className="font-display text-4xl leading-[1.05] sm:text-6xl">{model.commonName}</h1>
             <p className="mt-2 font-display text-xl italic text-muted sm:text-2xl">
@@ -125,6 +138,16 @@ export function SpeciesPageView({ model }: { model: SpeciesPageModel }) {
           <span aria-hidden>↓</span>
         </a>
       </header>
+
+      {/* --- the picture ------------------------------------------------- */}
+
+      {model.image && (
+        <SpeciesPhotograph
+          image={model.image}
+          commonName={model.commonName}
+          scientificName={model.scientificName}
+        />
+      )}
 
       {/* --- status ------------------------------------------------------ */}
 

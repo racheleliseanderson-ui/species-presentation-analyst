@@ -4,7 +4,9 @@
 
 TanStack Start + Nitro. **Live now:** [species.hookthehorizon.blog](https://species.hookthehorizon.blog/). The canonical host is attached and serving; Launch from Ops points at it.
 
-Field PWA: `vite-plugin-pwa` emits `sw.js` (NetworkFirst pages, CacheFirst images). Grok still owns `/__grok/manifest.webmanifest` and `?install=1`.
+Field PWA: one generator — `vite-plugin-pwa`, pointed at the nitro Vercel preset's static root — emits `sw.js` (NetworkFirst pages, StaleWhileRevalidate shell and dossiers, CacheFirst images). `start_url` and every manifest shortcut are precached as documents, read out of `public/manifest.webmanifest` so the two lists cannot disagree. Every route renders with the network cut.
+
+Health and identity: `/api/health` (status, catalog age, build, whether the reviewed store is reachable) and `/api/version` (commit, build time, deployment, region). CI runs on every push; a scheduled workflow probes production every six hours.
 
 **Mantra:** Biology before bravado. We do not predict whether fish will bite.
 
@@ -152,7 +154,9 @@ The interface exposes three learning paths: beginner guidance, competent full-ch
 
 Expansion 04 introduces a repository-owned canonical image registry. Each of the 15 new species has an optimized local `canonical.webp` and `thumb.webp` under `public/species/<slug>/`, plus source organization, creator, license, image type, identification confidence, visual-QA note, and review date in `src/lib/knowledge/species-images.ts`.
 
-Identity images are authoritative photographs, federal reference/specimen photographs, or scientifically reliable public-domain/CC0 illustrations. AI imagery is not used as the canonical identification authority. The image importer preserves aspect ratio, does not enlarge small originals, creates a maximum 2200-pixel canonical WebP and 900-pixel thumbnail, and keeps the exact reviewed source provenance in `scripts/species-image-imports-04.json`.
+Identity images are authoritative photographs, federal reference/specimen photographs, or scientifically reliable public-domain/CC0 illustrations. AI imagery is not used as the canonical identification authority. The image importer preserves aspect ratio, does not enlarge small originals, and keeps the exact reviewed source provenance in `scripts/species-image-imports-04.json`.
+
+`scripts/build-species-images.mjs` then turns each reviewed photograph into what a device should actually be offered: a ≤1600px `canonical.webp`, `w800.webp` and `w400.webp` rungs, a 256px `thumb.webp`, and a 1200×630 `share.jpg` for link unfurlers. It writes the candidate ladder and the real pixel dimensions to `src/lib/knowledge/species-image-ladders.ts`, which is how every `<img>` on the site declares its own size and stops the column reflowing when the picture lands. A phone downloads 3–31 kB of photograph where the only file above thumbnail size used to be up to 912 kB — and was not on the page at all. Re-runnable and idempotent: it rewrites a master only when re-encoding saves at least 15%, so running it twice does not cost a generation of detail. `sharp` is deliberately not a dependency (`npm i --no-save sharp` for the run); the outputs are committed reviewed assets.
 
 The species picker displays the repository thumbnail when a reviewed image exists. The remaining 60 legacy species stay text-only until their canonical assets receive the same provenance and visual-QA treatment; the UI does not fabricate placeholders.
 
@@ -239,3 +243,27 @@ The catalog is composed from the original reviewed core plus dated expansion bat
 Expansion 03 is the first catalog batch with explicit target-status metadata. Bull trout and wild anadromous Atlantic salmon are context-only. Lake sturgeon, paddlefish, bigmouth buffalo, and smallmouth buffalo are marked regulated-context records.
 
 Instrument ID: `HTH-SP-001` · schema `0.7.0` · app `0.8.0`
+
+## What this application is not
+
+Removed on 2026-09-05, and held out by `src/lib/no-scaffolding.test.ts`:
+
+- **The Better Auth stack and the PGLite/Neon database layer.** Seventeen source
+  files, a SQL migration, a build step and five runtime dependencies
+  (`better-auth`, `@electric-sql/pglite`, `pg`, `kysely`, `jose`), none of it
+  reachable from a route — `AuthProvider` was a passthrough fragment and nothing
+  imported `src/lib/db.ts` at all. There are no accounts here on purpose. This
+  instrument reads reviewed public reference data and keeps a person's working
+  state on their own device; a sign-in would be a new product, not a new page.
+- **`src/lib/app-data/`.** A tool client from the template that could search a
+  Google Drive. Unreachable, and unrelated to fish.
+- **`public/__grok/`.** The app-builder sandbox's own install page, including a
+  SECOND web app manifest on the origin, precached onto the home screen of
+  anybody who installed the app.
+- **Thirty-four unused packages**, every Radix primitive among them. They
+  tree-shook out of the bundle, which is exactly why nobody noticed: the cost
+  was install time, audit surface, and a lockfile that had stopped describing
+  the application (`npm ci` failed outright).
+
+`npm run verify` runs the whole gate locally: typecheck, lint, formatting and
+the fixtures.

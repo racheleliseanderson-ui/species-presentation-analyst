@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { migrate, readEnvelope, sanitizeSession, writeEnvelope } from "@/lib/session-schema";
 import type {
   ForagePacket,
   PopulationContextInput,
@@ -153,12 +154,33 @@ function pick(session: Session): Session {
   };
 }
 
+/**
+ * What a restore had to drop, so the reading can say so rather than come back
+ * quietly thinner. Read once on hydrate; never persisted.
+ */
+export type RestoreNotice = { dropped: string[]; migrated: boolean };
+
+let lastRestore: RestoreNotice = { dropped: [], migrated: false };
+
+/** What the most recent hydrate had to discard. */
+export function lastRestoreNotice(): RestoreNotice {
+  return lastRestore;
+}
+
 function load(): Session {
+  lastRestore = { dropped: [], migrated: false };
   if (typeof window === "undefined") return defaults;
   try {
-    const raw = window.localStorage.getItem(KEY);
-    if (!raw) return defaults;
-    return { ...defaults, ...(JSON.parse(raw) as Partial<Session>) };
+    const stored = readEnvelope<Partial<Session>>(window.localStorage.getItem(KEY));
+    if (!stored) return defaults;
+    const stepped = migrate(stored.data, stored.version);
+    /* A payload from a schema this build has never seen. Start clean rather
+     * than read a shape nothing here understands. */
+    if (!stepped) return defaults;
+    const merged = { ...defaults, ...(stepped.data as Partial<Session>) };
+    const { session, dropped } = sanitizeSession(merged as unknown as Record<string, unknown>);
+    lastRestore = { dropped, migrated: stepped.migrated };
+    return session as unknown as Session;
   } catch {
     return defaults;
   }
@@ -167,19 +189,37 @@ function load(): Session {
 function persist(session: Session) {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(KEY, JSON.stringify(pick(session)));
+    window.localStorage.setItem(KEY, writeEnvelope(pick(session)));
   } catch {
     /* device storage unavailable */
   }
 }
 
+/**
+ * The saved readings, each one run forward and checked on the way out.
+ *
+ * A named scenario is the longest-lived thing this application stores — it is
+ * meant to be reopened next season — so it is the payload most likely to
+ * contain a word the current build has stopped using. Each one is sanitized
+ * individually: one scenario carrying a retired holding class must not cost
+ * somebody the other eleven.
+ */
 export function loadScenarios(): NamedScenario[] {
   if (typeof window === "undefined") return [];
   try {
-    const raw = window.localStorage.getItem(SCENARIO_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as NamedScenario[];
-    return Array.isArray(parsed) ? parsed.slice(0, MAX_SAVED) : [];
+    const stored = readEnvelope<NamedScenario[]>(window.localStorage.getItem(SCENARIO_KEY));
+    if (!stored) return [];
+    const stepped = migrate(stored.data, stored.version);
+    if (!stepped) return [];
+    const list = stepped.data as NamedScenario[];
+    if (!Array.isArray(list)) return [];
+    return list.slice(0, MAX_SAVED).map((scenario) => ({
+      ...scenario,
+      session: sanitizeSession({
+        ...defaults,
+        ...scenario.session,
+      } as unknown as Record<string, unknown>).session as unknown as Session,
+    }));
   } catch {
     return [];
   }
@@ -194,7 +234,7 @@ export function saveScenario(name: string, session: Session): NamedScenario[] {
   };
   const all = [next, ...loadScenarios()].slice(0, MAX_SAVED);
   try {
-    window.localStorage.setItem(SCENARIO_KEY, JSON.stringify(all));
+    window.localStorage.setItem(SCENARIO_KEY, writeEnvelope(all));
   } catch {
     /* ignore */
   }
@@ -204,7 +244,7 @@ export function saveScenario(name: string, session: Session): NamedScenario[] {
 export function deleteScenario(id: string): NamedScenario[] {
   const all = loadScenarios().filter((s) => s.id !== id);
   try {
-    window.localStorage.setItem(SCENARIO_KEY, JSON.stringify(all));
+    window.localStorage.setItem(SCENARIO_KEY, writeEnvelope(all));
   } catch {
     /* ignore */
   }

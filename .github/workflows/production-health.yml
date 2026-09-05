@@ -1,0 +1,66 @@
+# Does the deployed application still work, and is it still the build we think.
+#
+# `/api/health` existed before this and nothing ever read it. It also could not
+# answer the first question anybody asks when something looks wrong — which
+# deploy is live — because it reported the catalog's review date and nothing
+# about the build. Both ends of that were fixed on 2026-09-05; this is the thing
+# that actually looks.
+name: Production health
+
+on:
+  schedule:
+    # Every six hours. The data changes on a review cycle measured in months, so
+    # anything more frequent is watching for a deploy failure, and a deploy
+    # failure is visible within one window.
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read /api/health
+        run: |
+          set -euo pipefail
+          BODY=$(curl -fsS --max-time 25 https://species.hookthehorizon.blog/api/health)
+          echo "$BODY" | tee health.json
+          jq -e '.status == "ok"' health.json > /dev/null
+          jq -e '.recordCount > 100' health.json > /dev/null
+
+      - name: Say which build answered
+        run: |
+          set -euo pipefail
+          jq -r '"commit \(.build.commitShort)  built \(.build.builtAt)  env \(.build.environment)  region \(.build.region // "?")"' health.json
+
+      - name: Note whether the reviewed store is reachable
+        # Deliberately NOT a failure. A Supabase outage degrades this app to the
+        # records committed in the repository and every page still renders in
+        # full — that is a designed behaviour, and paging somebody for it would
+        # train them to ignore this workflow.
+        run: |
+          if jq -e '.overlays.reachable' health.json > /dev/null; then
+            echo "::notice::reviewed overlay store is live"
+          else
+            echo "::warning::serving committed overlays — SUPABASE_ANON_KEY or the store is unavailable"
+          fi
+
+      - name: The species index is a document, not a spinner
+        run: |
+          set -euo pipefail
+          # Server-rendered HTML with no JavaScript. These pages exist so a
+          # crawler that runs none of it still gets the whole record; if that
+          # ever stops being true, nothing else here would notice.
+          PAGE=$(curl -fsS --max-time 25 https://species.hookthehorizon.blog/species/largemouth-bass)
+          echo "$PAGE" | grep -q "Micropterus" || { echo "the species document rendered no scientific name"; exit 1; }
+          echo "$PAGE" | grep -q 'rel="canonical"' || { echo "no canonical link"; exit 1; }
+          echo "$PAGE" | grep -q 'share.jpg' || { echo "the share card is not being declared"; exit 1; }
+
+      - name: Security headers are actually on the response
+        run: |
+          set -euo pipefail
+          H=$(curl -fsSI --max-time 25 https://species.hookthehorizon.blog/ | tr 'A-Z' 'a-z')
+          for header in content-security-policy x-content-type-options referrer-policy x-frame-options; do
+            echo "$H" | grep -q "^$header:" || { echo "$header is missing from the live response"; exit 1; }
+          done
+          echo "headers present"

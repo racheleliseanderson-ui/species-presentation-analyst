@@ -47,20 +47,31 @@ export const Route = createFileRoute("/species/$speciesId")({
         { property: "og:title", content: `${model.commonName} — ${model.scientificName}` },
         { property: "og:description", content: model.meta.description },
         { property: "og:url", content: url },
-        /* A reviewed photograph when one exists, and the site card when one
-         * does not. No width or height goes out with a photograph: the reviewed
-         * images are whatever shape USFWS or a state agency published, and a
-         * declared size that disagrees with the file is worse than none. */
+        /*
+         * A card, in the shape a card is.
+         *
+         * This used to point at `canonical.webp` — the full reviewed
+         * photograph, whatever shape the agency published it in, one of them
+         * 912 kB at 5184x3888. Every unfurler then cropped a wildlife
+         * photograph to a 1.91:1 box on its own terms, which is how a fish ends
+         * up as a rectangle of water in somebody's group chat, and the heaviest
+         * ones exceeded what several scrapers will fetch at all.
+         *
+         * `share.jpg` is generated per species by
+         * `scripts/build-species-images.mjs` at exactly 1200x630, cropped
+         * toward the subject rather than the geometric centre, in JPEG because
+         * the long tail of link unfurlers handles it most reliably. The
+         * dimensions can therefore be DECLARED — they are the same for every
+         * species by construction, which is the whole point of generating it.
+         */
         {
           property: "og:image",
-          content: model.image ? `${SITE_ORIGIN}${model.image.canonical}` : `${SITE_ORIGIN}/og.jpg`,
+          content: model.image
+            ? `${SITE_ORIGIN}${model.image.canonical.replace(/canonical\.webp$/, "share.jpg")}`
+            : `${SITE_ORIGIN}/og.jpg`,
         },
-        ...(model.image
-          ? []
-          : [
-              { property: "og:image:width", content: "1200" },
-              { property: "og:image:height", content: "630" },
-            ]),
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         {
           property: "og:image:alt",
           content: model.image
@@ -71,7 +82,9 @@ export const Route = createFileRoute("/species/$speciesId")({
         { name: "twitter:description", content: model.meta.description },
         {
           name: "twitter:image",
-          content: model.image ? `${SITE_ORIGIN}${model.image.canonical}` : `${SITE_ORIGIN}/og.jpg`,
+          content: model.image
+            ? `${SITE_ORIGIN}${model.image.canonical.replace(/canonical\.webp$/, "share.jpg")}`
+            : `${SITE_ORIGIN}/og.jpg`,
         },
         { "script:ld+json": speciesJsonLd(model) },
       ],

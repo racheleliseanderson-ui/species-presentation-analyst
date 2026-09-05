@@ -77,8 +77,7 @@ test("an observed forage class survives the crossing", () => {
     const forage =
       (packet["forage"] as Record<string, unknown> | undefined) ??
       ((packet["observations"] as Record<string, unknown> | undefined)?.["forage"] as
-        | Record<string, unknown>
-        | undefined);
+        Record<string, unknown> | undefined);
     assert.ok(forage?.["class"], `${sample.id} lost its forage class in transit`);
   }
 });

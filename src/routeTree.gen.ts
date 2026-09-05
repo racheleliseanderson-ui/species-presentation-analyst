@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BoundaryRouteImport } from './routes/boundary'
 import { Route as ApiDossierCoverageRouteImport } from './routes/api/dossier-coverage'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
+import { Route as ApiVersionRouteImport } from './routes/api/version'
 import { Route as SpeciesIndexRouteImport } from './routes/species.index'
 import { Route as SpeciesSpeciesIdRouteImport } from './routes/species.$speciesId'
 import { Route as ApiDossiersSpeciesIdRouteImport } from './routes/api/dossiers.$speciesId'
@@ -36,6 +37,11 @@ const ApiDossierCoverageRoute = ApiDossierCoverageRouteImport.update({
 const ApiHealthRoute = ApiHealthRouteImport.update({
   id: '/api/health',
   path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVersionRoute = ApiVersionRouteImport.update({
+  id: '/api/version',
+  path: '/api/version',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SpeciesIndexRoute = SpeciesIndexRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/boundary': typeof BoundaryRoute
   '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
+  '/api/version': typeof ApiVersionRoute
   '/species/$speciesId': typeof SpeciesSpeciesIdRoute
   '/species/': typeof SpeciesIndexRoute
   '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/boundary': typeof BoundaryRoute
   '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
+  '/api/version': typeof ApiVersionRoute
   '/species/$speciesId': typeof SpeciesSpeciesIdRoute
   '/species': typeof SpeciesIndexRoute
   '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/boundary': typeof BoundaryRoute
   '/api/dossier-coverage': typeof ApiDossierCoverageRoute
   '/api/health': typeof ApiHealthRoute
+  '/api/version': typeof ApiVersionRoute
   '/species/$speciesId': typeof SpeciesSpeciesIdRoute
   '/species/': typeof SpeciesIndexRoute
   '/api/dossiers/$speciesId': typeof ApiDossiersSpeciesIdRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/boundary'
     | '/api/dossier-coverage'
     | '/api/health'
+    | '/api/version'
     | '/species/$speciesId'
     | '/species/'
     | '/api/dossiers/$speciesId'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/boundary'
     | '/api/dossier-coverage'
     | '/api/health'
+    | '/api/version'
     | '/species/$speciesId'
     | '/species'
     | '/api/dossiers/$speciesId'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/boundary'
     | '/api/dossier-coverage'
     | '/api/health'
+    | '/api/version'
     | '/species/$speciesId'
     | '/species/'
     | '/api/dossiers/$speciesId'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   BoundaryRoute: typeof BoundaryRoute
   ApiDossierCoverageRoute: typeof ApiDossierCoverageRoute
   ApiHealthRoute: typeof ApiHealthRoute
+  ApiVersionRoute: typeof ApiVersionRoute
   SpeciesSpeciesIdRoute: typeof SpeciesSpeciesIdRoute
   SpeciesIndexRoute: typeof SpeciesIndexRoute
   ApiDossiersSpeciesIdRoute: typeof ApiDossiersSpeciesIdRoute
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       path: '/api/health'
       fullPath: '/api/health'
       preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/version': {
+      id: '/api/version'
+      path: '/api/version'
+      fullPath: '/api/version'
+      preLoaderRoute: typeof ApiVersionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/species/': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   BoundaryRoute: BoundaryRoute,
   ApiDossierCoverageRoute: ApiDossierCoverageRoute,
   ApiHealthRoute: ApiHealthRoute,
+  ApiVersionRoute: ApiVersionRoute,
   SpeciesSpeciesIdRoute: SpeciesSpeciesIdRoute,
   SpeciesIndexRoute: SpeciesIndexRoute,
   ApiDossiersSpeciesIdRoute: ApiDossiersSpeciesIdRoute,
