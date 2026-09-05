@@ -5,6 +5,7 @@ import { AppearanceControl } from "@/components/appearance-control";
 import { FleetFooter } from "@/components/fleet-footer";
 import { SupportLink } from "@/components/support-link";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { ConnectionStatus } from "@/components/connection-status";
 import { PwaRegister } from "@/components/pwa-register";
 import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import { SITE_ORIGIN } from "@/lib/site";
@@ -93,6 +94,18 @@ function Root() {
               two plates on one screen can never disagree about it. */}
           <PlateDepthProvider>
             <AuthProvider>
+              {/*
+               * Above the pages rather than inside one of them.
+               *
+               * This banner lived in the reading page alone, so the catalogue
+               * — which is the page somebody actually opens standing in water,
+               * to look a fish up — said nothing at all when the radio went.
+               * That is the one place silence is misleading: a species already
+               * opened is readable from this device and one that has not been
+               * cannot load its reviewed record, and those two look identical
+               * unless somebody says which is which.
+               */}
+              <ConnectionStatus />
               <Outlet />
             </AuthProvider>
           </PlateDepthProvider>

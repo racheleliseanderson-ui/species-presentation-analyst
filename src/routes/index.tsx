@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Chrome } from "@/components/chrome";
-import { ConnectionStatus } from "@/components/connection-status";
 import { Instrument } from "@/components/instrument";
 import { QuickReadV2 } from "@/components/quick-read-v2";
 import { SelectedSpeciesProfile } from "@/components/species-profile";
@@ -129,7 +128,6 @@ function Home() {
         Skip to reading
       </a>
       <Chrome />
-      <ConnectionStatus />
       <TripContextBar />
 
       <div className="no-print mx-auto max-w-6xl px-4 pt-5 sm:px-6">
